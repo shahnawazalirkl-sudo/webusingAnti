@@ -29,7 +29,7 @@ const OrderConfirmationPage = () => {
     ? order.recipientName.replace(/singhania|varma|sharma|patel|kapoor/gi, '').replace('&', ' & ').trim()
     : 'Aadhya & Rohan';
   const weddingPlanner = order?.weddingPlanner || 'Tanya Kapoor (Wedding Architect)';
-  const phone = order?.phone || '+91 9692668263';
+  const phone = order?.phone || '+91 96926 68263';
   const venueName = order?.venueName || 'The Oberoi Udaivilas, Udaipur';
   const suiteInfo = order?.suite || 'Luxury Kohinoor Suite & Villa 4';
   const streetAddress = order?.streetAddress || 'Badi-Gorela Canal Road, Haridas Ji Ki Magri, Opposite Trident Hotel, Udaipur, Rajasthan 313001';
@@ -214,14 +214,22 @@ const OrderConfirmationPage = () => {
                   </span>
                   <h2 className="serif-title text-xl sm:text-2xl text-brand-dark">Artisanal Curation &amp; Transit Timeline</h2>
                 </div>
-                <Link
-                  to="/track-order"
-                  state={{ orderId }}
-                  className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-brand-goldDark bg-brand-goldLight/70 hover:bg-brand-goldLight px-3 py-1 rounded-full border border-brand-border/50 transition-colors group"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-goldDark animate-pulse"></span>
-                  <span>Live GPS Tracking Telemetry &rarr;</span>
-                </Link>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    to={`/client-portal?docket=${orderId}`}
+                    className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-brand-dark bg-brand-cream hover:bg-brand-goldLight/50 px-3 py-1 rounded-full border border-brand-border transition-colors group"
+                  >
+                    <span>Sovereign Client Sanctuary &rarr;</span>
+                  </Link>
+                  <Link
+                    to="/track-order"
+                    state={{ orderId }}
+                    className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-brand-goldDark bg-brand-goldLight/70 hover:bg-brand-goldLight px-3 py-1 rounded-full border border-brand-border/50 transition-colors group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-goldDark animate-pulse"></span>
+                    <span>Live GPS Tracking Telemetry &rarr;</span>
+                  </Link>
+                </div>
               </div>
 
               {/* Timeline Stepper Component */}

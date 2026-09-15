@@ -22,12 +22,12 @@ const Footer = () => {
             <p className="font-body-sm text-body-sm text-[#B8AEA3] leading-relaxed mb-space-md max-w-sm">
               ASRA WEDDING CANVAS is dedicated to the bespoke artistry of eternal wedding keepsakes, artisanal registries, and curated gifting experiences crafted for life's most cherished moments.
             </p>
-            <div className="flex items-center gap-space-sm text-[#C5A880]">
+            <Link to="/client-portal" className="flex items-center gap-space-sm text-[#C5A880] hover:text-white transition-colors group">
               <span className="material-symbols-outlined text-[20px]">verified</span>
-              <span className="font-label-sm text-label-sm tracking-widest text-[#FAF8F5]">
-                ATELIER PRIVILEGE SUITE
+              <span className="font-label-sm text-label-sm tracking-widest group-hover:underline">
+                ATELIER PRIVILEGE SUITE · SANCTUARY →
               </span>
-            </div>
+            </Link>
           </div>
 
           {/* Shop Atelier */}
@@ -57,6 +57,9 @@ const Footer = () => {
             <h4 className="font-title-sm text-title-sm text-[#FAF8F5] tracking-wider uppercase mb-space-xs font-semibold">
               Company
             </h4>
+            <Link to="/client-portal" className="font-body-sm text-body-sm text-[#C5A880] hover:text-white font-medium transition-colors py-0.5">
+              Client Sanctuary (Sovereign Vault)
+            </Link>
             <Link to="/about" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Our Heritage Story
             </Link>

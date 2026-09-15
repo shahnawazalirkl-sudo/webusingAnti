@@ -252,7 +252,7 @@ const CLAUSES = [
               <div>
                 <span className="font-medium text-[#111111]">Concierge Desk:</span>{' '}
                 <a href="tel:+919692668263" className="hover:text-[#C5A059] transition-colors">
-                  +91 9121 445 889
+                  +91 96926 68263
                 </a>
               </div>
             </div>
@@ -631,7 +631,7 @@ const PrivacyPolicyPage = () => {
                     href="tel:+919692668263"
                     className="text-[10px] text-[#888888] text-center hover:text-[#C5A059] transition-colors"
                   >
-                    Direct line: +91 9121 445 889
+                    Direct line: +91 96926 68263
                   </a>
                 </div>
               </div>
@@ -819,7 +819,7 @@ const PrivacyPolicyPage = () => {
                     required
                     value={ndaForm.phone}
                     onChange={(e) => setNdaForm({ ...ndaForm, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 96926 68263"
                     className="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E8E4DC] rounded text-[#111111] focus:outline-hidden focus:border-[#C5A059]"
                   />
                 </div>

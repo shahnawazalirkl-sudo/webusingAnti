@@ -40,6 +40,10 @@ const Header = () => {
                 Concierge
               </Link>
               <span>•</span>
+              <Link to="/client-portal" className="hover:text-primary-fixed-dim cursor-pointer transition-colors text-primary-fixed">
+                Client Sanctuary
+              </Link>
+              <span>•</span>
               <Link to="/faq" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
                 FAQ &amp; Help
               </Link>
@@ -157,8 +161,9 @@ const Header = () => {
               </button>
 
               <Link
-                to="/track-order"
-                aria-label="Account"
+                to="/client-portal"
+                aria-label="Client Sanctuary & Sovereign Portal"
+                title="Sovereign Client Sanctuary"
                 className="w-8 h-8 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface inline-flex items-center justify-center shrink-0 transition-colors border border-outline-variant/60 shadow-sm"
               >
                 <span className="material-symbols-outlined text-[18px]">person</span>
@@ -571,6 +576,10 @@ const Header = () => {
             </form>
 
             <div className="flex flex-col gap-3 text-xs font-semibold uppercase tracking-wider text-on-surface">
+              <Link to="/client-portal" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors flex items-center justify-between ${isActive('/client-portal') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>
+                <span>Client Sanctuary &amp; Sovereign Vault</span>
+                <span className="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-semibold">Portal</span>
+              </Link>
               <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/about') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Heritage &amp; Atelier (About Us)</Link>
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/contact') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Contact &amp; Private Appointments</Link>
               <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/shop') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Shop All Collections</Link>

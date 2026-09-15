@@ -434,7 +434,7 @@ const ContactPage = () => {
                           className={`w-full bg-white border text-xs px-3.5 py-2.5 focus:outline-none focus:border-asra-gold focus:ring-1 focus:ring-asra-gold font-light ${
                             formErrors.whatsappNumber ? 'border-red-400 bg-red-50/20' : 'border-asra-border'
                           }`}
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 96926 68263"
                         />
                         {formErrors.whatsappNumber && (
                           <p className="text-[10px] text-red-600 mt-1">{formErrors.whatsappNumber}</p>
@@ -734,7 +734,7 @@ const ContactPage = () => {
                   <div className="flex items-center justify-between">
                     <span>Direct Atelier Phone:</span>
                     <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
-                      +91 9121 445 889
+                      +91 96926 68263
                     </a>
                   </div>
                   <div className="flex items-center justify-between">
@@ -785,7 +785,7 @@ const ContactPage = () => {
                   <div className="flex items-center justify-between">
                     <span>Direct Atelier Phone:</span>
                     <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
-                      +91 9121 445 890
+                      +91 96926 68263
                     </a>
                   </div>
                   <div className="flex items-center justify-between">
@@ -968,7 +968,7 @@ const ContactPage = () => {
                       required
                       value={swatchAddress.phone}
                       onChange={(e) => setSwatchAddress({ ...swatchAddress, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 96926 68263"
                       className="w-full bg-white border border-asra-border text-xs px-3 py-2 focus:outline-none focus:border-asra-gold"
                     />
                   </div>

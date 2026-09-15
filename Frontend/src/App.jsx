@@ -26,6 +26,7 @@ import WishlistPage from './pages/WishlistPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactPage from './pages/ContactPage';
 import FaqPage from './pages/FaqPage';
+import ClientPortalPage from './pages/ClientPortalPage';
 
 // Scroll to top helper on route transitions
 const ScrollToTop = () => {
@@ -56,7 +57,13 @@ const App = () => {
     '/faq',
     '/faqs',
     '/help-desk',
-    '/help'
+    '/help',
+    '/client-portal',
+    '/portal',
+    '/account',
+    '/sanctuary',
+    '/client-sanctuary',
+    '/sovereign-vault'
   ];
   const isMinimalPage = minimalRoutes.includes(location.pathname);
 
@@ -105,6 +112,12 @@ const App = () => {
           <Route path="/faqs" element={<FaqPage />} />
           <Route path="/help-desk" element={<FaqPage />} />
           <Route path="/help" element={<FaqPage />} />
+          <Route path="/client-portal" element={<ClientPortalPage />} />
+          <Route path="/portal" element={<ClientPortalPage />} />
+          <Route path="/account" element={<ClientPortalPage />} />
+          <Route path="/sanctuary" element={<ClientPortalPage />} />
+          <Route path="/client-sanctuary" element={<ClientPortalPage />} />
+          <Route path="/sovereign-vault" element={<ClientPortalPage />} />
         </Routes>
       </main>
 

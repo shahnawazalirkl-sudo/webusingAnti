@@ -325,7 +325,7 @@ const ARTICLES = [
               Plot No. 36, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033
             </p>
             <p className="text-xs text-neutral-500 font-mono mt-1">
-              legal@asraweddingcanvas.com • +91 9121 445 889
+              legal@asraweddingcanvas.com • +91 96926 68263
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -667,7 +667,7 @@ const TermsOfServicePage = () => {
               </div>
 
               <div className="mt-3 text-center text-[10px] text-neutral-400">
-                Direct Concierge Desk: <span className="text-neutral-200 font-mono">+91 9121 445 889</span>
+                Direct Concierge Desk: <span className="text-neutral-200 font-mono">+91 96926 68263</span>
               </div>
             </div>
 
@@ -826,7 +826,7 @@ const TermsOfServicePage = () => {
                     required
                     value={consultForm.phone}
                     onChange={(e) => setConsultForm({ ...consultForm, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 96926 68263"
                     className="w-full text-xs p-3 rounded-lg border border-[#EAE2D5] bg-[#FAF8F5] focus:outline-none focus:border-[#C5A059]"
                   />
                 </div>

@@ -704,7 +704,7 @@ const AboutUsPage = () => {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 96926 68263"
                         className="w-full bg-white border border-asra-border px-3.5 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none"
                       />
                     </div>

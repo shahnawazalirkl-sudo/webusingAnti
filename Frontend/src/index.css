@@ -150,3 +150,24 @@
   border-image: linear-gradient(to right, #C5A059, #F3E5AB, #8C6D37) 1;
 }
 
+/* Stitch Client Portal & Sovereign Account Sanctuary Utilities */
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+}
+
+.badge-soft-gold {
+  background: #F4ECE0;
+  color: #75542E;
+  border: 1px solid #E7D5BF;
+}
+
+.pulse-dot {
+  animation: pulseAnimation 2s infinite ease-in-out;
+}
+
+@keyframes pulseAnimation {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+

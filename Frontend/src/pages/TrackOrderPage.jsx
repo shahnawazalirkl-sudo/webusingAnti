@@ -236,11 +236,17 @@ const TrackOrderPage = () => {
           </div>
 
           {/* Right: Security & Live Transit Status Badges */}
-          <div className="flex items-center gap-3 sm:gap-4 text-[11px]">
-            <div className="flex items-center gap-1.5 px-3 py-1 bg-[#E8F3EE] text-[#0F3828] font-medium rounded-full border border-[#D3E5DC]">
+          <div className="flex items-center gap-2 sm:gap-4 text-[11px]">
+            <Link
+              to={`/client-portal?docket=${activeDocketId}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FAF7F2] text-[#75542E] hover:bg-[#F4ECE0] font-medium text-[10px] sm:text-[11px] rounded-full border border-[#E7D5BF] transition-colors"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#9B7443]"></span>
+              <span>Sovereign Sanctuary Vault →</span>
+            </Link>
+            <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-[#E8F3EE] text-[#0F3828] font-medium rounded-full border border-[#D3E5DC]">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
-              <span className="hidden sm:inline">Live White-Glove GPS Transit</span>
-              <span className="sm:hidden">Live GPS</span>
+              <span>Live White-Glove GPS Transit</span>
             </div>
             <div className="hidden md:flex items-center gap-1.5 text-[#6E675F]">
               <Shield className="w-3.5 h-3.5 text-[#C5A880]" />

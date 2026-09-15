@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASRA Wedding Canvas - Sovereign Client Portal & Account Sanctuary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            gold: {
+              DEFAULT: '#C8A97E',
+              50: '#FAF7F2',
+              100: '#F4ECE0',
+              200: '#E7D5BF',
+              300: '#D9BC9B',
+              400: '#C8A97E',
+              500: '#B8935F',
+              600: '#9B7443',
+              700: '#75542E',
+              800: '#4F361C',
+              900: '#2E1E0E',
+            },
+            obsidian: '#121212',
+            champagne: '#FAF7F2',
+            alabaster: '#FDFBF7',
+            charcoal: '#222222',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #222222;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .font-serif-luxury {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #9B7443 0%, #C8A97E 50%, #B8935F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-gradient {
+      border-image: linear-gradient(to bottom right, #C8A97E, #E7D5BF, #9B7443) 1;
+    }
+    .badge-soft-gold {
+      background: #F4ECE0;
+      color: #75542E;
+      border: 1px solid #E7D5BF;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 20px -2px rgba(190, 160, 120, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .pulse-dot {
+      animation: pulseAnimation 2s infinite;
+    }
+    @keyframes pulseAnimation {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+  </style>
+</head>
+<body class="bg-[#FAF7F2] text-[#222222] min-h-screen antialiased selection:bg-[#E7D5BF] selection:text-[#2E1E0E]">
+
+  <!-- TOP MINIMALIST ATELIER ENCRYPTED UTILITY BAR (STRICTLY NO GENERAL WEBSITE HEADER) -->
+  <header class="w-full bg-[#FDFBF7] border-b border-[#E7D5BF]/70 sticky top-0 z-40 px-6 lg:px-12 py-3.5 backdrop-blur-md bg-opacity-95 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Left: Return Navigation & Active Session Status -->
+      <div class="flex items-center space-x-4">
+        <a href="#" class="inline-flex items-center text-xs tracking-wider uppercase font-medium text-[#75542E] hover:text-[#9B7443] transition-colors group">
+          <svg class="w-3.5 h-3.5 mr-1.5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Maison
+        </a>
+        <div class="h-4 w-[1px] bg-[#E7D5BF]"></div>
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
+          <span class="text-[11px] font-medium tracking-wide uppercase text-stone-600">Encrypted Client Sanctuary · Live Session</span>
+        </div>
+      </div>
+
+      <!-- Center: Emblem Brand Seal -->
+      <div class="flex items-center space-x-2.5">
+        <div class="w-7 h-7 rounded-full border border-[#C8A97E] flex items-center justify-center bg-[#FAF7F2]">
+          <span class="font-serif-luxury text-sm font-bold text-[#75542E]">AS</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-xs tracking-[0.25em] font-semibold text-[#2E1E0E] uppercase font-serif-luxury">Maison ASRA</span>
+          <span class="block text-[9px] tracking-[0.18em] text-[#9B7443] uppercase -mt-0.5">Sovereign Vault</span>
+        </div>
+      </div>
+
+      <!-- Right: Client Credentials & Security Badge -->
+      <div class="flex items-center space-x-5">
+        <div class="hidden sm:flex items-center space-x-2 text-[11px] text-stone-500 bg-[#F4ECE0]/60 px-3 py-1 rounded-full border border-[#E7D5BF]">
+          <svg class="w-3.5 h-3.5 text-[#9B7443]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <span class="font-medium text-[#75542E]">256-Bit SSL Encrypted Protocol</span>
+        </div>
+
+        <!-- Account Profile Badge -->
+        <div class="flex items-center space-x-3 pl-2">
+          <div class="w-8 h-8 rounded-full bg-[#121212] text-[#E7D5BF] flex items-center justify-center font-serif-luxury text-xs font-semibold border border-[#C8A97E]/50 shadow-sm">
+            EK
+          </div>
+          <div class="text-left hidden md:block">
+            <span class="block text-xs font-semibold text-[#121212] leading-tight">Lady Eleanor Vance & Tariq</span>
+            <span class="block text-[10px] text-[#9B7443] tracking-wide font-medium">Sovereign Suite #8842X</span>
+          </div>
+          <button title="Lock & Logout Session" class="text-stone-400 hover:text-stone-700 transition-colors pl-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN SANCTUARY CONTENT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-6 lg:px-12 py-10 space-y-10">
+    
+    <!-- 1. EDITORIAL SUITE WELCOME & CEREMONIAL HEADER -->
+    <section class="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7D5BF] pb-8 gap-6">
+      <div>
+        <div class="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-semibold text-[#9B7443] mb-2">
+          <span>◆</span>
+          <span>Bespoke Bridal & Trousseau Client Sanctuary</span>
+          <span>◆</span>
+        </div>
+        <h1 class="text-3xl lg:text-5xl font-serif-luxury font-normal text-[#121212] tracking-tight">
+          Welcome to Your <span class="italic font-normal gold-gradient-text font-serif">Atelier Sanctuary</span>
+        </h1>
+        <p class="text-xs lg:text-sm text-stone-600 mt-2 max-w-2xl leading-relaxed">
+          Active commission dossier for <strong class="text-stone-800 font-semibold">Eleanor Vance & Tariq Al-Mansoor</strong> · Destination Ceremony: <span class="italic">Villa Balbiano, Lake Como, Italy</span> · Assigned Lead Atelier Stylist: <span class="text-[#75542E] font-medium underline decoration-[#C8A97E]">Meera Kashyap</span>.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center gap-3">
+        <button class="px-4 py-2.5 bg-white hover:bg-stone-50 text-[#75542E] border border-[#C8A97E] text-xs font-semibold tracking-wider uppercase rounded shadow-sm transition-all flex items-center space-x-2">
+          <svg class="w-4 h-4 text-[#9B7443]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          <span>Download Master Docket</span>
+        </button>
+
+        <a href="https://wa.me/919820144520" target="_blank" class="px-4 py-2.5 bg-[#121212] hover:bg-[#222222] text-[#FAF7F2] text-xs font-semibold tracking-wider uppercase rounded shadow-sm transition-all flex items-center space-x-2 border border-[#C8A97E]/40">
+          <svg class="w-4 h-4 text-[#C8A97E]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.777.818 2.796.818 3.182 0 5.768-2.587 5.768-5.768 0-3.182-2.586-5.77-5.768-5.77zm3.393 8.243c-.145.407-.843.774-1.168.825-.325.051-.736.084-2.399-.597-1.662-.68-2.73-2.39-2.812-2.5-.083-.11-.663-.883-.663-1.684 0-.802.417-1.196.565-1.35.148-.154.325-.192.433-.192.109 0 .217.001.312.006.1.005.234-.038.366.279.132.316.452 1.104.492 1.186.04.081.066.176.012.283-.053.107-.08.174-.16.268-.08.093-.168.208-.24.28-.08.08-.163.167-.07.327.093.16.414.683.889 1.106.611.544 1.127.712 1.287.792.16.081.253.069.347-.04.093-.108.4-.467.507-.627.107-.16.213-.133.36-.08.147.054.935.441 1.096.521.161.08.268.12.308.187.04.067.04.388-.105.795z"></path>
+          </svg>
+          <span>Direct Stylist Hotline</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. QUICK EXECUTIVE METRICS & CEREMONIAL SUMMARY STRIP -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Commission Docket</span>
+        <div class="text-xl font-serif-luxury font-bold text-[#121212] mt-1">#ASRA-2026-8842X</div>
+        <span class="text-[11px] text-[#9B7443] font-medium flex items-center mt-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#9B7443] mr-1.5"></span>
+          Villa Balbiano Grand Suite
+        </span>
+      </div>
+
+      <div class="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Overall Handcraft Status</span>
+        <div class="text-xl font-serif-luxury font-bold text-[#75542E] mt-1">68% Completed</div>
+        <span class="text-[11px] text-emerald-700 font-medium flex items-center mt-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1.5"></span>
+          Stage 3: Foundry Debossing
+        </span>
+      </div>
+
+      <div class="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Ceremony Target Date</span>
+        <div class="text-xl font-serif-luxury font-bold text-[#121212] mt-1">October 28, 2026</div>
+        <span class="text-[11px] text-stone-600 font-medium mt-1 block">White-Glove Delivery Oct 24</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Monogram Die Archival</span>
+        <div class="text-xl font-serif-luxury font-bold text-[#121212] mt-1">Die #HYD-2026-ET</div>
+        <span class="text-[11px] text-[#75542E] font-medium mt-1 block">5-Yr Sovereign Preservation</span>
+      </div>
+    </section>
+
+    <!-- 3. PRODUCTION TIMELINE SHOWCASE (STAGE 3 OF 5 ACTIVE) -->
+    <section class="bg-white p-6 lg:p-8 rounded-xl border border-[#E7D5BF] card-shadow">
+      <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-[#E7D5BF]/80 pb-5 gap-4">
+        <div>
+          <span class="badge-soft-gold text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded">
+            Stage 3 of 5 · In Master Craft Production
+          </span>
+          <h2 class="text-xl lg:text-2xl font-serif-luxury font-bold text-[#121212] mt-2">
+            The Sovereign Bridal Trousseau & 120 Keepsake Suites
+          </h2>
+          <p class="text-xs text-stone-500 mt-0.5">
+            Docket ID: <strong>ASRA-2026-8842X</strong> · Dispatched via Insured Temperature-Controlled Air Courier
+          </p>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] tracking-widest uppercase text-stone-500 block font-medium">Production Progress</span>
+          <span class="font-serif-luxury text-3xl font-bold text-[#75542E]">68% Handcrafted</span>
+        </div>
+      </div>
+
+      <!-- Step Timeline Graphic -->
+      <div class="pt-8 pb-4">
+        <div class="relative">
+          <!-- Horizontal Line -->
+          <div class="hidden md:block absolute top-5 left-8 right-8 h-0.5 bg-[#E7D5BF]"></div>
+          <div class="hidden md:block absolute top-5 left-8 w-1/2 h-0.5 bg-[#75542E]"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-2 relative z-10">
+            
+            <!-- Step 1: Completed -->
+            <div class="text-center group">
+              <div class="w-10 h-10 mx-auto rounded-full bg-[#121212] text-[#C8A97E] border-2 border-[#121212] flex items-center justify-center font-bold text-xs shadow-md transition-transform group-hover:scale-105">
+                ✓
+              </div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-[#121212] mt-2.5 font-serif-luxury">Design Blueprint</span>
+              <span class="block text-[11px] text-emerald-700 font-medium">Approved Sept 18</span>
+            </div>
+
+            <!-- Step 2: Completed -->
+            <div class="text-center group">
+              <div class="w-10 h-10 mx-auto rounded-full bg-[#121212] text-[#C8A97E] border-2 border-[#121212] flex items-center justify-center font-bold text-xs shadow-md transition-transform group-hover:scale-105">
+                ✓
+              </div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-[#121212] mt-2.5 font-serif-luxury">Brass Die Casting</span>
+              <span class="block text-[11px] text-emerald-700 font-medium">Milled Sept 28</span>
+            </div>
+
+            <!-- Step 3: Active Stage -->
+            <div class="text-center group">
+              <div class="w-10 h-10 mx-auto rounded-full bg-[#C8A97E] text-[#121212] border-2 border-[#75542E] flex items-center justify-center font-bold text-sm shadow-md ring-4 ring-[#F4ECE0] transition-transform group-hover:scale-105">
+                03
+              </div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-[#75542E] mt-2.5 font-serif-luxury">Artisanal Debossing</span>
+              <span class="block text-[11px] text-[#75542E] font-medium flex items-center justify-center mt-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-600 mr-1 pulse-dot"></span>
+                Live in Hyderabad Foundry
+              </span>
+            </div>
+
+            <!-- Step 4: Pending -->
+            <div class="text-center opacity-70 group">
+              <div class="w-10 h-10 mx-auto rounded-full bg-white text-stone-400 border-2 border-[#E7D5BF] flex items-center justify-center font-bold text-xs">
+                04
+              </div>
+              <span class="block text-xs font-medium uppercase tracking-wider text-stone-600 mt-2.5 font-serif-luxury">Wax Seal & Ribboning</span>
+              <span class="block text-[11px] text-stone-500">Est. Oct 16</span>
+            </div>
+
+            <!-- Step 5: Handover -->
+            <div class="text-center opacity-70 group">
+              <div class="w-10 h-10 mx-auto rounded-full bg-white text-stone-400 border-2 border-[#E7D5BF] flex items-center justify-center font-bold text-xs">
+                05
+              </div>
+              <span class="block text-xs font-medium uppercase tracking-wider text-stone-600 mt-2.5 font-serif-luxury">White-Glove Handover</span>
+              <span class="block text-[11px] text-stone-500">Est. Oct 24 (Villa Balbiano)</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TWO-COLUMN INTERACTIVE SUITE WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- LEFT / CENTER COLUMN (2 COLS): APPROVALS, COMMISSION DOSSIER, RECENT ORDERS -->
+      <div class="lg:col-span-2 space-y-8">
+        
+        <!-- PENDING APPROVAL DOCKET: 3D MONOGRAM DIE PROOF -->
+        <div class="bg-[#FDFBF7] border-2 border-[#C8A97E] rounded-xl p-6 lg:p-7 card-shadow relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-[#C8A97E] text-[#121212] text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-bl">
+            Action Required · Proofing Sign-off
+          </div>
+
+          <div class="flex items-center space-x-2 text-[11px] font-semibold tracking-wider uppercase text-[#75542E] mb-2">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span>Awaiting Patron Sign-Off</span>
+          </div>
+
+          <h3 class="text-xl font-serif-luxury font-bold text-[#121212]">
+            3D Monogram Debossing Depth Proof (Revision v2.1)
+          </h3>
+          <p class="text-xs text-stone-600 mt-1 leading-relaxed">
+            Master engraver <strong class="text-stone-800">Rajesh V.</strong> has adjusted the bevel relief to <strong class="text-stone-800">0.35mm depth</strong> to guarantee razor-sharp 24K gold foil indentation on your Florentine ivory calfskin chests.
+          </p>
+
+          <!-- Photorealistic Render Simulation Frame -->
+          <div class="my-5 bg-[#121212] p-5 rounded-lg border border-[#C8A97E]/40 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div class="flex items-center space-x-4">
+              <div class="w-20 h-20 rounded bg-[#1C1A17] border border-[#C8A97E] flex flex-col items-center justify-center p-2 text-center shadow-inner">
+                <span class="font-serif-luxury text-2xl font-bold gold-gradient-text tracking-tight">ET</span>
+                <span class="text-[8px] text-[#C8A97E] uppercase tracking-widest mt-0.5">24K Foil Die</span>
+              </div>
+              <div>
+                <span class="text-xs font-serif-luxury font-semibold text-[#FAF7F2] text-sm">Die Spec: CNC-Milled Solid Brass 85mm</span>
+                <span class="block text-[11px] text-[#C8A97E] mt-0.5">Relief: 2.2mm · Angle: 45° Chamfered Edge</span>
+                <span class="block text-[10px] text-stone-400 mt-0.5">Uploaded today at 11:20 AM IST by Lead Stylist</span>
+              </div>
+            </div>
+
+            <button class="text-xs text-[#FAF7F2] hover:text-[#C8A97E] underline underline-offset-4 tracking-wider uppercase font-medium flex items-center space-x-1.5">
+              <span>View Fullscreen 3D CAD Preview</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Sign-Off Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <button class="px-5 py-2.5 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold tracking-wider uppercase rounded shadow transition-all flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#E7D5BF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Approve Proof for Metal Milling</span>
+            </button>
+            <button class="px-5 py-2.5 bg-white hover:bg-stone-50 text-stone-700 border border-stone-300 text-xs font-medium tracking-wider uppercase rounded transition-all">
+              Request Typographic Revision
+            </button>
+          </div>
+        </div>
+
+        <!-- CURATED KEEPSAKE SUITE DOSSIER (ACTIVE ITEMS IN THIS ORDER) -->
+        <div class="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow">
+          <div class="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
+            <div>
+              <h3 class="text-xl font-serif-luxury font-bold text-[#121212]">Commissioned Suite Dossier</h3>
+              <p class="text-xs text-stone-500">3 bespoke heirloom product lines active under Docket #ASRA-2026-8842X</p>
+            </div>
+            <span class="text-xs text-[#9B7443] font-medium tracking-wide">Vault Archive #892-HYD</span>
+          </div>
+
+          <div class="divide-y divide-[#E7D5BF]/60 mt-2">
+            
+            <!-- Item 1: Sovereign Bridal Keepsake Chest -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase">
+                  TRUNK
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-[#121212] font-serif-luxury text-base">The Sovereign Bridal Keepsake Chest</h4>
+                  <p class="text-xs text-stone-600 mt-0.5">Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Monogram</p>
+                  <div class="flex items-center space-x-3 mt-1.5">
+                    <span class="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      In Hand-Assembly
+                    </span>
+                    <span class="text-xs text-stone-500">Qty: 1 Bespoke Masterpiece</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right sm:min-w-[120px]">
+                <span class="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹84,500</span>
+                <a href="#" class="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 block">View Spec Sheet →</a>
+              </div>
+            </div>
+
+            <!-- Item 2: Lake Como Royal Guest Favors -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase">
+                  FAVORS
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-[#121212] font-serif-luxury text-base">Lake Como Royal Guest Welcome Hampers</h4>
+                  <p class="text-xs text-stone-600 mt-0.5">Debossed monogram luggage tag, artisanal scented candle, botanical wax seal</p>
+                  <div class="flex items-center space-x-3 mt-1.5">
+                    <span class="text-[10px] tracking-wider uppercase font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                      Leather Debossing Active
+                    </span>
+                    <span class="text-xs text-stone-500">Qty: 120 Guests</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right sm:min-w-[120px]">
+                <span class="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹2,04,000</span>
+                <a href="#" class="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 block">Manage Guest Names →</a>
+              </div>
+            </div>
+
+            <!-- Item 3: Optical Crystal First Dance Plaque -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-start space-x-4">
+                <div class="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase">
+                  CRYSTAL
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-[#121212] font-serif-luxury text-base">Optical Crystal First-Dance Plaque with Solid Brass Base</h4>
+                  <p class="text-xs text-stone-600 mt-0.5">Sub-millimeter laser internal etching · Scannable Spotify waveform cipher</p>
+                  <div class="flex items-center space-x-3 mt-1.5">
+                    <span class="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      Laser Etched & Certified
+                    </span>
+                    <span class="text-xs text-stone-500">Qty: 1 Keepsake</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right sm:min-w-[120px]">
+                <span class="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹14,900</span>
+                <a href="#" class="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 block">Test Audio Waveform →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TRANSIT & DELIVERY DESTINATION ITINERARY -->
+        <div class="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow">
+          <div class="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
+            <div>
+              <h3 class="text-xl font-serif-luxury font-bold text-[#121212]">Transit & Delivery Itinerary</h3>
+              <p class="text-xs text-stone-500">Insured bonded international consignment route</p>
+            </div>
+            <span class="text-xs text-emerald-700 font-medium tracking-wide">Global Air Vault Insured</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <div class="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
+              <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Destination Address</span>
+              <p class="text-xs font-semibold text-stone-900 mt-1">Villa Balbiano, Via Regina 2</p>
+              <p class="text-xs text-stone-600">22010 Ossuccio CO, Lake Como, Italy</p>
+              <span class="text-[10px] text-[#75542E] font-medium block mt-1">C/O Concierge Signorina Bellini</span>
+            </div>
+
+            <div class="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
+              <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Transit Specification</span>
+              <p class="text-xs font-semibold text-stone-900 mt-1">Shock-Cushioned Wooden Crating</p>
+              <p class="text-xs text-stone-600">Moisture & Cryo-Sealed Lining</p>
+              <span class="text-[10px] text-emerald-700 font-medium block mt-1">Insured Value: ₹5,00,000</span>
+            </div>
+
+            <div class="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
+              <span class="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Handover Protocol</span>
+              <p class="text-xs font-semibold text-stone-900 mt-1">Direct Suite Handover</p>
+              <p class="text-xs text-stone-600">Personalized Uncrating & Inspection</p>
+              <span class="text-[10px] text-stone-500 block mt-1">Target: Oct 24, 11:00 AM CET</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN (1 COL): STYLIST CONCIERGE, BRASS DIE VAULT, CLIENT VAULT DOCUMENTS -->
+      <div class="space-y-8">
+        
+        <!-- LEAD BRIDAL STYLIST CONCIERGE CARD (OBSIDIAN LUXURY) -->
+        <div class="bg-[#121212] rounded-xl p-6 text-white border border-[#C8A97E]/50 card-shadow relative overflow-hidden">
+          <div class="flex items-center space-x-4 border-b border-stone-800 pb-5">
+            <div class="w-14 h-14 rounded-full bg-[#1C1A17] border-2 border-[#C8A97E] flex items-center justify-center font-serif-luxury text-lg font-bold text-[#E7D5BF]">
+              MK
+            </div>
+            <div>
+              <span class="text-[10px] tracking-widest uppercase text-[#C8A97E] font-semibold block">Lead Bridal Concierge</span>
+              <h4 class="text-lg font-serif-luxury font-bold text-white">Meera Kashyap</h4>
+              <span class="text-xs text-stone-400">Atelier Jubilee Hills, Hyderabad</span>
+            </div>
+          </div>
+
+          <div class="py-4 text-xs text-stone-300 leading-relaxed">
+            "We have received the sample Italian foil swatches today. The gold hue aligns seamlessly with your stationery parchment."
+          </div>
+
+          <div class="space-y-2.5 pt-2">
+            <a href="https://wa.me/919692668263" target="_blank" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase rounded flex items-center justify-center space-x-2 transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.777.818 2.796.818 3.182 0 5.768-2.587 5.768-5.768 0-3.182-2.586-5.77-5.768-5.77zm3.393 8.243c-.145.407-.843.774-1.168.825-.325.051-.736.084-2.399-.597-1.662-.68-2.73-2.39-2.812-2.5-.083-.11-.663-.883-.663-1.684 0-.802.417-1.196.565-1.35.148-.154.325-.192.433-.192.109 0 .217.001.312.006.1.005.234-.038.366.279.132.316.452 1.104.492 1.186.04.081.066.176.012.283-.053.107-.08.174-.16.268-.08.093-.168.208-.24.28-.08.08-.163.167-.07.327.093.16.414.683.889 1.106.611.544 1.127.712 1.287.792.16.081.253.069.347-.04.093-.108.4-.467.507-.627.107-.16.213-.133.36-.08.147.054.935.441 1.096.521.161.08.268.12.308.187.04.067.04.388-.105.795z"></path>
+              </svg>
+              <span>Chat via WhatsApp</span>
+            </a>
+
+            <button class="w-full py-2.5 bg-transparent hover:bg-stone-800 text-[#FAF7F2] border border-[#C8A97E] text-xs font-semibold tracking-wider uppercase rounded transition-colors flex items-center justify-center space-x-2">
+              <svg class="w-4 h-4 text-[#C8A97E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              <span>Schedule Video Tasting Call</span>
+            </button>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-stone-800/80 text-[10px] text-stone-400 text-center">
+            Direct Atelier Line: <a href="tel:+919692668263" class="text-[#E7D5BF] hover:underline font-medium">+91 96926 68263</a>
+          </div>
+        </div>
+
+        <!-- BRASS DIE ARCHIVAL VAULT -->
+        <div class="bg-white rounded-xl border border-[#E7D5BF] p-6 card-shadow">
+          <div class="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-3">
+            <h3 class="text-base font-serif-luxury font-bold text-[#121212]">Brass Die Archival Vault</h3>
+            <span class="text-[10px] uppercase tracking-wider text-[#75542E] font-semibold bg-[#F4ECE0] px-2 py-0.5 rounded">
+              Complimentary 5-Yr Storage
+            </span>
+          </div>
+
+          <div class="my-4 p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] text-center">
+            <div class="w-16 h-16 mx-auto rounded-full bg-white border border-[#C8A97E] flex items-center justify-center font-serif-luxury text-xl font-bold gold-gradient-text">
+              ET
+            </div>
+            <div class="text-xs font-bold text-stone-900 mt-2">Die No. HYD-2026-ET</div>
+            <div class="text-[11px] text-stone-500">Solid CNC Milled Brass · 85mm × 85mm · 2.2mm Depth</div>
+          </div>
+
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Your physical master die remains preserved in our climate-shielded Hyderabad vault for complimentary re-orders (anniversary gift books, thank-you cards, and holiday trousseaus).
+          </p>
+
+          <button class="w-full mt-4 py-2 border border-stone-300 hover:border-[#C8A97E] text-stone-700 text-xs font-medium uppercase tracking-wider rounded transition-colors">
+            Request Die Vault Re-Commission
+          </button>
+        </div>
+
+        <!-- CLIENT VAULT DOCUMENTS & CEREMONIAL CONTRACTS -->
+        <div class="bg-white rounded-xl border border-[#E7D5BF] p-6 card-shadow">
+          <h3 class="text-base font-serif-luxury font-bold text-[#121212] border-b border-[#E7D5BF]/80 pb-3">
+            Client Vault Documents
+          </h3>
+
+          <div class="divide-y divide-[#E7D5BF]/60 text-xs mt-2">
+            <div class="py-3 flex items-center justify-between">
+              <div>
+                <span class="font-medium text-stone-900 block">Bespoke Production Contract</span>
+                <span class="text-[10px] text-stone-400">Signed Sept 18 · Docket #8842X</span>
+              </div>
+              <a href="#" class="text-[#75542E] font-medium hover:underline text-[11px]">PDF ↓</a>
+            </div>
+
+            <div class="py-3 flex items-center justify-between">
+              <div>
+                <span class="font-medium text-stone-900 block">24K Gold Leaf Certificate</span>
+                <span class="text-[10px] text-stone-400">Assigned Assay Serial #GL-9021</span>
+              </div>
+              <a href="#" class="text-[#75542E] font-medium hover:underline text-[11px]">View Proof</a>
+            </div>
+
+            <div class="py-3 flex items-center justify-between">
+              <div>
+                <span class="font-medium text-stone-900 block">Full Invoice & GST Receipt</span>
+                <span class="text-[10px] text-stone-400">Paid in Full via Net Banking</span>
+              </div>
+              <a href="#" class="text-[#75542E] font-medium hover:underline text-[11px]">Download</a>
+            </div>
+
+            <div class="py-3 flex items-center justify-between">
+              <div>
+                <span class="font-medium text-stone-900 block">Transit Insurance Covenant</span>
+                <span class="text-[10px] text-stone-400">Policy #ASRA-INS-4492</span>
+              </div>
+              <a href="#" class="text-[#75542E] font-medium hover:underline text-[11px]">Policy PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRIORITY ASSISTANCE PROTOCOL -->
+        <div class="p-4 bg-[#F4ECE0]/50 rounded-lg border border-[#E7D5BF] text-xs space-y-1.5">
+          <span class="text-[10px] tracking-widest uppercase font-semibold text-[#75542E] block">Priority Ceremony Assistance</span>
+          <p class="text-stone-600 leading-relaxed">
+            Need urgent alterations to delivery coordinates, guest counts, or destination customs clearance?
+          </p>
+          <a href="#" class="inline-block text-[#9B7443] font-semibold hover:underline pt-1">
+            Dispatch Urgent Request to Master of Ceremonies →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MINIMAL CLIENT DOCKET BAR (STRICTLY NO GENERAL WEBSITE FOOTER) -->
+  <footer class="w-full bg-[#FAF7F2] border-t border-[#E7D5BF]/80 py-4 px-6 lg:px-12 text-stone-500 text-[11px] mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center space-x-4">
+        <span class="font-serif-luxury font-bold tracking-widest text-[#75542E] uppercase">ASRA Wedding Canvas</span>
+        <span>·</span>
+        <span>Private Bridal Client Vault · Docket #ASRA-2026-8842X</span>
+      </div>
+
+      <div class="flex items-center space-x-6 text-[10px] tracking-wider uppercase">
+        <a href="#" class="hover:text-[#75542E] transition-colors">Security & NDA Protocol</a>
+        <a href="#" class="hover:text-[#75542E] transition-colors">Transit Insurance</a>
+        <a href="#" class="hover:text-[#75542E] transition-colors text-stone-700 font-medium">Lock & Logout Portal</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

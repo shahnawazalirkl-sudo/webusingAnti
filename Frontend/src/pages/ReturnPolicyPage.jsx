@@ -489,7 +489,7 @@ const ReturnPolicyPage = () => {
                   <p className="text-xs text-[#63554A] mt-1 leading-relaxed">
                     Take 2 clear photographs of the defect/damage alongside the serial badge on the hamper. Send directly to our Dedicated Wedding Concierge WhatsApp at{' '}
                     <a href="tel:+919692668263" className="font-semibold text-[#93662B] hover:underline">
-                      +91 9692668263 
+                      +91 96926 68263
                     </a>{' '}
                     referencing your Atelier Order ID (e.g., <code className="bg-[#F3EFE9] px-1.5 py-0.5 rounded text-[#2E241C]">ASRA-2026-8842X</code>).
                   </p>

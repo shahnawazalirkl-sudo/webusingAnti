@@ -158,7 +158,7 @@ const FAQ_CATEGORIES = [
         question: 'How do I request a complimentary replacement if transit damage occurs?',
         answer: (
           <p>
-            Share 2 clear photographs of the damage alongside the serial badge via WhatsApp at +91 98201 44520 within 24 hours of delivery. A Senior Stylist verifies the claim in under 45 minutes and issues a priority air remake.
+            Share 2 clear photographs of the damage alongside the serial badge via WhatsApp at +91 96926 68263 within 24 hours of delivery. A Senior Stylist verifies the claim in under 45 minutes and issues a priority air remake.
           </p>
         ),
         keywords: ['transit damage', 'complimentary replacement', 'insurance', 'whatsapp claim', 'air remake']
@@ -643,7 +643,7 @@ const FaqPage = () => {
               {/* Details below button */}
               <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
                 <span>Average response: <strong className="text-white">&lt; 5 mins</strong></span>
-                <span>Direct Line: <strong className="text-white">+91 98201 44520</strong></span>
+                <span>Direct Line: <strong className="text-white">+91 96926 68263</strong></span>
               </div>
             </div>
 
@@ -717,7 +717,7 @@ const FaqPage = () => {
                       type="tel"
                       value={ticketForm.phone}
                       onChange={(e) => setTicketForm({ ...ticketForm, phone: e.target.value })}
-                      placeholder="+91 98000 00000"
+                      placeholder="+91 96926 68263"
                       className="w-full text-xs rounded border border-asra-border bg-asra-ivory/50 px-3 py-2 text-asra-dark focus:border-asra-gold focus:ring-1 focus:ring-asra-gold focus:outline-none transition-all placeholder:text-asra-muted/60"
                       required
                     />
