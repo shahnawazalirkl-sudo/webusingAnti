@@ -537,6 +537,18 @@ const Header = () => {
                 </div>
               </div>
 
+              {/* 8. HERITAGE & ATELIER */}
+              <Link
+                to="/about"
+                className={`font-label-md text-label-md tracking-wider transition-colors py-2 whitespace-nowrap inline-flex items-center cursor-pointer ${
+                  isActive('/about') || isActive('/about-us') || isActive('/heritage')
+                    ? 'text-on-surface font-bold border-b-2 border-primary'
+                    : 'text-on-surface-variant hover:text-primary'
+                }`}
+              >
+                <span>HERITAGE &amp; ATELIER</span>
+              </Link>
+
             </nav>
           </div>
         </div>
@@ -555,6 +567,7 @@ const Header = () => {
             </form>
 
             <div className="flex flex-col gap-3 text-xs font-semibold uppercase tracking-wider text-on-surface">
+              <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/about') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Heritage &amp; Atelier (About Us)</Link>
               <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/shop') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Shop All Collections</Link>
               <Link to="/personalized" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/personalized') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Personalized Keepsakes</Link>
               <Link to="/wedding-keepsakes" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wedding-keepsakes') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Wedding Registry &amp; Favors</Link>

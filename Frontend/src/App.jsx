@@ -21,6 +21,7 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import TrackOrderPage from './pages/TrackOrderPage';
 import ReturnPolicyPage from './pages/ReturnPolicyPage';
 import WishlistPage from './pages/WishlistPage';
+import AboutUsPage from './pages/AboutUsPage';
 
 // Scroll to top helper on route transitions
 const ScrollToTop = () => {
@@ -65,6 +66,9 @@ const App = () => {
           <Route path="/track-order" element={<TrackOrderPage />} />
           <Route path="/return-policy" element={<ReturnPolicyPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/heritage" element={<AboutUsPage />} />
         </Routes>
       </main>
 

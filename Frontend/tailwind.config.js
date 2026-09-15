@@ -65,15 +65,18 @@ export default {
 
         // Specialized Luxury Tokens
         asra: {
-          cream: '#FAF7F2',
-          warmCard: '#FDFBF7',
+          cream: '#FAF8F5',
+          ivory: '#FDFBF7',
+          sand: '#F4EFE6',
           gold: '#C5A059',
-          goldDark: '#997332',
-          goldLight: '#E8D5B5',
+          goldDark: '#8C6D37',
+          goldLight: '#E8D3A2',
+          charcoal: '#1A1A1A',
+          obsidian: '#111111',
+          muted: '#6E6A64',
+          border: '#EAE4D9',
+          warmCard: '#FDFBF7',
           dark: '#1A1817',
-          charcoal: '#2D2825',
-          muted: '#7E766D',
-          border: '#E8E1D7',
           emerald: '#133E2B',
           ruby: '#6B1D2F'
         },
@@ -119,6 +122,8 @@ export default {
         "brand-greenBg": "#F0F5F2"
       },
       fontFamily: {
+        display: ["'Cinzel'", "'Playfair Display'", "serif"],
+        playfair: ["'Playfair Display'", "serif"],
         sans: ["'Plus Jakarta Sans'", "sans-serif"],
         serif: ["'Playfair Display'", "serif"],
         "serif-luxury": ["'Playfair Display'", "serif"],

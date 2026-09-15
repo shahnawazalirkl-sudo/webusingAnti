@@ -57,10 +57,10 @@ const Footer = () => {
             <h4 className="font-title-sm text-title-sm text-[#FAF8F5] tracking-wider uppercase mb-space-xs font-semibold">
               Company
             </h4>
-            <Link to="/collections" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
+            <Link to="/about" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Our Heritage Story
             </Link>
-            <Link to="/bespoke" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
+            <Link to="/about#salons" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Artisans &amp; Studio
             </Link>
             <Link to="/bulk-orders" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
