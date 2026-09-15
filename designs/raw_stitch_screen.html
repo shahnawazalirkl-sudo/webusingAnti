@@ -1,0 +1,828 @@
+<!DOCTYPE html><html lang="en" style="width: 1280px; height: 3718px; overflow: hidden; position: relative;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#6c5b4d","on-primary-fixed":"#281800","surface-tint":"#725b38","tertiary-container":"#bda998","background":"#fcf9f8","on-surface-variant":"#4d463c","surface-bright":"#fcf9f8","tertiary-fixed":"#f5decd","inverse-on-surface":"#f3f0ef","on-surface":"#1c1b1b","on-tertiary-fixed":"#25190f","inverse-surface":"#313030","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#e5c193","surface-container-highest":"#e5e2e1","surface-container-high":"#eae7e7","primary-fixed-dim":"#e0c298","primary":"#725b38","on-tertiary":"#ffffff","on-secondary":"#ffffff","secondary-container":"#ffdaab","surface-container-low":"#f6f3f2","on-primary-fixed-variant":"#584323","on-secondary-container":"#7a5e38","outline-variant":"#d1c5b8","surface-container":"#f0eded","on-primary-container":"#513d1d","error-container":"#ffdad6","on-error-container":"#93000a","tertiary-fixed-dim":"#d8c3b2","on-secondary-fixed-variant":"#5b421f","error":"#ba1a1a","on-error":"#ffffff","surface-dim":"#dcd9d9","outline":"#7f766a","primary-container":"#c5a880","on-background":"#1c1b1b","inverse-primary":"#e0c298","on-tertiary-fixed-variant":"#534437","secondary":"#755a34","surface":"#fcf9f8","on-tertiary-container":"#4c3e31","primary-fixed":"#fedeb2","on-secondary-fixed":"#291800","on-primary":"#ffffff","secondary-fixed":"#ffddb3","surface-variant":"#e5e2e1"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter":"1.5rem","space-xl":"2.5rem","margin-mobile":"1.25rem","margin":"3rem","space-md":"1rem"},"fontFamily":{"label-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"display-lg-mobile":["Playfair Display"],"title-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-md":["Playfair Display"],"headline-lg-mobile":["Playfair Display"]},"fontSize":{"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.12em","fontWeight":"600"}],"title-md":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","letterSpacing":"0.005em","fontWeight":"400"}],"headline-lg":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.01em","fontWeight":"500"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.01em","fontWeight":"400"}],"title-sm":["1rem",{"lineHeight":"1.375rem","letterSpacing":"0.015em","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"400"}],"display-lg":["3.5rem",{"lineHeight":"4rem","letterSpacing":"-0.02em","fontWeight":"400"}],"label-md":["0.8125rem",{"lineHeight":"1rem","letterSpacing":"0.08em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["1.25rem",{"lineHeight":"1.625rem","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["1.5rem",{"lineHeight":"2rem","letterSpacing":"0em","fontWeight":"500"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"0em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-inverse-surface text-inverse-on-surface py-space-xs px-margin"></div><div class="max-w-[1360px] mx-auto px-margin"></div><div class="border-t border-outline-variant/40 bg-surface-container-lowest/70 backdrop-blur-sm"><div class="max-w-[1360px] mx-auto px-margin"></div></div></header><main class="w-full pt-[148px] bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Decorator -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[320px] bg-gradient-to-b from-primary-fixed/25 via-secondary-container/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Atelier Breadcrumb & Header Hero -->
+<section class="max-w-[1360px] mx-auto px-margin pt-space-lg pb-space-lg w-full">
+<!-- Breadcrumb Bar -->
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm mb-space-sm uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">Wedding Atelier</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Luxury Keepsakes &amp; Bridal Suites</span>
+</nav>
+<!-- Editorial Banner Structure -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-sm relative overflow-hidden mb-space-lg">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary-fixed/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full mb-space-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm tracking-[0.2em] text-primary uppercase">The Atelier Wedding Suite</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-none mb-space-sm">
+              Bespoke Wedding Keepsakes &amp; Bridal Luxuries
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
+              Celebrate timeless unions with handcrafted vow books, personalized bridal hampers, monogrammed trousseau boxes, and heirloom keepsakes crafted to cherish forever.
+            </p>
+</div>
+<!-- Key Metrics Badges -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm shrink-0">
+<div class="bg-surface-container-low px-space-md py-space-sm rounded-lg flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">palette</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface leading-tight font-semibold">140+</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Wedding Creations</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-md py-space-sm rounded-lg flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface leading-tight font-semibold">100%</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Handcrafted Quality</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-md py-space-sm rounded-lg flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface leading-tight font-semibold">48H</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Priority Dispatch</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Sub-category Filter Tabs -->
+<div class="mt-space-lg pt-space-md flex items-center gap-2 overflow-x-auto scrollbar-none">
+<button class="px-space-md py-2 bg-on-surface text-surface-container-lowest font-label-md text-label-md rounded-lg whitespace-nowrap shadow-sm">
+            All Wedding Suites (140)
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Bridal &amp; Groom Gifts
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Vow Books &amp; Stationery
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Trousseau &amp; Ring Vaults
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Wedding Favors &amp; Bulk
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Preserved Varmala Art
+          </button>
+<button class="px-space-md py-2 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant font-label-md text-label-md rounded-lg whitespace-nowrap transition-colors">
+            Milestone Keepsakes
+          </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Main Content Grid: Sidebar + Product Showcase -->
+<section class="max-w-[1360px] mx-auto px-margin w-full pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Filter Sidebar (Col 3 on Large) -->
+<aside class="lg:col-span-3 flex flex-col gap-space-lg">
+<!-- Filter Box Container -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm flex flex-col gap-space-lg sticky top-[160px]">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-title-sm text-title-sm text-on-surface uppercase tracking-wider font-semibold">Refine Wedding Craft</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-on-surface transition-colors uppercase tracking-widest font-semibold">Reset</button>
+</div>
+<!-- Filter Group 1: Role / Recipient -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between cursor-pointer py-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Wedding Recipient</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_less</span>
+</div>
+<div class="space-y-2 pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">For Bride &amp; Groom (84)</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Bridal Party &amp; Bridesmaids (32)</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Groomsmen &amp; Best Man (21)</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Parents of the Couple (18)</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Wedding Guests &amp; Favors (45)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group 2: Wedding Milestone / Ceremony -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between cursor-pointer py-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Ceremony &amp; Milestone</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_less</span>
+</div>
+<div class="space-y-2 pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Proposal &amp; Engagement</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Haldi &amp; Mehendi</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Sangeet &amp; Cocktail Favors</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Wedding Day Ceremony</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Reception &amp; Honeymoon</span>
+</label>
+</div>
+</div>
+<!-- Filter Group 3: Craft & Material Finish -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between cursor-pointer py-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Craft &amp; Finish</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_less</span>
+</div>
+<div class="space-y-2 pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Gilded Wax Seal &amp; Deckle Edge</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Hand-Polished Brass &amp; Timber</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Monogrammed Raw Silk &amp; Velvet</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Scannable Audio Acrylic</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer group">
+<input class="w-4 h-4 rounded bg-surface-container-low accent-[#725b38] text-primary" type="checkbox">
+<span class="group-hover:text-primary transition-colors">Preserved Botanical Resin</span>
+</label>
+</div>
+</div>
+<!-- Filter Group 4: Delivery Timeline -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Timeline Window</span>
+<div class="flex flex-col gap-1.5 pt-1">
+<span class="px-2.5 py-1.5 bg-surface-container rounded font-label-sm text-label-sm text-primary flex items-center justify-between cursor-pointer">
+<span class="">Priority Express (48h)</span>
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</span>
+<span class="px-2.5 py-1.5 bg-surface-container-low hover:bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between cursor-pointer transition-colors">
+<span class="">Standard Atelier (4-7 Days)</span>
+</span>
+<span class="px-2.5 py-1.5 bg-surface-container-low hover:bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between cursor-pointer transition-colors">
+<span class="">Bespoke Bridal Suite (10+ Days)</span>
+</span>
+</div>
+</div>
+<!-- Filter Group 5: Price Chips -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Price Budget</span>
+<div class="grid grid-cols-2 gap-1.5 pt-1">
+<button class="px-2 py-1.5 bg-surface-container-low hover:bg-surface-container rounded font-label-sm text-[11px] text-on-surface-variant font-medium transition-colors">Under ₹1,500</button>
+<button class="px-2 py-1.5 bg-primary text-on-primary rounded font-label-sm text-[11px] font-semibold">₹1,500 - ₹3,500</button>
+<button class="px-2 py-1.5 bg-surface-container-low hover:bg-surface-container rounded font-label-sm text-[11px] text-on-surface-variant font-medium transition-colors">₹3,500 - ₹7,000</button>
+<button class="px-2 py-1.5 bg-surface-container-low hover:bg-surface-container rounded font-label-sm text-[11px] text-on-surface-variant font-medium transition-colors">₹7,000 &amp; Above</button>
+</div>
+</div>
+<!-- Concierge WhatsApp Callout Card -->
+<div class="bg-gradient-to-br from-[#1C1B1B] to-[#2E2B28] text-surface-container-lowest p-space-md rounded-xl flex flex-col gap-2 relative overflow-hidden">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">support_agent</span>
+<span class="font-title-sm text-label-md text-primary-fixed font-semibold tracking-wider uppercase">Wedding Concierge</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-container-highest/80 leading-snug">
+              Need custom bridal suite favors for 50+ guests? Connect with our dedicated wedding curator.
+            </p>
+<a class="mt-1 inline-flex items-center justify-center gap-2 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-label-sm text-label-sm uppercase tracking-wider font-semibold rounded transition-colors" href="https://wa.me/919692668263" target="_blank">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span class="">Talk to Wedding Stylist</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Products Grid Stream (Col 9 on Large) -->
+<main class="lg:col-span-9 flex flex-col gap-space-lg">
+<!-- Sorting & Results Summary Bar -->
+<div class="bg-surface-container-lowest px-space-md py-space-sm rounded-xl flex flex-wrap items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Showing 12 Curated Masterpieces</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Handmade On-Order</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Sort by:</span>
+<select class="bg-surface-container text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg focus:outline-none focus:bg-surface-container-low cursor-pointer">
+<option>Curated Bridal Bestsellers</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Highest Customer Rating</option>
+<option>Express Delivery First</option>
+</select>
+</div>
+</div>
+<!-- 12 Luxury Product Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1: Sovereign Bridal Atelier Hamper (Image 17 featured) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img alt="The Sovereign Bridal Atelier Hamper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Bridal Suite</span>
+<span class="bg-inverse-surface/85 text-surface-container-lowest font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded">Bestseller</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(128 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  The Sovereign Bridal Atelier Hamper
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Artisanal presentation with French eau de parfum, eternal silk roses, soy candle, keepsake bear &amp; Ferrero Rocher.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹3,499</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹4,499</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">22% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Heirloom Vow Books -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Two luxury deckle-edge cotton rag vow books tied with soft dusty rose silk ribbon, custom gold calligraphy writing on ivory textured paper, accompanied by a brass seal stamp and dried baby's breath on a light marble surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWXIZrXYuYJm45DRWcFkOWlOTDQ0hJYgaj9KnM1VtA7Q6UD7zH_N9LxDpvDXrCEDEyVGqLNGeIo3adq69iHsyP0MtB0WvXy5AQGgicu5MLJd60FAPd0eg1vCJ-5Ue1vm79MP87sgnWSZdyw1KZd7NOjB3dnAb2RiTqXJ5Sg1dJvOCV6wuTmrZ1iM05cWgS_U0K1PM7mYhRXqBfz376zB-He9z9dijJaZJ17jO33sOhxvRxPk0te4E5GQ">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-secondary text-on-secondary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Handmade Paper</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">5.0</span>
+<span class="font-label-sm text-[11px] text-outline">(94 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Heirloom Wax-Sealed Deckle Vow Books
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Handmade 150 GSM cotton rag with customized gilded calligraphy names and pure raw-silk ribbon binding.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹1,299</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹1,699</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">23% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Velvet Double Ring Vault -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An octagon-shaped champagne beige velvet double ring box open to display two wedding bands and a diamond mangalsutra resting in soft ivory velvet grooves, top debossed with gold foil couple initials in elegant serif font." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Heirloom Velvet</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(76 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Bespoke Velvet Double Ring &amp; Mangalsutra Vault
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Rich champagne silk interior with gold debossed couple initials and bespoke cushion compartments.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹1,899</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹2,499</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">24% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Preserved Floral Varmala Frame -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A 3D glass float shadowbox frame with brushed brass border encasing real preserved red rose garland varmala petals, gold foiled wedding vows, and an engraved brass plaque displaying the couple's wedding date." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy54bIUKje8J1ZFwt5H1jmm1H4w34SHhYanZKkioY12AZ6V6dBRx8YZxyROO3OFDgsAHNH70aEaY-PS5nXlYZxpPX6VbK1S_xvoRpGOdKT4WvlooBWsA0WKQP0nsHSFS4JONDdMQ4nGn8sRz5opFK_8k0XjRvruXhroNlBZ1tCLIPuKfYpncPyEh_SEwXaWpOqLzwaQoTObayh0r3oxTjJVw2AQkWe0oySUNU-XhhO2oRRMd24bbo8ew">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-[#725B38] text-surface-container-lowest font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Preservation Craft</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">5.0</span>
+<span class="font-label-sm text-[11px] text-outline">(62 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Botanical Preserved Floral Varmala Keepsake
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  3D brass float shadowbox framing eternal varmala garland petals &amp; bespoke etched wedding date plaque.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹3,899</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹4,999</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">22% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Mulberry Silk Robe Suite -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxurious pure ivory and champagne mulberry silk robes for Bride and Groom, draped gracefully on wooden hangers, back side showing delicate metallic gold thread crest embroidery reading Bride and Groom with royal monogram." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALfPw_vAWDO6vbzUIENZBwqriUOC6hZDBUdrsOrjRqq6jCSh8mi0mhh5lS-jk-L0KGH7Jevb4BQyFRuDnf1bibSiVTy8YsiEn1T-EYAT5LyHdWhYiO8XkOUEBVr_dQ7sidtAeZNupF01aXYPec0G3ILiGrtKMHHqnpxxni7EocrWOQnzSYcO_rTW9WxMRs5QsqLrpEJp0SJk8Jpnmy-lfz6jyMsbh3b_xY4BcpwqtC74KvMDkgiwj_vA">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-secondary text-on-secondary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">100% Pure Silk</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.8</span>
+<span class="font-label-sm text-[11px] text-outline">(54 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Pure Mulberry Silk "Bride" &amp; "Groom" Robe Suite
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Metallic gold embroidered bridal robes tailored with personalized royal wedding monogram.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,499</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹3,299</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">24% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Teakwood Guestbook Box -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dark teakwood rectangular keepsake box with engraved botanical wedding wreath and family crest on the lid, antique brass latch, containing stacks of gold foil edged linen advice cards and an engraved wooden pen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YGgpxrOfCawcNaK-WvmxlUDPYN6uCJpz6OaCRFhnJV53Y6y46MNBvpFihELt6tbkhJvOO5avcUPZnGyTkEn-Jeck7lm3T5dCisk_arKBBMDEGmw4FaKf65OV6kcgMT8kVEkUjrZXp-bGhzoTWHAnAD1DlSERQXs1oYMrtmd9W6XccFEua7x0CpK4GFItM_xKLGpYEO70CmKmsu1wwicLxZ1ZwPRMWZpOUYxsCz-UHAQu0zjuPgXLtw">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-[#725B38] text-surface-container-lowest font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Heirloom Timber</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(89 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Custom Carved Teakwood Guestbook Box
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Solid plantation teak with engraved family crest, antique brass latch &amp; 100 gold foiled cards.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,799</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹3,499</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">20% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 7: Scannable Soundwave Acrylic Lamp -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crystal clear vertical acrylic plaque glowing with warm LED light from a solid beechwood base, engraved with a scannable Spotify music code of the first dance song, couple's names, and precise wedding date." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5VV7y98bFFlULIeHe16S-unPVH0YBkRtWkXl2Uf04BaK7YCQ_VdxZhbPSbhRlnCTLknAfaXmDm9PE70iT7qSZK09vHBCe2w8rEy4tz6kxjcn6BwhuJ5zsL_gI56HZStpizFDGwOxP3jDyZAAJad2-_AmHWPui1qKDFvww1R0ZurFQViPVfmwbNFM7qCSUqiRifJBhMo7MDZzL30vnF9QTOrgEgBmj62f_gu_rYGH_q3ZsCwuYwyoh2A">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">First Dance</span>
+<span class="bg-inverse-surface/85 text-surface-container-lowest font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded">Scannable</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.8</span>
+<span class="font-label-sm text-[11px] text-outline">(110 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  First Dance Soundwave Acrylic Lamp
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Solid warm beechwood base with illuminated custom scannable couple song code &amp; waveform.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹1,499</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹1,999</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">25% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 8: Crystal Toasting Flutes -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Two Bohemian crystal champagne flutes with delicate diamond facets catching golden light, delicately hand-etched with couple calligraphy initials and wedding reception date, set against soft champagne silk backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbXrPSozHRKAarJ6S-TP3RFB8Xpcqz2zN_C4HXc9qPKeeabgSRR5Qs-wpCkNs0CQeDe0kouzF7WfjbK_hJBf4wzb060DwFnaHzO-6IASbgS6AkP7aSql6xb-I7I2yej1mgFovwkO8WU29NRGpQj799v7_okRZTF-WwjbGgm4SXZqbZ4guF0eWzCdbjnilgxzqQm6TKQhEAlWKmHsmsvSKdXRnHdyt2fOen75_ZXybeuGMUtJpcw_Ft2w">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-secondary text-on-secondary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Lead-Free Crystal</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(68 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Personalized Crystal Toasting Flutes (Set of 2)
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Hand-blown lead-free Bohemian crystal etched with couple names &amp; wedding reception year.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,199</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹2,899</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">24% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 9: Groom's Watch & Cufflink Casing -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dark hand-rubbed walnut wood groom gift box with a brushed gold brass plate on top engraved with groom initials and wedding date, interior fitted with emerald green suede watch cushion and monogrammed cufflink slots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBocS9w6K5Z3JPBA0mdoi-S0-gagfXVrPxn8NjdUzH_72y-NgQq840EJM3FNQiKXH1qnSKsB9ezQeBNXE_2pyz2pqj3n2UC5EYg6FDSpuDod3oAtyMZEWNn9qrNXFLp-fvHE_uMpuiuHNgb8uKUvZxAJnLhJyjIP-He4eKWu4lhR8r4zSAKQ2mdVoAnLrEO_J2taQY37cDlgxhjVuw3vPXAPajTHsG99-8Bd9H7-oqKO2NYlL144Fk6Wg">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Groom's Casket</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">5.0</span>
+<span class="font-label-sm text-[11px] text-outline">(47 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Groom's Watch &amp; Cufflink Walnut Casing
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Hand-rubbed solid walnut wood with laser-etched monogram brass plate &amp; emerald velvet interior.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,699</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹3,399</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">20% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 10: Luxury Trousseau Packing Trunk -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An artisanal blush pink and ivory bridal trousseau trunk adorned with gold polished corner brackets, vintage latch closure, personalized leather luggage tag, and delicate floral garland for Indian wedding trousseau gifting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApZeqF3qJycU2z3TJKkizvNuZqH51kVkUQ9CZ0tEut1WUODhuVWGFMzVTzAeNHtPsoCdiUXZV1ymb5DiU_UrRb20mTMuJe3V3_cYXjRWZNKpeiOqoRp-0KmK739-KuW8PVIeiuvUQ2c_PKVM3qZe8D9oBwWGal-rMXxUXwz7dFFcIN4vcU5mUKV3vM-q75tCMjShM8L5W1BP8JPZsSrzTxvElTMSoLcdQAAel8wfDI16FglXH2rFnpqA">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-secondary text-on-secondary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Bridal Trousseau</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(83 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Luxury Trousseau Celebration Trunk
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Pastel blush pink &amp; ivory handcrafted trunk with brass lock and custom embossed leather tag.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹4,499</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹5,999</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">25% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 11: Botanical Soy Candle Favors Pack of 20 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegant arrangement of frosted glass mini soy candles topped with dried jasmine and gold flakes, sealed with stamped wax monogram logos on custom ivory labels, grouped in a luxury party favor display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCltKdCprhbDCO1uoPLIVJhUoIKBP37PjHkO7gtr9wZHwP2CN8Bsshvxgr_pdkd7S0bWaEXun7aAmSGvXNRG-XmPZhIppuw6k5MjxYYexfGgvirpEsMpnR84lScCbcj5jgGtdFmpAyZLAtH1JcPMGXt4FdcE5Nv4q3vQlxRDAsed8TD8Q2zNrx4tPcHf2mduv2iVglUyek7nXiEvem9HNRVMWGRdKTk7ooFhgdXnQOiP-GA5BMoktJBag">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Bulk Favors (20x)</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Sangeet / Mehendi</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-[11px] text-outline">(142 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Botanical Soy Candle Favors (Pack of 20)
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Bespoke couple monogram label, wax-sealed lid with delicate dry botanicals and amber musk scent.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹3,999</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹4,999</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">20% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 12: Marble & Brass Platter -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative">
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pure white Makrana marble rectangular entertaining platter with warm brushed brass sculptural handles, center laser etched with a romantic wedding crest and anniversary date, displayed on clean linen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACadYMk3eIagee90_e613yoLGke9UDdtNeTeHP-DApNmpmv-Dm2Z_R9gyhjKDhJQm1dG0Swp7Uc5eSnunCjGPjmA8SI0Y9VJcBY2gdxvrqS9dDKc6d4uJRrOpzR1r5-qArP4GDyf2B-EUWekMXqftsQO9vmqdD8MTeuPq-7LvE0CYOO75UaEjbQC5-QKENebWj_zLcPAIjcKVoVdlQCZ8zx_NmL2aCsM6qeV6yYKg5YLgj1PuT0yJrYA">
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-[#725B38] text-surface-container-lowest font-label-sm text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold">Makrana Marble</span>
+</div>
+<button aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[#C5A880] mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.8</span>
+<span class="font-label-sm text-[11px] text-outline">(39 reviews)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug">
+                  Personalized Marble &amp; Brass Platter
+                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                  Pure Makrana marble with brushed champagne brass handles &amp; custom engraved monogram crest.
+                </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,899</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹3,799</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">23% OFF</span>
+</div>
+<button class="w-full py-2.5 px-space-md bg-on-surface hover:bg-primary text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Customize For Wedding</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Atelier Load More -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 12 of 140 bespoke wedding creations</span>
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 rounded bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center">1</button>
+<button class="w-9 h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">2</button>
+<button class="w-9 h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-9 h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center justify-center transition-colors">12</button>
+<button class="px-3 h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center gap-1 transition-colors">
+<span class="">Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</section>
+<!-- Curated Wedding Atelier Services & Bulk Gifting Highlight Banner -->
+<section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-[1360px] mx-auto px-margin">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em] font-semibold">Specialist Wedding Services</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Curated Wedding Atelier Privileges</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          From personalized custom initials to complete destination wedding favor suites, let our master craftsmen bring your vision to life.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Atelier Service 1 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex flex-col">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">draw</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+              Complimentary Bridal Monogram
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Every couple receives a bespoke bespoke digital and wax-stamp wedding monogram crafted by our resident calligrapher on orders exceeding ₹5,000.
+            </p>
+</div>
+<div class="pt-space-md">
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+<span class="">Claim Monogram Consult</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Atelier Service 2 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex flex-col">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">diversity_1</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+              Bulk Favors &amp; Gifting Concierge
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Planning Mehendi or destination wedding welcome hampers? Enjoy tiered bridal party discounts, custom wax packaging, and direct venue dispatch.
+            </p>
+</div>
+<div class="pt-space-md">
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+<span class="">View Bulk Privilege Tiers</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Atelier Service 3 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex flex-col">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">local_florist</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+              Archival Varmala Floral Preservation
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Ship your sacred ceremony varmalas and bouquets to our master lab in Hyderabad. We freeze dry and encase them forever in crystal UV resin frames.
+            </p>
+</div>
+<div class="pt-space-md">
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+<span class="">Book Flower Collection</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Trust Banners -->
+<section class="max-w-[1360px] mx-auto px-margin py-space-xl w-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md text-center">
+<div class="flex flex-col items-center p-space-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-[28px] mb-2">fingerprint</span>
+<h4 class="font-title-sm text-title-sm text-on-surface font-semibold">100% Bespoke Craft</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Individualized couple names, dates &amp; vows</p>
+</div>
+<div class="flex flex-col items-center p-space-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-[28px] mb-2">verified_user</span>
+<h4 class="font-title-sm text-title-sm text-on-surface font-semibold">Insured Global Courier</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Zero damage guarantee across 140+ cities</p>
+</div>
+<div class="flex flex-col items-center p-space-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-[28px] mb-2">loyalty</span>
+<h4 class="font-title-sm text-title-sm text-on-surface font-semibold">Wax-Sealed Luxury Box</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Unboxing worthy of wedding celebrations</p>
+</div>
+<div class="flex flex-col items-center p-space-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-[28px] mb-2">headset_mic</span>
+<h4 class="font-title-sm text-title-sm text-on-surface font-semibold">Atelier Privilege Desk</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Dedicated bridal coordinator via WhatsApp</p>
+</div>
+</div>
+</section>
+</div></main>
+
+</body></html>
