@@ -1157,7 +1157,7 @@ const CheckoutPage = () => {
             <Link to="/bespoke" className="hover:text-[#1F1B18] transition-colors">Concierge Protocols</Link>
             <Link to="/about" className="hover:text-[#1F1B18] transition-colors">Hallmark Verification</Link>
             <Link to="/return-policy" className="hover:text-[#1F1B18] transition-colors">Transit Insurance Policy</Link>
-            <Link to="/return-policy" className="hover:text-[#1F1B18] transition-colors">Confidentiality Guarantee</Link>
+            <Link to="/privacy-policy" className="hover:text-[#1F1B18] transition-colors">Confidentiality Guarantee</Link>
           </div>
 
           <div className="text-[10px] text-[#1F1B18]/50">

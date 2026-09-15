@@ -110,7 +110,7 @@ const Footer = () => {
             </p>
             <div className="hidden sm:block text-[#8C7A6B]">•</div>
             <div className="flex items-center gap-space-sm font-label-sm text-label-sm text-[#8C7A6B]">
-              <Link to="/return-policy" className="hover:text-[#FAF8F5] transition-colors">
+              <Link to="/privacy-policy" className="hover:text-[#FAF8F5] transition-colors">
                 Privacy Policy
               </Link>
               <span>•</span>

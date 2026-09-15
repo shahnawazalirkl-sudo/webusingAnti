@@ -619,7 +619,7 @@ const OrderConfirmationPage = () => {
             <span>•</span>
             <Link to="/return-policy" className="hover:text-brand-dark transition-colors">Transit Insurance Policy</Link>
             <span>•</span>
-            <Link to="/return-policy" className="hover:text-brand-dark transition-colors">Confidentiality Guarantee</Link>
+            <Link to="/privacy-policy" className="hover:text-brand-dark transition-colors">Confidentiality Guarantee</Link>
           </div>
           <div>
             <span>© 2026 ASRA Atelier. All royal rights reserved.</span>
