@@ -40,6 +40,10 @@ const Header = () => {
                 Concierge
               </Link>
               <span>•</span>
+              <Link to="/faq" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
+                FAQ &amp; Help
+              </Link>
+              <span>•</span>
               <Link to="/bespoke" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
                 Bespoke Atelier
               </Link>

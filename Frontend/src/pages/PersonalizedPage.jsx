@@ -7,11 +7,17 @@ const PersonalizedPage = () => {
   const [recipientFilter, setRecipientFilter] = useState('all');
 
   const filtered = PRODUCTS.filter((p) => {
-    if (craftFilter !== 'all' && !p.craft?.toLowerCase().includes(craftFilter.toLowerCase())) {
-      return false;
+    if (craftFilter !== 'all') {
+      const searchSpace = `${p.craft || ''} ${p.title || ''} ${p.description || ''} ${p.categoryLabel || ''} ${p.badge || ''}`.toLowerCase();
+      if (!searchSpace.includes(craftFilter.toLowerCase())) {
+        return false;
+      }
     }
-    if (recipientFilter !== 'all' && !p.recipient?.toLowerCase().includes(recipientFilter.toLowerCase())) {
-      return false;
+    if (recipientFilter !== 'all') {
+      const searchRecipient = `${p.recipient || ''} ${p.title || ''} ${p.categoryLabel || ''} ${p.badge || ''}`.toLowerCase();
+      if (!searchRecipient.includes(recipientFilter.toLowerCase())) {
+        return false;
+      }
     }
     return true;
   });
@@ -65,15 +71,22 @@ const PersonalizedPage = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-outline-variant/40">
         <div className="flex items-center gap-2 flex-wrap text-xs">
           <span className="text-outline uppercase text-[10px] font-bold">Craft:</span>
-          {['all', 'foil', 'deboss', 'laser', 'acrylic'].map((c) => (
+          {[
+            { id: 'all', label: 'All Techniques' },
+            { id: 'monogram', label: 'Monogrammed' },
+            { id: 'velvet', label: 'Velvet & Silk' },
+            { id: 'wax', label: 'Wax & Deckle' },
+            { id: 'botanical', label: 'Preserved Florals' },
+            { id: 'gold', label: 'Gold Foil' }
+          ].map((c) => (
             <button
-              key={c}
-              onClick={() => setCraftFilter(c)}
+              key={c.id}
+              onClick={() => setCraftFilter(c.id)}
               className={`px-3 py-1.5 rounded-lg transition-colors ${
-                craftFilter === c ? 'bg-primary text-on-primary font-semibold' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'
+                craftFilter === c.id ? 'bg-primary text-on-primary font-semibold' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'
               }`}
             >
-              {c === 'all' ? 'All Techniques' : c === 'foil' ? 'Gold Foil' : c === 'deboss' ? 'Deep Debossing' : c === 'laser' ? 'Laser Engraved' : 'Acrylic Waveform'}
+              {c.label}
             </button>
           ))}
         </div>

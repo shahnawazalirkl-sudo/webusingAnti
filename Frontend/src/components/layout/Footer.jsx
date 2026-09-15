@@ -69,6 +69,9 @@ const Footer = () => {
             <Link to="/return-policy" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Care Instructions
             </Link>
+            <Link to="/faq" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
+              FAQ &amp; Atelier Help Desk
+            </Link>
             <Link to="/contact" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Concierge &amp; Appointments
             </Link>
@@ -117,6 +120,10 @@ const Footer = () => {
               <span>•</span>
               <Link to="/return-policy" className="hover:text-[#FAF8F5] transition-colors">
                 Shipping &amp; Returns
+              </Link>
+              <span>•</span>
+              <Link to="/faq" className="hover:text-[#FAF8F5] transition-colors">
+                Help &amp; FAQs
               </Link>
             </div>
           </div>

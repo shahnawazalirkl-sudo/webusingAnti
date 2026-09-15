@@ -23,6 +23,7 @@ import ReturnPolicyPage from './pages/ReturnPolicyPage';
 import WishlistPage from './pages/WishlistPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactPage from './pages/ContactPage';
+import FaqPage from './pages/FaqPage';
 
 // Scroll to top helper on route transitions
 const ScrollToTop = () => {
@@ -37,7 +38,7 @@ const App = () => {
   const location = useLocation();
 
   // Pages with their own dedicated minimal header or Cart bar (No Global Header/Footer)
-  const minimalRoutes = ['/cart', '/checkout', '/order-confirmation', '/track-order', '/return-policy', '/wishlist'];
+  const minimalRoutes = ['/cart', '/checkout', '/order-confirmation', '/track-order', '/return-policy', '/wishlist', '/faq', '/faqs', '/help-desk', '/help'];
   const isMinimalPage = minimalRoutes.includes(location.pathname);
 
   return (
@@ -75,6 +76,10 @@ const App = () => {
           <Route path="/appointments" element={<ContactPage />} />
           <Route path="/salons" element={<ContactPage />} />
           <Route path="/concierge" element={<ContactPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/faqs" element={<FaqPage />} />
+          <Route path="/help-desk" element={<FaqPage />} />
+          <Route path="/help" element={<FaqPage />} />
         </Routes>
       </main>
 
