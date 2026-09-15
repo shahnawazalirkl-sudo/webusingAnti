@@ -42,7 +42,7 @@ const CheckoutPage = () => {
   const transitCost = transitMethod === 'diplomatic' ? 1499 : 0;
 
   // Form states
-  const [email, setEmail] = useState('aadhyasinghania.weddings@gmail.com');
+  const [email, setEmail] = useState('aliskshahnawaz786@gmail.com');
   const [phone, setPhone] = useState('96926 68263');
   const [receiveWhatsappProofs, setReceiveWhatsappProofs] = useState(true);
   const [recipientName, setRecipientName] = useState('Aadhya Singhania & Rohan Varma');
@@ -1157,6 +1157,7 @@ const CheckoutPage = () => {
             <Link to="/bespoke" className="hover:text-[#1F1B18] transition-colors">Concierge Protocols</Link>
             <Link to="/about" className="hover:text-[#1F1B18] transition-colors">Hallmark Verification</Link>
             <Link to="/return-policy" className="hover:text-[#1F1B18] transition-colors">Transit Insurance Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-[#1F1B18] transition-colors">Terms of Service</Link>
             <Link to="/privacy-policy" className="hover:text-[#1F1B18] transition-colors">Confidentiality Guarantee</Link>
           </div>
 

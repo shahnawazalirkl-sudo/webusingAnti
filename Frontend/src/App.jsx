@@ -21,6 +21,7 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import TrackOrderPage from './pages/TrackOrderPage';
 import ReturnPolicyPage from './pages/ReturnPolicyPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 import WishlistPage from './pages/WishlistPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactPage from './pages/ContactPage';
@@ -39,7 +40,24 @@ const App = () => {
   const location = useLocation();
 
   // Pages with their own dedicated minimal header or Cart bar (No Global Header/Footer)
-  const minimalRoutes = ['/cart', '/checkout', '/order-confirmation', '/track-order', '/return-policy', '/privacy-policy', '/privacy', '/wishlist', '/faq', '/faqs', '/help-desk', '/help'];
+  const minimalRoutes = [
+    '/cart',
+    '/checkout',
+    '/order-confirmation',
+    '/track-order',
+    '/return-policy',
+    '/privacy-policy',
+    '/privacy',
+    '/terms-of-service',
+    '/terms',
+    '/charter',
+    '/atelier-charter',
+    '/wishlist',
+    '/faq',
+    '/faqs',
+    '/help-desk',
+    '/help'
+  ];
   const isMinimalPage = minimalRoutes.includes(location.pathname);
 
   return (
@@ -70,6 +88,10 @@ const App = () => {
           <Route path="/return-policy" element={<ReturnPolicyPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/charter" element={<TermsOfServicePage />} />
+          <Route path="/atelier-charter" element={<TermsOfServicePage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />

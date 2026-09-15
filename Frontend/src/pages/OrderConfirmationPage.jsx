@@ -619,6 +619,8 @@ const OrderConfirmationPage = () => {
             <span>•</span>
             <Link to="/return-policy" className="hover:text-brand-dark transition-colors">Transit Insurance Policy</Link>
             <span>•</span>
+            <Link to="/terms-of-service" className="hover:text-brand-dark transition-colors">Terms of Service</Link>
+            <span>•</span>
             <Link to="/privacy-policy" className="hover:text-brand-dark transition-colors">Confidentiality Guarantee</Link>
           </div>
           <div>

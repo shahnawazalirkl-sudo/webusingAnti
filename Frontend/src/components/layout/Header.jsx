@@ -583,6 +583,7 @@ const Header = () => {
               <Link to="/wishlist" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wishlist') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>My Saved Keepsakes ({wishlistCount})</Link>
               <Link to="/track-order" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/track-order') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Track My Order</Link>
               <Link to="/return-policy" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/return-policy') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Return &amp; Refund Policy</Link>
+              <Link to="/terms-of-service" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/terms-of-service') || isActive('/terms') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Terms of Service &amp; Charter</Link>
               <Link to="/privacy-policy" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/privacy-policy') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Privacy &amp; NDA Covenant</Link>
             </div>
           </div>
