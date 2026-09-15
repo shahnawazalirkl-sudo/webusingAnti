@@ -211,7 +211,7 @@ const Header = () => {
                       <span className="material-symbols-outlined text-[18px]">category</span> Shop Categories
                     </span>
                     <Link
-                      to="/shop"
+                      to="/shop#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">All Products</span>
@@ -220,7 +220,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=keepsakes"
+                      to="/shop?cat=keepsakes#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Personalized Keepsakes</span>
@@ -229,7 +229,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=favors-trousseau"
+                      to="/shop?cat=favors-trousseau#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Wedding Favors &amp; Trousseau</span>
@@ -238,7 +238,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=for-her"
+                      to="/shop?cat=for-her#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Gifts For Her</span>
@@ -247,7 +247,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=for-him"
+                      to="/shop?cat=for-him#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Gifts For Him</span>
@@ -256,7 +256,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=couple"
+                      to="/shop?cat=couple#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Anniversary &amp; Couple</span>
@@ -265,7 +265,7 @@ const Header = () => {
                       </span>
                     </Link>
                     <Link
-                      to="/shop?cat=hampers"
+                      to="/shop?cat=hampers#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
                       <span className="font-medium">Luxury Hampers</span>

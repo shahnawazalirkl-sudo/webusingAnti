@@ -1,10 +1,23 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { PRODUCTS } from '../data/productsData';
 
+// Quick categories for top pill filter
+const categoryPills = [
+  { id: 'all', label: 'All Products' },
+  { id: 'keepsakes', label: 'Personalized Keepsakes', filterCat: ['photo-frames', 'acrylic-plaques', 'wooden-keepsakes'] },
+  { id: 'favors-trousseau', label: 'Wedding Favors & Trousseau', filterCat: ['wedding-favors', 'trousseau-suites', 'vow-books'] },
+  { id: 'for-her', label: 'Gifts For Her', recipient: 'For Her', aliases: ['bride'] },
+  { id: 'for-him', label: 'Gifts For Him', recipient: 'For Him', aliases: ['groom'] },
+  { id: 'couple', label: 'Anniversary & Couple', recipient: 'Couple', aliases: ['bride & groom'] },
+  { id: 'hampers', label: 'Luxury Hampers', filterCat: ['hampers', 'bridal-hampers'] },
+];
+
 const ShopPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const catalogSectionRef = useRef(null);
 
   // Search and Category from query parameters
   const initialCategory = searchParams.get('cat') || 'all';
@@ -28,31 +41,40 @@ const ShopPage = () => {
   // Sync with URL params
   useEffect(() => {
     const urlCat = searchParams.get('cat');
-    if (urlCat) {
-      const isPill = categoryPills.some(p => p.id === urlCat);
+    if (urlCat && urlCat !== 'all') {
+      const isPill = categoryPills.some((p) => p.id === urlCat);
       if (isPill) {
         setSelectedPill(urlCat);
       } else {
         setSelectedProductTypes([urlCat]);
         setSelectedPill('all');
       }
+    } else {
+      setSelectedPill('all');
+      setSelectedProductTypes([]);
     }
     const urlSearch = searchParams.get('search');
     if (urlSearch !== null) {
       setSearchQuery(urlSearch);
     }
-  }, [searchParams]);
+    setCurrentPage(1);
 
-  // Quick categories for top pill filter
-  const categoryPills = [
-    { id: 'all', label: 'All Products' },
-    { id: 'keepsakes', label: 'Personalized Keepsakes', filterCat: ['photo-frames', 'acrylic-plaques', 'wooden-keepsakes'] },
-    { id: 'favors-trousseau', label: 'Wedding Favors & Trousseau', filterCat: ['wedding-favors', 'trousseau-suites', 'vow-books'] },
-    { id: 'for-her', label: 'Gifts For Her', recipient: 'For Her' },
-    { id: 'for-him', label: 'Gifts For Him', recipient: 'For Him' },
-    { id: 'couple', label: 'Anniversary & Couple', recipient: 'Couple' },
-    { id: 'hampers', label: 'Luxury Hampers', filterCat: ['hampers', 'bridal-hampers'] },
-  ];
+    // If navigated with a category filter, search query, or #products anchor, directly scroll to products
+    const hasCategoryOrAnchor = (urlCat && urlCat !== 'all') || urlSearch || location.hash === '#products';
+    if (hasCategoryOrAnchor && catalogSectionRef.current) {
+      setTimeout(() => {
+        if (catalogSectionRef.current) {
+          const headerOffset = 130;
+          const elementPosition = catalogSectionRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }, 70);
+    }
+  }, [searchParams, location.hash]);
 
   // Product types for sidebar checkboxes with dynamic labels
   const productTypeOptions = [
@@ -110,8 +132,14 @@ const ShopPage = () => {
           if (foundPill.filterCat && !foundPill.filterCat.includes(product.category)) {
             return false;
           }
-          if (foundPill.recipient && !product.recipient?.toLowerCase().includes(foundPill.recipient.toLowerCase())) {
-            return false;
+          if (foundPill.recipient) {
+            const prodRec = (product.recipient || '').toLowerCase();
+            const targetRec = foundPill.recipient.toLowerCase();
+            const matchesDirect = prodRec.includes(targetRec);
+            const matchesAlias = foundPill.aliases && foundPill.aliases.some((a) => prodRec.includes(a));
+            if (!matchesDirect && !matchesAlias) {
+              return false;
+            }
           }
         }
       }
@@ -528,7 +556,7 @@ const ShopPage = () => {
       </section>
 
       {/* 4. Two-Column Catalog Layout */}
-      <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-8">
+      <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 scroll-mt-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Desktop Sticky Sidebar Filters (Left Column - 3.5 cols) */}
           <aside
