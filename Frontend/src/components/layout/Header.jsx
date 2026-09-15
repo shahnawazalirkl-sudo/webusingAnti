@@ -36,7 +36,7 @@ const Header = () => {
               <span className="text-surface-container-lowest font-bold tracking-normal">ASRAFIRST</span>
             </p>
             <div className="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm text-surface-container-high justify-end">
-              <Link to="/track-order" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
+              <Link to="/contact" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
                 Concierge
               </Link>
               <span>•</span>
@@ -568,6 +568,7 @@ const Header = () => {
 
             <div className="flex flex-col gap-3 text-xs font-semibold uppercase tracking-wider text-on-surface">
               <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/about') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Heritage &amp; Atelier (About Us)</Link>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/contact') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Contact &amp; Private Appointments</Link>
               <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/shop') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Shop All Collections</Link>
               <Link to="/personalized" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/personalized') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Personalized Keepsakes</Link>
               <Link to="/wedding-keepsakes" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wedding-keepsakes') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Wedding Registry &amp; Favors</Link>

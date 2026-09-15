@@ -60,8 +60,8 @@ const Footer = () => {
             <Link to="/about" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Our Heritage Story
             </Link>
-            <Link to="/about#salons" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Artisans &amp; Studio
+            <Link to="/contact#salons" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
+              Private Salons &amp; Studios
             </Link>
             <Link to="/bulk-orders" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Corporate Privileges
@@ -69,8 +69,8 @@ const Footer = () => {
             <Link to="/return-policy" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Care Instructions
             </Link>
-            <Link to="/track-order" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Concierge Desk
+            <Link to="/contact" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
+              Concierge &amp; Appointments
             </Link>
           </div>
 
@@ -83,11 +83,14 @@ const Footer = () => {
               Atelier Flagship: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
-              Inquiries: concierge@asraweddingcanvas.com
+              Inquiries: <a href="mailto:concierge@asraweddingcanvas.com" className="hover:text-[#FAF8F5] transition-colors">concierge@asraweddingcanvas.com</a>
             </p>
-            <p className="font-body-sm text-body-sm text-[#B8AEA3] mb-space-sm">
+            <p className="font-body-sm text-body-sm text-[#B8AEA3]">
               Appointments: <a href="tel:+919692668263" className="hover:text-[#FAF8F5] transition-colors">+91 96926 68263</a>
             </p>
+            <Link to="/contact#reservation-docket" className="font-label-sm text-[11px] text-[#C5A880] hover:underline mb-space-sm inline-block">
+              Reserve Private Salon Session →
+            </Link>
             <div className="flex items-center gap-space-xs text-[#FAF8F5]">
               <span className="material-symbols-outlined text-[20px] text-[#C5A880]">local_shipping</span>
               <span className="font-label-sm text-label-sm text-[#B8AEA3]">Insured Global Delivery</span>

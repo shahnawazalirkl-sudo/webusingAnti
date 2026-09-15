@@ -142,3 +142,11 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 50%, #A37E36 100%);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #C5A059, #F3E5AB, #8C6D37) 1;
+}
+
