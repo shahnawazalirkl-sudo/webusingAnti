@@ -206,67 +206,73 @@ const Header = () => {
                   </span>
                 </Link>
                 <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
-                  <div className="w-[760px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-lg grid grid-cols-1 md:grid-cols-3 gap-space-lg text-left backdrop-blur-md">
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">favorite</span> Favors &amp; Keepsakes
+                  <div className="w-[320px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
+                    <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">category</span> Shop Categories
+                    </span>
+                    <Link
+                      to="/shop"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">All Products</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
                       </span>
-                      <Link to="/product/sovereign-bridal-suite" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1 flex items-center justify-between group/item">
-                        <span>Custom Passport &amp; Luggage Sets</span>
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">Hot</span>
-                      </Link>
-                      <Link to="/product/aura-acrylic-melody" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Acrylic First Dance Plaques
-                      </Link>
-                      <Link to="/product/velvet-ring-vault" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Embossed Velvet Ring Boxes
-                      </Link>
-                      <Link to="/shop?search=scented+candles" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Monogrammed Scented Candles
-                      </Link>
-                      <Link to="/shop?search=leather+key+fobs" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Brass &amp; Leather Key Fobs
-                      </Link>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">card_giftcard</span> Luxury Hampers
+                    </Link>
+                    <Link
+                      to="/shop?cat=keepsakes"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Personalized Keepsakes</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
                       </span>
-                      <Link to="/product/grand-heritage-trousseau-trunk" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Grand Heritage Wooden Boxes
-                      </Link>
-                      <Link to="/shop?search=trousseau+packaging" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Trousseau Packaging Suites
-                      </Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Bridesmaid &amp; Groomsman Curations
-                      </Link>
-                      <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Return Favor Luxury Hampers
-                      </Link>
-                      <Link to="/shop?search=keepsake+boxes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
-                        Miniature Ritual Keepsake Boxes
-                      </Link>
-                    </div>
-
-                    <div className="bg-surface-container-low rounded-lg p-3 flex flex-col justify-between border border-outline-variant/40">
-                      <div>
-                        <span className="font-label-sm text-[10px] text-primary uppercase font-bold tracking-widest block mb-1">
-                          New Arrival Highlight
-                        </span>
-                        <h4 className="font-title-sm text-on-surface text-sm font-semibold mb-1">
-                          Atelier Golden Hour Suite
-                        </h4>
-                        <p className="font-body-sm text-xs text-on-surface-variant mb-2">
-                          Handcrafted Italian leather luggage tags &amp; gilded vows booklet.
-                        </p>
-                      </div>
-                      <Link to="/shop" className="inline-flex items-center gap-1 font-label-md text-xs font-semibold text-primary hover:text-on-surface transition-colors">
-                        <span>Explore All Gifts</span>
-                        <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-                      </Link>
-                    </div>
+                    </Link>
+                    <Link
+                      to="/shop?cat=favors-trousseau"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Wedding Favors &amp; Trousseau</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
+                      </span>
+                    </Link>
+                    <Link
+                      to="/shop?cat=for-her"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Gifts For Her</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
+                      </span>
+                    </Link>
+                    <Link
+                      to="/shop?cat=for-him"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Gifts For Him</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
+                      </span>
+                    </Link>
+                    <Link
+                      to="/shop?cat=couple"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Anniversary &amp; Couple</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
+                      </span>
+                    </Link>
+                    <Link
+                      to="/shop?cat=hampers"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Luxury Hampers</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                        arrow_forward
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </div>
