@@ -31,7 +31,7 @@ const ContactPage = () => {
     guestCount: '',
     preferredDate: '',
     timeSlot: '11:30 AM – Morning Session',
-    curations: ['Sovereign Bridal Trunks', 'Optical Crystal Plaques'],
+    collections: ['Sovereign Bridal Trunks', 'Optical Crystal Plaques'],
     bespokeNotes: '',
     attachedFileName: ''
   });
@@ -57,14 +57,14 @@ const ContactPage = () => {
     }
   };
 
-  // Handle Curations Checkbox
-  const handleCurationToggle = (curation) => {
+  // Handle Collections Checkbox
+  const handleCurationToggle = (collection) => {
     setFormData((prev) => {
-      const exists = prev.curations.includes(curation);
+      const exists = prev.collections.includes(collection);
       if (exists) {
-        return { ...prev, curations: prev.curations.filter((item) => item !== curation) };
+        return { ...prev, collections: prev.collections.filter((item) => item !== collection) };
       } else {
-        return { ...prev, curations: [...prev.curations, curation] };
+        return { ...prev, collections: [...prev.collections, collection] };
       }
     });
   };
@@ -103,7 +103,7 @@ const ContactPage = () => {
     setIsSubmitting(true);
     // Simulate booking API call
     setTimeout(() => {
-      const refCode = `ASRA-ATELIER-${Math.floor(1000 + Math.random() * 9000)}`;
+      const refCode = `ASRA-COLLECTION-${Math.floor(1000 + Math.random() * 9000)}`;
       setBookingReference(refCode);
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -130,19 +130,19 @@ const ContactPage = () => {
     },
     {
       q: 'Can we customize physical brass dies during the consultation?',
-      a: 'Yes. During your appointment, our typographic heraldry team can sketch and vectorize custom family monograms on the spot, allowing you to preview how your die will deboss into French velvet and aged teakwood.'
+      a: 'Yes. During your appointment, our typographic heraldry team can sketch and vectorize custom family initials on the spot, allowing you to preview how your die will deboss into French velvet and aged teakwood.'
     },
     {
-      q: 'How does the international virtual concierge consultation work?',
+      q: 'How does the international virtual support consultation work?',
       a: 'We conduct live HD video walkthroughs where a Senior Bridal Stylist presents actual fabric folios under studio lighting. Following the call, photorealistic 3D renders and physical swatch folios can be dispatched worldwide via express courier.'
     },
     {
-      q: 'What is the lead time for bespoke wedding orders?',
-      a: 'Standard bespoke creations require 12–18 business days for casting, debossing, and assembly. For urgent ceremonies, our Atelier Express Foundry can accommodate accelerated turnarounds in as little as 3 to 5 business days upon request.'
+      q: 'What is the lead time for customized wedding orders?',
+      a: 'Standard customized creations require 12–18 business days for casting, debossing, and assembly. For urgent ceremonies, our Collection Express Foundry can accommodate accelerated turnarounds in as little as 3 to 5 business days upon request.'
     },
     {
       q: 'Is there any consultation fee for tasting & design sessions?',
-      a: 'Atelier consultations, fabric swatch tastings, and heraldic monogram sketching sessions are completely complimentary. Our priority is understanding your vision and curating an unforgettable heirloom suite.'
+      a: 'Collection consultations, fabric swatch tastings, and heraldic initials sketching sessions are completely complimentary. Our priority is understanding your vision and curating an unforgettable heirloom suite.'
     }
   ];
 
@@ -158,7 +158,7 @@ const ContactPage = () => {
           </div>
           <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
             <span className="text-base text-asra-gold">✨</span>
-            <span className="tracking-wider">100% Bespoke Engraved Keepsakes</span>
+            <span className="tracking-wider">100% Customized Engraved Gifts</span>
           </div>
           <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
             <span className="text-base text-asra-gold">★</span>
@@ -179,7 +179,7 @@ const ContactPage = () => {
           </li>
           <li className="text-asra-gold/50">/</li>
           <li>
-            <Link to="/about" className="hover:text-asra-gold transition-colors">Concierge &amp; Salons</Link>
+            <Link to="/about" className="hover:text-asra-gold transition-colors">Support &amp; Salons</Link>
           </li>
           <li className="text-asra-gold/50">/</li>
           <li className="text-asra-charcoal font-semibold">Contact &amp; Private Appointments</li>
@@ -190,14 +190,14 @@ const ContactPage = () => {
       <section className="relative py-12 lg:py-16 overflow-hidden bg-asra-cream">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center max-w-4xl mx-auto mb-14">
           <span className="inline-block text-[11px] font-semibold tracking-[0.35em] text-asra-gold uppercase px-4 py-1.5 border border-asra-gold/40 bg-asra-sand/30 rounded-full mb-4">
-            PRIVATE BRIDAL SALONS &amp; ATELIER CONCIERGE
+            PRIVATE BRIDAL SALONS &amp; COLLECTION SUPPORT
           </span>
           <h1 className="font-cormorant text-4xl sm:text-5xl lg:text-6xl text-asra-charcoal font-bold tracking-tight leading-[1.1] mb-5">
-            Schedule a Private Tasting &amp; Bespoke Consultation
+            Schedule a Private Tasting &amp; Customized Consultation
           </h1>
           <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-asra-gold to-transparent mx-auto mb-6"></div>
           <p className="font-serif italic text-lg sm:text-xl text-asra-muted leading-relaxed max-w-2xl mx-auto font-light">
-            Step into our sanctuaries in Jubilee Hills &amp; Indiranagar, or connect directly with our Master Concierge worldwide to curate your wedding heirlooms, trousseau casing, and heraldic crests.
+            Step into our sanctuaries in Jubilee Hills &amp; Indiranagar, or connect directly with our Master Support worldwide to curate your wedding heirlooms, wedding essentials casing, and heraldic crests.
           </p>
         </div>
 
@@ -205,16 +205,16 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* Card 1: WhatsApp Concierge */}
+            {/* Card 1: WhatsApp Support */}
             <div className="luxury-card bg-white p-8 border border-asra-border flex flex-col justify-between relative shadow-sm hover:border-asra-gold transition-colors">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="font-cinzel text-xs text-asra-goldDark font-bold tracking-widest">DIRECT CHANNEL · I</span>
                   <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[9px] font-bold uppercase rounded-sm">24/7 Global</span>
                 </div>
-                <h3 className="font-display text-xl font-bold text-asra-charcoal">Instant WhatsApp Concierge</h3>
+                <h3 className="font-display text-xl font-bold text-asra-charcoal">Instant WhatsApp Support</h3>
                 <p className="text-xs text-gray-600 leading-relaxed font-light">
-                  Dedicated bridal concierge on WhatsApp for instant digital proofs, live swatch photos &amp; immediate quote assistance. Active 24/7 across IST, GST, GMT &amp; EST.
+                  Dedicated bridal support on WhatsApp for instant digital proofs, live swatch photos &amp; immediate quote assistance. Active 24/7 across IST, GST, GMT &amp; EST.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-asra-border/60 space-y-2">
@@ -269,7 +269,7 @@ const ContactPage = () => {
                   }}
                   className="inline-flex items-center justify-center w-full py-2.5 text-xs uppercase font-semibold tracking-wider border border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white transition-colors cursor-pointer"
                 >
-                  Select Atelier Location
+                  Select Collection Location
                 </button>
               </div>
             </div>
@@ -279,11 +279,11 @@ const ContactPage = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="font-cinzel text-xs text-asra-goldDark font-bold tracking-widest">DIRECT CHANNEL · III</span>
-                  <span className="px-2 py-0.5 bg-amber-100 text-asra-goldDark border border-asra-gold/30 text-[9px] font-bold uppercase rounded-sm">Bespoke VIP</span>
+                  <span className="px-2 py-0.5 bg-amber-100 text-asra-goldDark border border-asra-gold/30 text-[9px] font-bold uppercase rounded-sm">Customized VIP</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-asra-charcoal">Corporate &amp; Royal Gifting Desk</h3>
                 <p className="text-xs text-gray-600 leading-relaxed font-light">
-                  Specialized desks for destination weddings (Udaipur, Lake Como, Bali), bulk keepsakes, VIP diplomatic registries, and non-disclosure custom suites.
+                  Specialized desks for destination weddings (Udaipur, Lake Como, Bali), bulk gifts, VIP diplomatic registries, and non-disclosure custom suites.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-asra-border/60">
@@ -300,7 +300,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 4. Master Reservation Docket & Atelier Showrooms */}
+      {/* 4. Master Reservation Docket & Collection Showrooms */}
       <section className="py-16 lg:py-24 bg-white border-y border-asra-border" id="reservation-docket">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -315,10 +315,10 @@ const ContactPage = () => {
                       MASTER RESERVATION DOCKET
                     </span>
                     <h2 className="font-cormorant text-3xl sm:text-4xl text-asra-charcoal font-bold">
-                      Reserve Your Private Atelier Session
+                      Reserve Your Private Collection Session
                     </h2>
                     <p className="text-xs text-asra-muted mt-2 font-light">
-                      Choose your preferred sensory tasting salon or international digital concierge review.
+                      Choose your preferred sensory tasting salon or international digital support review.
                     </p>
                   </div>
 
@@ -488,7 +488,7 @@ const ContactPage = () => {
                           value={formData.guestCount}
                           onChange={handleInputChange}
                           className="w-full bg-white border border-asra-border text-xs px-3.5 py-2.5 focus:outline-none focus:border-asra-gold focus:ring-1 focus:ring-asra-gold font-light"
-                          placeholder="e.g. 250 keepsakes"
+                          placeholder="e.g. 250 gifts"
                         />
                       </div>
                     </div>
@@ -531,32 +531,32 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    {/* 6. Curations of Interest */}
+                    {/* 6. Collections of Interest */}
                     <div>
                       <label className="block font-cinzel text-xs tracking-wider uppercase font-bold text-asra-charcoal mb-2">
-                        Specific Curations of Interest
+                        Specific Collections of Interest
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-700">
                         {[
                           'Sovereign Bridal Trunks',
                           'Optical Crystal Plaques',
-                          'Debossed Leather Keepsakes',
+                          'Debossed Leather Gifts',
                           'Wax-Sealed Favors',
-                          'Custom Crest Monogram Die Casting'
+                          'Custom Crest Initials Die Casting'
                         ].map((item, idx) => (
                           <label
                             key={item}
                             className={`flex items-center gap-2 p-2.5 border transition-all cursor-pointer select-none ${
                               idx === 4 ? 'sm:col-span-2' : ''
                             } ${
-                              formData.curations.includes(item)
+                              formData.collections.includes(item)
                                 ? 'border-asra-gold bg-asra-sand/20'
                                 : 'border-asra-border bg-white hover:border-asra-gold/50'
                             }`}
                           >
                             <input
                               type="checkbox"
-                              checked={formData.curations.includes(item)}
+                              checked={formData.collections.includes(item)}
                               onChange={() => handleCurationToggle(item)}
                               className="rounded border-asra-border text-asra-gold focus:ring-asra-gold"
                             />
@@ -566,10 +566,10 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    {/* 7. Bespoke Notes / Monogram Concept */}
+                    {/* 7. Customized Notes / Initials Concept */}
                     <div>
                       <label className="block text-xs font-medium text-asra-charcoal uppercase tracking-wider mb-1">
-                        Bespoke Notes / Monogram Concept Upload
+                        Customized Notes / Initials Concept Upload
                       </label>
                       <textarea
                         rows="3"
@@ -584,7 +584,7 @@ const ContactPage = () => {
                       <div className="mt-2 flex items-center justify-between text-[11px] text-asra-muted border border-dashed border-asra-border p-2 bg-white/60 rounded">
                         <label className="flex items-center gap-2 cursor-pointer hover:text-asra-gold transition-colors">
                           <Upload className="w-3.5 h-3.5 text-asra-gold" />
-                          <span>{formData.attachedFileName ? formData.attachedFileName : 'Attach Moodboard / Monogram Vector (PDF, JPG, PNG)'}</span>
+                          <span>{formData.attachedFileName ? formData.attachedFileName : 'Attach Moodboard / Initials Vector (PDF, JPG, PNG)'}</span>
                           <input
                             type="file"
                             className="hidden"
@@ -617,7 +617,7 @@ const ContactPage = () => {
                       {isSubmitting ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          <span>Reserving Atelier Docket...</span>
+                          <span>Reserving Collection Docket...</span>
                         </>
                       ) : (
                         <span>Confirm Appointment Request</span>
@@ -640,14 +640,14 @@ const ContactPage = () => {
                   
                   <div>
                     <span className="text-[10px] uppercase tracking-[0.3em] text-asra-gold font-bold block mb-1">
-                      ATELIER RESERVATION CONFIRMED
+                      COLLECTION RESERVATION CONFIRMED
                     </span>
                     <h2 className="font-cormorant text-3xl font-bold text-asra-charcoal">
                       We Await Your Presence
                     </h2>
                     <div className="w-16 h-[1px] bg-asra-gold mx-auto my-3"></div>
                     <p className="font-serif italic text-sm text-asra-muted max-w-md mx-auto">
-                      Dear {formData.fullName || 'Patron'}, your appointment request has been etched into our master atelier docket.
+                      Dear {formData.fullName || 'Patron'}, your appointment request has been etched into our master collection docket.
                     </p>
                   </div>
 
@@ -719,7 +719,7 @@ const ContactPage = () => {
 
             </div>
 
-            {/* Right Column (5 cols): Atelier Locations & Protocol */}
+            {/* Right Column (5 cols): Collection Locations & Protocol */}
             <div className="lg:col-span-5 space-y-8" id="salons">
               
               {/* Jubilee Hills Card */}
@@ -736,7 +736,7 @@ const ContactPage = () => {
                 </p>
                 <div className="space-y-2 text-xs text-gray-700 py-3 border-y border-asra-border/70 font-light">
                   <div className="flex items-center justify-between">
-                    <span>Direct Atelier Phone:</span>
+                    <span>Direct Collection Phone:</span>
                     <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
                       +91 96926 68263
                     </a>
@@ -787,7 +787,7 @@ const ContactPage = () => {
                 </p>
                 <div className="space-y-2 text-xs text-gray-700 py-3 border-y border-asra-border/70 font-light">
                   <div className="flex items-center justify-between">
-                    <span>Direct Atelier Phone:</span>
+                    <span>Direct Collection Phone:</span>
                     <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
                       +91 96926 68263
                     </a>
@@ -800,7 +800,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <p className="text-[11px] text-gray-500 mt-3 italic">
-                  Contemporary acrylic gallery, bridal trousseau styling suites, walk-ins accommodated.
+                  Contemporary acrylic gallery, bridal wedding essentials styling suites, walk-ins accommodated.
                 </p>
 
                 <div className="mt-4 pt-3 flex items-center gap-3">
@@ -848,7 +848,7 @@ const ContactPage = () => {
                       Can't Visit in Person?
                     </h4>
                     <p className="text-xs text-asra-muted leading-relaxed font-light">
-                      Request an official Velvet &amp; Metallic Foil Swatch Folio delivered express to your doorstep before placing your trousseau commission.
+                      Request an official Velvet &amp; Metallic Foil Swatch Folio delivered express to your doorstep before placing your wedding essentials commission.
                     </p>
                     <button
                       type="button"
@@ -868,12 +868,12 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 5. FAQ Section (Atelier Visiting Protocol) */}
+      {/* 5. FAQ Section (Collection Visiting Protocol) */}
       <section className="py-16 bg-asra-cream/80 border-b border-asra-border">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[10px] font-semibold tracking-[0.3em] text-asra-gold uppercase block mb-2">
-              ATELIER VISITING PROTOCOL
+              COLLECTION VISITING PROTOCOL
             </span>
             <h2 className="font-cormorant text-3xl sm:text-4xl text-asra-charcoal font-bold">
               Frequently Asked Questions

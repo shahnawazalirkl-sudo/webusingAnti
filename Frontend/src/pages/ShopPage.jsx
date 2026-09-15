@@ -6,8 +6,8 @@ import { PRODUCTS } from '../data/productsData';
 // Quick categories for top pill filter
 const categoryPills = [
   { id: 'all', label: 'All Products' },
-  { id: 'keepsakes', label: 'Personalized Keepsakes', filterCat: ['photo-frames', 'acrylic-plaques', 'wooden-keepsakes'] },
-  { id: 'favors-trousseau', label: 'Wedding Favors & Trousseau', filterCat: ['wedding-favors', 'trousseau-suites', 'vow-books'] },
+  { id: 'keepsakes', label: 'Personalized Gifts', filterCat: ['photo-frames', 'acrylic-plaques', 'wooden-keepsakes'] },
+  { id: 'favors-trousseau', label: 'Wedding Favors & Wedding Essentials', filterCat: ['wedding-favors', 'trousseau-suites', 'vow-books'] },
   { id: 'for-her', label: 'Gifts For Her', recipient: 'For Her', aliases: ['bride'] },
   { id: 'for-him', label: 'Gifts For Him', recipient: 'For Him', aliases: ['groom'] },
   { id: 'couple', label: 'Anniversary & Couple', recipient: 'Couple', aliases: ['bride & groom'] },
@@ -30,7 +30,7 @@ const ShopPage = () => {
   const [selectedRecipient, setSelectedRecipient] = useState('all'); // 'all', 'For Her', 'For Him', 'Couple', 'Parents', 'Bridesmaids', 'Groomsmen'
   const [selectedOccasions, setSelectedOccasions] = useState([]);
   const [selectedPersonalization, setSelectedPersonalization] = useState('all');
-  const [selectedDispatch, setSelectedDispatch] = useState('all'); // 'all', '24h', 'standard', 'bespoke'
+  const [selectedDispatch, setSelectedDispatch] = useState('all'); // 'all', '24h', 'standard', 'customized'
   const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-asc', 'price-desc', 'rating', 'newest'
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [gridCols, setGridCols] = useState(3); // 3 or 4 columns
@@ -80,12 +80,12 @@ const ShopPage = () => {
   const productTypeOptions = [
     { id: 'photo-frames', label: 'Engraved Photo Frames', category: 'photo-frames' },
     { id: 'acrylic-plaques', label: 'LED Acrylic Song Plaques', category: 'acrylic-plaques' },
-    { id: 'velvet-boxes', label: 'Monogram Velvet Jewelry Boxes', category: 'velvet-boxes' },
-    { id: 'wooden-keepsakes', label: 'Wooden Keepsake Boxes', category: 'wooden-keepsakes' },
-    { id: 'leather-travel', label: 'Bespoke Travel Sets', category: 'leather-travel' },
+    { id: 'velvet-boxes', label: 'Initials Velvet Jewelry Boxes', category: 'velvet-boxes' },
+    { id: 'wooden-keepsakes', label: 'Wooden Gift Boxes', category: 'wooden-keepsakes' },
+    { id: 'leather-travel', label: 'Customized Travel Sets', category: 'leather-travel' },
     { id: 'hampers', label: 'Couple Celebration Hampers', category: 'hampers' },
     { id: 'wedding-favors', label: 'Wedding Guest Favors', category: 'wedding-favors' },
-    { id: 'trousseau-suites', label: 'Bridal Trousseau Suites', category: 'trousseau-suites' },
+    { id: 'trousseau-suites', label: 'Bridal Wedding Essentials Suites', category: 'trousseau-suites' },
     { id: 'vow-books', label: 'Heirloom Vow Books', category: 'vow-books' },
     { id: 'robes-silk', label: 'Pure Mulberry Silk Robes', category: 'robes-silk' }
   ];
@@ -192,8 +192,8 @@ const ShopPage = () => {
       } else if (selectedDispatch === 'standard') {
         const isStandard = (product.timeline || '').includes('Standard') || (product.timeline || '').includes('2–3 Days');
         if (!isStandard) return false;
-      } else if (selectedDispatch === 'bespoke') {
-        const isBespoke = (product.timeline || '').includes('Bespoke') || (product.timeline || '').includes('5–7 Days') || (product.timeline || '').includes('10+ Days');
+      } else if (selectedDispatch === 'customized') {
+        const isBespoke = (product.timeline || '').includes('Customized') || (product.timeline || '').includes('5–7 Days') || (product.timeline || '').includes('10+ Days');
         if (!isBespoke) return false;
       }
 
@@ -311,13 +311,13 @@ const ShopPage = () => {
           <div className="relative z-10 max-w-3xl flex flex-col gap-2">
             <div className="flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-[0.25em]">
               <span className="material-symbols-outlined text-[16px]">draw</span>
-              <span>Curated Keepsake Archives</span>
+              <span>Curated Gift Archives</span>
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface tracking-tight leading-tight">
-              The Atelier Collection
+              The Collection Collection
             </h1>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-1">
-              Thoughtfully personalized gifts, bespoke wedding trousseau, and timeless keepsake favors handcrafted for
+              Thoughtfully personalized gifts, customized wedding wedding essentials, and timeless gift favors handcrafted for
               life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our Bengaluru &amp;
               Hyderabad studios.
             </p>
@@ -540,11 +540,11 @@ const ShopPage = () => {
                   onChange={(e) => setSortBy(e.target.value)}
                   className="appearance-none bg-surface-container-lowest text-on-surface font-title-sm text-xs pl-3 pr-8 py-1.5 rounded-lg shadow-sm border border-outline-variant/50 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
                 >
-                  <option value="featured">Featured Atelier Edits</option>
+                  <option value="featured">Featured Collection Edits</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
                   <option value="rating">Customer Ratings (Top Rated)</option>
-                  <option value="newest">Newest Atelier Arrivals</option>
+                  <option value="newest">Newest Collection Arrivals</option>
                 </select>
                 <span className="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">
                   expand_more
@@ -567,7 +567,7 @@ const ShopPage = () => {
             <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
               <div className="flex items-center gap-1.5 text-on-surface">
                 <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
-                <span className="font-serif text-base font-semibold tracking-wide">Refine Atelier</span>
+                <span className="font-serif text-base font-semibold tracking-wide">Refine Collection</span>
               </div>
               {activeFiltersCount > 0 && (
                 <button
@@ -596,7 +596,7 @@ const ShopPage = () => {
                     setSearchQuery(e.target.value);
                     setCurrentPage(1);
                   }}
-                  placeholder="Search keepsakes, acrylics..."
+                  placeholder="Search gifts, acrylics..."
                   className="w-full bg-surface-container-low pl-8 pr-3 py-2 rounded-lg border border-outline-variant/60 text-xs focus:ring-1 focus:ring-primary focus:outline-none"
                 />
               </div>
@@ -817,22 +817,22 @@ const ShopPage = () => {
                   <input
                     type="radio"
                     name="dispatch"
-                    checked={selectedDispatch === 'bespoke'}
-                    onChange={() => setSelectedDispatch('bespoke')}
+                    checked={selectedDispatch === 'customized'}
+                    onChange={() => setSelectedDispatch('customized')}
                     className="accent-primary"
                   />
-                  <span className="font-body-sm text-xs text-on-surface">Bespoke Monogram (5–7 Days)</span>
+                  <span className="font-body-sm text-xs text-on-surface">Customized Initials (5–7 Days)</span>
                 </label>
               </div>
             </div>
 
-            {/* Concierge Direct Advisory Box */}
+            {/* Support Direct Advisory Box */}
             <div className="bg-primary-container/20 p-4 rounded-xl flex items-start gap-3 border border-primary/20 mt-2">
               <span className="material-symbols-outlined text-primary text-[22px] shrink-0">support_agent</span>
               <div className="flex flex-col">
-                <h4 className="font-serif text-sm text-on-surface font-semibold">Bespoke Concierge</h4>
+                <h4 className="font-serif text-sm text-on-surface font-semibold">Customized Support</h4>
                 <p className="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
-                  Need assistance with bulk wedding favors, trousseau design, or urgent timelines?
+                  Need assistance with bulk wedding favors, wedding essentials design, or urgent timelines?
                 </p>
                 <a
                   href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
@@ -879,7 +879,7 @@ const ShopPage = () => {
                   ))}
                 </div>
 
-                {/* Mid-Grid Editorial Banner / Atelier Custom Notice */}
+                {/* Mid-Grid Editorial Banner / Collection Custom Notice */}
                 <div className="w-full rounded-2xl bg-surface-container p-6 sm:p-10 relative overflow-hidden shadow-sm border border-outline-variant/30">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                     <div className="flex flex-col max-w-xl text-center md:text-left">
@@ -891,8 +891,8 @@ const ShopPage = () => {
                         Planning a Wedding or Royal Soirée?
                       </h2>
                       <p className="font-body-sm text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-                        Connect directly with our Chief Atelier Designer. Receive physical wood and fabric swatch kits,
-                        complimentary monogram 3D mockups, and tailored volume pricing for 50+ pieces.
+                        Connect directly with our Chief Collection Designer. Receive physical wood and fabric swatch kits,
+                        complimentary initials 3D mockups, and tailored volume pricing for 50+ pieces.
                       </p>
                     </div>
 
@@ -928,17 +928,17 @@ const ShopPage = () => {
                       <ProductCard key={product.id} product={product} />
                     ))}
 
-                    {/* Bespoke Discovery Card inserted at end of catalog grid */}
+                    {/* Customized Discovery Card inserted at end of catalog grid */}
                     <div className="flex flex-col justify-center items-center text-center p-6 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm">
                       <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
                         <span className="material-symbols-outlined text-[24px]">palette</span>
                       </div>
                       <span className="font-label-sm text-[10px] text-primary uppercase tracking-widest font-semibold">
-                        Bespoke Commission
+                        Customized Commission
                       </span>
                       <h3 className="font-serif text-lg text-on-surface mt-1 font-semibold">Have a Unique Vision?</h3>
                       <p className="font-body-sm text-xs text-on-surface-variant mt-2 mb-4 max-w-xs leading-relaxed">
-                        Upload your wedding logo, custom motif, or personalized calligraphy poem for bespoke casting.
+                        Upload your wedding logo, custom motif, or personalized calligraphy poem for customized casting.
                       </p>
                       <Link
                         to="/bespoke"
@@ -1015,7 +1015,7 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* 5. Trust & Atelier Quality Assurance Section */}
+      {/* 5. Trust & Collection Quality Assurance Section */}
       <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 bg-surface-container-low rounded-2xl border border-outline-variant/30 shadow-sm">
           <div className="flex items-center gap-3">
@@ -1023,7 +1023,7 @@ const ShopPage = () => {
               <span className="material-symbols-outlined text-[24px]">verified</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">100% Bespoke Craft</span>
+              <span className="font-serif text-sm text-on-surface font-semibold">100% Customized Craft</span>
               <span className="font-body-sm text-xs text-on-surface-variant">Master engravers &amp; artisans</span>
             </div>
           </div>
@@ -1053,7 +1053,7 @@ const ShopPage = () => {
               <span className="material-symbols-outlined text-[24px]">ring_volume</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">Dedicated Concierge</span>
+              <span className="font-serif text-sm text-on-surface font-semibold">Dedicated Support</span>
               <span className="font-body-sm text-xs text-on-surface-variant">Direct planner assistance</span>
             </div>
           </div>
@@ -1075,7 +1075,7 @@ const ShopPage = () => {
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/40 mb-4">
                 <div className="flex items-center gap-2 text-on-surface">
                   <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
-                  <span className="font-serif text-lg font-semibold">Refine Atelier</span>
+                  <span className="font-serif text-lg font-semibold">Refine Collection</span>
                 </div>
                 <button
                   onClick={() => setIsMobileFilterOpen(false)}

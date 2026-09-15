@@ -9,10 +9,10 @@ const SUB_CATEGORIES = [
   { id: 'all', label: 'All Wedding Suites (140)' },
   { id: 'bridal-groom', label: 'Bridal & Groom Gifts' },
   { id: 'vow-books', label: 'Vow Books & Stationery' },
-  { id: 'trousseau-vaults', label: 'Trousseau & Ring Vaults' },
+  { id: 'trousseau-vaults', label: 'Wedding Essentials & Ring Vaults' },
   { id: 'wedding-favors', label: 'Wedding Favors & Bulk' },
   { id: 'preserved-varmala', label: 'Preserved Varmala Art' },
-  { id: 'milestone-keepsakes', label: 'Milestone Keepsakes' },
+  { id: 'milestone-keepsakes', label: 'Milestone Gifts' },
 ];
 
 // Sidebar Filter Options defined in Stitch MCP
@@ -35,15 +35,15 @@ const CEREMONIES = [
 const CRAFTS = [
   'Gilded Wax Seal & Deckle Edge',
   'Hand-Polished Brass & Timber',
-  'Monogrammed Raw Silk & Velvet',
+  'Initials Raw Silk & Velvet',
   'Scannable Audio Acrylic',
   'Preserved Botanical Resin',
 ];
 
 const TIMELINES = [
   { id: 'Priority Express (48h)', label: 'Priority Express (48h)', icon: 'bolt' },
-  { id: 'Standard Atelier (4-7 Days)', label: 'Standard Atelier (4-7 Days)' },
-  { id: 'Bespoke Bridal Suite (10+ Days)', label: 'Bespoke Bridal Suite (10+ Days)' },
+  { id: 'Standard Collection (4-7 Days)', label: 'Standard Collection (4-7 Days)' },
+  { id: 'Customized Bridal Suite (10+ Days)', label: 'Customized Bridal Suite (10+ Days)' },
 ];
 
 const PRICE_RANGES = [
@@ -64,7 +64,7 @@ const STITCH_CURATED_ORDER = [
   'soundwave-acrylic-lamp',
   'crystal-toasting-flutes',
   'groom-watch-casing',
-  'luxury-trousseau-trunk',
+  'luxury-wedding essentials-trunk',
   'botanical-candle-favors',
   'marble-brass-platter',
 ];
@@ -138,7 +138,7 @@ const WeddingKeepsakesPage = () => {
   const [customBride, setCustomBride] = useState('Asra');
   const [customGroom, setCustomGroom] = useState('Shahnawaz');
   const [customDate, setCustomDate] = useState('2026-11-18');
-  const [customCrest, setCustomCrest] = useState('Heritage Floral Crest');
+  const [customCrest, setCustomCrest] = useState('Classic Floral Crest');
   const [selectedEdition, setSelectedEdition] = useState(null);
   const [customQuantity, setCustomQuantity] = useState(1);
 
@@ -152,7 +152,7 @@ const WeddingKeepsakesPage = () => {
       if (customizingProduct.editions && customizingProduct.editions.length > 0) {
         setSelectedEdition(customizingProduct.editions[0].name);
       } else {
-        setSelectedEdition('Signature Atelier Edition');
+        setSelectedEdition('Signature Collection Edition');
       }
       setCustomQuantity(1);
     }
@@ -279,13 +279,13 @@ const WeddingKeepsakesPage = () => {
             product.id === 'deckle-vow-books' ||
             product.title?.toLowerCase().includes('vow');
           if (!match) return false;
-        } else if (activeTab === 'trousseau-vaults') {
+        } else if (activeTab === 'wedding essentials-vaults') {
           const match =
-            product.subCategory === 'trousseau-vaults' ||
+            product.subCategory === 'wedding essentials-vaults' ||
             product.category === 'velvet-boxes' ||
-            product.category === 'trousseau-suites' ||
+            product.category === 'wedding essentials-suites' ||
             product.id === 'velvet-ring-vault' ||
-            product.id === 'luxury-trousseau-trunk';
+            product.id === 'luxury-wedding essentials-trunk';
           if (!match) return false;
         } else if (activeTab === 'wedding-favors') {
           const match =
@@ -301,9 +301,9 @@ const WeddingKeepsakesPage = () => {
             product.id === 'botanical-varmala-frame' ||
             product.craft?.includes('Preserved Botanical');
           if (!match) return false;
-        } else if (activeTab === 'milestone-keepsakes') {
+        } else if (activeTab === 'milestone-gifts') {
           const match =
-            product.subCategory === 'milestone-keepsakes' ||
+            product.subCategory === 'milestone-gifts' ||
             product.category === 'guestbook-wood' ||
             product.category === 'acrylic-plaques' ||
             product.category === 'platters-serveware' ||
@@ -372,7 +372,7 @@ const WeddingKeepsakesPage = () => {
             return (
               prodCeremony.includes('Wedding Day') ||
               prodCeremony.includes('Ceremony') ||
-              prodCeremony.includes('Trousseau')
+              prodCeremony.includes('Wedding Essentials')
             );
           }
           if (c === 'Reception & Honeymoon') {
@@ -402,11 +402,11 @@ const WeddingKeepsakesPage = () => {
               prodCraft.includes('Wood')
             );
           }
-          if (craft === 'Monogrammed Raw Silk & Velvet') {
+          if (craft === 'Initials Raw Silk & Velvet') {
             return (
               prodCraft.includes('Silk') ||
               prodCraft.includes('Velvet') ||
-              prodCraft.includes('Monogrammed') ||
+              prodCraft.includes('Initials') ||
               prodCraft.includes('Debossing')
             );
           }
@@ -434,9 +434,9 @@ const WeddingKeepsakesPage = () => {
         const prodTimeline = product.timeline || '';
         if (selectedTimeline === 'Priority Express (48h)') {
           if (!prodTimeline.includes('48h') && !prodTimeline.includes('24-Hour')) return false;
-        } else if (selectedTimeline === 'Standard Atelier (4-7 Days)') {
+        } else if (selectedTimeline === 'Standard Collection (4-7 Days)') {
           if (!prodTimeline.includes('4-7') && !prodTimeline.includes('2–3 Days')) return false;
-        } else if (selectedTimeline === 'Bespoke Bridal Suite (10+ Days)') {
+        } else if (selectedTimeline === 'Customized Bridal Suite (10+ Days)') {
           if (!prodTimeline.includes('10+')) return false;
         }
       }
@@ -514,7 +514,7 @@ const WeddingKeepsakesPage = () => {
         selectedEdition ||
         (customizingProduct.editions
           ? customizingProduct.editions[0].name
-          : 'Signature Atelier Edition'),
+          : 'Signature Collection Edition'),
     });
     setCustomizingProduct(null);
   };
@@ -531,7 +531,7 @@ const WeddingKeepsakesPage = () => {
       <div className="relative w-full overflow-hidden">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[320px] bg-gradient-to-b from-primary-fixed/25 via-secondary-container/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-        {/* Atelier Breadcrumb & Header Hero from Stitch MCP */}
+        {/* Collection Breadcrumb & Header Hero from Stitch MCP */}
         <section className="max-w-[1360px] mx-auto px-4 sm:px-8 pt-6 pb-6 w-full">
           {/* Breadcrumb Bar */}
           <nav
@@ -543,10 +543,10 @@ const WeddingKeepsakesPage = () => {
             </Link>
             <span className="text-outline-variant">/</span>
             <Link to="/collections" className="hover:text-primary transition-colors">
-              Wedding Atelier
+              Wedding Collection
             </Link>
             <span className="text-outline-variant">/</span>
-            <span className="text-primary font-semibold">Luxury Keepsakes &amp; Bridal Suites</span>
+            <span className="text-primary font-semibold">Luxury Gifts &amp; Bridal Suites</span>
           </nav>
 
           {/* Editorial Banner Structure */}
@@ -563,14 +563,14 @@ const WeddingKeepsakesPage = () => {
                     stars
                   </span>
                   <span className="font-label-sm text-label-sm tracking-[0.2em] text-primary uppercase font-bold text-[11px]">
-                    The Atelier Wedding Suite
+                    The Collection Wedding Suite
                   </span>
                 </div>
                 <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-on-surface tracking-tight leading-tight mb-2">
-                  Bespoke Wedding Keepsakes &amp; Bridal Luxuries
+                  Customized Wedding Gifts &amp; Bridal Luxuries
                 </h1>
                 <p className="font-sans text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed mt-2">
-                  Celebrate timeless unions with handcrafted vow books, personalized bridal hampers, monogrammed trousseau boxes, and heirloom keepsakes crafted to cherish forever.
+                  Celebrate timeless unions with handcrafted vow books, personalized bridal hampers, initials wedding essentials boxes, and heirloom gifts crafted to cherish forever.
                 </p>
               </div>
 
@@ -685,7 +685,7 @@ const WeddingKeepsakesPage = () => {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              placeholder="Search wedding keepsakes, vow books, hampers..."
+              placeholder="Search wedding gifts, vow books, hampers..."
               className="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-lg pl-9 pr-8 py-2 text-xs text-on-surface focus:outline-none focus:border-primary"
             />
             {searchQuery && (
@@ -1078,14 +1078,14 @@ const WeddingKeepsakesPage = () => {
                 )}
               </div>
 
-              {/* Concierge WhatsApp Callout Card from Stitch MCP */}
+              {/* Support WhatsApp Callout Card from Stitch MCP */}
               <div className="bg-gradient-to-br from-[#1C1B1B] to-[#2E2B28] text-surface-container-lowest rounded-xl flex flex-col gap-2 relative overflow-hidden mt-2 p-4 shadow-sm">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-primary-fixed text-[20px]">
                     support_agent
                   </span>
                   <span className="text-xs text-primary-fixed font-bold tracking-wider uppercase font-sans">
-                    Wedding Concierge
+                    Wedding Support
                   </span>
                 </div>
                 <p className="text-xs text-surface-container-highest/85 leading-relaxed">
@@ -1191,7 +1191,7 @@ const WeddingKeepsakesPage = () => {
                                   : product.badge.includes('Silk') ||
                                       product.badge.includes('Paper') ||
                                       product.badge.includes('Crystal') ||
-                                      product.badge.includes('Trousseau')
+                                      product.badge.includes('Wedding Essentials')
                                     ? 'bg-secondary text-on-secondary'
                                     : 'bg-primary text-on-primary'
                               }`}
@@ -1315,10 +1315,10 @@ const WeddingKeepsakesPage = () => {
                   search_off
                 </span>
                 <h3 className="font-serif text-lg text-on-surface font-semibold">
-                  No Wedding Keepsakes Found
+                  No Wedding Gifts Found
                 </h3>
                 <p className="text-xs text-on-surface-variant mt-1 max-w-sm mx-auto">
-                  We could not find items matching your active combination of filters. Try clearing some selections to explore our full atelier collection.
+                  We could not find items matching your active combination of filters. Try clearing some selections to explore our full collection collection.
                 </p>
                 <button
                   type="button"
@@ -1330,12 +1330,12 @@ const WeddingKeepsakesPage = () => {
               </div>
             )}
 
-            {/* Pagination / Atelier Load More from Stitch MCP */}
+            {/* Pagination / Collection Load More from Stitch MCP */}
             {sortedProducts.length > 0 && (
               <div className="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-6 border-t border-outline-variant/20">
                 <span className="text-xs text-on-surface-variant font-sans">
                   Showing {Math.min((currentPage - 1) * itemsPerPage + 1, sortedProducts.length)} to{' '}
-                  {Math.min(currentPage * itemsPerPage, sortedProducts.length)} of {sortedProducts.length} bespoke wedding creations
+                  {Math.min(currentPage * itemsPerPage, sortedProducts.length)} of {sortedProducts.length} customized wedding creations
                 </span>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -1385,7 +1385,7 @@ const WeddingKeepsakesPage = () => {
         </div>
       </section>
 
-      {/* Curated Wedding Atelier Services & Bulk Gifting Highlight Banner from Stitch MCP */}
+      {/* Curated Wedding Collection Services & Bulk Gifting Highlight Banner from Stitch MCP */}
       <section className="w-full bg-surface-container-low py-14 border-t border-outline-variant/20">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -1393,7 +1393,7 @@ const WeddingKeepsakesPage = () => {
               Specialist Wedding Services
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl text-on-surface mt-1">
-              Curated Wedding Atelier Privileges
+              Curated Wedding Collection Privileges
             </h2>
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
               From personalized custom initials to complete destination wedding favor suites, let our master craftsmen bring your vision to life.
@@ -1401,17 +1401,17 @@ const WeddingKeepsakesPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Atelier Service 1 */}
+            {/* Collection Service 1 */}
             <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
               <div className="flex flex-col">
                 <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4 shadow-xs">
                   <span className="material-symbols-outlined text-[24px]">draw</span>
                 </div>
                 <h3 className="font-serif text-lg text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
-                  Complimentary Bridal Monogram
+                  Complimentary Bridal Initials
                 </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
-                  Every couple receives a bespoke digital and wax-stamp wedding monogram crafted by our resident calligrapher on orders exceeding ₹5,000.
+                  Every couple receives a customized digital and wax-stamp wedding initials crafted by our resident calligrapher on orders exceeding ₹5,000.
                 </p>
               </div>
               <div className="pt-4 border-t border-outline-variant/20 mt-4">
@@ -1419,20 +1419,20 @@ const WeddingKeepsakesPage = () => {
                   to="/bespoke"
                   className="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline"
                 >
-                  <span>Claim Monogram Consult</span>
+                  <span>Claim Initials Consult</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </Link>
               </div>
             </div>
 
-            {/* Atelier Service 2 */}
+            {/* Collection Service 2 */}
             <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
               <div className="flex flex-col">
                 <div className="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-4 shadow-xs">
                   <span className="material-symbols-outlined text-[24px]">diversity_1</span>
                 </div>
                 <h3 className="font-serif text-lg text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
-                  Bulk Favors &amp; Gifting Concierge
+                  Bulk Favors &amp; Gifting Support
                 </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
                   Planning Mehendi or destination wedding welcome hampers? Enjoy tiered bridal party discounts, custom wax packaging, and direct venue dispatch.
@@ -1449,7 +1449,7 @@ const WeddingKeepsakesPage = () => {
               </div>
             </div>
 
-            {/* Atelier Service 3 */}
+            {/* Collection Service 3 */}
             <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
               <div className="flex flex-col">
                 <div className="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-4 shadow-xs">
@@ -1482,7 +1482,7 @@ const WeddingKeepsakesPage = () => {
           <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">fingerprint</span>
             <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
-              100% Bespoke Craft
+              100% Customized Craft
             </h4>
             <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
               Individualized couple names, dates &amp; vows
@@ -1514,7 +1514,7 @@ const WeddingKeepsakesPage = () => {
           <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">headset_mic</span>
             <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
-              Atelier Privilege Desk
+              Collection Privilege Desk
             </h4>
             <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
               Dedicated bridal coordinator via WhatsApp
@@ -1523,7 +1523,7 @@ const WeddingKeepsakesPage = () => {
         </div>
       </section>
 
-      {/* Interactive Bespoke Customization Modal with Live Calligraphy Monogram Die Preview */}
+      {/* Interactive Customized Customization Modal with Live Calligraphy Initials Die Preview */}
       {customizingProduct && (
         <div
           role="dialog"
@@ -1546,7 +1546,7 @@ const WeddingKeepsakesPage = () => {
                 />
                 <div>
                   <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
-                    Bespoke Wedding Customizer
+                    Customized Wedding Customizer
                   </span>
                   <h3
                     id="modal-title"
@@ -1652,7 +1652,7 @@ const WeddingKeepsakesPage = () => {
 
               <div>
                 <label htmlFor="crest-style" className="font-semibold text-on-surface block mb-1">
-                  Monogram Crest Style
+                  Initials Crest Style
                 </label>
                 <select
                   id="crest-style"
@@ -1660,8 +1660,8 @@ const WeddingKeepsakesPage = () => {
                   onChange={(e) => setCustomCrest(e.target.value)}
                   className="w-full bg-surface-container-low border border-outline-variant/60 rounded px-3 py-2 text-on-surface font-medium focus:border-primary focus:outline-none cursor-pointer"
                 >
-                  <option>Heritage Floral Crest</option>
-                  <option>Royal Serif Monogram</option>
+                  <option>Classic Floral Crest</option>
+                  <option>Royal Serif Initials</option>
                   <option>Contemporary Minimal Crest</option>
                   <option>Botanical Wax Seal Die</option>
                 </select>
@@ -1672,7 +1672,7 @@ const WeddingKeepsakesPage = () => {
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-semibold text-on-surface block">
-                      Select Colorway / Atelier Edition
+                      Select Colorway / Collection Edition
                     </span>
                     <span className="text-[10px] text-primary font-bold">
                       Price updates dynamically
@@ -1720,7 +1720,7 @@ const WeddingKeepsakesPage = () => {
               <div className="bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 text-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary-fixed/20 rounded-full blur-xl pointer-events-none" />
                 <span className="text-[10px] text-outline uppercase tracking-wider block mb-1 font-bold">
-                  Live Calligraphy Monogram Die Proof
+                  Live Calligraphy Initials Die Proof
                 </span>
                 <div className="font-serif text-2xl font-bold text-primary tracking-wide py-1">
                   {customBride ? customBride.trim().charAt(0).toUpperCase() : 'A'} &amp;{' '}
@@ -1785,7 +1785,7 @@ const WeddingKeepsakesPage = () => {
             <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded">
-                  {quickViewProduct.badge || 'Atelier Masterpiece'}
+                  {quickViewProduct.badge || 'Collection Masterpiece'}
                 </span>
                 <h3 className="font-serif text-base font-semibold text-on-surface line-clamp-1">
                   {quickViewProduct.title}
@@ -1855,7 +1855,7 @@ const WeddingKeepsakesPage = () => {
                   {quickViewProduct.inclusions && quickViewProduct.inclusions.length > 0 && (
                     <div className="bg-surface-container-low p-3 rounded-lg border border-outline-variant/30 mb-3">
                       <span className="font-bold text-[11px] text-on-surface block mb-1 uppercase tracking-wide">
-                        Atelier Suite Inclusions:
+                        Collection Suite Inclusions:
                       </span>
                       <ul className="space-y-1 text-[11px] text-on-surface-variant">
                         {quickViewProduct.inclusions.slice(0, 4).map((inc, i) => (

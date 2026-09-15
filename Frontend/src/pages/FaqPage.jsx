@@ -25,12 +25,12 @@ const FAQ_CATEGORIES = [
   {
     id: 'customization',
     roman: 'I',
-    title: 'Bespoke Customization & Metallurgy',
-    pillLabel: 'Customization & Monograms',
+    title: 'Customized Customization & Metallurgy',
+    pillLabel: 'Customization & Initials',
     items: [
       {
         id: 'faq-1-1',
-        question: 'How does the 3D monogram brass die proofing process work?',
+        question: 'How does the 3D initials brass die proofing process work?',
         answer: (
           <div className="space-y-2">
             <p>
@@ -41,21 +41,21 @@ const FAQ_CATEGORIES = [
             </p>
           </div>
         ),
-        keywords: ['monogram proofing', '3d render', 'brass die', 'vector', 'whatsapp', 'hyderabad vault']
+        keywords: ['initials proofing', '3d render', 'brass die', 'vector', 'whatsapp', 'hyderabad vault']
       },
       {
         id: 'faq-1-2',
         question: 'Can we customize physical brass stamps and heraldic family crests?',
         answer: (
           <p>
-            Yes. We accommodate intricate regal insignia, historical royal crests, and contemporary monogram typography. Our CNC machinery carves up to 0.15mm micro-relief detail in heavy grade alloy suitable for hot-foil debossing, wax seal impressions, and heavy leatherette trousseau stamping.
+            Yes. We accommodate intricate regal insignia, historical royal crests, and contemporary initials typography. Our CNC machinery carves up to 0.15mm micro-relief detail in heavy grade alloy suitable for hot-foil debossing, wax seal impressions, and heavy leatherette wedding essentials stamping.
           </p>
         ),
         keywords: ['brass stamps', 'heraldic', 'family crest', 'cnc', 'wax seal', 'debossing', 'foil']
       },
       {
         id: 'faq-1-3',
-        question: 'What if there is a spelling or date discrepancy on the final keepsake?',
+        question: 'What if there is a spelling or date discrepancy on the final gift?',
         answer: (
           <p>
             If the finalized piece diverges in any way from the WhatsApp digital proof verified by you or your wedding planner, ASRA assumes <strong>100% comprehensive liability</strong>. We activate an immediate express 24-hour casting remake and courier it via dedicated flight hand-carry at zero charge.
@@ -73,7 +73,7 @@ const FAQ_CATEGORIES = [
     items: [
       {
         id: 'faq-2-1',
-        question: 'How soon will my trousseau or keepsake suite be dispatched?',
+        question: 'How soon will my wedding essentials or gift suite be dispatched?',
         answer: (
           <div className="space-y-2">
             <p>
@@ -83,7 +83,7 @@ const FAQ_CATEGORIES = [
               <strong>Custom Brass Die Debossed Suites:</strong> 7 to 10 working days to accommodate CNC metallurgy casting, hand-leather gilding, and botanic cryo-stabilization.
             </p>
             <p className="italic text-asra-dark">
-              Emergency Rush Protocol: For ceremonies within 72 hours, contact your concierge directly for express 24h foundry fast-tracking.
+              Emergency Rush Protocol: For ceremonies within 72 hours, contact your support directly for express 24h foundry fast-tracking.
             </p>
           </div>
         ),
@@ -94,7 +94,7 @@ const FAQ_CATEGORIES = [
         question: 'How is white-glove climate transit ensured for destination weddings?',
         answer: (
           <p>
-            Botanical wedding keepsakes and cryo-hydrated Parisian florals are housed in 18°C temperature-stabilized, sealed chambers with interior zero-vibration shock absorbers. We ship regularly directly to palace destinations in Udaipur, Jaipur, Lake Como, and Bali with pre-coordinated destination bridal concierges.
+            Botanical wedding gifts and cryo-hydrated Parisian florals are housed in 18°C temperature-stabilized, sealed chambers with interior zero-vibration shock absorbers. We ship regularly directly to palace destinations in Udaipur, Jaipur, Lake Como, and Bali with pre-coordinated destination bridal concierges.
           </p>
         ),
         keywords: ['destination weddings', 'climate transit', 'white-glove', 'chilled', 'udaipur', 'jaipur', 'lake como', 'bali']
@@ -112,7 +112,7 @@ const FAQ_CATEGORIES = [
         question: 'Do you offer tiered pricing for destination wedding guest hampers?',
         answer: (
           <p>
-            Yes. For bespoke destination orders spanning 50+ to 500+ guest suites, we offer dedicated project coordinators, bespoke wax seal pigmentation matching your wedding floral theme, and tiered curation concessions. Furthermore, each 25+ suite booking includes 5% surplus contingency boxes free of charge.
+            Yes. For customized destination orders spanning 50+ to 500+ guest suites, we offer dedicated project coordinators, customized wax seal pigmentation matching your wedding floral theme, and tiered collection concessions. Furthermore, each 25+ suite booking includes 5% surplus contingency boxes free of charge.
           </p>
         ),
         keywords: ['bulk orders', 'tiered pricing', 'destination wedding favors', 'guest hampers', 'contingency']
@@ -169,9 +169,9 @@ const FAQ_CATEGORIES = [
 
 // Legal Protocols Annexure
 const PROTOCOLS_DATA = {
-  concierge: {
-    title: 'Atelier Concierge Emergency Protocols',
-    ref: 'ASRA-SOP-CONCIERGE-2026',
+  support: {
+    title: 'Collection Support Emergency Protocols',
+    ref: 'ASRA-SOP-SUPPORT-2026',
     content: [
       {
         h: '1. Muhurat Date Guarantee',
@@ -179,7 +179,7 @@ const PROTOCOLS_DATA = {
       },
       {
         h: '2. Destination Palace Liaison',
-        p: 'Our team contacts palace concierge desks (Taj Lake Palace, Oberoi Udaivilas, Rambagh Palace, Villa d’Este) 48 hours prior to handover to ensure correct climate storage.'
+        p: 'Our team contacts palace support desks (Taj Lake Palace, Oberoi Udaivilas, Rambagh Palace, Villa d’Este) 48 hours prior to handover to ensure correct climate storage.'
       }
     ]
   },
@@ -198,7 +198,7 @@ const PROTOCOLS_DATA = {
     ]
   },
   archival: {
-    title: 'Monogram Brass Die Archival Terms',
+    title: 'Initials Brass Die Archival Terms',
     ref: 'ASRA-VAULT-HYD-5YR',
     content: [
       {
@@ -207,7 +207,7 @@ const PROTOCOLS_DATA = {
       },
       {
         h: '2. Lifetime Family Re-order Concession',
-        p: 'Subsequent wedding stationery, anniversary folios, and trousseau boxes skip the die fabrication fee for ₹1,500 savings on future bespoke orders.'
+        p: 'Subsequent wedding stationery, anniversary folios, and wedding essentials boxes skip the die fabrication fee for ₹1,500 savings on future customized orders.'
       }
     ]
   },
@@ -221,7 +221,7 @@ const PROTOCOLS_DATA = {
       },
       {
         h: '2. 256-Bit Encrypted Data Purge',
-        p: 'Clients may request permanent deletion of guest manifests, RSVP rosters, and monogram CAD vectors upon delivery.'
+        p: 'Clients may request permanent deletion of guest manifests, RSVP rosters, and initials CAD vectors upon delivery.'
       }
     ]
   }
@@ -242,7 +242,7 @@ const FaqPage = () => {
   const [ticketForm, setTicketForm] = useState({
     orderId: '',
     phone: '',
-    inquiryType: 'Monogram Proofing & Die Revision',
+    inquiryType: 'Initials Proofing & Die Revision',
     message: ''
   });
   const [ticketStatus, setTicketStatus] = useState({ state: 'idle', ticketId: null, error: null });
@@ -332,17 +332,17 @@ const FaqPage = () => {
     if (vaultSearchId.toUpperCase().includes('8842') || vaultSearchId.toUpperCase().includes('ASRA')) {
       setVaultResult({
         found: true,
-        dieName: 'Imperial Floral Monogram Die "A & R"',
+        dieName: 'Imperial Floral Initials Die "A & R"',
         status: 'Preserved in Vault Chamber B-14',
         millingDate: 'October 12, 2026',
         material: 'Solid CuZn39Pb3 Heavy Brass (0.15mm Micro-Relief)',
         vaultExpiry: 'October 2031 (5-Year Preservation Guaranteed)',
-        city: 'Hyderabad Metallurgy Atelier Facility'
+        city: 'Hyderabad Metallurgy Collection Facility'
       });
     } else {
       setVaultResult({
         found: false,
-        message: 'No active monogram die linked to this Docket ID yet. If your order was recently placed, CAD milling begins within 12 hours of proof sign-off.'
+        message: 'No active initials die linked to this Docket ID yet. If your order was recently placed, CAD milling begins within 12 hours of proof sign-off.'
       });
     }
   };
@@ -361,11 +361,11 @@ const FaqPage = () => {
               className="hover:text-asra-dark transition-colors flex items-center gap-1.5 uppercase font-semibold"
             >
               <ArrowLeft className="w-4 h-4 text-asra-dark" />
-              <span>Return to Atelier Portal</span>
+              <span>Return to Collection Portal</span>
             </Link>
           </div>
 
-          {/* Center: Monogram emblem */}
+          {/* Center: Initials emblem */}
           <div className="flex flex-col items-center">
             <Link
               to="/"
@@ -376,15 +376,15 @@ const FaqPage = () => {
             </Link>
           </div>
 
-          {/* Right: Concierge status and encryption badges */}
+          {/* Right: Support status and encryption badges */}
           <div className="flex items-center gap-3 sm:gap-6">
             <div className="flex items-center gap-1.5 text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60 font-medium text-[11px] sm:text-xs shadow-xs">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              <span>Concierge Desk Live</span>
+              <span>Support Desk Live</span>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 text-asra-muted text-[11px]">
               <Lock className="w-3.5 h-3.5 text-asra-gold" />
-              <span>256-Bit Encrypted Atelier Portal</span>
+              <span>256-Bit Encrypted Collection Portal</span>
             </div>
           </div>
         </div>
@@ -399,7 +399,7 @@ const FaqPage = () => {
           {/* Eyebrow Tag */}
           <p className="text-xs uppercase tracking-[0.25em] text-asra-gold font-semibold mb-3 flex items-center justify-center gap-2">
             <span>✦</span>
-            <span>Atelier Client Care &amp; Concierge Assistance</span>
+            <span>Collection Client Care &amp; Support Assistance</span>
             <span>✦</span>
           </p>
 
@@ -410,7 +410,7 @@ const FaqPage = () => {
 
           {/* Subtitle */}
           <p className="text-asra-muted text-sm sm:text-base font-normal max-w-2xl mx-auto leading-relaxed mb-8">
-            Curated answers to assist your bespoke heirloom commissions, bridal registries, personalized metallurgy dies, and white-glove climate transit.
+            Curated answers to assist your customized heirloom commissions, bridal registries, personalized metallurgy dies, and white-glove climate transit.
           </p>
 
           {/* Interactive Search Bar */}
@@ -445,7 +445,7 @@ const FaqPage = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-[11px] text-asra-muted">
             <span className="font-medium text-asra-dark">Frequent Lookups:</span>
             {[
-              { label: 'Monogram Proofing', query: 'monogram proofing' },
+              { label: 'Initials Proofing', query: 'initials proofing' },
               { label: 'Brass Die Vault', query: 'brass die' },
               { label: '24-Hour Dispatch', query: '24-hour dispatch' },
               { label: 'Destination Weddings', query: 'destination weddings' },
@@ -575,7 +575,7 @@ const FaqPage = () => {
                   No Matching Inquiries Found
                 </h3>
                 <p className="text-xs text-asra-muted max-w-md mx-auto">
-                  We couldn't find an answer matching &ldquo;{searchQuery}&rdquo;. You can submit a bespoke concierge ticket below or connect instantly with our lead stylist.
+                  We couldn't find an answer matching &ldquo;{searchQuery}&rdquo;. You can submit a customized support ticket below or connect instantly with our lead stylist.
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-2">
                   <button
@@ -603,10 +603,10 @@ const FaqPage = () => {
           </div>
 
           {/* ========================================================================= */}
-          {/* RIGHT COLUMN: Concierge Support & Direct Assistance (5 cols)              */}
+          {/* RIGHT COLUMN: Support Support & Direct Assistance (5 cols)              */}
           {/* ========================================================================= */}
           <div className="lg:col-span-5 space-y-6">
-            {/* CARD 1: Instant WhatsApp Concierge (Dark Obsidian Luxury Aesthetic) */}
+            {/* CARD 1: Instant WhatsApp Support (Dark Obsidian Luxury Aesthetic) */}
             <div className="bg-asra-dark text-white rounded-xl p-6 sm:p-7 shadow-lg border border-asra-charcoal relative overflow-hidden">
               <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-asra-gold/15 rounded-full blur-2xl pointer-events-none"></div>
 
@@ -617,7 +617,7 @@ const FaqPage = () => {
                 </div>
                 <div>
                   <h3 className="font-serif-luxury text-xl font-medium tracking-wide text-white">
-                    Atelier Stylist Hotline
+                    Collection Stylist Hotline
                   </h3>
                   <p className="text-[11px] text-asra-gold uppercase tracking-wider font-medium">
                     Instant Resolution for Wedding Planners
@@ -647,11 +647,11 @@ const FaqPage = () => {
               </div>
             </div>
 
-            {/* CARD 2: Raise a Bespoke Support Ticket */}
+            {/* CARD 2: Raise a Customized Support Ticket */}
             <div className="bg-white border border-asra-border rounded-xl p-6 sm:p-7 shadow-sm">
               <div className="flex items-center justify-between mb-4 pb-2 border-b border-asra-border/50">
                 <h3 className="font-serif-luxury text-xl font-medium text-asra-dark">
-                  Raise a Bespoke Support Ticket
+                  Raise a Customized Support Ticket
                 </h3>
                 <span className="text-[10px] uppercase tracking-wider text-asra-gold bg-asra-champagne px-2 py-0.5 rounded border border-asra-border font-semibold">
                   Priority Desk
@@ -662,7 +662,7 @@ const FaqPage = () => {
                 <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-900 space-y-3">
                   <div className="flex items-center gap-2 text-emerald-800 font-semibold text-xs">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                    <span>Concierge Docket Created</span>
+                    <span>Support Docket Created</span>
                   </div>
                   <p className="text-xs text-emerald-800/90 leading-relaxed">
                     Your inquiry has been assigned priority status under Reference:{' '}
@@ -677,7 +677,7 @@ const FaqPage = () => {
                     type="button"
                     onClick={() => {
                       setTicketStatus({ state: 'idle', ticketId: null, error: null });
-                      setTicketForm({ orderId: '', phone: '', inquiryType: 'Monogram Proofing & Die Revision', message: '' });
+                      setTicketForm({ orderId: '', phone: '', inquiryType: 'Initials Proofing & Die Revision', message: '' });
                     }}
                     className="text-[11px] underline text-emerald-800 hover:text-emerald-950 font-medium"
                   >
@@ -733,7 +733,7 @@ const FaqPage = () => {
                       onChange={(e) => setTicketForm({ ...ticketForm, inquiryType: e.target.value })}
                       className="w-full text-xs rounded border border-asra-border bg-asra-ivory/50 px-3 py-2 text-asra-dark focus:border-asra-gold focus:ring-1 focus:ring-asra-gold focus:outline-none transition-all"
                     >
-                      <option>Monogram Proofing &amp; Die Revision</option>
+                      <option>Initials Proofing &amp; Die Revision</option>
                       <option>Transit Status &amp; White-Glove Dispatch</option>
                       <option>Bulk Destination Hamper Sample Request</option>
                       <option>Damage, Replacement &amp; Vault Verification</option>
@@ -744,7 +744,7 @@ const FaqPage = () => {
                   {/* Message Textarea */}
                   <div>
                     <label className="block text-[11px] uppercase tracking-wider text-asra-muted font-semibold mb-1">
-                      Concierge Instructions / Query
+                      Support Instructions / Query
                     </label>
                     <textarea
                       rows={3}
@@ -759,16 +759,16 @@ const FaqPage = () => {
                     type="submit"
                     className="w-full bg-asra-gold hover:bg-asra-goldDark text-white py-2.5 rounded font-medium text-xs tracking-wider uppercase transition-colors shadow-sm"
                   >
-                    Submit Concierge Ticket
+                    Submit Support Ticket
                   </button>
                 </form>
               )}
             </div>
 
-            {/* CARD 3: Self-Service Atelier Quick Tools */}
+            {/* CARD 3: Self-Service Collection Quick Tools */}
             <div className="bg-asra-cream/50 border border-asra-border rounded-xl p-6">
               <h4 className="font-serif-luxury text-lg font-medium text-asra-dark mb-3">
-                Self-Service Atelier Tools
+                Self-Service Collection Tools
               </h4>
               <div className="grid grid-cols-2 gap-2.5 text-xs">
                 <Link
@@ -838,10 +838,10 @@ const FaqPage = () => {
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 text-[11px] tracking-wide">
             <button
               type="button"
-              onClick={() => setActiveProtocol('concierge')}
+              onClick={() => setActiveProtocol('support')}
               className="hover:text-asra-dark transition-colors underline decoration-asra-border hover:decoration-asra-gold"
             >
-              Concierge Protocols
+              Support Protocols
             </button>
             <button
               type="button"
@@ -855,7 +855,7 @@ const FaqPage = () => {
               onClick={() => setActiveProtocol('archival')}
               className="hover:text-asra-dark transition-colors underline decoration-asra-border hover:decoration-asra-gold"
             >
-              Monogram Brass Die Archival Terms
+              Initials Brass Die Archival Terms
             </button>
             <button
               type="button"
@@ -892,10 +892,10 @@ const FaqPage = () => {
             <strong className="tracking-widest font-serif-luxury text-asra-dark uppercase font-semibold">
               ASRA Wedding Canvas
             </strong>{' '}
-            • Bespoke Atelier Registry &amp; Vault Services
+            • Customized Collection Registry &amp; Vault Services
           </p>
           <p className="mt-1 sm:mt-0">
-            © 2026 ASRA Private Limited. All bespoke designs, metallurgical dies, and covenants reserved.
+            © 2026 ASRA Private Limited. All customized designs, metallurgical dies, and covenants reserved.
           </p>
         </div>
       </aside>
@@ -916,7 +916,7 @@ const FaqPage = () => {
             </button>
 
             <span className="text-[10px] uppercase font-bold tracking-widest text-asra-gold block mb-1">
-              Atelier Legal Protocol Ref: {PROTOCOLS_DATA[activeProtocol].ref}
+              Collection Legal Protocol Ref: {PROTOCOLS_DATA[activeProtocol].ref}
             </span>
             <h3 className="font-serif-luxury text-2xl text-asra-dark font-semibold mb-4">
               {PROTOCOLS_DATA[activeProtocol].title}

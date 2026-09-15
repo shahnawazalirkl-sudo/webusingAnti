@@ -53,7 +53,7 @@ const CartDrawer = () => {
           <div className="p-5 border-b border-outline-variant/40 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-primary text-[22px]">shopping_bag</span>
-              <h2 className="font-serif text-lg font-semibold text-on-surface">Atelier Shopping Bag</h2>
+              <h2 className="font-serif text-lg font-semibold text-on-surface">Collection Shopping Bag</h2>
               <span className="text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">
                 {cartItems.length}
               </span>
@@ -90,7 +90,7 @@ const CartDrawer = () => {
               <div className="text-center py-16">
                 <span className="material-symbols-outlined text-outline text-5xl mb-2">shopping_basket</span>
                 <p className="font-serif text-base text-on-surface font-semibold">Your shopping bag is empty</p>
-                <p className="text-xs text-outline mt-1 mb-5">Explore our bespoke wedding keepsakes to begin.</p>
+                <p className="text-xs text-outline mt-1 mb-5">Explore our customized wedding gifts to begin.</p>
                 <button
                   onClick={() => {
                     closeCartDrawer();
@@ -238,7 +238,7 @@ const CartDrawer = () => {
                   <span>{shipping === 0 ? <span className="text-brand-emerald font-semibold uppercase text-[11px]">Complimentary</span> : `₹${shipping}`}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-on-surface pt-1 border-t border-outline-variant/40">
-                  <span className="font-serif">Total Atelier Investment</span>
+                  <span className="font-serif">Total Collection Investment</span>
                   <span className="font-serif text-primary">₹{total.toLocaleString('en-IN')}</span>
                 </div>
               </div>
@@ -253,7 +253,7 @@ const CartDrawer = () => {
                   className="w-full py-3 bg-primary hover:bg-primary/90 text-on-primary rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <span className="material-symbols-outlined text-[16px]">lock</span>
-                  <span>Proceed to Bespoke Checkout</span>
+                  <span>Proceed to Customized Checkout</span>
                 </button>
                 <button
                   onClick={() => {

@@ -28,7 +28,7 @@ const PRESET_DOCKETS = {
     clientTitle: "Asra & Shahnawaz's Sovereign Suite",
     clientName: 'Asra Ansari & Sk Shahnawaz Ali',
     phone: '+91 96926 68263',
-    monogram: '"A & S" • Heritage Floral Crest',
+    initials: '"A & S" • Classic Floral Crest',
     status: 'IN TRANSIT • CHILLED VAN FLT-08',
     statusCategory: 'in_transit',
     expectedArrival: 'Nov 14, 2026 • 04:00 PM – 08:00 PM',
@@ -53,21 +53,21 @@ const PRESET_DOCKETS = {
     items: [
       {
         id: 'sov-suite',
-        title: 'The Sovereign Bridal & Trousseau Suite',
+        title: 'The Sovereign Bridal & Wedding Essentials Suite',
         price: '₹7,499',
         image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
         palette: 'Classic Blush & Champagne Gold',
-        monogramText: '"A & S" (Heritage Crest)',
+        monogramText: '"A & S" (Classic Crest)',
         ink: 'Royal Copperplate',
         aroma: 'Kashmiri Rose & Amber'
       },
       {
         id: 'velvet-box',
-        title: 'Bespoke Velvet Double Ring & Mangalsutra Vault',
+        title: 'Customized Velvet Double Ring & Mangalsutra Vault',
         price: '₹1,899',
         monogramIcon: 'A & S',
         shade: 'Royal Emerald Silk Velvet',
-        badge: 'Die matched to Masterpiece Suite Monogram'
+        badge: 'Die matched to Masterpiece Suite Initials'
       }
     ],
     settledAmount: '₹8,459',
@@ -77,35 +77,35 @@ const PRESET_DOCKETS = {
   },
   'ASRA-2026-7910K': {
     orderId: 'ASRA-2026-7910K',
-    clientTitle: "Shagufta & Sagil's Royal Trousseau",
+    clientTitle: "Shagufta & Sagil's Royal Wedding Essentials",
     clientName: 'Shagufta Naaz & Sagil Doza',
     phone: '+91 96926 68263',
-    monogram: '"S & S" • Imperial Peacock Crest',
-    status: 'ATELIER PRODUCTION • 24K EMBOSSING',
+    initials: '"S & S" • Imperial Peacock Crest',
+    status: 'COLLECTION PRODUCTION • 24K EMBOSSING',
     statusCategory: 'production',
     expectedArrival: 'Nov 18, 2026 • 11:00 AM – 03:00 PM',
     slotNotice: '(Morning Auspicious Muhurat Handover)',
     venueName: 'Taj Lake Palace, Udaipur',
     venueDetail: 'Grand Royal Presidential Suite',
     venueAddress: 'Pichola, Udaipur, Rajasthan 313001',
-    plannerName: 'Zeeshan Rashid (Bespoke Events)',
+    plannerName: 'Zeeshan Rashid (Customized Events)',
     plannerPhone: '+91 96926 68263',
     confidentialProtocol: 'Vault handover to bride Shagufta Naaz personally with wax seal verification certificate.',
     driverName: 'Marshal Taofique Alkhair Khan',
     driverBadge: 'ASRA-EXEC-07',
     driverPhone: '+91 96926 68263',
-    vehicleReg: 'Atelier Vault Fleet (Reg: DL-01-AS-2026)',
+    vehicleReg: 'Collection Vault Fleet (Reg: DL-01-AS-2026)',
     otp: '7910',
     baseTemp: 19.0,
-    gForce: '0.00 G (In Atelier)',
+    gForce: '0.00 G (In Collection)',
     remainingKm: 0,
     lat: 17.3850,
     lng: 78.4867,
-    cruisingSpeed: 'Stationary in Atelier',
+    cruisingSpeed: 'Stationary in Collection',
     items: [
       {
         id: 'sov-suite-mk',
-        title: 'The Sovereign Bridal & Trousseau Suite',
+        title: 'The Sovereign Bridal & Wedding Essentials Suite',
         price: '₹7,499',
         image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
         palette: 'Royal Ivory & Regal Gold',
@@ -224,7 +224,7 @@ const TrackOrderPage = () => {
             <span>Return to Orders</span>
           </Link>
 
-          {/* Center: Atelier Brand Emblem */}
+          {/* Center: Collection Brand Emblem */}
           <div className="flex items-center justify-center">
             <Link to="/">
               <img
@@ -242,7 +242,7 @@ const TrackOrderPage = () => {
               className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FAF7F2] text-[#75542E] hover:bg-[#F4ECE0] font-medium text-[10px] sm:text-[11px] rounded-full border border-[#E7D5BF] transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#9B7443]"></span>
-              <span>Sovereign Sanctuary Vault →</span>
+              <span>Sovereign My Account Vault →</span>
             </Link>
             <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-[#E8F3EE] text-[#0F3828] font-medium rounded-full border border-[#D3E5DC]">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
@@ -250,7 +250,7 @@ const TrackOrderPage = () => {
             </div>
             <div className="hidden md:flex items-center gap-1.5 text-[#6E675F]">
               <Shield className="w-3.5 h-3.5 text-[#C5A880]" />
-              <span className="tracking-tight">256-Bit Encrypted Atelier Docket</span>
+              <span className="tracking-tight">256-Bit Encrypted Collection Docket</span>
             </div>
           </div>
         </div>
@@ -269,12 +269,12 @@ const TrackOrderPage = () => {
 
           {/* Heading */}
           <h1 className="font-serif text-3xl sm:text-4xl md:text-[42px] font-normal text-[#1A1A1A] tracking-normal leading-tight">
-            Track Your Bespoke Ceremony Dispatch
+            Track Your Customized Ceremony Dispatch
           </h1>
 
           {/* Sub-headline */}
           <p className="mt-2 text-[#6E675F] text-[13px] md:text-[14px] max-w-2xl mx-auto font-light leading-relaxed">
-            Real-time surveillance, climate telemetry, and white-glove transit logs for your custom monogrammed bridal &amp; trousseau ensembles.
+            Real-time surveillance, climate telemetry, and white-glove transit logs for your custom initials bridal &amp; wedding essentials ensembles.
           </p>
 
           {/* Docket Switcher & Lookup Input Bar */}
@@ -282,7 +282,7 @@ const TrackOrderPage = () => {
             <form onSubmit={handleLookupSubmit} className="flex flex-col md:flex-row items-center gap-3">
               <div className="flex-1 w-full">
                 <label className="block text-[10px] uppercase font-semibold text-[#6E675F] tracking-wider mb-1">
-                  Active Atelier Order ID
+                  Active Collection Order ID
                 </label>
                 <div className="relative">
                   <input
@@ -303,7 +303,7 @@ const TrackOrderPage = () => {
 
               <div className="flex-1 w-full">
                 <label className="block text-[10px] uppercase font-semibold text-[#6E675F] tracking-wider mb-1">
-                  Registered Concierge Mobile
+                  Registered Support Mobile
                 </label>
                 <div className="relative">
                   <input
@@ -367,10 +367,10 @@ const TrackOrderPage = () => {
               <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#E8DFD3]">
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#6E675F] block">
-                    Monogram Brass Die Docket
+                    Initials Brass Die Docket
                   </span>
                   <h2 className="font-serif text-2xl font-semibold text-[#1A1A1A] mt-0.5">
-                    {currentDocket.monogram}
+                    {currentDocket.initials}
                   </h2>
                 </div>
 
@@ -423,7 +423,7 @@ const TrackOrderPage = () => {
               {/* Vertical Timeline Steps Container */}
               <div className="space-y-8 mt-6">
                 
-                {/* PHASE A: ATELIER PRODUCTION & ARTISANAL CRAFTING */}
+                {/* PHASE A: COLLECTION PRODUCTION & ARTISANAL CRAFTING */}
                 <div className="bg-[#FBF9F5] border border-[#E8DFD3] rounded-xl p-4 sm:p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b border-[#EDE4D6]">
                     <div className="flex items-center gap-2.5">
@@ -432,10 +432,10 @@ const TrackOrderPage = () => {
                       </span>
                       <div>
                         <span className="text-[9px] uppercase font-bold tracking-widest text-[#9E7A44] block">
-                          Phase I • Hyderabad Flagship Atelier
+                          Phase I • Hyderabad Flagship Collection
                         </span>
                         <h4 className="font-serif text-base font-bold text-[#1A1A1A]">
-                          Atelier Production &amp; Artisanal Crafting
+                          Collection Production &amp; Artisanal Crafting
                         </h4>
                       </div>
                     </div>
@@ -463,7 +463,7 @@ const TrackOrderPage = () => {
                         <time className="text-[11px] text-[#6E675F] font-medium">Nov 10, 01:15 PM</time>
                       </div>
                       <p className="text-[11px] text-[#6E675F] mt-1 leading-normal">
-                        Solid heavy brass deboss die cut with nanometer precision for monogram "A &amp; S" with bespoke royal acanthus border flourishes.
+                        Solid heavy brass deboss die cut with nanometer precision for initials "A &amp; S" with customized royal acanthus border flourishes.
                       </p>
                       <div className="mt-2 bg-white p-2 rounded border border-[#EDE4D6] flex items-center justify-between text-[10px]">
                         <span className="text-[#6E675F]">
@@ -474,13 +474,13 @@ const TrackOrderPage = () => {
                     </li>
 
                     {/* Step 2 */}
-                    <li className="relative group" aria-label="Step 2: Copperplate Calligraphy and Monogram Authorization">
+                    <li className="relative group" aria-label="Step 2: Copperplate Calligraphy and Initials Authorization">
                       <span className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full bg-[#0F3828] text-white flex items-center justify-center text-xs shadow-sm ring-4 ring-[#FBF9F5]">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-bold text-[#1A1A1A]">2. Copperplate Calligraphy &amp; Monogram Authorization</h5>
+                          <h5 className="text-xs font-bold text-[#1A1A1A]">2. Copperplate Calligraphy &amp; Initials Authorization</h5>
                           <span className="text-[9px] font-semibold uppercase bg-[#EAE2D5] text-[#4A3B25] px-2 py-0.5 rounded">
                             Client Verified
                           </span>
@@ -524,13 +524,13 @@ const TrackOrderPage = () => {
                     </li>
 
                     {/* Step 4 */}
-                    <li className="relative group" aria-label="Step 4: Artisanal Fragrance Infusion and Dawn Florals Curation">
+                    <li className="relative group" aria-label="Step 4: Artisanal Fragrance Infusion and Dawn Florals Collection">
                       <span className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full bg-[#0F3828] text-white flex items-center justify-center text-xs shadow-sm ring-4 ring-[#FBF9F5]">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-bold text-[#1A1A1A]">4. Artisanal Fragrance Infusion &amp; Dawn Florals Curation</h5>
+                          <h5 className="text-xs font-bold text-[#1A1A1A]">4. Artisanal Fragrance Infusion &amp; Dawn Florals Collection</h5>
                           <span className="text-[9px] font-semibold uppercase bg-[#E9F3EE] text-[#0B4B32] px-2 py-0.5 rounded">
                             Botanical Seal
                           </span>
@@ -549,13 +549,13 @@ const TrackOrderPage = () => {
                     </li>
 
                     {/* Step 5 */}
-                    <li className="relative group" aria-label="Step 5: Quality Inspection and Atelier Hallmark Vaulting">
+                    <li className="relative group" aria-label="Step 5: Quality Inspection and Collection Hallmark Vaulting">
                       <span className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full bg-[#0F3828] text-white flex items-center justify-center text-xs shadow-sm ring-4 ring-[#FBF9F5]">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-bold text-[#1A1A1A]">5. Quality Inspection &amp; Atelier Hallmark Vaulting</h5>
+                          <h5 className="text-xs font-bold text-[#1A1A1A]">5. Quality Inspection &amp; Collection Hallmark Vaulting</h5>
                           <span className="text-[9px] font-semibold uppercase bg-[#E5D7C2] text-[#4A3B25] px-2 py-0.5 rounded">
                             Docket Locked
                           </span>
@@ -650,7 +650,7 @@ const TrackOrderPage = () => {
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-semibold text-[#1A1A1A]">7. The Oberoi Udaivilas Security &amp; Concierge Check-in</h5>
+                          <h5 className="text-xs font-semibold text-[#1A1A1A]">7. The Oberoi Udaivilas Security &amp; Support Check-in</h5>
                           <span className="text-[9px] font-medium uppercase bg-[#FAF7F2] text-[#6E675F] px-2 py-0.5 rounded border border-[#EDE4D6]">
                             Scheduled
                           </span>
@@ -658,7 +658,7 @@ const TrackOrderPage = () => {
                         <time className="text-[11px] text-[#6E675F]">Nov 14, 02:30 PM (Est.)</time>
                       </div>
                       <p className="text-[11px] text-[#6E675F] mt-1 leading-normal">
-                        Vehicle arrival at Haridas Ji Ki Magri entrance. Dedicated bell desk clearance verified under Head Concierge advance protocol docket.
+                        Vehicle arrival at Haridas Ji Ki Magri entrance. Dedicated bell desk clearance verified under Head Support advance protocol docket.
                       </p>
                     </li>
 
@@ -669,7 +669,7 @@ const TrackOrderPage = () => {
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-semibold text-[#1A1A1A]">8. Royal Suite Handover to Wedding Concierge</h5>
+                          <h5 className="text-xs font-semibold text-[#1A1A1A]">8. Royal Suite Handover to Wedding Support</h5>
                           <span className="text-[9px] font-medium uppercase bg-[#FAF7F2] text-[#6E675F] px-2 py-0.5 rounded border border-[#EDE4D6]">
                             Handover Window
                           </span>
@@ -750,9 +750,9 @@ const TrackOrderPage = () => {
                     <Shield className="w-4 h-4" />
                   </div>
                   <div>
-                    <h5 className="text-xs font-bold text-[#1A1A1A]">Resort Concierge Protocol Active</h5>
+                    <h5 className="text-xs font-bold text-[#1A1A1A]">Resort Support Protocol Active</h5>
                     <p className="text-[11px] text-[#6E675F]">
-                      The Oberoi Udaivilas head concierge has logged early baggage claim clearance for Kohinoor Suite arrival.
+                      The Oberoi Udaivilas head support has logged early baggage claim clearance for Kohinoor Suite arrival.
                     </p>
                   </div>
                 </div>
@@ -801,7 +801,7 @@ const TrackOrderPage = () => {
                     <p className="text-[11px] text-[#6E675F] mt-0.5">Palette: {currentDocket.items[0].palette}</p>
                     <div className="mt-2 bg-[#FAF7F2] p-2 rounded border border-[#EDE4D6] text-[10px] space-y-0.5">
                       <div className="flex justify-between">
-                        <span className="text-[#6E675F]">Debossed Monogram:</span>
+                        <span className="text-[#6E675F]">Debossed Initials:</span>
                         <span className="font-bold text-[#1A1A1A]">{currentDocket.items[0].monogramText}</span>
                       </div>
                       <div className="flex justify-between">
@@ -809,7 +809,7 @@ const TrackOrderPage = () => {
                         <span className="italic text-[#1A1A1A]">{currentDocket.items[0].ink}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#6E675F]">Aroma Curation:</span>
+                        <span className="text-[#6E675F]">Aroma Collection:</span>
                         <span className="text-[#1A1A1A]">{currentDocket.items[0].aroma}</span>
                       </div>
                     </div>
@@ -953,14 +953,14 @@ const TrackOrderPage = () => {
               </div>
             </div>
 
-            {/* Atelier Authenticity Guarantee Seal */}
+            {/* Collection Authenticity Guarantee Seal */}
             <div className="bg-[#FCFAF7] border border-dashed border-[#D8C7B0] rounded-xl p-4 text-center">
               <div className="flex items-center justify-center gap-2 text-[#9E7A44] mb-1">
                 <Shield className="w-4 h-4 fill-current" />
-                <span className="text-[11px] font-bold uppercase tracking-wider">Hallmarked Keepsake Guarantee</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider">Hallmarked Gift Guarantee</span>
               </div>
               <p className="text-[10px] text-[#6E675F] max-w-sm mx-auto leading-relaxed">
-                The master 3D brass deboss die for monogram {currentDocket.monogram} is vault-preserved for future milestone anniversaries and family crest orders.
+                The master 3D brass deboss die for initials {currentDocket.initials} is vault-preserved for future milestone anniversaries and family crest orders.
               </p>
             </div>
 
@@ -975,9 +975,9 @@ const TrackOrderPage = () => {
         <div className="max-w-[1360px] mx-auto px-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
           <span className="font-bold text-[#1A1A1A] uppercase tracking-wider">ASRA Wedding Canvas</span>
           <span>•</span>
-          <span>Private Atelier &amp; Trousseau Vaults</span>
+          <span>Private Collection &amp; Wedding Essentials Vaults</span>
           <span>•</span>
-          <span>Concierge Protocols</span>
+          <span>Support Protocols</span>
           <span>•</span>
           <span>Hallmark Verification</span>
           <span>•</span>
@@ -985,7 +985,7 @@ const TrackOrderPage = () => {
           <span>•</span>
           <span>Confidentiality Guarantee</span>
           <span>•</span>
-          <span>© 2026 ASRA Atelier. All royal rights reserved.</span>
+          <span>© 2026 ASRA Collection. All royal rights reserved.</span>
         </div>
       </footer>
 
@@ -1076,7 +1076,7 @@ const TrackOrderPage = () => {
 
             <div className="pb-3 border-b border-[#E8DFD3]">
               <span className="text-[10px] uppercase font-bold text-[#9E7A44] tracking-wider block">
-                Atelier Vault Archive
+                Collection Vault Archive
               </span>
               <h3 className="font-serif text-xl font-bold text-[#1A1A1A]">
                 Available Ceremony Dockets

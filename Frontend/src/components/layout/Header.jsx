@@ -37,11 +37,11 @@ const Header = () => {
             </p>
             <div className="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm text-surface-container-high justify-end">
               <Link to="/contact" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
-                Concierge
+                Support
               </Link>
               <span>•</span>
               <Link to="/client-portal" className="hover:text-primary-fixed-dim cursor-pointer transition-colors text-primary-fixed">
-                Client Sanctuary
+                My Account
               </Link>
               <span>•</span>
               <Link to="/faq" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
@@ -49,7 +49,7 @@ const Header = () => {
               </Link>
               <span>•</span>
               <Link to="/bespoke" className="hover:text-primary-fixed-dim cursor-pointer transition-colors">
-                Bespoke Atelier
+                Customized Collection
               </Link>
             </div>
           </div>
@@ -162,8 +162,8 @@ const Header = () => {
 
               <Link
                 to="/client-portal"
-                aria-label="Client Sanctuary & Sovereign Portal"
-                title="Sovereign Client Sanctuary"
+                aria-label="My Account & Sovereign Portal"
+                title="My Account"
                 className="w-8 h-8 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface inline-flex items-center justify-center shrink-0 transition-colors border border-outline-variant/60 shadow-sm"
               >
                 <span className="material-symbols-outlined text-[18px]">person</span>
@@ -223,7 +223,7 @@ const Header = () => {
                       to="/shop?cat=keepsakes#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Personalized Keepsakes</span>
+                      <span className="font-medium">Personalized Gifts</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
                         arrow_forward
                       </span>
@@ -232,7 +232,7 @@ const Header = () => {
                       to="/shop?cat=favors-trousseau#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Wedding Favors &amp; Trousseau</span>
+                      <span className="font-medium">Wedding Favors &amp; Wedding Essentials</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
                         arrow_forward
                       </span>
@@ -311,7 +311,7 @@ const Header = () => {
                         to="/personalized?craft=monogram#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
-                        <span className="font-medium text-xs">Monogrammed</span>
+                        <span className="font-medium text-xs">Initials</span>
                         <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
                           arrow_forward
                         </span>
@@ -453,7 +453,7 @@ const Header = () => {
                       to="/wedding-keepsakes?tab=trousseau-vaults#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Trousseau &amp; Ring Vaults</span>
+                      <span className="font-medium">Wedding Essentials &amp; Ring Vaults</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
                     </Link>
                     <Link
@@ -474,7 +474,7 @@ const Header = () => {
                       to="/wedding-keepsakes?tab=milestone-keepsakes#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Milestone Keepsakes</span>
+                      <span className="font-medium">Milestone Gifts</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
                     </Link>
                   </div>
@@ -499,7 +499,7 @@ const Header = () => {
                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
                   <div className="w-[360px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
                     <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-[18px]">collections_bookmark</span> Atelier Collections
+                      <span className="material-symbols-outlined text-[18px]">collections_bookmark</span> Collections
                     </span>
                     <Link
                       to="/collections#products"
@@ -512,7 +512,7 @@ const Header = () => {
                       to="/collections?category=bridal-trousseau#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Bridal &amp; Trousseau Series</span>
+                      <span className="font-medium">Bridal &amp; Wedding Essentials Series</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
                     </Link>
                     <Link
@@ -554,7 +554,7 @@ const Header = () => {
                       to="/collections?category=royal-heritage#products"
                       className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
                     >
-                      <span className="font-medium">Royal Heritage Suite</span>
+                      <span className="font-medium">Royal Classic Suite</span>
                       <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
                     </Link>
                   </div>
@@ -596,7 +596,7 @@ const Header = () => {
                     <div className="flex items-center justify-between bg-surface-container-low p-2.5 rounded border border-outline-variant/40">
                       <div>
                         <span className="font-mono font-bold text-xs text-primary block">HDFCWED1500</span>
-                        <span className="text-xs text-on-surface-variant">Flat ₹1,500 off on luxury trousseau &amp; bulk hampers</span>
+                        <span className="text-xs text-on-surface-variant">Flat ₹1,500 off on luxury wedding essentials &amp; bulk hampers</span>
                       </div>
                       <span className="text-[11px] text-outline font-medium">Min ₹9,999</span>
                     </div>
@@ -628,11 +628,11 @@ const Header = () => {
                     <div className="flex items-center gap-2 border-b border-outline-variant/30 pb-2">
                       <span className="material-symbols-outlined text-primary text-[20px]">design_services</span>
                       <span className="font-headline-sm text-[15px] text-on-surface font-serif font-semibold">
-                        Bespoke Custom Atelier Studio
+                        Customized Studio
                       </span>
                     </div>
                     <p className="text-body-sm text-xs text-on-surface-variant leading-relaxed">
-                      Bring your wedding logo, bespoke font, or specific dimensions. We craft sample 3D proofs in 6 hours with custom brass stamping dies.
+                      Bring your wedding logo, customized font, or specific dimensions. We craft sample 3D proofs in 6 hours with custom brass stamping dies.
                     </p>
                     <div className="grid grid-cols-2 gap-2 pt-1">
                       <Link to="/bespoke" className="p-2.5 rounded bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col border border-outline-variant/30">
@@ -640,7 +640,7 @@ const Header = () => {
                         <span className="text-[11px] text-outline">Get a free digital 3D proof</span>
                       </Link>
                       <a href="https://wa.me/919692668263" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col border border-outline-variant/30">
-                        <span className="text-xs font-semibold text-on-surface">Concierge WhatsApp</span>
+                        <span className="text-xs font-semibold text-on-surface">Support WhatsApp</span>
                         <span className="text-[11px] text-outline">Instant artisan response</span>
                       </a>
                     </div>
@@ -693,7 +693,7 @@ const Header = () => {
                     : 'text-on-surface-variant hover:text-primary'
                 }`}
               >
-                <span>HERITAGE &amp; ATELIER</span>
+                <span>CLASSIC &amp; COLLECTION</span>
               </Link>
 
             </nav>
@@ -708,26 +708,26 @@ const Header = () => {
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search keepsakes & gifts..."
+                placeholder="Search gifts..."
                 className="w-full bg-surface-container-low text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant/60 focus:outline-none"
               />
             </form>
 
             <div className="flex flex-col gap-3 text-xs font-semibold uppercase tracking-wider text-on-surface">
               <Link to="/client-portal" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors flex items-center justify-between ${isActive('/client-portal') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>
-                <span>Client Sanctuary &amp; Sovereign Vault</span>
+                <span>My Account &amp; Sovereign Vault</span>
                 <span className="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-semibold">Portal</span>
               </Link>
-              <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/about') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Heritage &amp; Atelier (About Us)</Link>
+              <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/about') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Classic &amp; Collection (About Us)</Link>
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/contact') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Contact &amp; Private Appointments</Link>
               <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/shop') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Shop All Collections</Link>
-              <Link to="/personalized" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/personalized') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Personalized Keepsakes</Link>
+              <Link to="/personalized" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/personalized') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Personalized Gifts</Link>
               <Link to="/wedding-keepsakes" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wedding-keepsakes') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Wedding Registry &amp; Favors</Link>
               <Link to="/collections" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/collections') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Signature Collections</Link>
               <Link to="/offers" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/offers') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Offers &amp; Discounts</Link>
               <Link to="/bespoke" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/bespoke') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'text-primary hover:underline'}`}>Your Idea → We Create</Link>
               <Link to="/bulk-orders" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/bulk-orders') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Bulk Orders &amp; Corporate</Link>
-              <Link to="/wishlist" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wishlist') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>My Saved Keepsakes ({wishlistCount})</Link>
+              <Link to="/wishlist" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/wishlist') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>My Saved Gifts ({wishlistCount})</Link>
               <Link to="/track-order" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/track-order') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Track My Order</Link>
               <Link to="/return-policy" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/return-policy') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Return &amp; Refund Policy</Link>
               <Link to="/terms-of-service" onClick={() => setMobileMenuOpen(false)} className={`py-1 transition-colors ${isActive('/terms-of-service') || isActive('/terms') ? 'text-primary font-bold pl-2 border-l-2 border-primary' : 'hover:text-primary'}`}>Terms of Service &amp; Charter</Link>

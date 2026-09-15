@@ -41,8 +41,8 @@ const DOCKET_DATA = {
     leadStylist: {
       name: 'Shagufta Naaz',
       initials: 'SN',
-      title: 'Lead Bridal Concierge',
-      location: 'Atelier Jubilee Hills, Hyderabad',
+      title: 'Lead Bridal Support',
+      location: 'Collection Jubilee Hills, Hyderabad',
       note: '"We have received the sample Italian foil swatches today. The gold hue aligns seamlessly with your stationery parchment."',
       phone: '+91 96926 68263',
       whatsapp: 'https://wa.me/919692668263'
@@ -60,7 +60,7 @@ const DOCKET_DATA = {
     itinerary: {
       destination: 'Villa Balbiano, Via Regina 2',
       city: '22010 Ossuccio CO, Lake Como, Italy',
-      careOf: 'C/O Concierge Signorina Bellini',
+      careOf: 'C/O Support Signorina Bellini',
       crating: 'Shock-Cushioned Wooden Crating',
       lining: 'Moisture & Cryo-Sealed Lining',
       insuredValue: '₹5,00,000',
@@ -71,9 +71,9 @@ const DOCKET_DATA = {
       {
         id: 'trunk-01',
         categoryTag: 'TRUNK',
-        title: 'The Sovereign Bridal Keepsake Chest',
-        description: 'Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Monogram',
-        qty: '1 Bespoke Masterpiece',
+        title: 'The Sovereign Bridal Gift Chest',
+        description: 'Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Initials',
+        qty: '1 Customized Masterpiece',
         price: '₹84,500',
         status: 'In Hand-Assembly',
         statusColor: 'emerald',
@@ -89,7 +89,7 @@ const DOCKET_DATA = {
         id: 'favors-02',
         categoryTag: 'FAVORS',
         title: 'Lake Como Royal Guest Welcome Hampers',
-        description: 'Debossed monogram luggage tag, artisanal scented candle, botanical wax seal',
+        description: 'Debossed initials luggage tag, artisanal scented candle, botanical wax seal',
         qty: '120 Guests',
         price: '₹2,04,000',
         status: 'Leather Debossing Active',
@@ -101,7 +101,7 @@ const DOCKET_DATA = {
         categoryTag: 'CRYSTAL',
         title: 'Optical Crystal First-Dance Plaque with Solid Brass Base',
         description: 'Sub-millimeter laser internal etching · Scannable Spotify waveform cipher',
-        qty: '1 Keepsake',
+        qty: '1 Gift',
         price: '₹14,900',
         status: 'Laser Etched & Certified',
         statusColor: 'emerald',
@@ -112,7 +112,7 @@ const DOCKET_DATA = {
     documents: [
       {
         id: 'doc-contract',
-        name: 'Bespoke Production Contract',
+        name: 'Customized Production Contract',
         meta: 'Signed Sept 18 · Docket #8842X',
         type: 'PDF',
         actionLabel: 'PDF ↓',
@@ -149,7 +149,7 @@ const DOCKET_DATA = {
 const INITIAL_GUEST_PREVIEW = [
   { name: 'Lord & Lady Althorp', tagInitials: 'A', table: 'Grand Terrace', gift: 'Scented Candle + Tag' },
   { name: 'Contessa Sofia Bianchi', tagInitials: 'SB', table: 'Villa Balbiano Hall', gift: 'Botanical Wax Hamper' },
-  { name: 'Sagil Doza & Miss Sultana Begum', tagInitials: 'SB', table: 'Lake Pergola', gift: 'Silk Monogram Set' },
+  { name: 'Sagil Doza & Miss Sultana Begum', tagInitials: 'SB', table: 'Lake Pergola', gift: 'Silk Initials Set' },
   { name: 'Prince & Princess Sayeed', tagInitials: 'PS', table: 'Royal Loggia', gift: '24K Foil Hamper' },
   { name: 'Don Alessandro Moretti', tagInitials: 'AM', table: 'Olive Grove', gift: 'Artisanal Reserve Favors' }
 ];
@@ -227,7 +227,7 @@ const ClientPortalPage = () => {
           name: newGuestName.trim(),
           tagInitials: newGuestInitials.trim().toUpperCase() || newGuestName.trim().slice(0, 2).toUpperCase(),
           table: 'Confirmed Guest Suite',
-          gift: 'Debossed Monogram Hamper'
+          gift: 'Debossed Initials Hamper'
         }
       ]);
       setNewGuestName('');
@@ -262,7 +262,7 @@ const ClientPortalPage = () => {
               Encrypted Client Vault
             </span>
             <h2 className="text-2xl font-serif-luxury font-bold text-[#121212]">
-              Sanctuary Locked
+              My Account Locked
             </h2>
             <p className="text-xs text-stone-500 mt-2">
               Please enter your 4-digit Sovereign Suite PIN (Default: <code className="text-[#75542E] font-bold">8842</code>) to resume your live session.
@@ -304,7 +304,7 @@ const ClientPortalPage = () => {
     <div className="bg-[#FAF7F2] text-[#222222] min-h-screen antialiased selection:bg-[#E7D5BF] selection:text-[#2E1E0E]">
       
       {/* =========================================================================
-          TOP MINIMALIST ATELIER ENCRYPTED UTILITY BAR (STRICTLY NO GENERAL WEBSITE HEADER)
+          TOP MINIMALIST COLLECTION ENCRYPTED UTILITY BAR (STRICTLY NO GENERAL WEBSITE HEADER)
          ========================================================================= */}
       <header className="w-full bg-[#FDFBF7] border-b border-[#E7D5BF]/70 sticky top-0 z-40 px-6 lg:px-12 py-3.5 backdrop-blur-md bg-opacity-95 transition-all print:hidden">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -322,10 +322,10 @@ const ClientPortalPage = () => {
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
               <span className="text-[11px] font-medium tracking-wide uppercase text-stone-600 hidden sm:inline">
-                Encrypted Client Sanctuary · Live Session
+                Encrypted My Account · Live Session
               </span>
               <span className="text-[10px] font-medium tracking-wide uppercase text-stone-600 sm:hidden">
-                Live Sanctuary
+                Live My Account
               </span>
             </div>
           </div>
@@ -381,7 +381,7 @@ const ClientPortalPage = () => {
       </header>
 
       {/* =========================================================================
-          MAIN SANCTUARY CONTENT CONTAINER
+          MAIN MY ACCOUNT CONTENT CONTAINER
          ========================================================================= */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 space-y-10">
         
@@ -390,14 +390,14 @@ const ClientPortalPage = () => {
           <div>
             <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-semibold text-[#9B7443] mb-2">
               <span>◆</span>
-              <span>Bespoke Bridal & Trousseau Client Sanctuary</span>
+              <span>Customized Bridal & Wedding Essentials My Account</span>
               <span>◆</span>
             </div>
             <h1 className="text-3xl lg:text-5xl font-serif-luxury font-normal text-[#121212] tracking-tight">
-              Welcome to Your <span className="italic font-normal gold-gradient-text font-serif">Atelier Sanctuary</span>
+              Welcome to Your <span className="italic font-normal gold-gradient-text font-serif">Collection My Account</span>
             </h1>
             <p className="text-xs lg:text-sm text-stone-600 mt-2 max-w-2xl leading-relaxed">
-              Active commission dossier for <strong className="text-stone-800 font-semibold">{data.patronName}</strong> · Destination Ceremony: <span className="italic">{data.ceremonyDestination}</span> · Assigned Lead Atelier Stylist: <span className="text-[#75542E] font-medium underline decoration-[#C8A97E]">{data.leadStylist.name}</span>.
+              Active commission dossier for <strong className="text-stone-800 font-semibold">{data.patronName}</strong> · Destination Ceremony: <span className="italic">{data.ceremonyDestination}</span> · Assigned Lead Collection Stylist: <span className="text-[#75542E] font-medium underline decoration-[#C8A97E]">{data.leadStylist.name}</span>.
             </p>
           </div>
 
@@ -450,7 +450,7 @@ const ClientPortalPage = () => {
           </div>
 
           <div className="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Monogram Die Archival</span>
+            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Initials Die Archival</span>
             <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#121212] mt-1">Die #{data.monogramDie.dieId}</div>
             <span className="text-[11px] text-[#75542E] font-medium mt-1 block">{data.monogramDie.storageTerm}</span>
           </div>
@@ -464,7 +464,7 @@ const ClientPortalPage = () => {
                 Stage 3 of 5 · In Master Craft Production
               </span>
               <h2 className="text-xl lg:text-2xl font-serif-luxury font-bold text-[#121212] mt-2">
-                The Sovereign Bridal Trousseau & 120 Keepsake Suites
+                The Sovereign Bridal Wedding Essentials & 120 Gift Suites
               </h2>
               <p className="text-xs text-stone-500 mt-0.5">
                 Docket ID: <strong>{data.docketId}</strong> · Dispatched via Insured Temperature-Controlled Air Courier
@@ -544,7 +544,7 @@ const ClientPortalPage = () => {
           {/* LEFT / CENTER COLUMN (2 COLS): APPROVALS, COMMISSION DOSSIER, RECENT ORDERS */}
           <div className="lg:col-span-2 space-y-8">
             
-            {/* PENDING APPROVAL DOCKET: 3D MONOGRAM DIE PROOF */}
+            {/* PENDING APPROVAL DOCKET: 3D INITIALS DIE PROOF */}
             <div className="bg-[#FDFBF7] border-2 border-[#C8A97E] rounded-xl p-6 lg:p-7 card-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#C8A97E] text-[#121212] text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-bl">
                 {proofApproved ? 'Patron Approval Logged ✓' : 'Action Required · Proofing Sign-off'}
@@ -556,7 +556,7 @@ const ClientPortalPage = () => {
               </div>
 
               <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">
-                3D Monogram Debossing Depth Proof (Revision v2.1)
+                3D Initials Debossing Depth Proof (Revision v2.1)
               </h3>
               <p className="text-xs text-stone-600 mt-1 leading-relaxed">
                 Master engraver <strong className="text-stone-800">Jawed Ali</strong> has adjusted the bevel relief to <strong className="text-stone-800">{data.monogramDie.bevelDepth}</strong> to guarantee razor-sharp 24K gold foil indentation on your Florentine ivory calfskin chests.
@@ -623,19 +623,19 @@ const ClientPortalPage = () => {
               </div>
             </div>
 
-            {/* CURATED KEEPSAKE SUITE DOSSIER (ACTIVE ITEMS IN THIS ORDER) */}
+            {/* CURATED GIFT SUITE DOSSIER (ACTIVE ITEMS IN THIS ORDER) */}
             <div className="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow">
               <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
                 <div>
                   <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">Commissioned Suite Dossier</h3>
-                  <p className="text-xs text-stone-500">3 bespoke heirloom product lines active under Docket #{data.docketId}</p>
+                  <p className="text-xs text-stone-500">3 customized heirloom product lines active under Docket #{data.docketId}</p>
                 </div>
                 <span className="text-xs text-[#9B7443] font-medium tracking-wide">Vault Archive #892-HYD</span>
               </div>
 
               <div className="divide-y divide-[#E7D5BF]/60 mt-2">
                 
-                {/* Item 1: Sovereign Bridal Keepsake Chest */}
+                {/* Item 1: Sovereign Bridal Gift Chest */}
                 <div className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase shrink-0">
@@ -643,16 +643,16 @@ const ClientPortalPage = () => {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-[#121212] font-serif-luxury text-base">
-                        The Sovereign Bridal Keepsake Chest
+                        The Sovereign Bridal Gift Chest
                       </h4>
                       <p className="text-xs text-stone-600 mt-0.5">
-                        Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Monogram
+                        Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Initials
                       </p>
                       <div className="flex items-center space-x-3 mt-1.5">
                         <span className="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                           In Hand-Assembly
                         </span>
-                        <span className="text-xs text-stone-500">Qty: 1 Bespoke Masterpiece</span>
+                        <span className="text-xs text-stone-500">Qty: 1 Customized Masterpiece</span>
                       </div>
                     </div>
                   </div>
@@ -678,7 +678,7 @@ const ClientPortalPage = () => {
                         Lake Como Royal Guest Welcome Hampers
                       </h4>
                       <p className="text-xs text-stone-600 mt-0.5">
-                        Debossed monogram luggage tag, artisanal scented candle, botanical wax seal
+                        Debossed initials luggage tag, artisanal scented candle, botanical wax seal
                       </p>
                       <div className="flex items-center space-x-3 mt-1.5">
                         <span className="text-[10px] tracking-wider uppercase font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
@@ -716,7 +716,7 @@ const ClientPortalPage = () => {
                         <span className="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                           Laser Etched &amp; Certified
                         </span>
-                        <span className="text-xs text-stone-500">Qty: 1 Keepsake</span>
+                        <span className="text-xs text-stone-500">Qty: 1 Gift</span>
                       </div>
                     </div>
                   </div>
@@ -776,10 +776,10 @@ const ClientPortalPage = () => {
 
           </div>
 
-          {/* RIGHT COLUMN (1 COL): STYLIST CONCIERGE, BRASS DIE VAULT, CLIENT VAULT DOCUMENTS */}
+          {/* RIGHT COLUMN (1 COL): STYLIST SUPPORT, BRASS DIE VAULT, CLIENT VAULT DOCUMENTS */}
           <div className="space-y-8">
             
-            {/* LEAD BRIDAL STYLIST CONCIERGE CARD (OBSIDIAN LUXURY) */}
+            {/* LEAD BRIDAL STYLIST SUPPORT CARD (OBSIDIAN LUXURY) */}
             <div className="bg-[#121212] rounded-xl p-6 text-white border border-[#C8A97E]/50 card-shadow relative overflow-hidden">
               <div className="flex items-center space-x-4 border-b border-stone-800 pb-5">
                 <div className="w-14 h-14 rounded-full bg-[#1C1A17] border-2 border-[#C8A97E] flex items-center justify-center font-serif-luxury text-lg font-bold text-[#E7D5BF] shrink-0">
@@ -823,7 +823,7 @@ const ClientPortalPage = () => {
               </div>
 
               <div className="mt-4 pt-3 border-t border-stone-800/80 text-[10px] text-stone-400 text-center">
-                Direct Atelier Line:{' '}
+                Direct Collection Line:{' '}
                 <a href={`tel:${data.leadStylist.phone}`} className="text-[#E7D5BF] hover:underline font-medium">
                   {data.leadStylist.phone}
                 </a>
@@ -848,7 +848,7 @@ const ClientPortalPage = () => {
               </div>
 
               <p className="text-xs text-stone-600 leading-relaxed">
-                Your physical master die remains preserved in our climate-shielded Hyderabad vault for complimentary re-orders (anniversary gift books, thank-you cards, and holiday trousseaus).
+                Your physical master die remains preserved in our climate-shielded Hyderabad vault for complimentary re-orders (anniversary gift books, thank-you cards, and holiday wedding essentials).
               </p>
 
               <button 
@@ -941,7 +941,7 @@ const ClientPortalPage = () => {
                   Interactive Milling CAD Simulation
                 </span>
                 <h3 className="text-xl font-serif-luxury font-bold text-white">
-                  3D Monogram Depth &amp; Bevel Inspection
+                  3D Initials Depth &amp; Bevel Inspection
                 </h3>
               </div>
               <button 
@@ -1089,7 +1089,7 @@ const ClientPortalPage = () => {
                   onClick={() => { setRevisionModalOpen(false); setRevisionSubmitted(false); }}
                   className="px-5 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider rounded font-medium mt-2"
                 >
-                  Return to Sanctuary
+                  Return to My Account
                 </button>
               </div>
             )}
@@ -1103,7 +1103,7 @@ const ClientPortalPage = () => {
           <div className="bg-white max-w-xl w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-stone-200 pb-3">
               <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Atelier Technical Dossier</span>
+                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Collection Technical Dossier</span>
                 <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
                   {activeSpecItem.title}
                 </h3>
@@ -1289,7 +1289,7 @@ const ClientPortalPage = () => {
           <div className="bg-white max-w-md w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-stone-200 pb-3">
               <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Private Atelier Salon</span>
+                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Private Collection Salon</span>
                 <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
                   Schedule Video Tasting Call
                 </h3>
@@ -1398,7 +1398,7 @@ const ClientPortalPage = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-stone-500">Security Signature:</span>
-                <span className="font-mono text-emerald-800 font-semibold text-[11px]">SHA-256 VERIFIED ATELIER SEAL</span>
+                <span className="font-mono text-emerald-800 font-semibold text-[11px]">SHA-256 VERIFIED COLLECTION SEAL</span>
               </div>
             </div>
 
@@ -1444,7 +1444,7 @@ const ClientPortalPage = () => {
                     <option>Wedding Thank-You Cards &amp; Deckle Envelopes (Qty 100+)</option>
                     <option>First Anniversary Gold-Embossed Memory Folio</option>
                     <option>Holiday &amp; New Year Festive Gift Boxes</option>
-                    <option>Other Custom Bespoke Leather Item</option>
+                    <option>Other Custom Customized Leather Item</option>
                   </select>
                 </div>
 
@@ -1504,7 +1504,7 @@ const ClientPortalPage = () => {
               <div>
                 <span className="text-[10px] tracking-widest uppercase text-amber-700 font-semibold block">Urgent Hotline</span>
                 <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  Ceremony Concierge Dispatch
+                  Ceremony Support Dispatch
                 </h3>
               </div>
               <button onClick={() => { setAssistanceModalOpen(false); setAssistanceSent(false); }} className="text-stone-400 hover:text-stone-700">

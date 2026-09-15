@@ -7,7 +7,7 @@ const BespokePage = () => {
   const formRef = useRef(null);
 
   // Form State
-  const [category, setCategory] = useState('trousseau');
+  const [category, setCategory] = useState('wedding essentials');
   const [materials, setMaterials] = useState(['24k_gold', 'plantation_teak', 'mulberry_silk']);
   const [techniques, setTechniques] = useState(['laser', 'deboss', '3d_crest']);
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -38,7 +38,7 @@ const BespokePage = () => {
     { id: 'deboss', label: 'Debossing / Foil Stamping' },
     { id: 'flora', label: 'Preserved Resin Flora' },
     { id: 'calligraphy', label: 'Master Penman Calligraphy' },
-    { id: '3d_crest', label: '3D Monogram Crest Sculpting' },
+    { id: '3d_crest', label: '3D Initials Crest Sculpting' },
   ];
 
   const toggleMaterial = (id) => {
@@ -99,7 +99,7 @@ const BespokePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    showToast('Bespoke brief received! Our chief designer will message you on WhatsApp within 2 hours.');
+    showToast('Customized brief received! Our chief designer will message you on WhatsApp within 2 hours.');
   };
 
   return (
@@ -111,13 +111,13 @@ const BespokePage = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-6 border-b border-outline-variant/30">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-secondary-container/60 text-on-secondary-container px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-              <span>✨ Bespoke Commission Studio 2026</span>
+              <span>✨ Customized Commission Studio 2026</span>
             </div>
             <h1 className="font-serif text-4xl lg:text-5xl font-bold text-on-surface tracking-tight leading-none mb-3">
               Your Idea → We Create
             </h1>
             <p className="text-sm lg:text-base text-on-surface-variant leading-relaxed">
-              Turn your visionary wedding dreams, unique keepsake concepts, or one-of-a-kind couple heirloom ideas into
+              Turn your visionary wedding dreams, unique gift concepts, or one-of-a-kind couple heirloom ideas into
               masterfully handcrafted reality. From initial sketch to wax-sealed delivery.
             </p>
           </div>
@@ -127,7 +127,7 @@ const BespokePage = () => {
             <div className="flex items-center gap-3 px-3 py-1 border-r border-outline-variant/40">
               <span className="font-serif text-2xl font-bold text-primary">500+</span>
               <div className="text-[10px] uppercase tracking-wider text-on-surface-variant leading-tight">
-                Bespoke Concepts<br />
+                Customized Concepts<br />
                 <span className="font-semibold text-on-surface">Realized</span>
               </div>
             </div>
@@ -152,7 +152,7 @@ const BespokePage = () => {
       {/* 2. How It Works Timeline */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-10">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-bold">Atelier Craft Journey</span>
+          <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-bold">Collection Craft Journey</span>
           <h2 className="font-serif text-3xl font-bold text-on-surface mt-1">How Your Idea Becomes Reality</h2>
           <p className="text-xs text-on-surface-variant mt-1.5">
             Our transparent four-step artisan process guarantees peerless attention to detail.
@@ -180,7 +180,7 @@ const BespokePage = () => {
             <div className="w-12 h-12 rounded-full bg-surface-container-low border-2 border-primary text-primary flex items-center justify-center font-serif font-bold text-lg mb-4 mx-auto">
               02
             </div>
-            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Digital Render &amp; Curation</h3>
+            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Digital Render &amp; Collection</h3>
             <p className="text-xs text-on-surface-variant text-center leading-relaxed">
               Receive a photorealistic 3D render, custom font styles, and physical material swatches like teakwood, Italian leather, or raw silk.
             </p>
@@ -193,7 +193,7 @@ const BespokePage = () => {
             </div>
             <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Artisanal Handcrafting</h3>
             <p className="text-xs text-on-surface-variant text-center leading-relaxed">
-              Master calligraphers, laser engravers, and leather crafters bring the piece to life in our state-of-the-art jubilee atelier.
+              Master calligraphers, laser engravers, and leather crafters bring the piece to life in our state-of-the-art jubilee collection.
             </p>
           </div>
 
@@ -211,18 +211,18 @@ const BespokePage = () => {
       </section>
 
       {/* 3. Studio Request Form Section (Interactive Configurator) */}
-      <section ref={formRef} className="max-w-[1400px] mx-auto px-4 sm:px-8 py-8" id="bespoke-form">
+      <section ref={formRef} className="max-w-[1400px] mx-auto px-4 sm:px-8 py-8" id="customized-form">
         <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-lg overflow-hidden">
-          {/* Atelier Form Header Ribbon */}
+          {/* Collection Form Header Ribbon */}
           <div className="bg-gradient-to-r from-[#1f1e1c] via-[#2d2925] to-[#1f1e1c] text-[#fcf9f8] px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#3d3730]">
             <div className="flex items-center gap-3">
               <span className="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
               <span className="font-serif text-lg sm:text-xl font-bold tracking-wide">
-                Interactive Bespoke Studio Commission Request
+                Interactive Customized Studio Commission Request
               </span>
             </div>
             <span className="text-xs text-primary-fixed-dim tracking-wider uppercase font-medium">
-              Design Consultation ID: #ASRA-ATELIER-2026
+              Design Consultation ID: #ASRA-COLLECTION-2026
             </span>
           </div>
 
@@ -239,14 +239,14 @@ const BespokePage = () => {
                 Thank You, {fullName || 'Dear Guest'}!
               </h3>
               <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">
-                Your bespoke design brief for{' '}
+                Your customized design brief for{' '}
                 <strong className="text-on-surface">
-                  {category === 'trousseau' && 'Wedding Trousseau Trunk'}
+                  {category === 'wedding essentials' && 'Wedding Wedding Essentials Trunk'}
                   {category === 'audio_acrylic' && 'Audio & Songwave Sculpture'}
                   {category === 'teak_box' && 'Hand-Carved Teak Memory Box'}
                   {category === 'floral_shadowbox' && 'Preserved Varmala Shadowbox'}
                   {category === 'vow_books' && 'Gilded Vow Books & Folios'}
-                  {category === 'other_concept' && 'Custom Bespoke Concept'}
+                  {category === 'other_concept' && 'Custom Customized Concept'}
                 </strong>{' '}
                 has been received. Our chief design master is reviewing your references and will reach out via WhatsApp at{' '}
                 <strong className="text-primary">{phone || '+91 96926 68263'}</strong> within 2 hours.
@@ -279,23 +279,23 @@ const BespokePage = () => {
             <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10">
               {/* LEFT COLUMN: Configure Your Vision (7 Cols) */}
               <div className="lg:col-span-7 space-y-6">
-                {/* 1. Keepsake Category */}
+                {/* 1. Gift Category */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
                       1
                     </span>
                     <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
-                      Select Keepsake / Product Category
+                      Select Gift / Product Category
                     </h3>
                   </div>
                   <p className="text-xs text-on-surface-variant mb-3 ml-8">
-                    Choose the primary keepsake silhouette you envision creating:
+                    Choose the primary gift silhouette you envision creating:
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 ml-0 sm:ml-8">
                     <label
                       className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
-                        category === 'trousseau'
+                        category === 'wedding essentials'
                           ? 'border-primary bg-secondary-container/20 shadow-sm'
                           : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
                       }`}
@@ -303,12 +303,12 @@ const BespokePage = () => {
                       <input
                         type="radio"
                         name="product_category"
-                        checked={category === 'trousseau'}
-                        onChange={() => setCategory('trousseau')}
+                        checked={category === 'wedding essentials'}
+                        onChange={() => setCategory('wedding essentials')}
                         className="text-primary focus:ring-primary mt-0.5 accent-primary"
                       />
                       <div>
-                        <span className="text-xs font-semibold text-on-surface block">Wedding Trousseau Trunk</span>
+                        <span className="text-xs font-semibold text-on-surface block">Wedding Wedding Essentials Trunk</span>
                         <span className="text-[10px] text-on-surface-variant">Hand-built velvet &amp; gilded vaults</span>
                       </div>
                     </label>
@@ -349,7 +349,7 @@ const BespokePage = () => {
                       />
                       <div>
                         <span className="text-xs font-semibold text-on-surface block">Hand-Carved Teak Memory Box</span>
-                        <span className="text-[10px] text-on-surface-variant">Custom couple monogram engraved</span>
+                        <span className="text-[10px] text-on-surface-variant">Custom couple initials engraved</span>
                       </div>
                     </label>
 
@@ -571,18 +571,18 @@ const BespokePage = () => {
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: Consultation & Concierge Details (5 Cols) */}
+              {/* RIGHT COLUMN: Consultation & Support Details (5 Cols) */}
               <div className="lg:col-span-5 bg-surface-container-low border border-outline-variant/40 rounded-xl p-6 lg:p-7 flex flex-col justify-between">
                 <div>
                   <div className="border-b border-outline-variant/30 pb-4 mb-5">
                     <span className="text-[10px] uppercase font-bold text-primary tracking-widest block">
-                      White-Glove Atelier Service
+                      White-Glove Collection Service
                     </span>
                     <h3 className="font-serif text-2xl font-bold text-on-surface">
-                      Project Consultation &amp; Concierge Details
+                      Project Consultation &amp; Support Details
                     </h3>
                     <p className="text-xs text-on-surface-variant mt-1">
-                      Our senior bespoke curator will craft a personalized layout &amp; quotation based on your choices.
+                      Our senior customized curator will craft a personalized layout &amp; quotation based on your choices.
                     </p>
                   </div>
 
@@ -657,7 +657,7 @@ const BespokePage = () => {
                           onChange={() => setBudget('25k+')}
                           className="hidden"
                         />
-                        <span>Ultra Bespoke ₹25k+</span>
+                        <span>Ultra Customized ₹25k+</span>
                       </label>
                     </div>
                   </div>
@@ -747,7 +747,7 @@ const BespokePage = () => {
                     type="submit"
                     className="w-full bg-inverse-surface hover:bg-primary text-inverse-on-surface py-3.5 px-6 rounded-lg text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition duration-300 shadow-md"
                   >
-                    <span>Submit Bespoke Commission Request</span>
+                    <span>Submit Customized Commission Request</span>
                     <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </button>
 
@@ -776,12 +776,12 @@ const BespokePage = () => {
             <div className="overflow-hidden rounded-xl border border-outline-variant/40 shadow-inner bg-surface-container-low">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYPxCrDzczhyZ-p7Ew61w-iDjrf0SYB9xcUMsWWKw19VERYs6chdoMrDSxCbWxB6FP0DPqlSA9C0gfm0A_e76hPgg3kHn_PwuaYLWv2rylJkcQJvx-RMjgkr76e43aAgClcbWocYdzM7JnURK0cckKXh1uPTwgJyWYqKEdhMs_ARV-EYILjjs2zca7jt9X7AqeY7WwO8XtHixUwaHSL-_9YJ51I7DbRGCyy27-puWWkO30dd1YCmnzw"
-                alt="The Sovereign Bridal and Trousseau Masterpiece Suite"
+                alt="The Sovereign Bridal and Wedding Essentials Masterpiece Suite"
                 className="w-full h-auto object-cover max-h-[480px] hover:scale-105 transition duration-500"
               />
             </div>
             <span className="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded shadow-sm border border-outline-variant/40">
-              ★ Atelier Masterpiece Realization
+              ★ Collection Masterpiece Realization
             </span>
           </div>
 
@@ -790,18 +790,18 @@ const BespokePage = () => {
               Signature Bridal Commission
             </div>
             <h2 className="font-serif text-3xl lg:text-4xl font-bold text-on-surface leading-tight">
-              The Sovereign Bridal &amp; Trousseau Suite
+              The Sovereign Bridal &amp; Wedding Essentials Suite
             </h2>
             <p className="text-sm text-on-surface-variant leading-relaxed">
-              An opulent symphony of hand-embossed blush trousseau cases, artisanal Eau de Parfum, golden Ferrero confections,
+              An opulent symphony of hand-embossed blush wedding essentials cases, artisanal Eau de Parfum, golden Ferrero confections,
               organic soy candle, silk scrunchie, and our signature ASRA golden ribbon insignia. Crafted specifically for
-              unforgettable trousseau unboxing and morning-of-wedding reveals.
+              unforgettable wedding essentials unboxing and morning-of-wedding reveals.
             </p>
 
             <div className="grid grid-cols-2 gap-3 py-2 text-xs text-on-surface font-medium">
               <div className="flex items-center gap-2">
                 <span className="text-primary">✦</span>
-                <span>24k Gilded Custom Monograms</span>
+                <span>24k Gilded Custom Initials</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-primary">✦</span>
@@ -819,7 +819,7 @@ const BespokePage = () => {
 
             <div className="pt-3 border-t border-outline-variant/30 flex items-center justify-between gap-4">
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-outline block">Bespoke Suite Baseline</span>
+                <span className="text-[10px] uppercase tracking-wider text-outline block">Customized Suite Baseline</span>
                 <span className="font-serif text-2xl font-bold text-on-surface">₹7,499</span>
                 <span className="text-xs text-outline line-through ml-1.5">₹9,800</span>
               </div>
@@ -827,10 +827,10 @@ const BespokePage = () => {
               <button
                 onClick={() =>
                   handlePrefill(
-                    'trousseau',
+                    'wedding essentials',
                     ['24k_gold', 'mulberry_silk', 'plantation_teak'],
                     '5k-10k',
-                    'Requesting similar design to The Sovereign Bridal & Trousseau Suite with our custom couple initials'
+                    'Requesting similar design to The Sovereign Bridal & Wedding Essentials Suite with our custom couple initials'
                   )
                 }
                 type="button"
@@ -843,7 +843,7 @@ const BespokePage = () => {
         </div>
       </section>
 
-      {/* 5. Recent Bespoke Creations Realized (Showcase Gallery) */}
+      {/* 5. Recent Customized Creations Realized (Showcase Gallery) */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div>
@@ -851,7 +851,7 @@ const BespokePage = () => {
               Archive of Realized Dreams
             </span>
             <h2 className="font-serif text-3xl font-bold text-on-surface mt-1">
-              Recent Bespoke Creations Realized
+              Recent Customized Creations Realized
             </h2>
             <p className="text-xs text-on-surface-variant mt-1">
               Every commissioned piece is archived with its couple's journey and craftsmanship pedigree.
@@ -861,7 +861,7 @@ const BespokePage = () => {
             to="/shop"
             className="text-xs font-bold uppercase tracking-wider text-primary hover:text-on-surface transition inline-flex items-center gap-1.5 mt-3 md:mt-0"
           >
-            <span>View All Atelier Heirlooms</span>
+            <span>View All Collection Heirlooms</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
           </Link>
         </div>
@@ -897,7 +897,7 @@ const BespokePage = () => {
               <button
                 onClick={() =>
                   handlePrefill(
-                    'trousseau',
+                    'wedding essentials',
                     ['24k_gold', 'plantation_teak', 'mulberry_silk'],
                     '10k-25k',
                     'Requesting similar design to The Royal Udaipur Vow Trunk with hand-carved wood and dual drawers'
@@ -992,12 +992,12 @@ const BespokePage = () => {
                 type="button"
                 className="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary text-[11px] font-bold uppercase tracking-wider py-2 rounded transition"
               >
-                Request Audio Keepsake
+                Request Audio Gift
               </button>
             </div>
           </article>
 
-          {/* Card 4: Monogrammed Passport Trunk */}
+          {/* Card 4: Initials Passport Trunk */}
           <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div>
               <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
@@ -1012,7 +1012,7 @@ const BespokePage = () => {
               </div>
               <div className="p-5">
                 <h3 className="font-serif text-lg font-bold text-on-surface mb-1.5">
-                  Monogrammed Passport Trunk
+                  Initials Passport Trunk
                 </h3>
                 <p className="text-xs text-on-surface-variant line-clamp-3 mb-3 leading-relaxed">
                   Full-grain Italian saddle leather folio duo with personalized family heraldry brass die hot-stamping and boarding card slots.
@@ -1026,10 +1026,10 @@ const BespokePage = () => {
               <button
                 onClick={() =>
                   handlePrefill(
-                    'trousseau',
+                    'wedding essentials',
                     ['italian_leather', '24k_gold'],
                     '5k-10k',
-                    'Requesting Monogrammed Leather Travel Suite with custom gold debossed heraldry'
+                    'Requesting Initials Leather Travel Suite with custom gold debossed heraldry'
                   )
                 }
                 type="button"
@@ -1050,7 +1050,7 @@ const BespokePage = () => {
               <span className="material-symbols-outlined text-[20px]">tune</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">100% Bespoke Craft</h4>
+              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">100% Customized Craft</h4>
               <p className="text-[11px] text-on-surface-variant">Custom dies &amp; real gold leaf</p>
             </div>
           </div>
@@ -1080,7 +1080,7 @@ const BespokePage = () => {
               <span className="material-symbols-outlined text-[20px]">support_agent</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">Atelier Privilege Desk</h4>
+              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">Collection Privilege Desk</h4>
               <p className="text-[11px] text-on-surface-variant">Personal bridal stylist 24/7</p>
             </div>
           </div>

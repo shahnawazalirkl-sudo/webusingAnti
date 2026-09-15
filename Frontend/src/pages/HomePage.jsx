@@ -34,7 +34,7 @@ const HomePage = () => {
           </div>
           <div className="hidden md:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
             <span className="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
-            <span>100% Bespoke Hand-Engraved Keepsakes</span>
+            <span>100% Customized Hand-Engraved Gifts</span>
           </div>
           <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
             <span className="material-symbols-outlined text-[18px] text-primary">stars</span>
@@ -56,16 +56,16 @@ const HomePage = () => {
             <div className="inline-flex items-center gap-space-xs px-3 py-1 bg-surface-container-high rounded-full mb-space-md">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               <span className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant">
-                The 2025 Bridal &amp; Keepsake Atelier
+                The 2025 Bridal &amp; Gift Collection
               </span>
             </div>
 
             <h1 className="font-display-lg text-headline-lg lg:text-display-lg text-on-surface font-normal tracking-tight mb-space-md leading-[1.12]">
-              Crafting Timeless <span className="italic font-normal text-primary">Keepsakes</span> for Life's Most Cherished Moments.
+              Crafting Timeless <span className="italic font-normal text-primary">Gifts</span> for Life's Most Cherished Moments.
             </h1>
 
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-space-lg leading-relaxed">
-              From custom debossed leather passport suites to glowing acrylic melodies and curated trousseau hampers, we immortalize love stories with meticulous artisanal craft.
+              From custom debossed leather passport suites to glowing acrylic melodies and curated wedding essentials hampers, we immortalize love stories with meticulous artisanal craft.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-xl">
@@ -144,7 +144,7 @@ const HomePage = () => {
                   {heroMode === 'photo' ? (
                     <img
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      alt="ASRA Wedding Canvas Luxury Keepsake Gift Bouquet Hamper"
+                      alt="ASRA Wedding Canvas Luxury Gift Gift Bouquet Hamper"
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf6wccd8JVo55o47kyjfcXBqVSaV5PmNZ27-bvZE--L32GU6kqpGop3S4Acc1CCkAKzmYs03qtCI99k-Mw0THe-Vz9tBN8Q4lkKqctWg3hXYDniqRQqm_1e0O8wPWe-6QmbI_7dccFB0RRgFtdlyRlX0kaP2qObJ0Ka_6dlx93oklKnViZ9gQWUZv0PKbOpiAjynEnez3YREZOetCYoPqUxT8Lpgfzw2UkeMpsv_3tWVaiTyW_OgRXTmlTVlY-FK2f1rQ"
                     />
                   ) : (
@@ -160,7 +160,7 @@ const HomePage = () => {
                       Artisan Spotlight
                     </span>
                     <h3 className="font-title-md text-title-md text-on-surface font-semibold">
-                      Trousseau Travel Suite
+                      Wedding Essentials Travel Suite
                     </h3>
                   </div>
                   <span className="font-title-md text-title-md text-primary font-bold">₹1,699</span>
@@ -174,10 +174,10 @@ const HomePage = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">
-                    Atelier Certified
+                    Collection Certified
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface font-medium leading-tight">
-                    Debossed monogram with real brass plates
+                    Debossed initials with real brass plates
                   </span>
                 </div>
               </div>
@@ -198,7 +198,7 @@ const HomePage = () => {
                 Exclusive Privileges &amp; Bank Offers
               </span>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Save up to ₹1,500 on curations today with certified wedding codes.
+                Save up to ₹1,500 on collections today with certified wedding codes.
               </p>
             </div>
           </div>
@@ -251,7 +251,7 @@ const HomePage = () => {
                 Handpicked Daily
               </span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface font-medium tracking-tight">
-                Trending Keepsakes &amp; Favors
+                Trending Gifts &amp; Favors
               </h2>
             </div>
             <div className="flex items-center gap-space-sm">
@@ -288,12 +288,12 @@ const HomePage = () => {
             ref={carouselRef}
             className="flex gap-space-lg overflow-x-auto pb-space-lg scrollbar-none snap-x snap-mandatory"
           >
-            {/* Card 1: Bespoke Leather Travel Set */}
+            {/* Card 1: Customized Leather Travel Set */}
             <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
               <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Custom Monogram Leather Travel Set"
+                  alt="Custom Initials Leather Travel Set"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBotmp8Vw5J1VjNNMezt5z72yN1AhbCGxzqKKxVlCO3-fzA6IJeroSr358LZy7Zv0L6WKSurRnkiB2KSW4GawEiBq6QxirIrXIwpBCkHWRTIUOxqZyf9IN8PBgNiMSQzTQxYXq-co792LDowUsDDeoeUU1mG-FHdgHVUHxhJ2qXYyylWSbrAvmac2Rk4I2qkkvmDUEFn4p5xpf0dQjmFB5EG67fn03l5fufbjEzKkriamgwIEGO8Xj-fg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
@@ -302,7 +302,7 @@ const HomePage = () => {
                 <button
                   type="button"
                   aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'leather-travel-set', title: 'Custom Monogram Leather Travel Set', price: 1699 })}
+                  onClick={() => toggleWishlist({ id: 'leather-travel-set', title: 'Custom Initials Leather Travel Set', price: 1699 })}
                   className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
                     isWishlisted('leather-travel-set') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
                   }`}
@@ -320,7 +320,7 @@ const HomePage = () => {
                   <span className="text-outline text-[12px]">(284)</span>
                 </div>
                 <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Custom Monogram Leather Travel Set
+                  Custom Initials Leather Travel Set
                 </h3>
                 <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
                   Tan Italian Leather • Free Debossed Initials
@@ -392,12 +392,12 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Card 3: Monogram Velvet Jewelry Box */}
+            {/* Card 3: Initials Velvet Jewelry Box */}
             <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
               <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Monogram Velvet Jewel Box &amp; Pendant"
+                  alt="Initials Velvet Jewel Box &amp; Pendant"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKU7s8rqvwKM9tOufEzgenjmQewDun8pV_xomQTIqZXxuVPQrUEBICs5l0E5eP8yI25NoOe8jy_6Odj__8C7OVS6mUATMveaEwBcJPXZU5B5BhMc1FAIDakB0VNC_IZl5zRKG8OSfkYG14WzKNG0DD3kiB_VTSgl_uhTXOFLVHLoi7NZyEC-HNBohagFEpQyaK8vlmvaZJv1LjlndktltjOZ5gvIzVA70ou7zp5ULkJh9F9n5cyy_dUg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-tertiary text-on-tertiary font-label-sm text-[10px] tracking-widest uppercase rounded">
@@ -406,7 +406,7 @@ const HomePage = () => {
                 <button
                   type="button"
                   aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'velvet-jewel-box', title: 'Monogram Velvet Jewel Box & Pendant', price: 1899 })}
+                  onClick={() => toggleWishlist({ id: 'velvet-jewel-box', title: 'Initials Velvet Jewel Box & Pendant', price: 1899 })}
                   className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
                     isWishlisted('velvet-jewel-box') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
                   }`}
@@ -424,7 +424,7 @@ const HomePage = () => {
                   <span className="text-outline text-[12px]">(195)</span>
                 </div>
                 <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Monogram Velvet Jewel Box &amp; Pendant
+                  Initials Velvet Jewel Box &amp; Pendant
                 </h3>
                 <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
                   Blush Velvet • 18K Gold Plated Pendant
@@ -496,7 +496,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Card 5: Handcrafted Keepsake Wooden Hamper (Peek Card) */}
+            {/* Card 5: Handcrafted Gift Wooden Hamper (Peek Card) */}
             <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
               <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
                 <img
@@ -505,14 +505,14 @@ const HomePage = () => {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7vVekI7j0bO5B4sHGS-PkbJ3Vaoc1gknVrmxBviLmDJq7i8B7P9Fd6gpcRcy7nB9l89JnswYfk8hocSAYNlzJHzYDz6CPDRoTiIb5Ctt2TBEmVext_0vT54z5cAKRo9Jpmd2__xSBPWIbqVYGmAELwue5yfoeivzaFEBc2fg37qvM0I-FP5acMA_IJTZFTM3J2FF8WNrKIRD-pv3TljQvvLGlxkYsR_NcG1_STL8doR8dKiIYMo2uzg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  LUXURY TROUSSEAU
+                  LUXURY WEDDING ESSENTIALS
                 </span>
                 <button
                   type="button"
                   aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'heritage-wooden-hamper', title: 'Grand Heritage Wooden Hamper', price: 4999 })}
+                  onClick={() => toggleWishlist({ id: 'heritage-wooden-hamper', title: 'Grand Classic Wooden Hamper', price: 4999 })}
                   className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('heritage-wooden-hamper') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
+                    isWishlisted('classic-wooden-hamper') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
                   }`}
                 >
                   <span className="material-symbols-outlined text-[18px]">favorite</span>
@@ -525,10 +525,10 @@ const HomePage = () => {
                   <span className="text-outline text-[12px]">(89)</span>
                 </div>
                 <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Grand Heritage Wooden Hamper
+                  Grand Classic Wooden Hamper
                 </h3>
                 <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Engraved Keepsake Box • Gourmet &amp; Tea
+                  Engraved Gift Box • Gourmet &amp; Tea
                 </p>
                 <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
                   <div className="flex items-baseline gap-2">
@@ -554,13 +554,13 @@ const HomePage = () => {
         <div className="max-w-[1360px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-space-xl">
             <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-semibold block mb-1">
-              Bespoke Curation by Recipient
+              Customized Collection by Recipient
             </span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface font-medium">
               Thoughtfully Made for Every Bond
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Tailored keepsakes crafted with personal monograms, bespoke messages, and heirloom packaging.
+              Tailored gifts crafted with personal initials, customized messages, and heirloom packaging.
             </p>
           </div>
 
@@ -573,13 +573,13 @@ const HomePage = () => {
               <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  alt="For Her Bridal Keepsakes"
+                  alt="For Her Bridal Gifts"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5RGsxj3cX2RgFKWbxsMLGQHhiR_v6kBL395AJJM6tqD9rti13HMZ-MJXYDC0jGBOxyHWTJ_MgvsHgHL7rFwydP6QiWLCi6xb02ydAucbBefr-jHkRXzeZZZ5tx7S1bx9lfkDJQUZNopzy6nsGHSMgAW4Iy7sLUfxDWkjMz-4ebds60q1H_4JfZlhbJisKhMxoYuxHIMitv-yzqAxqqS5-KpxB4urmNS9EloEibVdzJtYb1aTb0PVGPQ"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
                   <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim mb-1">
-                    Atelier Suite
+                    Collection Suite
                   </span>
                   <h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-medium mb-1">
                     For Her: Grace &amp; Sentiments
@@ -655,14 +655,14 @@ const HomePage = () => {
               </div>
             </Link>
 
-            {/* 4. For Keepsakes & Little Ones */}
+            {/* 4. For Gifts & Little Ones */}
             <Link
               to="/collections"
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
             >
               <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
                 <img
-                  alt="Personalized kids keepsake gifts"
+                  alt="Personalized kids gift gifts"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrqlkBPIAkX1Xo3Sk87FeRnUXn5N9kd2E4E-wjwqGD1qpBMmpO6JyiTvjZrHcdnohIke_Q7_1M4arwF3K_y7tG2kQOH1n4Sz-vcRqLOD1R2WwKSmPBnQt-EWFqOE5IVOh_UPQgX27U8ZKJ1d5xADnBBXoBrS-xKznhrcSytZGb-kas7e18Mq30TH7x8Lljh2TnG8FzO0jJcDLq75x7kHqBMyopsDoxUw2a7Ea74P72E8dQvjHrsaKog"
                 />
@@ -678,7 +678,7 @@ const HomePage = () => {
                     Carved wooden name puzzles, birth plaques &amp; soft night lights.
                   </p>
                   <div className="flex items-center gap-1 font-label-md text-label-md text-primary-fixed group-hover:translate-x-1 transition-transform">
-                    <span>Explore Keepsakes</span>
+                    <span>Explore Gifts</span>
                     <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </div>
                 </div>
@@ -689,7 +689,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* "Your Idea → We Create" Atelier Bespoke Studio Experience */}
+      {/* "Your Idea → We Create" Collection Customized Studio Experience */}
       <section className="w-full py-space-xl lg:py-20 px-margin bg-surface">
         <div className="max-w-[1360px] mx-auto bg-surface-container-lowest rounded-2xl p-space-lg lg:p-space-xl shadow-md border border-outline-variant/40 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
@@ -698,13 +698,13 @@ const HomePage = () => {
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded font-label-sm text-[11px] tracking-wider uppercase font-semibold mb-space-sm">
                 <span className="material-symbols-outlined text-[14px]">brush</span>
-                <span>Atelier Bespoke Service</span>
+                <span>Collection Customized Service</span>
               </div>
               <h2 className="font-headline-lg text-headline-lg text-on-surface font-normal mb-space-sm">
                 Your Idea → We Handcraft into Reality.
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant mb-space-lg">
-                Can't find the exact monogram design or packaging dimension? Send us your wedding logo, bespoke sketches, or moodboard. Our lead master-craftsmen render a 3D digital proof within 6 hours.
+                Can't find the exact initials design or packaging dimension? Send us your wedding logo, customized sketches, or moodboard. Our lead master-craftsmen render a 3D digital proof within 6 hours.
               </p>
 
               {/* 3-Step Process */}
@@ -729,7 +729,7 @@ const HomePage = () => {
                   </span>
                   <div>
                     <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
-                      Digital 3D Atelier Render &amp; Approval
+                      Digital 3D Collection Render &amp; Approval
                     </h4>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
                       Review lifelike foil-embossed or laser-cut previews before metal dies are cast.
@@ -760,7 +760,7 @@ const HomePage = () => {
                   rel="noopener noreferrer"
                 >
                   <span className="material-symbols-outlined text-[20px]">chat</span>
-                  <span>WhatsApp Atelier Concierge</span>
+                  <span>WhatsApp Collection Support</span>
                 </a>
 
                 <Link
@@ -783,7 +783,7 @@ const HomePage = () => {
                 />
                 <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-                  <span>Atelier Live Workbench</span>
+                  <span>Collection Live Workbench</span>
                 </div>
               </div>
 
@@ -825,7 +825,7 @@ const HomePage = () => {
                   ))}
                 </div>
                 <p className="font-body-md text-body-md text-on-surface-variant italic mb-space-md">
-                  "The custom monogram leather passport and luggage sets were the highlight of our bridal party gifts! The gold foil quality was immaculate, and the team accommodated our quick deadline of 3 days."
+                  "The custom initials leather passport and luggage sets were the highlight of our bridal party gifts! The gold foil quality was immaculate, and the team accommodated our quick deadline of 3 days."
                 </p>
               </div>
               <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
@@ -879,7 +879,7 @@ const HomePage = () => {
                   ))}
                 </div>
                 <p className="font-body-md text-body-md text-on-surface-variant italic mb-space-md">
-                  "The bespoke bridal party velvet jewelry boxes were packaged like luxury Parisian heirloom gifts. The wax seals and handwritten calligraphy cards made my bridesmaids cry happy tears!"
+                  "The customized bridal party velvet jewelry boxes were packaged like luxury Parisian heirloom gifts. The wax seals and handwritten calligraphy cards made my bridesmaids cry happy tears!"
                 </p>
               </div>
               <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
@@ -909,7 +909,7 @@ const HomePage = () => {
             </div>
             <div>
               <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                100% Bespoke Craft
+                100% Customized Craft
               </h4>
               <p className="font-body-sm text-body-sm text-outline">Every item personalized with care</p>
             </div>
@@ -945,7 +945,7 @@ const HomePage = () => {
             </div>
             <div>
               <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                Atelier Concierge
+                Collection Support
               </h4>
               <p className="font-body-sm text-body-sm text-outline">Dedicated wedding gift stylists</p>
             </div>

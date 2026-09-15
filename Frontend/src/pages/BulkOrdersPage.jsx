@@ -50,7 +50,7 @@ const BulkOrdersPage = () => {
       setTimeout(() => setNotesPulse(false), 1400);
     }
 
-    showToast(`Added "${itemName}" to your bespoke bulk inquiry dossier!`);
+    showToast(`Added "${itemName}" to your customized bulk inquiry dossier!`);
   };
 
   // Select a tier from the volume privileges cards
@@ -65,7 +65,7 @@ const BulkOrdersPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
-    showToast('Bulk Concierge Inquiry received! A dedicated manager will connect on WhatsApp within 2 hours.');
+    showToast('Bulk Support Inquiry received! A dedicated manager will connect on WhatsApp within 2 hours.');
   };
 
   const handleResetForm = () => {
@@ -96,16 +96,16 @@ const BulkOrdersPage = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-full mb-space-sm shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 <span className="font-label-sm text-label-sm text-primary tracking-[0.2em] font-semibold uppercase">
-                  Atelier Volume Curation &amp; Event Concierge
+                  Collection Volume Collection &amp; Event Support
                 </span>
               </div>
 
               <h1 className="font-headline-lg text-3xl sm:text-4xl lg:text-headline-lg text-on-surface tracking-tight leading-tight mb-space-md font-serif">
-                Curated Wedding Favors &amp; Bespoke Bulk Gifting for Grand Celebrations
+                Curated Wedding Favors &amp; Customized Bulk Gifting for Grand Celebrations
               </h1>
 
               <p className="font-body-lg text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mb-space-lg">
-                From 50 to 5,000+ guests, our master artisans handcraft personalized wedding favor suites, guest welcome hampers, and bridal party keepsakes. Featuring complimentary custom couple monograms, volume atelier pricing, and white-glove direct-to-venue delivery across India and worldwide.
+                From 50 to 5,000+ guests, our master artisans handcraft personalized wedding favor suites, guest welcome hampers, and bridal party gifts. Featuring complimentary custom couple initials, volume collection pricing, and white-glove direct-to-venue delivery across India and worldwide.
               </p>
 
               <div className="flex flex-wrap items-center gap-space-md">
@@ -114,7 +114,7 @@ const BulkOrdersPage = () => {
                   onClick={() => scrollToSection(inquiryFormRef)}
                   className="px-6 py-3 bg-inverse-surface hover:bg-primary text-inverse-on-surface font-label-md text-label-md tracking-wider uppercase rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Book Concierge Consultation</span>
+                  <span>Book Support Consultation</span>
                   <span className="material-symbols-outlined text-[18px]">east</span>
                 </button>
 
@@ -139,10 +139,10 @@ const BulkOrdersPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/20 to-transparent flex flex-col justify-end p-space-lg">
                   <span className="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest font-semibold">
-                    Masterpiece Keepsake
+                    Masterpiece Gift
                   </span>
                   <p className="font-headline-sm text-headline-sm text-surface-container-lowest font-serif">
-                    The Imperial Heritage Guest Suite
+                    The Imperial Classic Guest Suite
                   </p>
                   <p className="font-body-sm text-body-sm text-surface-container-high opacity-90">
                     Delivered to The Oberoi Udaivilas, Udaipur
@@ -152,7 +152,7 @@ const BulkOrdersPage = () => {
             </div>
           </div>
 
-          {/* Atelier 3 Value Badges */}
+          {/* Collection 3 Value Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-lg">
             <div className="p-space-md bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/40 flex items-start gap-space-sm hover:border-primary/40 transition-colors">
               <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
@@ -161,7 +161,7 @@ const BulkOrdersPage = () => {
               <div>
                 <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">50+ Minimum Units</h4>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  Flexible bespoke tiering tailored for intimate vows to 5,000+ guest royal gala evenings.
+                  Flexible customized tiering tailored for intimate vows to 5,000+ guest royal gala evenings.
                 </p>
               </div>
             </div>
@@ -171,7 +171,7 @@ const BulkOrdersPage = () => {
                 <span className="material-symbols-outlined text-[22px]">auto_awesome</span>
               </div>
               <div>
-                <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">Complimentary Monogram Die</h4>
+                <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">Complimentary Initials Die</h4>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Custom brass die manufactured free of charge for 3D hot-stamp debossing on every unit.
                 </p>
@@ -198,13 +198,13 @@ const BulkOrdersPage = () => {
         <div className="max-w-[1360px] mx-auto">
           <div className="flex flex-col items-center text-center mb-space-xl">
             <span className="font-label-sm text-label-sm text-primary tracking-[0.25em] uppercase font-semibold">
-              Tiered Atelier Economics
+              Tiered Collection Economics
             </span>
             <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface mt-space-xs font-serif">
               Volume Privileges &amp; Celebration Tiers
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs leading-relaxed">
-              Transparent volume curation pricing structured to reward grand celebrations with bespoke customization privileges.
+              Transparent volume collection pricing structured to reward grand celebrations with customized customization privileges.
             </p>
           </div>
 
@@ -289,7 +289,7 @@ const BulkOrdersPage = () => {
         </div>
       </section>
 
-      {/* 3. Signature Favors & Welcome Keepsakes */}
+      {/* 3. Signature Favors & Welcome Gifts */}
       <section className="w-full px-4 sm:px-8 lg:px-margin py-space-xl bg-surface-container-low">
         <div className="max-w-[1360px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
@@ -298,10 +298,10 @@ const BulkOrdersPage = () => {
                 Masterpiece Catalogue
               </span>
               <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface mt-space-xs font-serif">
-                Signature Favors &amp; Welcome Keepsakes
+                Signature Favors &amp; Welcome Gifts
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs leading-relaxed">
-                Hand-assembled by master craftsmen. All units include individualized gold monogramming and bespoke ribbon tying.
+                Hand-assembled by master craftsmen. All units include individualized gold monogramming and customized ribbon tying.
               </p>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -373,7 +373,7 @@ const BulkOrdersPage = () => {
         </div>
       </section>
 
-      {/* 4. Interactive Concierge Form & White Glove Card */}
+      {/* 4. Interactive Support Form & White Glove Card */}
       <section ref={inquiryFormRef} id="inquiryForm" className="w-full px-4 sm:px-8 lg:px-margin py-space-xl bg-surface">
         <div className="max-w-[1360px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
@@ -381,13 +381,13 @@ const BulkOrdersPage = () => {
             <div className="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-space-xl rounded-xl shadow-md border border-outline-variant/40">
               <div className="mb-space-lg">
                 <span className="font-label-sm text-label-sm text-primary tracking-[0.2em] font-semibold uppercase">
-                  Direct Atelier Request
+                  Direct Collection Request
                 </span>
                 <h2 className="font-headline-md text-2xl sm:text-headline-md text-on-surface mt-1 font-serif">
-                  Book Bespoke Bulk Curation
+                  Book Customized Bulk Collection
                 </h2>
                 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                  Submit your celebration dates and preferences. An Atelier Senior Concierge Stylist will share digital renders &amp; volume quotation within 4 hours.
+                  Submit your celebration dates and preferences. An Collection Senior Support Stylist will share digital renders &amp; volume quotation within 4 hours.
                 </p>
               </div>
 
@@ -397,7 +397,7 @@ const BulkOrdersPage = () => {
                     <span className="material-symbols-outlined text-[32px]">check_circle</span>
                   </div>
                   <h3 className="font-headline-sm text-xl font-semibold text-on-surface font-serif">
-                    Bulk Concierge Dossier Registered
+                    Bulk Support Dossier Registered
                   </h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant mt-2 max-w-md leading-relaxed">
                     Thank you! Our lead bridal stylist will connect via WhatsApp to <strong className="text-on-surface">{formData.phone || '+91 registered contact'}</strong> within 2 hours with tailored catalogs and physical sample timelines.
@@ -427,8 +427,8 @@ const BulkOrdersPage = () => {
                         <option value="welcome-kit">Destination Welcome Kit</option>
                         <option value="mehendi-haldi">Haldi &amp; Mehendi Favors</option>
                         <option value="sangeet-cocktail">Sangeet &amp; Cocktail Favors</option>
-                        <option value="varmala-ceremony">Wedding Day Varmala Keepsake</option>
-                        <option value="reception">Grand Reception Trousseau</option>
+                        <option value="varmala-ceremony">Wedding Day Varmala Gift</option>
+                        <option value="reception">Grand Reception Wedding Essentials</option>
                       </select>
                     </div>
 
@@ -558,7 +558,7 @@ const BulkOrdersPage = () => {
 
                   <div className="flex flex-col gap-1">
                     <label className="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">
-                      Favor Selections / Monogram Notes
+                      Favor Selections / Initials Notes
                     </label>
                     <textarea
                       ref={notesRef}
@@ -566,7 +566,7 @@ const BulkOrdersPage = () => {
                       rows={3}
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      placeholder="Specify preferred favor items, monogram theme, theme color palettes, or room hamper items..."
+                      placeholder="Specify preferred favor items, initials theme, theme color palettes, or room hamper items..."
                       className={`w-full text-on-surface placeholder:text-outline text-body-sm font-body-sm p-3 rounded-lg border transition-all ${
                         notesPulse
                           ? 'bg-secondary-container/40 border-primary ring-2 ring-primary/40'
@@ -586,7 +586,7 @@ const BulkOrdersPage = () => {
               )}
             </div>
 
-            {/* Right: White-Glove Atelier Assurance */}
+            {/* Right: White-Glove Collection Assurance */}
             <div className="lg:col-span-5 flex flex-col gap-space-lg">
               {/* Sample Box Card */}
               <div className="bg-surface-container-low p-6 sm:p-space-xl rounded-xl shadow-sm border border-outline-variant/40">
@@ -597,7 +597,7 @@ const BulkOrdersPage = () => {
                   Complimentary Physical Sample Box
                 </h3>
                 <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">
-                  We dispatch an unboxing curation box directly to your residence within 48 hours for verified orders above 50 units. Feel the heavy silk textures, smell the artisanal scents, and approve the 3D metal crest stamping in person before production starts.
+                  We dispatch an unboxing collection box directly to your residence within 48 hours for verified orders above 50 units. Feel the heavy silk textures, smell the artisanal scents, and approve the 3D metal crest stamping in person before production starts.
                 </p>
                 <div className="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/30">
                   <span className="material-symbols-outlined text-primary text-[20px]">local_police</span>
@@ -613,7 +613,7 @@ const BulkOrdersPage = () => {
                   Need Immediate Stylist Advice?
                 </h4>
                 <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">
-                  Direct line to our senior destination bridal concierge for urgent requirements and rush deliveries.
+                  Direct line to our senior destination bridal support for urgent requirements and rush deliveries.
                 </p>
                 <a
                   href="https://wa.me/919692668263"
@@ -622,7 +622,7 @@ const BulkOrdersPage = () => {
                   className="inline-flex items-center justify-center gap-2 w-full py-3 bg-surface-container-high hover:bg-primary-container text-on-surface font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors border border-outline-variant/40"
                 >
                   <span className="material-symbols-outlined text-[20px] text-primary">chat</span>
-                  <span>Connect on WhatsApp Atelier</span>
+                  <span>Connect on WhatsApp Collection</span>
                 </a>
               </div>
 
@@ -630,13 +630,13 @@ const BulkOrdersPage = () => {
               <div className="rounded-xl overflow-hidden shadow-sm bg-surface-container border border-outline-variant/40 relative">
                 <img
                   className="w-full h-48 object-cover"
-                  alt="Close up of exquisite gold foiled ASRA Wedding Canvas monogram emblem stamped in warm gold"
+                  alt="Close up of exquisite gold foiled ASRA Wedding Canvas initials emblem stamped in warm gold"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkauoht2wHdvnYajDQhY36np9SvqW9VYs0SiNnJaxfOD5ehyddslDFyUvIcIIFXXtZupxDe6NLEEGZEN8tDACVoNNYAuiNMXpI3f9Yx67SSVsthgD-n5upugtDleO3MhXzLifMdoAH1qE9nZxgefPJZZcxLOzrsxlucdoFjOZaPwWf7qxF63qJmwzhgH0E7IWUj1wJZJWmAraL8UpaYYBeyDbdb4QkFbihZjFYBNy5LuPCrOBDfWyeOA"
                 />
                 <div className="p-space-md bg-surface-container-lowest flex items-center justify-between">
                   <div>
                     <p className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">
-                      Bespoke Die Craft
+                      Customized Die Craft
                     </p>
                     <p className="font-title-sm text-title-sm text-on-surface font-serif">
                       3D Metal Crest Embossing Included
@@ -709,7 +709,7 @@ const BulkOrdersPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-space-lg text-center">
             <div className="flex flex-col items-center">
               <span className="material-symbols-outlined text-primary text-[32px] mb-2">fingerprint</span>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">100% Bespoke Craft</h4>
+              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">100% Customized Craft</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
                 No prefabricated stock. Each suite is designed and personalized from scratch.
               </p>
@@ -733,7 +733,7 @@ const BulkOrdersPage = () => {
 
             <div className="flex flex-col items-center">
               <span className="material-symbols-outlined text-primary text-[32px] mb-2">support_agent</span>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">Dedicated Concierge</h4>
+              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">Dedicated Support</h4>
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
                 Direct 1-on-1 WhatsApp wedding planner support from start to final toast.
               </p>

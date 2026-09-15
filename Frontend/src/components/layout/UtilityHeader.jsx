@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UtilityHeader = ({ backTo = '/', backText = 'Return to Atelier Portal', badgeText = '256-Bit Encrypted Docket' }) => {
+const UtilityHeader = ({ backTo = '/', backText = 'Return to Collection Portal', badgeText = '256-Bit Encrypted Docket' }) => {
   return (
     <header className="bg-white border-b border-brand-border py-3 px-4 sm:px-8 md:px-12 sticky top-0 z-40">
       <div className="max-w-[1360px] mx-auto flex items-center justify-between">

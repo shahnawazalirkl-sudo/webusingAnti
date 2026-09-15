@@ -80,7 +80,7 @@ const OffersPage = () => {
       badge: 'No Cost EMI',
       badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
       title: 'Flat ₹750 OFF on Credit Card EMI',
-      description: 'Avail 3 and 6 months No Cost EMI tenures on customized trousseau orders. Minimum cart value ₹5,000.',
+      description: 'Avail 3 and 6 months No Cost EMI tenures on customized wedding essentials orders. Minimum cart value ₹5,000.',
       applicable: '3M & 6M Tenures',
       applicableIcon: 'calendar_month',
       category: 'emi',
@@ -94,7 +94,7 @@ const OffersPage = () => {
       badgeStyle: 'bg-surface-container-highest text-on-surface',
       title: 'Flat 12% OFF up to ₹1,200',
       description: 'Exclusive to Axis Bank Neo, Magnus & Burgundy Credit Cards on luxury bridal registry suites. Min spend ₹4,499.',
-      applicable: 'Monogram Keepsakes',
+      applicable: 'Initials Gifts',
       applicableIcon: 'diamond',
       category: 'card'
     },
@@ -118,15 +118,15 @@ const OffersPage = () => {
       badge: 'Luxury Exclusive',
       badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
       title: '15% OFF + Complimentary Luxury Perfume',
-      description: 'Reserved for Amex Platinum & Centurion Cards. Includes a 50ml bespoke oud artisan perfume. Min spend ₹9,999.',
-      applicable: 'Trousseau & Silver Keepsakes',
+      description: 'Reserved for Amex Platinum & Centurion Cards. Includes a 50ml customized oud artisan perfume. Min spend ₹9,999.',
+      applicable: 'Wedding Essentials & Silver Gifts',
       applicableIcon: 'featured_seasonal_and_gifts',
       category: 'card'
     },
     {
       id: 'zeroemi',
       code: 'ZEROEMI',
-      partner: 'Atelier EMI',
+      partner: 'Collection EMI',
       badge: '0% Interest',
       badgeStyle: 'bg-secondary-container text-on-secondary-container',
       title: 'Split in 3 or 6 Months No-Cost',
@@ -175,7 +175,7 @@ const OffersPage = () => {
     }
   ];
 
-  // Atelier Store Vouchers Data
+  // Collection Store Vouchers Data
   const atelierVouchers = [
     {
       id: 'asrafirst',
@@ -183,7 +183,7 @@ const OffersPage = () => {
       badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
       discount: '15% OFF',
       discountStyle: 'text-primary',
-      title: 'Welcome to ASRA Atelier',
+      title: 'Welcome to ASRA Collection',
       description: 'Flat 15% discount across all custom framed vows, personalized engraved wooden boxes, and bridesmaids gift sets.',
       subtext: 'Min Order: ₹1,499 • One-time use per guest',
       code: 'ASRAFIRST',
@@ -196,7 +196,7 @@ const OffersPage = () => {
       discount: '₹800 OFF',
       discountStyle: 'text-secondary',
       title: 'Bride & Groom Suite',
-      description: 'Flat ₹800 instant saving on all luxury wicker hampers, matching bride-groom robes, and celebratory trousseau packages.',
+      description: 'Flat ₹800 instant saving on all luxury wicker hampers, matching bride-groom robes, and celebratory wedding essentials packages.',
       subtext: 'Min Order: ₹4,999 • Unlimited wedding orders',
       code: 'WEDBLISS',
       category: 'atelier'
@@ -208,8 +208,8 @@ const OffersPage = () => {
       discount: '20% OFF',
       discountStyle: 'text-on-surface',
       title: 'Celebratory Bulk Favor Sets',
-      description: 'Flat 20% privilege when ordering 10 or more identical personalized keepsakes or return gift boxes.',
-      subtext: 'Qty: 10+ Units • Includes custom monogram tooling',
+      description: 'Flat 20% privilege when ordering 10 or more identical personalized gifts or return gift boxes.',
+      subtext: 'Qty: 10+ Units • Includes custom initials tooling',
       code: 'BIGLOVE',
       category: 'atelier'
     }
@@ -226,12 +226,12 @@ const OffersPage = () => {
       a: 'When choosing CRED Pay or UPI apps (GPay, PhonePe, Paytm), eligible instant discounts are either directly deducted before final PIN entry or refunded into your originating bank account within 24 to 48 hours following transaction authorization.'
     },
     {
-      q: 'Are discounts applicable on customized wooden products and engraved keepsakes?',
-      a: 'Yes, entirely. All bank discounts, zero-cost EMI plans, and seasonal vouchers apply to personalized engraved items including solid wood vow tablets, brass etched frames, monogrammed jewelry cases, and bridal trousseau hampers.'
+      q: 'Are discounts applicable on customized wooden products and engraved gifts?',
+      a: 'Yes, entirely. All bank discounts, zero-cost EMI plans, and seasonal vouchers apply to personalized engraved items including solid wood vow tablets, brass etched frames, initials jewelry cases, and bridal wedding essentials hampers.'
     },
     {
       q: 'What happens to the discount if an item is returned or refunded?',
-      a: 'In the unlikely scenario that non-personalized merchandise is approved for return, refunds are computed strictly on the net amount paid after proportional offer deductions. Bespoke personalized keepsakes are handcrafted to order and covered under our transit damage protection guarantee.'
+      a: 'In the unlikely scenario that non-personalized merchandise is approved for return, refunds are computed strictly on the net amount paid after proportional offer deductions. Customized personalized gifts are handcrafted to order and covered under our transit damage protection guarantee.'
     }
   ];
 
@@ -269,7 +269,7 @@ const OffersPage = () => {
 
   const filteredAtelierOffers = useMemo(() => {
     return atelierVouchers.filter(item => {
-      const matchCat = activeFilter === 'all' || activeFilter === 'atelier';
+      const matchCat = activeFilter === 'all' || activeFilter === 'collection';
       return matchCat && matchesSearch(item, searchQuery);
     });
   }, [atelierVouchers, activeFilter, searchQuery]);
@@ -280,7 +280,7 @@ const OffersPage = () => {
       code: 'HDFCWED1500',
       partner: 'HDFC Bank',
       title: 'WEDDING GRANDEUR: Flat ₹1,500 OFF',
-      description: 'On personalized bridal hampers & trousseau suites above ₹7,999 with HDFC Bank Credit & Debit Cards.'
+      description: 'On personalized bridal hampers & wedding essentials suites above ₹7,999 with HDFC Bank Credit & Debit Cards.'
     };
     const matchCat = activeFilter === 'all' || activeFilter === 'card';
     return matchCat && matchesSearch(item, searchQuery);
@@ -291,7 +291,7 @@ const OffersPage = () => {
       code: 'CREDCELEBRATE',
       partner: 'CRED',
       title: 'INSTANT 10% CASHBACK UP TO ₹500',
-      description: 'On luxury hampers, registry contributions, and bespoke gifts above ₹1,999 via CRED UPI & CRED Pay.'
+      description: 'On luxury hampers, registry contributions, and customized gifts above ₹1,999 via CRED UPI & CRED Pay.'
     };
     const matchCat = activeFilter === 'all' || activeFilter === 'upi';
     return matchCat && matchesSearch(item, searchQuery);
@@ -314,13 +314,13 @@ const OffersPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pb-4">
             <div className="lg:col-span-8 flex flex-col">
               <span className="font-label-sm text-label-sm text-primary tracking-[0.25em] uppercase mb-1">
-                The Atelier Privilege Suite
+                The Collection Privilege Suite
               </span>
               <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
                 Save More With <span className="italic font-normal text-secondary">Exclusive Offers</span>
               </h1>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl leading-relaxed">
-                Unlock curated privileges across leading credit cards, verified UPI cashbacks, no-cost wedding EMIs, and bespoke atelier codes crafted to elevate every bridal keepsake and celebratory hamper.
+                Unlock curated privileges across leading credit cards, verified UPI cashbacks, no-cost wedding EMIs, and customized collection codes crafted to elevate every bridal gift and celebratory hamper.
               </p>
             </div>
 
@@ -332,7 +332,7 @@ const OffersPage = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
-                    Total Atelier Savings
+                    Total Collection Savings
                   </span>
                   <span className="font-title-md text-title-md text-on-surface font-semibold">
                     Up to ₹4,500 Per Order
@@ -374,7 +374,7 @@ const OffersPage = () => {
                 { key: 'card', label: 'Credit Cards', count: 5 },
                 { key: 'upi', label: 'UPI & Wallets', count: 3 },
                 { key: 'emi', label: 'Wedding EMI', count: 2 },
-                { key: 'atelier', label: 'Atelier Codes', count: 4 }
+                { key: 'collection', label: 'Collection Codes', count: 4 }
               ].map(tab => {
                 const isActive = activeFilter === tab.key;
                 return (
@@ -423,7 +423,7 @@ const OffersPage = () => {
                           WEDDING GRANDEUR: Flat ₹1,500 OFF
                         </h3>
                         <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                          On personalized bridal hampers &amp; trousseau suites above ₹7,999 with HDFC Bank Credit &amp; Debit Cards.
+                          On personalized bridal hampers &amp; wedding essentials suites above ₹7,999 with HDFC Bank Credit &amp; Debit Cards.
                         </p>
                       </div>
 
@@ -494,7 +494,7 @@ const OffersPage = () => {
                           INSTANT 10% CASHBACK UP TO ₹500
                         </h3>
                         <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                          On luxury hampers, registry contributions, and bespoke gifts above ₹1,999 via CRED UPI &amp; CRED Pay.
+                          On luxury hampers, registry contributions, and customized gifts above ₹1,999 via CRED UPI &amp; CRED Pay.
                         </p>
                       </div>
 
@@ -549,13 +549,13 @@ const OffersPage = () => {
         )}
 
         {/* Visual Spend More, Save More Milestone Bar */}
-        {(activeFilter === 'all' || activeFilter === 'atelier') && !searchQuery && (
+        {(activeFilter === 'all' || activeFilter === 'collection') && !searchQuery && (
           <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
             <div className="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm border border-outline-variant/30">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6">
                 <div>
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
-                    Atelier Tier Perks
+                    Collection Tier Perks
                   </span>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface mt-0.5">
                     The Celebratory Gifting Scale
@@ -611,7 +611,7 @@ const OffersPage = () => {
                         Flat ₹500 Instant Cart Credit
                       </h4>
                       <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                        Direct deduction across all luxury wedding registry and trousseau hampers.
+                        Direct deduction across all luxury wedding registry and wedding essentials hampers.
                       </p>
                     </div>
                     <div className="mt-4 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-outline font-label-sm text-[10px] tracking-wider uppercase">
@@ -630,14 +630,14 @@ const OffersPage = () => {
                         <span className="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
                       </div>
                       <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
-                        ₹1,500 OFF + Gold Leaf Keepsake
+                        ₹1,500 OFF + Gold Leaf Gift
                       </h4>
                       <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                        Includes bespoke debossed wooden trousseau box and brass-etched tag.
+                        Includes customized debossed wooden wedding essentials box and brass-etched tag.
                       </p>
                     </div>
                     <div className="mt-4 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-outline font-label-sm text-[10px] tracking-wider uppercase">
-                      <span>ULTIMATE ATELIER TIER</span>
+                      <span>ULTIMATE COLLECTION TIER</span>
                       <span className="text-primary font-bold">WORTH ₹2,400+</span>
                     </div>
                   </div>
@@ -660,7 +660,7 @@ const OffersPage = () => {
                 </h2>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
-                Instantly deducted at payment gateway. Valid on all bespoke wooden keepsakes, floral hampers, and silver suites.
+                Instantly deducted at payment gateway. Valid on all customized wooden gifts, floral hampers, and silver suites.
               </p>
             </div>
 
@@ -756,27 +756,27 @@ const OffersPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
                   <span className="font-label-sm text-[10px] tracking-widest uppercase bg-black/50 px-2.5 py-1 rounded-md backdrop-blur-sm">
-                    Featured Keepsake Hamper
+                    Featured Gift Hamper
                   </span>
                 </div>
               </div>
 
               <div className="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-center bg-surface-container-low">
                 <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em]">
-                  Handcrafted Heritage
+                  Handcrafted Classic
                 </span>
                 <h2 className="font-headline-md text-headline-md text-on-surface mt-1 tracking-tight">
-                  Crafting Eternal Moments with Atelier Savings
+                  Crafting Eternal Moments with Collection Savings
                 </h2>
                 <p className="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
-                  Every personalized memory frame, etched silver coin, and artisanal trousseau trunk is lovingly constructed in our Jubilee Hills studio. Our bank privileges allow you to gift unmatched heirloom elegance without compromise.
+                  Every personalized memory frame, etched silver coin, and artisanal wedding essentials trunk is lovingly constructed in our Jubilee Hills studio. Our bank privileges allow you to gift unmatched heirloom elegance without compromise.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <Link
                     to="/collections"
                     className="px-6 py-2.5 bg-on-surface text-surface-container-lowest hover:bg-primary font-label-md text-label-md uppercase tracking-widest rounded-lg transition-colors shadow-sm"
                   >
-                    Explore Keepsake Collections
+                    Explore Gift Collections
                   </Link>
                   <Link
                     to="/shop"
@@ -865,21 +865,21 @@ const OffersPage = () => {
           </section>
         )}
 
-        {/* Bespoke ASRA Coupon Codes (Store Exclusive Tiers) */}
+        {/* Customized ASRA Coupon Codes (Store Exclusive Tiers) */}
         {filteredAtelierOffers.length > 0 && (
           <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
             <div className="bg-surface-container-low p-6 sm:p-8 rounded-2xl shadow-sm border border-outline-variant/40">
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
                 <div>
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
-                    Atelier Exclusive
+                    Collection Exclusive
                   </span>
                   <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                    Bespoke Store Vouchers
+                    Customized Store Vouchers
                   </h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
-                  Direct atelier voucher codes crafted for bridal showers, personalized wedding invitations, and trousseau trunks.
+                  Direct collection voucher codes crafted for bridal showers, personalized wedding invitations, and wedding essentials trunks.
                 </p>
               </div>
 
@@ -966,13 +966,13 @@ const OffersPage = () => {
         <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em]">
-              Effortless Atelier Experience
+              Effortless Collection Experience
             </span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
               How to Redeem Your Privileges
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Follow four seamless steps to apply bank partner discounts and atelier voucher codes during checkout.
+              Follow four seamless steps to apply bank partner discounts and collection voucher codes during checkout.
             </p>
           </div>
 
@@ -985,9 +985,9 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">shopping_basket</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Browse Keepsakes</h3>
+              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Browse Gifts</h3>
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
-                Curate personalized wedding favors, artisanal hampers, or bespoke jewelry boxes into your atelier bag.
+                Curate personalized wedding favors, artisanal hampers, or customized jewelry boxes into your collection bag.
               </p>
             </div>
 
@@ -999,7 +999,7 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">receipt_long</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Review Atelier Cart</h3>
+              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Review Collection Cart</h3>
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
                 Confirm custom personalization details, gift messaging, and delivery schedule before clicking proceed.
               </p>
@@ -1041,13 +1041,13 @@ const OffersPage = () => {
             {/* FAQ Left Intro */}
             <div className="lg:col-span-5 flex flex-col">
               <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em] font-semibold">
-                Atelier Help Desk
+                Collection Help Desk
               </span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
                 Frequently Asked Questions
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
-                Have inquiries regarding bank discount eligibility, multi-coupon stacking, or delivery terms for customized gifts? Our concierge is on standby.
+                Have inquiries regarding bank discount eligibility, multi-coupon stacking, or delivery terms for customized gifts? Our support is on standby.
               </p>
               <div className="mt-8 p-5 bg-surface-container-low rounded-xl border border-outline-variant/40 flex items-center gap-4">
                 <span className="material-symbols-outlined text-primary text-[32px] shrink-0">
@@ -1055,7 +1055,7 @@ const OffersPage = () => {
                 </span>
                 <div className="flex flex-col">
                   <span className="font-title-sm text-title-sm text-on-surface font-semibold">
-                    Wedding Concierge Desk
+                    Wedding Support Desk
                   </span>
                   <a
                     href="mailto:shahnawazalirkl@gmail.com"
@@ -1132,7 +1132,7 @@ const OffersPage = () => {
                 <p>• Offer valid on HDFC Bank Retail Credit Cards, Debit Cards, and EasyEMI transactions.</p>
                 <p>• Minimum transaction value of ₹7,999 is calculated exclusive of shipping and taxes.</p>
                 <p>• Offer is valid up to 1 transaction per card during the calendar month.</p>
-                <p>• Cannot be clubbed with corporate discount codes or bespoke bulk invoices.</p>
+                <p>• Cannot be clubbed with corporate discount codes or customized bulk invoices.</p>
                 <p>• ASRAWEDDINGCANVAS and HDFC Bank hold rights to alter campaign dates without prior notice.</p>
               </div>
               <div className="pt-3 flex justify-end border-t border-outline-variant/20">

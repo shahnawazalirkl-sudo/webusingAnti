@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AboutUsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSalon, setSelectedSalon] = useState('Jubilee Hills Atelier (Hyderabad)');
+  const [selectedSalon, setSelectedSalon] = useState('Jubilee Hills Collection (Hyderabad)');
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -45,7 +45,7 @@ const AboutUsPage = () => {
           </div>
           <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
             <span className="text-base text-asra-gold">✨</span>
-            <span className="tracking-wider">100% Bespoke Engraved Keepsakes</span>
+            <span className="tracking-wider">100% Customized Engraved Gifts</span>
           </div>
           <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
             <span className="text-base text-asra-gold">★</span>
@@ -66,15 +66,15 @@ const AboutUsPage = () => {
           </li>
           <li className="text-asra-gold/50">/</li>
           <li>
-            <Link to="/bespoke" className="hover:text-asra-gold transition-colors">Atelier</Link>
+            <Link to="/bespoke" className="hover:text-asra-gold transition-colors">Collection</Link>
           </li>
           <li className="text-asra-gold/50">/</li>
-          <li className="text-asra-charcoal font-semibold">Maison &amp; Our Heritage</li>
+          <li className="text-asra-charcoal font-semibold">Maison &amp; Our Classic</li>
         </ol>
       </nav>
 
       {/* 3. Hero Editorial Section */}
-      <section className="relative py-12 lg:py-20 overflow-hidden" data-purpose="heritage-hero">
+      <section className="relative py-12 lg:py-20 overflow-hidden" data-purpose="classic-hero">
         {/* Subtle Decorative Background Watermark */}
         <div className="absolute -right-24 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none w-[600px] select-none">
           <img
@@ -91,17 +91,17 @@ const AboutUsPage = () => {
               Maison de Mariage • Fondée en 2021
             </span>
             <h1 className="font-cormorant text-4xl sm:text-5xl lg:text-6xl text-asra-charcoal font-bold tracking-tight leading-[1.1] mb-6">
-              Where Royal Keepsake Artistry Meets Life's Most Cherished Celebrations
+              Where Royal Gift Artistry Meets Life's Most Cherished Celebrations
             </h1>
             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-asra-gold to-transparent mx-auto mb-6"></div>
             <p className="font-serif italic text-lg sm:text-xl text-asra-muted leading-relaxed max-w-2xl mx-auto font-light">
-              Born in the historic artisan enclaves of Hyderabad and Bengaluru, ASRA Wedding Canvas revives the timeless traditions of royal trousseau casing, heavy brass intaglio debossing, and 24-karat gold leaf detailing for modern milestone ceremonies.
+              Born in the historic artisan enclaves of Hyderabad and Bengaluru, ASRA Wedding Canvas revives the timeless traditions of royal wedding essentials casing, heavy brass intaglio debossing, and 24-karat gold leaf detailing for modern milestone ceremonies.
             </p>
           </div>
 
           {/* Two-Column Editorial Feature */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Atelier Narrative & Pull Quote */}
+            {/* Left Column: Collection Narrative & Pull Quote */}
             <article className="lg:col-span-7 space-y-6">
               <div className="border-l-2 border-asra-gold pl-6 py-2">
                 <span className="text-xs uppercase tracking-[0.25em] font-semibold text-asra-goldDark block mb-1">
@@ -112,7 +112,7 @@ const AboutUsPage = () => {
                 </h2>
               </div>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-                In an era dominated by transient digital files and fleeting cloud galleries, ASRA Wedding Canvas was established with a singular devotion: restoring the weight, texture, and sacred dignity of marriage milestones. Our journey began within traditional South Asian metalcraft workshops and heritage bookbinderies, hand-tooling bridal keepsakes for discerning families across the globe.
+                In an era dominated by transient digital files and fleeting cloud galleries, ASRA Wedding Canvas was established with a singular devotion: restoring the weight, texture, and sacred dignity of marriage milestones. Our journey began within traditional South Asian metalcraft workshops and classic bookbinderies, hand-tooling bridal gifts for discerning families across the globe.
               </p>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
                 Every creation leaving our salon is treated as a museum artifact. We do not mass-produce; each piece requires hours of meticulous hand-assembly, 24K gold foil stamping, bevel-cut museum mats, and precision brass insignia engraving.
@@ -127,7 +127,7 @@ const AboutUsPage = () => {
                 <div className="mt-4 pl-4 pt-3 border-t border-asra-border/60 flex items-center justify-between">
                   <div>
                     <p className="font-display text-xs font-bold uppercase tracking-widest text-asra-charcoal">The Master Guild of ASRA</p>
-                    <p className="text-[11px] text-asra-goldDark tracking-wider">Atelier de Haute Gravure</p>
+                    <p className="text-[11px] text-asra-goldDark tracking-wider">Collection de Haute Gravure</p>
                   </div>
                   <div className="w-8 h-8 rounded-full border border-asra-gold/50 flex items-center justify-center text-[10px] text-asra-gold font-serif">
                     ⚜
@@ -152,10 +152,10 @@ const AboutUsPage = () => {
                     Official Guild Emblem
                   </div>
 
-                  {/* Gold Crest Monogram Image */}
+                  {/* Gold Crest Initials Image */}
                   <div className="my-4 transform transition-transform hover:scale-105 duration-500">
                     <img
-                      alt="ASRA Wedding Canvas Master Monogram Crest"
+                      alt="ASRA Wedding Canvas Master Initials Crest"
                       className="w-64 h-auto mx-auto object-contain filter drop-shadow-md"
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHX1ZBvQj-TY5HQU5AaYbMF0liRrFCDQ3Oi7qUt6Eat3QrzX5AtGQcaQNkZ9G2ZQJBl-EFSMoBlHDMCMPNxZSjnUgWXuxp7HGZix1om675vqP29JVMZUh6w5g7GM6L_iEDCqhG2wYad31ExzUhzEOFwlx5aNJAxqJtg4pDR8PVrziGj3ARpOlMki3m2ei28mHbdN5n-ECe_-Pr7cYe_Rs8rQvVU7-uzz_oBbndjussTOuWbFCieBFAfY5rRVuN81RPhWM"
                     />
@@ -198,11 +198,11 @@ const AboutUsPage = () => {
               The Four Cornerstones
             </span>
             <h2 className="font-cormorant text-3xl sm:text-4xl text-asra-charcoal font-bold tracking-tight">
-              The Atelier Craft Pillars
+              The Collection Craft Pillars
             </h2>
             <div className="w-16 h-0.5 bg-asra-gold mx-auto mt-4"></div>
             <p className="text-xs sm:text-sm text-asra-muted mt-3 font-light">
-              Every bridal canvas, trousseau trunk, and anniversary gift suite is shaped around four uncompromised atelier standards.
+              Every bridal canvas, wedding essentials trunk, and anniversary gift suite is shaped around four uncompromised collection standards.
             </p>
           </div>
 
@@ -218,11 +218,11 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="font-display text-lg font-bold text-asra-charcoal mb-3">Sovereign Calligraphy &amp; Crests</h3>
                 <p className="text-xs text-gray-600 leading-relaxed font-light">
-                  Hand-drawn bespoke monograms, heraldic marital insignias, and custom CNC brass stamping dies drafted specifically for your family ancestry.
+                  Hand-drawn customized initials, heraldic marital insignias, and custom CNC brass stamping dies drafted specifically for your family ancestry.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-asra-border/60 text-[10px] uppercase tracking-wider text-asra-goldDark font-semibold">
-                Bespoke Heraldry Guild
+                Customized Heraldry Guild
               </div>
             </div>
 
@@ -254,13 +254,13 @@ const AboutUsPage = () => {
                     <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4"></path>
                   </svg>
                 </div>
-                <h3 className="font-display text-lg font-bold text-asra-charcoal mb-3">1-on-1 Bridal Concierge</h3>
+                <h3 className="font-display text-lg font-bold text-asra-charcoal mb-3">1-on-1 Bridal Support</h3>
                 <p className="text-xs text-gray-600 leading-relaxed font-light">
-                  Dedicated bespoke stylists, complimentary photorealistic 3D proofing within 6 hours, and zero mass warehousing. Every keepsake is born on demand.
+                  Dedicated customized stylists, complimentary photorealistic 3D proofing within 6 hours, and zero mass warehousing. Every gift is born on demand.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-asra-border/60 text-[10px] uppercase tracking-wider text-asra-goldDark font-semibold">
-                Personalized Atelier Lead
+                Personalized Collection Lead
               </div>
             </div>
 
@@ -286,7 +286,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 5. Bespoke Gift Suite Showcase */}
+      {/* 5. Customized Gift Suite Showcase */}
       <section className="py-16 lg:py-24 bg-asra-sand/30" data-purpose="gift-suite-showcase">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -295,7 +295,7 @@ const AboutUsPage = () => {
               <div className="relative bg-white p-4 shadow-2xl border border-asra-border">
                 <div className="overflow-hidden relative group">
                   <img
-                    alt="ASRA Signature Bridal Bloom Hamper and Bespoke Keepsake Vault"
+                    alt="ASRA Signature Bridal Bloom Hamper and Customized Gift Vault"
                     className="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM"
                   />
@@ -308,20 +308,20 @@ const AboutUsPage = () => {
                 {/* Caption Card */}
                 <div className="p-4 bg-asra-ivory border-t border-asra-border text-center">
                   <p className="font-serif italic text-sm text-asra-charcoal font-medium">
-                    "The Signature Bridal Bloom &amp; Keepsake Vault — Hand-assembled with Ecuadorian blush roses, 24K gold foil debossed registry cylinders, and Parisian ribboning."
+                    "The Signature Bridal Bloom &amp; Gift Vault — Hand-assembled with Ecuadorian blush roses, 24K gold foil debossed registry cylinders, and Parisian ribboning."
                   </p>
                   <div className="mt-2 flex items-center justify-center gap-3 text-[10px] tracking-widest uppercase text-asra-goldDark font-semibold">
                     <span>Fresh Flora Selection</span>
                     <span>•</span>
                     <span>Handmade Soy Candle</span>
                     <span>•</span>
-                    <span>Sealed Keepsake Cylinder</span>
+                    <span>Sealed Gift Cylinder</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Atelier Small-Batch Storytelling */}
+            {/* Right Column: Collection Small-Batch Storytelling */}
             <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
               <div className="inline-block border border-asra-gold/50 px-3 py-1 bg-white text-[10px] uppercase tracking-[0.25em] font-semibold text-asra-goldDark">
                 The Guild Discipline
@@ -330,7 +330,7 @@ const AboutUsPage = () => {
                 Crafted in Rare Small Batches With Uncompromising Precision
               </h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-                Unlike industrial production houses, the ASRA Atelier caps each day’s production run. This allows our craftmasters to preserve the centuries-old art of manual bookbinding, hot foil leaf fusion, and bespoke scented wax casting.
+                Unlike industrial production houses, the ASRA Collection caps each day’s production run. This allows our craftmasters to preserve the centuries-old art of manual bookbinding, hot foil leaf fusion, and customized scented wax casting.
               </p>
 
               {/* 5 Master Techniques Checklist */}
@@ -372,7 +372,7 @@ const AboutUsPage = () => {
                       Botanical Hand-Cast Sealing Wax
                     </h4>
                     <p className="text-xs text-asra-muted font-light mt-0.5">
-                      Blended with real dried gold mica flakes and stamped with your personalized couple monogram.
+                      Blended with real dried gold mica flakes and stamped with your personalized couple initials.
                     </p>
                   </div>
                 </div>
@@ -386,7 +386,7 @@ const AboutUsPage = () => {
                       Zari &amp; Lyon Silk Thread Ribboning
                     </h4>
                     <p className="text-xs text-asra-muted font-light mt-0.5">
-                      Loomed silk ribbons designed to never fray, framing keepsake boxes with tactile royalty.
+                      Loomed silk ribbons designed to never fray, framing gift boxes with tactile royalty.
                     </p>
                   </div>
                 </div>
@@ -397,10 +397,10 @@ const AboutUsPage = () => {
                   </div>
                   <div>
                     <h4 className="font-display text-xs font-bold uppercase tracking-wider text-asra-charcoal">
-                      Permanent Monogram Die Preservation
+                      Permanent Initials Die Preservation
                     </h4>
                     <p className="text-xs text-asra-muted font-light mt-0.5">
-                      Your CNC-milled brass monogram matrix is vaulted for your future milestone anniversaries.
+                      Your CNC-milled brass initials matrix is vaulted for your future milestone anniversaries.
                     </p>
                   </div>
                 </div>
@@ -411,7 +411,7 @@ const AboutUsPage = () => {
                   to="/shop"
                   className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-asra-charcoal hover:text-asra-gold border-b-2 border-asra-charcoal hover:border-asra-gold pb-1 transition-all"
                 >
-                  <span>Explore The Gift Curation Catalog</span>
+                  <span>Explore The Gift Collection Catalog</span>
                   <span className="text-asra-gold">→</span>
                 </Link>
               </div>
@@ -426,7 +426,7 @@ const AboutUsPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-asra-gold/20">
             <div className="p-4">
               <div className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-asra-goldLight mb-1">3,500+</div>
-              <div className="text-[11px] uppercase tracking-[0.2em] text-gray-300 font-medium">Bespoke Heirlooms Crafted</div>
+              <div className="text-[11px] uppercase tracking-[0.2em] text-gray-300 font-medium">Customized Heirlooms Crafted</div>
               <div className="text-[10px] text-gray-400 mt-1 font-light">Cherished across 14 countries</div>
             </div>
             <div className="p-4">
@@ -471,10 +471,10 @@ const AboutUsPage = () => {
             <div className="bg-asra-ivory border border-asra-border p-8 flex flex-col justify-between shadow-sm relative group hover:border-asra-gold transition-colors">
               <div>
                 <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-asra-goldDark font-semibold mb-3">
-                  <span>Atelier No. 01</span>
+                  <span>Collection No. 01</span>
                   <span className="px-2 py-0.5 bg-asra-gold/10 border border-asra-gold/30 text-[9px]">Foundry &amp; Guild</span>
                 </div>
-                <h3 className="font-cinzel text-xl font-bold text-asra-charcoal mb-2">Jubilee Hills Atelier</h3>
+                <h3 className="font-cinzel text-xl font-bold text-asra-charcoal mb-2">Jubilee Hills Collection</h3>
                 <p className="text-xs text-asra-muted mb-4 font-light">Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033</p>
                 <div className="space-y-2 text-xs text-gray-700 py-4 border-y border-asra-border font-light">
                   <div className="flex items-center gap-2">
@@ -483,7 +483,7 @@ const AboutUsPage = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-asra-gold font-bold">•</span>
-                    <span>Bespoke Wax Monogram Archive</span>
+                    <span>Customized Wax Initials Archive</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-asra-gold font-bold">•</span>
@@ -494,7 +494,7 @@ const AboutUsPage = () => {
               <div className="mt-6 pt-2">
                 <button
                   type="button"
-                  onClick={() => handleOpenModal('Jubilee Hills Atelier (Hyderabad)')}
+                  onClick={() => handleOpenModal('Jubilee Hills Collection (Hyderabad)')}
                   className="inline-flex items-center justify-center w-full py-2.5 text-xs uppercase font-semibold tracking-wider border border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white transition-colors cursor-pointer"
                 >
                   Reserve Jubilee Hills Salon
@@ -506,7 +506,7 @@ const AboutUsPage = () => {
             <div className="bg-asra-ivory border border-asra-border p-8 flex flex-col justify-between shadow-sm relative group hover:border-asra-gold transition-colors">
               <div>
                 <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-asra-goldDark font-semibold mb-3">
-                  <span>Atelier No. 02</span>
+                  <span>Collection No. 02</span>
                   <span className="px-2 py-0.5 bg-asra-gold/10 border border-asra-gold/30 text-[9px]">Design Laboratory</span>
                 </div>
                 <h3 className="font-cinzel text-xl font-bold text-asra-charcoal mb-2">Indiranagar Studio</h3>
@@ -518,7 +518,7 @@ const AboutUsPage = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-asra-gold font-bold">•</span>
-                    <span>Contemporary Bridal Keepsake Suites</span>
+                    <span>Contemporary Bridal Gift Suites</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-asra-gold font-bold">•</span>
@@ -537,14 +537,14 @@ const AboutUsPage = () => {
               </div>
             </div>
 
-            {/* Studio 3: Global WhatsApp Concierge */}
+            {/* Studio 3: Global WhatsApp Support */}
             <div className="bg-asra-sand/40 border border-asra-gold/40 p-8 flex flex-col justify-between shadow-sm relative">
               <div>
                 <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-asra-goldDark font-semibold mb-3">
                   <span>Virtual Salon</span>
                   <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[9px] font-bold">Live Worldwide</span>
                 </div>
-                <h3 className="font-cinzel text-xl font-bold text-asra-charcoal mb-2">Private Concierge Desk</h3>
+                <h3 className="font-cinzel text-xl font-bold text-asra-charcoal mb-2">Private Support Desk</h3>
                 <p className="text-xs text-asra-muted mb-4 font-light">Serving couples &amp; planners across UAE, UK, USA, Singapore &amp; Pan-India.</p>
                 <div className="space-y-2 text-xs text-gray-700 py-4 border-y border-asra-border font-light">
                   <div className="flex items-center gap-2">
@@ -580,7 +580,7 @@ const AboutUsPage = () => {
       </section>
 
       {/* 8. Call To Action Banner */}
-      <section className="py-16 bg-asra-sand/60 border-t border-asra-border" data-purpose="bridal-concierge-cta" id="concierge">
+      <section className="py-16 bg-asra-sand/60 border-t border-asra-border" data-purpose="bridal-support-cta" id="support">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-asra-gold"></span>
@@ -590,15 +590,15 @@ const AboutUsPage = () => {
             <span className="w-2 h-2 rounded-full bg-asra-gold"></span>
           </div>
           <h2 className="font-cormorant text-3xl sm:text-5xl text-asra-charcoal font-bold mb-4 leading-tight">
-            Ready to Immortalize Your Wedding Keepsakes?
+            Ready to Immortalize Your Wedding Gifts?
           </h2>
           <p className="font-serif italic text-base sm:text-lg text-asra-muted max-w-xl mx-auto mb-8">
-            Schedule a bespoke consultation with our Master Bridal Stylist or order our physical velvet &amp; gold leaf swatch folio delivered directly to your doorstep.
+            Schedule a customized consultation with our Master Bridal Stylist or order our physical velvet &amp; gold leaf swatch folio delivered directly to your doorstep.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               type="button"
-              onClick={() => handleOpenModal('Bespoke Bridal Salon')}
+              onClick={() => handleOpenModal('Customized Bridal Salon')}
               className="w-full sm:w-auto px-8 py-3.5 bg-asra-gold hover:bg-asra-goldDark text-white text-xs font-semibold uppercase tracking-[0.2em] shadow-md transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
             >
               Book Private Consultation
@@ -609,7 +609,7 @@ const AboutUsPage = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span>WhatsApp Head Concierge</span>
+              <span>WhatsApp Head Support</span>
               <span className="text-xs text-asra-gold">→</span>
             </a>
           </div>
@@ -647,17 +647,17 @@ const AboutUsPage = () => {
                   Appointment Requested
                 </h3>
                 <p className="font-serif italic text-sm text-asra-muted max-w-sm mx-auto">
-                  Thank you, {formData.name || 'valued client'}. Your salon private curator will contact you via WhatsApp to confirm your bespoke session for <span className="font-semibold text-asra-charcoal">{selectedSalon}</span>.
+                  Thank you, {formData.name || 'valued client'}. Your salon private curator will contact you via WhatsApp to confirm your customized session for <span className="font-semibold text-asra-charcoal">{selectedSalon}</span>.
                 </p>
                 <div className="pt-2 text-[10px] uppercase tracking-widest text-asra-goldDark font-semibold">
-                  Maison ASRA Concierge Desk
+                  Maison ASRA Support Desk
                 </div>
               </div>
             ) : (
               <div>
                 <div className="text-center mb-6">
                   <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-asra-gold block mb-1">
-                    Private Atelier Reservation
+                    Private Collection Reservation
                   </span>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-asra-charcoal">
                     Book Your Salon Session
@@ -675,7 +675,7 @@ const AboutUsPage = () => {
                       onChange={(e) => setSelectedSalon(e.target.value)}
                       className="w-full bg-white border border-asra-border px-3.5 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none"
                     >
-                      <option value="Jubilee Hills Atelier (Hyderabad)">Jubilee Hills Atelier (Hyderabad)</option>
+                      <option value="Jubilee Hills Collection (Hyderabad)">Jubilee Hills Collection (Hyderabad)</option>
                       <option value="Indiranagar Studio (Bengaluru)">Indiranagar Studio (Bengaluru)</option>
                       <option value="Virtual Video Styling Desk">Virtual Video Styling Desk (Worldwide)</option>
                     </select>
@@ -738,13 +738,13 @@ const AboutUsPage = () => {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider font-medium text-asra-charcoal mb-1">
-                      Keepsake Notes or Preferences
+                      Gift Notes or Preferences
                     </label>
                     <textarea
                       rows="2"
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      placeholder="e.g. Trousseau trunk, gold debossed guest registry, destination venue..."
+                      placeholder="e.g. Wedding Essentials trunk, gold debossed guest registry, destination venue..."
                       className="w-full bg-white border border-asra-border px-3.5 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none"
                     ></textarea>
                   </div>

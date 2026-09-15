@@ -86,7 +86,7 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
       <div className="p-space-md flex flex-col flex-1 justify-between gap-space-xs">
         <div className="flex flex-col gap-1">
           <span className="font-label-sm text-[10px] text-primary tracking-[0.2em] uppercase font-semibold">
-            {product.techniqueTag || product.categoryLabel || 'Atelier Collection'}
+            {product.techniqueTag || product.categoryLabel || 'Collection'}
           </span>
           <Link to={productUrl}>
             <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors leading-tight line-clamp-1">

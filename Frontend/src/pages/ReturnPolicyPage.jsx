@@ -25,13 +25,13 @@ import {
 } from 'lucide-react';
 
 const POLICY_ANNEXURES = {
-  concierge: {
-    title: 'Atelier Concierge Emergency Protocols',
-    subtitle: 'Protocol Ref: ASRA-SOP-CONCIERGE-2026',
+  support: {
+    title: 'Collection Support Emergency Protocols',
+    subtitle: 'Protocol Ref: ASRA-SOP-SUPPORT-2026',
     content: [
       {
         heading: '1. Priority Escalation for Auspicious Dates',
-        text: 'All bespoke orders linked to a certified muhurat date receive active monitoring from our dedicated bridal dispatch desk. If transit telemetry indicates any potential weather or logistics bottleneck, the contingency courier protocol is initiated 24 hours prior to the muhurat.'
+        text: 'All customized orders linked to a certified muhurat date receive active monitoring from our dedicated bridal dispatch desk. If transit telemetry indicates any potential weather or logistics bottleneck, the contingency courier protocol is initiated 24 hours prior to the muhurat.'
       },
       {
         heading: '2. Dedicated Wedding Planner Handover',
@@ -39,7 +39,7 @@ const POLICY_ANNEXURES = {
       },
       {
         heading: '3. Immediate 24/7 Redressal',
-        text: 'Our WhatsApp Concierge desk is staffed 24/7 during October–March peak auspicious cycles. Response time for active transit shipments is guaranteed within 8 minutes.'
+        text: 'Our WhatsApp Support desk is staffed 24/7 during October–March peak auspicious cycles. Response time for active transit shipments is guaranteed within 8 minutes.'
       }
     ]
   },
@@ -49,7 +49,7 @@ const POLICY_ANNEXURES = {
     content: [
       {
         heading: '1. 100% Comprehensive Coverage',
-        text: 'Every shipment leaving our Hyderabad atelier travels with full transit insurance encompassing structural stress, glass/acrylic fractures, temperature deviations in chilled logistics vans, and water intrusion.'
+        text: 'Every shipment leaving our Hyderabad collection travels with full transit insurance encompassing structural stress, glass/acrylic fractures, temperature deviations in chilled logistics vans, and water intrusion.'
       },
       {
         heading: '2. Zero-Deductible Replacement',
@@ -62,16 +62,16 @@ const POLICY_ANNEXURES = {
     ]
   },
   archival: {
-    title: 'Monogram Brass Die Archival & Vault Terms',
-    subtitle: 'Metallurgy Vault Facility • Hyderabad Atelier Division',
+    title: 'Initials Brass Die Archival & Vault Terms',
+    subtitle: 'Metallurgy Vault Facility • Hyderabad Collection Division',
     content: [
       {
         heading: '1. 5-Year Complimentary Archival',
-        text: 'Every custom 3D CNC-machined brass monogram debossing die is catalogued and stored in our climate-controlled archival vault for a minimum of 5 years following initial order fulfillment.'
+        text: 'Every custom 3D CNC-machined brass initials debossing die is catalogued and stored in our climate-controlled archival vault for a minimum of 5 years following initial order fulfillment.'
       },
       {
         heading: '2. Anniversary Re-order Benefit',
-        text: 'Because your custom metallurgical die is preserved, future keepsake editions, anniversary invitations, and bespoke correspondence suites are discounted by ₹1,500 across all catalog collections.'
+        text: 'Because your custom metallurgical die is preserved, future gift editions, anniversary invitations, and customized correspondence suites are discounted by ₹1,500 across all catalog collections.'
       },
       {
         heading: '3. Physical Die Possession Request',
@@ -80,7 +80,7 @@ const POLICY_ANNEXURES = {
     ]
   },
   confidentiality: {
-    title: 'Client Privacy & Bespoke NDA Covenant',
+    title: 'Client Privacy & Customized NDA Covenant',
     subtitle: 'Strict High-Net-Worth & Celebrity Bridal Privacy Protocol',
     content: [
       {
@@ -89,7 +89,7 @@ const POLICY_ANNEXURES = {
       },
       {
         heading: '2. Secure Digital CAD Vaulting',
-        text: 'All vector artwork, personal signatures, custom heraldic monograms, and wedding date dockets are encrypted with 256-bit AES protocols and restricted to certified master engravers.'
+        text: 'All vector artwork, personal signatures, custom heraldic initials, and wedding date dockets are encrypted with 256-bit AES protocols and restricted to certified master engravers.'
       },
       {
         heading: '3. Complete Post-Event Archival Choice',
@@ -125,7 +125,7 @@ const ReturnPolicyPage = () => {
   }, [activeModalKey]);
 
   const copyProtocolReference = () => {
-    navigator.clipboard.writeText('ASRA-POL-BESPOKE-2026');
+    navigator.clipboard.writeText('ASRA-POL-CUSTOMIZED-2026');
     setCopiedProtocol(true);
   };
 
@@ -152,10 +152,10 @@ const ReturnPolicyPage = () => {
           <button
             onClick={handleBack}
             className="inline-flex items-center gap-2.5 text-xs tracking-wider uppercase font-medium text-[#7C6E63] hover:text-[#1F1915] transition-colors group cursor-pointer focus:outline-none"
-            aria-label="Return to Atelier Portal"
+            aria-label="Return to Collection Portal"
           >
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-            <span>Return to Atelier Portal</span>
+            <span>Return to Collection Portal</span>
           </button>
 
           {/* Centered ASRA Crest Logo */}
@@ -191,12 +191,12 @@ const ReturnPolicyPage = () => {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-gold text-[11px] font-semibold tracking-widest uppercase mb-4 shadow-sm">
             <span>✦</span>
-            <span>Atelier Bespoke Covenant &amp; Keepsake Guarantee</span>
+            <span>Collection Customized Covenant &amp; Gift Guarantee</span>
             <span>✦</span>
           </div>
           
           <h1 className="text-4xl lg:text-5xl font-serif text-[#231B15] tracking-tight mb-4">
-            Return &amp; Refund Policy for Bespoke Goods
+            Return &amp; Refund Policy for Customized Goods
           </h1>
           
           <p className="text-base text-[#6E6053] leading-relaxed font-normal max-w-2xl mx-auto">
@@ -212,7 +212,7 @@ const ReturnPolicyPage = () => {
                 className="inline-flex items-center gap-1.5 font-mono bg-[#F2EDE5] hover:bg-[#EAE2D7] px-2 py-0.5 rounded text-[#3D3126] transition-colors cursor-pointer group"
                 title="Click to copy protocol reference"
               >
-                <span>ASRA-POL-BESPOKE-2026</span>
+                <span>ASRA-POL-CUSTOMIZED-2026</span>
                 {copiedProtocol ? (
                   <Check className="w-3.5 h-3.5 text-emerald-600" />
                 ) : (
@@ -225,7 +225,7 @@ const ReturnPolicyPage = () => {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="font-semibold text-[#4A3C30]">Governing Jurisdiction:</span>
-              <span>Bespoke Handcrafted Luxury Standards (India)</span>
+              <span>Customized Handcrafted Luxury Standards (India)</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="font-semibold text-[#4A3C30]">Effective Cycle:</span>
@@ -257,7 +257,7 @@ const ReturnPolicyPage = () => {
             <h3 className="font-serif text-base font-semibold text-[#251C15] mb-1">Digital Proof Guarantee</h3>
             <p className="text-xs font-semibold text-[#B37418] mb-2">3 Free Revisions</p>
             <p className="text-[12px] text-[#786A5E] leading-snug">
-              Unlimited monogram adjustments and 3 calligraphy script reviews on WhatsApp before deboss.
+              Unlimited initials adjustments and 3 calligraphy script reviews on WhatsApp before deboss.
             </p>
           </div>
 
@@ -293,37 +293,37 @@ const ReturnPolicyPage = () => {
           {/* Detailed Articles (Left 2 cols) */}
           <div className="lg:col-span-2 space-y-8">
 
-            {/* Clause 1: Bespoke Nature & Commissioning Principle */}
+            {/* Clause 1: Customized Nature & Commissioning Principle */}
             <article className="bg-white rounded-2xl p-6 sm:p-8 border border-[#EBE3D7] card-shadow">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-7 h-7 rounded-full bg-[#292019] text-[#EFE7DE] flex items-center justify-center text-xs font-bold font-serif">
                   I
                 </span>
                 <h2 className="text-xl font-serif text-[#231B15] font-semibold">
-                  The Nature of Custom &amp; Bespoke Commissions
+                  The Nature of Custom &amp; Customized Commissions
                 </h2>
               </div>
               
               <p className="text-sm text-[#5C4F44] leading-relaxed mb-4">
-                Under international consumer statutory codes and Indian bespoke crafting conventions, personalized goods manufactured to client specifications are exempt from standard retail change-of-mind return rights. At ASRA Wedding Canvas, this applies to:
+                Under international consumer statutory codes and Indian customized crafting conventions, personalized goods manufactured to client specifications are exempt from standard retail change-of-mind return rights. At ASRA Wedding Canvas, this applies to:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
                 <div className="p-3.5 rounded-lg bg-[#FAF7F2] border border-[#ECE2D5] text-xs text-[#524438]">
-                  <span className="font-semibold text-[#2F241C] block mb-1">✦ 3D CNC-Milled Brass Monogram Dies</span>
+                  <span className="font-semibold text-[#2F241C] block mb-1">✦ 3D CNC-Milled Brass Initials Dies</span>
                   Custom metallurgical dies machined with the couple's personal initials, heraldic crest, or ceremony date.
                 </div>
                 <div className="p-3.5 rounded-lg bg-[#FAF7F2] border border-[#ECE2D5] text-xs text-[#524438]">
                   <span className="font-semibold text-[#2F241C] block mb-1">✦ Hand-Drawn Copperplate Calligraphy</span>
-                  Hand-lettered vellum envelopes, deckle-edge vows, and bespoke wax-sealed greeting cards.
+                  Hand-lettered vellum envelopes, deckle-edge vows, and customized wax-sealed greeting cards.
                 </div>
                 <div className="p-3.5 rounded-lg bg-[#FAF7F2] border border-[#ECE2D5] text-xs text-[#524438]">
-                  <span className="font-semibold text-[#2F241C] block mb-1">✦ Cryo-Hydrated Botanical Curations</span>
+                  <span className="font-semibold text-[#2F241C] block mb-1">✦ Cryo-Hydrated Botanical Collections</span>
                   Dawn-harvested Parisian roses, fresh eucalyptus, and organic botanical infusions formulated for wedding timelines.
                 </div>
                 <div className="p-3.5 rounded-lg bg-[#FAF7F2] border border-[#ECE2D5] text-xs text-[#524438]">
-                  <span className="font-semibold text-[#2F241C] block mb-1">✦ Debossed Velvet Keepsake Vaults</span>
-                  Silk velvet double ring boxes, trousseau trunks, and mangalsutra vaults hot-stamped with genuine 24k gold leaf.
+                  <span className="font-semibold text-[#2F241C] block mb-1">✦ Debossed Velvet Gift Vaults</span>
+                  Silk velvet double ring boxes, wedding essentials trunks, and mangalsutra vaults hot-stamped with genuine 24k gold leaf.
                 </div>
               </div>
 
@@ -344,7 +344,7 @@ const ReturnPolicyPage = () => {
               </div>
 
               <p className="text-sm text-[#5C4F44] leading-relaxed mb-5">
-                We understand wedding planning itineraries occasionally shift. We provide a fair, phased refund policy based on your order’s progression in our Hyderabad atelier:
+                We understand wedding planning itineraries occasionally shift. We provide a fair, phased refund policy based on your order’s progression in our Hyderabad collection:
               </p>
 
               <div className="space-y-4">
@@ -358,7 +358,7 @@ const ReturnPolicyPage = () => {
                       </span>
                       <h4 className="text-sm font-semibold text-[#1C3E2A]">Pre-Production &amp; Pre-Casting Phase</h4>
                       <p className="text-xs text-[#486B56] mt-1">
-                        If you notify our Concierge via WhatsApp or Phone within 2 hours of checkout before the digital vector CAD file is transferred to the CNC brass foundry.
+                        If you notify our Support via WhatsApp or Phone within 2 hours of checkout before the digital vector CAD file is transferred to the CNC brass foundry.
                       </p>
                     </div>
                     <div className="sm:text-right flex sm:flex-col justify-between items-baseline sm:items-end pt-1 sm:pt-0 border-t sm:border-t-0 border-[#D5ECD9]/50">
@@ -377,7 +377,7 @@ const ReturnPolicyPage = () => {
                       </span>
                       <h4 className="text-sm font-semibold text-[#3D2D1B]">Die Blueprint Created, But Prior to Hot Stamping</h4>
                       <p className="text-xs text-[#6E5B49] mt-1">
-                        If the brass die has already entered metallurgy milling, you may cancel the hamper, confections, and trousseau trunks. You retain ownership of the custom physical brass die.
+                        If the brass die has already entered metallurgy milling, you may cancel the hamper, confections, and wedding essentials trunks. You retain ownership of the custom physical brass die.
                       </p>
                     </div>
                     <div className="sm:text-right flex sm:flex-col justify-between items-baseline sm:items-end pt-1 sm:pt-0 border-t sm:border-t-0 border-[#F2E8D8]/50">
@@ -444,7 +444,7 @@ const ReturnPolicyPage = () => {
                   <li className="flex items-start gap-2.5">
                     <span className="text-[#2E6B47] font-bold text-sm">✓</span>
                     <span>
-                      <strong>Structural Damage:</strong> Any cracked crystal toasting flutes, dented keepsake trunks, or ruptured wax seals reported within 24 hours of palatial delivery.
+                      <strong>Structural Damage:</strong> Any cracked crystal toasting flutes, dented gift trunks, or ruptured wax seals reported within 24 hours of palatial delivery.
                     </span>
                   </li>
                 </ul>
@@ -457,7 +457,7 @@ const ReturnPolicyPage = () => {
                   <span>Our 24-Hour Emergency Protocol:</span>
                 </h4>
                 <p className="text-xs text-[#6A5A4D] leading-relaxed">
-                  If an issue is reported before your wedding ceremony, our emergency atelier team activates express remake protocol. Replacement units are hand-carried by air or dispatched via priority express to your resort or bridal suite before the twilight auspicious hour.
+                  If an issue is reported before your wedding ceremony, our emergency collection team activates express remake protocol. Replacement units are hand-carried by air or dispatched via priority express to your resort or bridal suite before the twilight auspicious hour.
                 </p>
               </div>
             </article>
@@ -469,12 +469,12 @@ const ReturnPolicyPage = () => {
                   IV
                 </span>
                 <h2 className="text-xl font-serif text-[#231B15] font-semibold">
-                  Concierge Claim &amp; Replacement Procedure
+                  Support Claim &amp; Replacement Procedure
                 </h2>
               </div>
 
               <p className="text-sm text-[#5C4F44] leading-relaxed mb-6">
-                To register a damage report or request authorization for replacement, please follow our rapid 3-step concierge process:
+                To register a damage report or request authorization for replacement, please follow our rapid 3-step support process:
               </p>
 
               <div className="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#E2D6C7]">
@@ -487,11 +487,11 @@ const ReturnPolicyPage = () => {
                     Step 01 • Instant WhatsApp Photographic Audit
                   </h4>
                   <p className="text-xs text-[#63554A] mt-1 leading-relaxed">
-                    Take 2 clear photographs of the defect/damage alongside the serial badge on the hamper. Send directly to our Dedicated Wedding Concierge WhatsApp at{' '}
+                    Take 2 clear photographs of the defect/damage alongside the serial badge on the hamper. Send directly to our Dedicated Wedding Support WhatsApp at{' '}
                     <a href="tel:+919692668263" className="font-semibold text-[#93662B] hover:underline">
                       +91 96926 68263
                     </a>{' '}
-                    referencing your Atelier Order ID (e.g., <code className="bg-[#F3EFE9] px-1.5 py-0.5 rounded text-[#2E241C]">ASRA-2026-8842X</code>).
+                    referencing your Collection Order ID (e.g., <code className="bg-[#F3EFE9] px-1.5 py-0.5 rounded text-[#2E241C]">ASRA-2026-8842X</code>).
                   </p>
                 </div>
 
@@ -503,7 +503,7 @@ const ReturnPolicyPage = () => {
                     Step 02 • Master Artisan Review (Under 45 Minutes)
                   </h4>
                   <p className="text-xs text-[#63554A] mt-1 leading-relaxed">
-                    Our Senior Stylist and Quality Director verify the discrepancy against your vaulted digital monogram proof and sensor temperature logs from the white-glove transit van.
+                    Our Senior Stylist and Quality Director verify the discrepancy against your vaulted digital initials proof and sensor temperature logs from the white-glove transit van.
                   </p>
                 </div>
 
@@ -524,17 +524,17 @@ const ReturnPolicyPage = () => {
 
           </div>
 
-          {/* Right Sidebar: Quick Contact, Monogram Vault FAQs & Official Seal */}
+          {/* Right Sidebar: Quick Contact, Initials Vault FAQs & Official Seal */}
           <aside className="space-y-6 lg:sticky lg:top-24">
             
-            {/* Live Concierge Direct Desk */}
+            {/* Live Support Direct Desk */}
             <div className="bg-[#241D18] text-[#F5EDE3] p-7 rounded-2xl border border-[#3E342B] shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#352B24] border border-[#C5A059]/40 flex items-center justify-center text-[#DFBD76]">
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold tracking-wide text-[#F3EBE0]">Atelier Stylist Hotline</h3>
+                  <h3 className="text-sm font-semibold tracking-wide text-[#F3EBE0]">Collection Stylist Hotline</h3>
                   <p className="text-[11px] text-[#BCAAA4]">Instant Resolution for Wedding Planners</p>
                 </div>
               </div>
@@ -569,7 +569,7 @@ const ReturnPolicyPage = () => {
               </div>
               
               <p className="text-xs text-[#6A5B4F] leading-relaxed mb-4">
-                Even if a client cancels other elements of a trousseau order, your engineered 3D Brass Monogram Die is never destroyed. It remains safely archived in our humidity-controlled Hyderabad Vault.
+                Even if a client cancels other elements of a wedding essentials order, your engineered 3D Brass Initials Die is never destroyed. It remains safely archived in our humidity-controlled Hyderabad Vault.
               </p>
 
               <div className="bg-[#F8F5F0] rounded-xl p-3.5 border border-[#EDE2D3] text-[11px] space-y-2 text-[#54463A]">
@@ -614,7 +614,7 @@ const ReturnPolicyPage = () => {
                       activeFaq === 0 ? 'mt-2 max-h-40 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    Notify us at least 7 days before dispatched date. We will hold your unprinted trousseau components and fresh floral arrangement schedules without penalty for up to 90 days.
+                    Notify us at least 7 days before dispatched date. We will hold your unprinted wedding essentials components and fresh floral arrangement schedules without penalty for up to 90 days.
                   </div>
                 </div>
 
@@ -686,10 +686,10 @@ const ReturnPolicyPage = () => {
         <div className="mt-16 pt-8 border-t border-[#EAE1D4] flex flex-col sm:flex-row items-center justify-between gap-6 print:hidden">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs text-[#706052]">
             <button
-              onClick={() => setActiveModalKey('concierge')}
+              onClick={() => setActiveModalKey('support')}
               className="hover:text-[#1F1915] underline decoration-[#D0C2B0] underline-offset-4 cursor-pointer focus:outline-none"
             >
-              Concierge Protocols
+              Support Protocols
             </button>
             <button
               onClick={() => setActiveModalKey('insurance')}
@@ -701,7 +701,7 @@ const ReturnPolicyPage = () => {
               onClick={() => setActiveModalKey('archival')}
               className="hover:text-[#1F1915] underline decoration-[#D0C2B0] underline-offset-4 cursor-pointer focus:outline-none"
             >
-              Monogram Brass Die Archival terms
+              Initials Brass Die Archival terms
             </button>
             <button
               onClick={() => setActiveModalKey('confidentiality')}
@@ -739,10 +739,10 @@ const ReturnPolicyPage = () => {
           <div className="flex items-center justify-center gap-2 font-cinzel tracking-widest text-[#403328] font-semibold">
             <span>ASRA WEDDING CANVAS</span>
             <span>•</span>
-            <span className="font-sans font-normal tracking-normal text-[#6A5A4D]">Bespoke Atelier Registry &amp; Vault Services</span>
+            <span className="font-sans font-normal tracking-normal text-[#6A5A4D]">Customized Collection Registry &amp; Vault Services</span>
           </div>
           <div>
-            © 2026 ASRA Private Limited. All bespoke designs, metallurgical dies, and covenants reserved.
+            © 2026 ASRA Private Limited. All customized designs, metallurgical dies, and covenants reserved.
           </div>
         </div>
       </footer>
@@ -769,7 +769,7 @@ const ReturnPolicyPage = () => {
 
             <div className="mb-6">
               <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-[#F8F3EA] text-[#8C6228] border border-[#DFCEB9] mb-2">
-                Official Atelier Annexure
+                Official Collection Annexure
               </span>
               <h3 className="text-xl font-serif text-[#231B15] font-semibold">
                 {POLICY_ANNEXURES[activeModalKey].title}
@@ -792,7 +792,7 @@ const ReturnPolicyPage = () => {
 
             <div className="mt-6 pt-4 border-t border-[#EFE5D8] flex items-center justify-between">
               <span className="text-[11px] text-[#867566]">
-                Binding under ASRA Bespoke Covenant 2026
+                Binding under ASRA Customized Covenant 2026
               </span>
               <button
                 onClick={() => setActiveModalKey(null)}

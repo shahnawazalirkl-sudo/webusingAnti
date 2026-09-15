@@ -32,7 +32,7 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
           <h3 className="font-serif text-lg font-semibold text-on-surface">Select Delivery Location</h3>
         </div>
         <p className="text-body-sm text-xs text-on-surface-variant mb-5">
-          Enter your wedding or residence pincode to check dispatch transit times and bespoke white-glove availability.
+          Enter your wedding or residence pincode to check dispatch transit times and customized white-glove availability.
         </p>
 
         <form onSubmit={handlePincodeCheck} className="flex gap-2 mb-4">

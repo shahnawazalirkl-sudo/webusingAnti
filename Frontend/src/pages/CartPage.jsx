@@ -88,7 +88,7 @@ const CartPage = () => {
       ...editForm,
       cardInscription: editForm.cardInscription ? `"${editForm.cardInscription}"` : '',
       monogramDie: editForm.brideName && editForm.groomName 
-        ? `"${editForm.brideName[0]} & ${editForm.groomName[0]}" • Heritage Floral Crest` 
+        ? `"${editForm.brideName[0]} & ${editForm.groomName[0]}" • Classic Floral Crest` 
         : editingItem.monogramDie
     };
     updateCustomizations(editingItem.cartId, updatedFields);
@@ -117,7 +117,7 @@ const CartPage = () => {
       id: 'toasting-flutes',
       sku: 'ASRA-FLT-008',
       title: 'Etched Crystal Toasting Flutes (Set of 2)',
-      categoryLabel: 'Barware Keepsake',
+      categoryLabel: 'Barware Gift',
       badge: 'Bohemian Crystal',
       price: 2199,
       originalPrice: 2999,
@@ -141,7 +141,7 @@ const CartPage = () => {
               <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Return to Atelier Collections
+              Return to Collection Collections
             </Link>
             <div className="flex items-center gap-3">
               <img
@@ -150,8 +150,8 @@ const CartPage = () => {
                 className="h-10 object-contain"
               />
               <div className="hidden sm:block text-left border-l border-brand-border pl-3">
-                <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Keepsake Bag</div>
-                <div className="text-[11px] text-brand-slate font-medium">Bespoke Atelier Checkout</div>
+                <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Gift Bag</div>
+                <div className="text-[11px] text-brand-slate font-medium">Customized Collection Checkout</div>
               </div>
             </div>
             <div className="flex items-center text-xs text-brand-slate font-medium">
@@ -166,16 +166,16 @@ const CartPage = () => {
               ✦
             </div>
             <h2 className="font-cormorant text-3xl font-semibold text-brand-charcoal mb-3">
-              Your Atelier Bag is Empty
+              Your Collection Bag is Empty
             </h2>
             <p className="text-xs text-brand-slate max-w-md mx-auto leading-relaxed mb-8">
-              Begin your bespoke celebration journey with our handcrafted trousseau suites, personalized wax-sealed vow books, and engraved velvet vaults.
+              Begin your customized celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
             </p>
             <Link
               to="/shop"
               className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-charcoal text-[#FAF7F2] rounded-lg text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#2C2927] transition-all shadow-md"
             >
-              Explore Atelier Collections
+              Explore Collection Collections
             </Link>
           </div>
         </div>
@@ -197,7 +197,7 @@ const CartPage = () => {
             <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Return to Atelier Collections
+            Return to Collection Collections
           </Link>
 
           {/* Minimal Subtle Logo Mark for Trust */}
@@ -210,8 +210,8 @@ const CartPage = () => {
               />
             </Link>
             <div className="hidden sm:block text-left border-l border-brand-border pl-3">
-              <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Keepsake Bag</div>
-              <div className="text-[11px] text-brand-slate font-medium">Bespoke Atelier Checkout</div>
+              <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Gift Bag</div>
+              <div className="text-[11px] text-brand-slate font-medium">Customized Collection Checkout</div>
             </div>
           </div>
 
@@ -270,7 +270,7 @@ const CartPage = () => {
               Your Curated Ensemble
             </span>
             <h1 className="font-cormorant text-4xl lg:text-5xl font-normal text-brand-charcoal">
-              Atelier Shopping Bag & Customizations
+              Collection Shopping Bag & Customizations
             </h1>
           </div>
           <div className="inline-flex items-center bg-[#FFF8EE] border border-[#F3DFC1] px-4 py-2.5 rounded-lg text-xs text-[#8A5814] shadow-xs">
@@ -278,7 +278,7 @@ const CartPage = () => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>
-              Bespoke 3D Deboss Brass Die slot held for:{' '}
+              Customized 3D Deboss Brass Die slot held for:{' '}
               <strong className="font-semibold text-brand-charcoal font-mono">{formatTimer(timeLeft)} min</strong>
             </span>
           </div>
@@ -298,7 +298,7 @@ const CartPage = () => {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-brand-charcoal">
-                    Complimentary Hand-Poured Wax Seal & Monogram Deboss Die
+                    Complimentary Hand-Poured Wax Seal & Initials Deboss Die
                   </p>
                   <p className="text-[11px] text-brand-slate">
                     Applied automatically on orders exceeding ₹5,000 for verified destination weddings.
@@ -338,11 +338,11 @@ const CartPage = () => {
                         />
                       )}
                       <span className="absolute top-2 left-2 bg-brand-charcoal/90 backdrop-blur-sm text-white text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
-                        {item.badge || 'Keepsake Edition'}
+                        {item.badge || 'Gift Edition'}
                       </span>
                     </div>
 
-                    {/* Product Info & Bespoke Customizations Breakdown */}
+                    {/* Product Info & Customized Customizations Breakdown */}
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <div className="flex items-start justify-between gap-2 mb-1">
@@ -396,7 +396,7 @@ const CartPage = () => {
 
                           {item.monogramDie && (
                             <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Debossed Monogram:</span>
+                              <span className="text-brand-slate font-medium">Debossed Initials:</span>
                               <span className="font-semibold text-brand-goldDark bg-brand-sand px-2 py-0.5 rounded border border-brand-border">
                                 {item.monogramDie}
                               </span>
@@ -421,7 +421,7 @@ const CartPage = () => {
 
                           {item.cardInscription && (
                             <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Keepsake Inscription:</span>
+                              <span className="text-brand-slate font-medium">Gift Inscription:</span>
                               <span className="font-serif italic text-brand-charcoal">{item.cardInscription}</span>
                             </div>
                           )}
@@ -509,12 +509,12 @@ const CartPage = () => {
               </div>
             ))}
 
-            {/* Curated Keepsake Add-ons / Upsell Section */}
+            {/* Curated Gift Add-ons / Upsell Section */}
             <div className="bg-white border border-brand-border rounded-xl p-6 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h4 className="font-cormorant text-xl font-semibold text-brand-charcoal">
-                    Complete The Bridal Trousseau
+                    Complete The Bridal Wedding Essentials
                   </h4>
                   <p className="text-xs text-brand-slate">
                     Add complementary heirlooms crafted in the exact same blush & gold colorway.
@@ -568,7 +568,7 @@ const CartPage = () => {
               </div>
             </div>
 
-            {/* Direct WhatsApp Concierge Assistance Strip */}
+            {/* Direct WhatsApp Support Assistance Strip */}
             <div className="bg-[#F3EFEA] border border-brand-border rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -578,10 +578,10 @@ const CartPage = () => {
                 </div>
                 <div>
                   <div className="text-xs font-bold text-brand-charcoal">
-                    Need Calligraphy or Monogram Verification?
+                    Need Calligraphy or Initials Verification?
                   </div>
                   <div className="text-[11px] text-brand-slate">
-                    Our Senior Atelier Stylist can review your wedding crest proof before dispatch.
+                    Our Senior Collection Stylist can review your wedding crest proof before dispatch.
                   </div>
                 </div>
               </div>
@@ -603,7 +603,7 @@ const CartPage = () => {
             {/* Summary Card (Sticky) */}
             <div className="bg-white border border-brand-border rounded-xl p-6 shadow-sm sticky top-6">
               <h2 className="font-cormorant text-2xl font-bold text-brand-charcoal mb-4 pb-3 border-b border-brand-border">
-                Order & Atelier Privileges
+                Order & Collection Privileges
               </h2>
 
               {/* Promo Code Form */}
@@ -697,7 +697,7 @@ const CartPage = () => {
               <div className="flex items-baseline justify-between mb-6">
                 <div>
                   <span className="block font-cormorant text-2xl font-bold text-brand-charcoal">Total Amount</span>
-                  <span className="text-[10px] text-brand-slate">Inclusive of all duties, bespoke craft & insurance</span>
+                  <span className="text-[10px] text-brand-slate">Inclusive of all duties, customized craft & insurance</span>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-brand-charcoal font-sans">
@@ -789,7 +789,7 @@ const CartPage = () => {
                 Planning Multiple Event Rooms?
               </h4>
               <p className="text-xs text-brand-slate mt-1 mb-3">
-                If this order is part of a 25+ unit destination wedding favor suite, you qualify for our tiered atelier concierge pricing.
+                If this order is part of a 25+ unit destination wedding favor suite, you qualify for our tiered collection support pricing.
               </p>
               <Link
                 to="/bulk-orders"
@@ -812,7 +812,7 @@ const CartPage = () => {
             <div className="bg-brand-sand px-6 py-4 border-b border-brand-border flex items-center justify-between">
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark block">
-                  Bespoke Personalization
+                  Customized Personalization
                 </span>
                 <h3 className="font-cormorant text-xl font-semibold text-brand-charcoal">
                   Edit Customizations & Inscriptions
@@ -864,7 +864,7 @@ const CartPage = () => {
               </div>
 
               <div>
-                <label className="block text-brand-slate font-medium mb-1">Keepsake Card Inscription</label>
+                <label className="block text-brand-slate font-medium mb-1">Gift Card Inscription</label>
                 <textarea
                   rows={2}
                   value={editForm.cardInscription}

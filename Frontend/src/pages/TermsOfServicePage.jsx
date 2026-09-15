@@ -29,15 +29,15 @@ const ARTICLES = [
     tag: 'Formation & Scope',
     sectionCode: '§ 1.1',
     title: 'Commission Acceptance & Client Formation',
-    summary: 'Binding covenant constituted via digital docketing and bespoke character of goods.',
+    summary: 'Binding covenant constituted via digital docketing and customized character of goods.',
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          These Terms of Service govern the bespoke creation, artisanal manufacturing, brass die casting, and delivery of bridal heirlooms and ceremonial gifting suites by ASRA Wedding Canvas Private Limited (“Maison ASRA”, “we”, “our”). By placing a bespoke order, signing a digital commission docket, or submitting payment, you (“Client”, “Patron”) enter into a binding covenant with our atelier.
+          These Terms of Service govern the customized creation, artisanal manufacturing, brass die casting, and delivery of bridal heirlooms and ceremonial gifting suites by ASRA Wedding Canvas Private Limited (“Maison ASRA”, “we”, “our”). By placing a customized order, signing a digital commission docket, or submitting payment, you (“Client”, “Patron”) enter into a binding covenant with our collection.
         </p>
         <div className="bg-[#FAF8F5] p-4 sm:p-5 rounded-lg border border-[#EAE2D5] text-xs sm:text-sm text-neutral-700 space-y-3">
           <p>
-            <strong className="text-neutral-900 font-semibold">1.1 Bespoke Character of Goods:</strong> Every piece produced by ASRA is made specifically to order based on proprietary patron specifications, matrimonial monograms, and curated materials.
+            <strong className="text-neutral-900 font-semibold">1.1 Customized Character of Goods:</strong> Every piece produced by ASRA is made specifically to order based on proprietary patron specifications, matrimonial initials, and curated materials.
           </p>
           <p>
             <strong className="text-neutral-900 font-semibold">1.2 Digital Inception:</strong> A commission is formally constituted when (a) the requisite deposit or full prepayment is received, and (b) our Lead Stylist transmits an official Alphanumeric Docket ID.
@@ -51,12 +51,12 @@ const ARTICLES = [
     number: 'Article 02',
     tag: 'Heraldry & Proofing',
     sectionCode: '§ 2.4',
-    title: '3D Proofing, Typography & Monogram Approval',
+    title: '3D Proofing, Typography & Initials Approval',
     summary: 'Zero-tooling guarantee with strict sign-off protocols before metal casting or leather debossing.',
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          Because bespoke metal casting and laser engraving cannot be undone once executed, our atelier operates under an uncompromising proofing protocol designed to safeguard patron intent.
+          Because customized metal casting and laser engraving cannot be undone once executed, our collection operates under an uncompromising proofing protocol designed to safeguard patron intent.
         </p>
 
         <div className="border-l-4 border-[#C5A059] pl-4 py-2.5 my-4 bg-[#FAF7F2] rounded-r-lg text-xs sm:text-sm text-neutral-800">
@@ -91,7 +91,7 @@ const ARTICLES = [
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          ASRA keepsakes are crafted using historic, noble mediums. Patrons acknowledge that natural and artisanal raw materials possess intrinsic organic variances that distinguish them from mass-manufactured items.
+          ASRA gifts are crafted using historic, noble mediums. Patrons acknowledge that natural and artisanal raw materials possess intrinsic organic variances that distinguish them from mass-manufactured items.
         </p>
 
         <ul className="space-y-3.5 text-xs sm:text-sm text-neutral-600">
@@ -104,7 +104,7 @@ const ARTICLES = [
           <li className="flex items-start gap-3 p-3 rounded-lg bg-[#FAF8F5] border border-[#EAE2D5]">
             <span className="text-[#C5A059] font-serif text-base leading-none mt-0.5">✦</span>
             <span>
-              <strong className="text-neutral-900 font-semibold">Reclaimed Teak &amp; Rosewood:</strong> Wood grain swirls, timber density, and natural oil absorption will exhibit mild bespoke divergence across multi-unit bridal orders.
+              <strong className="text-neutral-900 font-semibold">Reclaimed Teak &amp; Rosewood:</strong> Wood grain swirls, timber density, and natural oil absorption will exhibit mild customized divergence across multi-unit bridal orders.
             </span>
           </li>
           <li className="flex items-start gap-3 p-3 rounded-lg bg-[#FAF8F5] border border-[#EAE2D5]">
@@ -133,14 +133,14 @@ const ARTICLES = [
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          Our atelier coordinates closely with wedding planners and concierges to ensure complete alignment with ceremonial itineraries.
+          Our collection coordinates closely with wedding planners and concierges to ensure complete alignment with ceremonial itineraries.
         </p>
 
         <div className="overflow-x-auto rounded-lg border border-[#EAE2D5] bg-white shadow-2xs">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-[#FBF7F0] text-neutral-900 border-b border-[#EAE2D5]">
               <tr>
-                <th className="p-3.5 sm:p-4 font-serif font-semibold text-neutral-900">Curation Category</th>
+                <th className="p-3.5 sm:p-4 font-serif font-semibold text-neutral-900">Collection Category</th>
                 <th className="p-3.5 sm:p-4 font-serif font-semibold text-neutral-900">Standard Craft Turnaround</th>
                 <th className="p-3.5 sm:p-4 font-serif font-semibold text-[#8C6D37]">Express Foundry Service</th>
               </tr>
@@ -157,7 +157,7 @@ const ARTICLES = [
                 <td className="p-3.5 sm:p-4 text-[#8C6D37] font-medium">48-Hour Accelerated Casting</td>
               </tr>
               <tr className="hover:bg-[#FAF8F5]/60 transition-colors">
-                <td className="p-3.5 sm:p-4 font-medium text-neutral-900">Bespoke Bridal Trunks &amp; CNC Brass Dies</td>
+                <td className="p-3.5 sm:p-4 font-medium text-neutral-900">Customized Bridal Trunks &amp; CNC Brass Dies</td>
                 <td className="p-3.5 sm:p-4">7 to 12 Business Days</td>
                 <td className="p-3.5 sm:p-4 text-[#8C6D37] font-medium">5-Day VIP Foundry Fast-Track</td>
               </tr>
@@ -189,7 +189,7 @@ const ARTICLES = [
           <div className="p-4 rounded-lg bg-[#FAF8F5] border border-[#EAE2D5]">
             <strong className="text-neutral-900 block mb-1">5.1 Temperature &amp; Shock Protection:</strong>
             <p className="text-neutral-600 leading-relaxed">
-              Luxury keepsake boxes containing organic botanical wax candles or cryo-preserved floral blooms are packaged in temperature-insulated outer shock crates.
+              Luxury gift boxes containing organic botanical wax candles or cryo-preserved floral blooms are packaged in temperature-insulated outer shock crates.
             </p>
           </div>
           <div className="p-4 rounded-lg bg-[#FAF8F5] border border-[#EAE2D5]">
@@ -218,7 +218,7 @@ const ARTICLES = [
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          Our atelier respects the sanctity and exclusivity of matrimonial heraldry.
+          Our collection respects the sanctity and exclusivity of matrimonial heraldry.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
@@ -228,7 +228,7 @@ const ARTICLES = [
               Sole Client Crest Ownership
             </h4>
             <p className="text-neutral-600 leading-relaxed">
-              All bespoke monogram vectors and coat-of-arms designs developed for the Patron remain their exclusive intellectual asset. Maison ASRA will never re-cast, license, or sell your monogram to any other patron.
+              All customized initials vectors and coat-of-arms designs developed for the Patron remain their exclusive intellectual asset. Maison ASRA will never re-cast, license, or sell your initials to any other patron.
             </p>
           </div>
           <div className="p-4 sm:p-5 bg-[#FAF7F2] rounded-lg border border-[#E8DFD1] shadow-2xs">
@@ -237,7 +237,7 @@ const ARTICLES = [
               Ceremonial Media Embargo
             </h4>
             <p className="text-neutral-600 leading-relaxed">
-              We strictly observe ceremonial dates. We will never publish studio photographs of your trousseau boxes, guest favors, or vows on social media prior to your official ceremony without express permission.
+              We strictly observe ceremonial dates. We will never publish studio photographs of your wedding essentials boxes, guest favors, or vows on social media prior to your official ceremony without express permission.
             </p>
           </div>
         </div>
@@ -249,12 +249,12 @@ const ARTICLES = [
     number: 'Article 07',
     tag: 'Remakes & Cancellations',
     sectionCode: '§ 7.5',
-    title: 'Alterations, Cancellations & Bespoke Refunds',
+    title: 'Alterations, Cancellations & Customized Refunds',
     summary: 'Stage A, B, and C remedy protocol reflecting non-standard custom craftsmanship.',
     content: (
       <>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4">
-          Due to the permanent, customized nature of engraved metal, personalized leather, and carved wood, standard retail consumer return policies do not apply. Our bespoke remedy protocol is structured as follows:
+          Due to the permanent, customized nature of engraved metal, personalized leather, and carved wood, standard retail consumer return policies do not apply. Our customized remedy protocol is structured as follows:
         </p>
 
         <div className="space-y-3.5 text-xs sm:text-sm text-neutral-700">
@@ -292,10 +292,10 @@ const ARTICLES = [
             </span>
             <div>
               <strong className="text-neutral-900 block text-xs sm:text-sm font-semibold mb-1">
-                Atelier Craft Flaw or Discrepancy Remedy
+                Collection Craft Flaw or Discrepancy Remedy
               </strong>
               <p className="text-neutral-600 leading-relaxed">
-                If a delivered keepsake diverges from the approved digital 3D proof due to atelier error, ASRA remakes the piece unconditionally with expedited same-day courier dispatch.
+                If a delivered gift diverges from the approved digital 3D proof due to collection error, ASRA remakes the piece unconditionally with expedited same-day courier dispatch.
               </p>
             </div>
           </div>
@@ -408,9 +408,9 @@ const TermsOfServicePage = () => {
     e.preventDefault();
     setConsultSubmitted(true);
     setTimeout(() => {
-      const subject = encodeURIComponent(`Atelier Terms & Custom Commission Inquiry: ${consultForm.name}`);
+      const subject = encodeURIComponent(`Collection Terms & Custom Commission Inquiry: ${consultForm.name}`);
       const body = encodeURIComponent(
-        `Maison ASRA Atelier Client Care Desk,\n\n` +
+        `Maison ASRA Collection Client Care Desk,\n\n` +
         `Patron Name: ${consultForm.name}\n` +
         `Contact Number: ${consultForm.phone}\n` +
         `Email: ${consultForm.email}\n` +
@@ -453,11 +453,11 @@ const TermsOfServicePage = () => {
             </button>
             <div className="hidden sm:flex items-center gap-2 pl-6 border-l border-[#EAE4D9] text-[11px] font-medium tracking-wide text-neutral-500">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="uppercase tracking-widest text-[#666666]">Legal &amp; Bespoke Governance Protocol</span>
+              <span className="uppercase tracking-widest text-[#666666]">Legal &amp; Customized Governance Protocol</span>
             </div>
           </div>
 
-          {/* Center: Atelier Seal & Brand Insignia */}
+          {/* Center: Collection Seal & Brand Insignia */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-full bg-[#FBF7F0] border border-[#E8DFD1] flex items-center justify-center shadow-xs group-hover:border-[#C5A059] transition-colors">
               <span className="font-cinzel text-xs font-bold text-[#C5A059] tracking-tighter">AS</span>
@@ -467,7 +467,7 @@ const TermsOfServicePage = () => {
                 Maison ASRA
               </span>
               <span className="block text-[9px] font-medium tracking-widest text-[#B88746] uppercase">
-                Terms of Atelier Service
+                Terms of Collection Service
               </span>
             </div>
           </Link>
@@ -476,7 +476,7 @@ const TermsOfServicePage = () => {
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="hidden lg:flex items-center gap-2 bg-[#FAF6F0] px-3.5 py-1.5 rounded-full border border-[#E8DFD1]/80 text-[11px] text-[#8C6D37] font-medium">
               <Lock className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span className="tracking-wider">256-Bit Encrypted Atelier Covenant</span>
+              <span className="tracking-wider">256-Bit Encrypted Collection Covenant</span>
             </div>
             <button
               onClick={handlePrint}
@@ -497,7 +497,7 @@ const TermsOfServicePage = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5EFE6] border border-[#E2D5C3] text-[11px] font-semibold text-[#8F6B28] tracking-widest uppercase mb-4">
             <span>◆</span>
-            <span>Atelier Client Charter &amp; Commission Terms</span>
+            <span>Collection Client Charter &amp; Commission Terms</span>
             <span>◆</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#141414] font-normal leading-tight mb-4 tracking-tight">
@@ -505,7 +505,7 @@ const TermsOfServicePage = () => {
             <span className="italic font-normal gold-gradient-text font-serif">Artisanal Covenant</span>
           </h1>
           <p className="text-neutral-600 text-xs sm:text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-light">
-            Every monogram casting, customized brass die, French velvet trousseau chest, and ceremonial keepsakes commission operates under the sovereign guidelines of the ASRA Atelier Covenant.
+            Every initials casting, customized brass die, French velvet wedding essentials chest, and ceremonial gifts commission operates under the sovereign guidelines of the ASRA Collection Covenant.
           </p>
 
           {/* Document Metadata Strip */}
@@ -540,7 +540,7 @@ const TermsOfServicePage = () => {
             </div>
             <h3 className="font-serif text-base font-semibold text-neutral-900 mb-1.5">No Production Without Digital Proof</h3>
             <p className="text-xs text-neutral-600 leading-relaxed">
-              Zero metal is milled or leather debossed without your explicit 3D photorealistic render sign-off via our digital concierge docket.
+              Zero metal is milled or leather debossed without your explicit 3D photorealistic render sign-off via our digital support docket.
             </p>
           </div>
 
@@ -568,7 +568,7 @@ const TermsOfServicePage = () => {
         {/* MAIN COVENANT LAYOUT (2 COLUMNS) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* LEFT COLUMN: STICKY CLAUSE NAVIGATION & CONCIERGE ASSISTANCE */}
+          {/* LEFT COLUMN: STICKY CLAUSE NAVIGATION & SUPPORT ASSISTANCE */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-6 print:hidden">
             
             {/* Table of Contents Card */}
@@ -634,17 +634,17 @@ const TermsOfServicePage = () => {
               </nav>
             </div>
 
-            {/* Concierge Counsel Block (Dark Luxury Card) */}
+            {/* Support Counsel Block (Dark Luxury Card) */}
             <div className="bg-[#141414] text-white rounded-xl p-6 border border-[#2B2B2B] shadow-lg">
               <div className="flex items-center gap-2 text-[11px] text-[#C5A059] uppercase tracking-widest font-semibold mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse"></span>
-                <span>Atelier Client Care Desk</span>
+                <span>Collection Client Care Desk</span>
               </div>
               <h3 className="font-serif text-base font-semibold text-neutral-100 mb-2">
                 Commission Guidance
               </h3>
               <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Need customized staging for international destinations or legal billing under a private corporate foundation? Our Concierge Counsel is directly reachable.
+                Need customized staging for international destinations or legal billing under a private corporate foundation? Our Support Counsel is directly reachable.
               </p>
               
               <div className="space-y-2">
@@ -655,7 +655,7 @@ const TermsOfServicePage = () => {
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#C5A059] hover:bg-[#B38E46] text-[#141414] font-semibold text-xs py-2.5 px-4 rounded-lg transition-colors shadow-xs"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Connect with Atelier Stylist</span>
+                  <span>Connect with Collection Stylist</span>
                 </a>
                 <button
                   onClick={() => setIsConsultModalOpen(true)}
@@ -667,7 +667,7 @@ const TermsOfServicePage = () => {
               </div>
 
               <div className="mt-3 text-center text-[10px] text-neutral-400">
-                Direct Concierge Desk: <span className="text-neutral-200 font-mono">+91 96926 68263</span>
+                Direct Support Desk: <span className="text-neutral-200 font-mono">+91 96926 68263</span>
               </div>
             </div>
 
@@ -753,7 +753,7 @@ const TermsOfServicePage = () => {
             </span>
             <span className="text-neutral-300 hidden sm:inline">•</span>
             <span className="text-[11px] text-neutral-600">
-              Atelier Service Charter &amp; Sovereign Commission Covenant
+              Collection Service Charter &amp; Sovereign Commission Covenant
             </span>
             <span className="text-neutral-300 hidden md:inline">•</span>
             <span className="text-[11px] font-mono text-neutral-400 hidden md:inline">
@@ -766,7 +766,7 @@ const TermsOfServicePage = () => {
               <span>Verified Legal Docket</span>
             </span>
             <Link to="/" className="hover:text-[#B38E46] transition-colors font-medium">
-              Return to Atelier Portal →
+              Return to Collection Portal →
             </Link>
           </div>
         </div>
@@ -791,7 +791,7 @@ const TermsOfServicePage = () => {
 
             <div className="mb-6">
               <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-[#F8F4EE] text-[#8C6228] border border-[#DFCEB9] mb-2">
-                Atelier Concierge Counsel
+                Collection Support Counsel
               </span>
               <h3 className="text-xl font-serif text-neutral-900 font-semibold">
                 Special Commission Request

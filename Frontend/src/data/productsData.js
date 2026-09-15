@@ -1,13 +1,13 @@
 // Central Product & Content Database for ASRA Wedding Canvas
 
 export const PRODUCTS = [
-  // 1. The Sovereign Bridal Atelier Hamper (Flagship Masterpiece)
+  // 1. The Sovereign Bridal Collection Hamper (Flagship Masterpiece)
   {
     id: "sovereign-bridal-suite",
     slug: "sovereign-bridal-suite",
     aliases: ["sovereign-bridal-hamper"],
     sku: "ASRA-SOV-019",
-    title: "The Sovereign Bridal Atelier Hamper",
+    title: "The Sovereign Bridal Collection Hamper",
     category: "bridal-hampers",
     subCategory: "bridal-groom-gifts",
     categoryLabel: "Bridal Suite",
@@ -17,7 +17,7 @@ export const PRODUCTS = [
     reviewCount: 128,
     badge: "Bridal Suite",
     secondaryBadge: "Bestseller",
-    craft: "Monogrammed Raw Silk & Velvet",
+    craft: "Initials Raw Silk & Velvet",
     recipient: "For Bride & Groom",
     ceremony: "Wedding Day Ceremony",
     timeline: "Priority Express (48h)",
@@ -28,19 +28,19 @@ export const PRODUCTS = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDG8sYOo1Zxru-kLS8qvydvEJrMxlIZWUfTYMqHh34enwgfH61Pd9GQi6UphW7CkUmeBiWMGesDQr7GyfXaOKGx1nKvKV2xm428y7dpj7pvYvd-zYJTkVBD8miFbVNvzf7RFKRD43acWisxVvAn517plJefy8crqvVtZJ53Vye_Veql8_hrKy-TDwWxoYEalEkMMw66j21MePgWE2WTmAUoIEn7iAI3xHx8chy-6zDY-XKBxF-k-jAX4Q",
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDg8SHxHT70-Z2LX-quATgUZCg7KYaUltYt_XC0WFJD0EoHGTy7CDqfldQZkS23TnSV23pCwFUZJUdcZLwvWYABBCvNwR4Hqy6yIayHrgTwDd4pqqybTHWhyySNag7fFDBy4zhPPBAFiaidxTdDDSSIfX4W4dF-8Th2VlPFaOtSXlHC-74eid0s-iJEhOqFHztGaXv_Pcn_dEOTQMIavsUjtTgdcalnp4GCF7X1u5S1xKEUDh4TmZS9ww"
     ],
-    shortDescription: "Artisanal presentation with French eau de parfum, eternal silk roses, soy candle, keepsake bear & Ferrero Rocher.",
-    description: "The crown jewel of ASRA Atelier. Every Sovereign Suite is handcrafted individually for the couple, featuring bespoke debossed monograms forged with custom bronze metallurgy dies.",
+    shortDescription: "Artisanal presentation with French eau de parfum, eternal silk roses, soy candle, gift bear & Ferrero Rocher.",
+    description: "The crown jewel of ASRA Collection. Every Sovereign Suite is handcrafted individually for the couple, featuring customized debossed initials forged with custom bronze metallurgy dies.",
     editions: [
       { name: "Classic Blush & Champagne Gold", price: 3499, dotColors: ["#f4d6d6", "#c5a880"] },
       { name: "Royal Ivory & 24k Gilded Emerald", price: 3999, dotColors: ["#faf8f5", "#1b4332"] },
       { name: "Monochrome Noir & Rose Gold", price: 4299, dotColors: ["#1c1b1b", "#b76e79"] }
     ],
     inclusions: [
-      "01 / Hardbound Monogram Hatbox (1200 GSM lined in soft blush velvet with couple's bespoke 3D monogram die in 24k gold leaf)",
-      "02 / Signature Atelier Eau De Parfum 50ml (Kashmiri damask rose, golden vanilla & precious white oud in bevelled crystal)",
+      "01 / Hardbound Initials Hatbox (1200 GSM lined in soft blush velvet with couple's customized 3D initials die in 24k gold leaf)",
+      "02 / Signature Collection Eau De Parfum 50ml (Kashmiri damask rose, golden vanilla & precious white oud in bevelled crystal)",
       "03 / Hand-Poured Botanical Candle (100% natural organic soy wax with polished gold brass lid)",
       "04 / Pure Mulberry Silk Scrunchie (Grade 6A 22 Momme natural mulberry silk in matching blush tone)",
-      "05 / Heirloom Mini Plush Bear (Ivory keepsake bear clasping embroidered linen crest badge)",
+      "05 / Heirloom Mini Plush Bear (Ivory gift bear clasping embroidered linen crest badge)",
       "06 / Ferrero Rocher Diamond Box (Crisp hazelnut pralines cushioned amid fresh preserved Gypsophila & blush roses)"
     ]
   },
@@ -82,11 +82,11 @@ export const PRODUCTS = [
     ]
   },
 
-  // 3. Bespoke Velvet Double Ring Vault
+  // 3. Customized Velvet Double Ring Vault
   {
     id: "velvet-ring-vault",
     slug: "velvet-ring-vault",
-    title: "Bespoke Velvet Double Ring & Mangalsutra Vault",
+    title: "Customized Velvet Double Ring & Mangalsutra Vault",
     category: "velvet-boxes",
     subCategory: "trousseau-vaults",
     categoryLabel: "Heirloom Velvet",
@@ -95,18 +95,18 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 76,
     badge: "Heirloom Velvet",
-    craft: "Monogrammed Raw Silk & Velvet",
+    craft: "Initials Raw Silk & Velvet",
     recipient: "For Bride & Groom",
     ceremony: "Wedding Day Ceremony",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg",
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg",
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCKU7s8rqvwKM9tOufEzgenjmQewDun8pV_xomQTIqZXxuVPQrUEBICs5l0E5eP8yI25NoOe8jy_6Odj__8C7OVS6mUATMveaEwBcJPXZU5B5BhMc1FAIDakB0VNC_IZl5zRKG8OSfkYG14WzKNG0DD3kiB_VTSgl_uhTXOFLVHLoi7NZyEC-HNBohagFEpQyaK8vlmvaZJv1LjlndktltjOZ5gvIzVA70ou7zp5ULkJh9F9n5cyy_dUg"
     ],
-    shortDescription: "Rich champagne silk interior with gold debossed couple initials and bespoke cushion compartments.",
-    description: "Custom octagonal luxury velvet jewelry case with separate slots for couple wedding bands and bridal sacred mangalsutra. Hand-debossed with gold foil monogram initials.",
+    shortDescription: "Rich champagne silk interior with gold debossed couple initials and customized cushion compartments.",
+    description: "Custom octagonal luxury velvet jewelry case with separate slots for couple wedding bands and bridal sacred mangalsutra. Hand-debossed with gold foil initials initials.",
     editions: [
       { name: "Champagne Beige Velvet", price: 1899, dotColors: ["#e5c193", "#FAF8F5"] },
       { name: "Imperial Emerald Velvet", price: 1999, dotColors: ["#1b4332", "#c5a880"] },
@@ -116,15 +116,15 @@ export const PRODUCTS = [
       "1x Octagonal Plush Velvet Casket",
       "2x Ring Cushion Grooves",
       "1x Mangalsutra / Pendant Recessed Holder",
-      "1x Debossed 24k Gold Foil Monogram Die Lid"
+      "1x Debossed 24k Gold Foil Initials Die Lid"
     ]
   },
 
-  // 4. Botanical Preserved Floral Varmala Keepsake
+  // 4. Botanical Preserved Floral Varmala Gift
   {
     id: "botanical-varmala-frame",
     slug: "botanical-varmala-frame",
-    title: "Botanical Preserved Floral Varmala Keepsake",
+    title: "Botanical Preserved Floral Varmala Gift",
     category: "preserved-varmala",
     subCategory: "preserved-varmala",
     categoryLabel: "Preservation Craft",
@@ -136,13 +136,13 @@ export const PRODUCTS = [
     craft: "Preserved Botanical Resin",
     recipient: "Parents of the Couple",
     ceremony: "Wedding Day Ceremony",
-    timeline: "Bespoke Bridal Suite (10+ Days)",
+    timeline: "Customized Bridal Suite (10+ Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDy54bIUKje8J1ZFwt5H1jmm1H4w34SHhYanZKkioY12AZ6V6dBRx8YZxyROO3OFDgsAHNH70aEaY-PS5nXlYZxpPX6VbK1S_xvoRpGOdKT4WvlooBWsA0WKQP0nsHSFS4JONDdMQ4nGn8sRz5opFK_8k0XjRvruXhroNlBZ1tCLIPuKfYpncPyEh_SEwXaWpOqLzwaQoTObayh0r3oxTjJVw2AQkWe0oySUNU-XhhO2oRRMd24bbo8ew",
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDy54bIUKje8J1ZFwt5H1jmm1H4w34SHhYanZKkioY12AZ6V6dBRx8YZxyROO3OFDgsAHNH70aEaY-PS5nXlYZxpPX6VbK1S_xvoRpGOdKT4WvlooBWsA0WKQP0nsHSFS4JONDdMQ4nGn8sRz5opFK_8k0XjRvruXhroNlBZ1tCLIPuKfYpncPyEh_SEwXaWpOqLzwaQoTObayh0r3oxTjJVw2AQkWe0oySUNU-XhhO2oRRMd24bbo8ew"
     ],
-    shortDescription: "3D brass float shadowbox framing eternal varmala garland petals & bespoke etched wedding date plaque.",
+    shortDescription: "3D brass float shadowbox framing eternal varmala garland petals & customized etched wedding date plaque.",
     description: "Preserve your actual wedding varmala or jaimala florals forever. Our Hyderabad preservation lab treats the petals with archival dehydrating compounds and casts them in UV-resistant crystal glass with a brushed brass border.",
     editions: [
       { name: "10x12 Glass Float Shadowbox", price: 3899, dotColors: ["#c5a880", "#ffffff"] },
@@ -151,7 +151,7 @@ export const PRODUCTS = [
     inclusions: [
       "1x Archival UV-Filter Double Glass Shadowbox Frame",
       "Free Insured Flower Collection Kit dispatched to your wedding venue",
-      "1x Custom Laser Etched Brass Date & Monogram Plaque",
+      "1x Custom Laser Etched Brass Date & Initials Plaque",
       "Certificate of 25-Year Flower Preservation Guarantee"
     ]
   },
@@ -169,7 +169,7 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 54,
     badge: "100% Pure Silk",
-    craft: "Monogrammed Raw Silk & Velvet",
+    craft: "Initials Raw Silk & Velvet",
     recipient: "Bridal Party & Bridesmaids",
     ceremony: "Proposal & Engagement",
     timeline: "Priority Express (48h)",
@@ -178,8 +178,8 @@ export const PRODUCTS = [
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuALfPw_vAWDO6vbzUIENZBwqriUOC6hZDBUdrsOrjRqq6jCSh8mi0mhh5lS-jk-L0KGH7Jevb4BQyFRuDnf1bibSiVTy8YsiEn1T-EYAT5LyHdWhYiO8XkOUEBVr_dQ7sidtAeZNupF01aXYPec0G3ILiGrtKMHHqnpxxni7EocrWOQnzSYcO_rTW9WxMRs5QsqLrpEJp0SJk8Jpnmy-lfz6jyMsbh3b_xY4BcpwqtC74KvMDkgiwj_vA"
     ],
-    shortDescription: "Metallic gold embroidered bridal robes tailored with personalized royal wedding monogram.",
-    description: "22 Momme organic mulberry silk robe embroidered on the back with 'Bride' or personalized wedding monogram. Hand-cut and sewn with French seams for luxurious morning prep photography.",
+    shortDescription: "Metallic gold embroidered bridal robes tailored with personalized royal wedding initials.",
+    description: "22 Momme organic mulberry silk robe embroidered on the back with 'Bride' or personalized wedding initials. Hand-cut and sewn with French seams for luxurious morning prep photography.",
     editions: [
       { name: "Champagne Ivory & Metallic Gold", price: 2499, dotColors: ["#faf8f5", "#c5a880"] },
       { name: "Blush Pink & Rose Gold", price: 2499, dotColors: ["#f4d6d6", "#b76e79"] }
@@ -187,7 +187,7 @@ export const PRODUCTS = [
     inclusions: [
       "1x Pure Mulberry Silk Kimono Robe with Belt",
       "Custom Metallic Gold Embroidery on Back & Chest Crest",
-      "1x Satin Monogrammed Travel Dustbag"
+      "1x Satin Initials Travel Dustbag"
     ]
   },
 
@@ -207,7 +207,7 @@ export const PRODUCTS = [
     craft: "Hand-Polished Brass & Timber",
     recipient: "Wedding Guests & Favors",
     ceremony: "Reception & Honeymoon",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3YGgpxrOfCawcNaK-WvmxlUDPYN6uCJpz6OaCRFhnJV53Y6y46MNBvpFihELt6tbkhJvOO5avcUPZnGyTkEn-Jeck7lm3T5dCisk_arKBBMDEGmw4FaKf65OV6kcgMT8kVEkUjrZXp-bGhzoTWHAnAD1DlSERQXs1oYMrtmd9W6XccFEua7x0CpK4GFItM_xKLGpYEO70CmKmsu1wwicLxZ1ZwPRMWZpOUYxsCz-UHAQu0zjuPgXLtw",
     gallery: [
@@ -220,7 +220,7 @@ export const PRODUCTS = [
       { name: "Natural Honey Oak", price: 2799, dotColors: ["#a16207", "#fef08a"] }
     ],
     inclusions: [
-      "1x Carved Solid Teak Keepsake Box with Antique Latch",
+      "1x Carved Solid Teak Gift Box with Antique Latch",
       "100x Gold Foil Edged Linen Guest Wish Cards",
       "1x Engraved Teakwood Pen",
       "Custom Engraved Names & Wedding Crest on Lid"
@@ -279,7 +279,7 @@ export const PRODUCTS = [
     craft: "Hand-Polished Brass & Timber",
     recipient: "Groomsmen & Best Man",
     ceremony: "Reception & Honeymoon",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbXrPSozHRKAarJ6S-TP3RFB8Xpcqz2zN_C4HXc9qPKeeabgSRR5Qs-wpCkNs0CQeDe0kouzF7WfjbK_hJBf4wzb060DwFnaHzO-6IASbgS6AkP7aSql6xb-I7I2yej1mgFovwkO8WU29NRGpQj799v7_okRZTF-WwjbGgm4SXZqbZ4guF0eWzCdbjnilgxzqQm6TKQhEAlWKmHsmsvSKdXRnHdyt2fOen75_ZXybeuGMUtJpcw_Ft2w",
     gallery: [
@@ -319,8 +319,8 @@ export const PRODUCTS = [
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBocS9w6K5Z3JPBA0mdoi-S0-gagfXVrPxn8NjdUzH_72y-NgQq840EJM3FNQiKXH1qnSKsB9ezQeBNXE_2pyz2pqj3n2UC5EYg6FDSpuDod3oAtyMZEWNn9qrNXFLp-fvHE_uMpuiuHNgb8uKUvZxAJnLhJyjIP-He4eKWu4lhR8r4zSAKQ2mdVoAnLrEO_J2taQY37cDlgxhjVuw3vPXAPajTHsG99-8Bd9H7-oqKO2NYlL144Fk6Wg"
     ],
-    shortDescription: "Hand-rubbed solid walnut wood with laser-etched monogram brass plate & emerald velvet interior.",
-    description: "A masculine heirloom casket created from dark hand-rubbed walnut timber. Features a solid brushed brass monogram badge and deep emerald green velvet cushion slots for timepiece and cufflinks.",
+    shortDescription: "Hand-rubbed solid walnut wood with laser-etched initials brass plate & emerald velvet interior.",
+    description: "A masculine heirloom casket created from dark hand-rubbed walnut timber. Features a solid brushed brass initials badge and deep emerald green velvet cushion slots for timepiece and cufflinks.",
     editions: [
       { name: "American Walnut & Emerald Velvet", price: 2699, dotColors: ["#2b1810", "#1b4332"] },
       { name: "Black Ash & Midnight Navy Velvet", price: 2699, dotColors: ["#1c1b1b", "#1e293b"] }
@@ -328,41 +328,41 @@ export const PRODUCTS = [
     inclusions: [
       "1x Solid Walnut Dual Compartment Casket",
       "1x Watch Cushion & 2x Cufflink Grooves",
-      "1x Laser-Etched Solid Brass Monogram Plate"
+      "1x Laser-Etched Solid Brass Initials Plate"
     ]
   },
 
-  // 10. Luxury Trousseau Celebration Trunk
+  // 10. Luxury Wedding Essentials Celebration Trunk
   {
     id: "luxury-trousseau-trunk",
     slug: "luxury-trousseau-trunk",
     aliases: ["grand-heritage-trousseau-trunk"],
-    title: "Luxury Trousseau Celebration Trunk",
+    title: "Luxury Wedding Essentials Celebration Trunk",
     category: "trousseau-suites",
     subCategory: "trousseau-vaults",
-    categoryLabel: "Bridal Trousseau",
+    categoryLabel: "Bridal Wedding Essentials",
     price: 4499,
     originalPrice: 5999,
     rating: 4.9,
     reviewCount: 83,
-    badge: "Bridal Trousseau",
-    craft: "Monogrammed Raw Silk & Velvet",
+    badge: "Bridal Wedding Essentials",
+    craft: "Initials Raw Silk & Velvet",
     recipient: "For Bride & Groom",
     ceremony: "Wedding Day Ceremony",
-    timeline: "Bespoke Bridal Suite (10+ Days)",
+    timeline: "Customized Bridal Suite (10+ Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApZeqF3qJycU2z3TJKkizvNuZqH51kVkUQ9CZ0tEut1WUODhuVWGFMzVTzAeNHtPsoCdiUXZV1ymb5DiU_UrRb20mTMuJe3V3_cYXjRWZNKpeiOqoRp-0KmK739-KuW8PVIeiuvUQ2c_PKVM3qZe8D9oBwWGal-rMXxUXwz7dFFcIN4vcU5mUKV3vM-q75tCMjShM8L5W1BP8JPZsSrzTxvElTMSoLcdQAAel8wfDI16FglXH2rFnpqA",
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuApZeqF3qJycU2z3TJKkizvNuZqH51kVkUQ9CZ0tEut1WUODhuVWGFMzVTzAeNHtPsoCdiUXZV1ymb5DiU_UrRb20mTMuJe3V3_cYXjRWZNKpeiOqoRp-0KmK739-KuW8PVIeiuvUQ2c_PKVM3qZe8D9oBwWGal-rMXxUXwz7dFFcIN4vcU5mUKV3vM-q75tCMjShM8L5W1BP8JPZsSrzTxvElTMSoLcdQAAel8wfDI16FglXH2rFnpqA"
     ],
     shortDescription: "Pastel blush pink & ivory handcrafted trunk with brass lock and custom embossed leather tag.",
-    description: "The quintessential Indian bridal trousseau trunk. Hand-covered in premium textured ivory vegan leather, embellished with brushed gold corner guards, antique latches, and an embossed couple monogram leather tag.",
+    description: "The quintessential Indian bridal wedding essentials trunk. Hand-covered in premium textured ivory vegan leather, embellished with brushed gold corner guards, antique latches, and an embossed couple initials leather tag.",
     editions: [
       { name: "Blush Ivory & Gilded Brass", price: 4499, dotColors: ["#faf8f5", "#d4af37"] },
       { name: "Sage Mint & Antique Gold", price: 4499, dotColors: ["#84a98c", "#c5a880"] }
     ],
     inclusions: [
-      "1x Large Heirloom Bridal Trousseau Trunk (18x12x8 in)",
+      "1x Large Heirloom Bridal Wedding Essentials Trunk (18x12x8 in)",
       "1x Embossed Couple Initial Leather Bag Tag",
       "1x Brass Key & Working Vintage Padlock",
       "Interior Satin Saree & Jewelry Straps"
@@ -386,21 +386,21 @@ export const PRODUCTS = [
     craft: "Gilded Wax Seal & Deckle Edge",
     recipient: "Wedding Guests & Favors",
     ceremony: "Haldi & Mehendi",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCltKdCprhbDCO1uoPLIVJhUoIKBP37PjHkO7gtr9wZHwP2CN8Bsshvxgr_pdkd7S0bWaEXun7aAmSGvXNRG-XmPZhIppuw6k5MjxYYexfGgvirpEsMpnR84lScCbcj5jgGtdFmpAyZLAtH1JcPMGXt4FdcE5Nv4q3vQlxRDAsed8TD8Q2zNrx4tPcHf2mduv2iVglUyek7nXiEvem9HNRVMWGRdKTk7ooFhgdXnQOiP-GA5BMoktJBag",
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCltKdCprhbDCO1uoPLIVJhUoIKBP37PjHkO7gtr9wZHwP2CN8Bsshvxgr_pdkd7S0bWaEXun7aAmSGvXNRG-XmPZhIppuw6k5MjxYYexfGgvirpEsMpnR84lScCbcj5jgGtdFmpAyZLAtH1JcPMGXt4FdcE5Nv4q3vQlxRDAsed8TD8Q2zNrx4tPcHf2mduv2iVglUyek7nXiEvem9HNRVMWGRdKTk7ooFhgdXnQOiP-GA5BMoktJBag"
     ],
-    shortDescription: "Bespoke couple monogram label, wax-sealed lid with delicate dry botanicals and amber musk scent.",
-    description: "Hand-poured 100% organic soy candles in frosted glass vessels, infused with amber musk, jasmine petals, and 24k gold flakes. Sealed with customized metallic wax stamps with the couple's monogram.",
+    shortDescription: "Customized couple initials label, wax-sealed lid with delicate dry botanicals and amber musk scent.",
+    description: "Hand-poured 100% organic soy candles in frosted glass vessels, infused with amber musk, jasmine petals, and 24k gold flakes. Sealed with customized metallic wax stamps with the couple's initials.",
     editions: [
       { name: "Pack of 20 - Amber Jasmine", price: 3999, dotColors: ["#fef08a", "#c5a880"] },
       { name: "Pack of 50 - Extended Favor Suite", price: 8999, dotColors: ["#c5a880", "#725b38"] }
     ],
     inclusions: [
       "20x Frosted Glass 60g Soy Candles",
-      "Custom Couple Monogram Label & Ribbon",
+      "Custom Couple Initials Label & Ribbon",
       "Hand-Stamped Botanical Wax Seal Lid"
     ]
   },
@@ -421,13 +421,13 @@ export const PRODUCTS = [
     craft: "Hand-Polished Brass & Timber",
     recipient: "Parents of the Couple",
     ceremony: "Proposal & Engagement",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuACadYMk3eIagee90_e613yoLGke9UDdtNeTeHP-DApNmpmv-Dm2Z_R9gyhjKDhJQm1dG0Swp7Uc5eSnunCjGPjmA8SI0Y9VJcBY2gdxvrqS9dDKc6d4uJRrOpzR1r5-qArP4GDyf2B-EUWekMXqftsQO9vmqdD8MTeuPq-7LvE0CYOO75UaEjbQC5-QKENebWj_zLcPAIjcKVoVdlQCZ8zx_NmL2aCsM6qeV6yYKg5YLgj1PuT0yJrYA",
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuACadYMk3eIagee90_e613yoLGke9UDdtNeTeHP-DApNmpmv-Dm2Z_R9gyhjKDhJQm1dG0Swp7Uc5eSnunCjGPjmA8SI0Y9VJcBY2gdxvrqS9dDKc6d4uJRrOpzR1r5-qArP4GDyf2B-EUWekMXqftsQO9vmqdD8MTeuPq-7LvE0CYOO75UaEjbQC5-QKENebWj_zLcPAIjcKVoVdlQCZ8zx_NmL2aCsM6qeV6yYKg5YLgj1PuT0yJrYA"
     ],
-    shortDescription: "Pure Makrana marble with brushed champagne brass handles & custom engraved monogram crest.",
+    shortDescription: "Pure Makrana marble with brushed champagne brass handles & custom engraved initials crest.",
     description: "Sourced from pristine Makrana marble beds in Rajasthan, each heavy slab is polished to a satin sheen and flanked with solid sculptural champagne brass handles. Center engraved with the wedding crest.",
     editions: [
       { name: "Makrana White & Champagne Brass", price: 2899, dotColors: ["#ffffff", "#c5a880"] }
@@ -474,11 +474,11 @@ export const PRODUCTS = [
     originalPrice: 2999,
     rating: 4.8,
     reviewCount: 96,
-    badge: "Atelier Certified",
+    badge: "Collection Certified",
     craft: "Deep Blind Debossing",
     recipient: "For Bride & Groom",
     ceremony: "Reception & Honeymoon",
-    timeline: "Standard Atelier (4-7 Days)",
+    timeline: "Standard Collection (4-7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBotmp8Vw5J1VjNNMezt5z72yN1AhbCGxzqKKxVlCO3-fzA6IJeroSr358LZy7Zv0L6WKSurRnkiB2KSW4GawEiBq6QxirIrXIwpBCkHWRTIUOxqZyf9IN8PBgNiMSQzTQxYXq-co792LDowUsDDeoeUU1mG-FHdgHVUHxhJ2qXYyylWSbrAvmac2Rk4I2qkkvmDUEFn4p5xpf0dQjmFB5EG67fn03l5fufbjEzKkriamgwIEGO8Xj-fg",
     shortDescription: "Twin passport covers & engraved luggage tags debossed with the couple's new shared initials in 24k gold foil.",
@@ -530,14 +530,14 @@ export const PRODUCTS = [
     title: "Custom Name Velvet Jewelry Box",
     category: "velvet-boxes",
     subCategory: "trousseau-vaults",
-    categoryLabel: "Monogram Velvet",
+    categoryLabel: "Initials Velvet",
     price: 1899,
     originalPrice: 2499,
     rating: 4.9,
     reviewCount: 211,
     badge: "TRENDING",
     deliveryBadge: "Free Gift Box",
-    techniqueTag: "Gold Foil Monogram",
+    techniqueTag: "Gold Foil Initials",
     craft: "Gold Foil Stamping",
     recipient: "For Her",
     occasion: "Engagement & Roka",
@@ -547,24 +547,24 @@ export const PRODUCTS = [
     gallery: [
       "https://lh3.googleusercontent.com/aida/AEtjO1V8z6-I8Jx8CtN0HTflkA5JbQlZQsjE85jdQvGrlWkr4L2L6q4yR3UitG5fQcQN1MEJFX7vB9cKMJzmaRHEXww_iuxiXBnQ1tIfEKP04lyGHdtm6Q0k-ICloMcO-XRHQhV9i0s3DCsUpw3hld891adlaW_SzRQI4jUXWRFvjxGsQDSaTMb-u_zt-VOMl4TpfR_E9ELxkQFlqEIPk2Ax02LV09E1lmWXDhYjfn31HoB5mlfwTKA87D3FSI8u"
     ],
-    shortDescription: "Plush velvet jewelry box with personalized golden monogram on lid, multi-tier compartments, and satin lining.",
-    description: "Handcrafted plush velvet jewelry box tailored with hot-stamped gold foil monogram initials.",
+    shortDescription: "Plush velvet jewelry box with personalized golden initials on lid, multi-tier compartments, and satin lining.",
+    description: "Handcrafted plush velvet jewelry box tailored with hot-stamped gold foil initials initials.",
     editions: [
-      { name: "Dusty Rose Velvet & Gold Monogram", price: 1899, dotColors: ["#f4d6d6", "#c5a880"] },
+      { name: "Dusty Rose Velvet & Gold Initials", price: 1899, dotColors: ["#f4d6d6", "#c5a880"] },
       { name: "Emerald Green Velvet & Brass Crest", price: 1999, dotColors: ["#1b4332", "#c5a880"] }
     ],
     inclusions: [
-      "1x Monogrammed Plush Velvet Casket",
+      "1x Initials Plush Velvet Casket",
       "Custom 24k Gold Foil Name / Initial Stamping",
       "1x Complimentary Luxury Gift Box & Ribbon"
     ]
   },
 
-  // 18. Bespoke Leather Travel Set (Stitch Card 3)
+  // 18. Customized Leather Travel Set (Stitch Card 3)
   {
     id: "bespoke-leather-travel-set",
     slug: "bespoke-leather-travel-set",
-    title: "Bespoke Leather Travel Set",
+    title: "Customized Leather Travel Set",
     category: "leather-travel",
     subCategory: "bridal-groom-gifts",
     categoryLabel: "Leather Travel",
@@ -584,15 +584,15 @@ export const PRODUCTS = [
     gallery: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBnc8DrJClOeoyrQ9B5crcgP_hqLpbQp6nFop5nBjhi6fuMDwleOHsFGJbne2X6HOKuMVE6ZHJQ9DO85TWvE9CR9klWmNdRjbii7TC8oYryzGS1HhyYq7xd7BlRnA-SjC08x3rvYGatuN7YpJ8FGOkB-CwmNqE2VEOTWv9ZDDQFi5G2YvVrcrAKFNdDfX3ZlvtihFCUGYOagZPXjIrGqhy1Y9KjjkpMnqRQ5RfC9WdVRF11sLSVUegb-Q"
     ],
-    shortDescription: "Bespoke personalized leather travel passport holder and luggage tag set with gold embossed initials.",
-    description: "Premium full-grain tan Italian leather passport holder and matching luggage tag, deeply blind debossed with customized monogram.",
+    shortDescription: "Customized personalized leather travel passport holder and luggage tag set with gold embossed initials.",
+    description: "Premium full-grain tan Italian leather passport holder and matching luggage tag, deeply blind debossed with customized initials.",
     editions: [
       { name: "Cognac Tan & Gold Foil", price: 1699, dotColors: ["#c5a880", "#281800"] }
     ],
     inclusions: [
       "1x Full-Grain Leather Passport Sleeve",
       "1x Matching Leather Luggage Tag with Brass Buckle",
-      "Complimentary Monogram Hot Stamping"
+      "Complimentary Initials Hot Stamping"
     ]
   },
 
@@ -657,15 +657,15 @@ export const PRODUCTS = [
       "https://lh3.googleusercontent.com/aida/AEtjO1U_qHzn-6pLlQfd8NuXWJbzGIU0e0a1mNDyGIV2CY3JzaM-ACp4L42K6QVeO81JCIjdWiVmzu_-vGTe_NK7JY2iIKUHB06FQ1kSzwaXlVgkjD8wgMh7tkZ1_iC7E4_cc_kbHChPCV_t-L5TFG-TvAYM9k4oHoVnaHn4nCYUFfshE3UG6IkD2uppLh6_8hZtA9mqodlcB4A4NdPviuOXP8NS1V1UBmvF8N1FehfO9PwJ5iVOYdu36x2nDRF1"
     ],
     shortDescription: "Minimalist elegant gift set for him with luxury leather wallet, personalized watch, and cologne in luxury box.",
-    description: "The premier gift set for groom, groomsmen, or best man. Includes a classic quartz watch with laser-engraved caseback, full-grain bifold wallet with monogram, and artisanal eau de parfum.",
+    description: "The premier gift set for groom, groomsmen, or best man. Includes a classic quartz watch with laser-engraved caseback, full-grain bifold wallet with initials, and artisanal eau de parfum.",
     editions: [
       { name: "Tan Leather & Matte Black Watch", price: 2799, dotColors: ["#c5a880", "#1c1b1b"] }
     ],
     inclusions: [
       "1x Quartz Timepiece with Custom Laser-Engraved Back",
-      "1x Monogrammed Full-Grain Leather Wallet",
+      "1x Initials Full-Grain Leather Wallet",
       "1x 30ml Artisanal Groom Eau De Parfum",
-      "1x Luxury Presentation Keepsake Box"
+      "1x Luxury Presentation Gift Box"
     ]
   },
 
@@ -681,13 +681,13 @@ export const PRODUCTS = [
     originalPrice: 6500,
     rating: 5.0,
     reviewCount: 92,
-    badge: "LUXURY ATELIER",
+    badge: "LUXURY COLLECTION",
     deliveryBadge: "Curated Crate",
     techniqueTag: "Handcrafted Wooden Crate",
     craft: "Gold Foil Stamping",
     recipient: "Parents",
     occasion: "Anniversary Milestones",
-    timeline: "Bespoke Monogram Suite (5–7 Days)",
+    timeline: "Customized Initials Suite (5–7 Days)",
     inStock: true,
     image: "https://lh3.googleusercontent.com/aida/AEtjO1WhUQJuVUqt6i7FNP44oan5foutyT3xuwcGYx2f6_3fF6hM4sxYHVprZBO2V8I2bQkYFPkOyJkpQZWdBMaf8dxqOAhwqbHqiqh8FmoNhM51vOo3EIRCxBaeMRp8CRDMmbVdRXUpNpKE7uzKw-LIEVkTHI6OAEKbyETrc0bCsLSYBNsNWcWWOHL3eYhAs446LzZBZlTHo0iQHVqt6vYzKYI2w46fUWSrOgqJbQIj2pIex80jfedaS7t50hE1",
     gallery: [
@@ -699,7 +699,7 @@ export const PRODUCTS = [
       { name: "Imperial Celebration Crate", price: 4999, dotColors: ["#d8c3b2", "#c5a880"] }
     ],
     inclusions: [
-      "1x Large Solid Pine Keepsake Crate with Sliding Lid",
+      "1x Large Solid Pine Gift Crate with Sliding Lid",
       "1x Custom Engraved Wooden Couple Frame (5x7 in)",
       "1x Royal Darjeeling Whole-Leaf Artisanal Tea Tin",
       "1x Hand-Hammered Brass Tea Strainer",
@@ -714,12 +714,12 @@ export const PRODUCTS = [
     title: "Handcrafted Wooden Name Puzzle",
     category: "wooden-keepsakes",
     subCategory: "milestone-keepsakes",
-    categoryLabel: "Wooden Keepsakes",
+    categoryLabel: "Wooden Gifts",
     price: 1299,
     originalPrice: 1799,
     rating: 4.9,
     reviewCount: 115,
-    badge: "KEEPSAKE",
+    badge: "GIFT",
     deliveryBadge: "Baby & Nursery",
     techniqueTag: "Personalized Carved Name",
     craft: "Precision Laser Engraved",
@@ -731,8 +731,8 @@ export const PRODUCTS = [
     gallery: [
       "https://lh3.googleusercontent.com/aida/AEtjO1XDAab_WhfGq5kdMv3wc3AAkZkSCxzexSN9zJUuoQNQGvNGINQtWkq6bys3wAN4LSm5lB997mtmNMrC-U2r37TpU9fYkKqw0_jpdQMToy_Da_9ENN411weTCHruD2NTayGGL3viUAAJFmEueoi1FXF44gnx7UpNaR-3tEd-lcwv11lwFyualHIt6p5DNYuUL3xjoiQRhIikXk81HhypXRc2WIaMC-gxrYo9rvkkSullQLRY68LySGbFNLA"
     ],
-    shortDescription: "Charming personalized keepsake gift for kids, custom wooden name puzzle, cute plush toy, engraved night light.",
-    description: "Artisanal birchwood carved child name puzzle coated in non-toxic organic baby-safe beeswax polish. A treasured nursery keepsake for newborns and birthdays.",
+    shortDescription: "Charming personalized gift gift for kids, custom wooden name puzzle, cute plush toy, engraved night light.",
+    description: "Artisanal birchwood carved child name puzzle coated in non-toxic organic baby-safe beeswax polish. A treasured nursery gift for newborns and birthdays.",
     editions: [
       { name: "Pastel Rainbow Birchwood", price: 1299, dotColors: ["#fef08a", "#bae6fd"] },
       { name: "Natural Warm Oak Finish", price: 1299, dotColors: ["#d8c3b2", "#c5a880"] }
@@ -785,7 +785,7 @@ export const PRODUCTS = [
 export const COUPONS = [
   {
     code: "ASRAFIRST",
-    title: "Welcome to ASRA Atelier",
+    title: "Welcome to ASRA Collection",
     discountPercent: 15,
     minOrder: 1499,
     description: "Flat 15% discount across all custom framed vows, personalized engraved wooden boxes, and bridesmaids gift sets.",
@@ -796,7 +796,7 @@ export const COUPONS = [
     title: "HDFC Bank Wedding Grandeur",
     discountAmount: 1500,
     minOrder: 7999,
-    description: "Flat ₹1,500 off on personalized bridal hampers & trousseau suites above ₹7,999 with HDFC Bank Credit & Debit Cards.",
+    description: "Flat ₹1,500 off on personalized bridal hampers & wedding essentials suites above ₹7,999 with HDFC Bank Credit & Debit Cards.",
     validity: "Min cart value ₹7,999"
   },
   {
@@ -822,7 +822,7 @@ export const COUPONS = [
     title: "SBI Card Festive EMI Privilege",
     discountAmount: 750,
     minOrder: 5000,
-    description: "Flat ₹750 off on 3M & 6M No Cost EMI tenures on customized trousseau orders.",
+    description: "Flat ₹750 off on 3M & 6M No Cost EMI tenures on customized wedding essentials orders.",
     validity: "Min cart value ₹5,000"
   },
   {
@@ -847,12 +847,12 @@ export const COUPONS = [
     title: "American Express Royal Privilege",
     discountPercent: 15,
     minOrder: 9999,
-    description: "15% off + complimentary 50ml bespoke oud perfume for Platinum & Centurion cardholders.",
+    description: "15% off + complimentary 50ml customized oud perfume for Platinum & Centurion cardholders.",
     validity: "Min cart value ₹9,999"
   },
   {
     code: "ZEROEMI",
-    title: "Zero-Cost Wedding EMI Concierge",
+    title: "Zero-Cost Wedding EMI Support",
     discountAmount: 350,
     minOrder: 5000,
     description: "Split in 3 or 6 months no-cost EMI with zero processing fees.",
@@ -871,7 +871,7 @@ export const COUPONS = [
     title: "Bride & Groom Suite Special",
     discountAmount: 800,
     minOrder: 4999,
-    description: "Flat ₹800 off on luxury wicker hampers, robes, and celebratory trousseau packages.",
+    description: "Flat ₹800 off on luxury wicker hampers, robes, and celebratory wedding essentials packages.",
     validity: "Min cart value ₹4,999"
   },
   {
@@ -879,7 +879,7 @@ export const COUPONS = [
     title: "Celebratory Bulk Favor Sets",
     discountPercent: 20,
     minOrder: 5999,
-    description: "Flat 20% privilege on 10+ identical personalized keepsakes or return gift boxes.",
+    description: "Flat 20% privilege on 10+ identical personalized gifts or return gift boxes.",
     validity: "Min cart value ₹5,999 (10+ units)"
   },
   {
@@ -897,9 +897,9 @@ export const BULK_TIERS = [
     tier: "Tier 01",
     range: "25 - 75 Units",
     title: "Intimate & Bridal Party",
-    description: "Perfect for bridal entourages, rehearsal dinners, and close family trousseau favors.",
+    description: "Perfect for bridal entourages, rehearsal dinners, and close family wedding essentials favors.",
     discount: "15%",
-    privilegeLabel: "Atelier Privilege",
+    privilegeLabel: "Collection Privilege",
     value: "25-75",
     perks: [
       "Complimentary custom wax seals",
@@ -913,7 +913,7 @@ export const BULK_TIERS = [
     title: "Celebration & Functions",
     description: "Engineered for Mehendi, Sangeet favors, and intimate destination arrivals.",
     discount: "22%",
-    privilegeLabel: "Atelier Privilege",
+    privilegeLabel: "Collection Privilege",
     value: "76-200",
     perks: [
       "Free 24k foil deboss dies",
@@ -927,7 +927,7 @@ export const BULK_TIERS = [
     title: "Grand Wedding Welcome Kits",
     description: "Complete guest room arrival hampers and multi-day itinerary boxes.",
     discount: "30%",
-    privilegeLabel: "Atelier Privilege",
+    privilegeLabel: "Collection Privilege",
     popular: true,
     value: "201-500",
     perks: [
@@ -942,7 +942,7 @@ export const BULK_TIERS = [
     title: "Royal & Destination Affairs",
     description: "Monumental celebrations requiring complete turn-key gifting logistics.",
     discount: "35%",
-    privilegeLabel: "Atelier Privilege",
+    privilegeLabel: "Collection Privilege",
     value: "500+",
     perks: [
       "On-site white-glove staging team",
@@ -989,9 +989,9 @@ export const BULK_SIGNATURE_FAVORS = [
   {
     id: "sovereign-velvet-trinket-vaults",
     name: "Sovereign Velvet Trinket Vaults",
-    description: "Plush crushed velvet cases with compartmentalized ring cushions and gilded monogram plates.",
+    description: "Plush crushed velvet cases with compartmentalized ring cushions and gilded initials plates.",
     minUnits: 40,
-    tag: "Keepsake",
+    tag: "Gift",
     price: 1420,
     originalPrice: 2200,
     leadTime: "7-10 Days",
@@ -1013,7 +1013,7 @@ export const BULK_SIGNATURE_FAVORS = [
     name: "Teakwood & Brass Inlay Mithai Trunk",
     description: "Hand-carved seasoned teakwood box with 24k gold leaf lining, custom seal, and airtight brass compartments.",
     minUnits: 30,
-    tag: "Heritage",
+    tag: "Classic",
     price: 2450,
     originalPrice: 3800,
     leadTime: "10-14 Days",
@@ -1025,9 +1025,9 @@ export const BULK_CASE_STUDIES = [
   {
     id: "udaipur-leela-palace",
     locationTag: "Udaipur Destination",
-    unitsBadge: "350 Monogrammed Welcome Kits",
+    unitsBadge: "350 Initials Welcome Kits",
     title: "The Leela Palace Royal Affair",
-    quote: "Every single guest walked into their room at The Leela Palace to find our bespoke gold-embossed keepsake trunk filled with handcrafted botanical perfumes and silk stoles. The ASRA logistics team coordinated directly with hotel concierge seamlessly.",
+    quote: "Every single guest walked into their room at The Leela Palace to find our customized gold-embossed gift trunk filled with handcrafted botanical perfumes and silk stoles. The ASRA logistics team coordinated directly with hotel support seamlessly.",
     couple: "Sagil Doza & Shagufta Naaz",
     subInfo: "Wedding at Udaipur • November 2024",
     initials: "SS"
@@ -1050,7 +1050,7 @@ export const VERIFIED_REVIEWS = [
     location: "Udaipur Palace Wedding",
     rating: 5,
     date: "February 2026",
-    text: "The Sovereign Trousseau Suite exceeded every dream. The gold debossing was crisp, and unboxing our wedding vows on cotton rag was the highlight of our morning prep!",
+    text: "The Sovereign Wedding Essentials Suite exceeded every dream. The gold debossing was crisp, and unboxing our wedding vows on cotton rag was the highlight of our morning prep!",
     verified: true
   },
   {
@@ -1063,7 +1063,7 @@ export const VERIFIED_REVIEWS = [
   },
   {
     author: "Miss Sultana Begum",
-    location: "Mumbai Atelier Client",
+    location: "Mumbai Collection Client",
     rating: 5,
     date: "March 2026",
     text: "The 3D CAD proof arrived in my WhatsApp in 4 hours, and the actual product was even more breathtaking. Truly a luxury standard in Indian bridal gifting.",

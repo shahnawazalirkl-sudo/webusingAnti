@@ -1,13 +1,13 @@
 # ✨ ASRA Wedding Canvas
 
-> **Bespoke Wedding Keepsakes & Bridal Luxuries**  
-> An editorial, luxury bridal e-commerce experience offering customized wedding keepsakes, bespoke crafts, and heirlooms.
+> **Customized Wedding Gifts & Bridal Luxuries**  
+> An editorial, luxury bridal e-commerce experience offering customized wedding gifts, customized crafts, and heirlooms.
 
 ---
 
 ## 🌟 Overview
 
-**ASRA Wedding Canvas** is a modern full-stack web application designed with an elevated editorial aesthetic. It features immersive typography, seamless cart and checkout workflows, interactive product displays, and dedicated experiences for personalized keepsakes, bulk bridal party gifting, and real-time order tracking.
+**ASRA Wedding Canvas** is a modern full-stack web application designed with an elevated editorial aesthetic. It features immersive typography, seamless cart and checkout workflows, interactive product displays, and dedicated experiences for personalized gifts, bulk bridal party gifting, and real-time order tracking.
 
 ---
 
@@ -139,9 +139,9 @@ webusingAnti/
 | Page / Feature | Description |
 | :--- | :--- |
 | **Home (`/`)** | Hero editorial visuals, featured collections, bride stories, and craft highlights. |
-| **Shop (`/shop`)** | Catalog with filters for bridal keepsakes, fabrics, embroidery, and custom items. |
-| **Product Detail** | High-resolution galleries, customization pickers, and keepsake specifications. |
-| **Bespoke & Keepsakes** | Specialized consultation and custom design request workflows. |
+| **Shop (`/shop`)** | Catalog with filters for bridal gifts, fabrics, embroidery, and custom items. |
+| **Product Detail** | High-resolution galleries, customization pickers, and gift specifications. |
+| **Customized & Gifts** | Specialized consultation and custom design request workflows. |
 | **Wishlist & Cart** | Interactive item management, bag breakdown, and pricing calculator. |
 | **Checkout & Confirmation** | Multi-step shipping, payment selection, and instant order confirmation. |
 | **Track Order** | Live status lookups with delivery timeline breakdown. |

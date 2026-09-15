@@ -57,10 +57,10 @@ const PersonalizedPage = () => {
           Individual Artisanship
         </span>
         <h1 className="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
-          Personalized Keepsakes
+          Personalized Gifts
         </h1>
         <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-          Every monogram is individually rendered and debossed using real bronze metallurgy stamping dies for heirloom depth.
+          Every initials is individually rendered and debossed using real bronze metallurgy stamping dies for heirloom depth.
         </p>
       </div>
 
@@ -70,7 +70,7 @@ const PersonalizedPage = () => {
           <span className="text-[10px] text-primary uppercase font-bold tracking-wider block mb-1">
             Artisan Precision Standard
           </span>
-          <h2 className="font-serif text-xl font-semibold text-on-surface">How Bespoke Personalization Works</h2>
+          <h2 className="font-serif text-xl font-semibold text-on-surface">How Customized Personalization Works</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-on-surface-variant">
@@ -88,7 +88,7 @@ const PersonalizedPage = () => {
 
           <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
             <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif font-bold flex items-center justify-center mb-3">3</span>
-            <h4 className="font-serif text-sm font-semibold text-on-surface mb-1">Sealed Atelier Certificate</h4>
+            <h4 className="font-serif text-sm font-semibold text-on-surface mb-1">Sealed Collection Certificate</h4>
             <p className="leading-relaxed">Each finished creation is hand-checked for foil crispness and sealed with hot bronze wax before insured venue dispatch.</p>
           </div>
         </div>
@@ -104,7 +104,7 @@ const PersonalizedPage = () => {
           <span className="text-outline uppercase text-[10px] font-bold">Craft:</span>
           {[
             { id: 'all', label: 'All Techniques' },
-            { id: 'monogram', label: 'Monogrammed' },
+            { id: 'monogram', label: 'Initials' },
             { id: 'velvet', label: 'Velvet & Silk' },
             { id: 'wax', label: 'Wax & Deckle' },
             { id: 'botanical', label: 'Preserved Florals' },

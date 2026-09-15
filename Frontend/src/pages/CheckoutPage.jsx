@@ -106,9 +106,9 @@ const CheckoutPage = () => {
   const displayItems = cartItems.length > 0 ? cartItems : [
     {
       cartId: 'fallback-sovereign',
-      title: 'The Sovereign Bridal & Trousseau Suite',
+      title: 'The Sovereign Bridal & Wedding Essentials Suite',
       edition: 'Classic Blush & Champagne Gold',
-      monogramDie: '"A & R" • Heritage Floral Crest',
+      monogramDie: '"A & R" • Classic Floral Crest',
       price: 7499,
       quantity: 1,
       image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
@@ -117,7 +117,7 @@ const CheckoutPage = () => {
     },
     {
       cartId: 'fallback-vault',
-      title: 'Bespoke Velvet Double Ring & Mangalsutra Vault',
+      title: 'Customized Velvet Double Ring & Mangalsutra Vault',
       edition: 'Royal Emerald Silk Velvet',
       monogramDie: 'Matching A&R Couple Die',
       price: 1899,
@@ -130,7 +130,7 @@ const CheckoutPage = () => {
   const handleSubmitOrder = (e) => {
     e.preventDefault();
     if (!monogramConsent) {
-      showToast('Please approve the Bespoke Deboss Authorization checkbox.');
+      showToast('Please approve the Customized Deboss Authorization checkbox.');
       return;
     }
     const orderData = {
@@ -164,7 +164,7 @@ const CheckoutPage = () => {
     } catch (err) {
       console.warn('Could not persist order', err);
     }
-    showToast('Bespoke Commission Docket confirmed! Redirecting to Official Registry...');
+    showToast('Customized Commission Docket confirmed! Redirecting to Official Registry...');
     navigate('/order-confirmation', { state: { orderData } });
   };
 
@@ -177,7 +177,7 @@ const CheckoutPage = () => {
       <header className="w-full bg-[#FDFCFA]/95 backdrop-blur-md border-b border-[#EAE5DC] sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* Left: Return to Atelier Cart */}
+          {/* Left: Return to Collection Cart */}
           <div className="flex items-center space-x-2">
             <Link
               to="/cart"
@@ -192,7 +192,7 @@ const CheckoutPage = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               <span className="uppercase tracking-wider font-semibold text-[11px] sm:text-xs">
-                Return to Atelier Cart &amp; Customizations
+                Return to Collection Cart &amp; Customizations
               </span>
             </Link>
           </div>
@@ -279,13 +279,13 @@ const CheckoutPage = () => {
               </ol>
             </nav>
 
-            {/* Bespoke Timer Reservation Pill */}
+            {/* Customized Timer Reservation Pill */}
             <aside aria-label="Slot Reservation" className="flex items-center space-x-2 bg-[#FDFCFA]/95 border border-[#C5A880]/40 px-3.5 py-1.5 rounded-full shadow-sm text-xs">
               <svg className="w-4 h-4 text-[#C5A880] animate-pulse flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span className="text-[#1F1B18]/80 font-normal">
-                Bespoke 3D Monogram Brass Die slot &amp; Chilled Transit reserved for:
+                Customized 3D Initials Brass Die slot &amp; Chilled Transit reserved for:
                 <strong className="font-mono font-bold text-[#1F1B18] ml-1.5 text-[#9A7B4F]">
                   {formatTimer(timeLeft)} min
                 </strong>
@@ -304,10 +304,10 @@ const CheckoutPage = () => {
         {/* Page Title Area */}
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.25em] text-[#C5A880] font-semibold mb-1">
-            Confidential Bespoke Order Placement
+            Confidential Customized Order Placement
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#2C2520] font-normal tracking-tight">
-            Ceremony Dispatch &amp; Atelier Security
+            Ceremony Dispatch &amp; Collection Security
           </h1>
           <p className="text-sm text-[#1F1B18]/70 mt-1 max-w-2xl font-light leading-relaxed">
             Please specify the royal palace, luxury resort, or bridal residence where our temperature-controlled fleet will coordinate the white-glove handover.
@@ -335,7 +335,7 @@ const CheckoutPage = () => {
                   </h2>
                 </div>
                 <span className="text-xs font-semibold text-[#C5A880] hover:underline cursor-pointer">
-                  Atelier Guest Checkout
+                  Collection Guest Checkout
                 </span>
               </div>
 
@@ -362,7 +362,7 @@ const CheckoutPage = () => {
                 {/* WhatsApp Number with Country Code */}
                 <div className="sm:col-span-2">
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#1F1B18]/80 mb-1.5" htmlFor="checkout-phone">
-                    Concierge Mobile &amp; WhatsApp Number <span className="text-[#C5A880]">*</span>
+                    Support Mobile &amp; WhatsApp Number <span className="text-[#C5A880]">*</span>
                   </label>
                   <div className="flex rounded-md shadow-xs">
                     <span className="inline-flex items-center px-3.5 rounded-l-md border border-r-0 border-[#EAE5DC] bg-[#F4F0EA]/60 text-[#1F1B18]/70 text-xs font-medium">
@@ -458,7 +458,7 @@ const CheckoutPage = () => {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
-                    Palace / Resort / Concierge
+                    Palace / Resort / Support
                   </button>
                 </div>
               </div>
@@ -515,7 +515,7 @@ const CheckoutPage = () => {
                     </span>
                   </div>
                   <p className="text-[11px] text-[#1F1B18]/60 mt-1">
-                    Our dispatch marshal hands over directly to the head concierge with formal luggage route tags.
+                    Our dispatch marshal hands over directly to the head support with formal luggage route tags.
                   </p>
                 </div>
 
@@ -628,7 +628,7 @@ const CheckoutPage = () => {
                       >
                         <option value="Morning Slot (09:00 AM – 01:00 PM)">Morning Slot (09:00 AM – 01:00 PM)</option>
                         <option value="Twilight Royal Arrival (04:00 PM – 08:00 PM)">Twilight Royal Arrival (04:00 PM – 08:00 PM)</option>
-                        <option value="24/7 Diplomatic Concierge Reception Desk">24/7 Diplomatic Concierge Reception Desk</option>
+                        <option value="24/7 Diplomatic Support Reception Desk">24/7 Diplomatic Support Reception Desk</option>
                       </select>
                       <span className="text-[10px] text-[#1F1B18]/60 block mt-1">
                         Coordinated directly with the hotel security officer.
@@ -684,7 +684,7 @@ const CheckoutPage = () => {
                       <span className="text-xs font-semibold text-[#1F1B18]">₹0</span>
                     </div>
                     <p className="text-xs text-[#1F1B18]/70 mt-1 leading-relaxed">
-                      Climate-stabilized van with zero-vibration suspension. Includes fresh botanical hydration ampoules for trousseau florals and Tamper-Proof 24k Gold Wax seals.
+                      Climate-stabilized van with zero-vibration suspension. Includes fresh botanical hydration ampoules for wedding essentials florals and Tamper-Proof 24k Gold Wax seals.
                     </p>
                   </div>
                 </label>
@@ -717,16 +717,16 @@ const CheckoutPage = () => {
                       <span className="text-xs font-bold text-[#1F1B18]">+ ₹1,499</span>
                     </div>
                     <p className="text-xs text-[#1F1B18]/70 mt-1 leading-relaxed">
-                      A dedicated ASRA Atelier custodian travels on flight/direct limousine directly into Udaipur, hand-delivering inside the Bridal suite.
+                      A dedicated ASRA Collection custodian travels on flight/direct limousine directly into Udaipur, hand-delivering inside the Bridal suite.
                     </p>
                   </div>
                 </label>
               </fieldset>
 
-              {/* Instructions for Chauffeur/Concierge */}
+              {/* Instructions for Chauffeur/Support */}
               <div className="mt-4 pt-3">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#1F1B18]/80 mb-1.5" htmlFor="chauffeur-notes">
-                  Special Handling Note for Chauffeur / Resort Concierge
+                  Special Handling Note for Chauffeur / Resort Support
                 </label>
                 <textarea
                   id="chauffeur-notes"
@@ -740,23 +740,23 @@ const CheckoutPage = () => {
             </article>
 
             {/* ---------------------------------------------------- */}
-            {/* SECTION IV: Bespoke Approval & Stylist Support */}
+            {/* SECTION IV: Customized Approval & Stylist Support */}
             {/* ---------------------------------------------------- */}
             <article className="bg-[#F4F0EA]/50 border border-[#EAE5DC] rounded-xl p-5 sm:p-6">
               <div className="flex items-start space-x-3.5">
                 <div className="flex items-center h-5">
                   <input
-                    id="monogram-consent"
+                    id="initials-consent"
                     type="checkbox"
                     checked={monogramConsent}
                     onChange={(e) => setMonogramConsent(e.target.checked)}
                     className="w-4 h-4 text-[#1F1B18] rounded border-[#D9D2C5] focus:ring-0 cursor-pointer accent-[#1F1B18]"
                   />
                 </div>
-                <label className="text-xs text-[#1F1B18] leading-normal cursor-pointer" htmlFor="monogram-consent">
-                  <span className="font-bold text-[#2C2520]">Bespoke Deboss Authorization:</span> I officially approve the casting of the 3D Monogram Brass Die for initials{' '}
+                <label className="text-xs text-[#1F1B18] leading-normal cursor-pointer" htmlFor="initials-consent">
+                  <span className="font-bold text-[#2C2520]">Customized Deboss Authorization:</span> I officially approve the casting of the 3D Initials Brass Die for initials{' '}
                   <strong className="font-semibold text-[#2C2520] tracking-wide">"A &amp; R"</strong> with{' '}
-                  <em className="font-serif italic text-[#1F1B18]">"Heritage Floral Crest"</em>. (A WhatsApp final proof will be sent 2 hours before hot-stamping).
+                  <em className="font-serif italic text-[#1F1B18]">"Classic Floral Crest"</em>. (A WhatsApp final proof will be sent 2 hours before hot-stamping).
                 </label>
               </div>
 
@@ -769,8 +769,8 @@ const CheckoutPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-[#1F1B18]">Have Last-Minute Date or Monogram Alterations?</h3>
-                    <p className="text-[11px] text-[#1F1B18]/70">Connect with your dedicated Senior Atelier Stylist before casting is finalized.</p>
+                    <h3 className="text-xs font-bold text-[#1F1B18]">Have Last-Minute Date or Initials Alterations?</h3>
+                    <p className="text-[11px] text-[#1F1B18]/70">Connect with your dedicated Senior Collection Stylist before casting is finalized.</p>
                   </div>
                 </div>
 
@@ -800,7 +800,7 @@ const CheckoutPage = () => {
               
               <div className="flex items-center justify-between pb-4 border-b border-[#EAE5DC]">
                 <h2 className="font-serif text-2xl text-[#2C2520] font-medium">
-                  Atelier Order &amp; Ensembles
+                  Collection Order &amp; Ensembles
                 </h2>
                 <span className="text-[11px] bg-[#F4F0EA] font-bold uppercase tracking-wider px-2.5 py-1 rounded text-[#1F1B18]/70">
                   {itemCount || displayItems.length} Heirlooms
@@ -818,11 +818,11 @@ const CheckoutPage = () => {
                         </span>
                       </div>
                       <p className="text-[11px] text-[#1F1B18]/60 mt-0.5">
-                        {item.edition || 'Classic Blush & Champagne Gold'} | Monogram:{' '}
+                        {item.edition || 'Classic Blush & Champagne Gold'} | Initials:{' '}
                         <span className="text-[#2C2520] font-medium">{item.monogramDie || '"A & R"'}</span>
                       </p>
                       <span className="inline-block mt-1 text-[10px] uppercase font-bold text-[#1E6347] bg-[#1E6347]/10 px-1.5 py-0.5 rounded">
-                        Bespoke 3D Die Locked
+                        Customized 3D Die Locked
                       </span>
                     </div>
                     <span className="font-serif text-base text-[#1F1B18] font-semibold whitespace-nowrap">
@@ -955,7 +955,7 @@ const CheckoutPage = () => {
               <div className="mt-6 pt-5 border-t border-[#EAE5DC]">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-xs font-bold uppercase tracking-wider text-[#1F1B18]">
-                    Select Bespoke Settlement Mode
+                    Select Customized Settlement Mode
                   </label>
                   <span className="text-[10px] text-[#1E6347] font-semibold flex items-center gap-1">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -1083,7 +1083,7 @@ const CheckoutPage = () => {
                   type="submit"
                   className="w-full bg-[#1F1B18] hover:bg-[#2C2520] text-[#FDFCFA] py-4 px-6 rounded-lg font-serif text-lg tracking-wide uppercase transition-all duration-200 shadow-md hover:shadow-xl flex items-center justify-center space-x-3 group active:scale-[0.99]"
                 >
-                  <span>Complete Bespoke Order &amp; Lock Die</span>
+                  <span>Complete Customized Order &amp; Lock Die</span>
                   <span className="text-[#C5A880] font-sans font-semibold text-base">• ₹{grandTotal.toLocaleString('en-IN')}</span>
                   <svg className="w-4 h-4 text-[#C5A880] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1091,7 +1091,7 @@ const CheckoutPage = () => {
                 </button>
 
                 <p className="text-[11px] text-center text-[#1F1B18]/60 mt-2 font-light">
-                  By placing this bespoke atelier order, you confirm the details for the custom monogram casting.
+                  By placing this customized collection order, you confirm the details for the custom initials casting.
                 </p>
 
               </div>
@@ -1109,7 +1109,7 @@ const CheckoutPage = () => {
                   <svg className="w-4 h-4 text-[#C5A880] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
-                  <span>Direct Palace Concierge Protocol &amp; Hotel Luggage Integration</span>
+                  <span>Direct Palace Support Protocol &amp; Hotel Luggage Integration</span>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -1122,18 +1122,18 @@ const CheckoutPage = () => {
 
             </div>
 
-            {/* Tiered Concierge Wedding Favors Banner */}
+            {/* Tiered Support Wedding Favors Banner */}
             <div className="bg-[#F4F0EA]/60 border border-[#EAE5DC] rounded-xl p-5 text-center">
               <span className="text-[#C5A880] text-xs block mb-1">✦ ✦ ✦</span>
               <h3 className="font-serif text-lg text-[#2C2520] font-medium">Curating Multiple Wedding Event Rooms?</h3>
               <p className="text-xs text-[#1F1B18]/70 mt-1 max-w-sm mx-auto font-light">
-                If this ensemble is part of 25+ unit trousseau welcome boxes, your order qualifies for personal concierge assembly.
+                If this ensemble is part of 25+ unit wedding essentials welcome boxes, your order qualifies for personal support assembly.
               </p>
               <Link
                 to="/bulk-orders"
                 className="inline-block mt-3 text-xs font-semibold text-[#1F1B18] uppercase tracking-wider hover:text-[#C5A880] transition-colors underline decoration-[#C5A880] decoration-1 underline-offset-4"
               >
-                Connect With Royal Concierge Desk &rarr;
+                Connect With Royal Support Desk &rarr;
               </Link>
             </div>
 
@@ -1150,11 +1150,11 @@ const CheckoutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#1F1B18]/60 gap-3">
           <div className="flex items-center space-x-2">
             <span className="font-serif text-sm text-[#2C2520] tracking-wider font-semibold">ASRA WEDDING CANVAS</span>
-            <span>• Private Atelier &amp; Trousseau Vaults</span>
+            <span>• Private Collection &amp; Wedding Essentials Vaults</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center space-x-6 text-[11px]">
-            <Link to="/bespoke" className="hover:text-[#1F1B18] transition-colors">Concierge Protocols</Link>
+            <Link to="/bespoke" className="hover:text-[#1F1B18] transition-colors">Support Protocols</Link>
             <Link to="/about" className="hover:text-[#1F1B18] transition-colors">Hallmark Verification</Link>
             <Link to="/return-policy" className="hover:text-[#1F1B18] transition-colors">Transit Insurance Policy</Link>
             <Link to="/terms-of-service" className="hover:text-[#1F1B18] transition-colors">Terms of Service</Link>
@@ -1162,7 +1162,7 @@ const CheckoutPage = () => {
           </div>
 
           <div className="text-[10px] text-[#1F1B18]/50">
-            © 2026 ASRA Atelier. All royal rights reserved.
+            © 2026 ASRA Collection. All royal rights reserved.
           </div>
         </div>
       </footer>

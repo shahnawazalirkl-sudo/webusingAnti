@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
       cartId: 'item-sovereign-1',
       id: 'sovereign-bridal-suite',
       sku: 'ASRA-SOV-019',
-      title: 'The Sovereign Bridal & Trousseau Suite',
+      title: 'The Sovereign Bridal & Wedding Essentials Suite',
       subtitle: '2026 BRIDAL EDITION • SKU: ASRA-SOV-019',
       badge: 'Flagship Masterpiece',
       price: 7499,
@@ -21,12 +21,12 @@ export const CartProvider = ({ children }) => {
       brideName: 'Asra Ansari',
       groomName: 'Sk Shahnawaz Ali',
       weddingDate: '18th November 2026',
-      crestStyle: 'Heritage Floral Crest',
-      monogramDie: '"A & S" • Heritage Floral Crest',
+      crestStyle: 'Classic Floral Crest',
+      monogramDie: '"A & S" • Classic Floral Crest',
       cardInscription: '"Beautiful People Make Beautiful Memories"',
       calligraphyScript: 'Royal Copperplate Script',
       scentChoice: 'Kashmiri Rose (French Amber Base)',
-      savingsNote: 'You Saved ₹2,301 (24% Atelier Privilege)',
+      savingsNote: 'You Saved ₹2,301 (24% Collection Privilege)',
       footerNote: 'Includes 24k Gold Calligraphy Card & Climate-Controlled Packaging',
       dispatchTimeline: 'Within 48 Hours'
     },
@@ -34,9 +34,9 @@ export const CartProvider = ({ children }) => {
       cartId: 'item-vault-2',
       id: 'velvet-ring-vault',
       sku: 'ASRA-VLT-044',
-      title: 'Bespoke Velvet Double Ring & Mangalsutra Vault',
-      subtitle: 'Keepsake Vault • SKU: ASRA-VLT-044',
-      badge: 'Keepsake Add-on',
+      title: 'Customized Velvet Double Ring & Mangalsutra Vault',
+      subtitle: 'Gift Vault • SKU: ASRA-VLT-044',
+      badge: 'Gift Add-on',
       price: 1899,
       originalPrice: 2499,
       quantity: 1,
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
       metalHardware: 'Hand-Polished Antique Brass Latch',
       monogramDie: 'Matching A&S Couple Die',
       savingsNote: 'Saved ₹600 with Ensemble Bundle',
-      footerNote: 'Matched to Suite Monogram at No Extra Charge',
+      footerNote: 'Matched to Suite Initials at No Extra Charge',
       dispatchTimeline: 'Dispatched together with Masterpiece Suite'
     }
   ]);
@@ -78,19 +78,19 @@ export const CartProvider = ({ children }) => {
       id: product.id,
       sku: product.sku || `ASRA-${(product.id || 'BESPOKE').toUpperCase().slice(0, 6)}`,
       title: product.title,
-      subtitle: product.categoryLabel ? `${product.categoryLabel} • Bespoke Keepsake` : 'Bespoke Keepsake',
-      badge: product.badge || 'Atelier Selection',
+      subtitle: product.categoryLabel ? `${product.categoryLabel} • Customized Gift` : 'Customized Gift',
+      badge: product.badge || 'Collection Selection',
       price: customOptions.price || product.price,
       originalPrice: customOptions.originalPrice || product.originalPrice || Math.round((customOptions.price || product.price) * 1.3),
       quantity: customOptions.quantity || 1,
       image: customOptions.image || product.image || '',
-      edition: customOptions.edition || 'Signature Atelier Edition',
+      edition: customOptions.edition || 'Signature Collection Edition',
       colorDot: customOptions.colorDot || '#C5A880',
       brideName: customOptions.brideName || '',
       groomName: customOptions.groomName || '',
       weddingDate: customOptions.weddingDate || '',
-      crestStyle: customOptions.crestStyle || 'Heritage Floral Crest',
-      monogramDie: customOptions.monogramDie || (customOptions.brideName ? `"${customOptions.brideName[0]} & ${customOptions.groomName?.[0] || 'R'}" Monogram Die` : ''),
+      crestStyle: customOptions.crestStyle || 'Classic Floral Crest',
+      monogramDie: customOptions.monogramDie || (customOptions.brideName ? `"${customOptions.brideName[0]} & ${customOptions.groomName?.[0] || 'R'}" Initials Die` : ''),
       cardInscription: customOptions.cardInscription || '',
       calligraphyScript: customOptions.calligraphyScript || '',
       scentChoice: customOptions.scentChoice || '',
@@ -101,7 +101,7 @@ export const CartProvider = ({ children }) => {
     };
 
     setCartItems(prev => [...prev, newItem]);
-    showToast(`Added "${product.title}" to Atelier Keepsake Bag`);
+    showToast(`Added "${product.title}" to Collection Gift Bag`);
   };
 
   const removeFromCart = (cartId) => {

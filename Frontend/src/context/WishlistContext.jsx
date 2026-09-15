@@ -7,19 +7,19 @@ export const INITIAL_WISHLIST_ITEMS = [
   {
     id: 'sovereign-bridal-suite',
     slug: 'sovereign-bridal-suite',
-    title: 'The Sovereign Bridal & Trousseau Suite',
-    editionBadge: '2026 Atelier Edition',
+    title: 'The Sovereign Bridal & Wedding Essentials Suite',
+    editionBadge: '2026 Collection Edition',
     badge: 'Flagship Masterpiece',
     subBadge: 'Brass Die Included',
     category: 'bridal-trousseau',
-    categoryName: 'Bridal Trousseau',
+    categoryName: 'Bridal Wedding Essentials',
     price: 7499,
     originalPrice: 9800,
     savings: 2301,
     image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
-    description: 'Dawn-harvested Parisian blush roses, debossed custom 3D monogram brass die, and cryo-hydrated botanical extracts.',
+    description: 'Dawn-harvested Parisian blush roses, debossed custom 3D initials brass die, and cryo-hydrated botanical extracts.',
     customizations: [
-      { label: 'Monogram', value: '"A & R" • Heritage Crest' },
+      { label: 'Initials', value: '"A & R" • Classic Crest' },
       { label: 'Palette', value: 'Classic Blush & Gold', colorDot: '#E8C5B8' },
       { label: 'Scent Note', value: 'Kashmiri Rose & Amber' }
     ]
@@ -27,8 +27,8 @@ export const INITIAL_WISHLIST_ITEMS = [
   {
     id: 'velvet-ring-vault',
     slug: 'velvet-ring-vault',
-    title: 'Bespoke Velvet Double Ring & Mangalsutra Vault',
-    editionBadge: 'Keepsake Vault',
+    title: 'Customized Velvet Double Ring & Mangalsutra Vault',
+    editionBadge: 'Gift Vault',
     badge: 'Ceremony Heirloom',
     category: 'heirloom-vaults',
     categoryName: 'Heirloom Vaults',
@@ -37,7 +37,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     savings: 600,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg',
     isEmeraldVaultVisual: true,
-    description: 'Hand-tailored mulberry silk velvet with dual cushioned slots, hot-stamped with pure 24k gold leaf foil monogram.',
+    description: 'Hand-tailored mulberry silk velvet with dual cushioned slots, hot-stamped with pure 24k gold leaf foil initials.',
     customizations: [
       { label: 'Shade', value: 'Royal Emerald Velvet', colorDot: '#133E2B' },
       { label: 'Hardware', value: 'Hand-Polished Antique Brass' },
@@ -51,7 +51,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     editionBadge: 'Ceremonial Paper',
     badge: 'Gold Leaf Edged',
     category: 'bridal-trousseau',
-    categoryName: 'Bridal Trousseau',
+    categoryName: 'Bridal Wedding Essentials',
     price: 1299,
     originalPrice: 1750,
     savings: 451,
@@ -74,7 +74,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     categoryName: 'Guest Favors',
     price: 7199,
     unitNote: '/ unit',
-    priceSubtitle: 'Concierge Rate',
+    priceSubtitle: 'Support Rate',
     isHamperVisual: true,
     description: 'Curated palatial room hampers featuring artisanal confections, itinerary scrolls, and engraved brass key tags.',
     customizations: [
@@ -121,18 +121,18 @@ export const WishlistProvider = ({ children }) => {
       id: fullProduct.id,
       slug: fullProduct.slug || fullProduct.id,
       title: fullProduct.title,
-      editionBadge: fullProduct.editionBadge || fullProduct.categoryLabel || 'Atelier Collection',
+      editionBadge: fullProduct.editionBadge || fullProduct.categoryLabel || 'Collection',
       badge: fullProduct.badge || 'Ceremony Heirloom',
       subBadge: fullProduct.subBadge || null,
       category: category,
-      categoryName: category === 'guest-favors' ? 'Guest Favors' : category === 'heirloom-vaults' ? 'Heirloom Vaults' : 'Bridal Trousseau',
+      categoryName: category === 'guest-favors' ? 'Guest Favors' : category === 'heirloom-vaults' ? 'Heirloom Vaults' : 'Bridal Wedding Essentials',
       price: fullProduct.price || 2499,
       originalPrice: fullProduct.originalPrice || Math.round((fullProduct.price || 2499) * 1.3),
       savings: (fullProduct.originalPrice || Math.round((fullProduct.price || 2499) * 1.3)) - (fullProduct.price || 2499),
       image: fullProduct.image || '',
-      description: fullProduct.shortDescription || fullProduct.description || 'Artisanal ceremonial keepsake created by ASRA Atelier.',
+      description: fullProduct.shortDescription || fullProduct.description || 'Artisanal ceremonial gift created by ASRA Collection.',
       customizations: fullProduct.customizations || [
-        { label: 'Monogram', value: '"A & R" • Monogram Match' },
+        { label: 'Initials', value: '"A & R" • Initials Match' },
         { label: 'Craft', value: fullProduct.craft || 'Artisanal Gold Leaf' }
       ]
     };

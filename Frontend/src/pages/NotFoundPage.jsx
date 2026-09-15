@@ -7,7 +7,7 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = '404 Uncharted Heirloom — ASRA Wedding Canvas Client Sanctuary';
+    document.title = '404 Uncharted Heirloom — ASRA Wedding Canvas My Account';
   }, []);
 
   const handleSearchSubmit = (e) => {
@@ -54,11 +54,11 @@ const NotFoundPage = () => {
             <span className="text-asra-border hidden sm:inline">|</span>
             <div className="hidden sm:flex items-center space-x-1.5 text-emerald-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="font-semibold tracking-widest text-[10px]">Atelier Navigation Protocol</span>
+              <span className="font-semibold tracking-widest text-[10px]">Collection Navigation Protocol</span>
             </div>
           </div>
 
-          {/* Center: Atelier Brand Seal */}
+          {/* Center: Collection Brand Seal */}
           <div className="flex items-center space-x-3">
             <Link to="/" className="flex items-center gap-2 group" aria-label="Maison ASRA Home">
               {!imageError ? (
@@ -84,7 +84,7 @@ const NotFoundPage = () => {
             </Link>
           </div>
 
-          {/* Right: Security Credentials & Concierge */}
+          {/* Right: Security Credentials & Support */}
           <div className="flex items-center space-x-3 text-[11px] tracking-wider uppercase font-medium">
             <div className="hidden md:flex items-center space-x-1 px-2.5 py-1 bg-asra-tagBg border border-asra-border rounded text-asra-muted">
               <svg className="w-3 h-3 text-asra-gold" fill="currentColor" viewBox="0 0 20 20">
@@ -101,7 +101,7 @@ const NotFoundPage = () => {
               className="text-asra-noir hover:text-asra-gold flex items-center space-x-1 transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-asra-gold"></span>
-              <span>Live Concierge Desk</span>
+              <span>Live Support Desk</span>
             </Link>
           </div>
         </div>
@@ -117,7 +117,7 @@ const NotFoundPage = () => {
           {/* Eyebrow Tag */}
           <div className="inline-flex items-center space-x-2 px-3 py-1 mb-6 border border-asra-border bg-asra-cream rounded-full text-[10px] tracking-[0.25em] font-semibold text-asra-muted uppercase shadow-sm">
             <span className="text-asra-gold">✦</span>
-            <span>Atelier Archive · Error 404 · Heirloom Uncharted</span>
+            <span>Collection Archive · Error 404 · Heirloom Uncharted</span>
             <span className="text-asra-gold">✦</span>
           </div>
 
@@ -133,9 +133,9 @@ const NotFoundPage = () => {
 
           {/* Narrative Subtitle */}
           <p className="mt-4 text-sm sm:text-base text-asra-muted font-light leading-relaxed max-w-2xl mx-auto">
-            This commissioned folio or matrimonial keepsake does not exist within our current registry. Perhaps the
-            docket has been safely archived, the ceremonial link was transcribed with an alteration, or the bespoke suite
-            is sealed inside a private client sanctuary.
+            This commissioned folio or matrimonial gift does not exist within our current registry. Perhaps the
+            docket has been safely archived, the ceremonial link was transcribed with an alteration, or the customized suite
+            is sealed inside a private my account.
           </p>
 
           {/* Primary Action Buttons */}
@@ -156,12 +156,12 @@ const NotFoundPage = () => {
               <span>Return to Grand Homepage</span>
             </Link>
 
-            {/* Explore Keepsake Suites */}
+            {/* Explore Gift Suites */}
             <Link
               to="/wedding-keepsakes"
               className="px-6 py-3 bg-asra-noir hover:bg-asra-charcoal text-[#FAF8F5] transition-all duration-200 flex items-center justify-center space-x-2 border border-black shadow-sm w-full sm:w-auto"
             >
-              <span>Explore Keepsake Suites</span>
+              <span>Explore Gift Suites</span>
               <svg className="w-3.5 h-3.5 text-asra-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
               </svg>
@@ -184,12 +184,12 @@ const NotFoundPage = () => {
 
         {/* ========================================================================= */}
         {/* BEGIN: CuratedAlternativePathwaysGrid                                     */}
-        {/* 4-Card Atelier Routing Section                                            */}
+        {/* 4-Card Collection Routing Section                                            */}
         {/* ========================================================================= */}
         <div className="w-full mt-4 mb-10">
           <div className="flex items-center justify-between border-b border-asra-border pb-2.5 mb-5">
             <h2 className="font-cormorant text-lg tracking-wide text-asra-noir flex items-center space-x-2">
-              <span>Alternative Atelier Folios &amp; Portals</span>
+              <span>Alternative Collection Folios &amp; Portals</span>
             </h2>
             <span className="text-[11px] tracking-widest text-asra-muted uppercase font-medium">
               Vault Archive Directive
@@ -204,10 +204,10 @@ const NotFoundPage = () => {
                   I
                 </div>
                 <h3 className="font-cormorant text-base font-semibold text-asra-noir mb-1.5 group-hover:text-asra-gold transition-colors">
-                  Trending Bridal Keepsakes
+                  Trending Bridal Gifts
                 </h3>
                 <p className="text-xs text-asra-muted leading-relaxed font-light">
-                  Debossed Italian leather passport suites, optical acrylic audio plaques, and hand-turned trousseau boxes.
+                  Debossed Italian leather passport suites, optical acrylic audio plaques, and hand-turned wedding essentials boxes.
                 </p>
               </div>
               <Link
@@ -251,7 +251,7 @@ const NotFoundPage = () => {
                   Your Idea → We Handcraft
                 </h3>
                 <p className="text-xs text-asra-muted leading-relaxed font-light">
-                  Upload your custom wedding monogram crest or ceremonial moodboard for 6-hour photorealistic 3D proofing.
+                  Upload your custom wedding initials crest or ceremonial moodboard for 6-hour photorealistic 3D proofing.
                 </p>
               </div>
               <Link
@@ -270,7 +270,7 @@ const NotFoundPage = () => {
                   IV
                 </div>
                 <h3 className="font-cormorant text-base font-semibold text-asra-noir mb-1.5 group-hover:text-asra-gold transition-colors">
-                  Client Sanctuary &amp; Portal
+                  My Account &amp; Portal
                 </h3>
                 <p className="text-xs text-asra-muted leading-relaxed font-light">
                   Sign into your private couple suite to review NDA protocols, download certificates, or approve metal milling.
@@ -280,7 +280,7 @@ const NotFoundPage = () => {
                 to="/client-portal"
                 className="mt-4 inline-flex items-center text-[11px] tracking-wider uppercase font-semibold text-asra-gold hover:text-asra-goldDark pt-3 border-t border-asra-border/60"
               >
-                <span>Enter Sanctuary</span>
+                <span>Enter My Account</span>
                 <span className="ml-1 text-xs transition-transform duration-150 group-hover:translate-x-1">→</span>
               </Link>
             </div>
@@ -295,7 +295,7 @@ const NotFoundPage = () => {
           {/* Quick Archive Search Tool */}
           <div className="lg:col-span-2 bg-asra-cream border border-asra-border p-6 shadow-sm flex flex-col justify-center">
             <label className="block font-cormorant text-base font-medium text-asra-noir mb-2" htmlFor="archive-search">
-              Search the Atelier Archives &amp; Commission Folios
+              Search the Collection Archives &amp; Commission Folios
             </label>
             <p className="text-xs text-asra-muted mb-4 font-light">
               Search by product collection, heirloom category, order reference ID, or artisanal registry keyword.
@@ -317,7 +317,7 @@ const NotFoundPage = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search curated collections, trousseau suites, docket IDs (e.g. #ASRA-2026)..."
+                  placeholder="Search curated collections, wedding essentials suites, docket IDs (e.g. #ASRA-2026)..."
                   className="w-full pl-10 pr-4 py-2.5 text-xs text-asra-charcoal bg-white border border-asra-border focus:border-asra-gold focus:ring-1 focus:ring-asra-gold placeholder-asra-muted/70 transition-colors outline-none"
                 />
               </div>
@@ -339,17 +339,17 @@ const NotFoundPage = () => {
               </button>
               <button
                 type="button"
-                onClick={() => handleSuggestedClick('Brass Monogram Die')}
+                onClick={() => handleSuggestedClick('Brass Initials Die')}
                 className="hover:text-asra-gold underline decoration-asra-border transition-colors cursor-pointer"
               >
-                Brass Monogram Die
+                Brass Initials Die
               </button>
               <button
                 type="button"
-                onClick={() => handleSuggestedClick('Velvet Trousseau Box')}
+                onClick={() => handleSuggestedClick('Velvet Wedding Essentials Box')}
                 className="hover:text-asra-gold underline decoration-asra-border transition-colors cursor-pointer"
               >
-                Velvet Trousseau Box
+                Velvet Wedding Essentials Box
               </button>
               <button
                 type="button"
@@ -361,12 +361,12 @@ const NotFoundPage = () => {
             </div>
           </div>
 
-          {/* Atelier Concierge Direct Support Card */}
+          {/* Collection Support Direct Support Card */}
           <div className="bg-asra-noir text-white p-6 border border-asra-charcoal shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-asra-gold">
-                  Direct Concierge Protocol
+                  Direct Support Protocol
                 </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               </div>
@@ -380,7 +380,7 @@ const NotFoundPage = () => {
             </div>
             <div className="mt-4 pt-3 border-t border-white/10 flex flex-col gap-1 text-xs">
               <div className="flex items-center justify-between text-asra-gold">
-                <span className="font-medium uppercase tracking-wider text-[10px]">Atelier Hotline:</span>
+                <span className="font-medium uppercase tracking-wider text-[10px]">Collection Hotline:</span>
                 <a className="hover:underline font-mono" href="tel:+919692668263">
                   +91 96926 68263
                 </a>
@@ -401,13 +401,13 @@ const NotFoundPage = () => {
       {/* ========================================================================= */}
       <footer className="w-full bg-[#FAF8F5] border-t border-asra-border py-3 px-4 sm:px-6 text-[11px] text-asra-muted">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          {/* Left: Atelier Docket Reference */}
+          {/* Left: Collection Docket Reference */}
           <div className="flex items-center space-x-2 flex-wrap justify-center sm:justify-start">
             <span className="font-cormorant font-semibold text-asra-charcoal tracking-wide uppercase">
               Asra Wedding Canvas
             </span>
             <span className="text-asra-border">•</span>
-            <span>Bespoke Atelier Sanctuary</span>
+            <span>Customized Collection My Account</span>
             <span className="text-asra-border">•</span>
             <span className="text-amber-800/80 font-mono">Docket Resolution Error #404-UNC</span>
           </div>

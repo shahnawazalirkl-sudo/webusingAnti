@@ -25,23 +25,23 @@ const RECOMMENDATIONS = [
     slug: 'personalized',
     title: 'Etched Crystal Toasting Flutes',
     category: 'bridal-trousseau',
-    categoryName: 'Bridal Trousseau',
+    categoryName: 'Bridal Wedding Essentials',
     tag: 'Flutes',
     material: 'Crystal',
     price: 2199,
     originalPrice: 2899,
-    description: 'Bohemian lead-free crystal with couple monogram.',
+    description: 'Bohemian lead-free crystal with couple initials.',
     customizations: [
       { label: 'Crystal', value: 'Lead-Free Bohemian' },
-      { label: 'Etching', value: '"A & S" Laser Monogram' }
+      { label: 'Etching', value: '"A & S" Laser Initials' }
     ]
   },
   {
     id: 'pure-silk-robe',
     slug: 'wedding-keepsakes',
-    title: 'Monogrammed Pure Silk Robe',
+    title: 'Initials Pure Silk Robe',
     category: 'bridal-trousseau',
-    categoryName: 'Bridal Trousseau',
+    categoryName: 'Bridal Wedding Essentials',
     tag: 'Silk Robe',
     material: 'Champagne',
     price: 3499,
@@ -127,16 +127,16 @@ const WishlistPage = () => {
         price: item.price,
         originalPrice: item.originalPrice,
         image: item.image,
-        categoryLabel: item.categoryName || 'Bespoke Keepsake',
+        categoryLabel: item.categoryName || 'Customized Gift',
         badge: item.badge || 'Ceremony Heirloom',
         brideName: 'Asra Ansari',
         groomName: 'Sk Shahnawaz Ali',
         weddingDate: '18th November 2026',
-        monogramDie: '"A & S" • Heritage Crest'
+        monogramDie: '"A & S" • Classic Crest'
       });
     });
 
-    showToast(`Transferred ${filteredItems.length} heirlooms into your Atelier Bag!`);
+    showToast(`Transferred ${filteredItems.length} heirlooms into your Collection Bag!`);
     setIsCartDrawerOpen(true);
   };
 
@@ -148,14 +148,14 @@ const WishlistPage = () => {
       price: item.price,
       originalPrice: item.originalPrice,
       image: item.image,
-      categoryLabel: item.categoryName || 'Bespoke Keepsake',
+      categoryLabel: item.categoryName || 'Customized Gift',
       badge: item.badge || 'Ceremony Heirloom',
       brideName: 'Asra Ansari',
       groomName: 'Sk Shahnawaz Ali',
       weddingDate: '18th November 2026',
-      monogramDie: item.customizations?.find(c => c.label === 'Monogram')?.value || '"A & S" • Heritage Crest'
+      monogramDie: item.customizations?.find(c => c.label === 'Initials')?.value || '"A & S" • Classic Crest'
     });
-    showToast(`"${item.title}" moved to your Atelier Bag!`);
+    showToast(`"${item.title}" moved to your Collection Bag!`);
   };
 
   // Remove single item with feedback
@@ -168,7 +168,7 @@ const WishlistPage = () => {
     <div className="min-h-screen flex flex-col justify-between bg-[#FAF7F2] text-[#2D2825] selection:bg-[#C5A059]/20 selection:text-[#2D2825] font-sans antialiased">
       
       {/* ========================================================================= */}
-      {/* TOP MINIMAL ATELIER UTILITY BAR (STRICTLY NO GLOBAL HEADER)               */}
+      {/* TOP MINIMAL COLLECTION UTILITY BAR (STRICTLY NO GLOBAL HEADER)               */}
       {/* ========================================================================= */}
       <header className="w-full bg-[#FAF7F2] border-b border-[#E8E1D7] sticky top-0 z-40 backdrop-blur-md bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
@@ -179,7 +179,7 @@ const WishlistPage = () => {
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#7E766D] hover:text-[#1A1817] transition-colors font-medium group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#C5A059]" />
-            <span className="hidden sm:inline">Return to Atelier Collections</span>
+            <span className="hidden sm:inline">Return to Collection Collections</span>
             <span className="sm:hidden">Collections</span>
           </Link>
 
@@ -203,7 +203,7 @@ const WishlistPage = () => {
           <div className="flex items-center gap-3 sm:gap-4 text-xs tracking-wider">
             <div className="hidden md:flex items-center gap-2 bg-white/80 border border-[#E8E1D7] px-3 py-1.5 rounded-full text-[#2D2825] font-medium shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              <span className="text-[11px] uppercase text-[#7E766D]">Bespoke Vault Active</span>
+              <span className="text-[11px] uppercase text-[#7E766D]">Customized Vault Active</span>
             </div>
             <div className="flex items-center gap-1.5 text-[#7E766D] bg-white/60 sm:bg-transparent px-2.5 sm:px-0 py-1 sm:py-0 rounded-full border sm:border-0 border-[#E8E1D7]">
               <Lock className="w-3.5 h-3.5 text-[#C5A059]" />
@@ -223,14 +223,14 @@ const WishlistPage = () => {
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#997332] text-xs uppercase tracking-widest font-medium mb-3 sm:mb-4">
             <Sparkles className="w-3 h-3 text-[#C5A059]" />
-            <span>Curated Ceremony Registry & Keepsakes</span>
+            <span>Curated Ceremony Registry & Gifts</span>
             <Sparkles className="w-3 h-3 text-[#C5A059]" />
           </div>
           <h1 className="font-cormorant text-3xl sm:text-5xl lg:text-6xl font-normal text-[#1A1817] tracking-tight mb-3">
-            Saved Keepsakes & <span className="italic font-light">Trousseau Wishlist</span>
+            Saved Gifts & <span className="italic font-light">Wedding Essentials Wishlist</span>
           </h1>
           <p className="text-xs sm:text-base text-[#7E766D] leading-relaxed font-light max-w-2xl mx-auto px-2">
-            Your hand-selected ceremonial heirlooms, custom brass monogram dies, and bridal keepsakes securely vaulted for <span className="text-[#1A1817] font-medium">Asra & Shahnawaz’s Wedding Registry</span>.
+            Your hand-selected ceremonial heirlooms, custom brass initials dies, and bridal gifts securely vaulted for <span className="text-[#1A1817] font-medium">Asra & Shahnawaz’s Wedding Registry</span>.
           </p>
 
           {/* Registry Metadata Quick Pill Bar */}
@@ -273,14 +273,14 @@ const WishlistPage = () => {
               All Saved ({categoryCounts.all})
             </button>
             <button 
-              onClick={() => setActiveTab('bridal-trousseau')}
+              onClick={() => setActiveTab('bridal-wedding essentials')}
               className={`px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'bridal-trousseau'
+                activeTab === 'bridal-wedding essentials'
                   ? 'bg-[#1A1817] text-white shadow-sm'
                   : 'bg-transparent hover:bg-[#FAF7F2] text-[#7E766D] hover:text-[#1A1817]'
               }`}
             >
-              Bridal Trousseau ({categoryCounts['bridal-trousseau']})
+              Bridal Wedding Essentials ({categoryCounts['bridal-wedding essentials']})
             </button>
             <button 
               onClick={() => setActiveTab('heirloom-vaults')}
@@ -338,8 +338,8 @@ const WishlistPage = () => {
             <h3 className="font-cormorant text-2xl font-semibold text-[#1A1817]">No Saved Heirlooms In This Category</h3>
             <p className="text-xs text-[#7E766D] mt-2 mb-6 max-w-md mx-auto leading-relaxed">
               {activeTab !== 'all' 
-                ? 'There are no heirlooms under this specific ceremonial category right now. View all items or discover our atelier suites.'
-                : 'Your private registry vault is empty. Browse our wedding keepsakes and trousseau collections to curate your sacred pieces.'
+                ? 'There are no heirlooms under this specific ceremonial category right now. View all items or discover our collection suites.'
+                : 'Your private registry vault is empty. Browse our wedding gifts and wedding essentials collections to curate your sacred pieces.'
               }
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -405,7 +405,7 @@ const WishlistPage = () => {
                       <div className="w-full h-full border border-[#C5A059]/40 rounded-lg flex flex-col items-center justify-center p-4">
                         <span className="text-[#C5A059] text-2xl font-serif">✦ ✦ ✦</span>
                         <span className="font-cormorant text-xl text-[#E8D5B5] mt-2">Palatial Room Favors</span>
-                        <span className="text-[9px] uppercase tracking-wider text-white/70 mt-1">Tiered Concierge Gifting</span>
+                        <span className="text-[9px] uppercase tracking-wider text-white/70 mt-1">Tiered Support Gifting</span>
                       </div>
                       <div className="absolute bottom-3 left-3 bg-[#C5A059]/90 text-white px-2 py-0.5 rounded text-[10px] uppercase font-semibold">
                         {item.badge}
@@ -517,7 +517,7 @@ const WishlistPage = () => {
               </div>
               <h4 className="font-cormorant text-2xl font-bold text-[#1A1817] mb-1">Collaborative Registry Link</h4>
               <p className="text-xs text-[#7E766D] leading-relaxed mb-4 font-light">
-                Share this private URL directly with your bridal party, parents, or wedding architect to coordinate bespoke gifts and avoid duplicates.
+                Share this private URL directly with your bridal party, parents, or wedding architect to coordinate customized gifts and avoid duplicates.
               </p>
               <div className="flex items-center gap-2 bg-[#FAF7F2] rounded-xl p-2 border border-[#E8E1D7]">
                 <input 
@@ -559,14 +559,14 @@ const WishlistPage = () => {
               <div className="w-10 h-10 rounded-full bg-[#C5A059]/10 flex items-center justify-center text-[#C5A059] mb-4">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h4 className="font-cormorant text-2xl font-bold text-[#1A1817] mb-1">Bespoke Metallurgy Vault</h4>
+              <h4 className="font-cormorant text-2xl font-bold text-[#1A1817] mb-1">Customized Metallurgy Vault</h4>
               <p className="text-xs text-[#7E766D] leading-relaxed mb-4 font-light">
-                All wishlisted bespoke items automatically link your custom couple monogram die code <span className="font-semibold text-[#1A1817]">"A & R"</span> so single casting applies across all pieces with zero re-casting charges.
+                All wishlisted customized items automatically link your custom couple initials die code <span className="font-semibold text-[#1A1817]">"A & R"</span> so single casting applies across all pieces with zero re-casting charges.
               </p>
               <ul className="text-xs space-y-2 text-[#2D2825]">
                 <li className="flex items-center gap-2">
                   <span className="text-[#C5A059] font-bold">✔</span>
-                  <span>5-Year Complimentary Archival in Hyderabad Atelier</span>
+                  <span>5-Year Complimentary Archival in Hyderabad Collection</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-[#C5A059] font-bold">✔</span>
@@ -574,7 +574,7 @@ const WishlistPage = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-[#C5A059] font-bold">✔</span>
-                  <span>Save ₹1,500 on all future anniversary keepsakes</span>
+                  <span>Save ₹1,500 on all future anniversary gifts</span>
                 </li>
               </ul>
             </div>
@@ -596,10 +596,10 @@ const WishlistPage = () => {
               <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#E8D5B5] mb-4">
                 <MessageCircle className="w-5 h-5 text-emerald-400" />
               </div>
-              <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-semibold">Concierge Support</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-semibold">Support Support</span>
               <h4 className="font-cormorant text-2xl font-bold text-white mb-2">Need Guidance from a Stylist?</h4>
               <p className="text-xs text-white/70 leading-relaxed mb-6 font-light">
-                Reviewing trousseau pairings, urgent delivery timelines, or bulk favor quantities for Udaipur? Our lead bridal stylist is on call.
+                Reviewing wedding essentials pairings, urgent delivery timelines, or bulk favor quantities for Udaipur? Our lead bridal stylist is on call.
               </p>
             </div>
 
@@ -623,12 +623,12 @@ const WishlistPage = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* RECOMMENDED TO COMPLEMENT YOUR WISHLIST (ATELIER PICKS)                   */}
+        {/* RECOMMENDED TO COMPLEMENT YOUR WISHLIST (COLLECTION PICKS)                   */}
         {/* ========================================================================= */}
         <div className="border-t border-[#E8E1D7] pt-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#997332] font-semibold">Atelier Recommendations</span>
+              <span className="text-xs uppercase tracking-widest text-[#997332] font-semibold">Collection Recommendations</span>
               <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-[#1A1817]">
                 Complete the Bridal Suite
               </h3>
@@ -710,7 +710,7 @@ const WishlistPage = () => {
               onClick={() => setIsDieProtocolModalOpen(true)}
               className="hover:text-[#1A1817] transition hover:underline"
             >
-              Bespoke Monogram Guarantee
+              Customized Initials Guarantee
             </button>
             <span>•</span>
             <span className="text-[#1A1817]">© 2026 ASRA Private Limited</span>
@@ -739,7 +739,7 @@ const WishlistPage = () => {
               Share Ceremony Registry
             </h3>
             <p className="text-xs text-[#7E766D] mb-6 leading-relaxed">
-              Enable your wedding architect, parents, or bridal party to review your curated heirlooms with custom monogram code <strong className="text-[#1A1817]">"A & S"</strong>.
+              Enable your wedding architect, parents, or bridal party to review your curated heirlooms with custom initials code <strong className="text-[#1A1817]">"A & S"</strong>.
             </p>
 
             {/* Direct Copy Section */}
@@ -776,7 +776,7 @@ const WishlistPage = () => {
             {/* Direct Channels */}
             <div className="space-y-3 mb-6">
               <a 
-                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Review our curated ASRA Wedding Registry & Keepsakes for Asra & Shahnawaz: ${registryUrl}`)}`}
+                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Review our curated ASRA Wedding Registry & Gifts for Asra & Shahnawaz: ${registryUrl}`)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-between p-3.5 rounded-xl border border-[#E8E1D7] hover:border-[#C5A059] hover:bg-[#FAF7F2]/60 transition text-xs text-[#1A1817] font-medium"
@@ -789,7 +789,7 @@ const WishlistPage = () => {
               </a>
 
               <a 
-                href={`mailto:?subject=${encodeURIComponent("Asra & Shahnawaz's Wedding Registry — ASRA Atelier")}&body=${encodeURIComponent(`Dear Planner,\n\nPlease review our hand-selected ceremonial keepsakes and custom brass monogram die code for our upcoming wedding:\n\n${registryUrl}\n\nWarmly,\nAsra & Shahnawaz`)}`}
+                href={`mailto:?subject=${encodeURIComponent("Asra & Shahnawaz's Wedding Registry — ASRA Collection")}&body=${encodeURIComponent(`Dear Planner,\n\nPlease review our hand-selected ceremonial gifts and custom brass initials die code for our upcoming wedding:\n\n${registryUrl}\n\nWarmly,\nAsra & Shahnawaz`)}`}
                 className="w-full flex items-center justify-between p-3.5 rounded-xl border border-[#E8E1D7] hover:border-[#C5A059] hover:bg-[#FAF7F2]/60 transition text-xs text-[#1A1817] font-medium"
               >
                 <span className="flex items-center gap-3">
@@ -826,7 +826,7 @@ const WishlistPage = () => {
             </div>
 
             <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-[#1A1817] mb-1">
-              Bespoke Metallurgy Vault Protocol
+              Customized Metallurgy Vault Protocol
             </h3>
             <span className="text-[10px] uppercase tracking-widest text-[#997332] font-semibold block mb-4">
               Protocol Ref: ASRA-METALLURGY-2026-AS
@@ -836,14 +836,14 @@ const WishlistPage = () => {
               <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#E8E1D7]">
                 <h5 className="font-semibold text-[#1A1817] mb-1">1. Custom 3D CNC Metallurgy Die Casting</h5>
                 <p className="text-[#7E766D]">
-                  Every bespoke order featuring the "A & S" couple crest is machined from solid marine-grade brass using high-precision 5-axis CNC cutters. This die creates high-relief hot foil and blind debossing impressions across hatboxes, vow booklets, and leather folios.
+                  Every customized order featuring the "A & S" couple crest is machined from solid marine-grade brass using high-precision 5-axis CNC cutters. This die creates high-relief hot foil and blind debossing impressions across hatboxes, vow booklets, and leather folios.
                 </p>
               </div>
 
               <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#E8E1D7]">
                 <h5 className="font-semibold text-[#1A1817] mb-1">2. 5-Year Climate-Controlled Archival</h5>
                 <p className="text-[#7E766D]">
-                  Your physical brass die is catalogued with barcode <strong className="text-[#1A1817]">ASRA-REG-2026-9921</strong> and preserved in our Hyderabad atelier’s climate-controlled metallurgy vault. Any subsequent order (anniversary invitations, baby announcements, bespoke stationery) bypasses all die casting fees.
+                  Your physical brass die is catalogued with barcode <strong className="text-[#1A1817]">ASRA-REG-2026-9921</strong> and preserved in our Hyderabad collection’s climate-controlled metallurgy vault. Any subsequent order (anniversary invitations, baby announcements, customized stationery) bypasses all die casting fees.
                 </p>
               </div>
 
@@ -895,14 +895,14 @@ const WishlistPage = () => {
               <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#E8E1D7]">
                 <h5 className="font-semibold text-[#1A1817] mb-1">1. Pre-Event Embargo Guarantee</h5>
                 <p className="text-[#7E766D]">
-                  No photographs, proofs, or calligraphy layouts of your trousseau or gifts will be published across ASRA social channels, editorial lookbooks, or digital media prior to your wedding day completion.
+                  No photographs, proofs, or calligraphy layouts of your wedding essentials or gifts will be published across ASRA social channels, editorial lookbooks, or digital media prior to your wedding day completion.
                 </p>
               </div>
 
               <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#E8E1D7]">
                 <h5 className="font-semibold text-[#1A1817] mb-1">2. 256-Bit Vaulting</h5>
                 <p className="text-[#7E766D]">
-                  All vector monograms, family crest designs, and personal vows are secured behind 256-bit encrypted data dockets, accessible solely by the assigned master engraver and atelier manager.
+                  All vector initials, family crest designs, and personal vows are secured behind 256-bit encrypted data dockets, accessible solely by the assigned master engraver and collection manager.
                 </p>
               </div>
 

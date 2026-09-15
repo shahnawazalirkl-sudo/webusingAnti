@@ -20,12 +20,12 @@ const Footer = () => {
               CREATE MORE THAN A GIFT • CREATE A MEMORY
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3] leading-relaxed mb-space-md max-w-sm">
-              ASRA WEDDING CANVAS is dedicated to the bespoke artistry of eternal wedding keepsakes, artisanal registries, and curated gifting experiences crafted for life's most cherished moments.
+              ASRA WEDDING CANVAS is dedicated to the customized artistry of eternal wedding gifts, artisanal registries, and curated gifting experiences crafted for life's most cherished moments.
             </p>
             <Link to="/client-portal" className="flex items-center gap-space-sm text-[#C5A880] hover:text-white transition-colors group">
               <span className="material-symbols-outlined text-[20px]">verified</span>
               <span className="font-label-sm text-label-sm tracking-widest group-hover:underline">
-                ATELIER PRIVILEGE SUITE · SANCTUARY →
+                COLLECTION PRIVILEGE SUITE · MY ACCOUNT →
               </span>
             </Link>
           </div>
@@ -33,19 +33,19 @@ const Footer = () => {
           {/* Shop Atelier */}
           <div className="flex flex-col gap-space-xs">
             <h4 className="font-title-sm text-title-sm text-[#FAF8F5] tracking-wider uppercase mb-space-xs font-semibold">
-              Shop Atelier
+              Shop Collection
             </h4>
             <Link to="/wedding-keepsakes" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Wedding Favors &amp; Hampers
             </Link>
             <Link to="/personalized" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Custom Monogram Suites
+              Custom Initials Suites
             </Link>
             <Link to="/collections" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Bridal Party Keepsakes
+              Bridal Party Gifts
             </Link>
             <Link to="/bespoke" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Trousseau Packaging
+              Wedding Essentials Packaging
             </Link>
             <Link to="/offers" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Curated Celebration Boxes
@@ -58,10 +58,10 @@ const Footer = () => {
               Company
             </h4>
             <Link to="/client-portal" className="font-body-sm text-body-sm text-[#C5A880] hover:text-white font-medium transition-colors py-0.5">
-              Client Sanctuary (Sovereign Vault)
+              My Account (Sovereign Vault)
             </Link>
             <Link to="/about" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Our Heritage Story
+              Our Classic Story
             </Link>
             <Link to="/contact#salons" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Private Salons &amp; Studios
@@ -73,10 +73,10 @@ const Footer = () => {
               Care Instructions
             </Link>
             <Link to="/faq" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              FAQ &amp; Atelier Help Desk
+              FAQ &amp; Collection Help Desk
             </Link>
             <Link to="/contact" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Concierge &amp; Appointments
+              Support &amp; Appointments
             </Link>
           </div>
 
@@ -86,7 +86,7 @@ const Footer = () => {
               Connect
             </h4>
             <p className="font-body-sm text-body-sm text-[#B8AEA3] mb-space-xs">
-              Atelier Flagship: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
+              Collection Flagship: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
               Inquiries: <a href="mailto:shahnawazalirkl@gmail.com" className="hover:text-[#FAF8F5] transition-colors">shahnawazalirkl@gmail.com</a>

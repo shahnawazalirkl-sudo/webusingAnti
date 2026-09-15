@@ -38,7 +38,7 @@ const OrderConfirmationPage = () => {
   const chauffeurInstructions = order?.chauffeurNotes ||
     "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.";
   const paymentHandle = order?.upiId ? `Settled via UPI (${order.upiId})` : 'Settled via UPI (shahnawazalirkl@okaxis)';
-  const monogramCode = order?.monogramDie || '"A & S" • Heritage Floral Crest';
+  const monogramCode = order?.monogramDie || '"A & S" • Classic Floral Crest';
   const loyaltyPoints = order?.loyaltyPoints || 845;
 
   const handleCopyOrderId = () => {
@@ -56,7 +56,7 @@ const OrderConfirmationPage = () => {
   return (
     <div className="min-h-screen bg-brand-cream text-brand-dark flex flex-col justify-between antialiased selection:bg-brand-gold/20 selection:text-brand-dark">
       
-      {/* ==================== MINIMAL BESPOKE UTILITY HEADER (NO GLOBAL NAVBAR) ==================== */}
+      {/* ==================== MINIMAL CUSTOMIZED UTILITY HEADER (NO GLOBAL NAVBAR) ==================== */}
       <header className="w-full bg-white/95 backdrop-blur-md border-b border-brand-border/80 sticky top-0 z-50 no-print">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
           <Link
@@ -75,7 +75,7 @@ const OrderConfirmationPage = () => {
             <span className="sm:hidden">Home</span>
           </Link>
 
-          {/* Atelier Central Gold Logo */}
+          {/* Collection Central Gold Logo */}
           <div className="flex flex-col items-center">
             <Link to="/">
               <img
@@ -86,7 +86,7 @@ const OrderConfirmationPage = () => {
             </Link>
           </div>
 
-          {/* Security & Concierge Status */}
+          {/* Security & Support Status */}
           <div className="flex items-center gap-4 text-xs">
             <div className="hidden md:flex items-center gap-2 text-brand-muted bg-brand-cream/80 px-3 py-1.5 rounded-full border border-brand-border">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
@@ -157,7 +157,7 @@ const OrderConfirmationPage = () => {
             May Your Royal Union Be Everlasting.
           </h1>
           <p className="text-xs sm:text-sm text-brand-muted font-light leading-relaxed max-w-2xl mx-auto">
-            Thank you, <span className="text-brand-dark font-medium">{coupleNames}</span>. Your bespoke order has been formally inducted into our Atelier Registry. Our Master Engravers and Senior Wedding Stylist have initiated digital crest calibration.
+            Thank you, <span className="text-brand-dark font-medium">{coupleNames}</span>. Your customized order has been formally inducted into our Collection Registry. Our Master Engravers and Senior Wedding Stylist have initiated digital crest calibration.
           </p>
 
           {/* Docket ID Bar */}
@@ -168,7 +168,7 @@ const OrderConfirmationPage = () => {
               title="Click to copy Order ID"
             >
               <div className="flex items-center gap-1">
-                <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Atelier Order ID</span>
+                <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Collection Order ID</span>
                 <span className="text-[10px] text-brand-gold font-mono group-hover:underline">
                   {copied ? '(Copied!)' : '(Copy)'}
                 </span>
@@ -179,7 +179,7 @@ const OrderConfirmationPage = () => {
             <div className="h-6 w-[1px] bg-brand-border hidden sm:block"></div>
 
             <div className="text-center sm:text-left">
-              <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Monogram Die Code</span>
+              <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Initials Die Code</span>
               <span className="font-bold text-brand-goldDark text-sm">{monogramCode}</span>
             </div>
 
@@ -212,14 +212,14 @@ const OrderConfirmationPage = () => {
                   <span className="w-7 h-7 rounded-full bg-brand-cream border border-brand-gold text-brand-dark flex items-center justify-center font-serif text-sm font-semibold">
                     I
                   </span>
-                  <h2 className="serif-title text-xl sm:text-2xl text-brand-dark">Artisanal Curation &amp; Transit Timeline</h2>
+                  <h2 className="serif-title text-xl sm:text-2xl text-brand-dark">Artisanal Collection &amp; Transit Timeline</h2>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <Link
                     to={`/client-portal?docket=${orderId}`}
                     className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-brand-dark bg-brand-cream hover:bg-brand-goldLight/50 px-3 py-1 rounded-full border border-brand-border transition-colors group"
                   >
-                    <span>Sovereign Client Sanctuary &rarr;</span>
+                    <span>Sovereign My Account &rarr;</span>
                   </Link>
                   <Link
                     to="/track-order"
@@ -245,7 +245,7 @@ const OrderConfirmationPage = () => {
                     <span className="text-[11px] text-brand-muted font-mono">Today, 02:45 PM</span>
                   </div>
                   <p className="text-xs text-brand-muted mt-1 leading-relaxed">
-                    Order authenticated. 3D digital vector deboss proof queued for senior artisan inspection in our Hyderabad flagship atelier.
+                    Order authenticated. 3D digital vector deboss proof queued for senior artisan inspection in our Hyderabad flagship collection.
                   </p>
                 </div>
 
@@ -255,7 +255,7 @@ const OrderConfirmationPage = () => {
                     2
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="text-sm font-semibold text-brand-dark">2. WhatsApp Digital Calligraphy &amp; Monogram Proof</h3>
+                    <h3 className="text-sm font-semibold text-brand-dark">2. WhatsApp Digital Calligraphy &amp; Initials Proof</h3>
                     <span className="text-[11px] text-brand-goldDark font-semibold">Within 2 Hours</span>
                   </div>
                   <p className="text-xs text-brand-muted mt-1 leading-relaxed">
@@ -350,7 +350,7 @@ const OrderConfirmationPage = () => {
               </div>
             </div>
 
-            {/* 3. Direct Atelier Concierge & WhatsApp Proofing Desk */}
+            {/* 3. Direct Collection Support & WhatsApp Proofing Desk */}
             <div className="bg-white rounded-2xl p-6 sm:p-7 border border-brand-border shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5 no-print">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 flex-shrink-0">
@@ -359,14 +359,14 @@ const OrderConfirmationPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-brand-dark">Have Last-Minute Monogram or Date Alterations?</h4>
+                  <h4 className="text-sm font-semibold text-brand-dark">Have Last-Minute Initials or Date Alterations?</h4>
                   <p className="text-xs text-brand-muted mt-0.5">
                     Connect directly with your dedicated Senior Stylist before physical hot-stamping starts.
                   </p>
                 </div>
               </div>
               <a
-                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Hello ASRA Atelier, I would like to inquire about my order ${orderId} for ${recipientName}.`)}`}
+                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Hello ASRA Collection, I would like to inquire about my order ${orderId} for ${recipientName}.`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-semibold tracking-wide transition-all shadow-sm flex items-center justify-center gap-2 whitespace-nowrap"
@@ -397,13 +397,13 @@ const OrderConfirmationPage = () => {
                 <div className="flex gap-4">
                   <img
                     src="https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM"
-                    alt="The Sovereign Bridal & Trousseau Suite"
+                    alt="The Sovereign Bridal & Wedding Essentials Suite"
                     className="w-20 h-20 rounded-xl object-cover border border-brand-border flex-shrink-0 shadow-sm"
                   />
                   <div className="flex-grow">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-sm font-semibold text-brand-dark leading-tight">
-                        The Sovereign Bridal &amp; Trousseau Suite
+                        The Sovereign Bridal &amp; Wedding Essentials Suite
                       </h3>
                       <span className="font-bold text-sm text-brand-dark font-mono">₹7,499</span>
                     </div>
@@ -411,10 +411,10 @@ const OrderConfirmationPage = () => {
                       Palette: <span className="font-medium text-brand-charcoal">Classic Blush &amp; Champagne Gold</span>
                     </p>
 
-                    {/* Monogram Badge */}
+                    {/* Initials Badge */}
                     <div className="mt-2 p-2 bg-brand-cream rounded-lg border border-brand-border/80 text-[11px] space-y-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-brand-muted">Debossed Monogram:</span>
+                        <span className="text-brand-muted">Debossed Initials:</span>
                         <span className="font-semibold text-brand-dark font-mono">"A &amp; R"</span>
                       </div>
                       <div className="flex items-center justify-between">
@@ -440,7 +440,7 @@ const OrderConfirmationPage = () => {
                   <div className="flex-grow">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-sm font-semibold text-brand-dark leading-tight">
-                        Bespoke Velvet Double Ring &amp; Mangalsutra Vault
+                        Customized Velvet Double Ring &amp; Mangalsutra Vault
                       </h3>
                       <span className="font-bold text-sm text-brand-dark font-mono">₹1,899</span>
                     </div>
@@ -458,7 +458,7 @@ const OrderConfirmationPage = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span>Die Matched to Suite Monogram</span>
+                      <span>Die Matched to Suite Initials</span>
                     </div>
                   </div>
                 </div>
@@ -498,7 +498,7 @@ const OrderConfirmationPage = () => {
                 <div className="pt-3 mt-3 border-t border-brand-border flex items-baseline justify-between">
                   <div>
                     <span className="text-sm font-semibold text-brand-dark block">Total Paid Amount</span>
-                    <span className="text-[10px] text-emerald-700 font-medium">Saved ₹3,840 with Atelier Privilege</span>
+                    <span className="text-[10px] text-emerald-700 font-medium">Saved ₹3,840 with Collection Privilege</span>
                   </div>
                   <div className="text-right">
                     <span className="serif-title text-2xl font-bold text-brand-dark font-mono">{settledAmount}</span>
@@ -565,11 +565,11 @@ const OrderConfirmationPage = () => {
                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   />
                 </svg>
-                <span className="font-serif text-base font-semibold text-brand-dark">Atelier Authenticity Guarantee</span>
+                <span className="font-serif text-base font-semibold text-brand-dark">Collection Authenticity Guarantee</span>
               </div>
 
               <p className="text-[11px] text-brand-muted leading-relaxed">
-                Every ASRA keepsakes ensemble carries our registered hallmark. The 3D Deboss Brass Die is hand-milled, hot-pressed using certified 24k gold leaf foil, and preserved for future family crest re-orders.
+                Every ASRA gifts ensemble carries our registered hallmark. The 3D Deboss Brass Die is hand-milled, hot-pressed using certified 24k gold leaf foil, and preserved for future family crest re-orders.
               </p>
 
               <div className="grid grid-cols-2 gap-2 text-[10px] text-brand-charcoal pt-1">
@@ -579,7 +579,7 @@ const OrderConfirmationPage = () => {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-brand-gold font-bold">✓</span>
-                  <span>Palace Luggage Concierge</span>
+                  <span>Palace Luggage Support</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-brand-gold font-bold">✓</span>
@@ -597,7 +597,7 @@ const OrderConfirmationPage = () => {
               <div className="w-2 h-2 rounded-full bg-brand-gold mx-auto mb-2"></div>
               <h3 className="serif-title text-lg sm:text-xl text-brand-dark mb-1">Planning Multiple Wedding Events or Favors?</h3>
               <p className="text-brand-muted text-[11px] mb-3">
-                If you require 25+ matching welcome suites for guest rooms, connect directly with our volume atelier team.
+                If you require 25+ matching welcome suites for guest rooms, connect directly with our volume collection team.
               </p>
               <Link
                 to="/bulk-orders"
@@ -618,10 +618,10 @@ const OrderConfirmationPage = () => {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-brand-muted">
           <div className="flex items-center gap-2">
             <span className="font-serif font-bold text-brand-dark tracking-wider">ASRA WEDDING CANVAS</span>
-            <span>• Private Atelier &amp; Trousseau Vaults</span>
+            <span>• Private Collection &amp; Wedding Essentials Vaults</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px]">
-            <Link to="/bespoke" className="hover:text-brand-dark transition-colors">Concierge Protocols</Link>
+            <Link to="/bespoke" className="hover:text-brand-dark transition-colors">Support Protocols</Link>
             <span>•</span>
             <Link to="/about" className="hover:text-brand-dark transition-colors">Hallmark Verification</Link>
             <span>•</span>
@@ -632,7 +632,7 @@ const OrderConfirmationPage = () => {
             <Link to="/privacy-policy" className="hover:text-brand-dark transition-colors">Confidentiality Guarantee</Link>
           </div>
           <div>
-            <span>© 2026 ASRA Atelier. All royal rights reserved.</span>
+            <span>© 2026 ASRA Collection. All royal rights reserved.</span>
           </div>
         </div>
       </footer>

@@ -29,21 +29,21 @@ const CLAUSES = [
     articleNum: 'ARTICLE 01',
     category: 'Context & Legal Framework',
     title: 'Genesis, Custodianship & Scope of Collection',
-    summary: 'Data custodianship for matrimonial milestones, heraldic monograms, and ceremony coordinates.',
+    summary: 'Data custodianship for matrimonial milestones, heraldic initials, and ceremony coordinates.',
     content: (
       <div className="text-xs sm:text-sm text-[#444444] leading-relaxed space-y-3.5">
         <p>
-          ASRA Wedding Canvas Private Limited ("Maison ASRA", "we", "us", or "our") acts as the sovereign data custodian for all couples, wedding planners, royal patronages, and gift recipients engaging our bespoke services. We operate under the paramount tenet that matrimonial milestones, genealogical family crests, and personal ceremonial details belong exclusively to the commissioning couple.
+          ASRA Wedding Canvas Private Limited ("Maison ASRA", "we", "us", or "our") acts as the sovereign data custodian for all couples, wedding planners, royal patronages, and gift recipients engaging our customized services. We operate under the paramount tenet that matrimonial milestones, genealogical family crests, and personal ceremonial details belong exclusively to the commissioning couple.
         </p>
         <p>
-          When commissioning bespoke bridal trousseaus, custom debossed leather suites, laser-engraved optical crystals, or destination gift boxes, we collect only the precision metadata strictly required to fulfill master craftsmanship:
+          When commissioning customized bridal wedding essentials, custom debossed leather suites, laser-engraved optical crystals, or destination gift boxes, we collect only the precision metadata strictly required to fulfill master craftsmanship:
         </p>
         <ul className="list-disc pl-5 space-y-2 text-[#555555]">
           <li>
-            <strong className="text-[#111111]">Couple &amp; Patron Coordinates:</strong> Full names, honorary titles, marital dates, private residence and atelier delivery addresses, phone/WhatsApp contact tokens.
+            <strong className="text-[#111111]">Couple &amp; Patron Coordinates:</strong> Full names, honorary titles, marital dates, private residence and collection delivery addresses, phone/WhatsApp contact tokens.
           </li>
           <li>
-            <strong className="text-[#111111]">Typographical &amp; Heraldic Assets:</strong> Vector initials, family monogram sketches, Latin and devanagari calligraphic charters, and bespoke wedding vows.
+            <strong className="text-[#111111]">Typographical &amp; Heraldic Assets:</strong> Vector initials, family initials sketches, Latin and devanagari calligraphic charters, and customized wedding vows.
           </li>
           <li>
             <strong className="text-[#111111]">Ceremony Specifics:</strong> Venue coordinates (e.g. Villa Balbiano, Udaipur Lake Palace), banquet dates, and guest welcome hamper distribution registries.
@@ -56,7 +56,7 @@ const CLAUSES = [
     id: 'clause-2',
     articleNum: 'ARTICLE 02',
     category: 'Intellectual Property & Heraldry',
-    title: 'Bespoke Heraldry, Family Crests & Design Assets',
+    title: 'Customized Heraldry, Family Crests & Design Assets',
     summary: 'Exclusive intellectual property rights and strict social media embargo policies.',
     content: (
       <div className="text-xs sm:text-sm text-[#444444] leading-relaxed space-y-3.5">
@@ -69,7 +69,7 @@ const CLAUSES = [
             Client Sole Ownership Guarantee
           </h4>
           <p className="text-xs text-[#555555]">
-            All bespoke monogram insignias and heraldic crests designed specifically for the couple remain the exclusive intellectual and aesthetic property of the couple. Maison ASRA will never re-use, resell, or license your commissioned family crest for any other patron.
+            All customized initials insignias and heraldic crests designed specifically for the couple remain the exclusive intellectual and aesthetic property of the couple. Maison ASRA will never re-use, resell, or license your commissioned family crest for any other patron.
           </p>
         </div>
         <p>
@@ -87,7 +87,7 @@ const CLAUSES = [
     content: (
       <div className="text-xs sm:text-sm text-[#444444] leading-relaxed space-y-3.5">
         <p>
-          For bulk wedding commissions requiring individualized name personalization (e.g. customized leather luggage tags, monogrammed silk sleepwear, or individual welcome hampers for destination attendees), clients may provide attendee manifests.
+          For bulk wedding commissions requiring individualized name personalization (e.g. customized leather luggage tags, initials silk sleepwear, or individual welcome hampers for destination attendees), clients may provide attendee manifests.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
           <div className="p-3.5 rounded bg-[#F7F3EB]/60 border border-[#E6D7BA]">
@@ -124,14 +124,14 @@ const CLAUSES = [
     content: (
       <div className="text-xs sm:text-sm text-[#444444] leading-relaxed space-y-3.5">
         <p>
-          Financial transactions for bespoke bridal commissions are handled with sovereign-level banking protocols:
+          Financial transactions for customized bridal commissions are handled with sovereign-level banking protocols:
         </p>
         <ul className="list-disc pl-5 space-y-2 text-[#555555]">
           <li>
             <strong className="text-[#111111]">Zero Card Storage:</strong> Payment details (credit cards, UPI tokens, wire transfer origins) are processed directly via PCI-DSS Level 1 certified payment gateways. ASRA systems never store raw card numbers, CVVs, or bank security PINs.
           </li>
           <li>
-            <strong className="text-[#111111]">Invoice Discretion:</strong> High-value wire transfers, corporate gifting dockets, and private royal commissions can be billed under non-descriptive luxury atelier nomenclatures upon request to preserve discretion.
+            <strong className="text-[#111111]">Invoice Discretion:</strong> High-value wire transfers, corporate gifting dockets, and private royal commissions can be billed under non-descriptive luxury collection nomenclatures upon request to preserve discretion.
           </li>
           <li>
             <strong className="text-[#111111]">24K Gold Leaf Authenticity Records:</strong> Serial numbers associated with your 24K gold certificates of authenticity are recorded in an encrypted offline register to safeguard your heirloom warranty.
@@ -144,12 +144,12 @@ const CLAUSES = [
     id: 'clause-5',
     articleNum: 'ARTICLE 05',
     category: 'Physical Master Die Storage',
-    title: 'Physical Monogram Archival (5-Year Brass Die Vault)',
+    title: 'Physical Initials Archival (5-Year Brass Die Vault)',
     summary: 'Climate-controlled foundry storage in Hyderabad with anonymous alphanumeric docketing.',
     content: (
       <div className="text-xs sm:text-sm text-[#444444] leading-relaxed space-y-3.5">
         <p>
-          As a complimentary privilege of commissioning bespoke leather goods, your CNC-milled solid brass monogram debossing die (85mm × 85mm × 2.2mm relief) is archived in our climate-controlled Hyderabad foundry vault for five (5) complimentary years.
+          As a complimentary privilege of commissioning customized leather goods, your CNC-milled solid brass initials debossing die (85mm × 85mm × 2.2mm relief) is archived in our climate-controlled Hyderabad foundry vault for five (5) complimentary years.
         </p>
         <div className="p-4 rounded-lg bg-[#FAF8F5] border border-[#E8E4DC] space-y-2">
           <div className="flex items-center justify-between">
@@ -157,11 +157,11 @@ const CLAUSES = [
             <span className="text-[10px] font-mono text-[#C5A059] bg-[#F7F3EB] px-2 py-0.5 rounded border border-[#E6D7BA]">VAULT-HYD-SEC-22</span>
           </div>
           <p className="text-xs text-[#555555]">
-            Physical master dies are cataloged under anonymous alphanumeric docket codes (e.g. #HYD-2026-ET). Only your verified Atelier Concierge can link the physical metal stamp to your client profile during milestone re-orders (anniversary gift books, holiday trousseaus, baby keepsakes).
+            Physical master dies are cataloged under anonymous alphanumeric docket codes (e.g. #HYD-2026-ET). Only your verified Collection Support can link the physical metal stamp to your client profile during milestone re-orders (anniversary gift books, holiday wedding essentials, baby gifts).
           </p>
         </div>
         <p>
-          Clients may at any time request the physical handover of their master brass die, shipped directly to their residence via climate-insured courier in an artisanal Indian Rosewood keepsake box.
+          Clients may at any time request the physical handover of their master brass die, shipped directly to their residence via climate-insured courier in an artisanal Indian Rosewood gift box.
         </p>
       </div>
     )
@@ -210,7 +210,7 @@ const CLAUSES = [
           <div className="border border-[#E8E4DC] p-3.5 rounded-lg bg-white shadow-2xs hover:border-[#C5A059] transition-colors">
             <span className="text-xs font-bold text-[#111111] block mb-1">Right to Revoke Marketing</span>
             <span className="text-xs text-[#666666]">
-              Opt out of milestone anniversary notices or private atelier salon invitations with a single tap.
+              Opt out of milestone anniversary notices or private collection salon invitations with a single tap.
             </span>
           </div>
           <div className="border border-[#E8E4DC] p-3.5 rounded-lg bg-white shadow-2xs hover:border-[#C5A059] transition-colors">
@@ -250,7 +250,7 @@ const CLAUSES = [
                 </a>
               </div>
               <div>
-                <span className="font-medium text-[#111111]">Concierge Desk:</span>{' '}
+                <span className="font-medium text-[#111111]">Support Desk:</span>{' '}
                 <a href="tel:+919692668263" className="hover:text-[#C5A059] transition-colors">
                   +91 96926 68263
                 </a>
@@ -356,14 +356,14 @@ const PrivacyPolicyPage = () => {
     setTimeout(() => {
       const subject = encodeURIComponent(`Custom NDA Request: ${ndaForm.name} (${ndaForm.ceremonyDate || '2026'})`);
       const body = encodeURIComponent(
-        `Dear Maison ASRA Concierge Legal Desk,\n\n` +
+        `Dear Maison ASRA Support Legal Desk,\n\n` +
         `Client / Patron: ${ndaForm.name}\n` +
         `Role: ${ndaForm.role}\n` +
         `Phone: ${ndaForm.phone}\n` +
         `Ceremony Date: ${ndaForm.ceremonyDate}\n` +
         `Venue / Destination: ${ndaForm.venue}\n\n` +
         `Embargo & Discretion Requirements:\n${ndaForm.requirements}\n\n` +
-        `Request Docket Generated via ASRA Client Sanctuary.\n`
+        `Request Docket Generated via ASRA My Account.\n`
       );
       window.location.href = `mailto:shahnawazalirkl@gmail.com?subject=${subject}&body=${body}`;
       setIsNdaModalOpen(false);
@@ -374,7 +374,7 @@ const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E1E1E] antialiased selection:bg-[#C5A059]/20 selection:text-[#111111]">
       
-      {/* ================= TOP FOCUSED ATELIER UTILITY BAR (NO WEBSITE HEADER) ================= */}
+      {/* ================= TOP FOCUSED COLLECTION UTILITY BAR (NO WEBSITE HEADER) ================= */}
       <header className="bg-white border-b border-[#E8E4DC] sticky top-0 z-40 transition-shadow duration-300 shadow-xs print:hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
@@ -404,7 +404,7 @@ const PrivacyPolicyPage = () => {
                 Maison ASRA
               </span>
               <span className="text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-medium">
-                Bespoke Privacy Covenant
+                Customized Privacy Covenant
               </span>
             </div>
           </Link>
@@ -446,7 +446,7 @@ const PrivacyPolicyPage = () => {
           </h1>
 
           <p className="max-w-3xl mx-auto text-sm sm:text-base text-[#666666] font-normal leading-relaxed mb-6">
-            Every monogram die, wedding guest list, heraldic crest vector, and ceremonial date entrusted to ASRA Wedding Canvas is held under strict high-jewelry confidentiality standards. Herein lies our sovereign pledge to your privacy and metadata discretion.
+            Every initials die, wedding guest list, heraldic crest vector, and ceremonial date entrusted to ASRA Wedding Canvas is held under strict high-jewelry confidentiality standards. Herein lies our sovereign pledge to your privacy and metadata discretion.
           </p>
 
           {/* Key Metadata Badges */}
@@ -614,7 +614,7 @@ const PrivacyPolicyPage = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-[#C5A059]"></span>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A059]">
-                    Private Concierge Counsel
+                    Private Support Counsel
                   </span>
                 </div>
                 <p className="text-xs text-[#BBBBBB] leading-relaxed">
@@ -718,7 +718,7 @@ const PrivacyPolicyPage = () => {
         </div>
       </main>
 
-      {/* ================= MINIMAL ATELIER DOCKET BAR (NO WEBSITE FOOTER) ================= */}
+      {/* ================= MINIMAL COLLECTION DOCKET BAR (NO WEBSITE FOOTER) ================= */}
       <footer className="bg-white border-t border-[#E8E4DC] py-4 px-4 sm:px-6 lg:px-8 mt-auto print:hidden">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#777777]">
           
@@ -727,7 +727,7 @@ const PrivacyPolicyPage = () => {
               ASRA Wedding Canvas
             </span>
             <span>•</span>
-            <span>Bespoke Client Privacy &amp; NDA Covenant</span>
+            <span>Customized Client Privacy &amp; NDA Covenant</span>
             <span className="hidden md:inline">•</span>
             <span className="hidden md:inline font-mono text-[#999999]">
               Vault Docket #PRIV-ASRA-2026-V4
@@ -772,7 +772,7 @@ const PrivacyPolicyPage = () => {
                   Private Salon Counsel
                 </span>
                 <h3 className="font-serif text-lg font-bold text-[#111111]">
-                  Request Bespoke NDA Execution
+                  Request Customized NDA Execution
                 </h3>
               </div>
             </div>

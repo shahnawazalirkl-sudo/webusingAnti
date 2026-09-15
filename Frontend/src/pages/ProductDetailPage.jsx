@@ -13,7 +13,7 @@ const SOVEREIGN_ASSETS = {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDG8sYOo1Zxru-kLS8qvydvEJrMxlIZWUfTYMqHh34enwgfH61Pd9GQi6UphW7CkUmeBiWMGesDQr7GyfXaOKGx1nKvKV2xm428y7dpj7pvYvd-zYJTkVBD8miFbVNvzf7RFKRD43acWisxVvAn517plJefy8crqvVtZJ53Vye_Veql8_hrKy-TDwWxoYEalEkMMw66j21MePgWE2WTmAUoIEn7iAI3xHx8chy-6zDY-XKBxF-k-jAX4Q"
     },
     {
-      label: "Monogram Keepsake Box",
+      label: "Initials Gift Box",
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDg8SHxHT70-Z2LX-quATgUZCg7KYaUltYt_XC0WFJD0EoHGTy7CDqfldQZkS23TnSV23pCwFUZJUdcZLwvWYABBCvNwR4Hqy6yIayHrgTwDd4pqqybTHWhyySNag7fFDBy4zhPPBAFiaidxTdDDSSIfX4W4dF-8Th2VlPFaOtSXlHC-74eid0s-iJEhOqFHztGaXv_Pcn_dEOTQMIavsUjtTgdcalnp4GCF7X1u5S1xKEUDh4TmZS9ww"
     },
     {
@@ -25,7 +25,7 @@ const SOVEREIGN_ASSETS = {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXq6y8m1HASvyj_J-wgQ8NJrIOhnF3LPW5ylrBxcLWvPWAJai23_t1oU6_S4PlXC2o-tyFn_l8e5_yo4HQ9We8jQgZGy2tT_iHG7AFyds7fKX1t06jk8ZsaMePCsKROKFBBNNv3c-CENSwjF4upxk_ahZfOcfU6OuPj5PA31BSv6H9iUHzba6FK2h1eTu2VTJaHcVybWMEHn2GK7qLNs0JkyKnEokVvXRDJiPNFOcEaiAhbWFRUPn7sw"
     },
     {
-      label: "Heirloom Bear Keepsake",
+      label: "Heirloom Bear Gift",
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB93Lmkom3jsLakl2GUcjCR2iOh_ZSs2S6qkQXMlBxTxDwvp5MGyVXCZY_3ng5dnE90F63OwXLK0v3mUFUG9rmt6nGwdlH7h0yICYUTf8SWdargAiSeepYsU6VqgxWWEgPLbIf2bBk4_y7eqJy4dj9DQu6ss_08CyS2CyCT5s2Z1_F8IN7SCpMtsbiJQ9e3XbzwMuP4aLaHhl8YpQhJxOlr2OFsohNET4sMn8Gta-fMVZzhrmYf8aRMOQ"
     },
     {
@@ -38,14 +38,14 @@ const SOVEREIGN_ASSETS = {
     {
       number: "01 / ARCHIVE",
       tag: "Custom Debossed",
-      title: "Hardbound Monogram Hatbox",
-      desc: "Custom rigid 1200 GSM cardboard cylinder lined in soft blush velvet with couple's bespoke 3D monogram die in 24k gold leaf.",
+      title: "Hardbound Initials Hatbox",
+      desc: "Custom rigid 1200 GSM cardboard cylinder lined in soft blush velvet with couple's customized 3D initials die in 24k gold leaf.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdQoOoJCDPJcYnb9dRsx_uO8P_PEoSeyDqqnhAOl2O2Q_TvhecYlCbXCbj-ZUGxU8W0ELzqH60STXWXRiTvYIAz0roy2THbnG8Hh6loEGACld5RikChPSLda6PFO_4eL-ar5UUrr1BkGPDBAqrF_bNByjG13bP0Nh4pPbF5G9WVYMbtCh6062eaeQa_wjWcg5AcXTbDkTkiUcSC2cfa_WMYT6C2KGqlDaJRPeavMdjIDyCQfuxjT7Zqw"
     },
     {
       number: "02 / FRAGRANCE",
       tag: "50ml French Glass",
-      title: "Signature Atelier Eau De Parfum",
+      title: "Signature Collection Eau De Parfum",
       desc: "An intimate ceremonial blend of Kashmiri damask rose, golden vanilla, and precious white oud bottled in bevelled heavy crystal.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhvBuaBIDf90YO4e9fxc6l2JryeroiSct-2BuEv0mCBQprLkHyqh0ok7xV50dM40OvReXpqNsjvGz8bMt_fa9Wbc4mZ9zMY7k3zUXqhpHhnQ-tNLlj8W3GrpBnA9UmsRR2KsOKaDXjecdDGHu5iyj-2gFidYpYQlk2ihWnOrxzubrA--BcRzdJBnLJXot73I-thYjK_-Ylydqp5eO5CP3DAYKpRo8_73mN3CrhNWAhzttG3P8_naTECw"
     },
@@ -57,17 +57,17 @@ const SOVEREIGN_ASSETS = {
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCu4jVofG9zWiRpEU8vnCWCsBS3JuLBRC2qeu3a8d-1SkjHDVI36x0kcTilNhxNM_BL0tdtKQbii9-T1pl0k8GYSzuFanmiIYElZ7O-9xeFKAqt7atDOBWTUUXWYSARotpzrM7ATREZihY3pyYGY4kCGwmdOkW1fsRi5y1Q3GP9HNyVIg15seEJNSOYLpeszaD3Fg1YjNeMak3ZF0sNnaeJJXkqqce3rtqUG0mRgLYwttDrslMylRuGRw"
     },
     {
-      number: "04 / ATELIER TEXTILE",
+      number: "04 / COLLECTION TEXTILE",
       tag: "22 Momme Silk",
       title: "Pure Mulberry Silk Scrunchie",
-      desc: "Gentle on bridal tresses, crafted from Grade 6A natural mulberry silk in matching blush tone, complete with gold monogram ribbon.",
+      desc: "Gentle on bridal tresses, crafted from Grade 6A natural mulberry silk in matching blush tone, complete with gold initials ribbon.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAFJn6UuRoack3JSov5mFWb0Kbq3mNvekMAk_j2pQWancdKddiqG_BF4BxZ0XOE42PkcoQhLptCuuFKkMoZ_NF0_sIBH2zcnuHgIQ7nWQy8NE7KwXKHM2REuqTSl-IRTzB6KBOLVxXszqyJ_1AFzcRlir_7HqCx4qTkozRCONK5gxGRarLoTe5rTgXrjK7K55yhUMiNRqVz0idPcp7NP-EXSxiiNBhQ5zdxuSWdMidfbv4DzSdneN_Yfg"
     },
     {
-      number: "05 / KEEPSAKE",
+      number: "05 / GIFT",
       tag: "Hand-Stitched",
       title: "Heirloom Mini Plush Bear",
-      desc: "Ultra-soft ivory keepsake bear clasping an embroidered linen heart badge emblazoned with couple's initials and wedding crest.",
+      desc: "Ultra-soft ivory gift bear clasping an embroidered linen heart badge emblazoned with couple's initials and wedding crest.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFTi-7toUzDuva-Q4tDn8FHOAr7-tQgN4B03zj4R7WfZZ_wUw_T2A3B7uXcGoGsddF6bas38JG5aFx8jib9nGLEBpnf9fVnHOQ8p_M2M0fNhDHx0wO8UaM0ObKv6y_BX1D0veIwYNoro2pD4w1Gf5mLBZsq9JPcL25_hH06w7mdIQRWJMS5wu8sETSiY1lJEGNHpxSSnqhwsVxHdJ9-ovUzPV0DulE6Fq86KmVRw7-5KL5zGmbirwp3A"
     },
     {
@@ -86,7 +86,7 @@ const SOVEREIGN_ASSETS = {
     {
       stars: 5,
       location: "Udaipur Palace Wedding",
-      quote: "“The moment my bridal party walked into the suite and saw this hamper bouquet waiting on the console, tears were shed. The gold debossed monogram was flawless!”",
+      quote: "“The moment my bridal party walked into the suite and saw this hamper bouquet waiting on the console, tears were shed. The gold debossed initials was flawless!”",
       couple: "Shagufta & Sagil",
       venue: "The Oberoi Udaivilas • Nov 2025",
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3sD9w-rArHkDsCYYg1Zia1AGrr1CWOIXQDctwONQJgRZF8f0P7zQ7kSVhU6qiHFhGrbu8afOcFrKIPhKfFVtSs7wTSgiKn13djK7LYagnNqZT_Go8ATuNB-rHyGFCTXbMU5wldHalGeA9R18BfpSdTQylMnm_31uEPULeLtriXsUyuWv8sqMSjXshUIOe7FRmsFOdGfdYLlcNI_jcxdCLy9MOBEzrDYOv9Hzxfyi6xbPFu2Vfbu1M-w"
@@ -101,8 +101,8 @@ const SOVEREIGN_ASSETS = {
     },
     {
       stars: 5,
-      location: "Jaipur Heritage Manor",
-      quote: "“We ordered 12 custom editions for our bridal trousseau and mothers of the bride. Every single recipient commented on the sublime calligraphy and silk ribbons.”",
+      location: "Jaipur Classic Manor",
+      quote: "“We ordered 12 custom editions for our bridal wedding essentials and mothers of the bride. Every single recipient commented on the sublime calligraphy and silk ribbons.”",
       couple: "Jawed & Asra",
       venue: "Rambagh Palace • Feb 2026",
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-EeDizGUpXOdey894D42IcSpiT4uIFXVPPrnorAEt3WpUTxuWbn45LVahBD3Mz1EpINph0xazx58OO93yWfBrRg14scSU2DRzCQa5QAajb7ypO9tBXjWYFWAfDZEfAfYQgUNmlbf0csgLfqK6R_PdVfOxty5T_K7fx9Oc-uw1TAj41BASOulpiShpuRj_rdhSqLKSFAh4G-SUrUtgR6ClP1JHjtSOmePYnSV9uw1lcp2OUWF2m6wiGg"
@@ -111,11 +111,11 @@ const SOVEREIGN_ASSETS = {
   faqs: [
     {
       q: "Can I customize or swap individual items inside the hamper suite?",
-      a: "Yes. Our bridal concierge team works directly with couples to substitute fragrances, replace confections with vegan alternatives, or incorporate custom jewelry boxes. Simply connect via the WhatsApp concierge button above or mention your request in your order notes."
+      a: "Yes. Our bridal support team works directly with couples to substitute fragrances, replace confections with vegan alternatives, or incorporate custom jewelry boxes. Simply connect via the WhatsApp support button above or mention your request in your order notes."
     },
     {
       q: "How long does personalized production and gold debossing take?",
-      a: "Custom monograms are engraved and foil-stamped within 24 to 48 hours in our Hyderabad & Bengaluru flagships. Express delivery ensures transit within 2-3 business days across all metro cities in India."
+      a: "Custom initials are engraved and foil-stamped within 24 to 48 hours in our Hyderabad & Bengaluru flagships. Express delivery ensures transit within 2-3 business days across all metro cities in India."
     },
     {
       q: "Are the fresh florals and chocolate confections protected against transit heat?",
@@ -136,15 +136,15 @@ const SOVEREIGN_ASSETS = {
     },
     {
       id: "velvet-ring-vault",
-      category: "Keepsake",
-      title: "Bespoke Velvet Double Ring Vault",
+      category: "Gift",
+      title: "Customized Velvet Double Ring Vault",
       price: 1899,
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFvrpHU1rtxcVSiED_VZVbzvbrfo4TebQh7yehHigZUHzvyAVfDi4ulvNUSpTYnVCR_uAVCO0lUINkgPIJrBEUGd61mLiKWMNx_BqhhbF_mGgGRXP9ewsKEzBnISXIi_o9vKz8zrsqfFEXHXD90LU16eRcol4uP8nzaqgZChP73mKRgXvJOm-qajJ953Ho4sOb39_FiGgYwB1er6TC_5lb8uOf4G5ao30_YUlDpfS6SqEets_SUpr86g"
     },
     {
       id: "mulberry-silk-robes",
       category: "Bridal Wear",
-      title: "Monogrammed Mulberry Silk Robe",
+      title: "Initials Mulberry Silk Robe",
       price: 2499,
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDa305tXF9m3umYmmqG1iFodSJI4WEbNycVaAniOwW2Fg3G4HvSTqXgEvdDnxiZc0Qee5tWKuGensqm_0qwhnNAW9oRVdL2-L7_7vxt1-GQtPBkNDn-TAvuEtNs17rY3X32AmYUiR_Sp8U3n2-gJgNaR90SqrdvkHjCSM1YeXUd4QQgf7vRGmzeFtcAcZMX2-qbuI4O1uLmbEu--fOcu2nMmjxff0yFWzJS8nxEi5QWzQRlCpS3M_x4QA"
     },
@@ -212,7 +212,7 @@ const ProductDetailPage = () => {
   const [brideName, setBrideName] = useState('Asra');
   const [groomName, setGroomName] = useState('Shahnawaz');
   const [weddingDate, setWeddingDate] = useState('2026-11-18');
-  const [crestStyle, setCrestStyle] = useState('heritage'); // 'heritage', 'artdeco', 'modern'
+  const [crestStyle, setCrestStyle] = useState('classic'); // 'classic', 'artdeco', 'modern'
   const [cardInscription, setCardInscription] = useState('Beautiful People Make Beautiful Memories');
   const [calligraphyHand, setCalligraphyHand] = useState('Royal Copperplate Script');
   const [selectedScent, setSelectedScent] = useState('Kashmiri Rose');
@@ -253,7 +253,7 @@ const ProductDetailPage = () => {
     }
   };
 
-  // Live Monogram Display
+  // Live Initials Display
   const brideInitial = brideName.trim() ? brideName.trim()[0].toUpperCase() : 'A';
   const groomInitial = groomName.trim() ? groomName.trim()[0].toUpperCase() : 'R';
   const initialsDisplay = `${brideInitial} & ${groomInitial}`;
@@ -270,7 +270,7 @@ const ProductDetailPage = () => {
           fontClass: 'font-sans font-medium tracking-[0.25em] text-primary',
           label: 'Modern Minimalist Architectural Serif Die'
         };
-      case 'heritage':
+      case 'classic':
       default:
         return {
           fontClass: 'font-serif font-bold tracking-wider text-primary',
@@ -323,7 +323,7 @@ const ProductDetailPage = () => {
       brideName,
       groomName,
       weddingDate,
-      crestStyle: crestStyle === 'heritage' ? 'Heritage Floral Crest' : crestStyle === 'artdeco' ? 'Art Deco Intertwined' : 'Modern Minimalist Serif',
+      crestStyle: crestStyle === 'classic' ? 'Classic Floral Crest' : crestStyle === 'artdeco' ? 'Art Deco Intertwined' : 'Modern Minimalist Serif',
       cardInscription,
       calligraphyScript: calligraphyHand,
       scentChoice: selectedScent,
@@ -357,9 +357,9 @@ const ProductDetailPage = () => {
           <span className="text-outline-variant font-serif">/</span>
           <Link to="/collections" className="hover:text-primary transition-colors">Wedding</Link>
           <span className="text-outline-variant font-serif">/</span>
-          <Link to="/shop?category=bridal-hampers" className="hover:text-primary transition-colors">Bespoke Bridal Suites</Link>
+          <Link to="/shop?category=bridal-hampers" className="hover:text-primary transition-colors">Customized Bridal Suites</Link>
           <span className="text-outline-variant font-serif">/</span>
-          <span className="text-on-surface font-semibold truncate">The Sovereign Bridal &amp; Trousseau Suite</span>
+          <span className="text-on-surface font-semibold truncate">The Sovereign Bridal &amp; Wedding Essentials Suite</span>
         </div>
       </nav>
 
@@ -367,7 +367,7 @@ const ProductDetailPage = () => {
       <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin py-space-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-start">
           
-          {/* Left Column: Atelier Media Gallery */}
+          {/* Left Column: Collection Media Gallery */}
           <div className="lg:col-span-6 flex flex-col gap-space-md lg:sticky lg:top-28">
             
             {/* Main Spotlight Frame */}
@@ -375,11 +375,11 @@ const ProductDetailPage = () => {
               <img
                 id="mainProductImage"
                 src={activeImage}
-                alt="The Sovereign Bridal & Trousseau Suite"
+                alt="The Sovereign Bridal & Wedding Essentials Suite"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               
-              {/* Atelier Floating Badges */}
+              {/* Collection Floating Badges */}
               <div className="absolute top-4 left-4 flex flex-col gap-2 z-10 pointer-events-none">
                 <span className="bg-inverse-surface/90 backdrop-blur-md text-secondary-fixed text-label-sm font-label-sm uppercase tracking-widest px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[14px] text-primary-fixed">diamond</span>
@@ -428,7 +428,7 @@ const ProductDetailPage = () => {
               })}
             </div>
 
-            {/* Atelier Trust Guarantee Badges */}
+            {/* Collection Trust Guarantee Badges */}
             <div className="grid grid-cols-3 gap-2 py-space-sm bg-surface-container-low rounded-xl px-space-md border border-outline-variant/30">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[20px] text-primary shrink-0">storefront</span>
@@ -454,7 +454,7 @@ const ProductDetailPage = () => {
             </div>
           </div>
 
-          {/* Right Column: Bespoke Customizer & Details */}
+          {/* Right Column: Customized Customizer & Details */}
           <div className="lg:col-span-6 flex flex-col gap-space-lg">
             
             {/* Title & Identification */}
@@ -482,7 +482,7 @@ const ProductDetailPage = () => {
               </div>
 
               <h1 className="font-headline-lg text-headline-lg text-on-surface leading-tight font-normal">
-                The Sovereign Bridal &amp; Trousseau Suite
+                The Sovereign Bridal &amp; Wedding Essentials Suite
               </h1>
 
               {/* Rating & Activity Meter */}
@@ -497,7 +497,7 @@ const ProductDetailPage = () => {
                 <span className="text-outline-variant hidden sm:inline">•</span>
                 <div className="flex items-center gap-1.5 text-primary text-label-sm font-label-sm font-semibold uppercase tracking-wider">
                   <span className="material-symbols-outlined text-[16px] animate-pulse">local_fire_department</span>
-                  <span>28 Curations Inquired Today</span>
+                  <span>28 Collections Inquired Today</span>
                 </div>
               </div>
             </div>
@@ -516,13 +516,13 @@ const ProductDetailPage = () => {
                 </span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Inclusive of all taxes, complimentary 24k gold leaf calligraphy card, and custom bronze monogram wax stamp.
+                Inclusive of all taxes, complimentary 24k gold leaf calligraphy card, and custom bronze initials wax stamp.
               </p>
               <div className="mt-2 pt-2 bg-surface-container-low px-space-md py-2 rounded-lg flex items-center justify-between border border-outline-variant/30">
                 <div className="flex items-center gap-2 text-on-surface">
                   <span className="material-symbols-outlined text-primary text-[18px]">workspace_premium</span>
                   <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wide">
-                    Earn 750 Atelier Privilege Points + Free Insured Express Delivery
+                    Earn 750 Collection Privilege Points + Free Insured Express Delivery
                   </span>
                 </div>
                 <span className="material-symbols-outlined text-primary text-[16px] cursor-help" title="Privilege rewards earned on every custom commission">
@@ -531,7 +531,7 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            {/* Bespoke Customizer Form */}
+            {/* Customized Customizer Form */}
             <div className="flex flex-col gap-space-lg">
               
               {/* 1. Select Suite Palette Edition */}
@@ -581,11 +581,11 @@ const ProductDetailPage = () => {
                 </div>
               </div>
 
-              {/* 2. Monogram & Personalization Details */}
+              {/* 2. Initials & Personalization Details */}
               <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md border border-outline-variant/40">
                 <div className="flex items-center justify-between">
                   <label className="font-title-sm text-title-sm text-on-surface font-semibold uppercase tracking-wider">
-                    2. Couple's Monogram &amp; Personalization
+                    2. Couple's Initials &amp; Personalization
                   </label>
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">
                     Complimentary
@@ -643,14 +643,14 @@ const ProductDetailPage = () => {
                       onChange={(e) => setCrestStyle(e.target.value)}
                       className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
                     >
-                      <option value="heritage">Heritage Floral Crest</option>
+                      <option value="classic">Classic Floral Crest</option>
                       <option value="artdeco">Art Deco Intertwined</option>
                       <option value="modern">Modern Minimalist Serif</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Live Monogram Die Preview Box */}
+                {/* Live Initials Die Preview Box */}
                 <div className="p-space-md bg-secondary-container/25 rounded-lg flex items-center justify-between border border-secondary-container/40">
                   <div className="flex items-center gap-space-md">
                     <div className="w-16 h-16 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary text-xl tracking-wider transition-all duration-300 border border-outline-variant/40">
@@ -671,11 +671,11 @@ const ProductDetailPage = () => {
                 </div>
               </div>
 
-              {/* 3. Custom Keepsake Card Inscription */}
+              {/* 3. Custom Gift Card Inscription */}
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between items-center">
                   <label className="font-title-sm text-title-sm text-on-surface font-semibold uppercase tracking-wider">
-                    3. Custom Keepsake Card Inscription
+                    3. Custom Gift Card Inscription
                   </label>
                   <span className="font-label-sm text-label-sm text-outline">
                     {cardInscription.length} / 150
@@ -834,7 +834,7 @@ const ProductDetailPage = () => {
                 >
                   <span className="material-symbols-outlined text-[18px] text-secondary">chat</span>
                   <span className="font-label-sm text-label-sm uppercase tracking-wider font-semibold">
-                    Consult Dedicated Atelier Stylist via WhatsApp
+                    Consult Dedicated Collection Stylist via WhatsApp
                   </span>
                 </a>
 
@@ -844,7 +844,7 @@ const ProductDetailPage = () => {
                     to="/bulk-orders"
                     className="font-label-sm text-label-sm text-primary hover:text-on-surface uppercase tracking-widest font-semibold transition-colors underline underline-offset-4"
                   >
-                    Planning Destination Wedding Gifting? Enquire for Custom Bulk Curation →
+                    Planning Destination Wedding Gifting? Enquire for Custom Bulk Collection →
                   </Link>
                 </div>
               </div>
@@ -859,7 +859,7 @@ const ProductDetailPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin">
           <div className="flex flex-col items-center text-center mb-space-xl">
             <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-bold">
-              The Complete Trousseau Ensemble
+              The Complete Wedding Essentials Ensemble
             </span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface mt-1 font-normal">
               What's Inside The Sovereign Suite
@@ -905,7 +905,7 @@ const ProductDetailPage = () => {
         </div>
       </section>
 
-      {/* Section: The Atelier Craftsmanship Story (Split Editorial Layout) */}
+      {/* Section: The Collection Craftsmanship Story (Split Editorial Layout) */}
       <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin py-space-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
           
@@ -929,7 +929,7 @@ const ProductDetailPage = () => {
                     24k Gold Foil Stamp Debossing
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">
-                    Each monogram die is individually cast for your ceremony, creating an enduring physical keepsake.
+                    Each initials die is individually cast for your ceremony, creating an enduring physical gift.
                   </span>
                 </div>
               </div>
@@ -983,10 +983,10 @@ const ProductDetailPage = () => {
               <div className="p-space-md bg-inverse-surface text-inverse-on-surface rounded-xl shadow-md">
                 <span className="material-symbols-outlined text-primary-fixed text-[28px] mb-1">auto_awesome</span>
                 <span className="font-headline-sm text-headline-sm block text-secondary-fixed">
-                  Private Atelier Custom Die
+                  Private Collection Custom Die
                 </span>
                 <span className="font-body-sm text-body-sm text-tertiary-fixed-dim mt-1 block">
-                  Preserved and gifted to the couple in a velvet keepsake pouch.
+                  Preserved and gifted to the couple in a velvet gift pouch.
                 </span>
               </div>
               <img
@@ -1071,7 +1071,7 @@ const ProductDetailPage = () => {
       <section className="w-full max-w-4xl mx-auto px-4 sm:px-8 lg:px-margin py-space-xl">
         <div className="flex flex-col items-center text-center mb-space-lg">
           <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-bold">
-            Atelier Inquiries
+            Collection Inquiries
           </span>
           <h2 className="font-headline-lg text-headline-lg text-on-surface mt-1 font-normal">
             Frequently Addressed Questions
@@ -1111,7 +1111,7 @@ const ProductDetailPage = () => {
         </div>
       </section>
 
-      {/* Section: Complete The Bridal Suite (Cross-Sell Curations) */}
+      {/* Section: Complete The Bridal Suite (Cross-Sell Collections) */}
       <section className="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin">
           <div className="flex flex-col items-center text-center mb-space-xl">
@@ -1122,7 +1122,7 @@ const ProductDetailPage = () => {
               Complete The Bridal Suite
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mt-1">
-              Heirloom stationery and trousseau accents created to match your Sovereign Suite colorway.
+              Heirloom stationery and wedding essentials accents created to match your Sovereign Suite colorway.
             </p>
           </div>
 
@@ -1200,10 +1200,10 @@ const ProductDetailPage = () => {
                   <span className="material-symbols-outlined text-[32px]">play_arrow</span>
                 </div>
                 <h4 className="font-serif text-lg text-inverse-on-surface font-semibold">
-                  Atelier Sovereign Unboxing Ritual
+                  Collection Sovereign Unboxing Ritual
                 </h4>
                 <p className="font-body-sm text-xs text-tertiary-fixed-dim max-w-md">
-                  Experience the ceremonial reveal of our custom debossed 24k gold monogram hatbox, pure French fragrance mist, and preserved dawn florals.
+                  Experience the ceremonial reveal of our custom debossed 24k gold initials hatbox, pure French fragrance mist, and preserved dawn florals.
                 </p>
               </div>
             </div>
