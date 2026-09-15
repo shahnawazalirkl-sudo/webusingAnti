@@ -251,7 +251,7 @@ const CLAUSES = [
               </div>
               <div>
                 <span className="font-medium text-[#111111]">Concierge Desk:</span>{' '}
-                <a href="tel:+919121445889" className="hover:text-[#C5A059] transition-colors">
+                <a href="tel:+919692668263" className="hover:text-[#C5A059] transition-colors">
                   +91 9121 445 889
                 </a>
               </div>
@@ -628,7 +628,7 @@ const PrivacyPolicyPage = () => {
                     Request Custom NDA Execution
                   </button>
                   <a
-                    href="tel:+919121445889"
+                    href="tel:+919692668263"
                     className="text-[10px] text-[#888888] text-center hover:text-[#C5A059] transition-colors"
                   >
                     Direct line: +91 9121 445 889

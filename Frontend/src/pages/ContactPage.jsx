@@ -733,7 +733,7 @@ const ContactPage = () => {
                 <div className="space-y-2 text-xs text-gray-700 py-3 border-y border-asra-border/70 font-light">
                   <div className="flex items-center justify-between">
                     <span>Direct Atelier Phone:</span>
-                    <a href="tel:+919121445889" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
+                    <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
                       +91 9121 445 889
                     </a>
                   </div>
@@ -784,7 +784,7 @@ const ContactPage = () => {
                 <div className="space-y-2 text-xs text-gray-700 py-3 border-y border-asra-border/70 font-light">
                   <div className="flex items-center justify-between">
                     <span>Direct Atelier Phone:</span>
-                    <a href="tel:+919121445890" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
+                    <a href="tel:+919692668263" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
                       +91 9121 445 890
                     </a>
                   </div>

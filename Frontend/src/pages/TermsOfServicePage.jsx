@@ -649,7 +649,7 @@ const TermsOfServicePage = () => {
               
               <div className="space-y-2">
                 <a
-                  href="https://wa.me/919121445889"
+                  href="https://wa.me/919692668263"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#C5A059] hover:bg-[#B38E46] text-[#141414] font-semibold text-xs py-2.5 px-4 rounded-lg transition-colors shadow-xs"

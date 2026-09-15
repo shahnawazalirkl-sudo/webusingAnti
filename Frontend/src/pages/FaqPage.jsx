@@ -589,7 +589,7 @@ const FaqPage = () => {
                     Reset Search
                   </button>
                   <a
-                    href="https://wa.me/919820144520?text=Hello%20ASRA%2C%20I%20have%20a%20question%20about%20a%20wedding%20order."
+                    href="https://wa.me/919692668263?text=Hello%20ASRA%2C%20I%20have%20a%20question%20about%20a%20wedding%20order."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-[#25D366] text-white rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#1EBE5D] transition-colors flex items-center gap-1.5"
@@ -631,7 +631,7 @@ const FaqPage = () => {
 
               {/* WhatsApp CTA Button */}
               <a
-                href="https://wa.me/919820144520?text=Hello%20ASRA%20Concierge%2C%20I%20need%20urgent%20assistance%20with%20my%20wedding%20commission."
+                href="https://wa.me/919692668263?text=Hello%20ASRA%20Concierge%2C%20I%20need%20urgent%20assistance%20with%20my%20wedding%20commission."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 px-4 rounded-lg font-medium text-xs tracking-wider transition-all shadow-md active:scale-[0.99] uppercase"
