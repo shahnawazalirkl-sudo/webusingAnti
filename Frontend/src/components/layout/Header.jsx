@@ -293,41 +293,115 @@ const Header = () => {
                   </span>
                 </Link>
                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[90vw]">
-                  <div className="w-[680px] max-w-[90vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-lg grid grid-cols-3 gap-space-lg text-left backdrop-blur-md">
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">draw</span> By Custom Craft
+                  <div className="w-[520px] max-w-[90vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md grid grid-cols-2 gap-space-md text-left backdrop-blur-md">
+                    <div className="flex flex-col gap-1">
+                      <span className="font-headline-sm text-[14px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
+                        <span className="material-symbols-outlined text-[17px]">brush</span> By Craft Technique
                       </span>
-                      <Link to="/personalized?search=gold+foil+monograms" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Gold &amp; Rose Foil Monograms</Link>
-                      <Link to="/personalized?search=blind+debossing" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Deep Blind Debossing</Link>
-                      <Link to="/personalized?search=laser+engraved+wood" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Precision Laser Engraved Wood</Link>
-                      <Link to="/personalized?search=scannable+acrylic" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">High-Clarify Scannable Acrylic</Link>
-                      <Link to="/personalized?search=wax+monograms" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Hand-Poured Wax Monograms</Link>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">person</span> By Recipient
-                      </span>
-                      <Link to="/personalized?search=bride+bridesmaids" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bride &amp; Bridesmaids Keepsakes</Link>
-                      <Link to="/personalized?search=groom+groomsmen" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Groom &amp; Groomsmen Suites</Link>
-                      <Link to="/personalized?search=parents+couple+favors" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Parents of the Couple Favors</Link>
-                      <Link to="/personalized?search=couple+anniversary" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Couple &amp; Anniversary Gifts</Link>
-                      <Link to="/personalized?search=newborn+nursery" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Newborn &amp; Nursery Keepsakes</Link>
-                    </div>
-
-                    <div className="flex flex-col gap-2 bg-secondary-container/20 rounded-lg p-3 border border-secondary-container/50 justify-between">
-                      <div>
-                        <span className="font-label-sm text-[10px] text-primary uppercase font-bold tracking-wider">
-                          Complimentary Customization
+                      <Link
+                        to="/personalized"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">All Techniques</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
                         </span>
-                        <p className="font-body-sm text-xs text-on-surface-variant mt-1.5 leading-relaxed">
-                          All bespoke initials, couples crests, and date engraving proofs are rendered free within 6 hours.
-                        </p>
-                      </div>
-                      <Link to="/personalized" className="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                        <span>Personalization Studio</span>
-                        <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                      </Link>
+                      <Link
+                        to="/personalized?craft=monogram"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Monogrammed</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?craft=velvet"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Velvet &amp; Silk</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?craft=wax"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Wax &amp; Deckle</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?craft=botanical"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Preserved Florals</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?craft=gold"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Gold Foil</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                      <span className="font-headline-sm text-[14px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
+                        <span className="material-symbols-outlined text-[17px]">person</span> By Recipient
+                      </span>
+                      <Link
+                        to="/personalized"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">All Recipients</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?recipient=bride"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Bride &amp; Bridesmaids</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?recipient=groom"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Groom &amp; Groomsmen</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?recipient=couple"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Couple &amp; Anniversary</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
+                      </Link>
+                      <Link
+                        to="/personalized?recipient=parents"
+                        className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
+                      >
+                        <span className="font-medium text-xs">Parents of the Couple</span>
+                        <span className="material-symbols-outlined text-[14px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">
+                          arrow_forward
+                        </span>
                       </Link>
                     </div>
                   </div>

@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { PRODUCTS } from '../data/productsData';
 
 const PersonalizedPage = () => {
-  const [craftFilter, setCraftFilter] = useState('all');
-  const [recipientFilter, setRecipientFilter] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [craftFilter, setCraftFilter] = useState(searchParams.get('craft') || 'all');
+  const [recipientFilter, setRecipientFilter] = useState(searchParams.get('recipient') || 'all');
+
+  useEffect(() => {
+    setCraftFilter(searchParams.get('craft') || 'all');
+    setRecipientFilter(searchParams.get('recipient') || 'all');
+  }, [searchParams]);
 
   const filtered = PRODUCTS.filter((p) => {
     if (craftFilter !== 'all') {
