@@ -299,7 +299,7 @@ const Header = () => {
                         <span className="material-symbols-outlined text-[17px]">brush</span> By Craft Technique
                       </span>
                       <Link
-                        to="/personalized"
+                        to="/personalized#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">All Techniques</span>
@@ -308,7 +308,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?craft=monogram"
+                        to="/personalized?craft=monogram#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Monogrammed</span>
@@ -317,7 +317,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?craft=velvet"
+                        to="/personalized?craft=velvet#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Velvet &amp; Silk</span>
@@ -326,7 +326,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?craft=wax"
+                        to="/personalized?craft=wax#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Wax &amp; Deckle</span>
@@ -335,7 +335,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?craft=botanical"
+                        to="/personalized?craft=botanical#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Preserved Florals</span>
@@ -344,7 +344,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?craft=gold"
+                        to="/personalized?craft=gold#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Gold Foil</span>
@@ -359,7 +359,7 @@ const Header = () => {
                         <span className="material-symbols-outlined text-[17px]">person</span> By Recipient
                       </span>
                       <Link
-                        to="/personalized"
+                        to="/personalized#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">All Recipients</span>
@@ -368,7 +368,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?recipient=bride"
+                        to="/personalized?recipient=bride#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Bride &amp; Bridesmaids</span>
@@ -377,7 +377,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?recipient=groom"
+                        to="/personalized?recipient=groom#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Groom &amp; Groomsmen</span>
@@ -386,7 +386,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?recipient=couple"
+                        to="/personalized?recipient=couple#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Couple &amp; Anniversary</span>
@@ -395,7 +395,7 @@ const Header = () => {
                         </span>
                       </Link>
                       <Link
-                        to="/personalized?recipient=parents"
+                        to="/personalized?recipient=parents#products"
                         className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-2.5 py-1.5 transition-colors flex items-center justify-between group/item"
                       >
                         <span className="font-medium text-xs">Parents of the Couple</span>

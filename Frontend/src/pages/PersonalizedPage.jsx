@@ -1,17 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { PRODUCTS } from '../data/productsData';
 
 const PersonalizedPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   const [craftFilter, setCraftFilter] = useState(searchParams.get('craft') || 'all');
   const [recipientFilter, setRecipientFilter] = useState(searchParams.get('recipient') || 'all');
+  const productSectionRef = useRef(null);
 
   useEffect(() => {
-    setCraftFilter(searchParams.get('craft') || 'all');
-    setRecipientFilter(searchParams.get('recipient') || 'all');
-  }, [searchParams]);
+    const c = searchParams.get('craft') || 'all';
+    const r = searchParams.get('recipient') || 'all';
+    setCraftFilter(c);
+    setRecipientFilter(r);
+
+    // If navigated with a filter or #products anchor, directly scroll to the product section
+    const hasFilterOrAnchor = c !== 'all' || r !== 'all' || location.hash === '#products';
+    if (hasFilterOrAnchor && productSectionRef.current) {
+      setTimeout(() => {
+        if (productSectionRef.current) {
+          const headerOffset = 110;
+          const elementPosition = productSectionRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 60);
+    }
+  }, [searchParams, location.hash]);
 
   const filtered = PRODUCTS.filter((p) => {
     if (craftFilter !== 'all') {
@@ -75,7 +95,11 @@ const PersonalizedPage = () => {
       </div>
 
       {/* Craft & Recipient Filters */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-outline-variant/40">
+      <div
+        id="products"
+        ref={productSectionRef}
+        className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-outline-variant/40 scroll-mt-28"
+      >
         <div className="flex items-center gap-2 flex-wrap text-xs">
           <span className="text-outline uppercase text-[10px] font-bold">Craft:</span>
           {[
