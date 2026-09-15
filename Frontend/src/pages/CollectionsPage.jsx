@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 
@@ -121,8 +121,63 @@ const CATEGORIES = [
   'Royal Heritage Suite'
 ];
 
+const CATEGORY_SLUG_MAP = {
+  'all': 'All Collections',
+  'all-collections': 'All Collections',
+  'bridal-trousseau': 'Bridal & Trousseau Series',
+  'bridal-trousseau-series': 'Bridal & Trousseau Series',
+  'heirloom-woodcraft': 'The Heirloom Woodcraft',
+  'the-heirloom-woodcraft': 'The Heirloom Woodcraft',
+  'floral-preservation': 'Botanical & Floral Preservation',
+  'botanical-floral-preservation': 'Botanical & Floral Preservation',
+  'velvet-leather': 'Velvet & Gilded Leather',
+  'velvet-gilded-leather': 'Velvet & Gilded Leather',
+  'celestial-acrylic': 'Celestial Acrylic & Soundwave',
+  'celestial-acrylic-soundwave': 'Celestial Acrylic & Soundwave',
+  'destination-favors': 'Destination Wedding Favors',
+  'destination-wedding-favors': 'Destination Wedding Favors',
+  'royal-heritage': 'Royal Heritage Suite',
+  'royal-heritage-suite': 'Royal Heritage Suite',
+};
+
+const resolveCategory = (param) => {
+  if (!param) return 'All Collections';
+  const lower = param.toLowerCase().trim();
+  if (CATEGORY_SLUG_MAP[lower]) return CATEGORY_SLUG_MAP[lower];
+  const matched = CATEGORIES.find(c => c.toLowerCase() === lower);
+  if (matched) return matched;
+  return 'All Collections';
+};
+
 const CollectionsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All Collections');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const productsSectionRef = useRef(null);
+
+  const initialCat = resolveCategory(searchParams.get('category') || searchParams.get('cat'));
+  const [selectedCategory, setSelectedCategory] = useState(initialCat);
+
+  // Sync category from URL params and scroll directly to products
+  useEffect(() => {
+    const rawParam = searchParams.get('category') || searchParams.get('cat');
+    const targetCategory = resolveCategory(rawParam);
+    setSelectedCategory(targetCategory);
+
+    const hasCategoryOrAnchor = (rawParam && targetCategory !== 'All Collections') || location.hash === '#products';
+    if (hasCategoryOrAnchor && productsSectionRef.current) {
+      setTimeout(() => {
+        if (productsSectionRef.current) {
+          const headerOffset = 120;
+          const elementPosition = productsSectionRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 70);
+    }
+  }, [searchParams, location.hash]);
   const { showToast } = useCart();
   const { isWishlisted, toggleWishlist } = useWishlist();
 
@@ -252,7 +307,15 @@ const CollectionsPage = () => {
                   <button
                     key={category}
                     type="button"
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      const slug = Object.keys(CATEGORY_SLUG_MAP).find(k => CATEGORY_SLUG_MAP[k] === category);
+                      if (category === 'All Collections') {
+                        setSearchParams({});
+                      } else {
+                        setSearchParams({ category: slug || category });
+                      }
+                    }}
                     className={`tab-pill px-space-md py-space-xs rounded-full font-label-md text-label-md whitespace-nowrap transition-all duration-200 cursor-pointer ${
                       isActive
                         ? 'bg-primary text-on-primary shadow-sm font-semibold'
@@ -359,7 +422,11 @@ const CollectionsPage = () => {
           </section>
 
           {/* 8 Signature Collections Grid */}
-          <section className="max-w-[1360px] mx-auto px-margin mb-space-xl">
+          <section
+            id="products"
+            ref={productsSectionRef}
+            className="max-w-[1360px] mx-auto px-margin mb-space-xl scroll-mt-32"
+          >
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-3">
               <div>
                 <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary block mb-1">

@@ -496,27 +496,67 @@ const Header = () => {
                     keyboard_arrow_down
                   </span>
                 </Link>
-                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto">
-                  <div className="w-[560px] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-lg grid grid-cols-2 gap-space-lg text-left backdrop-blur-md">
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">diamond</span> Signature Series
-                      </span>
-                      <Link to="/collections?search=royal+heritage+trousseau" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">The Royal Heritage Trousseau</Link>
-                      <Link to="/collections?search=aura+acrylic+led" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Aura Acrylic &amp; LED Melodies</Link>
-                      <Link to="/collections?search=tuscan+leather+travel" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Tuscan Leather Travel Suites</Link>
-                      <Link to="/collections?search=velvet+heirloom+jewel" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Velvet Heirloom Jewel Cases</Link>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">filter_vintage</span> Seasonal Releases
-                      </span>
-                      <Link to="/collections?search=summer+soiree+2025" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Summer Soirée 2025 Editions</Link>
-                      <Link to="/collections?search=minimalist+nordic+wood" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Minimalist Nordic Wood Hampers</Link>
-                      <Link to="/collections?search=festive+royale+silver" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Festive Royale Silver Accents</Link>
-                      <Link to="/collections?search=anniversary+milestone" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Anniversary Milestone Editions</Link>
-                    </div>
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
+                  <div className="w-[360px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
+                    <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">collections_bookmark</span> Atelier Collections
+                    </span>
+                    <Link
+                      to="/collections#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">All Collections</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=bridal-trousseau#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Bridal &amp; Trousseau Series</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=heirloom-woodcraft#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">The Heirloom Woodcraft</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=floral-preservation#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Botanical &amp; Floral Preservation</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=velvet-leather#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Velvet &amp; Gilded Leather</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=celestial-acrylic#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Celestial Acrylic &amp; Soundwave</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=destination-favors#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Destination Wedding Favors</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/collections?category=royal-heritage#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Royal Heritage Suite</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
                   </div>
                 </div>
               </div>
