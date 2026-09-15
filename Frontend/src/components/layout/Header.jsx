@@ -423,42 +423,60 @@ const Header = () => {
                     keyboard_arrow_down
                   </span>
                 </Link>
-                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto">
-                  <div className="w-[700px] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-lg grid grid-cols-3 gap-space-lg text-left backdrop-blur-md">
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">celebration</span> Wedding Functions
-                      </span>
-                      <Link to="/wedding-keepsakes?search=mehendi+haldi" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Mehendi &amp; Haldi Giveaways</Link>
-                      <Link to="/wedding-keepsakes?search=sangeet+welcome+kits" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Sangeet Welcome Kits</Link>
-                      <Link to="/wedding-keepsakes?search=pheras+token+boxes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Pheras Sacred Token Boxes</Link>
-                      <Link to="/wedding-keepsakes?search=reception+cocktail+favors" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Reception &amp; Cocktail Favors</Link>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">auto_stories</span> Stationery &amp; Registry
-                      </span>
-                      <Link to="/wedding-keepsakes?search=vow+books" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bespoke Vow Books</Link>
-                      <Link to="/wedding-keepsakes?search=save+the+date+hampers" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wax Sealed Save-the-Date Hampers</Link>
-                      <Link to="/wedding-keepsakes?search=registry+concierge" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wedding Registry Concierge</Link>
-                      <Link to="/wedding-keepsakes?search=luggage+tags+destination" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Luggage Tags for Destination Guests</Link>
-                    </div>
-
-                    <div className="bg-surface-container-low rounded-lg p-3 flex flex-col justify-between border border-outline-variant/40">
-                      <div>
-                        <span className="font-label-sm text-[10px] text-primary uppercase font-bold tracking-wider">
-                          Destination Weddings
-                        </span>
-                        <p className="font-body-sm text-xs text-on-surface-variant mt-1">
-                          Coordinated welcome hampers with direct venue dispatch anywhere in India &amp; overseas.
-                        </p>
-                      </div>
-                      <Link to="/bulk-orders" className="text-xs font-semibold text-primary hover:underline flex items-center gap-1 pt-2">
-                        <span>Plan Wedding Gifting</span>
-                        <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-                      </Link>
-                    </div>
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
+                  <div className="w-[340px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
+                    <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px]">celebration</span> Wedding Categories
+                    </span>
+                    <Link
+                      to="/wedding-keepsakes#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">All Wedding Suites</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=bridal-groom#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Bridal &amp; Groom Gifts</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=vow-books#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Vow Books &amp; Stationery</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=trousseau-vaults#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Trousseau &amp; Ring Vaults</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=wedding-favors#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Wedding Favors &amp; Bulk</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=preserved-varmala#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Preserved Varmala Art</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
+                    <Link
+                      to="/wedding-keepsakes?tab=milestone-keepsakes#products"
+                      className="text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg px-3 py-2 transition-colors flex items-center justify-between group/item"
+                    >
+                      <span className="font-medium">Milestone Keepsakes</span>
+                      <span className="material-symbols-outlined text-[16px] text-outline group-hover/item:text-primary transition-transform group-hover/item:translate-x-0.5">arrow_forward</span>
+                    </Link>
                   </div>
                 </div>
               </div>

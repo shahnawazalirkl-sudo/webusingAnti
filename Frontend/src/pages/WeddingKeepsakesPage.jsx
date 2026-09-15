@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { PRODUCTS } from '../data/productsData';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
@@ -75,10 +75,34 @@ const FALLBACK_IMAGE =
 const WeddingKeepsakesPage = () => {
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const productsSectionRef = useRef(null);
 
   // Active sub-category filter tab
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'all');
+
+  // Sync with URL params & direct scroll to products
+  useEffect(() => {
+    const tab = searchParams.get('tab') || 'all';
+    setActiveTab(tab);
+    setCurrentPage(1);
+
+    const hasTabOrAnchor = (tab && tab !== 'all') || location.hash === '#products';
+    if (hasTabOrAnchor && productsSectionRef.current) {
+      setTimeout(() => {
+        if (productsSectionRef.current) {
+          const headerOffset = 120;
+          const elementPosition = productsSectionRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 70);
+    }
+  }, [searchParams, location.hash]);
 
   // Search filter query
   const [searchQuery, setSearchQuery] = useState('');
@@ -603,6 +627,13 @@ const WeddingKeepsakesPage = () => {
                     onClick={() => {
                       setActiveTab(tab.id);
                       setCurrentPage(1);
+                      const newParams = new URLSearchParams(searchParams);
+                      if (tab.id === 'all') {
+                        newParams.delete('tab');
+                      } else {
+                        newParams.set('tab', tab.id);
+                      }
+                      setSearchParams(newParams);
                     }}
                     className={`px-4 py-2 rounded-lg whitespace-nowrap text-xs transition-all font-semibold cursor-pointer shrink-0 ${
                       isActive
@@ -620,7 +651,7 @@ const WeddingKeepsakesPage = () => {
       </div>
 
       {/* Main Content Grid: Sidebar + Product Showcase */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-8 w-full pb-16">
+      <section id="products" ref={productsSectionRef} className="max-w-[1360px] mx-auto px-4 sm:px-8 w-full pb-16 scroll-mt-32">
         {/* Mobile Filter Drawer Open Button & Search Bar on Mobile */}
         <div className="lg:hidden mb-4 flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
