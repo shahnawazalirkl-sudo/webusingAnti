@@ -261,12 +261,16 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-asra-border/60">
-                <a
-                  href="#reservation-docket"
-                  className="inline-flex items-center justify-center w-full py-2.5 text-xs uppercase font-semibold tracking-wider border border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white transition-colors"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('reservation-docket');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="inline-flex items-center justify-center w-full py-2.5 text-xs uppercase font-semibold tracking-wider border border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white transition-colors cursor-pointer"
                 >
                   Select Atelier Location
-                </a>
+                </button>
               </div>
             </div>
 
@@ -284,10 +288,10 @@ const ContactPage = () => {
               </div>
               <div className="mt-8 pt-4 border-t border-asra-border/60">
                 <a
-                  href="mailto:concierge@asraweddingcanvas.com?subject=Private%20Bridal%20Consultation%20Inquiry"
+                  href="mailto:shahnawazalirkl@gmail.com?subject=Private%20Bridal%20Consultation%20Inquiry"
                   className="inline-flex items-center justify-center w-full py-2.5 text-xs uppercase font-semibold tracking-wider bg-asra-gold hover:bg-asra-goldDark text-white transition-colors"
                 >
-                  concierge@asraweddingcanvas.com
+                  shahnawazalirkl@gmail.com
                 </a>
               </div>
             </div>
@@ -399,7 +403,7 @@ const ContactPage = () => {
                           className={`w-full bg-white border text-xs px-3.5 py-2.5 focus:outline-none focus:border-asra-gold focus:ring-1 focus:ring-asra-gold font-light ${
                             formErrors.fullName ? 'border-red-400 bg-red-50/20' : 'border-asra-border'
                           }`}
-                          placeholder="Lady Eleanor Vance"
+                          placeholder="Asra Ansari"
                         />
                         {formErrors.fullName && (
                           <p className="text-[10px] text-red-600 mt-1">{formErrors.fullName}</p>
@@ -415,7 +419,7 @@ const ContactPage = () => {
                           value={formData.partnerName}
                           onChange={handleInputChange}
                           className="w-full bg-white border border-asra-border text-xs px-3.5 py-2.5 focus:outline-none focus:border-asra-gold focus:ring-1 focus:ring-asra-gold font-light"
-                          placeholder="Eleanor &amp; Tariq 2026"
+                          placeholder="Asra &amp; Shahnawaz 2026"
                         />
                       </div>
                     </div>
@@ -452,7 +456,7 @@ const ContactPage = () => {
                           className={`w-full bg-white border text-xs px-3.5 py-2.5 focus:outline-none focus:border-asra-gold focus:ring-1 focus:ring-asra-gold font-light ${
                             formErrors.email ? 'border-red-400 bg-red-50/20' : 'border-asra-border'
                           }`}
-                          placeholder="eleanor@atelier.com"
+                          placeholder="shahnawazalirkl@gmail.com"
                         />
                         {formErrors.email && (
                           <p className="text-[10px] text-red-600 mt-1">{formErrors.email}</p>
@@ -739,8 +743,8 @@ const ContactPage = () => {
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Private Email:</span>
-                    <a href="mailto:jubilee@asraweddingcanvas.com" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
-                      jubilee@asraweddingcanvas.com
+                    <a href="mailto:shahnawazalirkl@gmail.com" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
+                      shahnawazalirkl@gmail.com
                     </a>
                   </div>
                 </div>
@@ -790,8 +794,8 @@ const ContactPage = () => {
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Private Email:</span>
-                    <a href="mailto:bengaluru@asraweddingcanvas.com" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
-                      bengaluru@asraweddingcanvas.com
+                    <a href="mailto:shahnawazalirkl@gmail.com" className="font-medium text-asra-charcoal hover:text-asra-gold transition-colors">
+                      shahnawazalirkl@gmail.com
                     </a>
                   </div>
                 </div>
@@ -955,7 +959,7 @@ const ContactPage = () => {
                       required
                       value={swatchAddress.name}
                       onChange={(e) => setSwatchAddress({ ...swatchAddress, name: e.target.value })}
-                      placeholder="Lady Eleanor Vance"
+                      placeholder="Asra Ansari"
                       className="w-full bg-white border border-asra-border text-xs px-3 py-2 focus:outline-none focus:border-asra-gold"
                     />
                   </div>

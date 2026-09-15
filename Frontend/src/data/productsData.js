@@ -1028,9 +1028,9 @@ export const BULK_CASE_STUDIES = [
     unitsBadge: "350 Monogrammed Welcome Kits",
     title: "The Leela Palace Royal Affair",
     quote: "Every single guest walked into their room at The Leela Palace to find our bespoke gold-embossed keepsake trunk filled with handcrafted botanical perfumes and silk stoles. The ASRA logistics team coordinated directly with hotel concierge seamlessly.",
-    couple: "Ananya & Kabir",
+    couple: "Sagil Doza & Shagufta Naaz",
     subInfo: "Wedding at Udaipur • November 2024",
-    initials: "AK"
+    initials: "SS"
   },
   {
     id: "goa-w-hotel",
@@ -1038,15 +1038,15 @@ export const BULK_CASE_STUDIES = [
     unitsBadge: "180 Botanical Favor Sets",
     title: "Sunset Vows at W Goa",
     quote: "We wanted something light, tactile, and coastal. The customized Italian leather tags with our personalized date and compass emblem along with the deckle-edge itineraries set the tone for the entire 3-day weekend celebration.",
-    couple: "Sanya & Rishabh",
+    couple: "Jawed Ali & Asra Ansari",
     subInfo: "Wedding at Vagator, Goa • January 2025",
-    initials: "SR"
+    initials: "JA"
   }
 ];
 
 export const VERIFIED_REVIEWS = [
   {
-    author: "Aadhya & Rohan S.",
+    author: "Asra & Sk Shahnawaz Ali",
     location: "Udaipur Palace Wedding",
     rating: 5,
     date: "February 2026",
@@ -1054,7 +1054,7 @@ export const VERIFIED_REVIEWS = [
     verified: true
   },
   {
-    author: "Meera & Siddharth K.",
+    author: "Shagufta & Sagil D.",
     location: "Destination Goa",
     rating: 5,
     date: "January 2026",
@@ -1062,7 +1062,7 @@ export const VERIFIED_REVIEWS = [
     verified: true
   },
   {
-    author: "Natasha P.",
+    author: "Miss Sultana Begum",
     location: "Mumbai Atelier Client",
     rating: 5,
     date: "March 2026",

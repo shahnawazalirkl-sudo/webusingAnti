@@ -691,7 +691,7 @@ const AboutUsPage = () => {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Radhika &amp; Arjun"
+                        placeholder="e.g. Asra &amp; Shahnawaz"
                         className="w-full bg-white border border-asra-border px-3.5 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none"
                       />
                     </div>
@@ -719,7 +719,7 @@ const AboutUsPage = () => {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="concierge@example.com"
+                        placeholder="shahnawazalirkl@gmail.com"
                         className="w-full bg-white border border-asra-border px-3.5 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none"
                       />
                     </div>

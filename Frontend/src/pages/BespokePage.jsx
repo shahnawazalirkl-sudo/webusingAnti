@@ -686,7 +686,7 @@ const BespokePage = () => {
                         required
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        placeholder="e.g. Radhika Singhania"
+                        placeholder="e.g. Asra Ansari"
                         className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                       />
                     </div>
@@ -720,7 +720,7 @@ const BespokePage = () => {
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="radhika@example.com"
+                          placeholder="shahnawazalirkl@gmail.com"
                           className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                         />
                       </div>
@@ -873,12 +873,12 @@ const BespokePage = () => {
             <div>
               <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
                 <div className="w-full h-full rounded bg-gradient-to-tr from-[#3b2b1e] to-[#6b4f3a] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
-                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">A &amp; M</span>
+                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">A &amp; S</span>
                   <span className="font-serif text-sm font-bold mt-1">Hand-Carved Walnut Trunk</span>
                   <span className="text-[10px] text-primary-fixed-dim mt-2">24k Gold Debossed Vows</span>
                 </div>
                 <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Aarav &amp; Maya
+                  Commissioned For Asra &amp; Shahnawaz
                 </span>
               </div>
               <div className="p-5">
@@ -916,12 +916,12 @@ const BespokePage = () => {
             <div>
               <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
                 <div className="w-full h-full rounded bg-gradient-to-tr from-[#2f3e37] to-[#516b5e] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
-                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">R &amp; S</span>
+                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">S &amp; S</span>
                   <span className="font-serif text-sm font-bold mt-1">Preserved Jaimala Flora</span>
                   <span className="text-[10px] text-primary-fixed-dim mt-2">Crystal Optical Arch</span>
                 </div>
                 <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Rohan &amp; Simran
+                  Commissioned For Sagil &amp; Shagufta
                 </span>
               </div>
               <div className="p-5">
@@ -959,12 +959,12 @@ const BespokePage = () => {
             <div>
               <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
                 <div className="w-full h-full rounded bg-gradient-to-tr from-[#1f242e] to-[#394458] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
-                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">K &amp; A</span>
+                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">J &amp; A</span>
                   <span className="font-serif text-sm font-bold mt-1">Songwave Audio Light</span>
                   <span className="text-[10px] text-primary-fixed-dim mt-2">Backlit Italian Marble Base</span>
                 </div>
                 <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Kabir &amp; Alisha
+                  Commissioned For Jawed &amp; Asra
                 </span>
               </div>
               <div className="p-5">
@@ -1002,12 +1002,12 @@ const BespokePage = () => {
             <div>
               <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
                 <div className="w-full h-full rounded bg-gradient-to-tr from-[#4a3328] to-[#805844] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
-                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">S &amp; R</span>
+                  <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">Z &amp; S</span>
                   <span className="font-serif text-sm font-bold mt-1">Italian Leather Honeymoon Trunk</span>
                   <span className="text-[10px] text-primary-fixed-dim mt-2">Vintage Brass Die Stamped</span>
                 </div>
                 <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Siddharth &amp; Rhea
+                  Commissioned For Zeeshan &amp; Shagufta
                 </span>
               </div>
               <div className="p-5">

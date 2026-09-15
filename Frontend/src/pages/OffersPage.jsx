@@ -1058,10 +1058,10 @@ const OffersPage = () => {
                     Wedding Concierge Desk
                   </span>
                   <a
-                    href="mailto:concierge@asraweddingcanvas.com"
+                    href="mailto:shahnawazalirkl@gmail.com"
                     className="font-body-sm text-body-sm text-primary hover:underline mt-0.5"
                   >
-                    concierge@asraweddingcanvas.com
+                    shahnawazalirkl@gmail.com
                   </a>
                 </div>
               </div>

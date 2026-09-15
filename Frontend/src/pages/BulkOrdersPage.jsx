@@ -490,7 +490,7 @@ const BulkOrdersPage = () => {
                         type="text"
                         value={formData.coupleNames}
                         onChange={(e) => setFormData({ ...formData, coupleNames: e.target.value })}
-                        placeholder="e.g. Maya &amp; Rohan (#RoMaya2025)"
+                        placeholder="e.g. Asra &amp; Shahnawaz (#AsraShahnawaz2026)"
                         className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-3 py-2.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                       />
                     </div>
@@ -551,7 +551,7 @@ const BulkOrdersPage = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="concierge@example.com"
+                      placeholder="shahnawazalirkl@gmail.com"
                       className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-3 py-2.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                     />
                   </div>

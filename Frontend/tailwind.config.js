@@ -70,8 +70,10 @@ export default {
           ivory: '#FCFAF7',
           sand: '#F4EFE6',
           gold: '#BFA15F',
-          goldDark: '#8F7335',
+          goldDark: '#A68238',
           goldLight: '#DFC994',
+          goldMuted: '#D8BE8A',
+          noir: '#1A1A1A',
           charcoal: '#242321',
           obsidian: '#111111',
           muted: '#74716C',
@@ -79,7 +81,8 @@ export default {
           warmCard: '#FDFBF7',
           dark: '#161616',
           emerald: '#235D43',
-          ruby: '#6B1D2F'
+          ruby: '#6B1D2F',
+          tagBg: '#F5F1EA'
         },
         brand: {
           gold: "#C5A880",

@@ -42,11 +42,11 @@ const CheckoutPage = () => {
   const transitCost = transitMethod === 'diplomatic' ? 1499 : 0;
 
   // Form states
-  const [email, setEmail] = useState('aliskshahnawaz786@gmail.com');
+  const [email, setEmail] = useState('shahnawazalirkl@gmail.com');
   const [phone, setPhone] = useState('96926 68263');
   const [receiveWhatsappProofs, setReceiveWhatsappProofs] = useState(true);
-  const [recipientName, setRecipientName] = useState('Aadhya Singhania & Rohan Varma');
-  const [weddingPlanner, setWeddingPlanner] = useState('Tanya Kapoor (Wedding Architect)');
+  const [recipientName, setRecipientName] = useState('Asra Ansari & Sk Shahnawaz Ali');
+  const [weddingPlanner, setWeddingPlanner] = useState('Shagufta Naaz (Wedding Architect)');
   const [venueName, setVenueName] = useState('The Oberoi Udaivilas, Luxury Kohinoor Suite & Villa 4');
   const [streetAddress, setStreetAddress] = useState('Badi-Gorela Canal Road, Near Lake Pichola');
   const [landmark, setLandmark] = useState('Opposite Trident Hotel');
@@ -56,17 +56,17 @@ const CheckoutPage = () => {
   const [arrivalDate, setArrivalDate] = useState('2026-11-14');
   const [timingSlot, setTimingSlot] = useState('Twilight Royal Arrival (04:00 PM – 08:00 PM)');
   const [chauffeurNotes, setChauffeurNotes] = useState(
-    "Handover strictly to wedding planner Miss Tanya Kapoor at the Kohinoor Suite or Bride's mother Mrs. Singhania."
+    "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum."
   );
   const [monogramConsent, setMonogramConsent] = useState(true);
 
   // Settlement / Payment mode: 'upi' | 'card'
   const [paymentMethod, setPaymentMethod] = useState('upi');
-  const [upiId, setUpiId] = useState('singhania.aadhy@okaxis');
+  const [upiId, setUpiId] = useState('shahnawazalirkl@okaxis');
   const [isUpiVerified, setIsUpiVerified] = useState(false);
   const [cardDetails, setCardDetails] = useState({
     number: '•••• •••• •••• 4242',
-    name: 'Aadhya Singhania',
+    name: 'Asra Ansari',
     expiry: '11/28',
     cvv: '•••'
   });
@@ -351,7 +351,7 @@ const CheckoutPage = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="bride.groom@domain.com"
+                    placeholder="shahnawazalirkl@gmail.com"
                     className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] placeholder-[#1F1B18]/40 transition-colors"
                   />
                   <p className="text-[11px] text-[#1F1B18]/60 mt-1">
@@ -490,7 +490,7 @@ const CheckoutPage = () => {
                       type="text"
                       value={weddingPlanner}
                       onChange={(e) => setWeddingPlanner(e.target.value)}
-                      placeholder="e.g. Tanya Kapoor (+91 96926 68263)"
+                      placeholder="e.g. Shagufta Naaz (+91 96926 68263)"
                       className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18]"
                     />
                   </div>
@@ -733,7 +733,7 @@ const CheckoutPage = () => {
                   rows={2}
                   value={chauffeurNotes}
                   onChange={(e) => setChauffeurNotes(e.target.value)}
-                  placeholder="e.g. Handover only to wedding planner Miss Tanya or Bride's mother Mrs. Singhania. Do not leave unattended."
+                  placeholder="e.g. Handover only to wedding planner Miss Shagufta Naaz or Bride's mother Miss Sultana Begum. Do not leave unattended."
                   className="w-full text-xs bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md p-2.5 text-[#1F1B18]"
                 />
               </div>

@@ -111,8 +111,8 @@ const WeddingKeepsakesPage = () => {
 
   // Customization Modal State
   const [customizingProduct, setCustomizingProduct] = useState(null);
-  const [customBride, setCustomBride] = useState('Aadhya');
-  const [customGroom, setCustomGroom] = useState('Rohan');
+  const [customBride, setCustomBride] = useState('Asra');
+  const [customGroom, setCustomGroom] = useState('Shahnawaz');
   const [customDate, setCustomDate] = useState('2026-11-18');
   const [customCrest, setCustomCrest] = useState('Heritage Floral Crest');
   const [selectedEdition, setSelectedEdition] = useState(null);
@@ -1564,7 +1564,7 @@ const WeddingKeepsakesPage = () => {
                     value={customBride}
                     onChange={(e) => setCustomBride(e.target.value)}
                     className="w-full bg-surface-container-low border border-outline-variant/60 rounded px-3 py-2 text-on-surface font-medium focus:border-primary focus:outline-none"
-                    placeholder="e.g. Aadhya"
+                    placeholder="e.g. Asra"
                   />
                 </div>
                 <div>
@@ -1577,7 +1577,7 @@ const WeddingKeepsakesPage = () => {
                     value={customGroom}
                     onChange={(e) => setCustomGroom(e.target.value)}
                     className="w-full bg-surface-container-low border border-outline-variant/60 rounded px-3 py-2 text-on-surface font-medium focus:border-primary focus:outline-none"
-                    placeholder="e.g. Rohan"
+                    placeholder="e.g. Shahnawaz"
                   />
                 </div>
               </div>
@@ -1693,7 +1693,7 @@ const WeddingKeepsakesPage = () => {
                 </span>
                 <div className="font-serif text-2xl font-bold text-primary tracking-wide py-1">
                   {customBride ? customBride.trim().charAt(0).toUpperCase() : 'A'} &amp;{' '}
-                  {customGroom ? customGroom.trim().charAt(0).toUpperCase() : 'R'}
+                  {customGroom ? customGroom.trim().charAt(0).toUpperCase() : 'S'}
                 </div>
                 <span className="text-[11px] text-on-surface-variant font-medium block">
                   {customBride || 'Bride'} &amp; {customGroom || 'Groom'} •{' '}

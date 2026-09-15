@@ -830,11 +830,11 @@ const HomePage = () => {
               </div>
               <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
                 <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center text-label-sm">
-                  AM
+                  SS
                 </div>
                 <div>
                   <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                    Ananya &amp; Madhav
+                    Sagil &amp; Shagufta
                   </h4>
                   <span className="font-label-sm text-label-sm text-outline">
                     Destination Wedding • Udaipur
@@ -857,11 +857,11 @@ const HomePage = () => {
               </div>
               <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
                 <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container font-bold flex items-center justify-center text-label-sm">
-                  SJ
+                  JA
                 </div>
                 <div>
                   <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                    Sneha &amp; Jayant
+                    Jawed &amp; Asra
                   </h4>
                   <span className="font-label-sm text-label-sm text-outline">
                     1st Anniversary • Bengaluru
@@ -884,11 +884,11 @@ const HomePage = () => {
               </div>
               <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
                 <div className="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container font-bold flex items-center justify-center text-label-sm">
-                  PK
+                  SB
                 </div>
                 <div>
                   <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                    Pooja Kapoor
+                    Miss Sultana Begum
                   </h4>
                   <span className="font-label-sm text-label-sm text-outline">
                     Bride • Mumbai

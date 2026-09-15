@@ -221,10 +221,10 @@ const Header = () => {
                       <Link to="/product/velvet-ring-vault" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Embossed Velvet Ring Boxes
                       </Link>
-                      <Link to="/shop" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+                      <Link to="/shop?search=scented+candles" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Monogrammed Scented Candles
                       </Link>
-                      <Link to="/shop" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+                      <Link to="/shop?search=leather+key+fobs" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Brass &amp; Leather Key Fobs
                       </Link>
                     </div>
@@ -236,7 +236,7 @@ const Header = () => {
                       <Link to="/product/grand-heritage-trousseau-trunk" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Grand Heritage Wooden Boxes
                       </Link>
-                      <Link to="/shop" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+                      <Link to="/shop?search=trousseau+packaging" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Trousseau Packaging Suites
                       </Link>
                       <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
@@ -245,7 +245,7 @@ const Header = () => {
                       <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Return Favor Luxury Hampers
                       </Link>
-                      <Link to="/shop" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+                      <Link to="/shop?search=keepsake+boxes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">
                         Miniature Ritual Keepsake Boxes
                       </Link>
                     </div>
@@ -292,22 +292,22 @@ const Header = () => {
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">draw</span> By Custom Craft
                       </span>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Gold &amp; Rose Foil Monograms</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Deep Blind Debossing</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Precision Laser Engraved Wood</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">High-Clarify Scannable Acrylic</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Hand-Poured Wax Monograms</Link>
+                      <Link to="/personalized?search=gold+foil+monograms" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Gold &amp; Rose Foil Monograms</Link>
+                      <Link to="/personalized?search=blind+debossing" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Deep Blind Debossing</Link>
+                      <Link to="/personalized?search=laser+engraved+wood" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Precision Laser Engraved Wood</Link>
+                      <Link to="/personalized?search=scannable+acrylic" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">High-Clarify Scannable Acrylic</Link>
+                      <Link to="/personalized?search=wax+monograms" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Hand-Poured Wax Monograms</Link>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">person</span> By Recipient
                       </span>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bride &amp; Bridesmaids Keepsakes</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Groom &amp; Groomsmen Suites</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Parents of the Couple Favors</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Couple &amp; Anniversary Gifts</Link>
-                      <Link to="/personalized" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Newborn &amp; Nursery Keepsakes</Link>
+                      <Link to="/personalized?search=bride+bridesmaids" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bride &amp; Bridesmaids Keepsakes</Link>
+                      <Link to="/personalized?search=groom+groomsmen" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Groom &amp; Groomsmen Suites</Link>
+                      <Link to="/personalized?search=parents+couple+favors" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Parents of the Couple Favors</Link>
+                      <Link to="/personalized?search=couple+anniversary" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Couple &amp; Anniversary Gifts</Link>
+                      <Link to="/personalized?search=newborn+nursery" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Newborn &amp; Nursery Keepsakes</Link>
                     </div>
 
                     <div className="flex flex-col gap-2 bg-secondary-container/20 rounded-lg p-3 border border-secondary-container/50 justify-between">
@@ -349,20 +349,20 @@ const Header = () => {
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">celebration</span> Wedding Functions
                       </span>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Mehendi &amp; Haldi Giveaways</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Sangeet Welcome Kits</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Pheras Sacred Token Boxes</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Reception &amp; Cocktail Favors</Link>
+                      <Link to="/wedding-keepsakes?search=mehendi+haldi" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Mehendi &amp; Haldi Giveaways</Link>
+                      <Link to="/wedding-keepsakes?search=sangeet+welcome+kits" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Sangeet Welcome Kits</Link>
+                      <Link to="/wedding-keepsakes?search=pheras+token+boxes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Pheras Sacred Token Boxes</Link>
+                      <Link to="/wedding-keepsakes?search=reception+cocktail+favors" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Reception &amp; Cocktail Favors</Link>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">auto_stories</span> Stationery &amp; Registry
                       </span>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bespoke Vow Books</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wax Sealed Save-the-Date Hampers</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wedding Registry Concierge</Link>
-                      <Link to="/wedding-keepsakes" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Luggage Tags for Destination Guests</Link>
+                      <Link to="/wedding-keepsakes?search=vow+books" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Bespoke Vow Books</Link>
+                      <Link to="/wedding-keepsakes?search=save+the+date+hampers" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wax Sealed Save-the-Date Hampers</Link>
+                      <Link to="/wedding-keepsakes?search=registry+concierge" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Wedding Registry Concierge</Link>
+                      <Link to="/wedding-keepsakes?search=luggage+tags+destination" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Luggage Tags for Destination Guests</Link>
                     </div>
 
                     <div className="bg-surface-container-low rounded-lg p-3 flex flex-col justify-between border border-outline-variant/40">
@@ -404,20 +404,20 @@ const Header = () => {
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">diamond</span> Signature Series
                       </span>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">The Royal Heritage Trousseau</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Aura Acrylic &amp; LED Melodies</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Tuscan Leather Travel Suites</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Velvet Heirloom Jewel Cases</Link>
+                      <Link to="/collections?search=royal+heritage+trousseau" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">The Royal Heritage Trousseau</Link>
+                      <Link to="/collections?search=aura+acrylic+led" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Aura Acrylic &amp; LED Melodies</Link>
+                      <Link to="/collections?search=tuscan+leather+travel" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Tuscan Leather Travel Suites</Link>
+                      <Link to="/collections?search=velvet+heirloom+jewel" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Velvet Heirloom Jewel Cases</Link>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">filter_vintage</span> Seasonal Releases
                       </span>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Summer Soirée 2025 Editions</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Minimalist Nordic Wood Hampers</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Festive Royale Silver Accents</Link>
-                      <Link to="/collections" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Anniversary Milestone Editions</Link>
+                      <Link to="/collections?search=summer+soiree+2025" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Summer Soirée 2025 Editions</Link>
+                      <Link to="/collections?search=minimalist+nordic+wood" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Minimalist Nordic Wood Hampers</Link>
+                      <Link to="/collections?search=festive+royale+silver" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Festive Royale Silver Accents</Link>
+                      <Link to="/collections?search=anniversary+milestone" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Anniversary Milestone Editions</Link>
                     </div>
                   </div>
                 </div>
@@ -530,13 +530,13 @@ const Header = () => {
                     <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 flex items-center gap-1.5">
                       <span className="material-symbols-outlined text-[18px]">corporate_fare</span> Bulk &amp; Event Gifting
                     </span>
-                    <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1 flex items-center justify-between">
+                    <Link to="/404" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1 flex items-center justify-between">
                       <span>Tiered Bulk Pricing (25+ units)</span>
                       <span className="text-[10px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded">Save up to 35%</span>
                     </Link>
-                    <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Corporate Brand &amp; Festive Favors</Link>
-                    <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Destination Wedding Logistics</Link>
-                    <Link to="/bulk-orders" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Custom Branded Ribbons &amp; Tags</Link>
+                    <Link to="/404" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Corporate Brand &amp; Festive Favors</Link>
+                    <Link to="/404" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Destination Wedding Logistics</Link>
+                    <Link to="/404" className="text-body-sm text-on-surface-variant hover:text-primary transition-colors py-1">Custom Branded Ribbons &amp; Tags</Link>
                     <div className="mt-1 pt-2 border-t border-outline-variant/30">
                       <Link to="/bulk-orders" className="w-full py-2 bg-on-surface text-surface rounded text-center text-xs font-semibold tracking-wider block hover:bg-primary transition-colors">
                         Request Bulk Quote Catalog

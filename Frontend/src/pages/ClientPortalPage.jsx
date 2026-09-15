@@ -28,8 +28,8 @@ import {
 const DOCKET_DATA = {
   'ASRA-2026-8842X': {
     docketId: 'ASRA-2026-8842X',
-    patronName: 'Lady Eleanor Vance & Tariq Al-Mansoor',
-    patronInitials: 'EK',
+    patronName: 'Asra Ansari & Sk Shahnawaz Ali',
+    patronInitials: 'AS',
     suiteCode: 'Sovereign Suite #8842X',
     ceremonyDestination: 'Villa Balbiano, Lake Como, Italy',
     ceremonyDate: 'October 28, 2026',
@@ -39,8 +39,8 @@ const DOCKET_DATA = {
     activeStage: 3,
     totalStages: 5,
     leadStylist: {
-      name: 'Meera Kashyap',
-      initials: 'MK',
+      name: 'Shagufta Naaz',
+      initials: 'SN',
       title: 'Lead Bridal Concierge',
       location: 'Atelier Jubilee Hills, Hyderabad',
       note: '"We have received the sample Italian foil swatches today. The gold hue aligns seamlessly with your stationery parchment."',
@@ -48,8 +48,8 @@ const DOCKET_DATA = {
       whatsapp: 'https://wa.me/919692668263'
     },
     monogramDie: {
-      dieId: 'HYD-2026-ET',
-      initials: 'ET',
+      dieId: 'HYD-2026-AS',
+      initials: 'AS',
       metal: 'Solid CNC Milled Brass',
       dimensions: '85mm × 85mm',
       relief: '2.2mm Depth',
@@ -149,7 +149,7 @@ const DOCKET_DATA = {
 const INITIAL_GUEST_PREVIEW = [
   { name: 'Lord & Lady Althorp', tagInitials: 'A', table: 'Grand Terrace', gift: 'Scented Candle + Tag' },
   { name: 'Contessa Sofia Bianchi', tagInitials: 'SB', table: 'Villa Balbiano Hall', gift: 'Botanical Wax Hamper' },
-  { name: 'Dr. Tariq & Dr. Zahra Mir', tagInitials: 'ZM', table: 'Lake Pergola', gift: 'Silk Monogram Set' },
+  { name: 'Sagil Doza & Miss Sultana Begum', tagInitials: 'SB', table: 'Lake Pergola', gift: 'Silk Monogram Set' },
   { name: 'Prince & Princess Sayeed', tagInitials: 'PS', table: 'Royal Loggia', gift: '24K Foil Hamper' },
   { name: 'Don Alessandro Moretti', tagInitials: 'AM', table: 'Olive Grove', gift: 'Artisanal Reserve Favors' }
 ];
@@ -559,7 +559,7 @@ const ClientPortalPage = () => {
                 3D Monogram Debossing Depth Proof (Revision v2.1)
               </h3>
               <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                Master engraver <strong className="text-stone-800">Rajesh V.</strong> has adjusted the bevel relief to <strong className="text-stone-800">{data.monogramDie.bevelDepth}</strong> to guarantee razor-sharp 24K gold foil indentation on your Florentine ivory calfskin chests.
+                Master engraver <strong className="text-stone-800">Jawed Ali</strong> has adjusted the bevel relief to <strong className="text-stone-800">{data.monogramDie.bevelDepth}</strong> to guarantee razor-sharp 24K gold foil indentation on your Florentine ivory calfskin chests.
               </p>
 
               {/* Photorealistic Render Simulation Frame */}
@@ -1045,7 +1045,7 @@ const ClientPortalPage = () => {
             {!revisionSubmitted ? (
               <form onSubmit={(e) => { e.preventDefault(); setRevisionSubmitted(true); }} className="space-y-3">
                 <p className="text-xs text-stone-600">
-                  Your notes will be dispatched immediately to Lead Engraver Rajesh V. and Stylist Meera Kashyap.
+                  Your notes will be dispatched immediately to Lead Engraver Jawed Ali and Stylist Shagufta Naaz.
                 </p>
                 <div>
                   <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-700 mb-1">
@@ -1056,7 +1056,7 @@ const ClientPortalPage = () => {
                     required
                     value={revisionNotes}
                     onChange={(e) => setRevisionNotes(e.target.value)}
-                    placeholder="E.g., Please widen the spacing between 'E' and 'T' by 0.2mm, or reduce bevel slope to 30 degrees..."
+                    placeholder="E.g., Please widen the spacing between 'A' and 'S' by 0.2mm, or reduce bevel slope to 30 degrees..."
                     className="w-full text-xs p-3 rounded border border-stone-300 focus:outline-none focus:border-[#75542E] bg-[#FAF7F2]"
                   />
                 </div>
@@ -1083,7 +1083,7 @@ const ClientPortalPage = () => {
                 </div>
                 <h4 className="text-base font-serif-luxury font-bold text-stone-900">Revision Docket Transmitted</h4>
                 <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Revision v2.2 draft will be delivered to your portal within 4 hours. Stylist Meera has been notified via priority WhatsApp channel.
+                  Revision v2.2 draft will be delivered to your portal within 4 hours. Stylist Shagufta Naaz has been notified via priority WhatsApp channel.
                 </p>
                 <button 
                   onClick={() => { setRevisionModalOpen(false); setRevisionSubmitted(false); }}
@@ -1302,7 +1302,7 @@ const ClientPortalPage = () => {
             {!videoBookingConfirmed ? (
               <form onSubmit={(e) => { e.preventDefault(); setVideoBookingConfirmed(true); }} className="space-y-3 text-xs">
                 <p className="text-stone-600">
-                  Connect 1-on-1 with Lead Stylist <strong>Meera Kashyap</strong> live from our Hyderabad studio to inspect ribbon dyes, fragrance oils, and wax seal swatches under studio lighting.
+                  Connect 1-on-1 with Lead Stylist <strong>Shagufta Naaz</strong> live from our Hyderabad studio to inspect ribbon dyes, fragrance oils, and wax seal swatches under studio lighting.
                 </p>
 
                 <div>
@@ -1353,7 +1353,7 @@ const ClientPortalPage = () => {
                 </div>
                 <h4 className="text-base font-serif-luxury font-bold text-stone-900">Salon Appointment Confirmed</h4>
                 <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Encrypted Google Meet link &amp; calendar invite sent to Lady Eleanor &amp; Tariq for <strong>{selectedVideoDate} at {selectedVideoTime}</strong>.
+                  Encrypted Google Meet link &amp; calendar invite sent to Asra &amp; Shahnawaz for <strong>{selectedVideoDate} at {selectedVideoTime}</strong>.
                 </p>
                 <button 
                   onClick={() => { setVideoModalOpen(false); setVideoBookingConfirmed(false); }}
@@ -1482,7 +1482,7 @@ const ClientPortalPage = () => {
                 </div>
                 <h4 className="text-base font-serif-luxury font-bold text-stone-900">Die Request Registered</h4>
                 <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Stylist Meera will pull Die #{data.monogramDie.dieId} from vault storage and prepare digital layout proofs.
+                  Stylist Shagufta Naaz will pull Die #{data.monogramDie.dieId} from vault storage and prepare digital layout proofs.
                 </p>
                 <button
                   onClick={() => { setRecommissionModalOpen(false); setRecommissionSuccess(false); }}

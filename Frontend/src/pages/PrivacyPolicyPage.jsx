@@ -240,13 +240,13 @@ const CLAUSES = [
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A059] block mb-1">
               Data Governance Officer
             </span>
-            <h4 className="font-serif text-base font-bold text-[#111111]">Aditya Vardhan Rao</h4>
+            <h4 className="font-serif text-base font-bold text-[#111111]">Taofique Alkhair Khan</h4>
             <p className="text-xs text-[#666666] mt-0.5">Head of Legal, Archival &amp; Client Confidentiality</p>
             <div className="mt-3 text-xs space-y-1 text-[#444444]">
               <div>
                 <span className="font-medium text-[#111111]">Email:</span>{' '}
-                <a href="mailto:privacy@asraweddingcanvas.com" className="text-[#C5A059] hover:underline font-medium">
-                  privacy@asraweddingcanvas.com
+                <a href="mailto:shahnawazalirkl@gmail.com" className="text-[#C5A059] hover:underline font-medium">
+                  shahnawazalirkl@gmail.com
                 </a>
               </div>
               <div>
@@ -365,7 +365,7 @@ const PrivacyPolicyPage = () => {
         `Embargo & Discretion Requirements:\n${ndaForm.requirements}\n\n` +
         `Request Docket Generated via ASRA Client Sanctuary.\n`
       );
-      window.location.href = `mailto:privacy@asraweddingcanvas.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:shahnawazalirkl@gmail.com?subject=${subject}&body=${body}`;
       setIsNdaModalOpen(false);
       setNdaSubmitted(false);
     }, 1200);
@@ -680,7 +680,7 @@ const PrivacyPolicyPage = () => {
                 {clause.id === 'clause-8' && (
                   <div className="pt-4 flex flex-wrap items-center gap-3 print:hidden">
                     <a
-                      href="mailto:privacy@asraweddingcanvas.com?subject=Privacy%20Data%20Request%20Docket%20-%20ASRA"
+                      href="mailto:shahnawazalirkl@gmail.com?subject=Privacy%20Data%20Request%20Docket%20-%20ASRA"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#C5A059] hover:bg-[#B08B46] text-[#111111] text-xs font-bold uppercase tracking-wider transition-all shadow-xs"
                     >
                       <Mail className="w-4 h-4" />
@@ -791,7 +791,7 @@ const PrivacyPolicyPage = () => {
                   required
                   value={ndaForm.name}
                   onChange={(e) => setNdaForm({ ...ndaForm, name: e.target.value })}
-                  placeholder="e.g. Lady Anya Spencer / Mr. Vikramaditya Singhania"
+                  placeholder="e.g. Asra Ansari / Mr. Sk Shahnawaz Ali"
                   className="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E8E4DC] rounded text-[#111111] focus:outline-hidden focus:border-[#C5A059]"
                 />
               </div>
@@ -806,7 +806,7 @@ const PrivacyPolicyPage = () => {
                     required
                     value={ndaForm.email}
                     onChange={(e) => setNdaForm({ ...ndaForm, email: e.target.value })}
-                    placeholder="counsel@estate.com"
+                    placeholder="shahnawazalirkl@gmail.com"
                     className="w-full px-3 py-2 bg-[#FAF8F5] border border-[#E8E4DC] rounded text-[#111111] focus:outline-hidden focus:border-[#C5A059]"
                   />
                 </div>

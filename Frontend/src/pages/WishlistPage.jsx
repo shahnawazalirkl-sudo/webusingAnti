@@ -33,7 +33,7 @@ const RECOMMENDATIONS = [
     description: 'Bohemian lead-free crystal with couple monogram.',
     customizations: [
       { label: 'Crystal', value: 'Lead-Free Bohemian' },
-      { label: 'Etching', value: '"A & R" Laser Monogram' }
+      { label: 'Etching', value: '"A & S" Laser Monogram' }
     ]
   },
   {
@@ -95,7 +95,7 @@ const WishlistPage = () => {
   const [isDieProtocolModalOpen, setIsDieProtocolModalOpen] = useState(false);
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
-  const registryUrl = 'https://asraweddingcanvas.com/registry/aadhya-rohan-2026';
+  const registryUrl = 'https://asraweddingcanvas.com/registry/asra-shahnawaz-2026';
 
   // Copy handler
   const handleCopyLink = () => {
@@ -129,10 +129,10 @@ const WishlistPage = () => {
         image: item.image,
         categoryLabel: item.categoryName || 'Bespoke Keepsake',
         badge: item.badge || 'Ceremony Heirloom',
-        brideName: 'Aadhya Singhania',
-        groomName: 'Rohan Varma',
+        brideName: 'Asra Ansari',
+        groomName: 'Sk Shahnawaz Ali',
         weddingDate: '18th November 2026',
-        monogramDie: '"A & R" • Heritage Crest'
+        monogramDie: '"A & S" • Heritage Crest'
       });
     });
 
@@ -150,10 +150,10 @@ const WishlistPage = () => {
       image: item.image,
       categoryLabel: item.categoryName || 'Bespoke Keepsake',
       badge: item.badge || 'Ceremony Heirloom',
-      brideName: 'Aadhya Singhania',
-      groomName: 'Rohan Varma',
+      brideName: 'Asra Ansari',
+      groomName: 'Sk Shahnawaz Ali',
       weddingDate: '18th November 2026',
-      monogramDie: item.customizations?.find(c => c.label === 'Monogram')?.value || '"A & R" • Heritage Crest'
+      monogramDie: item.customizations?.find(c => c.label === 'Monogram')?.value || '"A & S" • Heritage Crest'
     });
     showToast(`"${item.title}" moved to your Atelier Bag!`);
   };
@@ -230,7 +230,7 @@ const WishlistPage = () => {
             Saved Keepsakes & <span className="italic font-light">Trousseau Wishlist</span>
           </h1>
           <p className="text-xs sm:text-base text-[#7E766D] leading-relaxed font-light max-w-2xl mx-auto px-2">
-            Your hand-selected ceremonial heirlooms, custom brass monogram dies, and bridal keepsakes securely vaulted for <span className="text-[#1A1817] font-medium">Aadhya & Rohan’s Wedding Registry</span>.
+            Your hand-selected ceremonial heirlooms, custom brass monogram dies, and bridal keepsakes securely vaulted for <span className="text-[#1A1817] font-medium">Asra & Shahnawaz’s Wedding Registry</span>.
           </p>
 
           {/* Registry Metadata Quick Pill Bar */}
@@ -252,7 +252,7 @@ const WishlistPage = () => {
             <div className="h-6 w-px bg-[#E8E1D7] hidden sm:block"></div>
             <div>
               <span className="uppercase tracking-wider text-[10px] text-[#997332] font-semibold block">Brass Die Status</span>
-              <span className="text-emerald-700 font-medium">"A & R" Ready to Mill</span>
+              <span className="text-emerald-700 font-medium">"A & S" Ready to Mill</span>
             </div>
           </div>
         </div>
@@ -380,7 +380,7 @@ const WishlistPage = () => {
                   {item.isEmeraldVaultVisual ? (
                     <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[#133E2B] text-white flex flex-col items-center justify-center p-6 text-center mb-4 shadow-inner">
                       <div className="border border-[#C5A059]/50 p-6 rounded-lg w-full h-full flex flex-col items-center justify-center">
-                        <span className="font-cormorant text-2xl tracking-widest text-[#E8D5B5]">A & R</span>
+                        <span className="font-cormorant text-2xl tracking-widest text-[#E8D5B5]">A & S</span>
                         <span className="text-[9px] uppercase tracking-widest text-[#C5A059]/80 mt-1">EMERALD SILK VAULT</span>
                         <div className="w-6 h-px bg-[#C5A059]/40 my-2"></div>
                         <span className="text-[10px] text-white/70">Solid Brass Latch</span>
@@ -739,7 +739,7 @@ const WishlistPage = () => {
               Share Ceremony Registry
             </h3>
             <p className="text-xs text-[#7E766D] mb-6 leading-relaxed">
-              Enable your wedding architect, parents, or bridal party to review your curated heirlooms with custom monogram code <strong className="text-[#1A1817]">"A & R"</strong>.
+              Enable your wedding architect, parents, or bridal party to review your curated heirlooms with custom monogram code <strong className="text-[#1A1817]">"A & S"</strong>.
             </p>
 
             {/* Direct Copy Section */}
@@ -776,7 +776,7 @@ const WishlistPage = () => {
             {/* Direct Channels */}
             <div className="space-y-3 mb-6">
               <a 
-                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Review our curated ASRA Wedding Registry & Keepsakes for Aadhya & Rohan: ${registryUrl}`)}`}
+                href={`https://wa.me/919692668263?text=${encodeURIComponent(`Review our curated ASRA Wedding Registry & Keepsakes for Asra & Shahnawaz: ${registryUrl}`)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-between p-3.5 rounded-xl border border-[#E8E1D7] hover:border-[#C5A059] hover:bg-[#FAF7F2]/60 transition text-xs text-[#1A1817] font-medium"
@@ -789,7 +789,7 @@ const WishlistPage = () => {
               </a>
 
               <a 
-                href={`mailto:?subject=${encodeURIComponent("Aadhya & Rohan's Wedding Registry — ASRA Atelier")}&body=${encodeURIComponent(`Dear Planner,\n\nPlease review our hand-selected ceremonial keepsakes and custom brass monogram die code for our upcoming wedding:\n\n${registryUrl}\n\nWarmly,\nAadhya & Rohan`)}`}
+                href={`mailto:?subject=${encodeURIComponent("Asra & Shahnawaz's Wedding Registry — ASRA Atelier")}&body=${encodeURIComponent(`Dear Planner,\n\nPlease review our hand-selected ceremonial keepsakes and custom brass monogram die code for our upcoming wedding:\n\n${registryUrl}\n\nWarmly,\nAsra & Shahnawaz`)}`}
                 className="w-full flex items-center justify-between p-3.5 rounded-xl border border-[#E8E1D7] hover:border-[#C5A059] hover:bg-[#FAF7F2]/60 transition text-xs text-[#1A1817] font-medium"
               >
                 <span className="flex items-center gap-3">
@@ -829,14 +829,14 @@ const WishlistPage = () => {
               Bespoke Metallurgy Vault Protocol
             </h3>
             <span className="text-[10px] uppercase tracking-widest text-[#997332] font-semibold block mb-4">
-              Protocol Ref: ASRA-METALLURGY-2026-AR
+              Protocol Ref: ASRA-METALLURGY-2026-AS
             </span>
 
             <div className="space-y-4 text-xs text-[#2D2825] leading-relaxed">
               <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#E8E1D7]">
                 <h5 className="font-semibold text-[#1A1817] mb-1">1. Custom 3D CNC Metallurgy Die Casting</h5>
                 <p className="text-[#7E766D]">
-                  Every bespoke order featuring the "A & R" couple crest is machined from solid marine-grade brass using high-precision 5-axis CNC cutters. This die creates high-relief hot foil and blind debossing impressions across hatboxes, vow booklets, and leather folios.
+                  Every bespoke order featuring the "A & S" couple crest is machined from solid marine-grade brass using high-precision 5-axis CNC cutters. This die creates high-relief hot foil and blind debossing impressions across hatboxes, vow booklets, and leather folios.
                 </p>
               </div>
 

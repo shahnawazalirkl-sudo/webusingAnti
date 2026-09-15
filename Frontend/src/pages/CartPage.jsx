@@ -837,7 +837,7 @@ const CartPage = () => {
                     value={editForm.brideName}
                     onChange={(e) => setEditForm(prev => ({ ...prev, brideName: e.target.value }))}
                     className="w-full bg-brand-sand border border-brand-border rounded-lg px-3 py-2 text-brand-charcoal focus:outline-none focus:border-brand-goldDark"
-                    placeholder="e.g. Aadhya"
+                    placeholder="e.g. Asra"
                   />
                 </div>
                 <div>
@@ -847,7 +847,7 @@ const CartPage = () => {
                     value={editForm.groomName}
                     onChange={(e) => setEditForm(prev => ({ ...prev, groomName: e.target.value }))}
                     className="w-full bg-brand-sand border border-brand-border rounded-lg px-3 py-2 text-brand-charcoal focus:outline-none focus:border-brand-goldDark"
-                    placeholder="e.g. Rohan"
+                    placeholder="e.g. Shahnawaz"
                   />
                 </div>
               </div>

@@ -170,4 +170,19 @@
   50% { opacity: 0.4; transform: scale(0.85); }
 }
 
+/* Stitch 404 Heirloom Uncharted Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #E5C378 40%, #B8860B 75%, #8B6508 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+.gold-foil-num {
+  text-shadow: 0px 2px 4px rgba(197, 160, 89, 0.25);
+}
+
+.atelier-pattern {
+  background-color: #FAF8F5;
+  background-image: radial-gradient(#E8DFCE 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}

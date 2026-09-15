@@ -87,7 +87,7 @@ const SOVEREIGN_ASSETS = {
       stars: 5,
       location: "Udaipur Palace Wedding",
       quote: "“The moment my bridal party walked into the suite and saw this hamper bouquet waiting on the console, tears were shed. The gold debossed monogram was flawless!”",
-      couple: "Meera & Kabir",
+      couple: "Shagufta & Sagil",
       venue: "The Oberoi Udaivilas • Nov 2025",
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3sD9w-rArHkDsCYYg1Zia1AGrr1CWOIXQDctwONQJgRZF8f0P7zQ7kSVhU6qiHFhGrbu8afOcFrKIPhKfFVtSs7wTSgiKn13djK7LYagnNqZT_Go8ATuNB-rHyGFCTXbMU5wldHalGeA9R18BfpSdTQylMnm_31uEPULeLtriXsUyuWv8sqMSjXshUIOe7FRmsFOdGfdYLlcNI_jcxdCLy9MOBEzrDYOv9Hzxfyi6xbPFu2Vfbu1M-w"
     },
@@ -95,7 +95,7 @@ const SOVEREIGN_ASSETS = {
       stars: 5,
       location: "Goa Beachside Nuptials",
       quote: "“The candle fragrance permeated our entire bridal dressing villa for three days straight. The unboxing wax seal felt like opening a royal decree.”",
-      couple: "Ananya Sen",
+      couple: "Miss Sultana Begum",
       venue: "Taj Exotica Resort, Goa • Jan 2026",
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDTtne9Cgl1uVdSn1ZTINqs-NJ7MKFxBpUdCYxsiMnpyg9pzcARPU2A290p8mJCFzj_MpkwxdnM0hYeAbHnN_GBhi2i1EHDX2QSqggThXhZ2fEyi_u5qAwd6nWI4JGy-82NaTDFOXwWJUmyrOBKkrMePX8PTCLNSD-uNsQ695Ic_zt-2E6zLl-tMbNpDolkjUtYlqkwr0e52om9x1a-1Lpa56lIoLV9PZWkAfO9NN9ir9QGqVp4UyVK8A"
     },
@@ -103,7 +103,7 @@ const SOVEREIGN_ASSETS = {
       stars: 5,
       location: "Jaipur Heritage Manor",
       quote: "“We ordered 12 custom editions for our bridal trousseau and mothers of the bride. Every single recipient commented on the sublime calligraphy and silk ribbons.”",
-      couple: "Dev & Tanvi",
+      couple: "Jawed & Asra",
       venue: "Rambagh Palace • Feb 2026",
       avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-EeDizGUpXOdey894D42IcSpiT4uIFXVPPrnorAEt3WpUTxuWbn45LVahBD3Mz1EpINph0xazx58OO93yWfBrRg14scSU2DRzCQa5QAajb7ypO9tBXjWYFWAfDZEfAfYQgUNmlbf0csgLfqK6R_PdVfOxty5T_K7fx9Oc-uw1TAj41BASOulpiShpuRj_rdhSqLKSFAh4G-SUrUtgR6ClP1JHjtSOmePYnSV9uw1lcp2OUWF2m6wiGg"
     }
@@ -209,8 +209,8 @@ const ProductDetailPage = () => {
 
   // Customizer State
   const [selectedEdition, setSelectedEdition] = useState(PALETTE_EDITIONS[0]);
-  const [brideName, setBrideName] = useState('Aadhya');
-  const [groomName, setGroomName] = useState('Rohan');
+  const [brideName, setBrideName] = useState('Asra');
+  const [groomName, setGroomName] = useState('Shahnawaz');
   const [weddingDate, setWeddingDate] = useState('2026-11-18');
   const [crestStyle, setCrestStyle] = useState('heritage'); // 'heritage', 'artdeco', 'modern'
   const [cardInscription, setCardInscription] = useState('Beautiful People Make Beautiful Memories');
@@ -602,7 +602,7 @@ const ProductDetailPage = () => {
                       type="text"
                       value={brideName}
                       onChange={(e) => setBrideName(e.target.value)}
-                      placeholder="e.g. Aadhya"
+                      placeholder="e.g. Asra"
                       className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
                     />
                   </div>
@@ -614,7 +614,7 @@ const ProductDetailPage = () => {
                       type="text"
                       value={groomName}
                       onChange={(e) => setGroomName(e.target.value)}
-                      placeholder="e.g. Rohan"
+                      placeholder="e.g. Shahnawaz"
                       className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
                     />
                   </div>

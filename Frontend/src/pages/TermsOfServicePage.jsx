@@ -325,7 +325,7 @@ const ARTICLES = [
               Plot No. 36, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033
             </p>
             <p className="text-xs text-neutral-500 font-mono mt-1">
-              legal@asraweddingcanvas.com • +91 96926 68263
+              shahnawazalirkl@gmail.com • +91 96926 68263
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -418,7 +418,7 @@ const TermsOfServicePage = () => {
         `Inquiry / Special Request:\n${consultForm.notes}\n\n` +
         `Docket Ref: TOS-ASRA-2026-V5\n`
       );
-      window.location.href = `mailto:legal@asraweddingcanvas.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:shahnawazalirkl@gmail.com?subject=${subject}&body=${body}`;
       setIsConsultModalOpen(false);
       setConsultSubmitted(false);
     }, 1000);
@@ -811,7 +811,7 @@ const TermsOfServicePage = () => {
                   required
                   value={consultForm.name}
                   onChange={(e) => setConsultForm({ ...consultForm, name: e.target.value })}
-                  placeholder="e.g. Lady Sarah Harrington / Event Architect"
+                  placeholder="e.g. Shagufta Naaz / Event Architect"
                   className="w-full text-xs p-3 rounded-lg border border-[#EAE2D5] bg-[#FAF8F5] focus:outline-none focus:border-[#C5A059]"
                 />
               </div>
@@ -839,7 +839,7 @@ const TermsOfServicePage = () => {
                     required
                     value={consultForm.email}
                     onChange={(e) => setConsultForm({ ...consultForm, email: e.target.value })}
-                    placeholder="concierge@estate.com"
+                    placeholder="shahnawazalirkl@gmail.com"
                     className="w-full text-xs p-3 rounded-lg border border-[#EAE2D5] bg-[#FAF8F5] focus:outline-none focus:border-[#C5A059]"
                   />
                 </div>

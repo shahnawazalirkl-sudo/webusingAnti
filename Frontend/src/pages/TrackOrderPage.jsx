@@ -25,10 +25,10 @@ import {
 const PRESET_DOCKETS = {
   'ASRA-2026-8842X': {
     orderId: 'ASRA-2026-8842X',
-    clientTitle: "Aadhya & Rohan's Sovereign Suite",
-    clientName: 'Aadhya Singhania & Rohan Varma',
+    clientTitle: "Asra & Shahnawaz's Sovereign Suite",
+    clientName: 'Asra Ansari & Sk Shahnawaz Ali',
     phone: '+91 96926 68263',
-    monogram: '"A & R" • Heritage Floral Crest',
+    monogram: '"A & S" • Heritage Floral Crest',
     status: 'IN TRANSIT • CHILLED VAN FLT-08',
     statusCategory: 'in_transit',
     expectedArrival: 'Nov 14, 2026 • 04:00 PM – 08:00 PM',
@@ -36,10 +36,10 @@ const PRESET_DOCKETS = {
     venueName: 'The Oberoi Udaivilas, Udaipur',
     venueDetail: 'Kohinoor Suite & Private Villa 4',
     venueAddress: 'Badi-Gorela Canal Road, Haridas Ji Ki Magri, Udaipur 313001',
-    plannerName: 'Tanya Kapoor (Designated Wedding Architect)',
+    plannerName: 'Shagufta Naaz (Designated Wedding Architect)',
     plannerPhone: '+91 96926 68263',
-    confidentialProtocol: "Handover strictly to wedding planner Miss Tanya Kapoor at the Kohinoor Suite or Bride's mother Mrs. Singhania. Temperature to remain stabilized at 18°C during all segments of transit.",
-    driverName: 'Marshal D. Rathore',
+    confidentialProtocol: "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.",
+    driverName: 'Marshal Jawed Ali',
     driverBadge: 'ASRA-EXEC-19',
     driverPhone: '+91 96926 68263',
     vehicleReg: 'Mercedes-Benz Sprinter Chilled Fleet (Reg: MH-04-AR-2026)',
@@ -57,7 +57,7 @@ const PRESET_DOCKETS = {
         price: '₹7,499',
         image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
         palette: 'Classic Blush & Champagne Gold',
-        monogramText: '"A & R" (Heritage Crest)',
+        monogramText: '"A & S" (Heritage Crest)',
         ink: 'Royal Copperplate',
         aroma: 'Kashmiri Rose & Amber'
       },
@@ -65,22 +65,22 @@ const PRESET_DOCKETS = {
         id: 'velvet-box',
         title: 'Bespoke Velvet Double Ring & Mangalsutra Vault',
         price: '₹1,899',
-        monogramIcon: 'A & R',
+        monogramIcon: 'A & S',
         shade: 'Royal Emerald Silk Velvet',
         badge: 'Die matched to Masterpiece Suite Monogram'
       }
     ],
     settledAmount: '₹8,459',
-    settlementMethod: 'UPI Verified (singhania.aadhya@okaxis)',
+    settlementMethod: 'UPI Verified (shahnawazalirkl@okaxis)',
     royalCredits: '845 ASRA Royal Credits Logged',
-    stylistName: 'Ms. Priya Sharma'
+    stylistName: 'Ms. Shagufta Naaz'
   },
   'ASRA-2026-7910K': {
     orderId: 'ASRA-2026-7910K',
-    clientTitle: "Meera & Kabir's Royal Trousseau",
-    clientName: 'Meera Rajput & Kabir Chauhan',
+    clientTitle: "Shagufta & Sagil's Royal Trousseau",
+    clientName: 'Shagufta Naaz & Sagil Doza',
     phone: '+91 96926 68263',
-    monogram: '"M & K" • Imperial Peacock Crest',
+    monogram: '"S & S" • Imperial Peacock Crest',
     status: 'ATELIER PRODUCTION • 24K EMBOSSING',
     statusCategory: 'production',
     expectedArrival: 'Nov 18, 2026 • 11:00 AM – 03:00 PM',
@@ -88,10 +88,10 @@ const PRESET_DOCKETS = {
     venueName: 'Taj Lake Palace, Udaipur',
     venueDetail: 'Grand Royal Presidential Suite',
     venueAddress: 'Pichola, Udaipur, Rajasthan 313001',
-    plannerName: 'Ananya Singhal (Bespoke Events)',
+    plannerName: 'Zeeshan Rashid (Bespoke Events)',
     plannerPhone: '+91 96926 68263',
-    confidentialProtocol: 'Vault handover to bride Meera Rajput personally with wax seal verification certificate.',
-    driverName: 'Marshal R. Solanki',
+    confidentialProtocol: 'Vault handover to bride Shagufta Naaz personally with wax seal verification certificate.',
+    driverName: 'Marshal Taofique Alkhair Khan',
     driverBadge: 'ASRA-EXEC-07',
     driverPhone: '+91 96926 68263',
     vehicleReg: 'Atelier Vault Fleet (Reg: DL-01-AS-2026)',
@@ -109,7 +109,7 @@ const PRESET_DOCKETS = {
         price: '₹7,499',
         image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
         palette: 'Royal Ivory & Regal Gold',
-        monogramText: '"M & K" (Imperial Crest)',
+        monogramText: '"S & S" (Imperial Crest)',
         ink: 'Gilded Sepia Ink',
         aroma: 'Mysore Sandalwood & Jasmine'
       }
@@ -117,7 +117,7 @@ const PRESET_DOCKETS = {
     settledAmount: '₹7,499',
     settlementMethod: 'Credit Card Verified (Amex Centurion ****1004)',
     royalCredits: '750 ASRA Royal Credits Logged',
-    stylistName: 'Mr. Devendra Rathore'
+    stylistName: 'Mr. Sagil Doza'
   }
 };
 
@@ -463,11 +463,11 @@ const TrackOrderPage = () => {
                         <time className="text-[11px] text-[#6E675F] font-medium">Nov 10, 01:15 PM</time>
                       </div>
                       <p className="text-[11px] text-[#6E675F] mt-1 leading-normal">
-                        Solid heavy brass deboss die cut with nanometer precision for monogram "A &amp; R" with bespoke royal acanthus border flourishes.
+                        Solid heavy brass deboss die cut with nanometer precision for monogram "A &amp; S" with bespoke royal acanthus border flourishes.
                       </p>
                       <div className="mt-2 bg-white p-2 rounded border border-[#EDE4D6] flex items-center justify-between text-[10px]">
                         <span className="text-[#6E675F]">
-                          Master Artisan: <strong className="text-[#1A1A1A] font-semibold">K. Varma (Master Engraver)</strong>
+                          Master Artisan: <strong className="text-[#1A1A1A] font-semibold">Jawed Ali (Master Engraver)</strong>
                         </span>
                         <span className="text-[#9E7A44] font-semibold">Zero-Deformation Tested</span>
                       </div>
@@ -488,11 +488,11 @@ const TrackOrderPage = () => {
                         <time className="text-[11px] text-[#6E675F] font-medium">Nov 10, 04:15 PM</time>
                       </div>
                       <p className="text-[11px] text-[#6E675F] mt-1 leading-normal">
-                        Hand-lettered Copperplate flourishes rendered in archival sepia ink; approved directly by Bride Aadhya Singhania via private digital salon.
+                        Hand-lettered Copperplate flourishes rendered in archival sepia ink; approved directly by Bride Asra Ansari via private digital salon.
                       </p>
                       <div className="mt-2 bg-white p-2 rounded border border-[#EDE4D6] flex items-center justify-between text-[10px]">
                         <span className="text-[#6E675F]">
-                          Calligrapher: <strong className="text-[#1A1A1A] font-semibold">S. Qureshi (Lead Scribe)</strong>
+                          Calligrapher: <strong className="text-[#1A1A1A] font-semibold">Zeeshan Firoz (Lead Scribe)</strong>
                         </span>
                         <span className="text-emerald-700 font-semibold">WhatsApp Sign-Off: Confirmed</span>
                       </div>
@@ -542,7 +542,7 @@ const TrackOrderPage = () => {
                       </p>
                       <div className="mt-2 bg-white p-2 rounded border border-[#EDE4D6] flex items-center justify-between text-[10px]">
                         <span className="text-[#6E675F]">
-                          Botanical Lead: <strong className="text-[#1A1A1A] font-semibold">M. Banerjee (Chief Floralist)</strong>
+                          Botanical Lead: <strong className="text-[#1A1A1A] font-semibold">Taofique Alkhair Khan (Chief Floralist)</strong>
                         </span>
                         <span className="text-emerald-700 font-semibold">Hydration: 72-Hour Sustained Dew</span>
                       </div>
@@ -567,7 +567,7 @@ const TrackOrderPage = () => {
                       </p>
                       <div className="mt-2 bg-white p-2 rounded border border-[#EDE4D6] flex items-center justify-between text-[10px]">
                         <span className="text-[#6E675F]">
-                          Quality Director: <strong className="text-[#1A1A1A] font-semibold">R. Deshmukh</strong>
+                          Quality Director: <strong className="text-[#1A1A1A] font-semibold">Zeeshan Rashid</strong>
                         </span>
                         <span className="text-[#1A1A1A] font-semibold">ASRA Certificate ID: #HK-8842-X</span>
                       </div>
@@ -677,7 +677,7 @@ const TrackOrderPage = () => {
                         <time className="text-[11px] text-[#6E675F]">Nov 14, 04:00 PM – 08:00 PM</time>
                       </div>
                       <p className="text-[11px] text-[#6E675F] mt-1 leading-normal">
-                        In-suite presentation at Kohinoor Suite &amp; Villa 4 to designated Wedding Architect Tanya Kapoor with physical wax-seal hallmark authentication.
+                        In-suite presentation at Kohinoor Suite &amp; Villa 4 to designated Wedding Architect Shagufta Naaz with physical wax-seal hallmark authentication.
                       </p>
                     </li>
 

@@ -24,11 +24,11 @@ const OrderConfirmationPage = () => {
 
   // Default values matching Stitch screen specification
   const orderId = order?.orderId || 'ASRA-2026-8842X';
-  const recipientName = order?.recipientName || 'Aadhya Singhania & Rohan Varma';
+  const recipientName = order?.recipientName || 'Asra Ansari & Sk Shahnawaz Ali';
   const coupleNames = order?.recipientName
-    ? order.recipientName.replace(/singhania|varma|sharma|patel|kapoor/gi, '').replace('&', ' & ').trim()
-    : 'Aadhya & Rohan';
-  const weddingPlanner = order?.weddingPlanner || 'Tanya Kapoor (Wedding Architect)';
+    ? order.recipientName.replace(/singhania|varma|sharma|patel|kapoor|ali|ansari|naaz|doza/gi, '').replace('&', ' & ').trim()
+    : 'Asra & Shahnawaz';
+  const weddingPlanner = order?.weddingPlanner || 'Shagufta Naaz (Wedding Architect)';
   const phone = order?.phone || '+91 96926 68263';
   const venueName = order?.venueName || 'The Oberoi Udaivilas, Udaipur';
   const suiteInfo = order?.suite || 'Luxury Kohinoor Suite & Villa 4';
@@ -36,9 +36,9 @@ const OrderConfirmationPage = () => {
   const settledAmount = order?.grandTotal ? `₹${order.grandTotal.toLocaleString('en-IN')}` : '₹8,459';
   const arrivalDateText = order?.arrivalDate ? `${order.arrivalDate} (Twilight Slot)` : 'Nov 14, 2026 (Twilight Slot)';
   const chauffeurInstructions = order?.chauffeurNotes ||
-    "Handover strictly to wedding planner Miss Tanya Kapoor at the Kohinoor Suite or Bride's mother Mrs. Singhania. Temperature to remain stabilized at 18°C during all segments of transit.";
-  const paymentHandle = order?.upiId ? `Settled via UPI (${order.upiId})` : 'Settled via UPI (singhania.aadhya@okaxis)';
-  const monogramCode = order?.monogramDie || '"A & R" • Heritage Floral Crest';
+    "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.";
+  const paymentHandle = order?.upiId ? `Settled via UPI (${order.upiId})` : 'Settled via UPI (shahnawazalirkl@okaxis)';
+  const monogramCode = order?.monogramDie || '"A & S" • Heritage Floral Crest';
   const loyaltyPoints = order?.loyaltyPoints || 845;
 
   const handleCopyOrderId = () => {

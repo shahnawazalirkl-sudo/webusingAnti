@@ -89,7 +89,7 @@ const Footer = () => {
               Atelier Flagship: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
-              Inquiries: <a href="mailto:concierge@asraweddingcanvas.com" className="hover:text-[#FAF8F5] transition-colors">concierge@asraweddingcanvas.com</a>
+              Inquiries: <a href="mailto:shahnawazalirkl@gmail.com" className="hover:text-[#FAF8F5] transition-colors">shahnawazalirkl@gmail.com</a>
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
               Appointments: <a href="tel:+919692668263" className="hover:text-[#FAF8F5] transition-colors">+91 96926 68263</a>

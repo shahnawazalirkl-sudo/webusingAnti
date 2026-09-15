@@ -498,7 +498,7 @@ const CollectionsPage = () => {
                         value={formData.fullName}
                         onChange={handleFormChange}
                         className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-space-sm py-2 rounded-lg border border-outline-variant/40 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
-                        placeholder="e.g. Radhika Singhania"
+                        placeholder="e.g. Asra Ansari"
                         required
                         type="text"
                       />
