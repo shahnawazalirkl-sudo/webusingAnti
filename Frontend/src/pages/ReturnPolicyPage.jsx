@@ -162,7 +162,7 @@ const ReturnPolicyPage = () => {
           <div className="flex items-center justify-center">
             <Link to="/" title="ASRA Wedding Canvas Home">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1OqBL8eA5LuUt8BZT1BNuBW0emy3mBR8REAKr35BPOlVbP7dgcDLfWmNRTD5JfN-8aIEGLUv7sw0mnFEeyLIjVto0Gm8OBcz27T_9jmJFPdUSqtCGmBtpOlVBCA3HDzGvfPbZBs6nttmNhBEOp4ShUn-KlkGqLJAH-fEHLB7dBZcz9Nc_oS-tQhOTSxd_67TuhiO8EsomkWJE8jkUwIC0qTfe8snSRy4qxGxrm-uNSvMgMkcRSImfKb3J6xFATvnw1Yw"
+                src="/assets/cdn/img_07137c99d96f.png"
                 alt="ASRA Wedding Canvas Crest Logo"
                 className="h-11 w-auto object-contain drop-shadow-sm hover:opacity-90 transition-opacity"
               />

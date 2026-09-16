@@ -5,7 +5,7 @@ const OrderConfirmationPage = () => {
   const location = useLocation();
   const [copied, setCopied] = useState(false);
 
-  // Read order data from location state, or localStorage, or use Stitch screen defaults
+  // Read order data from location state, or localStorage
   const [order] = useState(() => {
     const stateOrder = location.state?.orderData;
     if (stateOrder) return stateOrder;
@@ -22,8 +22,11 @@ const OrderConfirmationPage = () => {
     return null;
   });
 
+  // Flag: check if order was actually paid through an active gateway (currently no payment gateway exists)
+  const isPaymentGatewayIntegrated = false;
+
   // Default values matching Stitch screen specification
-  const orderId = order?.orderId || 'ASRA-2026-8842X';
+  const orderId = order?.orderId || 'DOCKET-PENDING-GATEWAY';
   const recipientName = order?.recipientName || 'Asra Ansari & Sk Shahnawaz Ali';
   const coupleNames = order?.recipientName
     ? order.recipientName.replace(/singhania|varma|sharma|patel|kapoor|ali|ansari|naaz|doza/gi, '').replace('&', ' & ').trim()
@@ -37,7 +40,7 @@ const OrderConfirmationPage = () => {
   const arrivalDateText = order?.arrivalDate ? `${order.arrivalDate} (Twilight Slot)` : 'Nov 14, 2026 (Twilight Slot)';
   const chauffeurInstructions = order?.chauffeurNotes ||
     "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.";
-  const paymentHandle = order?.upiId ? `Settled via UPI (${order.upiId})` : 'Settled via UPI (shahnawazalirkl@okaxis)';
+  const paymentHandle = 'Pending Payment Gateway Integration';
   const monogramCode = order?.monogramDie || '"A & S" • Classic Floral Crest';
   const loyaltyPoints = order?.loyaltyPoints || 845;
 
@@ -79,7 +82,7 @@ const OrderConfirmationPage = () => {
           <div className="flex flex-col items-center">
             <Link to="/">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWip2DbJ_N80Uyztev7Egku2psGTYLx7mF2zEZEt6yvqfQR9wfb_CZAUepVVIx9uaufuxIzLFTYkjYHIsEvuCy8sjY3k_M1W_3fiNOarITjdxp_qHij1H4-M7Ig4ck2lor6ExOwndM3D5k4Z_1h_IT6bcbqFRDwnPOq91fsvbyGyUHmhh2wSHztebI_zolfsVXrOueVsVdbM7sdQmwo58JYfxJ86-BNM89cMZqFmh1ZcRO6KodBXp0JdeCiLZtv-xUD4"
+                src="/assets/cdn/img_f404984f128a.png"
                 alt="ASRA Wedding Canvas Logo"
                 className="h-9 sm:h-10 w-auto object-contain drop-shadow-sm"
               />
@@ -144,20 +147,62 @@ const OrderConfirmationPage = () => {
       {/* ==================== MAIN ORDER CONFIRMATION CONTENT ==================== */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full flex-grow">
         
+        {/* Payment Gateway Integration Warning Banner */}
+        {!isPaymentGatewayIntegrated && (
+          <div className="max-w-4xl mx-auto mb-8 p-5 bg-amber-50 border-2 border-amber-300 rounded-2xl text-amber-900 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-full bg-amber-200 text-amber-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div className="text-xs sm:text-sm">
+                <div className="font-bold text-base text-amber-950 flex items-center gap-2">
+                  <span>Order Not Confirmed – No Payments Can Be Made</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-200 text-amber-900">
+                    Integration In Progress
+                  </span>
+                </div>
+                <p className="mt-1 text-amber-900/90 leading-relaxed">
+                  No payments can be made. We are actively working on our online payment gateway integration. Without payment gateway processing, <strong>no order can be confirmed or dispatched</strong>.
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/checkout"
+              className="whitespace-nowrap px-4 py-2 bg-amber-900 hover:bg-amber-950 text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors self-end sm:self-center"
+            >
+              Return to Checkout
+            </Link>
+          </div>
+        )}
+
         {/* Top Celebration & Docket Announcement */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full gold-badge text-brand-goldDark text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
-            <svg className="w-3.5 h-3.5 text-brand-gold" viewBox="0 0 24 24" fill="currentColor">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm ${
+            isPaymentGatewayIntegrated ? 'gold-badge text-brand-goldDark' : 'bg-amber-100 text-amber-800 border border-amber-300'
+          }`}>
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
-            <span>Ceremony Order Confirmed &amp; Metal Die Locked</span>
+            <span>
+              {isPaymentGatewayIntegrated 
+                ? 'Ceremony Order Confirmed & Metal Die Locked' 
+                : 'Pending Gateway Settlement – Order Unconfirmed'}
+            </span>
           </div>
 
           <h1 className="serif-title text-3xl sm:text-5xl text-brand-dark font-normal tracking-tight mb-3">
-            May Your Royal Union Be Everlasting.
+            {isPaymentGatewayIntegrated 
+              ? 'May Your Royal Union Be Everlasting.' 
+              : 'Commission Draft Staged.'}
           </h1>
           <p className="text-xs sm:text-sm text-brand-muted font-light leading-relaxed max-w-2xl mx-auto">
-            Thank you, <span className="text-brand-dark font-medium">{coupleNames}</span>. Your customized order has been formally inducted into our Collection Registry. Our Master Engravers and Senior Wedding Stylist have initiated digital crest calibration.
+            {isPaymentGatewayIntegrated ? (
+              <>Thank you, <span className="text-brand-dark font-medium">{coupleNames}</span>. Your customized order has been formally inducted into our Collection Registry.</>
+            ) : (
+              <>Dear <span className="text-brand-dark font-medium">{coupleNames}</span>, your order docket details are saved as a draft. <strong>No payment has been received</strong> as our payment gateway integration is currently in progress. The order will be confirmed once payment gateway integration is live.</>
+            )}
           </p>
 
           {/* Docket ID Bar */}
@@ -168,7 +213,7 @@ const OrderConfirmationPage = () => {
               title="Click to copy Order ID"
             >
               <div className="flex items-center gap-1">
-                <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Collection Order ID</span>
+                <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Collection Docket ID</span>
                 <span className="text-[10px] text-brand-gold font-mono group-hover:underline">
                   {copied ? '(Copied!)' : '(Copy)'}
                 </span>
@@ -186,15 +231,19 @@ const OrderConfirmationPage = () => {
             <div className="h-6 w-[1px] bg-brand-border hidden sm:block"></div>
 
             <div className="text-center sm:text-left">
-              <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Settled Amount</span>
-              <span className="font-bold text-brand-dark text-sm">{settledAmount} (Fully Paid)</span>
+              <span className="text-brand-muted uppercase tracking-wider block text-[10px]">Settlement Status</span>
+              <span className="font-bold text-rose-700 text-sm">
+                {isPaymentGatewayIntegrated ? `${settledAmount} (Fully Paid)` : '₹0 Paid (Gateway Pending)'}
+              </span>
             </div>
 
             <div className="h-6 w-[1px] bg-brand-border hidden sm:block"></div>
 
             <div className="text-center sm:text-left">
               <span className="text-brand-muted uppercase tracking-wider block text-[10px]">White-Glove Delivery</span>
-              <span className="font-bold text-brand-green text-sm">{arrivalDateText}</span>
+              <span className="font-bold text-brand-slate text-sm">
+                {isPaymentGatewayIntegrated ? arrivalDateText : 'Held Pending Payment'}
+              </span>
             </div>
           </div>
         </div>
@@ -222,7 +271,7 @@ const OrderConfirmationPage = () => {
                     <span>Sovereign My Account &rarr;</span>
                   </Link>
                   <Link
-                    to="/track-order"
+                    to={`/track-order?docket=${orderId}`}
                     state={{ orderId }}
                     className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-brand-goldDark bg-brand-goldLight/70 hover:bg-brand-goldLight px-3 py-1 rounded-full border border-brand-border/50 transition-colors group"
                   >
@@ -396,7 +445,7 @@ const OrderConfirmationPage = () => {
               <div className="pb-5 mb-5 border-b border-brand-border/60">
                 <div className="flex gap-4">
                   <img
-                    src="https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM"
+                    src="/assets/cdn/img_8222cd4f9dd5.png"
                     alt="The Sovereign Bridal & Wedding Essentials Suite"
                     className="w-20 h-20 rounded-xl object-cover border border-brand-border flex-shrink-0 shadow-sm"
                   />

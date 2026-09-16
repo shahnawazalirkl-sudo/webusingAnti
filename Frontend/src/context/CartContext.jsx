@@ -1,67 +1,110 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { COUPONS } from '../data/productsData';
 
 const CartContext = createContext();
 
+export const DEFAULT_CART_ITEMS = [
+  {
+    cartId: 'item-sovereign-1',
+    id: 'sovereign-bridal-suite',
+    sku: 'ASRA-SOV-019',
+    title: 'The Sovereign Bridal & Wedding Essentials Suite',
+    subtitle: '2026 BRIDAL EDITION • SKU: ASRA-SOV-019',
+    badge: 'Flagship Masterpiece',
+    price: 7499,
+    originalPrice: 9800,
+    quantity: 1,
+    image: '/assets/cdn/img_8222cd4f9dd5.png',
+    edition: 'Classic Blush & Champagne Gold',
+    colorDot: '#E8C2B3',
+    brideName: 'Asra Ansari',
+    groomName: 'Sk Shahnawaz Ali',
+    weddingDate: '18th November 2026',
+    crestStyle: 'Classic Floral Crest',
+    monogramDie: '"A & S" • Classic Floral Crest',
+    cardInscription: '"Beautiful People Make Beautiful Memories"',
+    calligraphyScript: 'Royal Copperplate Script',
+    scentChoice: 'Kashmiri Rose (French Amber Base)',
+    savingsNote: 'You Saved ₹2,301 (24% Collection Privilege)',
+    footerNote: 'Includes 24k Gold Calligraphy Card & Climate-Controlled Packaging',
+    dispatchTimeline: 'Within 48 Hours'
+  },
+  {
+    cartId: 'item-vault-2',
+    id: 'velvet-ring-vault',
+    sku: 'ASRA-VLT-044',
+    title: 'Customized Velvet Double Ring & Mangalsutra Vault',
+    subtitle: 'Gift Vault • SKU: ASRA-VLT-044',
+    badge: 'Gift Add-on',
+    price: 1899,
+    originalPrice: 2499,
+    quantity: 1,
+    isVelvetVaultThumbnail: true,
+    monogramInitials: 'A & S',
+    vaultTag: 'Emerald Velvet Vault',
+    fabricShade: 'Royal Emerald Silk Velvet',
+    metalHardware: 'Hand-Polished Antique Brass Latch',
+    monogramDie: 'Matching A&S Couple Die',
+    savingsNote: 'Saved ₹600 with Ensemble Bundle',
+    footerNote: 'Matched to Suite Initials at No Extra Charge',
+    dispatchTimeline: 'Dispatched together with Masterpiece Suite'
+  }
+];
+
+// Default coupon as configured in Stitch design (10% extra off)
+export const DEFAULT_COUPON = {
+  code: 'ASRAFIRST',
+  title: '10% Extra Welcome Off',
+  discountPercent: 10,
+  minOrder: 1499,
+  description: "Code 'ASRAFIRST' Applied: 10% Extra Welcome Off"
+};
+
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([
-    {
-      cartId: 'item-sovereign-1',
-      id: 'sovereign-bridal-suite',
-      sku: 'ASRA-SOV-019',
-      title: 'The Sovereign Bridal & Wedding Essentials Suite',
-      subtitle: '2026 BRIDAL EDITION • SKU: ASRA-SOV-019',
-      badge: 'Flagship Masterpiece',
-      price: 7499,
-      originalPrice: 9800,
-      quantity: 1,
-      image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
-      edition: 'Classic Blush & Champagne Gold',
-      colorDot: '#E8C2B3',
-      brideName: 'Asra Ansari',
-      groomName: 'Sk Shahnawaz Ali',
-      weddingDate: '18th November 2026',
-      crestStyle: 'Classic Floral Crest',
-      monogramDie: '"A & S" • Classic Floral Crest',
-      cardInscription: '"Beautiful People Make Beautiful Memories"',
-      calligraphyScript: 'Royal Copperplate Script',
-      scentChoice: 'Kashmiri Rose (French Amber Base)',
-      savingsNote: 'You Saved ₹2,301 (24% Collection Privilege)',
-      footerNote: 'Includes 24k Gold Calligraphy Card & Climate-Controlled Packaging',
-      dispatchTimeline: 'Within 48 Hours'
-    },
-    {
-      cartId: 'item-vault-2',
-      id: 'velvet-ring-vault',
-      sku: 'ASRA-VLT-044',
-      title: 'Customized Velvet Double Ring & Mangalsutra Vault',
-      subtitle: 'Gift Vault • SKU: ASRA-VLT-044',
-      badge: 'Gift Add-on',
-      price: 1899,
-      originalPrice: 2499,
-      quantity: 1,
-      isVelvetVaultThumbnail: true,
-      monogramInitials: 'A & S',
-      vaultTag: 'Emerald Velvet Vault',
-      fabricShade: 'Royal Emerald Silk Velvet',
-      metalHardware: 'Hand-Polished Antique Brass Latch',
-      monogramDie: 'Matching A&S Couple Die',
-      savingsNote: 'Saved ₹600 with Ensemble Bundle',
-      footerNote: 'Matched to Suite Initials at No Extra Charge',
-      dispatchTimeline: 'Dispatched together with Masterpiece Suite'
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const saved = localStorage.getItem('asra_cart_items');
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+    } catch (err) {
+      console.warn('Could not retrieve cart from localStorage', err);
     }
-  ]);
+    return DEFAULT_CART_ITEMS;
+  });
 
-  // Default coupon as configured in Stitch design (10% extra off)
-  const defaultCoupon = {
-    code: 'ASRAFIRST',
-    title: '10% Extra Welcome Off',
-    discountPercent: 10,
-    minOrder: 1499,
-    description: "Code 'ASRAFIRST' Applied: 10% Extra Welcome Off"
-  };
+  const [appliedCoupon, setAppliedCoupon] = useState(() => {
+    try {
+      const saved = localStorage.getItem('asra_applied_coupon');
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+    } catch (err) {
+      console.warn('Could not retrieve coupon from localStorage', err);
+    }
+    return DEFAULT_COUPON;
+  });
 
-  const [appliedCoupon, setAppliedCoupon] = useState(defaultCoupon);
+  useEffect(() => {
+    try {
+      localStorage.setItem('asra_cart_items', JSON.stringify(cartItems));
+    } catch (err) {
+      console.warn('Could not persist cart to localStorage', err);
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
+    try {
+      if (appliedCoupon) {
+        localStorage.setItem('asra_applied_coupon', JSON.stringify(appliedCoupon));
+      } else {
+        localStorage.removeItem('asra_applied_coupon');
+      }
+    } catch (err) {
+      console.warn('Could not persist coupon to localStorage', err);
+    }
+  }, [appliedCoupon]);
+
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
 

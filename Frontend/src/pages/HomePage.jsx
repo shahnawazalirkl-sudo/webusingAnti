@@ -25,53 +25,31 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col w-full">
-      {/* Top Trust Highlights Ticker */}
-      <section className="w-full bg-surface-container-low border-b border-outline-variant/30 py-2.5 px-margin overflow-hidden mt-1">
-        <div className="max-w-[1360px] mx-auto flex items-center justify-between gap-space-lg flex-wrap sm:flex-nowrap">
-          <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
-            <span className="material-symbols-outlined text-[18px] text-primary">bolt</span>
-            <span>Dispatch within 24–48 Hours</span>
-          </div>
-          <div className="hidden md:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
-            <span className="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
-            <span>100% Customized Hand-Engraved Gifts</span>
-          </div>
-          <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
-            <span className="material-symbols-outlined text-[18px] text-primary">stars</span>
-            <span>★ 4.9/5 Rating from 3,500+ Couples</span>
-          </div>
-          <div className="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
-            <span className="material-symbols-outlined text-[18px] text-primary">featured_seasonal_and_gifts</span>
-            <span>Complimentary Wax-Sealed Luxury Packaging</span>
-          </div>
-        </div>
-      </section>
-
       {/* Editorial Hero Section */}
-      <section className="w-full py-space-xl lg:py-16 px-margin relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/40 to-surface">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+      <section className="w-full pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 px-4 sm:px-margin relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/30 to-surface">
+        <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
           
           {/* Left Column: Editorial Content */}
-          <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-space-xl">
-            <div className="inline-flex items-center gap-space-xs px-3 py-1 bg-surface-container-high rounded-full mb-space-md">
+          <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-6 xl:pr-space-xl">
+            <div className="inline-flex items-center gap-space-xs px-3.5 py-1.5 bg-surface-container-high/80 backdrop-blur-xs rounded-full mb-4 sm:mb-space-md border border-outline-variant/40">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant">
+              <span className="font-label-sm text-[11px] sm:text-label-sm tracking-widest uppercase text-on-surface-variant font-medium">
                 The 2025 Bridal &amp; Gift Collection
               </span>
             </div>
 
-            <h1 className="font-display-lg text-headline-lg lg:text-display-lg text-on-surface font-normal tracking-tight mb-space-md leading-[1.12]">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal tracking-tight mb-4 sm:mb-space-md leading-[1.14]">
               Crafting Timeless <span className="italic font-normal text-primary">Gifts</span> for Life's Most Cherished Moments.
             </h1>
 
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-space-lg leading-relaxed">
+            <p className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant max-w-xl mb-6 sm:mb-space-lg leading-relaxed font-light">
               From custom debossed leather passport suites to glowing acrylic melodies and curated wedding essentials hampers, we immortalize love stories with meticulous artisanal craft.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-space-md w-full sm:w-auto mb-8 sm:mb-space-xl">
               <Link
                 to="/collections"
-                className="px-8 py-3.5 bg-on-surface text-surface rounded hover:bg-primary transition-all duration-300 shadow-sm flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold group"
+                className="px-7 sm:px-8 py-3.5 bg-on-surface text-surface rounded-lg hover:bg-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold group"
               >
                 <span>Explore All Collections</span>
                 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
@@ -81,7 +59,7 @@ const HomePage = () => {
 
               <Link
                 to="/bespoke"
-                className="px-7 py-3.5 bg-surface-container-lowest text-on-surface rounded border border-outline-variant/80 hover:border-primary hover:bg-surface-container-low transition-all duration-300 flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold"
+                className="px-6 sm:px-7 py-3.5 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant/80 hover:border-primary hover:bg-surface-container-low transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold"
               >
                 <span className="material-symbols-outlined text-[18px] text-primary">edit_note</span>
                 <span>Create Your Own</span>
@@ -89,25 +67,25 @@ const HomePage = () => {
             </div>
 
             {/* Metric Callout Cards */}
-            <div className="grid grid-cols-3 gap-space-md pt-space-md border-t border-outline-variant/30 w-full max-w-lg">
+            <div className="grid grid-cols-3 gap-3 sm:gap-space-md pt-5 sm:pt-space-md border-t border-outline-variant/30 w-full max-w-lg">
               <div>
-                <span className="font-headline-md text-headline-md text-on-surface font-semibold block">18,000+</span>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Heirlooms Delivered</span>
+                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">18,000+</span>
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Heirlooms Delivered</span>
               </div>
               <div>
-                <span className="font-headline-md text-headline-md text-on-surface font-semibold block">99.8%</span>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Satisfaction Rate</span>
+                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">99.8%</span>
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Satisfaction Rate</span>
               </div>
               <div>
-                <span className="font-headline-md text-headline-md text-on-surface font-semibold block">24 Hrs</span>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Express Dispatch</span>
+                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">24–48h</span>
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Priority Dispatch</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: Visual Composition Hero (Interactive Luxury 3D & Photography Showcase) */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-[460px]">
+          <div className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0">
+            <div className="relative w-full max-w-[440px] sm:max-w-[460px]">
               {/* Ambient Glow Background */}
               <div className="absolute -top-10 -right-10 w-72 h-72 bg-secondary-container/40 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -139,13 +117,13 @@ const HomePage = () => {
               </div>
 
               {/* Primary Hero Card with Embedded 3D Canvas / Photograph */}
-              <div className="relative bg-surface-container-lowest p-space-sm rounded-xl shadow-xl overflow-hidden group border border-outline-variant/40">
-                <div className="aspect-[4/5] min-h-[460px] w-full overflow-hidden rounded-lg bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
+              <div className="relative bg-surface-container-lowest p-2 sm:p-space-sm rounded-2xl shadow-xl overflow-hidden group border border-outline-variant/40">
+                <div className="aspect-[4/5] min-h-[380px] sm:min-h-[440px] w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
                   {heroMode === 'photo' ? (
                     <img
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       alt="ASRA Wedding Canvas Luxury Gift Gift Bouquet Hamper"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf6wccd8JVo55o47kyjfcXBqVSaV5PmNZ27-bvZE--L32GU6kqpGop3S4Acc1CCkAKzmYs03qtCI99k-Mw0THe-Vz9tBN8Q4lkKqctWg3hXYDniqRQqm_1e0O8wPWe-6QmbI_7dccFB0RRgFtdlyRlX0kaP2qObJ0Ka_6dlx93oklKnViZ9gQWUZv0PKbOpiAjynEnez3YREZOetCYoPqUxT8Lpgfzw2UkeMpsv_3tWVaiTyW_OgRXTmlTVlY-FK2f1rQ"
+                      src="/assets/cdn/img_ea7b421bfaad.png"
                     />
                   ) : (
                     <div className="w-full h-full">
@@ -154,29 +132,29 @@ const HomePage = () => {
                   )}
                 </div>
 
-                <div className="p-space-md flex items-center justify-between bg-surface-container-lowest relative z-20">
+                <div className="p-3.5 sm:p-space-md flex items-center justify-between bg-surface-container-lowest relative z-20">
                   <div>
-                    <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold block">
+                    <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold block">
                       Artisan Spotlight
                     </span>
-                    <h3 className="font-title-md text-title-md text-on-surface font-semibold">
+                    <h3 className="font-title-md text-sm sm:text-title-md text-on-surface font-semibold">
                       Wedding Essentials Travel Suite
                     </h3>
                   </div>
-                  <span className="font-title-md text-title-md text-primary font-bold">₹1,699</span>
+                  <span className="font-title-md text-sm sm:text-title-md text-primary font-bold">₹1,699</span>
                 </div>
               </div>
 
               {/* Overlapping Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-lg border border-outline-variant/40 flex items-center gap-space-md max-w-[260px] z-30">
-                <div className="w-12 h-12 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
-                  <span className="material-symbols-outlined text-[24px]">verified_user</span>
+              <div className="absolute -bottom-4 sm:-bottom-6 -left-3 sm:-left-6 bg-surface-container-lowest/95 backdrop-blur-md p-3 sm:p-space-md rounded-xl shadow-lg border border-outline-variant/40 flex items-center gap-3 sm:gap-space-md max-w-[240px] sm:max-w-[260px] z-30">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
+                  <span className="material-symbols-outlined text-[20px] sm:text-[24px]">verified_user</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">
+                  <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-wider font-semibold">
                     Collection Certified
                   </span>
-                  <span className="font-body-sm text-body-sm text-on-surface font-medium leading-tight">
+                  <span className="font-body-sm text-[11px] sm:text-body-sm text-on-surface font-medium leading-tight">
                     Debossed initials with real brass plates
                   </span>
                 </div>
@@ -294,7 +272,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="Custom Initials Leather Travel Set"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBotmp8Vw5J1VjNNMezt5z72yN1AhbCGxzqKKxVlCO3-fzA6IJeroSr358LZy7Zv0L6WKSurRnkiB2KSW4GawEiBq6QxirIrXIwpBCkHWRTIUOxqZyf9IN8PBgNiMSQzTQxYXq-co792LDowUsDDeoeUU1mG-FHdgHVUHxhJ2qXYyylWSbrAvmac2Rk4I2qkkvmDUEFn4p5xpf0dQjmFB5EG67fn03l5fufbjEzKkriamgwIEGO8Xj-fg"
+                  src="/assets/cdn/img_48ec5e0e21c9.jpg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
                   BESTSELLER
@@ -346,7 +324,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="Acoustic First Dance Acrylic Lamp"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUi_MaWaxq6jFR_5a33vy5n4RBT50UoFYD5RvepkjRaRtdebMAa13zMb0BafbJO6Fpy0NvLPULFlXZeuJmWT6tSK5RbPwsnoBOf7GozzhkfxxR5h4_uBCEb5TsgXsEWRkt6y_1M74k4-4_jN7dzBL4iy3CM_aR39DYF1jQA-mmhdZHilvL1mRHbcD4eMPiZPGmAchl9ZdX6JUz-gB0gozxWtoz6_RnjfeakvgYSLWJ9_EYIdOVH2DFqg"
+                  src="/assets/cdn/img_679ede3f1033.jpg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] tracking-widest uppercase rounded">
                   TRENDING
@@ -398,7 +376,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="Initials Velvet Jewel Box &amp; Pendant"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKU7s8rqvwKM9tOufEzgenjmQewDun8pV_xomQTIqZXxuVPQrUEBICs5l0E5eP8yI25NoOe8jy_6Odj__8C7OVS6mUATMveaEwBcJPXZU5B5BhMc1FAIDakB0VNC_IZl5zRKG8OSfkYG14WzKNG0DD3kiB_VTSgl_uhTXOFLVHLoi7NZyEC-HNBohagFEpQyaK8vlmvaZJv1LjlndktltjOZ5gvIzVA70ou7zp5ULkJh9F9n5cyy_dUg"
+                  src="/assets/cdn/img_677956d05c8e.jpg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-tertiary text-on-tertiary font-label-sm text-[10px] tracking-widest uppercase rounded">
                   BRIDAL FAVORITE
@@ -450,7 +428,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="Groom's Heirloom Timepiece &amp; Wallet"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4vaX8YRK-IdvVY3488y1MEXadK8LziiF102DGUHr_divtKvbvp2lJUi2u5Q1_CRR7ZbxwTfTUtyT-bcwFinnEqkvYI3Y0Vwv6GeK2EMogJxjA_MMgg8z66DEfO0HG7GhKWOxtlKwkoGanl3gPHfmmWOSKRprSj4fnBCUIth2ngbRMj8QKVNtn6XrckDGF7mU2Bc-JoVF9VDWPhMpG1jGnZWba901TkKwLmxLjhVvOGOjJpEnAdTsZHg"
+                  src="/assets/cdn/img_acd95c6f65de.jpg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-on-surface text-surface font-label-sm text-[10px] tracking-widest uppercase rounded">
                   GROOM'S SUITE
@@ -502,7 +480,7 @@ const HomePage = () => {
                 <img
                   alt="Luxury wedding hamper"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7vVekI7j0bO5B4sHGS-PkbJ3Vaoc1gknVrmxBviLmDJq7i8B7P9Fd6gpcRcy7nB9l89JnswYfk8hocSAYNlzJHzYDz6CPDRoTiIb5Ctt2TBEmVext_0vT54z5cAKRo9Jpmd2__xSBPWIbqVYGmAELwue5yfoeivzaFEBc2fg37qvM0I-FP5acMA_IJTZFTM3J2FF8WNrKIRD-pv3TljQvvLGlxkYsR_NcG1_STL8doR8dKiIYMo2uzg"
+                  src="/assets/cdn/img_56d7a2ebc8ba.jpg"
                 />
                 <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
                   LUXURY WEDDING ESSENTIALS
@@ -574,7 +552,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   alt="For Her Bridal Gifts"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5RGsxj3cX2RgFKWbxsMLGQHhiR_v6kBL395AJJM6tqD9rti13HMZ-MJXYDC0jGBOxyHWTJ_MgvsHgHL7rFwydP6QiWLCi6xb02ydAucbBefr-jHkRXzeZZZ5tx7S1bx9lfkDJQUZNopzy6nsGHSMgAW4Iy7sLUfxDWkjMz-4ebds60q1H_4JfZlhbJisKhMxoYuxHIMitv-yzqAxqqS5-KpxB4urmNS9EloEibVdzJtYb1aTb0PVGPQ"
+                  src="/assets/cdn/img_c9193e0400dc.jpg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
@@ -604,7 +582,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   alt="For Him Gentleman's Edition"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzzx65hB4bFI1eLlD9JMTGwrIX6dh7-AO5FOgA8UysfAutW8GseF7l7rbx9hle9mTzJTR94crA6JIS9jQboEM9WyJRZ7VJD1WSywAs9FFurrSm6bcBZPkq2NNq0pi1Kj1xQI79nKMJswLVkrgVKdsoBqhIOhB8zF6hfcOUCgkXV0G2zvleLqMx6VDKy_ik6zp6UxzD9yMxohmjRcy434EEl9vMNzcKiwsW0i7Eb0ZxsPEjyBmz-sIzrw"
+                  src="/assets/cdn/img_8a5a665d4d2e.jpg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
@@ -634,7 +612,7 @@ const HomePage = () => {
                 <img
                   alt="Luxury wedding hamper for couples"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgsSYGkMU2Dze_u6NpUTHa4rEsgJOenA0Bc-K6-OYwzR4fHq22Of4D3XP91rciSVldzA91LqxD2BQnZfrZdzn6SFoUKSyhbnyb8fm7gpQqGvmFmYcfuwEzBNiTB_zGar9IclDJeKtu9AP8DQ8tyAh52NwleOF6hKXNjoBzJWFbQGOrxW5oCLNGfqZA7KuT-UQ_dXMpAeDGbmW1PBRSkg8ha2wxmsKrYWFeh_x6rBq7HTslRi3iGDSBYw"
+                  src="/assets/cdn/img_ecfddff03b93.jpg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
@@ -664,7 +642,7 @@ const HomePage = () => {
                 <img
                   alt="Personalized kids gift gifts"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrqlkBPIAkX1Xo3Sk87FeRnUXn5N9kd2E4E-wjwqGD1qpBMmpO6JyiTvjZrHcdnohIke_Q7_1M4arwF3K_y7tG2kQOH1n4Sz-vcRqLOD1R2WwKSmPBnQt-EWFqOE5IVOh_UPQgX27U8ZKJ1d5xADnBBXoBrS-xKznhrcSytZGb-kas7e18Mq30TH7x8Lljh2TnG8FzO0jJcDLq75x7kHqBMyopsDoxUw2a7Ea74P72E8dQvjHrsaKog"
+                  src="/assets/cdn/img_448c691fa5fa.jpg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
@@ -779,7 +757,7 @@ const HomePage = () => {
                 <img
                   className="w-full h-full object-cover"
                   alt="Artisan hands applying gold foil stamp"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawgmCslMcjyWFweV3jGJ8DOelT5s2Dp9MOQT1evL5pbyg5CIxWOw422Q5IwVwGs4cMoNpv6aK4GRLhMZ736fBa_Ocr27N6r9IzB7x5ji2r0LiOFMoaxPS5nFenso16DPFI_A4xPf66gdygkvehhQIPhWZGjrp2uQjRS7fwr4EmfGpxY_ECLqDi_vAIIpWOVDuUVlTXbDK2f6VDB6NBM2MLwwyNokulxQNBKI-0u9DWe1aoh0SieQU3A"
+                  src="/assets/cdn/img_9e12f2d44ec6.jpg"
                 />
                 <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>

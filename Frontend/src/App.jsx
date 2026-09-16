@@ -60,7 +60,19 @@ const App = () => {
     '/contact-us',
     '/appointments',
     '/salons',
-    '/concierge'
+    '/concierge',
+    '/faq',
+    '/faqs',
+    '/help-desk',
+    '/help',
+    '/terms-of-service',
+    '/terms',
+    '/charter',
+    '/atelier-charter',
+    '/privacy-policy',
+    '/privacy',
+    '/return-policy',
+    '/wishlist'
   ];
 
   const isEditorialPage =
@@ -75,103 +87,60 @@ const App = () => {
       {!isMinimalPage && <Header />}
 
       {/* Content Area - Editorial pages use main with top padding; Minimal pages provide their own landmarks */}
-      {!isMinimalPage ? (
-        <main className="flex-grow w-full pt-[148px]">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/collections" element={<CollectionsPage />} />
-            <Route path="/wedding-keepsakes" element={<WeddingKeepsakesPage />} />
-            <Route path="/personalized" element={<PersonalizedPage />} />
-            <Route path="/bulk-orders" element={<BulkOrdersPage />} />
-            <Route path="/bespoke" element={<BespokePage />} />
-            <Route path="/your-idea-we-create" element={<BespokePage />} />
-            <Route path="/custom-atelier" element={<BespokePage />} />
-            <Route path="/offers" element={<OffersPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-            <Route path="/track-order" element={<TrackOrderPage />} />
-            <Route path="/return-policy" element={<ReturnPolicyPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/privacy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/terms" element={<TermsOfServicePage />} />
-            <Route path="/charter" element={<TermsOfServicePage />} />
-            <Route path="/atelier-charter" element={<TermsOfServicePage />} />
-            <Route path="/wishlist" element={<WishlistPage />} />
-            <Route path="/about" element={<AboutUsPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/heritage" element={<AboutUsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/contact-us" element={<ContactPage />} />
-            <Route path="/appointments" element={<ContactPage />} />
-            <Route path="/salons" element={<ContactPage />} />
-            <Route path="/concierge" element={<ContactPage />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/faqs" element={<FaqPage />} />
-            <Route path="/help-desk" element={<FaqPage />} />
-            <Route path="/help" element={<FaqPage />} />
-            <Route path="/client-portal" element={<ClientPortalPage />} />
-            <Route path="/portal" element={<ClientPortalPage />} />
-            <Route path="/account" element={<ClientPortalPage />} />
-            <Route path="/sanctuary" element={<ClientPortalPage />} />
-            <Route path="/client-sanctuary" element={<ClientPortalPage />} />
-            <Route path="/sovereign-vault" element={<ClientPortalPage />} />
-            <Route path="/404" element={<NotFoundPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
-      ) : (
-        <div className="flex-grow w-full">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/collections" element={<CollectionsPage />} />
-            <Route path="/wedding-keepsakes" element={<WeddingKeepsakesPage />} />
-            <Route path="/personalized" element={<PersonalizedPage />} />
-            <Route path="/bulk-orders" element={<BulkOrdersPage />} />
-            <Route path="/bespoke" element={<BespokePage />} />
-            <Route path="/your-idea-we-create" element={<BespokePage />} />
-            <Route path="/custom-atelier" element={<BespokePage />} />
-            <Route path="/offers" element={<OffersPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-            <Route path="/track-order" element={<TrackOrderPage />} />
-            <Route path="/return-policy" element={<ReturnPolicyPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/privacy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/terms" element={<TermsOfServicePage />} />
-            <Route path="/charter" element={<TermsOfServicePage />} />
-            <Route path="/atelier-charter" element={<TermsOfServicePage />} />
-            <Route path="/wishlist" element={<WishlistPage />} />
-            <Route path="/about" element={<AboutUsPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/heritage" element={<AboutUsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/contact-us" element={<ContactPage />} />
-            <Route path="/appointments" element={<ContactPage />} />
-            <Route path="/salons" element={<ContactPage />} />
-            <Route path="/concierge" element={<ContactPage />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/faqs" element={<FaqPage />} />
-            <Route path="/help-desk" element={<FaqPage />} />
-            <Route path="/help" element={<FaqPage />} />
-            <Route path="/client-portal" element={<ClientPortalPage />} />
-            <Route path="/portal" element={<ClientPortalPage />} />
-            <Route path="/account" element={<ClientPortalPage />} />
-            <Route path="/sanctuary" element={<ClientPortalPage />} />
-            <Route path="/client-sanctuary" element={<ClientPortalPage />} />
-            <Route path="/sovereign-vault" element={<ClientPortalPage />} />
-            <Route path="/404" element={<NotFoundPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-      )}
+      {(() => {
+        const ContentContainer = !isMinimalPage ? 'main' : 'div';
+        const containerClasses = !isMinimalPage ? 'flex-grow w-full pt-[124px] md:pt-[158px]' : 'flex-grow w-full';
+
+        return (
+          <ContentContainer className={containerClasses}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
+              <Route path="/collections" element={<CollectionsPage />} />
+              <Route path="/wedding-keepsakes" element={<WeddingKeepsakesPage />} />
+              <Route path="/personalized" element={<PersonalizedPage />} />
+              <Route path="/bulk-orders" element={<BulkOrdersPage />} />
+              <Route path="/bespoke" element={<BespokePage />} />
+              <Route path="/your-idea-we-create" element={<BespokePage />} />
+              <Route path="/custom-atelier" element={<BespokePage />} />
+              <Route path="/offers" element={<OffersPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+              <Route path="/track-order" element={<TrackOrderPage />} />
+              <Route path="/return-policy" element={<ReturnPolicyPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              <Route path="/terms" element={<TermsOfServicePage />} />
+              <Route path="/charter" element={<TermsOfServicePage />} />
+              <Route path="/atelier-charter" element={<TermsOfServicePage />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
+              <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/about-us" element={<AboutUsPage />} />
+              <Route path="/heritage" element={<AboutUsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact-us" element={<ContactPage />} />
+              <Route path="/appointments" element={<ContactPage />} />
+              <Route path="/salons" element={<ContactPage />} />
+              <Route path="/concierge" element={<ContactPage />} />
+              <Route path="/faq" element={<FaqPage />} />
+              <Route path="/faqs" element={<FaqPage />} />
+              <Route path="/help-desk" element={<FaqPage />} />
+              <Route path="/help" element={<FaqPage />} />
+              <Route path="/client-portal" element={<ClientPortalPage />} />
+              <Route path="/portal" element={<ClientPortalPage />} />
+              <Route path="/account" element={<ClientPortalPage />} />
+              <Route path="/sanctuary" element={<ClientPortalPage />} />
+              <Route path="/client-sanctuary" element={<ClientPortalPage />} />
+              <Route path="/sovereign-vault" element={<ClientPortalPage />} />
+              <Route path="/404" element={<NotFoundPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ContentContainer>
+        );
+      })()}
 
       {/* Editorial Footer (Hidden on minimal checkout & tracking pages) */}
       {!isMinimalPage && <Footer />}

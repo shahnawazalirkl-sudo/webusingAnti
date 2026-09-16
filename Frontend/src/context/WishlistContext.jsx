@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { PRODUCTS } from '../data/productsData';
 
 const WishlistContext = createContext();
@@ -16,7 +16,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     price: 7499,
     originalPrice: 9800,
     savings: 2301,
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
+    image: '/assets/cdn/img_8222cd4f9dd5.png',
     description: 'Dawn-harvested Parisian blush roses, debossed custom 3D initials brass die, and cryo-hydrated botanical extracts.',
     customizations: [
       { label: 'Initials', value: '"A & R" • Classic Crest' },
@@ -35,7 +35,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     price: 1899,
     originalPrice: 2499,
     savings: 600,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg',
+    image: '/assets/cdn/img_5ca8bace4375.jpg',
     isEmeraldVaultVisual: true,
     description: 'Hand-tailored mulberry silk velvet with dual cushioned slots, hot-stamped with pure 24k gold leaf foil initials.',
     customizations: [
@@ -55,7 +55,7 @@ export const INITIAL_WISHLIST_ITEMS = [
     price: 1299,
     originalPrice: 1750,
     savings: 451,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBWXIZrXYuYJm45DRWcFkOWlOTDQ0hJYgaj9KnM1VtA7Q6UD7zH_N9LxDpvDXrCEDEyVGqLNGeIo3adq69iHsyP0MtB0WvXy5AQGgicu5MLJd60FAPd0eg1vCJ-5Ue1vm79MP87sgnWSZdyw1KZd7NOjB3dnAb2RiTqXJ5Sg1dJvOCV6wuTmrZ1iM05cWgS_U0K1PM7mYhRXqBfz376zB-He9z9dijJaZJ17jO33sOhxvRxPk0te4E5GQ',
+    image: '/assets/cdn/img_11a57511dc47.jpg',
     isVowBookVisual: true,
     description: 'Cotton rag hand-made paper with feathered deckled edges, bound in French silk ribbons and sealed with gold leaf.',
     customizations: [
@@ -86,7 +86,25 @@ export const INITIAL_WISHLIST_ITEMS = [
 ];
 
 export const WishlistProvider = ({ children }) => {
-  const [wishlistItems, setWishlistItems] = useState(INITIAL_WISHLIST_ITEMS);
+  const [wishlistItems, setWishlistItems] = useState(() => {
+    try {
+      const saved = localStorage.getItem('asra_wishlist_items');
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+    } catch (err) {
+      console.warn('Could not retrieve wishlist from localStorage', err);
+    }
+    return INITIAL_WISHLIST_ITEMS;
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('asra_wishlist_items', JSON.stringify(wishlistItems));
+    } catch (err) {
+      console.warn('Could not persist wishlist to localStorage', err);
+    }
+  }, [wishlistItems]);
 
   const wishlistIds = useMemo(() => wishlistItems.map(item => item.id), [wishlistItems]);
 

@@ -65,7 +65,7 @@ const NotFoundPage = () => {
                 <img
                   alt="Maison ASRA - Wedding Canvas"
                   className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJvvKhPsL5Xpo4JraNGwfHl6tJwOssDE3rVYAn4vR6WN23qQuR14m2sSzmqwO6y2o0W92TvWku7FS7vH-f7ps9KkDbeu_6PYi3-Ex232Q-K5rdQ1J288WNi9bAg0tA-ZfbrlWTvCWq1PTxUBB6zp_oQ3qLfxpv0IQe6WMAXYBUW1wDV8fhCPfs2IVPWTzJjevCWBg_xretfBxs2xQ0yq9s1fYamwNLltNWukIQgJN43KUluJAWttN11BmfPGe6unNAy6E"
+                  src="/assets/cdn/img_0c66544d9d27.png"
                   onError={() => setImageError(true)}
                 />
               ) : (

@@ -749,7 +749,7 @@ const OffersPage = () => {
             <div className="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 grid grid-cols-1 lg:grid-cols-12 items-stretch">
               <div className="lg:col-span-6 relative min-h-[340px] lg:min-h-full">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-SqfNaMTXBajaA9Ob-Ut8BjkvfhiaDPBeQiZXr_jluPT-rh9zqhkuebuLXPE4xTrXA-qW4z8TCE0Ivg-r7Dvw-FUAJR2mGbK1r-9zVpdrAGDKfHRhgun3LJost4A2a3PDg7T74jP04eZ3x34eMNw7JCqwswX2YIeMx7MM2oeg25Xtyhm_OLH-LhsqCijmH6Pg0hHkL2aKeKUvKEqxfo6f7XO87U-v85bGYyJd_vjytfwapqZbby6lgw"
+                  src="/assets/cdn/img_23f7486a1ad8.jpg"
                   alt="A luxurious wicker picnic wedding hamper set open on a rustic oak coffee table with champagne tea cups, gold-embossed personalized photo frame, artisan biscuits, and fragrant dried botanical roses in warm candlelit ambient cottage lighting."
                   className="absolute inset-0 w-full h-full object-cover"
                 />

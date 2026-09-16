@@ -6,31 +6,31 @@ import { useWishlist } from '../context/WishlistContext';
 
 // Official Stitch Assets for The Sovereign Bridal Suite
 const SOVEREIGN_ASSETS = {
-  hero: "https://lh3.googleusercontent.com/aida-public/AB6AXuDrYPxCrDzczhyZ-p7Ew61w-iDjrf0SYB9xcUMsWWKw19VERYs6chdoMrDSxCbWxB6FP0DPqlSA9C0gfm0A_e76hPgg3kHn_PwuaYLWv2rylJkcQJvx-RMjgkr76e43aAgClcbWocYdzM7JnURK0cckKXh1uPTwgJyWYqKEdhMs_ARV-EYILjjs2zca7jt9X7AqeY7WwO8XtHixUwaHSL-_9YJ51I7DbRGCyy27-puWWkO30dd1YCmnzw",
+  hero: "/assets/cdn/img_eafddfa4ed3e.jpg",
   gallery: [
     {
       label: "Full Suite Bouquet",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDG8sYOo1Zxru-kLS8qvydvEJrMxlIZWUfTYMqHh34enwgfH61Pd9GQi6UphW7CkUmeBiWMGesDQr7GyfXaOKGx1nKvKV2xm428y7dpj7pvYvd-zYJTkVBD8miFbVNvzf7RFKRD43acWisxVvAn517plJefy8crqvVtZJ53Vye_Veql8_hrKy-TDwWxoYEalEkMMw66j21MePgWE2WTmAUoIEn7iAI3xHx8chy-6zDY-XKBxF-k-jAX4Q"
+      src: "/assets/cdn/img_71f820512472.jpg"
     },
     {
       label: "Initials Gift Box",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDg8SHxHT70-Z2LX-quATgUZCg7KYaUltYt_XC0WFJD0EoHGTy7CDqfldQZkS23TnSV23pCwFUZJUdcZLwvWYABBCvNwR4Hqy6yIayHrgTwDd4pqqybTHWhyySNag7fFDBy4zhPPBAFiaidxTdDDSSIfX4W4dF-8Th2VlPFaOtSXlHC-74eid0s-iJEhOqFHztGaXv_Pcn_dEOTQMIavsUjtTgdcalnp4GCF7X1u5S1xKEUDh4TmZS9ww"
+      src: "/assets/cdn/img_a1877a3f3271.jpg"
     },
     {
       label: "Eau De Parfum Set",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6B52thBd1P7Zm37oLyD-2UJQah9La9aSUYdPqFInYMhIEgjcAyJY0WZN5gvlfiU-zKDz1fLI-WhTM9wqIfJbOT_xmU_q7IGH3LdNlCbXWnTfzzXtU-v3dcMJuwQWvyoKEtGQSlAURW4K55_5G7JTrsajK6b1goSP5r9ZIuZt-9QX0LcKXL4gGX4tEhS3O2vPj96IFLqDvB6jnaWKTdtAoXD6JKKzopt2RZD6SuUcSjoWvnCHGm41ZFw"
+      src: "/assets/cdn/img_d65b352dc440.jpg"
     },
     {
       label: "Botanical Soy Candle",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXq6y8m1HASvyj_J-wgQ8NJrIOhnF3LPW5ylrBxcLWvPWAJai23_t1oU6_S4PlXC2o-tyFn_l8e5_yo4HQ9We8jQgZGy2tT_iHG7AFyds7fKX1t06jk8ZsaMePCsKROKFBBNNv3c-CENSwjF4upxk_ahZfOcfU6OuPj5PA31BSv6H9iUHzba6FK2h1eTu2VTJaHcVybWMEHn2GK7qLNs0JkyKnEokVvXRDJiPNFOcEaiAhbWFRUPn7sw"
+      src: "/assets/cdn/img_631d4661320f.jpg"
     },
     {
       label: "Heirloom Bear Gift",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB93Lmkom3jsLakl2GUcjCR2iOh_ZSs2S6qkQXMlBxTxDwvp5MGyVXCZY_3ng5dnE90F63OwXLK0v3mUFUG9rmt6nGwdlH7h0yICYUTf8SWdargAiSeepYsU6VqgxWWEgPLbIf2bBk4_y7eqJy4dj9DQu6ss_08CyS2CyCT5s2Z1_F8IN7SCpMtsbiJQ9e3XbzwMuP4aLaHhl8YpQhJxOlr2OFsohNET4sMn8Gta-fMVZzhrmYf8aRMOQ"
+      src: "/assets/cdn/img_ae7a8c8ff5ea.jpg"
     },
     {
       label: "Unboxing Ceremony",
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAoHeg0BUt58qSdDXfiRrsY8s6eMiK8qV1fGBT8h_hh3j5btj6fLTghVLh0WlBUHEZW8J-XPE9zrBZdUmSGs7kdXZsE5SdOxIePzC-6aTh5rCgMJL7bfrQrT7aRlTSJ2LIWxX1U9x--yLPV7amdtctt-q6jHsu7g4ZRa4WJpQSQKfyXSfUsnesaN2bTavDkIXOcZG0C5sacCIIMvVxIOVh4UZg8eJtffaS8G6AH3Ubq_F3C2E3mcEwmCQ",
+      src: "/assets/cdn/img_4b1d8e16eb70.jpg",
       isVideo: true
     }
   ],
@@ -40,47 +40,47 @@ const SOVEREIGN_ASSETS = {
       tag: "Custom Debossed",
       title: "Hardbound Initials Hatbox",
       desc: "Custom rigid 1200 GSM cardboard cylinder lined in soft blush velvet with couple's customized 3D initials die in 24k gold leaf.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdQoOoJCDPJcYnb9dRsx_uO8P_PEoSeyDqqnhAOl2O2Q_TvhecYlCbXCbj-ZUGxU8W0ELzqH60STXWXRiTvYIAz0roy2THbnG8Hh6loEGACld5RikChPSLda6PFO_4eL-ar5UUrr1BkGPDBAqrF_bNByjG13bP0Nh4pPbF5G9WVYMbtCh6062eaeQa_wjWcg5AcXTbDkTkiUcSC2cfa_WMYT6C2KGqlDaJRPeavMdjIDyCQfuxjT7Zqw"
+      image: "/assets/cdn/img_e7936d117a2b.jpg"
     },
     {
       number: "02 / FRAGRANCE",
       tag: "50ml French Glass",
       title: "Signature Collection Eau De Parfum",
       desc: "An intimate ceremonial blend of Kashmiri damask rose, golden vanilla, and precious white oud bottled in bevelled heavy crystal.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhvBuaBIDf90YO4e9fxc6l2JryeroiSct-2BuEv0mCBQprLkHyqh0ok7xV50dM40OvReXpqNsjvGz8bMt_fa9Wbc4mZ9zMY7k3zUXqhpHhnQ-tNLlj8W3GrpBnA9UmsRR2KsOKaDXjecdDGHu5iyj-2gFidYpYQlk2ihWnOrxzubrA--BcRzdJBnLJXot73I-thYjK_-Ylydqp5eO5CP3DAYKpRo8_73mN3CrhNWAhzttG3P8_naTECw"
+      image: "/assets/cdn/img_45e05185aa02.jpg"
     },
     {
       number: "03 / AMBIENCE",
       tag: "40 Hours Burn",
       title: "Hand-Poured Botanical Candle",
       desc: "100% natural organic soy wax poured into an etched glass tumbler with engraved polished gold brass lid and cotton wooden wick.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCu4jVofG9zWiRpEU8vnCWCsBS3JuLBRC2qeu3a8d-1SkjHDVI36x0kcTilNhxNM_BL0tdtKQbii9-T1pl0k8GYSzuFanmiIYElZ7O-9xeFKAqt7atDOBWTUUXWYSARotpzrM7ATREZihY3pyYGY4kCGwmdOkW1fsRi5y1Q3GP9HNyVIg15seEJNSOYLpeszaD3Fg1YjNeMak3ZF0sNnaeJJXkqqce3rtqUG0mRgLYwttDrslMylRuGRw"
+      image: "/assets/cdn/img_31355173f069.jpg"
     },
     {
       number: "04 / COLLECTION TEXTILE",
       tag: "22 Momme Silk",
       title: "Pure Mulberry Silk Scrunchie",
       desc: "Gentle on bridal tresses, crafted from Grade 6A natural mulberry silk in matching blush tone, complete with gold initials ribbon.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAFJn6UuRoack3JSov5mFWb0Kbq3mNvekMAk_j2pQWancdKddiqG_BF4BxZ0XOE42PkcoQhLptCuuFKkMoZ_NF0_sIBH2zcnuHgIQ7nWQy8NE7KwXKHM2REuqTSl-IRTzB6KBOLVxXszqyJ_1AFzcRlir_7HqCx4qTkozRCONK5gxGRarLoTe5rTgXrjK7K55yhUMiNRqVz0idPcp7NP-EXSxiiNBhQ5zdxuSWdMidfbv4DzSdneN_Yfg"
+      image: "/assets/cdn/img_29a4dd5a6c4c.jpg"
     },
     {
       number: "05 / GIFT",
       tag: "Hand-Stitched",
       title: "Heirloom Mini Plush Bear",
       desc: "Ultra-soft ivory gift bear clasping an embroidered linen heart badge emblazoned with couple's initials and wedding crest.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFTi-7toUzDuva-Q4tDn8FHOAr7-tQgN4B03zj4R7WfZZ_wUw_T2A3B7uXcGoGsddF6bas38JG5aFx8jib9nGLEBpnf9fVnHOQ8p_M2M0fNhDHx0wO8UaM0ObKv6y_BX1D0veIwYNoro2pD4w1Gf5mLBZsq9JPcL25_hH06w7mdIQRWJMS5wu8sETSiY1lJEGNHpxSSnqhwsVxHdJ9-ovUzPV0DulE6Fq86KmVRw7-5KL5zGmbirwp3A"
+      image: "/assets/cdn/img_4ec8faf44746.jpg"
     },
     {
       number: "06 / CONFECTION",
       tag: "Italian Imported",
       title: "Ferrero Rocher Diamond Box",
       desc: "Crisp hazelnut pralines cushioned amid fresh preserved Gypsophila (Baby's Breath) and Ecuadorian long-stem blush roses.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBiNS6amSxUnD1ylNwWukJWCwyin3_N2n92MdPCXKDp9sXcdEc8dAD0dd-fq_oQ-hXxn_zTvoG-yLi4aPUQSQheWLS0NB9vofsWqHXimTTvBRpu6miAGJk8e0r1_09d7D9eSsdtIo4BpnW5DtgsREEgGRDvdvWgKEEvccH2_LPc2aajaI5UjxxpViq-Q3NfAdPq7EDiRWPQH9yAVKdPMiDmPkg0KQtAXCCtw6ZRCw29mTd9hcfMjIq6wg"
+      image: "/assets/cdn/img_0e43f0974572.jpg"
     }
   ],
   story: {
-    artisanCalligraphy: "https://lh3.googleusercontent.com/aida-public/AB6AXuBsaEI8mVEmjC90bidD-y_0wT-fOq8jJxenu28cxoO4ev46WQB6rCzDfxF5C9BQWGUnzg26iVADqtsikO2BVIt_RB4BgKUHyMMmVqt8DIl4uo48PGQzu4m55lY6H87LeKzFW2__M-KydQJu-thi8Zs0TWzv9-CICAVTcrDQ1XPKp7Lg84OjQ_A0RMpSpOIQRuk_tycJCcriffnvZ-5TcsbY0YwyD10s6R8_GtCO5YCgQpjIs1R_KF2BZA",
-    bridalSuitePresentation: "https://lh3.googleusercontent.com/aida-public/AB6AXuASv-xJdOl1kFm3LqM1LWZFk4rVCSe7FMLLu41YEyeMGKrnvFyXLfQl7dfaJruOksSP758b1rOR_MK1jaSRSTlvHFcIVqSnrTYe2yQe2Sz4Bd-iSr1UBfZzDs9zz_OpsnvcFxdXrHmpMev85ZKT_foUc35n8_QsWFYZ1N3oewb3es7ZGxRUgEhveIgZKWPJf9RqoL18jbFsTLfh20L3t5wPC-RgrbxwwKOkRtup-9sBeTy4fL-H6recfg"
+    artisanCalligraphy: "/assets/cdn/img_216c13ecf363.jpg",
+    bridalSuitePresentation: "/assets/cdn/img_931c900ef6fc.jpg"
   },
   reviews: [
     {
@@ -89,7 +89,7 @@ const SOVEREIGN_ASSETS = {
       quote: "“The moment my bridal party walked into the suite and saw this hamper bouquet waiting on the console, tears were shed. The gold debossed initials was flawless!”",
       couple: "Shagufta & Sagil",
       venue: "The Oberoi Udaivilas • Nov 2025",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC3sD9w-rArHkDsCYYg1Zia1AGrr1CWOIXQDctwONQJgRZF8f0P7zQ7kSVhU6qiHFhGrbu8afOcFrKIPhKfFVtSs7wTSgiKn13djK7LYagnNqZT_Go8ATuNB-rHyGFCTXbMU5wldHalGeA9R18BfpSdTQylMnm_31uEPULeLtriXsUyuWv8sqMSjXshUIOe7FRmsFOdGfdYLlcNI_jcxdCLy9MOBEzrDYOv9Hzxfyi6xbPFu2Vfbu1M-w"
+      avatar: "/assets/cdn/img_d41de6fba989.jpg"
     },
     {
       stars: 5,
@@ -97,7 +97,7 @@ const SOVEREIGN_ASSETS = {
       quote: "“The candle fragrance permeated our entire bridal dressing villa for three days straight. The unboxing wax seal felt like opening a royal decree.”",
       couple: "Miss Sultana Begum",
       venue: "Taj Exotica Resort, Goa • Jan 2026",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDTtne9Cgl1uVdSn1ZTINqs-NJ7MKFxBpUdCYxsiMnpyg9pzcARPU2A290p8mJCFzj_MpkwxdnM0hYeAbHnN_GBhi2i1EHDX2QSqggThXhZ2fEyi_u5qAwd6nWI4JGy-82NaTDFOXwWJUmyrOBKkrMePX8PTCLNSD-uNsQ695Ic_zt-2E6zLl-tMbNpDolkjUtYlqkwr0e52om9x1a-1Lpa56lIoLV9PZWkAfO9NN9ir9QGqVp4UyVK8A"
+      avatar: "/assets/cdn/img_421050e505fc.jpg"
     },
     {
       stars: 5,
@@ -105,7 +105,7 @@ const SOVEREIGN_ASSETS = {
       quote: "“We ordered 12 custom editions for our bridal wedding essentials and mothers of the bride. Every single recipient commented on the sublime calligraphy and silk ribbons.”",
       couple: "Jawed & Asra",
       venue: "Rambagh Palace • Feb 2026",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-EeDizGUpXOdey894D42IcSpiT4uIFXVPPrnorAEt3WpUTxuWbn45LVahBD3Mz1EpINph0xazx58OO93yWfBrRg14scSU2DRzCQa5QAajb7ypO9tBXjWYFWAfDZEfAfYQgUNmlbf0csgLfqK6R_PdVfOxty5T_K7fx9Oc-uw1TAj41BASOulpiShpuRj_rdhSqLKSFAh4G-SUrUtgR6ClP1JHjtSOmePYnSV9uw1lcp2OUWF2m6wiGg"
+      avatar: "/assets/cdn/img_6a38528f397b.jpg"
     }
   ],
   faqs: [
@@ -132,28 +132,28 @@ const SOVEREIGN_ASSETS = {
       category: "Stationery",
       title: "Deckle Edge Vow Books (Set of 2)",
       price: 1299,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDEjqFVNADahd0tFc-M8oNrM_QSQMyyD55nvnHpHCCdIq4_lKZj5qFjRw7snl5-fdU6blakiKW16WjulSzlIybwnd4HDX_RzrwMvxtGPxokVL3D3wsB7aoqvTZb5qcSmOXxU4xXvH6-3q-2XMrLnpJyQg2QecXCcgNwxaHq-2nwKxSr2BddsogISCJXYtJQV8ikR1NuELk5t8TQE8j7FuRHFODNAInxBAvnvcPuQ4hbz5DkRaZ0Bq2jMQ"
+      image: "/assets/cdn/img_6678acd4af80.jpg"
     },
     {
       id: "velvet-ring-vault",
       category: "Gift",
       title: "Customized Velvet Double Ring Vault",
       price: 1899,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFvrpHU1rtxcVSiED_VZVbzvbrfo4TebQh7yehHigZUHzvyAVfDi4ulvNUSpTYnVCR_uAVCO0lUINkgPIJrBEUGd61mLiKWMNx_BqhhbF_mGgGRXP9ewsKEzBnISXIi_o9vKz8zrsqfFEXHXD90LU16eRcol4uP8nzaqgZChP73mKRgXvJOm-qajJ953Ho4sOb39_FiGgYwB1er6TC_5lb8uOf4G5ao30_YUlDpfS6SqEets_SUpr86g"
+      image: "/assets/cdn/img_7332059f2511.jpg"
     },
     {
       id: "mulberry-silk-robes",
       category: "Bridal Wear",
       title: "Initials Mulberry Silk Robe",
       price: 2499,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDa305tXF9m3umYmmqG1iFodSJI4WEbNycVaAniOwW2Fg3G4HvSTqXgEvdDnxiZc0Qee5tWKuGensqm_0qwhnNAW9oRVdL2-L7_7vxt1-GQtPBkNDn-TAvuEtNs17rY3X32AmYUiR_Sp8U3n2-gJgNaR90SqrdvkHjCSM1YeXUd4QQgf7vRGmzeFtcAcZMX2-qbuI4O1uLmbEu--fOcu2nMmjxff0yFWzJS8nxEi5QWzQRlCpS3M_x4QA"
+      image: "/assets/cdn/img_3b4dda08e341.jpg"
     },
     {
       id: "carved-teakwood-guestbook",
       category: "Registry",
       title: "Custom Carved Teakwood Guestbook",
       price: 2799,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAM6Thpz7SO2n5OUPWjSGPxSEiV4QwtVII3GzWyCzj42snoCzeU9RROhZE-9mNNG3NRC6FbLV347YXofHgSb_01qAzuGOenXw4RYI9lLDUOA9i2g025OYMRMJuXp85pmv2gr3_62pUad8lK-r4QGoM-VoGNayCk0ULYt4_6uVc32n34JIrih0Yzu_Kzmm6KfL4PdJ8SfI1iG_CcZqko_PahtEaJy0i1jKzOwEorBMzkfINr2QEpaNQW-A"
+      image: "/assets/cdn/img_02f8097f6484.jpg"
     }
   ]
 };

@@ -186,7 +186,7 @@ const WishlistPage = () => {
           {/* Centered Official ASRA Logo */}
           <Link to="/" className="flex flex-col items-center">
             <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9hYgo8EKCHyiF4KUZ-NtMMTvrMi_AdYFg0C-RWq_dHrCDlO8GunL1Vh71GwiDLAKTj8DxaI1G3K-FBBzKR9kcuSEeYypgcxf0nGkdiPbn679zalowRLmhuDiQzoPBPP5b9Dd_YHq7cCh2-UcSFc7CVyB_JkfsNKCh50dpUV-OK0ksCD9d4fJyf-WWZsDcKsS6birIDrhuShe75sZyM7WVXTa3OxGAmn2mFTiNCQmJoSiu0vE9zme-Mtwf0z9OCkE4W8E" 
+              src="/assets/cdn/img_0e64e51cb5ac.png" 
               alt="ASRA Wedding Canvas Logo" 
               className="h-9 sm:h-11 md:h-12 w-auto object-contain drop-shadow-sm hover:opacity-95 transition-opacity" 
               onError={(e) => {

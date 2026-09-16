@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { generateOrderId, saveOrder } from '../utils/orderStorage';
 
 const CheckoutPage = () => {
   const {
@@ -111,7 +112,7 @@ const CheckoutPage = () => {
       monogramDie: '"A & R" • Classic Floral Crest',
       price: 7499,
       quantity: 1,
-      image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
+      image: '/assets/cdn/img_8222cd4f9dd5.png',
       calligraphy: 'Royal Copperplate',
       scent: 'Kashmiri Rose & Amber'
     },
@@ -127,45 +128,17 @@ const CheckoutPage = () => {
     }
   ];
 
+  // Payment Gateway Status Modal
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
   const handleSubmitOrder = (e) => {
     e.preventDefault();
     if (!monogramConsent) {
       showToast('Please approve the Customized Deboss Authorization checkbox.');
       return;
     }
-    const orderData = {
-      orderId: 'ASRA-2026-8842X',
-      items: displayItems,
-      recipientName,
-      weddingPlanner,
-      venueName,
-      streetAddress,
-      landmark,
-      city,
-      state,
-      pincode,
-      arrivalDate,
-      timingSlot,
-      chauffeurNotes,
-      email,
-      phone,
-      paymentMethod,
-      upiId,
-      subtotal: effectiveSubtotal,
-      catalogueSavings: effectiveCatalogueSavings,
-      discountAmount: effectiveDiscount,
-      transitCost,
-      grandTotal,
-      totalSaved,
-      loyaltyPoints: calculatedLoyaltyPoints
-    };
-    try {
-      localStorage.setItem('asra_last_order', JSON.stringify(orderData));
-    } catch (err) {
-      console.warn('Could not persist order', err);
-    }
-    showToast('Customized Commission Docket confirmed! Redirecting to Official Registry...');
-    navigate('/order-confirmation', { state: { orderData } });
+    // Prevent confirming the order without a payment gateway
+    setShowPaymentModal(true);
   };
 
   return (
@@ -203,7 +176,7 @@ const CheckoutPage = () => {
               <img
                 alt="ASRA Wedding Canvas Crest Logo"
                 className="h-12 sm:h-14 w-auto object-contain hover:opacity-90 transition-opacity"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYOC-9ECmrXFJ8b1A4Nqp6rHRjcE90NHmp2dTntdsA28OrdBGhNtH5og3nhJT1loveOtqpKp0gz0BaNXjR7Se9ZgaDiu0u5qsRaSlQeFolTpworzWqCs_Mf04BxH6VD7BijvDwMKOOp9bdFNvj5SD8fRIt2BFmAeJaKvFZbw_BVHuk2nzNmdHKfjadIM7rQnZqcNsbozf0xbGw342ISH-PpYd7HDSudAiAc3yV0N21xLjbUC6HwwpHxQ"
+                src="/assets/cdn/img_36917e8d2065.jpg"
               />
             </Link>
           </div>
@@ -953,15 +926,34 @@ const CheckoutPage = () => {
               {/* PAYMENT METHOD SELECTOR                   */}
               {/* ========================================= */}
               <div className="mt-6 pt-5 border-t border-[#EAE5DC]">
+                
+                {/* Prominent Payment Gateway Notice Banner */}
+                <div className="mb-4 p-3.5 bg-amber-50/90 border border-amber-300/80 rounded-xl text-amber-900 flex items-start gap-3 shadow-xs">
+                  <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5 text-amber-800">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  </div>
+                  <div className="text-xs leading-relaxed">
+                    <p className="font-bold uppercase tracking-wider text-[11px] text-amber-950 flex items-center gap-1.5">
+                      <span>Notice: No Payments Can Be Made</span>
+                      <span className="bg-amber-200/80 text-amber-900 text-[9px] px-2 py-0.5 rounded-full font-semibold">
+                        Integration In Progress
+                      </span>
+                    </p>
+                    <p className="mt-1 text-amber-900/90">
+                      We are currently working on our official payment gateway integration. Since no payment gateway is active, <strong>no payments can be made and orders cannot be confirmed online</strong> at this time.
+                    </p>
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-xs font-bold uppercase tracking-wider text-[#1F1B18]">
-                    Select Customized Settlement Mode
+                    Customized Settlement Mode
                   </label>
-                  <span className="text-[10px] text-[#1E6347] font-semibold flex items-center gap-1">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    Instant Token Authorization
+                  <span className="text-[10px] text-amber-700 font-semibold flex items-center gap-1 bg-amber-100/70 px-2 py-0.5 rounded">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                    Gateway Integration In Progress
                   </span>
                 </div>
 
@@ -981,7 +973,7 @@ const CheckoutPage = () => {
                       <span className={`w-2.5 h-2.5 rounded-full ${paymentMethod === 'upi' ? 'bg-[#1F1B18]' : 'border border-[#D9D2C5]'}`} />
                       <span className="font-bold text-[#1F1B18]">UPI Instant</span>
                     </div>
-                    <span className="text-[10px] font-bold text-[#1E6347]">GPay / PhonePe</span>
+                    <span className="text-[9px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">Pending Gateway</span>
                   </button>
 
                   {/* Card / EMI Tab */}
@@ -999,7 +991,7 @@ const CheckoutPage = () => {
                       <span className="font-medium text-[#1F1B18]">Card / EMI</span>
                     </div>
                     <span className="text-[9px] font-bold bg-[#C5A880]/20 text-[#2C2520] px-1.5 py-0.5 rounded">
-                      No-Cost EMI
+                      Pending Gateway
                     </span>
                   </button>
                 </div>
@@ -1009,7 +1001,7 @@ const CheckoutPage = () => {
                   <div className="p-3 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-lg mb-5">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-medium text-[#1F1B18]">Direct UPI ID / VPA</span>
-                      <span className="text-[#1F1B18]/50 text-[10px]">Zero transaction fees</span>
+                      <span className="text-amber-800 text-[10px] font-medium bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Gateway not connected</span>
                     </div>
                     <div className="mt-2 flex">
                       <input
@@ -1034,16 +1026,19 @@ const CheckoutPage = () => {
                         {isUpiVerified ? '✓ Verified' : 'Verify'}
                       </button>
                     </div>
-                    <p className="text-[10px] text-[#1F1B18]/60 mt-1.5">
-                      Or choose No-Cost EMI starting at <strong className="text-[#1F1B18] font-semibold">₹{emiPerMonth}/mo</strong> at confirmation stage.
+                    <p className="text-[10px] text-amber-800 mt-1.5 flex items-center gap-1">
+                      <span>⚠️ Note: Online transaction processing is disabled until payment gateway integration is completed.</span>
                     </p>
                   </div>
                 ) : (
                   <div className="p-3 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-lg mb-5 space-y-2">
                     <div className="text-xs">
-                      <label className="block text-[10px] font-semibold uppercase text-[#1F1B18]/70 mb-1">
-                        Credit / Debit Card Number
-                      </label>
+                      <div className="flex justify-between items-center mb-1">
+                        <label className="block text-[10px] font-semibold uppercase text-[#1F1B18]/70">
+                          Credit / Debit Card Number
+                        </label>
+                        <span className="text-[10px] text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Gateway not connected</span>
+                      </div>
                       <input
                         type="text"
                         value={cardDetails.number}
@@ -1075,6 +1070,9 @@ const CheckoutPage = () => {
                         />
                       </div>
                     </div>
+                    <p className="text-[10px] text-amber-800 pt-1">
+                      ⚠️ Note: Card processing is disabled pending payment gateway setup.
+                    </p>
                   </div>
                 )}
 
@@ -1090,8 +1088,8 @@ const CheckoutPage = () => {
                   </svg>
                 </button>
 
-                <p className="text-[11px] text-center text-[#1F1B18]/60 mt-2 font-light">
-                  By placing this customized collection order, you confirm the details for the custom initials casting.
+                <p className="text-[11px] text-center text-rose-700 font-medium mt-2.5">
+                  ⚠️ Orders cannot be confirmed without payment gateway integration. No payment can be processed.
                 </p>
 
               </div>
@@ -1166,6 +1164,85 @@ const CheckoutPage = () => {
           </div>
         </div>
       </footer>
+
+      {/* ========================================================= */}
+      {/* 5. PAYMENT GATEWAY INTEGRATION MODAL                      */}
+      {/* ========================================================= */}
+      {showPaymentModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F1B18]/70 backdrop-blur-sm animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-headline"
+        >
+          <div className="bg-[#FDFCFA] border border-[#EAE5DC] max-w-lg w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative text-center">
+            
+            {/* Warning Icon Badge */}
+            <div className="w-16 h-16 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center mx-auto mb-4 shadow-inner">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+
+            {/* Header */}
+            <span className="text-[10px] uppercase font-bold tracking-widest text-amber-800 bg-amber-100/80 px-3 py-1 rounded-full inline-block mb-2">
+              No Payments Can Be Made
+            </span>
+            <h3 id="modal-headline" className="font-serif text-2xl sm:text-3xl text-[#2C2520] font-normal mb-3">
+              Order Cannot Be Confirmed
+            </h3>
+
+            {/* Message Body */}
+            <div className="space-y-3 text-xs sm:text-sm text-[#1F1B18]/80 leading-relaxed bg-[#F4F0EA]/60 p-4 rounded-xl border border-[#EAE5DC] text-left">
+              <p className="font-medium text-[#1F1B18]">
+                <strong>No payments can be made.</strong> No money has been deducted from your account.
+              </p>
+              <p>
+                We are currently working on our official payment gateway integration. Since there is no active payment gateway connected, <strong>no payments can be made and orders cannot be confirmed without payment gateway integration</strong>.
+              </p>
+              <p className="text-[11px] text-[#1F1B18]/70 border-t border-[#EAE5DC] pt-2">
+                If you wish to reserve your wedding date or make a direct bespoke arrangement, our Senior Atelier Stylist is available via WhatsApp.
+              </p>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier%2C%20I%20am%20at%20checkout%20and%20would%20like%20to%20inquire%20about%20payment%20and%20reserving%20my%20wedding%20ensemble."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-[#1E6347] hover:bg-[#164d36] text-white py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+                </svg>
+                <span>Inquire on WhatsApp</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setShowPaymentModal(false)}
+                className="flex-1 bg-[#1F1B18] hover:bg-[#2C2520] text-[#FDFCFA] py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
+              >
+                Back to Review
+              </button>
+            </div>
+
+            {/* Dismiss Cross */}
+            <button
+              type="button"
+              onClick={() => setShowPaymentModal(false)}
+              className="absolute top-4 right-4 text-[#1F1B18]/40 hover:text-[#1F1B18] p-1 rounded-full"
+              aria-label="Close modal"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

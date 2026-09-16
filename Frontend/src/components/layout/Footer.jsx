@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="lg:col-span-2 flex flex-col pr-space-lg">
             <Link to="/" className="mb-space-sm inline-block">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGLApMmbn_kgOFcov080VR_D8RTlk7ukPnIxBZ2_jnZjEeV1EjkWAJF13QFjI44HnvCC1tWaM5nXH69B4OveIuVU2vH0TLvYkOpTGPOifkd-3GsrFonXfvLN39RzuiMIM21u76hdThfIOIJKKaLbqgW2NRl-aXJZuLMpKb7Muat1a23tiVcpBEshEjuiunXJb9SP3BvcJjkStrzTfN4NQuIaGe2g6CgP5sY3hb7u34t77ww516wcDJm24dKA2PdxV_Li4"
+                src="/assets/cdn/img_cfbb18b97ef1.png"
                 alt="ASRA Wedding Canvas"
                 className="h-14 w-auto object-contain brightness-0 invert hover:opacity-90 transition-opacity"
               />

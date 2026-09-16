@@ -63,7 +63,7 @@ const Header = () => {
             <div className="flex items-center gap-space-lg shrink-0">
               <Link to="/" className="group flex flex-col items-start">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2aVx5ofNeY7UD9ZQZdBKpFZgqM0Cx9MR769u756jxAC6rOGj1UMS6WfgH6xh-uzoiuLK1hTjb9MmZV-1BFP4pGH8RX8s0qRG7lsEtCj1gS27bRgnzpQfFmCGsmBLJ6a2WDlBXVgcjZRa1Z22nyu4jOw5Z4-b5g8abpGT15XFy7GyIVGLzRoysX6Lq0Ryp452SE1R6GZYjdUpGMaII_yTE8R3-cqANe06ONdjovo00DXMnNk5_5I6aBfQyBjR4H3YiXY"
+                  src="/assets/cdn/img_c432d69126c7.png"
                   alt="ASRA Wedding Canvas"
                   className="h-12 w-auto object-contain transition-opacity duration-300 hover:opacity-90"
                 />
@@ -205,8 +205,8 @@ const Header = () => {
                     keyboard_arrow_down
                   </span>
                 </Link>
-                <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
-                  <div className="w-[320px] max-w-[95vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
+                <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[95vw]">
+                  <div className="w-[320px] max-w-[95vw] max-h-[calc(100vh-140px)] overflow-y-auto bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md flex flex-col gap-1 text-left backdrop-blur-md">
                     <span className="font-headline-sm text-[15px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
                       <span className="material-symbols-outlined text-[18px]">category</span> Shop Categories
                     </span>
@@ -292,8 +292,8 @@ const Header = () => {
                     keyboard_arrow_down
                   </span>
                 </Link>
-                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[90vw]">
-                  <div className="w-[520px] max-w-[90vw] bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md grid grid-cols-2 gap-space-md text-left backdrop-blur-md">
+                <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto max-w-[90vw]">
+                  <div className="w-[520px] max-w-[90vw] max-h-[calc(100vh-140px)] overflow-y-auto bg-[#FCF9F8] rounded-xl shadow-xl border border-outline-variant/50 p-space-md grid grid-cols-2 gap-space-md text-left backdrop-blur-md">
                     <div className="flex flex-col gap-1">
                       <span className="font-headline-sm text-[14px] text-primary font-serif font-semibold border-b border-outline-variant/30 pb-1.5 mb-1 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[17px]">brush</span> By Craft Technique
