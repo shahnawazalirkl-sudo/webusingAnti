@@ -22,7 +22,7 @@ const UtilityHeader = ({ backTo = '/', backText = 'Return to Collection Portal',
             <img
               alt="ASRA Wedding Canvas Crest"
               className="h-10 w-auto object-contain"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWIXZQ8rqZyXwm73emnLPVajZCrE3lrS9tqfafPI4fnjtMw-d0DbJWD-2E7RbRrcF9xioPMgh4HQt3FuoQYu4Ay8UXzcVPkNvGxgdzYqlCyXK7U0sFKV35vswGPGVOVEohvbOeb4fp9fLCo9AYCysTRgOmJBBz6f98_2sqxxsjn-ZSVMl3y8Kr8ngiMXG-OXAv2VKVZpRvDKX9B1-7F2yLmQLsOtNFASIsSWMTiEujW125ygM5Y3Au4xEEBPFEI5065hk"
+              src="/assets/cdn/img_016731a0c986.png"
             />
           </Link>
         </div>

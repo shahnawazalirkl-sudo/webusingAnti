@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { getOrderById, formatOrderForTracking, getLastOrder } from '../utils/orderStorage';
 import { 
   ArrowLeft, 
   Shield, 
@@ -55,7 +56,7 @@ const PRESET_DOCKETS = {
         id: 'sov-suite',
         title: 'The Sovereign Bridal & Wedding Essentials Suite',
         price: '₹7,499',
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
+        image: '/assets/cdn/img_8222cd4f9dd5.png',
         palette: 'Classic Blush & Champagne Gold',
         monogramText: '"A & S" (Classic Crest)',
         ink: 'Royal Copperplate',
@@ -107,7 +108,7 @@ const PRESET_DOCKETS = {
         id: 'sov-suite-mk',
         title: 'The Sovereign Bridal & Wedding Essentials Suite',
         price: '₹7,499',
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM',
+        image: '/assets/cdn/img_8222cd4f9dd5.png',
         palette: 'Royal Ivory & Regal Gold',
         monogramText: '"S & S" (Imperial Crest)',
         ink: 'Gilded Sepia Ink',
@@ -123,29 +124,45 @@ const PRESET_DOCKETS = {
 
 const TrackOrderPage = () => {
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const { showToast } = useCart();
 
-  // Load saved order from localStorage or location state if available
+  // Helper to resolve an order by ID from stored orders or presets
+  const resolveDocketData = (docketId) => {
+    if (!docketId) return null;
+    const cleanId = docketId.trim().toUpperCase();
+    if (PRESET_DOCKETS[cleanId]) {
+      return PRESET_DOCKETS[cleanId];
+    }
+    const storedOrder = getOrderById(cleanId);
+    if (storedOrder) {
+      return formatOrderForTracking(storedOrder);
+    }
+    return null;
+  };
+
+  // Determine initial docket ID
   const [activeDocketId, setActiveDocketId] = useState(() => {
-    if (location.state?.orderId && PRESET_DOCKETS[location.state.orderId]) {
-      return location.state.orderId;
+    // 1. From URL query params (?docket=... or ?orderId=...)
+    const paramId = searchParams.get('docket') || searchParams.get('orderId');
+    if (paramId && resolveDocketData(paramId)) {
+      return paramId.trim().toUpperCase();
     }
-    try {
-      const saved = localStorage.getItem('asra_last_order');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed.orderId) {
-          return parsed.orderId;
-        }
-      }
-    } catch (e) {
-      console.warn('Error reading saved order', e);
+    // 2. From router location state
+    if (location.state?.orderId && resolveDocketData(location.state.orderId)) {
+      return location.state.orderId.trim().toUpperCase();
     }
+    // 3. From last placed order in localStorage
+    const lastOrder = getLastOrder();
+    if (lastOrder && lastOrder.orderId) {
+      return lastOrder.orderId.trim().toUpperCase();
+    }
+    // 4. Default fallback
     return 'ASRA-2026-8842X';
   });
 
-  // Current order data
-  const currentDocket = PRESET_DOCKETS[activeDocketId] || PRESET_DOCKETS['ASRA-2026-8842X'];
+  // Current resolved docket data
+  const currentDocket = resolveDocketData(activeDocketId) || PRESET_DOCKETS['ASRA-2026-8842X'];
 
   // Input states for docket switcher
   const [isEditingDocket, setIsEditingDocket] = useState(false);
@@ -173,12 +190,21 @@ const TrackOrderPage = () => {
     setInputMobile(currentDocket.phone);
   }, [currentDocket]);
 
+  // Sync if query param changes
+  useEffect(() => {
+    const paramId = searchParams.get('docket') || searchParams.get('orderId');
+    if (paramId && resolveDocketData(paramId)) {
+      setActiveDocketId(paramId.trim().toUpperCase());
+    }
+  }, [searchParams]);
+
   const handleLookupSubmit = (e) => {
     e.preventDefault();
     setDocketError('');
     const cleanId = inputDocketId.trim().toUpperCase();
 
-    if (PRESET_DOCKETS[cleanId]) {
+    const resolved = resolveDocketData(cleanId);
+    if (resolved) {
       setActiveDocketId(cleanId);
       setIsEditingDocket(false);
       showToast(`Telemetry locked for ${cleanId}`);
@@ -230,7 +256,7 @@ const TrackOrderPage = () => {
               <img
                 alt="ASRA Wedding Canvas Crest"
                 className="h-9 sm:h-10 w-auto object-contain"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWIXZQ8rqZyXwm73emnLPVajZCrE3lrS9tqfafPI4fnjtMw-d0DbJWD-2E7RbRrcF9xioPMgh4HQt3FuoQYu4Ay8UXzcVPkNvGxgdzYqlCyXK7U0sFKV35vswGPGVOVEohvbOeb4fp9fLCo9AYCysTRgOmJBBz6f98_2sqxxsjn-ZSVMl3y8Kr8ngiMXG-OXAv2VKVZpRvDKX9B1-7F2yLmQLsOtNFASIsSWMTiEujW125ygM5Y3Au4xEEBPFEI5065hk"
+                src="/assets/cdn/img_016731a0c986.png"
               />
             </Link>
           </div>

@@ -70,7 +70,7 @@ const STITCH_CURATED_ORDER = [
 ];
 
 const FALLBACK_IMAGE =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBWXIZrXYuYJm45DRWcFkOWlOTDQ0hJYgaj9KnM1VtA7Q6UD7zH_N9LxDpvDXrCEDEyVGqLNGeIo3adq69iHsyP0MtB0WvXy5AQGgicu5MLJd60FAPd0eg1vCJ-5Ue1vm79MP87sgnWSZdyw1KZd7NOjB3dnAb2RiTqXJ5Sg1dJvOCV6wuTmrZ1iM05cWgS_U0K1PM7mYhRXqBfz376zB-He9z9dijJaZJ17jO33sOhxvRxPk0te4E5GQ';
+  '/assets/cdn/img_11a57511dc47.jpg';
 
 const WeddingKeepsakesPage = () => {
   const { addToCart } = useCart();

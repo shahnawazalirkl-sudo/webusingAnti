@@ -149,28 +149,6 @@ const ContactPage = () => {
   return (
     <div className="bg-asra-cream text-asra-charcoal selection:bg-asra-gold selection:text-white min-h-screen">
       
-      {/* 1. Top Trust Strip */}
-      <section className="bg-white border-b border-asra-border py-2.5 px-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]" data-purpose="trust-badges">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">⚡</span>
-            <span className="tracking-wider">Dispatch within 24–48 Hours</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">✨</span>
-            <span className="tracking-wider">100% Customized Engraved Gifts</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">★</span>
-            <span className="tracking-wider">4.9/5 Rating from 3,500+ Couples</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">🎁</span>
-            <span className="tracking-wider">Wax-Sealed Luxury Packaging</span>
-          </div>
-        </div>
-      </section>
-
       {/* 2. Breadcrumbs Navigation */}
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 pb-2 text-[11px] uppercase tracking-widest text-asra-muted" data-purpose="breadcrumbs">
         <ol className="flex items-center gap-2 flex-wrap">

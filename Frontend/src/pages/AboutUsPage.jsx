@@ -36,28 +36,6 @@ const AboutUsPage = () => {
   return (
     <div className="bg-asra-cream text-asra-charcoal selection:bg-asra-gold selection:text-white min-h-screen">
       
-      {/* 1. Trust & Authenticity Badges Strip */}
-      <section className="bg-white border-b border-asra-border py-2.5 px-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]" data-purpose="trust-badges">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">⚡</span>
-            <span className="tracking-wider">Dispatch within 24–48 Hours</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">✨</span>
-            <span className="tracking-wider">100% Customized Engraved Gifts</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">★</span>
-            <span className="tracking-wider">4.9/5 Rating from 3,500+ Couples</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs font-medium text-asra-charcoal">
-            <span className="text-base text-asra-gold">🎁</span>
-            <span className="tracking-wider">Wax-Sealed Luxury Packaging</span>
-          </div>
-        </div>
-      </section>
-
       {/* 2. Breadcrumbs Navigation */}
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 pb-2 text-[11px] uppercase tracking-widest text-asra-muted" data-purpose="breadcrumbs">
         <ol className="flex items-center gap-2">
@@ -80,7 +58,7 @@ const AboutUsPage = () => {
           <img
             alt="Emblem Watermark"
             className="w-full h-auto"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ywH4lYsoE87OVVQ-863Y5V9utVYz4GA6uPpoVKwjSVbKB-FHGyfIm-lmqCV3C78XIWHCeFgp7DsAZqyi5C4Fyf8boOdzEYNxhYCvW5GNyJxnhj5o5r7VQp2_pbQZJN6A7Q0_Z2AyYuXTi5ruA4AKIZ3YNUfTVwCifqXGR2IvzmP5WHxHXW57i2vV7G0yh2nLAL3HQH15TSYoAjGXMjQHnwM3alxfmT7Etf0a4mg0TcSv4HJVl6xBDzBwwRQoXhVSwEE"
+            src="/assets/cdn/img_875b0894aaaa.png"
           />
         </div>
 
@@ -157,7 +135,7 @@ const AboutUsPage = () => {
                     <img
                       alt="ASRA Wedding Canvas Master Initials Crest"
                       className="w-64 h-auto mx-auto object-contain filter drop-shadow-md"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHX1ZBvQj-TY5HQU5AaYbMF0liRrFCDQ3Oi7qUt6Eat3QrzX5AtGQcaQNkZ9G2ZQJBl-EFSMoBlHDMCMPNxZSjnUgWXuxp7HGZix1om675vqP29JVMZUh6w5g7GM6L_iEDCqhG2wYad31ExzUhzEOFwlx5aNJAxqJtg4pDR8PVrziGj3ARpOlMki3m2ei28mHbdN5n-ECe_-Pr7cYe_Rs8rQvVU7-uzz_oBbndjussTOuWbFCieBFAfY5rRVuN81RPhWM"
+                      src="/assets/cdn/img_863a6bfc47db.png"
                     />
                   </div>
 
@@ -297,7 +275,7 @@ const AboutUsPage = () => {
                   <img
                     alt="ASRA Signature Bridal Bloom Hamper and Customized Gift Vault"
                     className="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM"
+                    src="/assets/cdn/img_8222cd4f9dd5.png"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white text-xs font-serif italic tracking-wide">

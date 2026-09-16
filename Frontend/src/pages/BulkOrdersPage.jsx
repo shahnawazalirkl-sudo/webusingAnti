@@ -135,7 +135,7 @@ const BulkOrdersPage = () => {
                 <img
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   alt="Deluxe pastel pink bridal welcome hamper wrapped in pure silk ribbon with custom gold foil ASRA crest"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_TifzVUvDu1SpnyCfu4JffHPwizrVpIyAwg8WCEy9NrS4u_ws_g8BAATVsE0hPKeXE6gkBtUxPiHOKRXSGPRVn3Zoi1pE9s5upAJqP4JZXjfuqzoJbevOgRV2YyufqZ7M527B8HRHxxKMzUaSWH83cuEAUZKgb2qVHh-3-EuFYv-MXNDa2SEUiQxy_ZBUoYe2NeTUavRe1uWpn9ODoEjfTmlJaSsVosAX78Kc7o4aLqSD-xTmcgSBXw"
+                  src="/assets/cdn/img_ce96f997d2cf.jpg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/20 to-transparent flex flex-col justify-end p-space-lg">
                   <span className="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest font-semibold">
@@ -631,7 +631,7 @@ const BulkOrdersPage = () => {
                 <img
                   className="w-full h-48 object-cover"
                   alt="Close up of exquisite gold foiled ASRA Wedding Canvas initials emblem stamped in warm gold"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkauoht2wHdvnYajDQhY36np9SvqW9VYs0SiNnJaxfOD5ehyddslDFyUvIcIIFXXtZupxDe6NLEEGZEN8tDACVoNNYAuiNMXpI3f9Yx67SSVsthgD-n5upugtDleO3MhXzLifMdoAH1qE9nZxgefPJZZcxLOzrsxlucdoFjOZaPwWf7qxF63qJmwzhgH0E7IWUj1wJZJWmAraL8UpaYYBeyDbdb4QkFbihZjFYBNy5LuPCrOBDfWyeOA"
+                  src="/assets/cdn/img_be70ca7356d1.jpg"
                 />
                 <div className="p-space-md bg-surface-container-lowest flex items-center justify-between">
                   <div>

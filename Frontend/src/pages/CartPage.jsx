@@ -145,7 +145,7 @@ const CartPage = () => {
             </Link>
             <div className="flex items-center gap-3">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdlUQEHkdxueJu_flGNUpu-XxaW21rUIF4dVPxguL2Y_YEfhYmdC6qJM6tZKWt5BKGwwiOtlh3E1w8jcNMYHwB6j4yrqw-JvrkP_jD0uungJ02qnf6uUZpMho85f0t3AWM_v6JxJcgRKwVj3XKpSZ-U-Z8sVSoAJLnvEWZe-hub91O3fzkAMk7U3UyWMowQugsUN4MDeLnMUb2rMmtA7LS1UbuZ0Ox8ueP-z-DLxHfw9bktQVv_5_Oj5537ga5eK5NM3s"
+                src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
                 className="h-10 object-contain"
               />
@@ -204,7 +204,7 @@ const CartPage = () => {
           <div className="flex items-center gap-3">
             <Link to="/">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdlUQEHkdxueJu_flGNUpu-XxaW21rUIF4dVPxguL2Y_YEfhYmdC6qJM6tZKWt5BKGwwiOtlh3E1w8jcNMYHwB6j4yrqw-JvrkP_jD0uungJ02qnf6uUZpMho85f0t3AWM_v6JxJcgRKwVj3XKpSZ-U-Z8sVSoAJLnvEWZe-hub91O3fzkAMk7U3UyWMowQugsUN4MDeLnMUb2rMmtA7LS1UbuZ0Ox8ueP-z-DLxHfw9bktQVv_5_Oj5537ga5eK5NM3s"
+                src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
                 className="h-10 object-contain hover:opacity-90 transition-opacity"
               />
@@ -332,7 +332,7 @@ const CartPage = () => {
                         </div>
                       ) : (
                         <img
-                          src={item.image || 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM'}
+                          src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
                           alt={item.title}
                           className="w-full h-full object-cover"
                         />

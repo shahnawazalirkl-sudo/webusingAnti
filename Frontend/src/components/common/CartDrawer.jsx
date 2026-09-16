@@ -114,7 +114,7 @@ const CartDrawer = () => {
                     </div>
                   ) : (
                     <img
-                      src={item.image || 'https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM'}
+                      src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
                       alt={item.title}
                       className="w-20 h-24 object-cover rounded-lg shrink-0 border border-outline-variant/40"
                     />

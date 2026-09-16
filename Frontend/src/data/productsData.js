@@ -22,11 +22,11 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM",
+    image: "/assets/cdn/img_8222cd4f9dd5.png",
     gallery: [
-      "https://lh3.googleusercontent.com/aida/AEtjO1WWF5xvSFhZfraQNuZ5QJPkPkwOA7moevDQMXbk6g5GfhQjfg2Z83P-u6zYCC1yMFsxUjfoBWemmareJbeeghnEjxPCCk8pU17Sp5a4j5ZUtKFR3Mb8kBYNW_VepfRLyIG4QLzjwzT5HUgJlvRaNv386XaXDH3zn3Rp2kRX9TFbJIZ9uC8cdio9LJ4Iza1YgNb1vCk3YwY3PGfkJ8oLQahxRtWzdx5ToPRumfXGiwW7-rRqwpKhA2pAZGhJmH6ePGDmvWpp0TJucIM",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDG8sYOo1Zxru-kLS8qvydvEJrMxlIZWUfTYMqHh34enwgfH61Pd9GQi6UphW7CkUmeBiWMGesDQr7GyfXaOKGx1nKvKV2xm428y7dpj7pvYvd-zYJTkVBD8miFbVNvzf7RFKRD43acWisxVvAn517plJefy8crqvVtZJ53Vye_Veql8_hrKy-TDwWxoYEalEkMMw66j21MePgWE2WTmAUoIEn7iAI3xHx8chy-6zDY-XKBxF-k-jAX4Q",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDg8SHxHT70-Z2LX-quATgUZCg7KYaUltYt_XC0WFJD0EoHGTy7CDqfldQZkS23TnSV23pCwFUZJUdcZLwvWYABBCvNwR4Hqy6yIayHrgTwDd4pqqybTHWhyySNag7fFDBy4zhPPBAFiaidxTdDDSSIfX4W4dF-8Th2VlPFaOtSXlHC-74eid0s-iJEhOqFHztGaXv_Pcn_dEOTQMIavsUjtTgdcalnp4GCF7X1u5S1xKEUDh4TmZS9ww"
+      "/assets/cdn/img_8222cd4f9dd5.png",
+      "/assets/cdn/img_71f820512472.jpg",
+      "/assets/cdn/img_a1877a3f3271.jpg"
     ],
     shortDescription: "Artisanal presentation with French eau de parfum, eternal silk roses, soy candle, gift bear & Ferrero Rocher.",
     description: "The crown jewel of ASRA Collection. Every Sovereign Suite is handcrafted individually for the couple, featuring customized debossed initials forged with custom bronze metallurgy dies.",
@@ -63,10 +63,10 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWXIZrXYuYJm45DRWcFkOWlOTDQ0hJYgaj9KnM1VtA7Q6UD7zH_N9LxDpvDXrCEDEyVGqLNGeIo3adq69iHsyP0MtB0WvXy5AQGgicu5MLJd60FAPd0eg1vCJ-5Ue1vm79MP87sgnWSZdyw1KZd7NOjB3dnAb2RiTqXJ5Sg1dJvOCV6wuTmrZ1iM05cWgS_U0K1PM7mYhRXqBfz376zB-He9z9dijJaZJ17jO33sOhxvRxPk0te4E5GQ",
+    image: "/assets/cdn/img_11a57511dc47.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBWXIZrXYuYJm45DRWcFkOWlOTDQ0hJYgaj9KnM1VtA7Q6UD7zH_N9LxDpvDXrCEDEyVGqLNGeIo3adq69iHsyP0MtB0WvXy5AQGgicu5MLJd60FAPd0eg1vCJ-5Ue1vm79MP87sgnWSZdyw1KZd7NOjB3dnAb2RiTqXJ5Sg1dJvOCV6wuTmrZ1iM05cWgS_U0K1PM7mYhRXqBfz376zB-He9z9dijJaZJ17jO33sOhxvRxPk0te4E5GQ",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDAyLcg2HtHG2NG528v25qExhOCOyhqpwIQ1NKqapyBknxQu_JKVi5nhzoAi41nAndX0SZCuxZAFpOCwQa_u-MVFf9GFEGsZKveZwnEO1NlZ-2LgCpwSWBc4WWj4PMaIQnbIp4a9UE5adReV5aATv_GaMp3uwhBnf4MXf53oEyiSVMYlDpNk3NVyiacGpTRwNylQg44VGHkfonmvjbwUzVXRqVDcVR8IQvuhGpYNkxl-lAKuZJN332mTg"
+      "/assets/cdn/img_11a57511dc47.jpg",
+      "/assets/cdn/img_a9cc139c9496.jpg"
     ],
     shortDescription: "Handmade 150 GSM cotton rag with customized gilded calligraphy names and pure raw-silk ribbon binding.",
     description: "Set of 2 hand-torn cotton deckle paper vow booklets sealed with botanical brass wax stamps and raw silk ribbon. Each page is acid-free and designed to preserve sacred ceremonial promises.",
@@ -100,10 +100,10 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg",
+    image: "/assets/cdn/img_5ca8bace4375.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAQa2Wn_1HDtkmWKUSagqcqbwx0Z52r-WVpnZw4e9vktMxRlDL8HrH_ZNP_UwjEUk2Bsy9K1KZS1pe8__kqAZ1F8I7mwTo-H9P_8Dy-sf6vynsWayUGUD6PGhMaOGAi8CQCNFGOgGW3ip1aUqYaNQ0_fmJKS7ceNSW9_XEFrWb8CXtsUKRH2uTSFAYKMkCPbEMwgrT_1voyQF9AhPFsmZfNiEhrEWnbS_zF-aAWjykOn3hGmNI9nNTBNg",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCKU7s8rqvwKM9tOufEzgenjmQewDun8pV_xomQTIqZXxuVPQrUEBICs5l0E5eP8yI25NoOe8jy_6Odj__8C7OVS6mUATMveaEwBcJPXZU5B5BhMc1FAIDakB0VNC_IZl5zRKG8OSfkYG14WzKNG0DD3kiB_VTSgl_uhTXOFLVHLoi7NZyEC-HNBohagFEpQyaK8vlmvaZJv1LjlndktltjOZ5gvIzVA70ou7zp5ULkJh9F9n5cyy_dUg"
+      "/assets/cdn/img_5ca8bace4375.jpg",
+      "/assets/cdn/img_677956d05c8e.jpg"
     ],
     shortDescription: "Rich champagne silk interior with gold debossed couple initials and customized cushion compartments.",
     description: "Custom octagonal luxury velvet jewelry case with separate slots for couple wedding bands and bridal sacred mangalsutra. Hand-debossed with gold foil initials initials.",
@@ -138,9 +138,9 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Customized Bridal Suite (10+ Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDy54bIUKje8J1ZFwt5H1jmm1H4w34SHhYanZKkioY12AZ6V6dBRx8YZxyROO3OFDgsAHNH70aEaY-PS5nXlYZxpPX6VbK1S_xvoRpGOdKT4WvlooBWsA0WKQP0nsHSFS4JONDdMQ4nGn8sRz5opFK_8k0XjRvruXhroNlBZ1tCLIPuKfYpncPyEh_SEwXaWpOqLzwaQoTObayh0r3oxTjJVw2AQkWe0oySUNU-XhhO2oRRMd24bbo8ew",
+    image: "/assets/cdn/img_66de0b9faae5.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDy54bIUKje8J1ZFwt5H1jmm1H4w34SHhYanZKkioY12AZ6V6dBRx8YZxyROO3OFDgsAHNH70aEaY-PS5nXlYZxpPX6VbK1S_xvoRpGOdKT4WvlooBWsA0WKQP0nsHSFS4JONDdMQ4nGn8sRz5opFK_8k0XjRvruXhroNlBZ1tCLIPuKfYpncPyEh_SEwXaWpOqLzwaQoTObayh0r3oxTjJVw2AQkWe0oySUNU-XhhO2oRRMd24bbo8ew"
+      "/assets/cdn/img_66de0b9faae5.jpg"
     ],
     shortDescription: "3D brass float shadowbox framing eternal varmala garland petals & customized etched wedding date plaque.",
     description: "Preserve your actual wedding varmala or jaimala florals forever. Our Hyderabad preservation lab treats the petals with archival dehydrating compounds and casts them in UV-resistant crystal glass with a brushed brass border.",
@@ -174,9 +174,9 @@ export const PRODUCTS = [
     ceremony: "Proposal & Engagement",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuALfPw_vAWDO6vbzUIENZBwqriUOC6hZDBUdrsOrjRqq6jCSh8mi0mhh5lS-jk-L0KGH7Jevb4BQyFRuDnf1bibSiVTy8YsiEn1T-EYAT5LyHdWhYiO8XkOUEBVr_dQ7sidtAeZNupF01aXYPec0G3ILiGrtKMHHqnpxxni7EocrWOQnzSYcO_rTW9WxMRs5QsqLrpEJp0SJk8Jpnmy-lfz6jyMsbh3b_xY4BcpwqtC74KvMDkgiwj_vA",
+    image: "/assets/cdn/img_2884b072ea2d.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuALfPw_vAWDO6vbzUIENZBwqriUOC6hZDBUdrsOrjRqq6jCSh8mi0mhh5lS-jk-L0KGH7Jevb4BQyFRuDnf1bibSiVTy8YsiEn1T-EYAT5LyHdWhYiO8XkOUEBVr_dQ7sidtAeZNupF01aXYPec0G3ILiGrtKMHHqnpxxni7EocrWOQnzSYcO_rTW9WxMRs5QsqLrpEJp0SJk8Jpnmy-lfz6jyMsbh3b_xY4BcpwqtC74KvMDkgiwj_vA"
+      "/assets/cdn/img_2884b072ea2d.jpg"
     ],
     shortDescription: "Metallic gold embroidered bridal robes tailored with personalized royal wedding initials.",
     description: "22 Momme organic mulberry silk robe embroidered on the back with 'Bride' or personalized wedding initials. Hand-cut and sewn with French seams for luxurious morning prep photography.",
@@ -209,9 +209,9 @@ export const PRODUCTS = [
     ceremony: "Reception & Honeymoon",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3YGgpxrOfCawcNaK-WvmxlUDPYN6uCJpz6OaCRFhnJV53Y6y46MNBvpFihELt6tbkhJvOO5avcUPZnGyTkEn-Jeck7lm3T5dCisk_arKBBMDEGmw4FaKf65OV6kcgMT8kVEkUjrZXp-bGhzoTWHAnAD1DlSERQXs1oYMrtmd9W6XccFEua7x0CpK4GFItM_xKLGpYEO70CmKmsu1wwicLxZ1ZwPRMWZpOUYxsCz-UHAQu0zjuPgXLtw",
+    image: "/assets/cdn/img_d620cfc22c54.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA3YGgpxrOfCawcNaK-WvmxlUDPYN6uCJpz6OaCRFhnJV53Y6y46MNBvpFihELt6tbkhJvOO5avcUPZnGyTkEn-Jeck7lm3T5dCisk_arKBBMDEGmw4FaKf65OV6kcgMT8kVEkUjrZXp-bGhzoTWHAnAD1DlSERQXs1oYMrtmd9W6XccFEua7x0CpK4GFItM_xKLGpYEO70CmKmsu1wwicLxZ1ZwPRMWZpOUYxsCz-UHAQu0zjuPgXLtw"
+      "/assets/cdn/img_d620cfc22c54.jpg"
     ],
     shortDescription: "Solid plantation teak with engraved family crest, antique brass latch & 100 gold foiled cards.",
     description: "Crafted from seasoned Nilgiri teakwood, hand-rubbed with natural organic oils and fitted with vintage brass hinges. Comes with 100 gold foil-edged guest advice cards and a matching engraved wooden ballpoint pen.",
@@ -246,9 +246,9 @@ export const PRODUCTS = [
     ceremony: "Sangeet & Cocktail Favors",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC5VV7y98bFFlULIeHe16S-unPVH0YBkRtWkXl2Uf04BaK7YCQ_VdxZhbPSbhRlnCTLknAfaXmDm9PE70iT7qSZK09vHBCe2w8rEy4tz6kxjcn6BwhuJ5zsL_gI56HZStpizFDGwOxP3jDyZAAJad2-_AmHWPui1qKDFvww1R0ZurFQViPVfmwbNFM7qCSUqiRifJBhMo7MDZzL30vnF9QTOrgEgBmj62f_gu_rYGH_q3ZsCwuYwyoh2A",
+    image: "/assets/cdn/img_bf928b3f49c8.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC5VV7y98bFFlULIeHe16S-unPVH0YBkRtWkXl2Uf04BaK7YCQ_VdxZhbPSbhRlnCTLknAfaXmDm9PE70iT7qSZK09vHBCe2w8rEy4tz6kxjcn6BwhuJ5zsL_gI56HZStpizFDGwOxP3jDyZAAJad2-_AmHWPui1qKDFvww1R0ZurFQViPVfmwbNFM7qCSUqiRifJBhMo7MDZzL30vnF9QTOrgEgBmj62f_gu_rYGH_q3ZsCwuYwyoh2A"
+      "/assets/cdn/img_bf928b3f49c8.jpg"
     ],
     shortDescription: "Solid warm beechwood base with illuminated custom scannable couple song code & waveform.",
     description: "Capture the melody of your first dance forever. High-grade optic cast acrylic with precision laser-etched song waveforms and a scannable Spotify code set inside a warm LED beechwood plinth.",
@@ -281,9 +281,9 @@ export const PRODUCTS = [
     ceremony: "Reception & Honeymoon",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbXrPSozHRKAarJ6S-TP3RFB8Xpcqz2zN_C4HXc9qPKeeabgSRR5Qs-wpCkNs0CQeDe0kouzF7WfjbK_hJBf4wzb060DwFnaHzO-6IASbgS6AkP7aSql6xb-I7I2yej1mgFovwkO8WU29NRGpQj799v7_okRZTF-WwjbGgm4SXZqbZ4guF0eWzCdbjnilgxzqQm6TKQhEAlWKmHsmsvSKdXRnHdyt2fOen75_ZXybeuGMUtJpcw_Ft2w",
+    image: "/assets/cdn/img_e8a81b7ba032.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAbXrPSozHRKAarJ6S-TP3RFB8Xpcqz2zN_C4HXc9qPKeeabgSRR5Qs-wpCkNs0CQeDe0kouzF7WfjbK_hJBf4wzb060DwFnaHzO-6IASbgS6AkP7aSql6xb-I7I2yej1mgFovwkO8WU29NRGpQj799v7_okRZTF-WwjbGgm4SXZqbZ4guF0eWzCdbjnilgxzqQm6TKQhEAlWKmHsmsvSKdXRnHdyt2fOen75_ZXybeuGMUtJpcw_Ft2w"
+      "/assets/cdn/img_e8a81b7ba032.jpg"
     ],
     shortDescription: "Hand-blown lead-free Bohemian crystal etched with couple names & wedding reception year.",
     description: "Two exquisite Bohemian crystal flutes featuring delicate micro-diamond cuts that catch the golden candlelight. Hand-etched with couple calligraphy initials and wedding reception date.",
@@ -315,9 +315,9 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBocS9w6K5Z3JPBA0mdoi-S0-gagfXVrPxn8NjdUzH_72y-NgQq840EJM3FNQiKXH1qnSKsB9ezQeBNXE_2pyz2pqj3n2UC5EYg6FDSpuDod3oAtyMZEWNn9qrNXFLp-fvHE_uMpuiuHNgb8uKUvZxAJnLhJyjIP-He4eKWu4lhR8r4zSAKQ2mdVoAnLrEO_J2taQY37cDlgxhjVuw3vPXAPajTHsG99-8Bd9H7-oqKO2NYlL144Fk6Wg",
+    image: "/assets/cdn/img_431dcd1dae90.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBocS9w6K5Z3JPBA0mdoi-S0-gagfXVrPxn8NjdUzH_72y-NgQq840EJM3FNQiKXH1qnSKsB9ezQeBNXE_2pyz2pqj3n2UC5EYg6FDSpuDod3oAtyMZEWNn9qrNXFLp-fvHE_uMpuiuHNgb8uKUvZxAJnLhJyjIP-He4eKWu4lhR8r4zSAKQ2mdVoAnLrEO_J2taQY37cDlgxhjVuw3vPXAPajTHsG99-8Bd9H7-oqKO2NYlL144Fk6Wg"
+      "/assets/cdn/img_431dcd1dae90.jpg"
     ],
     shortDescription: "Hand-rubbed solid walnut wood with laser-etched initials brass plate & emerald velvet interior.",
     description: "A masculine heirloom casket created from dark hand-rubbed walnut timber. Features a solid brushed brass initials badge and deep emerald green velvet cushion slots for timepiece and cufflinks.",
@@ -351,9 +351,9 @@ export const PRODUCTS = [
     ceremony: "Wedding Day Ceremony",
     timeline: "Customized Bridal Suite (10+ Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApZeqF3qJycU2z3TJKkizvNuZqH51kVkUQ9CZ0tEut1WUODhuVWGFMzVTzAeNHtPsoCdiUXZV1ymb5DiU_UrRb20mTMuJe3V3_cYXjRWZNKpeiOqoRp-0KmK739-KuW8PVIeiuvUQ2c_PKVM3qZe8D9oBwWGal-rMXxUXwz7dFFcIN4vcU5mUKV3vM-q75tCMjShM8L5W1BP8JPZsSrzTxvElTMSoLcdQAAel8wfDI16FglXH2rFnpqA",
+    image: "/assets/cdn/img_95aba8728a9a.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuApZeqF3qJycU2z3TJKkizvNuZqH51kVkUQ9CZ0tEut1WUODhuVWGFMzVTzAeNHtPsoCdiUXZV1ymb5DiU_UrRb20mTMuJe3V3_cYXjRWZNKpeiOqoRp-0KmK739-KuW8PVIeiuvUQ2c_PKVM3qZe8D9oBwWGal-rMXxUXwz7dFFcIN4vcU5mUKV3vM-q75tCMjShM8L5W1BP8JPZsSrzTxvElTMSoLcdQAAel8wfDI16FglXH2rFnpqA"
+      "/assets/cdn/img_95aba8728a9a.jpg"
     ],
     shortDescription: "Pastel blush pink & ivory handcrafted trunk with brass lock and custom embossed leather tag.",
     description: "The quintessential Indian bridal wedding essentials trunk. Hand-covered in premium textured ivory vegan leather, embellished with brushed gold corner guards, antique latches, and an embossed couple initials leather tag.",
@@ -388,9 +388,9 @@ export const PRODUCTS = [
     ceremony: "Haldi & Mehendi",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCltKdCprhbDCO1uoPLIVJhUoIKBP37PjHkO7gtr9wZHwP2CN8Bsshvxgr_pdkd7S0bWaEXun7aAmSGvXNRG-XmPZhIppuw6k5MjxYYexfGgvirpEsMpnR84lScCbcj5jgGtdFmpAyZLAtH1JcPMGXt4FdcE5Nv4q3vQlxRDAsed8TD8Q2zNrx4tPcHf2mduv2iVglUyek7nXiEvem9HNRVMWGRdKTk7ooFhgdXnQOiP-GA5BMoktJBag",
+    image: "/assets/cdn/img_a561313a01f9.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCltKdCprhbDCO1uoPLIVJhUoIKBP37PjHkO7gtr9wZHwP2CN8Bsshvxgr_pdkd7S0bWaEXun7aAmSGvXNRG-XmPZhIppuw6k5MjxYYexfGgvirpEsMpnR84lScCbcj5jgGtdFmpAyZLAtH1JcPMGXt4FdcE5Nv4q3vQlxRDAsed8TD8Q2zNrx4tPcHf2mduv2iVglUyek7nXiEvem9HNRVMWGRdKTk7ooFhgdXnQOiP-GA5BMoktJBag"
+      "/assets/cdn/img_a561313a01f9.jpg"
     ],
     shortDescription: "Customized couple initials label, wax-sealed lid with delicate dry botanicals and amber musk scent.",
     description: "Hand-poured 100% organic soy candles in frosted glass vessels, infused with amber musk, jasmine petals, and 24k gold flakes. Sealed with customized metallic wax stamps with the couple's initials.",
@@ -423,9 +423,9 @@ export const PRODUCTS = [
     ceremony: "Proposal & Engagement",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuACadYMk3eIagee90_e613yoLGke9UDdtNeTeHP-DApNmpmv-Dm2Z_R9gyhjKDhJQm1dG0Swp7Uc5eSnunCjGPjmA8SI0Y9VJcBY2gdxvrqS9dDKc6d4uJRrOpzR1r5-qArP4GDyf2B-EUWekMXqftsQO9vmqdD8MTeuPq-7LvE0CYOO75UaEjbQC5-QKENebWj_zLcPAIjcKVoVdlQCZ8zx_NmL2aCsM6qeV6yYKg5YLgj1PuT0yJrYA",
+    image: "/assets/cdn/img_2d8aae8907bb.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuACadYMk3eIagee90_e613yoLGke9UDdtNeTeHP-DApNmpmv-Dm2Z_R9gyhjKDhJQm1dG0Swp7Uc5eSnunCjGPjmA8SI0Y9VJcBY2gdxvrqS9dDKc6d4uJRrOpzR1r5-qArP4GDyf2B-EUWekMXqftsQO9vmqdD8MTeuPq-7LvE0CYOO75UaEjbQC5-QKENebWj_zLcPAIjcKVoVdlQCZ8zx_NmL2aCsM6qeV6yYKg5YLgj1PuT0yJrYA"
+      "/assets/cdn/img_2d8aae8907bb.jpg"
     ],
     shortDescription: "Pure Makrana marble with brushed champagne brass handles & custom engraved initials crest.",
     description: "Sourced from pristine Makrana marble beds in Rajasthan, each heavy slab is polished to a satin sheen and flanked with solid sculptural champagne brass handles. Center engraved with the wedding crest.",
@@ -457,7 +457,7 @@ export const PRODUCTS = [
     ceremony: "Sangeet & Cocktail Favors",
     timeline: "Priority Express (48h)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBUi_MaWaxq6jFR_5a33vy5n4RBT50UoFYD5RvepkjRaRtdebMAa13zMb0BafbJO6Fpy0NvLPULFlXZeuJmWT6tSK5RbPwsnoBOf7GozzhkfxxR5h4_uBCEb5TsgXsEWRkt6y_1M74k4-4_jN7dzBL4iy3CM_aR39DYF1jQA-mmhdZHilvL1mRHbcD4eMPiZPGmAchl9ZdX6JUz-gB0gozxWtoz6_RnjfeakvgYSLWJ9_EYIdOVH2DFqg",
+    image: "/assets/cdn/img_679ede3f1033.jpg",
     shortDescription: "Ultra-clear cast acrylic with scannable Spotify/Apple Music waveform on a warm beechwood LED luminous base.",
     editions: [
       { name: "Warm White LED Wooden Base", price: 1899, dotColors: ["#e5c193", "#FAF8F5"] }
@@ -480,7 +480,7 @@ export const PRODUCTS = [
     ceremony: "Reception & Honeymoon",
     timeline: "Standard Collection (4-7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBotmp8Vw5J1VjNNMezt5z72yN1AhbCGxzqKKxVlCO3-fzA6IJeroSr358LZy7Zv0L6WKSurRnkiB2KSW4GawEiBq6QxirIrXIwpBCkHWRTIUOxqZyf9IN8PBgNiMSQzTQxYXq-co792LDowUsDDeoeUU1mG-FHdgHVUHxhJ2qXYyylWSbrAvmac2Rk4I2qkkvmDUEFn4p5xpf0dQjmFB5EG67fn03l5fufbjEzKkriamgwIEGO8Xj-fg",
+    image: "/assets/cdn/img_48ec5e0e21c9.jpg",
     shortDescription: "Twin passport covers & engraved luggage tags debossed with the couple's new shared initials in 24k gold foil.",
     editions: [
       { name: "Caramel Tan & Gold Foil", price: 2299, dotColors: ["#c5a880", "#281800"] }
@@ -507,9 +507,9 @@ export const PRODUCTS = [
     occasion: "Wedding & Reception",
     timeline: "⚡ Express 24-Hour Dispatch",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuANvVguwII4NHeVhnOUmBYuk9_ScEf685VNoftcxcX9rGAcvVv9LrTqIBaI7ieUy6s1voLyc_BA93EQWPug97jvHMXCSqGRumdcTmTPb3HZ8f1XPqcWaj4FA7KiCREeZY2p8mMeoimdVwE9bpT1oaJKnmnCa8-53szgRH23AQ-yHOFK1okLBskCBy8-3cXJaV5JKW5OcAnk5Hzox5VFS01DRaoSXvGx14z0e3pgPsRrEP915sZudLkrFQ",
+    image: "/assets/cdn/img_34983dcdc6ec.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuANvVguwII4NHeVhnOUmBYuk9_ScEf685VNoftcxcX9rGAcvVv9LrTqIBaI7ieUy6s1voLyc_BA93EQWPug97jvHMXCSqGRumdcTmTPb3HZ8f1XPqcWaj4FA7KiCREeZY2p8mMeoimdVwE9bpT1oaJKnmnCa8-53szgRH23AQ-yHOFK1okLBskCBy8-3cXJaV5JKW5OcAnk5Hzox5VFS01DRaoSXvGx14z0e3pgPsRrEP915sZudLkrFQ"
+      "/assets/cdn/img_34983dcdc6ec.jpg"
     ],
     shortDescription: "Exquisite rustic wooden wedding photo frame with engraved couple names, wedding date, and HD archival mount print.",
     description: "Solid textured pine wood carved with couple names, wedding ceremony date, and archival matte photograph print.",
@@ -543,9 +543,9 @@ export const PRODUCTS = [
     occasion: "Engagement & Roka",
     timeline: "Standard Artisanal (2–3 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida/AEtjO1V8z6-I8Jx8CtN0HTflkA5JbQlZQsjE85jdQvGrlWkr4L2L6q4yR3UitG5fQcQN1MEJFX7vB9cKMJzmaRHEXww_iuxiXBnQ1tIfEKP04lyGHdtm6Q0k-ICloMcO-XRHQhV9i0s3DCsUpw3hld891adlaW_SzRQI4jUXWRFvjxGsQDSaTMb-u_zt-VOMl4TpfR_E9ELxkQFlqEIPk2Ax02LV09E1lmWXDhYjfn31HoB5mlfwTKA87D3FSI8u",
+    image: "/assets/cdn/img_33cf2cd4d15e.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida/AEtjO1V8z6-I8Jx8CtN0HTflkA5JbQlZQsjE85jdQvGrlWkr4L2L6q4yR3UitG5fQcQN1MEJFX7vB9cKMJzmaRHEXww_iuxiXBnQ1tIfEKP04lyGHdtm6Q0k-ICloMcO-XRHQhV9i0s3DCsUpw3hld891adlaW_SzRQI4jUXWRFvjxGsQDSaTMb-u_zt-VOMl4TpfR_E9ELxkQFlqEIPk2Ax02LV09E1lmWXDhYjfn31HoB5mlfwTKA87D3FSI8u"
+      "/assets/cdn/img_33cf2cd4d15e.jpg"
     ],
     shortDescription: "Plush velvet jewelry box with personalized golden initials on lid, multi-tier compartments, and satin lining.",
     description: "Handcrafted plush velvet jewelry box tailored with hot-stamped gold foil initials initials.",
@@ -580,9 +580,9 @@ export const PRODUCTS = [
     occasion: "Wedding & Reception",
     timeline: "⚡ Express 24-Hour Dispatch",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBnc8DrJClOeoyrQ9B5crcgP_hqLpbQp6nFop5nBjhi6fuMDwleOHsFGJbne2X6HOKuMVE6ZHJQ9DO85TWvE9CR9klWmNdRjbii7TC8oYryzGS1HhyYq7xd7BlRnA-SjC08x3rvYGatuN7YpJ8FGOkB-CwmNqE2VEOTWv9ZDDQFi5G2YvVrcrAKFNdDfX3ZlvtihFCUGYOagZPXjIrGqhy1Y9KjjkpMnqRQ5RfC9WdVRF11sLSVUegb-Q",
+    image: "/assets/cdn/img_1502db7547cc.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBnc8DrJClOeoyrQ9B5crcgP_hqLpbQp6nFop5nBjhi6fuMDwleOHsFGJbne2X6HOKuMVE6ZHJQ9DO85TWvE9CR9klWmNdRjbii7TC8oYryzGS1HhyYq7xd7BlRnA-SjC08x3rvYGatuN7YpJ8FGOkB-CwmNqE2VEOTWv9ZDDQFi5G2YvVrcrAKFNdDfX3ZlvtihFCUGYOagZPXjIrGqhy1Y9KjjkpMnqRQ5RfC9WdVRF11sLSVUegb-Q"
+      "/assets/cdn/img_1502db7547cc.jpg"
     ],
     shortDescription: "Customized personalized leather travel passport holder and luggage tag set with gold embossed initials.",
     description: "Premium full-grain tan Italian leather passport holder and matching luggage tag, deeply blind debossed with customized initials.",
@@ -616,9 +616,9 @@ export const PRODUCTS = [
     occasion: "Anniversary Milestones",
     timeline: "Standard Artisanal (2–3 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8kYVhRUxduTtBitnoqmc1M8UhEdl-_l0QpBXFUr0euoI4FLppB-zrd2NJ3zXmkBuOgh7eHu-UOmyqf95fCVHWPEiC75L0kBD_8yst4vckO1z9mvl7EYefF10vEixPfbkEPyjTWhqdVeAmIUnjokevn4a6FCidb2ojxQ2Mdkm0OukT6cS1Ce8tY8B9_VJFd3aWTuj-p7jJgV4nj5dPOS97M9hJbnYcnpuWCt3_vY_s7c6IG7fDS1pvMQ",
+    image: "/assets/cdn/img_a1f082165df6.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC8kYVhRUxduTtBitnoqmc1M8UhEdl-_l0QpBXFUr0euoI4FLppB-zrd2NJ3zXmkBuOgh7eHu-UOmyqf95fCVHWPEiC75L0kBD_8yst4vckO1z9mvl7EYefF10vEixPfbkEPyjTWhqdVeAmIUnjokevn4a6FCidb2ojxQ2Mdkm0OukT6cS1Ce8tY8B9_VJFd3aWTuj-p7jJgV4nj5dPOS97M9hJbnYcnpuWCt3_vY_s7c6IG7fDS1pvMQ"
+      "/assets/cdn/img_a1f082165df6.jpg"
     ],
     shortDescription: "Luxury personalized acrylic song plaque with warm wooden LED base on soft velvet fabric.",
     description: "Cast optic acrylic laser-etched with couple photo, anniversary song title, scannable Spotify code, and solid beechwood base with warm LED illumination.",
@@ -652,9 +652,9 @@ export const PRODUCTS = [
     occasion: "Wedding & Reception",
     timeline: "Standard Artisanal (2–3 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida/AEtjO1U_qHzn-6pLlQfd8NuXWJbzGIU0e0a1mNDyGIV2CY3JzaM-ACp4L42K6QVeO81JCIjdWiVmzu_-vGTe_NK7JY2iIKUHB06FQ1kSzwaXlVgkjD8wgMh7tkZ1_iC7E4_cc_kbHChPCV_t-L5TFG-TvAYM9k4oHoVnaHn4nCYUFfshE3UG6IkD2uppLh6_8hZtA9mqodlcB4A4NdPviuOXP8NS1V1UBmvF8N1FehfO9PwJ5iVOYdu36x2nDRF1",
+    image: "/assets/cdn/img_c5db76be9930.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida/AEtjO1U_qHzn-6pLlQfd8NuXWJbzGIU0e0a1mNDyGIV2CY3JzaM-ACp4L42K6QVeO81JCIjdWiVmzu_-vGTe_NK7JY2iIKUHB06FQ1kSzwaXlVgkjD8wgMh7tkZ1_iC7E4_cc_kbHChPCV_t-L5TFG-TvAYM9k4oHoVnaHn4nCYUFfshE3UG6IkD2uppLh6_8hZtA9mqodlcB4A4NdPviuOXP8NS1V1UBmvF8N1FehfO9PwJ5iVOYdu36x2nDRF1"
+      "/assets/cdn/img_c5db76be9930.jpg"
     ],
     shortDescription: "Minimalist elegant gift set for him with luxury leather wallet, personalized watch, and cologne in luxury box.",
     description: "The premier gift set for groom, groomsmen, or best man. Includes a classic quartz watch with laser-engraved caseback, full-grain bifold wallet with initials, and artisanal eau de parfum.",
@@ -689,9 +689,9 @@ export const PRODUCTS = [
     occasion: "Anniversary Milestones",
     timeline: "Customized Initials Suite (5–7 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida/AEtjO1WhUQJuVUqt6i7FNP44oan5foutyT3xuwcGYx2f6_3fF6hM4sxYHVprZBO2V8I2bQkYFPkOyJkpQZWdBMaf8dxqOAhwqbHqiqh8FmoNhM51vOo3EIRCxBaeMRp8CRDMmbVdRXUpNpKE7uzKw-LIEVkTHI6OAEKbyETrc0bCsLSYBNsNWcWWOHL3eYhAs446LzZBZlTHo0iQHVqt6vYzKYI2w46fUWSrOgqJbQIj2pIex80jfedaS7t50hE1",
+    image: "/assets/cdn/img_2fad27216119.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida/AEtjO1WhUQJuVUqt6i7FNP44oan5foutyT3xuwcGYx2f6_3fF6hM4sxYHVprZBO2V8I2bQkYFPkOyJkpQZWdBMaf8dxqOAhwqbHqiqh8FmoNhM51vOo3EIRCxBaeMRp8CRDMmbVdRXUpNpKE7uzKw-LIEVkTHI6OAEKbyETrc0bCsLSYBNsNWcWWOHL3eYhAs446LzZBZlTHo0iQHVqt6vYzKYI2w46fUWSrOgqJbQIj2pIex80jfedaS7t50hE1"
+      "/assets/cdn/img_2fad27216119.jpg"
     ],
     shortDescription: "Heartfelt luxury gift hamper for parents or couple anniversary with engraved wooden frame, gourmet treats, and tea set.",
     description: "A grand wooden crate filled with celebratory heirlooms: a customized wooden picture frame, handcrafted artisanal tea selection, golden brass tea strainer, organic raw honey jar, and soy candle.",
@@ -727,9 +727,9 @@ export const PRODUCTS = [
     occasion: "Birthday & Celebration",
     timeline: "Standard Artisanal (2–3 Days)",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida/AEtjO1XDAab_WhfGq5kdMv3wc3AAkZkSCxzexSN9zJUuoQNQGvNGINQtWkq6bys3wAN4LSm5lB997mtmNMrC-U2r37TpU9fYkKqw0_jpdQMToy_Da_9ENN411weTCHruD2NTayGGL3viUAAJFmEueoi1FXF44gnx7UpNaR-3tEd-lcwv11lwFyualHIt6p5DNYuUL3xjoiQRhIikXk81HhypXRc2WIaMC-gxrYo9rvkkSullQLRY68LySGbFNLA",
+    image: "/assets/cdn/img_aecc39f1fd60.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida/AEtjO1XDAab_WhfGq5kdMv3wc3AAkZkSCxzexSN9zJUuoQNQGvNGINQtWkq6bys3wAN4LSm5lB997mtmNMrC-U2r37TpU9fYkKqw0_jpdQMToy_Da_9ENN411weTCHruD2NTayGGL3viUAAJFmEueoi1FXF44gnx7UpNaR-3tEd-lcwv11lwFyualHIt6p5DNYuUL3xjoiQRhIikXk81HhypXRc2WIaMC-gxrYo9rvkkSullQLRY68LySGbFNLA"
+      "/assets/cdn/img_aecc39f1fd60.jpg"
     ],
     shortDescription: "Charming personalized gift gift for kids, custom wooden name puzzle, cute plush toy, engraved night light.",
     description: "Artisanal birchwood carved child name puzzle coated in non-toxic organic baby-safe beeswax polish. A treasured nursery gift for newborns and birthdays.",
@@ -764,9 +764,9 @@ export const PRODUCTS = [
     occasion: "Wedding & Reception",
     timeline: "⚡ Express 24-Hour Dispatch",
     inStock: true,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwXFlTvCFUHWXEAO0YRK86vWkt9XWQg74QzwSk0tjTCAVgolun5Bxi_GA71_CCFGbiXwZHVlcMO_UeJJ54YytsfvrxWMG5v9VrtNMHw99sY7F5Pp7Bognt7F4pwFmM8KeW_Kkkxj54hWgmbGq5rUN3wvmzgD5_5u6_b1AhmgreRZVlPS849CoiiY5qMWIg08q0q-kmAamybZKaa87-JnLIgA02WhioOqQ301NMPOdCpPr8A2JeyyV87g",
+    image: "/assets/cdn/img_4d35c34779cb.jpg",
     gallery: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAwXFlTvCFUHWXEAO0YRK86vWkt9XWQg74QzwSk0tjTCAVgolun5Bxi_GA71_CCFGbiXwZHVlcMO_UeJJ54YytsfvrxWMG5v9VrtNMHw99sY7F5Pp7Bognt7F4pwFmM8KeW_Kkkxj54hWgmbGq5rUN3wvmzgD5_5u6_b1AhmgreRZVlPS849CoiiY5qMWIg08q0q-kmAamybZKaa87-JnLIgA02WhioOqQ301NMPOdCpPr8A2JeyyV87g"
+      "/assets/cdn/img_4d35c34779cb.jpg"
     ],
     shortDescription: "Aesthetic luxury celebration gift box with wrapped silk ribbons, wax seal stamped greeting card, champagne flutes, and treats.",
     description: "Gift presentation with pure habotai silk ribbons, botanical stamped wax seal card, dried bunny tails bouquet, and Belgian chocolate confections.",
@@ -962,7 +962,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 1850,
     originalPrice: 2800,
     leadTime: "7-10 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDImKDwhlu5bClRpL79e11pYTWmivS0Z6_1ZvcD4VwweCttcbGRRzLRRb4iadEKjMCLEm2McTh86H8Jio32sm0teMskeZ-TOKSpkGblMDXvoWoCFqFuWFQc6IvCsspzZAiyadqlE2jhala5yTtgpB9dXQNSdy-9bfL8CBWjTlsCY-xtdKjpdCWWO_tXT6zhYyh6m5IhFiY5W0V5weSYZNUy7JMN0wllOSOO-GuO3EqIkDJtHO5D3mD4ZQ"
+    image: "/assets/cdn/img_8984eb48392e.jpg"
   },
   {
     id: "italian-leather-passport-favors",
@@ -973,7 +973,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 1150,
     originalPrice: 1950,
     leadTime: "5-7 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQrJbL84RTEjdr1IIIh43n5t0OciZZERfd-J4YBQ8bAdGafB6RG6gRnHBAPJKgScXNDA1-9o1hTv0vgvr_K9idA7IYXDhC41S_j3EcShgftpKlGfJWIepM0243xjFzlY3iFnxkwiLOI9DskGJxfcqSXvpzyp7PSXAbZXrhKb1kkkvoTns4J0txffU6JfCGp4_vvl3hswaZGzSlzbTMsb-MiKroYVH-O0KyvdFGc2R6Qb8AYDQZhV9aNg"
+    image: "/assets/cdn/img_0b209aa39e57.jpg"
   },
   {
     id: "brass-botanical-soy-candle",
@@ -984,7 +984,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 890,
     originalPrice: 1450,
     leadTime: "5-8 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCHvb9j-pUHwmbPLtibNbB4dlIg8awI7nbcRIbfVF6t6OZDocxptF8jiZgkahZrXWYI8Ye-w6w1-CsMWwQvnb5Z-GEOA1kOM0ftlmyy14kn0NKAEQDJDG0xGCrq1Vq7kmN-Kjs0W3vuCD7mqduMoBq1kBWOpgSAWMVjzm9iD2TJXPDYd_oB5_daPHfM_CrpH10GeVxJa57h2JFH8PHG9ivO-BfuF-190Uc744D7NtSM5mb0OHJ6aqKl_g"
+    image: "/assets/cdn/img_c10642d7b8c1.jpg"
   },
   {
     id: "sovereign-velvet-trinket-vaults",
@@ -995,7 +995,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 1420,
     originalPrice: 2200,
     leadTime: "7-10 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvz7aVNK1SGSl16cDVFvqta8Esa52pXJR9dovSI7JKsZeklg62_nNIgSUG1BCTjBDFkIWP9PLK_Lg5xFUCbjMvR86cPKFy8Z0klY-t7Sq1LAHCBvP1M-Gym9juiNrfHIZd0pCm8f9qk30Dgx7wKEDyoYxpjnj9reb6MrNFDMz9jmtceXzfG7sn906i2mZ2L-nYh3VMjXgWYJNisyuRsunP0HqgjpU2PgbC1eSShN0x-naMtS7pZj-yGA"
+    image: "/assets/cdn/img_1c14c263eba4.jpg"
   },
   {
     id: "deckle-edge-gold-leaf-itinerary-suite",
@@ -1006,7 +1006,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 480,
     originalPrice: 850,
     leadTime: "4-6 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBj2AYZ8FrljQtSCFkdCtd_hP3Y6EV-eplp8AB9FBH_pusyI5E1UADOEi1h3_6C32hvGbGPDRskiBnWyu26e_Vcx19n4hWxzYX_VP-alrxAEcDbXZMi9Xrfx14Nt_LtPNTqBB8ZPoBBp0m4JNw_fi3r4tOOaFcZW6f1Hp-wqj7us2RI69jWksRxlr7y3ETOumIer9OI3DdJeyZBGslYKknUdekNtGXFQYjG2R2qWbKA7kFAOiuppQ-I2g"
+    image: "/assets/cdn/img_f55e30e798ed.jpg"
   },
   {
     id: "teakwood-brass-inlay-mithai-trunk",
@@ -1017,7 +1017,7 @@ export const BULK_SIGNATURE_FAVORS = [
     price: 2450,
     originalPrice: 3800,
     leadTime: "10-14 Days",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBx0Rk2ek-5W-vrGfu7Ww1Kom_EmXcWfbWshFxa8o_M0mslqhrzbhDe8vtssxvXuI5CCCrtoFCpHE8lj97wRG8fvTdhFpwidC-jGnJKSmOEyz4oHok4xM0601WTexxW5IIsSnwOuC1ZQe4HNPqoxOEYVT4neK5hq8W5ka0HzM-sih5oV6cSaui0oF6QQ408eEVQOdNTCtf1xvlBMeh_B23MsBc7PHHTdUFaqJUXf2EvbdfAHFg-sKaSIA"
+    image: "/assets/cdn/img_221249766bc9.jpg"
   }
 ];
 

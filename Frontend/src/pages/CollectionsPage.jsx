@@ -11,7 +11,7 @@ const COLLECTIONS_DATA = [
     count: '14 Masterpieces',
     description: 'Rich plush velvet, hand-gilded brass filigree corners, double-tier engagement ring nests, and mangalsutra presentation vaults.',
     price: '₹2,890',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC7vVekI7j0bO5B4sHGS-PkbJ3Vaoc1gknVrmxBviLmDJq7i8B7P9Fd6gpcRcy7nB9l89JnswYfk8hocSAYNlzJHzYDz6CPDRoTiIb5Ctt2TBEmVext_0vT54z5cAKRo9Jpmd2__xSBPWIbqVYGmAELwue5yfoeivzaFEBc2fg37qvM0I-FP5acMA_IJTZFTM3J2FF8WNrKIRD-pv3TljQvvLGlxkYsR_NcG1_STL8doR8dKiIYMo2uzg',
+    image: '/assets/cdn/img_56d7a2ebc8ba.jpg',
     imageAlt: 'Emerald green and ivory royal velvet jewelry ring box with 24k brass accents',
     category: 'Bridal & Wedding Essentials Series',
     additionalCategories: ['Velvet & Gilded Leather', 'Royal Classic Suite'],
@@ -24,7 +24,7 @@ const COLLECTIONS_DATA = [
     count: '9 Masterpieces',
     description: 'Preserved ceremony garland shadowboxes, crystal-clear archival resin gift blocks, and custom pressed bouquet frames.',
     price: '₹4,200',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgsSYGkMU2Dze_u6NpUTHa4rEsgJOenA0Bc-K6-OYwzR4fHq22Of4D3XP91rciSVldzA91LqxD2BQnZfrZdzn6SFoUKSyhbnyb8fm7gpQqGvmFmYcfuwEzBNiTB_zGar9IclDJeKtu9AP8DQ8tyAh52NwleOF6hKXNjoBzJWFbQGOrxW5oCLNGfqZA7KuT-UQ_dXMpAeDGbmW1PBRSkg8ha2wxmsKrYWFeh_x6rBq7HTslRi3iGDSBYw',
+    image: '/assets/cdn/img_ecfddff03b93.jpg',
     imageAlt: 'Preserved varmala wedding garland in solid oak glass shadowbox',
     category: 'Botanical & Floral Preservation',
     additionalCategories: [],
@@ -37,7 +37,7 @@ const COLLECTIONS_DATA = [
     count: '16 Masterpieces',
     description: 'Full-grain Italian saddle leather passport folios, brass-buckled luggage tags, and matching his-and-hers honeymoon vow folios.',
     price: '₹2,150',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfXR0RijZUfh45UpgLQyhFgusPuH-wWaB0Mjuz_W9tkhs58CgNWmgWdVvgi3elUCfA-nihwKqni6rp_1jKxkfgmgWeXn4D2CsZ-8sUQT69xDY65dtb2Q59i9lDNfU0sm3fljzrJAZsY_7-W9fq2XrNsB5A0KENP_3psDLfypypk1ohovXsJgRZrtmN0uacEWva2uQ1sH9kwnhZg7AOT3LRXKjCbXaMycOlgCZRibgCLdCy1pWGFqOrcA',
+    image: '/assets/cdn/img_68d52a0350ad.jpg',
     imageAlt: 'Italian caramel tan leather passport cases and gold debossed luggage tags',
     category: 'Velvet & Gilded Leather',
     additionalCategories: ['Bridal & Wedding Essentials Series'],
@@ -50,7 +50,7 @@ const COLLECTIONS_DATA = [
     count: '21 Masterpieces',
     description: '100% Cotton rag paper crafted on historic deckles, 24k hand-applied leaf edges, and heirloom brass crest seals.',
     price: '₹1,750',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDAyLcg2HtHG2NG528v25qExhOCOyhqpwIQ1NKqapyBknxQu_JKVi5nhzoAi41nAndX0SZCuxZAFpOCwQa_u-MVFf9GFEGsZKveZwnEO1NlZ-2LgCpwSWBc4WWj4PMaIQnbIp4a9UE5adReV5aATv_GaMp3uwhBnf4MXf53oEyiSVMYlDpNk3NVyiacGpTRwNylQg44VGHkfonmvjbwUzVXRqVDcVR8IQvuhGpYNkxl-lAKuZJN332mTg',
+    image: '/assets/cdn/img_a9cc139c9496.jpg',
     imageAlt: 'Deckle edge cotton paper wedding invitation suite with wax seal stamp',
     category: 'Royal Classic Suite',
     additionalCategories: ['Bridal & Wedding Essentials Series'],
@@ -63,7 +63,7 @@ const COLLECTIONS_DATA = [
     count: '11 Masterpieces',
     description: 'Optical-grade scannable Spotify soundwave acrylic lamps, precision laser-etched beechwood LED bases, and song plaques.',
     price: '₹1,999',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPrqlkBPIAkX1Xo3Sk87FeRnUXn5N9kd2E4E-wjwqGD1qpBMmpO6JyiTvjZrHcdnohIke_Q7_1M4arwF3K_y7tG2kQOH1n4Sz-vcRqLOD1R2WwKSmPBnQt-EWFqOE5IVOh_UPQgX27U8ZKJ1d5xADnBBXoBrS-xKznhrcSytZGb-kas7e18Mq30TH7x8Lljh2TnG8FzO0jJcDLq75x7kHqBMyopsDoxUw2a7Ea74P72E8dQvjHrsaKog',
+    image: '/assets/cdn/img_448c691fa5fa.jpg',
     imageAlt: 'Custom engraved acrylic soundwave night lamp with beechwood base',
     category: 'Celestial Acrylic & Soundwave',
     additionalCategories: [],
@@ -76,7 +76,7 @@ const COLLECTIONS_DATA = [
     count: '15 Masterpieces',
     description: 'Sustainable plantation teak memory trunks, personalized guestbook slabs, vintage brass latches, and wooden vow folios.',
     price: '₹3,450',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDXA14h0dgUNaVbxtnKGizuGYfLiBAkq0GL9RG0apzDyXWgI32-AuXPUU8CxRCXDLkoTNN6gghkScDo-GdRjaJ_kxam-a0WkhSdvXf6J9oiC7gI0iSQCuBMuteL5LEx55uOo0_jUDF0_A5Mgw4TPtwuffBa5lNk1V6hHuQKAktHSAQygiA0yO0oxunKn9aiAmSDauceTlKql-VNSDnI7ATVAbn5eoofHROF_0rQdJSBKDR20wD2E5nGQ',
+    image: '/assets/cdn/img_ca45083b52f7.jpg',
     imageAlt: 'Solid teakwood wedding memory trunk with brass latch',
     category: 'The Heirloom Woodcraft',
     additionalCategories: [],
@@ -89,7 +89,7 @@ const COLLECTIONS_DATA = [
     count: '8 Masterpieces',
     description: 'Lead-free European crystal flutes, whiskey decanters with laser-initials heraldic crests, and polished gold stirrers.',
     price: '₹3,800',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuByzR0SR7rOwMogMVeT6JBEHqlam5QUb3exr7abUSeci8_7G4Wjf7j1Q7xaNncd3xQAbd0hMSVpFqmlF-QBjAW6rrgssWnSJCCToy4Pl_hEFirVwdJj4Dlx-ilU2cFT0KTCtvj2t_f7jf_ueA1M88t4srBuF3Rj74CyTXLsMSLh374o2rtKYDh7_8K6nW56smWQ67vWNjqVe82wVFLjgEXWIYHrz2Z1p1x8uiwQgxvsWcYumrHEX8ARPA',
+    image: '/assets/cdn/img_9b63d57745a9.jpg',
     imageAlt: 'Lead-free European crystal champagne flutes and decanter set',
     category: 'Royal Classic Suite',
     additionalCategories: [],
@@ -102,7 +102,7 @@ const COLLECTIONS_DATA = [
     count: '24 Masterpieces',
     description: 'Customized embroidered zardozi potlis, botanical amber candle jars in volume, customized sweets boxes, and guest welcome tags.',
     price: '₹450 / unit',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqkx9o1R5d5DWATj32MJb11ysi8o3YS9iFZSt7CE4fKiV-_Mcc26ldoUJKnc96-riOA8a1o7wGdazH0ZHPn9SGrfw-WwPFbG-IpNxb_m8yiHvO6FbVSzF_4h5RQFWwmVSt2qMSs6xRY3ZryCD-_tixgBdpG_8mlqXhczW6odVNUx4DbEGMmG-LN0V3OUz_dTnj5cEidc7cEqGYal2OFgdeWdFyeNAIvqwZ6QL402syVqDbfhfZcRRf4g',
+    image: '/assets/cdn/img_5e389cf38222.jpg',
     imageAlt: 'Vibrant luxury Indian destination wedding favors and raw silk potlis',
     category: 'Destination Wedding Favors',
     additionalCategories: ['Bridal & Wedding Essentials Series'],
@@ -339,7 +339,7 @@ const CollectionsPage = () => {
               {/* Left Visual Side with Official Hamper Asset */}
               <div className="lg:w-7/12 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[520px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYPxCrDzczhyZ-p7Ew61w-iDjrf0SYB9xcUMsWWKw19VERYs6chdoMrDSxCbWxB6FP0DPqlSA9C0gfm0A_e76hPgg3kHn_PwuaYLWv2rylJkcQJvx-RMjgkr76e43aAgClcbWocYdzM7JnURK0cckKXh1uPTwgJyWYqKEdhMs_ARV-EYILjjs2zca7jt9X7AqeY7WwO8XtHixUwaHSL-_9YJ51I7DbRGCyy27-puWWkO30dd1YCmnzw"
+                  src="/assets/cdn/img_eafddfa4ed3e.jpg"
                   alt="The Sovereign Bridal and Wedding Essentials Suite Luxury Hamper by ASRA Wedding Canvas"
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />

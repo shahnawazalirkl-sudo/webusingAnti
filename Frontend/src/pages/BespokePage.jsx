@@ -775,7 +775,7 @@ const BespokePage = () => {
           <div className="lg:w-1/2 relative w-full">
             <div className="overflow-hidden rounded-xl border border-outline-variant/40 shadow-inner bg-surface-container-low">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYPxCrDzczhyZ-p7Ew61w-iDjrf0SYB9xcUMsWWKw19VERYs6chdoMrDSxCbWxB6FP0DPqlSA9C0gfm0A_e76hPgg3kHn_PwuaYLWv2rylJkcQJvx-RMjgkr76e43aAgClcbWocYdzM7JnURK0cckKXh1uPTwgJyWYqKEdhMs_ARV-EYILjjs2zca7jt9X7AqeY7WwO8XtHixUwaHSL-_9YJ51I7DbRGCyy27-puWWkO30dd1YCmnzw"
+                src="/assets/cdn/img_eafddfa4ed3e.jpg"
                 alt="The Sovereign Bridal and Wedding Essentials Masterpiece Suite"
                 className="w-full h-auto object-cover max-h-[480px] hover:scale-105 transition duration-500"
               />
