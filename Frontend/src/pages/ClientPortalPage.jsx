@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useWishlist } from '../context/WishlistContext';
+import { useCart } from '../context/CartContext';
+import { getAllOrders, getLastOrder } from '../utils/orderStorage';
 
 
 const STORAGE_KEY_PROFILE = 'asra_user_profile';
@@ -366,7 +370,6 @@ const ClientPortalPage = () => {
             { id: 'wishlist', label: 'Saved Treasures', iconName: 'favorite', count: wishlistItems.length },
             { id: 'concierge', label: 'Wedding Concierge', iconName: 'call' }
           ].map((tab) => {
-            const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
@@ -378,7 +381,9 @@ const ClientPortalPage = () => {
                     : 'border-transparent text-on-surface-variant hover:text-stone-900 hover:border-stone-300'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-primary' : 'text-outline'}`} />
+                <span className={`material-symbols-outlined text-[16px] ${isActive ? 'text-primary' : 'text-outline'}`}>
+                  {tab.iconName}
+                </span>
                 <span>{tab.label}</span>
                 {tab.count !== undefined && (
                   <span className={`text-[10px] px-2 py-0.2 rounded-full font-bold ${
