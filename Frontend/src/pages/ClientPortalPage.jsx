@@ -1,430 +1,297 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { getOrderById, getLastOrder, getAllOrders } from '../utils/orderStorage';
-import { 
-  ArrowLeft, 
-  Shield, 
-  Lock, 
-  Check, 
-  Download, 
-  MessageSquare, 
-  ExternalLink, 
-  Video, 
-  FileText, 
-  Calendar, 
-  Clock, 
-  Music, 
-  Users, 
-  Eye, 
-  AlertCircle, 
-  Sparkles, 
-  Phone, 
-  CheckCircle2, 
-  X, 
-  RotateCw,
-  Printer,
-  ChevronRight,
+import { getAllOrders, getLastOrder, getOrderById } from '../utils/orderStorage';
+import { useWishlist } from '../context/WishlistContext';
+import { useCart } from '../context/CartContext';
+import {
+  ArrowLeft,
+  Shield,
   Package,
-  ArrowUpRight,
-  ShoppingBag
+  Heart,
+  User,
+  MapPin,
+  Sparkles,
+  Phone,
+  MessageSquare,
+  ChevronRight,
+  ShoppingBag,
+  Clock,
+  Calendar,
+  CheckCircle2,
+  ExternalLink,
+  Edit3,
+  Plus,
+  Trash2,
+  Download,
+  AlertCircle,
+  HelpCircle,
+  FileText
 } from 'lucide-react';
 
-const DOCKET_DATA = {
-  'ASRA-2026-8842X': {
-    docketId: 'ASRA-2026-8842X',
-    patronName: 'Asra Ansari & Sk Shahnawaz Ali',
-    patronInitials: 'AS',
-    suiteCode: 'Sovereign Suite #8842X',
-    ceremonyDestination: 'Villa Balbiano, Lake Como, Italy',
-    ceremonyDate: 'October 28, 2026',
-    deliveryDate: 'October 24, 2026',
-    handoverTime: 'Target: Oct 24, 11:00 AM CET',
-    overallProgress: 68,
-    activeStage: 3,
-    totalStages: 5,
-    leadStylist: {
-      name: 'Shagufta Naaz',
-      initials: 'SN',
-      title: 'Lead Bridal Support',
-      location: 'Collection Jubilee Hills, Hyderabad',
-      note: '"We have received the sample Italian foil swatches today. The gold hue aligns seamlessly with your stationery parchment."',
-      phone: '+91 96926 68263',
-      whatsapp: 'https://wa.me/919692668263'
-    },
-    monogramDie: {
-      dieId: 'HYD-2026-AS',
-      initials: 'AS',
-      metal: 'Solid CNC Milled Brass',
-      dimensions: '85mm × 85mm',
-      relief: '2.2mm Depth',
-      angle: '45° Chamfered Edge',
-      bevelDepth: '0.35mm depth',
-      storageTerm: '5-Yr Sovereign Preservation'
-    },
-    itinerary: {
-      destination: 'Villa Balbiano, Via Regina 2',
-      city: '22010 Ossuccio CO, Lake Como, Italy',
-      careOf: 'C/O Support Signorina Bellini',
-      crating: 'Shock-Cushioned Wooden Crating',
-      lining: 'Moisture & Cryo-Sealed Lining',
-      insuredValue: '₹5,00,000',
-      protocol: 'Direct Suite Handover',
-      inspection: 'Personalized Uncrating & Inspection'
-    },
-    items: [
-      {
-        id: 'trunk-01',
-        categoryTag: 'TRUNK',
-        title: 'The Sovereign Bridal Gift Chest',
-        description: 'Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Initials',
-        qty: '1 Customized Masterpiece',
-        price: '₹84,500',
-        status: 'In Hand-Assembly',
-        statusColor: 'emerald',
-        spec: {
-          material: 'Aged Solid Teakwood & 24K Leaf Inlay',
-          lining: 'Champagne Silk Velvet (100% Mulberry)',
-          dimensions: '45cm × 32cm × 20cm',
-          lock: 'Hand-forged Brass Cremone Lock with Tasseled Key',
-          artisan: 'Master Woodwright Anant & Gold Guilder Ravi'
-        }
-      },
-      {
-        id: 'favors-02',
-        categoryTag: 'FAVORS',
-        title: 'Lake Como Royal Guest Welcome Hampers',
-        description: 'Debossed initials luggage tag, artisanal scented candle, botanical wax seal',
-        qty: '120 Guests',
-        price: '₹2,04,000',
-        status: 'Leather Debossing Active',
-        statusColor: 'amber',
-        guestListCount: 120
-      },
-      {
-        id: 'crystal-03',
-        categoryTag: 'CRYSTAL',
-        title: 'Optical Crystal First-Dance Plaque with Solid Brass Base',
-        description: 'Sub-millimeter laser internal etching · Scannable Spotify waveform cipher',
-        qty: '1 Gift',
-        price: '₹14,900',
-        status: 'Laser Etched & Certified',
-        statusColor: 'emerald',
-        songTitle: 'Can\'t Help Falling In Love (Orchestral Suite)',
-        artist: 'Royal Philharmonic Orchestra'
-      }
-    ],
-    documents: [
-      {
-        id: 'doc-contract',
-        name: 'Customized Production Contract',
-        meta: 'Signed Sept 18 · Docket #8842X',
-        type: 'PDF',
-        actionLabel: 'PDF ↓',
-        date: 'Sept 18, 2026'
-      },
-      {
-        id: 'doc-gold',
-        name: '24K Gold Leaf Certificate',
-        meta: 'Assigned Assay Serial #GL-9021',
-        type: 'CERTIFICATE',
-        actionLabel: 'View Proof',
-        date: 'Sept 25, 2026'
-      },
-      {
-        id: 'doc-invoice',
-        name: 'Full Invoice & GST Receipt',
-        meta: 'Paid in Full via Net Banking',
-        type: 'INVOICE',
-        actionLabel: 'Download',
-        date: 'Sept 18, 2026'
-      },
-      {
-        id: 'doc-insurance',
-        name: 'Transit Insurance Covenant',
-        meta: 'Policy #ASRA-INS-4492',
-        type: 'POLICY',
-        actionLabel: 'Policy PDF',
-        date: 'Oct 02, 2026'
-      }
-    ]
-  }
+const STORAGE_KEY_PROFILE = 'asra_user_profile';
+const STORAGE_KEY_ADDRESSES = 'asra_saved_addresses';
+const STORAGE_KEY_MONOGRAMS = 'asra_saved_monograms';
+
+const DEFAULT_PROFILE = {
+  fullName: 'Asra Ansari & Sk Shahnawaz Ali',
+  email: 'client@asrawedding.com',
+  phone: '+91 96926 68263',
+  weddingDate: '2026-11-18',
+  partnerName: 'Sk Shahnawaz Ali',
+  primaryVenue: 'The Oberoi Udaivilas, Udaipur',
+  vipTier: 'Sovereign Union Patron'
 };
 
-const INITIAL_GUEST_PREVIEW = [
-  { name: 'Lord & Lady Althorp', tagInitials: 'A', table: 'Grand Terrace', gift: 'Scented Candle + Tag' },
-  { name: 'Contessa Sofia Bianchi', tagInitials: 'SB', table: 'Villa Balbiano Hall', gift: 'Botanical Wax Hamper' },
-  { name: 'Sagil Doza & Miss Sultana Begum', tagInitials: 'SB', table: 'Lake Pergola', gift: 'Silk Initials Set' },
-  { name: 'Prince & Princess Sayeed', tagInitials: 'PS', table: 'Royal Loggia', gift: '24K Foil Hamper' },
-  { name: 'Don Alessandro Moretti', tagInitials: 'AM', table: 'Olive Grove', gift: 'Artisanal Reserve Favors' }
+const DEFAULT_ADDRESSES = [
+  {
+    id: 'addr-1',
+    label: 'Primary Wedding Residence',
+    recipient: 'Asra Ansari',
+    phone: '+91 96926 68263',
+    street: 'Badi-Gorela Canal Road, Haridas Ji Ki Magri',
+    city: 'Udaipur',
+    state: 'Rajasthan',
+    pincode: '313001',
+    isDefault: true
+  },
+  {
+    id: 'addr-2',
+    label: 'Ceremony Delivery Venue',
+    recipient: 'Wedding Concierge / C/O Shahnawaz Ali',
+    phone: '+91 96926 68263',
+    street: 'The Oberoi Udaivilas, Kohinoor Suite VIP Gate',
+    city: 'Udaipur',
+    state: 'Rajasthan',
+    pincode: '313001',
+    isDefault: false
+  }
+];
+
+const DEFAULT_MONOGRAMS = [
+  {
+    id: 'mono-1',
+    initials: 'A & S',
+    names: 'Asra & Shahnawaz',
+    crestStyle: 'Classic Floral Crest',
+    foilFinish: '24K Florentine Gold Foil',
+    fontStyle: 'Royal Copperplate Script',
+    date: '18th November 2026'
+  }
 ];
 
 const ClientPortalPage = () => {
-  const [searchParams] = useSearchParams();
-  const rawDocketId = searchParams.get('docket') || '';
-  
-  // Resolve docket data from DOCKET_DATA or dynamically from orderStorage
-  const resolvePortalData = () => {
-    const cleanId = rawDocketId.trim().toUpperCase();
-    if (cleanId && DOCKET_DATA[cleanId]) {
-      return { docketId: cleanId, ...DOCKET_DATA[cleanId] };
-    }
-    
-    // Check if it's a dynamic order in storage
-    const stored = getOrderById(cleanId) || (rawDocketId ? null : getLastOrder());
-    if (stored) {
-      const initials = stored.recipientName?.match(/\b([A-Z])/g)?.slice(0, 2).join('') || 'AS';
-      return {
-        docketId: stored.orderId,
-        patronName: stored.recipientName || 'Patron of the Sovereign Union',
-        patronInitials: initials,
-        suiteCode: `Sovereign Suite #${stored.orderId}`,
-        ceremonyDestination: stored.venueName || 'The Oberoi Udaivilas, Udaipur',
-        ceremonyDate: stored.arrivalDate || 'November 14, 2026',
-        deliveryDate: stored.arrivalDate || 'November 14, 2026',
-        handoverTime: stored.timingSlot || 'Twilight Royal Arrival (04:00 PM – 08:00 PM)',
-        overallProgress: 68,
-        activeStage: 3,
-        totalStages: 5,
-        leadStylist: {
-          name: stored.weddingPlanner || 'Shagufta Naaz',
-          initials: 'SN',
-          title: 'Lead Wedding Architect',
-          location: 'Collection Hyderabad Flagship',
-          note: '"Digital calibration for your monogram brass die is prepared. Please review and confirm deboss authorization."',
-          phone: stored.phone || '+91 96926 68263',
-          whatsapp: `https://wa.me/${(stored.phone || '919692668263').replace(/[^0-9]/g, '')}`
-        },
-        monogramDie: {
-          dieId: `DIE-${initials}-2026`,
-          initials: initials,
-          metal: 'Solid CNC Milled Brass',
-          dimensions: '85mm × 85mm',
-          relief: '2.2mm Depth',
-          angle: '45° Chamfered Edge',
-          bevelDepth: '0.35mm depth',
-          storageTerm: '5-Yr Sovereign Preservation'
-        },
-        itinerary: {
-          destination: stored.venueName || 'The Oberoi Udaivilas',
-          city: `${stored.city || 'Udaipur'}, ${stored.state || 'Rajasthan'}`,
-          careOf: `C/O ${stored.weddingPlanner || 'Wedding Architect'}`,
-          crating: 'Shock-Cushioned Wooden Crating',
-          lining: 'Moisture & Cryo-Sealed Lining',
-          insuredValue: `₹${(stored.grandTotal ? stored.grandTotal * 10 : 500000).toLocaleString('en-IN')}`,
-          protocol: stored.chauffeurNotes || 'Direct Suite Handover',
-          inspection: 'Personalized Uncrating & Inspection'
-        },
-        items: Array.isArray(stored.items) && stored.items.length > 0
-          ? stored.items.map((item, idx) => ({
-              id: item.cartId || `portal-item-${idx}`,
-              categoryTag: 'MASTERPIECE',
-              title: item.title,
-              description: `${item.edition || 'Gold Leaf Inlay'} · Certified 24K Hallmark`,
-              qty: `${item.quantity || 1} Customized Piece`,
-              price: item.price ? `₹${item.price.toLocaleString('en-IN')}` : '₹7,499',
-              status: 'Artisan Assembly Active',
-              statusColor: 'emerald',
-              spec: {
-                material: 'Aged Solid Teakwood & 24K Leaf Inlay',
-                lining: 'Mulberry Silk Velvet',
-                dimensions: 'Standard Luxury Dimensions',
-                lock: 'Hand-forged Cremone Lock',
-                artisan: 'Master Artisan Commission'
-              }
-            }))
-          : DOCKET_DATA['ASRA-2026-8842X'].items,
-        documents: DOCKET_DATA['ASRA-2026-8842X'].documents
-      };
-    }
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const { wishlistItems, removeFromWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
-    return { docketId: 'ASRA-2026-8842X', ...DOCKET_DATA['ASRA-2026-8842X'] };
+  // Active Tab: 'orders' | 'profile' | 'monograms' | 'wishlist' | 'concierge'
+  const tabParam = searchParams.get('tab') || 'orders';
+  const [activeTab, setActiveTab] = useState(tabParam);
+
+  useEffect(() => {
+    if (tabParam && ['orders', 'profile', 'monograms', 'wishlist', 'concierge'].includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
+
+  const switchTab = (tabKey) => {
+    setActiveTab(tabKey);
+    setSearchParams({ tab: tabKey });
   };
 
-  const data = resolvePortalData();
-  const docketId = data.docketId;
+  // Orders State
+  const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
-  // Interactive States
-  const [proofApproved, setProofApproved] = useState(false);
-  const [approvalDate, setApprovalDate] = useState(null);
-  const [revisionModalOpen, setRevisionModalOpen] = useState(false);
-  const [revisionNotes, setRevisionNotes] = useState('');
-  const [revisionSubmitted, setRevisionSubmitted] = useState(false);
-  const [cadModalOpen, setCadModalOpen] = useState(false);
-  const [cadAngle, setCadAngle] = useState(45);
-  const [cadMetalFinish, setCadMetalFinish] = useState('24k-gold');
-  const [cadDepthZoom, setCadDepthZoom] = useState(1);
-  
-  // Modals for Items & Stylist
-  const [specModalOpen, setSpecModalOpen] = useState(false);
-  const [activeSpecItem, setActiveSpecItem] = useState(null);
-  const [guestModalOpen, setGuestModalOpen] = useState(false);
-  const [guests, setGuests] = useState(INITIAL_GUEST_PREVIEW);
-  const [newGuestName, setNewGuestName] = useState('');
-  const [newGuestInitials, setNewGuestInitials] = useState('');
-  
-  const [audioModalOpen, setAudioModalOpen] = useState(false);
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-  
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const [selectedVideoDate, setSelectedVideoDate] = useState('2026-09-22');
-  const [selectedVideoTime, setSelectedVideoTime] = useState('16:00 IST');
-  const [videoBookingConfirmed, setVideoBookingConfirmed] = useState(false);
-  
-  const [docModalOpen, setDocModalOpen] = useState(false);
-  const [activeDoc, setActiveDoc] = useState(null);
-  
-  const [recommissionModalOpen, setRecommissionModalOpen] = useState(false);
-  const [recommissionNotes, setRecommissionNotes] = useState('');
-  const [recommissionSuccess, setRecommissionSuccess] = useState(false);
+  // Profile State
+  const [profile, setProfile] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_PROFILE);
+      return saved ? JSON.parse(saved) : DEFAULT_PROFILE;
+    } catch {
+      return DEFAULT_PROFILE;
+    }
+  });
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [profileForm, setProfileForm] = useState(profile);
+  const [profileSavedToast, setProfileSavedToast] = useState(false);
 
-  const [assistanceModalOpen, setAssistanceModalOpen] = useState(false);
-  const [assistancePriority, setAssistancePriority] = useState('customs');
-  const [assistanceMessage, setAssistanceMessage] = useState('');
-  const [assistanceSent, setAssistanceSent] = useState(false);
+  // Addresses State
+  const [addresses, setAddresses] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_ADDRESSES);
+      return saved ? JSON.parse(saved) : DEFAULT_ADDRESSES;
+    } catch {
+      return DEFAULT_ADDRESSES;
+    }
+  });
+  const [showAddressModal, setShowAddressModal] = useState(false);
+  const [addressForm, setAddressForm] = useState({
+    label: 'New Address',
+    recipient: '',
+    phone: '',
+    street: '',
+    city: '',
+    state: '',
+    pincode: '',
+    isDefault: false
+  });
 
-  const [sessionLocked, setSessionLocked] = useState(false);
-  const [unlockPin, setUnlockPin] = useState('');
-  const [pinError, setPinError] = useState(false);
+  // Saved Monograms State
+  const [monograms, setMonograms] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_MONOGRAMS);
+      return saved ? JSON.parse(saved) : DEFAULT_MONOGRAMS;
+    } catch {
+      return DEFAULT_MONOGRAMS;
+    }
+  });
+  const [showMonogramModal, setShowMonogramModal] = useState(false);
+  const [monogramForm, setMonogramForm] = useState({
+    initials: '',
+    names: '',
+    crestStyle: 'Classic Floral Crest',
+    foilFinish: '24K Florentine Gold Foil',
+    fontStyle: 'Royal Copperplate Script',
+    date: ''
+  });
 
-  // User Orders History & Telemetry State
-  const navigate = useNavigate();
-  const [userOrders, setUserOrders] = useState([]);
-
+  // Load Real Orders from Storage
   useEffect(() => {
     try {
       const all = getAllOrders();
-      const orderValues = Object.values(all);
-      if (orderValues.length > 0) {
-        setUserOrders(orderValues);
+      const list = Object.values(all || {});
+      if (list.length > 0) {
+        list.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+        setOrders(list);
       } else {
         const last = getLastOrder();
         if (last) {
-          setUserOrders([last]);
-        } else {
-          // If no custom order is found in localStorage, include the demo Sovereign Commission docket
-          setUserOrders([{
-            orderId: 'ASRA-2026-8842X',
-            recipientName: 'Asra Ansari & Sk Shahnawaz Ali',
-            createdAt: '2026-09-18T10:00:00.000Z',
-            grandTotal: 303400,
-            status: 'In Master Craft Production',
-            items: data.items || []
-          }]);
+          setOrders([last]);
         }
       }
-    } catch (e) {
-      console.warn('Error loading user orders', e);
+    } catch (err) {
+      console.warn('Failed to retrieve user orders', err);
     }
   }, []);
 
-  // Audio simulator timer
-  useEffect(() => {
-    let interval;
-    if (isPlayingAudio) {
-      interval = setInterval(() => {
-        // Just keeping active animation
-      }, 300);
-    }
-    return () => clearInterval(interval);
-  }, [isPlayingAudio]);
-
-  const handleApproveProof = () => {
-    setProofApproved(true);
-    setApprovalDate(new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }));
-  };
-
-  const handleAddGuest = (e) => {
+  // Sync Profile
+  const handleSaveProfile = (e) => {
     e.preventDefault();
-    if (newGuestName.trim()) {
-      setGuests([
-        ...guests,
-        {
-          name: newGuestName.trim(),
-          tagInitials: newGuestInitials.trim().toUpperCase() || newGuestName.trim().slice(0, 2).toUpperCase(),
-          table: 'Confirmed Guest Suite',
-          gift: 'Debossed Initials Hamper'
-        }
-      ]);
-      setNewGuestName('');
-      setNewGuestInitials('');
+    setProfile(profileForm);
+    try {
+      localStorage.setItem(STORAGE_KEY_PROFILE, JSON.stringify(profileForm));
+    } catch (err) {
+      console.warn('Error saving profile', err);
     }
+    setIsEditingProfile(false);
+    setProfileSavedToast(true);
+    setTimeout(() => setProfileSavedToast(false), 3000);
   };
 
-  const handlePrintDocket = () => {
-    window.print();
-  };
-
-  const handleUnlockSession = (e) => {
+  // Sync Addresses
+  const handleAddAddress = (e) => {
     e.preventDefault();
-    if (unlockPin === '8842' || unlockPin === '1234' || unlockPin.length >= 4) {
-      setSessionLocked(false);
-      setUnlockPin('');
-      setPinError(false);
-    } else {
-      setPinError(true);
+    if (!addressForm.recipient || !addressForm.street) return;
+    const newAddr = {
+      ...addressForm,
+      id: `addr-${Date.now()}`
+    };
+    let updated = [...addresses];
+    if (newAddr.isDefault) {
+      updated = updated.map((a) => ({ ...a, isDefault: false }));
+    }
+    updated.push(newAddr);
+    setAddresses(updated);
+    try {
+      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Error saving address', err);
+    }
+    setShowAddressModal(false);
+    setAddressForm({
+      label: 'New Address',
+      recipient: '',
+      phone: '',
+      street: '',
+      city: '',
+      state: '',
+      pincode: '',
+      isDefault: false
+    });
+  };
+
+  const handleDeleteAddress = (id) => {
+    const updated = addresses.filter((a) => a.id !== id);
+    setAddresses(updated);
+    try {
+      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Error removing address', err);
     }
   };
 
-  if (sessionLocked) {
-    return (
-      <div className="min-h-screen bg-[#FAF7F2] flex items-center justify-center p-6 text-[#222222]">
-        <div className="max-w-md w-full bg-white rounded-2xl p-8 border border-[#E7D5BF] card-shadow text-center space-y-6">
-          <div className="w-14 h-14 rounded-full bg-[#121212] text-[#C8A97E] border border-[#C8A97E]/50 mx-auto flex items-center justify-center">
-            <Lock className="w-6 h-6 text-[#C8A97E]" />
-          </div>
-          <div>
-            <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block mb-1">
-              Encrypted Client Vault
-            </span>
-            <h2 className="text-2xl font-serif-luxury font-bold text-[#121212]">
-              My Account Locked
-            </h2>
-            <p className="text-xs text-stone-500 mt-2">
-              Please enter your 4-digit Sovereign Suite PIN (Default: <code className="text-[#75542E] font-bold">8842</code>) to resume your live session.
-            </p>
-          </div>
+  const handleSetDefaultAddress = (id) => {
+    const updated = addresses.map((a) => ({
+      ...a,
+      isDefault: a.id === id
+    }));
+    setAddresses(updated);
+    try {
+      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Error updating default address', err);
+    }
+  };
 
-          <form onSubmit={handleUnlockSession} className="space-y-4">
-            <input
-              type="password"
-              maxLength={4}
-              value={unlockPin}
-              onChange={(e) => { setUnlockPin(e.target.value); setPinError(false); }}
-              placeholder="••••"
-              className="w-36 mx-auto text-center text-2xl tracking-[0.5em] py-2 px-3 border border-[#C8A97E] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#75542E]/30 bg-[#FAF7F2]"
-              autoFocus
-            />
-            {pinError && (
-              <p className="text-xs text-red-600">Incorrect PIN. Try default '8842'.</p>
-            )}
-            <button
-              type="submit"
-              className="w-full py-3 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-all shadow"
-            >
-              Unlock Sovereign Vault
-            </button>
-          </form>
+  // Sync Monograms
+  const handleAddMonogram = (e) => {
+    e.preventDefault();
+    if (!monogramForm.initials) return;
+    const newMono = {
+      ...monogramForm,
+      id: `mono-${Date.now()}`
+    };
+    const updated = [...monograms, newMono];
+    setMonograms(updated);
+    try {
+      localStorage.setItem(STORAGE_KEY_MONOGRAMS, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Error saving monogram', err);
+    }
+    setShowMonogramModal(false);
+    setMonogramForm({
+      initials: '',
+      names: '',
+      crestStyle: 'Classic Floral Crest',
+      foilFinish: '24K Florentine Gold Foil',
+      fontStyle: 'Royal Copperplate Script',
+      date: ''
+    });
+  };
 
-          <div className="pt-2 border-t border-[#E7D5BF]/60 text-[11px] text-stone-500">
-            <Link to="/" className="text-[#75542E] hover:underline font-medium">
-              Return to Public Maison Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const handleDeleteMonogram = (id) => {
+    const updated = monograms.filter((m) => m.id !== id);
+    setMonograms(updated);
+    try {
+      localStorage.setItem(STORAGE_KEY_MONOGRAMS, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Error removing monogram', err);
+    }
+  };
 
+  const getInitials = (name) => {
+    if (!name) return 'AS';
+    const parts = name.match(/\b([A-Z])/g);
+    return parts ? parts.slice(0, 2).join('') : 'AS';
+  };
   return (
     <div className="bg-[#FAF7F2] text-[#222222] min-h-screen antialiased selection:bg-[#E7D5BF] selection:text-[#2E1E0E]">
       
-      {/* =========================================================================
-          TOP MINIMALIST COLLECTION ENCRYPTED UTILITY BAR (STRICTLY NO GENERAL WEBSITE HEADER)
-         ========================================================================= */}
-      <header className="w-full bg-[#FDFBF7] border-b border-[#E7D5BF]/70 sticky top-0 z-40 px-6 lg:px-12 py-3.5 backdrop-blur-md bg-opacity-95 transition-all print:hidden">
+      {/* Top Header Bar */}
+      <header className="w-full bg-[#FDFBF7] border-b border-[#E7D5BF]/80 sticky top-0 z-40 px-6 lg:px-12 py-3.5 backdrop-blur-md bg-opacity-95">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
-          {/* Left: Return Navigation & Active Session Status */}
           <div className="flex items-center space-x-4">
             <Link 
               to="/" 
@@ -435,17 +302,13 @@ const ClientPortalPage = () => {
             </Link>
             <div className="h-4 w-[1px] bg-[#E7D5BF]"></div>
             <div className="flex items-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
-              <span className="text-[11px] font-medium tracking-wide uppercase text-stone-600 hidden sm:inline">
-                Encrypted My Account · Live Session
-              </span>
-              <span className="text-[10px] font-medium tracking-wide uppercase text-stone-600 sm:hidden">
-                Live My Account
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="text-[11px] font-medium tracking-wide uppercase text-stone-600">
+                Verified Account Dashboard
               </span>
             </div>
           </div>
 
-          {/* Center: Emblem Brand Seal */}
           <Link to="/" className="flex items-center space-x-2.5 hover:opacity-90 transition-opacity">
             <div className="w-7 h-7 rounded-full border border-[#C8A97E] flex items-center justify-center bg-[#FAF7F2]">
               <span className="font-serif-luxury text-sm font-bold text-[#75542E]">AS</span>
@@ -455,1372 +318,1030 @@ const ClientPortalPage = () => {
                 Maison ASRA
               </span>
               <span className="block text-[9px] tracking-[0.18em] text-[#9B7443] uppercase -mt-0.5">
-                Sovereign Vault
+                Client Sanctuary
               </span>
             </div>
           </Link>
 
-          {/* Right: Client Credentials & Security Badge */}
-          <div className="flex items-center space-x-3 sm:space-x-5">
+          <div className="flex items-center space-x-3 sm:space-x-4">
             <div className="hidden lg:flex items-center space-x-2 text-[11px] text-stone-500 bg-[#F4ECE0]/60 px-3 py-1 rounded-full border border-[#E7D5BF]">
               <Shield className="w-3.5 h-3.5 text-[#9B7443]" />
-              <span className="font-medium text-[#75542E]">256-Bit SSL Encrypted Protocol</span>
+              <span className="font-medium text-[#75542E]">256-Bit SSL Encrypted Vault</span>
             </div>
-
-            {/* Account Profile Badge */}
-            <div className="flex items-center space-x-2 sm:space-x-3 pl-2">
+            <div className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full bg-[#121212] text-[#E7D5BF] flex items-center justify-center font-serif-luxury text-xs font-semibold border border-[#C8A97E]/50 shadow-sm">
-                {data.patronInitials}
+                {getInitials(profile.fullName)}
               </div>
-              <div className="text-left hidden md:block">
-                <span className="block text-xs font-semibold text-[#121212] leading-tight">
-                  {data.patronName}
+              <div className="text-left hidden sm:block">
+                <span className="block text-xs font-semibold text-[#121212] leading-tight max-w-[140px] truncate">
+                  {profile.fullName}
                 </span>
-                <span className="block text-[10px] text-[#9B7443] tracking-wide font-medium">
-                  {data.suiteCode}
+                <span className="block text-[10px] text-[#9B7443] font-medium">
+                  {profile.vipTier}
                 </span>
               </div>
-              <button 
-                onClick={() => setSessionLocked(true)}
-                title="Lock & Protect Session" 
-                className="text-stone-400 hover:text-stone-700 transition-colors p-1"
-                aria-label="Lock Session"
-              >
-                <Lock className="w-4 h-4" />
-              </button>
             </div>
-
           </div>
-
         </div>
       </header>
 
-      {/* =========================================================================
-          MAIN MY ACCOUNT CONTENT CONTAINER
-         ========================================================================= */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 space-y-10">
+      {/* Main Container */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-10 space-y-8">
         
-        {/* 1. EDITORIAL SUITE WELCOME & CEREMONIAL HEADER */}
-        <section className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7D5BF] pb-8 gap-6">
+        {/* Editorial Greeting Header */}
+        <section className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7D5BF] pb-6 gap-6">
           <div>
-            <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-semibold text-[#9B7443] mb-2">
+            <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-semibold text-[#9B7443] mb-1.5">
               <span>◆</span>
-              <span>Customized Bridal & Wedding Essentials My Account</span>
+              <span>Personal Wedding Atelier & Account Hub</span>
               <span>◆</span>
             </div>
-            <h1 className="text-3xl lg:text-5xl font-serif-luxury font-normal text-[#121212] tracking-tight">
-              Welcome to Your <span className="italic font-normal gold-gradient-text font-serif">Collection My Account</span>
+            <h1 className="text-3xl lg:text-4xl font-serif-luxury font-normal text-[#121212] tracking-tight">
+              Welcome, <span className="italic font-normal gold-gradient-text font-serif">{profile.fullName.split('&')[0]?.trim() || 'Patron'}</span>
             </h1>
-            <p className="text-xs lg:text-sm text-stone-600 mt-2 max-w-2xl leading-relaxed">
-              Active commission dossier for <strong className="text-stone-800 font-semibold">{data.patronName}</strong> · Destination Ceremony: <span className="italic">{data.ceremonyDestination}</span> · Assigned Lead Collection Stylist: <span className="text-[#75542E] font-medium underline decoration-[#C8A97E]">{data.leadStylist.name}</span>.
+            <p className="text-xs lg:text-sm text-stone-600 mt-1 max-w-2xl leading-relaxed">
+              Manage your commissioned bridal suites, track real-time white-glove consignments, preserve custom monograms, and coordinate with your dedicated wedding concierge.
             </p>
           </div>
 
-          {/* Quick Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
-            <button 
-              onClick={handlePrintDocket}
-              className="px-4 py-2.5 bg-white hover:bg-stone-50 text-[#75542E] border border-[#C8A97E] text-xs font-semibold tracking-wider uppercase rounded shadow-sm transition-all flex items-center space-x-2"
+          <div className="flex items-center gap-3">
+            <Link 
+              to="/shop" 
+              className="px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold tracking-wider uppercase rounded shadow transition-all flex items-center space-x-2"
             >
-              <Download className="w-4 h-4 text-[#9B7443]" />
-              <span>Download Master Docket</span>
-            </button>
-
+              <ShoppingBag className="w-3.5 h-3.5" />
+              <span>Explore Collections</span>
+            </Link>
             <a 
-              href={data.leadStylist.whatsapp} 
-              target="_blank" 
+              href="https://wa.me/919692668263"
+              target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 bg-[#121212] hover:bg-[#222222] text-[#FAF7F2] text-xs font-semibold tracking-wider uppercase rounded shadow-sm transition-all flex items-center space-x-2 border border-[#C8A97E]/40"
+              className="px-4 py-2 bg-white hover:bg-stone-50 text-[#75542E] border border-[#C8A97E] text-xs font-semibold tracking-wider uppercase rounded shadow-sm transition-all flex items-center space-x-2"
             >
-              <Phone className="w-4 h-4 text-[#C8A97E]" />
-              <span>Direct Stylist Hotline</span>
+              <MessageSquare className="w-3.5 h-3.5 text-[#9B7443]" />
+              <span>Support WhatsApp</span>
             </a>
           </div>
         </section>
 
-        {/* 2. QUICK EXECUTIVE METRICS & CEREMONIAL SUMMARY STRIP */}
-        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          <div 
-            onClick={() => {
-              const el = document.getElementById('your-orders-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="bg-[#FAF7F2] p-5 rounded-lg border-2 border-[#C8A97E] card-shadow cursor-pointer hover:bg-[#F4ECE0]/70 transition-all group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] tracking-widest uppercase font-semibold text-[#75542E] block">Your Orders</span>
-              <Package className="w-3.5 h-3.5 text-[#9B7443] group-hover:scale-110 transition-transform" />
-            </div>
-            <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#121212] mt-1">
-              {userOrders.length} {userOrders.length === 1 ? 'Order' : 'Orders'}
-            </div>
-            <span className="text-[11px] text-[#75542E] font-medium flex items-center mt-1 group-hover:underline">
-              <span>View Dossiers</span>
-              <ChevronRight className="w-3 h-3 ml-0.5" />
-            </span>
-          </div>
-
-          <div className="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Commission Docket</span>
-            <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#121212] mt-1">#{data.docketId}</div>
-            <span className="text-[11px] text-[#9B7443] font-medium flex items-center mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9B7443] mr-1.5"></span>
-              Villa Balbiano Grand Suite
-            </span>
-          </div>
-
-          <div className="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Overall Handcraft Status</span>
-            <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#75542E] mt-1">{data.overallProgress}% Completed</div>
-            <span className="text-[11px] text-emerald-700 font-medium flex items-center mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1.5"></span>
-              Stage 3: Foundry Debossing
-            </span>
-          </div>
-
-          <div className="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Ceremony Target Date</span>
-            <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#121212] mt-1">{data.ceremonyDate}</div>
-            <span className="text-[11px] text-stone-600 font-medium mt-1 block">White-Glove Delivery Oct 24</span>
-          </div>
-
-          <div className="bg-white p-5 rounded-lg border border-[#E7D5BF] card-shadow">
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Initials Die Archival</span>
-            <div className="text-lg sm:text-xl font-serif-luxury font-bold text-[#121212] mt-1">Die #{data.monogramDie.dieId}</div>
-            <span className="text-[11px] text-[#75542E] font-medium mt-1 block">{data.monogramDie.storageTerm}</span>
-          </div>
-        </section>
-
-        {/* 3. PRODUCTION TIMELINE SHOWCASE (STAGE 3 OF 5 ACTIVE) */}
-        <section className="bg-white p-6 lg:p-8 rounded-xl border border-[#E7D5BF] card-shadow">
-          <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#E7D5BF]/80 pb-5 gap-4">
-            <div>
-              <span className="badge-soft-gold text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded inline-block">
-                Stage 3 of 5 · In Master Craft Production
-              </span>
-              <h2 className="text-xl lg:text-2xl font-serif-luxury font-bold text-[#121212] mt-2">
-                The Sovereign Bridal Wedding Essentials & 120 Gift Suites
-              </h2>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Docket ID: <strong>{data.docketId}</strong> · Dispatched via Insured Temperature-Controlled Air Courier
-              </p>
-            </div>
-            <div className="text-left md:text-right">
-              <span className="text-[10px] tracking-widest uppercase text-stone-500 block font-medium">Production Progress</span>
-              <span className="font-serif-luxury text-2xl md:text-3xl font-bold text-[#75542E]">{data.overallProgress}% Handcrafted</span>
-            </div>
-          </div>
-
-          {/* Step Timeline Graphic */}
-          <div className="pt-8 pb-4">
-            <div className="relative">
-              {/* Horizontal Line for Desktop */}
-              <div className="hidden md:block absolute top-5 left-8 right-8 h-0.5 bg-[#E7D5BF]"></div>
-              <div className="hidden md:block absolute top-5 left-8 w-1/2 h-0.5 bg-[#75542E]"></div>
-
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-2 relative z-10">
-                
-                {/* Step 1: Completed */}
-                <div className="text-center group">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-[#121212] text-[#C8A97E] border-2 border-[#121212] flex items-center justify-center font-bold text-xs shadow-md transition-transform group-hover:scale-105">
-                    ✓
-                  </div>
-                  <span className="block text-xs font-bold uppercase tracking-wider text-[#121212] mt-2.5 font-serif-luxury">Design Blueprint</span>
-                  <span className="block text-[11px] text-emerald-700 font-medium">Approved Sept 18</span>
-                </div>
-
-                {/* Step 2: Completed */}
-                <div className="text-center group">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-[#121212] text-[#C8A97E] border-2 border-[#121212] flex items-center justify-center font-bold text-xs shadow-md transition-transform group-hover:scale-105">
-                    ✓
-                  </div>
-                  <span className="block text-xs font-bold uppercase tracking-wider text-[#121212] mt-2.5 font-serif-luxury">Brass Die Casting</span>
-                  <span className="block text-[11px] text-emerald-700 font-medium">Milled Sept 28</span>
-                </div>
-
-                {/* Step 3: Active Stage */}
-                <div className="text-center group">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-[#C8A97E] text-[#121212] border-2 border-[#75542E] flex items-center justify-center font-bold text-sm shadow-md ring-4 ring-[#F4ECE0] transition-transform group-hover:scale-105">
-                    03
-                  </div>
-                  <span className="block text-xs font-bold uppercase tracking-wider text-[#75542E] mt-2.5 font-serif-luxury">Artisanal Debossing</span>
-                  <span className="block text-[11px] text-[#75542E] font-medium flex items-center justify-center mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mr-1 pulse-dot"></span>
-                    Live in Hyderabad Foundry
+        {/* Navigation Tabs */}
+        <div className="flex border-b border-[#E7D5BF] overflow-x-auto no-scrollbar gap-2 sm:gap-4">
+          {[
+            { id: 'orders', label: 'Your Orders & Tracking', icon: Package, count: orders.length },
+            { id: 'profile', label: 'Profile & Saved Addresses', icon: User },
+            { id: 'monograms', label: 'Wedding Monograms', icon: Sparkles, count: monograms.length },
+            { id: 'wishlist', label: 'Saved Treasures', icon: Heart, count: wishlistItems.length },
+            { id: 'concierge', label: 'Wedding Concierge', icon: Phone }
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => switchTab(tab.id)}
+                className={`py-3 px-4 text-xs font-semibold uppercase tracking-wider transition-all border-b-2 flex items-center space-x-2 whitespace-nowrap ${
+                  isActive
+                    ? 'border-[#75542E] text-[#75542E] bg-[#F4ECE0]/50'
+                    : 'border-transparent text-stone-500 hover:text-stone-900 hover:border-stone-300'
+                }`}
+              >
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[#75542E]' : 'text-stone-400'}`} />
+                <span>{tab.label}</span>
+                {tab.count !== undefined && (
+                  <span className={`text-[10px] px-2 py-0.2 rounded-full font-bold ${
+                    isActive ? 'bg-[#75542E] text-white' : 'bg-stone-200 text-stone-700'
+                  }`}>
+                    {tab.count}
                   </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* =========================================================================
+            TAB 1: ORDERS & TRACKING
+           ========================================================================= */}
+        {activeTab === 'orders' && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            {orders.length === 0 ? (
+              <div className="bg-white rounded-xl border border-[#E7D5BF] p-10 text-center card-shadow max-w-xl mx-auto space-y-4">
+                <div className="w-14 h-14 rounded-full bg-[#FAF7F2] border border-[#C8A97E] flex items-center justify-center mx-auto text-[#75542E]">
+                  <Package className="w-7 h-7" />
                 </div>
-
-                {/* Step 4: Pending */}
-                <div className="text-center opacity-70 group">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-white text-stone-400 border-2 border-[#E7D5BF] flex items-center justify-center font-bold text-xs">
-                    04
-                  </div>
-                  <span className="block text-xs font-medium uppercase tracking-wider text-stone-600 mt-2.5 font-serif-luxury">Wax Seal & Ribboning</span>
-                  <span className="block text-[11px] text-stone-500">Est. Oct 16</span>
-                </div>
-
-                {/* Step 5: Handover */}
-                <div className="text-center opacity-70 group">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-white text-stone-400 border-2 border-[#E7D5BF] flex items-center justify-center font-bold text-xs">
-                    05
-                  </div>
-                  <span className="block text-xs font-medium uppercase tracking-wider text-stone-600 mt-2.5 font-serif-luxury">White-Glove Handover</span>
-                  <span className="block text-[11px] text-stone-500">Est. Oct 24 (Villa Balbiano)</span>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 4. TWO-COLUMN INTERACTIVE SUITE WORKSPACE */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* LEFT / CENTER COLUMN (2 COLS): APPROVALS, COMMISSION DOSSIER, RECENT ORDERS */}
-          <div className="lg:col-span-2 space-y-8">
-            
-            {/* YOUR ORDERS SECTION - DYNAMIC COUNT & DIRECT REDIRECTION */}
-            <section 
-              id="your-orders-section"
-              className="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow relative overflow-hidden transition-all duration-300 hover:border-[#C8A97E]"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E7D5BF]/80 pb-5">
-                <div className="flex items-center space-x-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-[#FAF7F2] border border-[#C8A97E] flex items-center justify-center text-[#75542E] shadow-sm">
-                    <Package className="w-6 h-6 text-[#75542E]" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2.5">
-                      <h2 className="text-xl font-serif-luxury font-bold text-[#121212]">
-                        Your Orders
-                      </h2>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#F4ECE0] text-[#75542E] border border-[#E7D5BF]">
-                        {userOrders.length} {userOrders.length === 1 ? 'Commission' : 'Commissions'}
-                      </span>
-                    </div>
-                    <p className="text-xs text-stone-500 mt-0.5">
-                      {userOrders.length > 0
-                        ? `Track live courier status, review bespoke dossiers, and inspect deliveries.`
-                        : 'No orders placed yet. Explore our bespoke collections.'}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => {
-                      const firstOrder = userOrders[0];
-                      if (firstOrder && firstOrder.orderId) {
-                        navigate(`/track-order?docket=${encodeURIComponent(firstOrder.orderId)}`);
-                      } else {
-                        navigate('/track-order');
-                      }
-                    }}
-                    className="inline-flex items-center space-x-1.5 px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold tracking-wider uppercase rounded shadow transition-all group"
+                <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">
+                  No Commissions Placed Yet
+                </h3>
+                <p className="text-xs text-stone-500 leading-relaxed max-w-md mx-auto">
+                  When you commission a bespoke bridal trunk, ring vault, or royal guest welcome favors, your real-time tracking dossier and production telemetry will display here.
+                </p>
+                <div className="pt-2">
+                  <Link
+                    to="/shop"
+                    className="inline-flex items-center space-x-2 px-6 py-2.5 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold tracking-wider uppercase rounded shadow transition-all"
                   >
-                    <span>Track All Orders</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Explore Bridal Masterpieces</span>
+                  </Link>
                 </div>
               </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs uppercase tracking-widest text-stone-500 font-semibold">
+                    Showing {orders.length} {orders.length === 1 ? 'Registered Order' : 'Registered Orders'}
+                  </span>
+                  <Link
+                    to="/track-order"
+                    className="text-xs font-semibold text-[#75542E] hover:text-[#9B7443] flex items-center space-x-1"
+                  >
+                    <span>Open Live Telemetry GPS Tracking</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
 
-              {/* Order Cards List Preview */}
-              <div className="mt-5 divide-y divide-[#E7D5BF]/60">
-                {userOrders.slice(0, 3).map((ord, idx) => {
-                  const formattedTotal = typeof ord.grandTotal === 'number'
-                    ? `₹${ord.grandTotal.toLocaleString('en-IN')}`
-                    : (ord.grandTotal || '₹8,459');
-                  const orderDate = ord.createdAt
-                    ? new Date(ord.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                    : (ord.arrivalDate || 'Recent');
-                  const itemsCount = Array.isArray(ord.items) ? ord.items.length : 1;
+                <div className="grid grid-cols-1 gap-4">
+                  {orders.map((ord, idx) => {
+                    const total = typeof ord.grandTotal === 'number'
+                      ? `₹${ord.grandTotal.toLocaleString('en-IN')}`
+                      : (ord.grandTotal || '₹7,499');
+                    const orderDate = ord.createdAt
+                      ? new Date(ord.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                      : (ord.arrivalDate || 'Recent Order');
+                    const items = Array.isArray(ord.items) && ord.items.length > 0 ? ord.items : [];
 
-                  return (
-                    <div 
-                      key={ord.orderId || idx}
-                      onClick={() => navigate(`/track-order?docket=${encodeURIComponent(ord.orderId)}`)}
-                      className="py-4 first:pt-2 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer group hover:bg-[#FAF7F2]/60 -mx-2 px-2 rounded-lg transition-colors"
-                    >
-                      <div className="flex items-start space-x-3.5">
-                        <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-[#E7D5BF] flex items-center justify-center text-[#9B7443] group-hover:border-[#C8A97E] group-hover:bg-white transition-all shrink-0">
-                          <ShoppingBag className="w-5 h-5 text-[#9B7443]" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-serif-luxury font-bold text-sm text-[#121212] group-hover:text-[#75542E] transition-colors">
-                              Docket #{ord.orderId}
-                            </span>
-                            <span className="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                              {ord.status || 'Active Order'}
-                            </span>
+                    return (
+                      <div
+                        key={ord.orderId || idx}
+                        className="bg-white rounded-xl border border-[#E7D5BF] card-shadow p-5 lg:p-6 transition-all hover:border-[#C8A97E] space-y-4"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E7D5BF]/80 gap-3">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-[#C8A97E] flex items-center justify-center text-[#75542E] shrink-0">
+                              <Package className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <h3 className="font-serif-luxury font-bold text-base text-[#121212]">
+                                  Docket #{ord.orderId}
+                                </h3>
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                  {ord.status || 'Active Commission'}
+                                </span>
+                              </div>
+                              <p className="text-xs text-stone-500 mt-0.5">
+                                Placed on {orderDate} · Payment Status: <span className="text-emerald-700 font-semibold">{ord.paymentMethod === 'cod' ? 'Pay on Delivery' : 'Authorized & Confirmed'}</span>
+                              </p>
+                            </div>
                           </div>
-                          <p className="text-xs text-stone-600 mt-0.5">
-                            Placed on {orderDate} · {itemsCount} {itemsCount === 1 ? 'Suite Item' : 'Suite Items'} · Recipient: {ord.recipientName || 'Patron'}
-                          </p>
-                        </div>
-                      </div>
 
-                      <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
-                        <div className="text-left sm:text-right">
-                          <span className="block font-serif-luxury font-bold text-sm text-[#121212]">
-                            {formattedTotal}
-                          </span>
-                          <span className="text-[11px] text-[#9B7443] font-medium flex items-center group-hover:underline">
-                            View Order &amp; Tracking
-                          </span>
+                          <div className="flex items-center gap-3">
+                            <button
+                              onClick={() => navigate(`/track-order?docket=${encodeURIComponent(ord.orderId)}`)}
+                              className="px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded shadow transition-all flex items-center space-x-1.5"
+                            >
+                              <span>Track Consignment</span>
+                              <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              onClick={() => setSelectedOrder(selectedOrder === ord.orderId ? null : ord.orderId)}
+                              className="px-3 py-2 bg-[#FAF7F2] hover:bg-stone-100 text-[#75542E] border border-[#E7D5BF] text-xs font-medium uppercase tracking-wider rounded transition-all"
+                            >
+                              {selectedOrder === ord.orderId ? 'Hide Items' : 'View Items'}
+                            </button>
+                          </div>
                         </div>
-                        <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-[#75542E] group-hover:translate-x-1 transition-all" />
+
+                        {/* Order Summary Strip */}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#FAF7F2] p-3.5 rounded-lg border border-[#E7D5BF]/80 text-xs">
+                          <div>
+                            <span className="text-[10px] uppercase text-stone-500 block font-medium">Recipient</span>
+                            <span className="font-semibold text-stone-900 truncate block">{ord.recipientName || profile.fullName}</span>
+                          </div>
+                          <div>
+                            <span className="text-[10px] uppercase text-stone-500 block font-medium">Delivery Target</span>
+                            <span className="font-semibold text-stone-900">{ord.arrivalDate || 'Scheduled for Ceremony'}</span>
+                          </div>
+                          <div>
+                            <span className="text-[10px] uppercase text-stone-500 block font-medium">Destination</span>
+                            <span className="font-semibold text-stone-900 truncate block">{ord.venueName || ord.city || 'Udaipur, Rajasthan'}</span>
+                          </div>
+                          <div>
+                            <span className="text-[10px] uppercase text-stone-500 block font-medium">Grand Total</span>
+                            <span className="font-bold text-[#75542E] font-serif-luxury text-sm">{total}</span>
+                          </div>
+                        </div>
+
+                        {/* Expandable Items List */}
+                        {selectedOrder === ord.orderId && (
+                          <div className="pt-2 divide-y divide-stone-100 border-t border-stone-200">
+                            {items.length > 0 ? (
+                              items.map((item, i) => (
+                                <div key={i} className="py-3 flex items-center justify-between gap-4">
+                                  <div className="flex items-center space-x-3">
+                                    <div className="w-12 h-12 rounded bg-stone-100 border border-stone-200 overflow-hidden shrink-0 flex items-center justify-center">
+                                      {item.image ? (
+                                        <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                                      ) : (
+                                        <ShoppingBag className="w-5 h-5 text-stone-400" />
+                                      )}
+                                    </div>
+                                    <div>
+                                      <h4 className="font-serif-luxury font-semibold text-sm text-stone-900">{item.title}</h4>
+                                      <p className="text-xs text-stone-500">
+                                        Qty: {item.quantity || 1} {item.edition ? `· ${item.edition}` : ''} {item.monogramDie ? `· Crest: ${item.monogramDie}` : ''}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="text-right">
+                                    <span className="font-serif-luxury font-bold text-sm text-stone-900">
+                                      {item.price ? `₹${item.price.toLocaleString('en-IN')}` : '₹7,499'}
+                                    </span>
+                                  </div>
+                                </div>
+                              ))
+                            ) : (
+                              <p className="py-3 text-xs text-stone-500 italic">Customized bridal heirloom ensemble details recorded under master commission vault.</p>
+                            )}
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* =========================================================================
+            TAB 2: PROFILE & SAVED ADDRESSES
+           ========================================================================= */}
+        {activeTab === 'profile' && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in duration-200">
+            
+            {/* Profile Credentials Card */}
+            <div className="lg:col-span-1 bg-white rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-5">
+              <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
+                <div className="flex items-center space-x-2">
+                  <User className="w-4 h-4 text-[#75542E]" />
+                  <h3 className="font-serif-luxury font-bold text-base text-[#121212]">
+                    Profile Dossier
+                  </h3>
+                </div>
+                {!isEditingProfile && (
+                  <button
+                    onClick={() => { setProfileForm(profile); setIsEditingProfile(true); }}
+                    className="text-xs font-semibold text-[#75542E] hover:text-[#9B7443] flex items-center space-x-1"
+                  >
+                    <Edit3 className="w-3.5 h-3.5" />
+                    <span>Edit Profile</span>
+                  </button>
+                )}
               </div>
 
-              {userOrders.length > 3 && (
-                <div className="mt-4 pt-3 border-t border-[#E7D5BF]/60 text-center">
-                  <button
-                    onClick={() => navigate('/track-order')}
-                    className="text-xs text-[#75542E] hover:text-[#9B7443] font-semibold uppercase tracking-wider"
-                  >
-                    View All {userOrders.length} Orders in Tracking Vault →
-                  </button>
+              {profileSavedToast && (
+                <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-800 flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>Profile updated successfully.</span>
                 </div>
               )}
-            </section>
 
-            
-            {/* PENDING APPROVAL DOCKET: 3D INITIALS DIE PROOF */}
-            <div className="bg-[#FDFBF7] border-2 border-[#C8A97E] rounded-xl p-6 lg:p-7 card-shadow relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#C8A97E] text-[#121212] text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-bl">
-                {proofApproved ? 'Patron Approval Logged ✓' : 'Action Required · Proofing Sign-off'}
-              </div>
-
-              <div className="flex items-center space-x-2 text-[11px] font-semibold tracking-wider uppercase text-[#75542E] mb-2">
-                <span className={`w-2 h-2 rounded-full ${proofApproved ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
-                <span>{proofApproved ? `Approved on ${approvalDate} for Master Tooling` : 'Awaiting Patron Sign-Off'}</span>
-              </div>
-
-              <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">
-                3D Initials Debossing Depth Proof (Revision v2.1)
-              </h3>
-              <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                Master engraver <strong className="text-stone-800">Jawed Ali</strong> has adjusted the bevel relief to <strong className="text-stone-800">{data.monogramDie.bevelDepth}</strong> to guarantee razor-sharp 24K gold foil indentation on your Florentine ivory calfskin chests.
-              </p>
-
-              {/* Photorealistic Render Simulation Frame */}
-              <div className="my-5 bg-[#121212] p-5 rounded-lg border border-[#C8A97E]/40 flex flex-col sm:flex-row items-center justify-between gap-5">
-                <div className="flex items-center space-x-4">
-                  <div className="w-20 h-20 rounded bg-[#1C1A17] border border-[#C8A97E] flex flex-col items-center justify-center p-2 text-center shadow-inner relative group cursor-pointer"
-                       onClick={() => setCadModalOpen(true)}>
-                    <span className="font-serif-luxury text-2xl font-bold gold-gradient-text tracking-tight">
-                      {data.monogramDie.initials}
-                    </span>
-                    <span className="text-[8px] text-[#C8A97E] uppercase tracking-widest mt-0.5">24K Foil Die</span>
-                    <div className="absolute inset-0 bg-[#C8A97E]/10 opacity-0 group-hover:opacity-100 transition-opacity rounded flex items-center justify-center">
-                      <Eye className="w-4 h-4 text-white" />
-                    </div>
+              {!isEditingProfile ? (
+                <div className="space-y-4 text-xs">
+                  <div>
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Patron Name</span>
+                    <span className="font-semibold text-stone-900 text-sm">{profile.fullName}</span>
                   </div>
                   <div>
-                    <span className="text-xs font-serif-luxury font-semibold text-[#FAF7F2] text-sm block">
-                      Die Spec: {data.monogramDie.metal} {data.monogramDie.dimensions.split(' ')[0]}
-                    </span>
-                    <span className="block text-[11px] text-[#C8A97E] mt-0.5">
-                      Relief: {data.monogramDie.relief} · Angle: {data.monogramDie.angle}
-                    </span>
-                    <span className="block text-[10px] text-stone-400 mt-0.5">
-                      Uploaded today at 11:20 AM IST by Lead Stylist {data.leadStylist.name}
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Partner / Spouse</span>
+                    <span className="font-semibold text-stone-900">{profile.partnerName || 'Not specified'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Email Address</span>
+                    <span className="font-semibold text-stone-900">{profile.email}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Contact Phone</span>
+                    <span className="font-semibold text-stone-900">{profile.phone}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Ceremony / Wedding Date</span>
+                    <span className="font-semibold text-[#75542E]">{profile.weddingDate}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Primary Destination Venue</span>
+                    <span className="font-semibold text-stone-900">{profile.primaryVenue}</span>
+                  </div>
+                  <div className="pt-2 border-t border-stone-100">
+                    <span className="text-[10px] uppercase text-stone-500 block font-medium">Patron Status</span>
+                    <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#F4ECE0] text-[#75542E] border border-[#E7D5BF]">
+                      {profile.vipTier}
                     </span>
                   </div>
                 </div>
+              ) : (
+                <form onSubmit={handleSaveProfile} className="space-y-3 text-xs">
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Full Names</label>
+                    <input
+                      type="text"
+                      required
+                      value={profileForm.fullName}
+                      onChange={(e) => setProfileForm({ ...profileForm, fullName: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Partner Name</label>
+                    <input
+                      type="text"
+                      value={profileForm.partnerName}
+                      onChange={(e) => setProfileForm({ ...profileForm, partnerName: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={profileForm.email}
+                      onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Phone</label>
+                    <input
+                      type="text"
+                      required
+                      value={profileForm.phone}
+                      onChange={(e) => setProfileForm({ ...profileForm, phone: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Ceremony Date</label>
+                    <input
+                      type="date"
+                      value={profileForm.weddingDate}
+                      onChange={(e) => setProfileForm({ ...profileForm, weddingDate: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase text-stone-500 font-semibold mb-1">Destination Venue</label>
+                    <input
+                      type="text"
+                      value={profileForm.primaryVenue}
+                      onChange={(e) => setProfileForm({ ...profileForm, primaryVenue: e.target.value })}
+                      className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                    />
+                  </div>
+                  <div className="pt-2 flex justify-end space-x-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsEditingProfile(false)}
+                      className="px-3 py-1.5 border border-stone-300 rounded hover:bg-stone-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-4 py-1.5 bg-[#75542E] hover:bg-[#9B7443] text-white font-semibold rounded shadow"
+                    >
+                      Save Profile
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
 
-                <button 
-                  onClick={() => setCadModalOpen(true)}
-                  className="text-xs text-[#FAF7F2] hover:text-[#C8A97E] underline underline-offset-4 tracking-wider uppercase font-medium flex items-center space-x-1.5 transition-colors"
+            {/* Saved Delivery Addresses (Address Book) */}
+            <div className="lg:col-span-2 bg-white rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-5">
+              <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <MapPin className="w-4 h-4 text-[#75542E]" />
+                    <h3 className="font-serif-luxury font-bold text-base text-[#121212]">
+                      Saved Addresses & Delivery Venues
+                    </h3>
+                  </div>
+                  <p className="text-xs text-stone-500 mt-0.5">
+                    Select default shipping destinations for seamless one-click bespoke checkout.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowAddressModal(true)}
+                  className="px-3 py-1.5 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded shadow transition-all flex items-center space-x-1.5"
                 >
-                  <span>View Fullscreen 3D CAD Preview</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Address</span>
                 </button>
               </div>
 
-              {/* Sign-Off Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                {!proofApproved ? (
-                  <button 
-                    onClick={handleApproveProof}
-                    className="px-5 py-2.5 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold tracking-wider uppercase rounded shadow transition-all flex items-center space-x-2"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {addresses.map((addr) => (
+                  <div
+                    key={addr.id}
+                    className={`p-4 rounded-xl border transition-all relative ${
+                      addr.isDefault
+                        ? 'border-[#75542E] bg-[#FAF7F2]'
+                        : 'border-[#E7D5BF] bg-white hover:border-stone-400'
+                    }`}
                   >
-                    <Check className="w-4 h-4 text-[#E7D5BF]" />
-                    <span>Approve Proof for Metal Milling</span>
-                  </button>
-                ) : (
-                  <div className="px-4 py-2 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-semibold tracking-wider uppercase rounded flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Signed Off &amp; Sent to Foundry</span>
-                  </div>
-                )}
-                
-                <button 
-                  onClick={() => setRevisionModalOpen(true)}
-                  className="px-5 py-2.5 bg-white hover:bg-stone-50 text-stone-700 border border-stone-300 text-xs font-medium tracking-wider uppercase rounded transition-all"
-                >
-                  Request Typographic Revision
-                </button>
-              </div>
-            </div>
-
-            {/* CURATED GIFT SUITE DOSSIER (ACTIVE ITEMS IN THIS ORDER) */}
-            <div className="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow">
-              <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
-                <div>
-                  <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">Commissioned Suite Dossier</h3>
-                  <p className="text-xs text-stone-500">3 customized heirloom product lines active under Docket #{data.docketId}</p>
-                </div>
-                <span className="text-xs text-[#9B7443] font-medium tracking-wide">Vault Archive #892-HYD</span>
-              </div>
-
-              <div className="divide-y divide-[#E7D5BF]/60 mt-2">
-                
-                {/* Item 1: Sovereign Bridal Gift Chest */}
-                <div className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase shrink-0">
-                      TRUNK
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#121212] font-serif-luxury text-base">
-                        The Sovereign Bridal Gift Chest
-                      </h4>
-                      <p className="text-xs text-stone-600 mt-0.5">
-                        Hand-turned aged teakwood · French silk velvet lining · 24K Gold Inlay Initials
-                      </p>
-                      <div className="flex items-center space-x-3 mt-1.5">
-                        <span className="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                          In Hand-Assembly
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-serif-luxury font-bold text-[#121212]">
+                        {addr.label}
+                      </span>
+                      {addr.isDefault && (
+                        <span className="text-[9px] uppercase tracking-wider font-bold bg-[#75542E] text-white px-2 py-0.5 rounded">
+                          Default
                         </span>
-                        <span className="text-xs text-stone-500">Qty: 1 Customized Masterpiece</span>
-                      </div>
+                      )}
                     </div>
-                  </div>
-                  <div className="text-left sm:text-right sm:min-w-[140px]">
-                    <span className="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹84,500</span>
-                    <button 
-                      onClick={() => { setActiveSpecItem(data.items[0]); setSpecModalOpen(true); }}
-                      className="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 inline-block"
-                    >
-                      View Spec Sheet →
-                    </button>
-                  </div>
-                </div>
+                    <div className="text-xs text-stone-600 space-y-1">
+                      <p className="font-semibold text-stone-900">{addr.recipient}</p>
+                      <p>{addr.street}</p>
+                      <p>{addr.city}, {addr.state} — {addr.pincode}</p>
+                      <p className="text-stone-500">Contact: {addr.phone}</p>
+                    </div>
 
-                {/* Item 2: Lake Como Royal Guest Favors */}
-                <div className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase shrink-0">
-                      FAVORS
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#121212] font-serif-luxury text-base">
-                        Lake Como Royal Guest Welcome Hampers
-                      </h4>
-                      <p className="text-xs text-stone-600 mt-0.5">
-                        Debossed initials luggage tag, artisanal scented candle, botanical wax seal
-                      </p>
-                      <div className="flex items-center space-x-3 mt-1.5">
-                        <span className="text-[10px] tracking-wider uppercase font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                          Leather Debossing Active
+                    <div className="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between text-xs">
+                      {!addr.isDefault ? (
+                        <button
+                          onClick={() => handleSetDefaultAddress(addr.id)}
+                          className="text-[#75542E] hover:underline font-medium text-[11px]"
+                        >
+                          Make Default
+                        </button>
+                      ) : (
+                        <span className="text-emerald-700 font-medium text-[11px] flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" /> Primary Dispatch Venue
                         </span>
-                        <span className="text-xs text-stone-500">Qty: 120 Guests</span>
-                      </div>
+                      )}
+                      {addresses.length > 1 && (
+                        <button
+                          onClick={() => handleDeleteAddress(addr.id)}
+                          className="text-stone-400 hover:text-red-600 transition-colors p-1"
+                          title="Remove address"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
                     </div>
-                  </div>
-                  <div className="text-left sm:text-right sm:min-w-[140px]">
-                    <span className="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹2,04,000</span>
-                    <button 
-                      onClick={() => setGuestModalOpen(true)}
-                      className="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 inline-block"
-                    >
-                      Manage Guest Names →
-                    </button>
-                  </div>
-                </div>
-
-                {/* Item 3: Optical Crystal First Dance Plaque */}
-                <div className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 rounded bg-[#F4ECE0] border border-[#E7D5BF] flex items-center justify-center text-xs font-bold text-[#75542E] font-serif-luxury tracking-widest uppercase shrink-0">
-                      CRYSTAL
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#121212] font-serif-luxury text-base">
-                        Optical Crystal First-Dance Plaque with Solid Brass Base
-                      </h4>
-                      <p className="text-xs text-stone-600 mt-0.5">
-                        Sub-millimeter laser internal etching · Scannable Spotify waveform cipher
-                      </p>
-                      <div className="flex items-center space-x-3 mt-1.5">
-                        <span className="text-[10px] tracking-wider uppercase font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                          Laser Etched &amp; Certified
-                        </span>
-                        <span className="text-xs text-stone-500">Qty: 1 Gift</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-left sm:text-right sm:min-w-[140px]">
-                    <span className="block text-sm font-bold text-[#121212] font-serif-luxury text-base">₹14,900</span>
-                    <button 
-                      onClick={() => setAudioModalOpen(true)}
-                      className="text-[11px] text-[#9B7443] hover:underline font-medium mt-0.5 inline-block"
-                    >
-                      Test Audio Waveform →
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* TRANSIT & DELIVERY DESTINATION ITINERARY */}
-            <div className="bg-white rounded-xl border border-[#E7D5BF] p-6 lg:p-7 card-shadow">
-              <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-4">
-                <div>
-                  <h3 className="text-xl font-serif-luxury font-bold text-[#121212]">Transit &amp; Delivery Itinerary</h3>
-                  <p className="text-xs text-stone-500">Insured bonded international consignment route</p>
-                </div>
-                <Link 
-                  to="/track-order" 
-                  className="text-xs text-emerald-700 hover:text-emerald-800 font-medium tracking-wide flex items-center gap-1 group"
-                >
-                  <span>Global Air Vault Insured</span>
-                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Destination Address</span>
-                  <p className="text-xs font-semibold text-stone-900 mt-1">{data.itinerary.destination}</p>
-                  <p className="text-xs text-stone-600">{data.itinerary.city}</p>
-                  <span className="text-[10px] text-[#75542E] font-medium block mt-1">{data.itinerary.careOf}</span>
-                </div>
-
-                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Transit Specification</span>
-                  <p className="text-xs font-semibold text-stone-900 mt-1">{data.itinerary.crating}</p>
-                  <p className="text-xs text-stone-600">{data.itinerary.lining}</p>
-                  <span className="text-[10px] text-emerald-700 font-medium block mt-1">Insured Value: {data.itinerary.insuredValue}</span>
-                </div>
-
-                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF]">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block">Handover Protocol</span>
-                  <p className="text-xs font-semibold text-stone-900 mt-1">{data.itinerary.protocol}</p>
-                  <p className="text-xs text-stone-600">{data.itinerary.inspection}</p>
-                  <span className="text-[10px] text-stone-500 block mt-1">{data.handoverTime}</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* RIGHT COLUMN (1 COL): STYLIST SUPPORT, BRASS DIE VAULT, CLIENT VAULT DOCUMENTS */}
-          <div className="space-y-8">
-            
-            {/* LEAD BRIDAL STYLIST SUPPORT CARD (OBSIDIAN LUXURY) */}
-            <div className="bg-[#121212] rounded-xl p-6 text-white border border-[#C8A97E]/50 card-shadow relative overflow-hidden">
-              <div className="flex items-center space-x-4 border-b border-stone-800 pb-5">
-                <div className="w-14 h-14 rounded-full bg-[#1C1A17] border-2 border-[#C8A97E] flex items-center justify-center font-serif-luxury text-lg font-bold text-[#E7D5BF] shrink-0">
-                  {data.leadStylist.initials}
-                </div>
-                <div>
-                  <span className="text-[10px] tracking-widest uppercase text-[#C8A97E] font-semibold block">
-                    {data.leadStylist.title}
-                  </span>
-                  <h4 className="text-lg font-serif-luxury font-bold text-white">
-                    {data.leadStylist.name}
-                  </h4>
-                  <span className="text-xs text-stone-400">
-                    {data.leadStylist.location}
-                  </span>
-                </div>
-              </div>
-
-              <div className="py-4 text-xs text-stone-300 leading-relaxed italic">
-                {data.leadStylist.note}
-              </div>
-
-              <div className="space-y-2.5 pt-2">
-                <a 
-                  href={data.leadStylist.whatsapp} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold tracking-wider uppercase rounded flex items-center justify-center space-x-2 transition-colors shadow"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Chat via WhatsApp</span>
-                </a>
-
-                <button 
-                  onClick={() => setVideoModalOpen(true)}
-                  className="w-full py-2.5 bg-transparent hover:bg-stone-800 text-[#FAF7F2] border border-[#C8A97E] text-xs font-semibold tracking-wider uppercase rounded transition-colors flex items-center justify-center space-x-2"
-                >
-                  <Video className="w-4 h-4 text-[#C8A97E]" />
-                  <span>Schedule Video Tasting Call</span>
-                </button>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-stone-800/80 text-[10px] text-stone-400 text-center">
-                Direct Collection Line:{' '}
-                <a href={`tel:${data.leadStylist.phone}`} className="text-[#E7D5BF] hover:underline font-medium">
-                  {data.leadStylist.phone}
-                </a>
-              </div>
-            </div>
-
-            {/* BRASS DIE ARCHIVAL VAULT */}
-            <div className="bg-white rounded-xl border border-[#E7D5BF] p-6 card-shadow">
-              <div className="flex items-center justify-between border-b border-[#E7D5BF]/80 pb-3">
-                <h3 className="text-base font-serif-luxury font-bold text-[#121212]">Brass Die Archival Vault</h3>
-                <span className="text-[10px] uppercase tracking-wider text-[#75542E] font-semibold bg-[#F4ECE0] px-2 py-0.5 rounded">
-                  Complimentary 5-Yr Storage
-                </span>
-              </div>
-
-              <div className="my-4 p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] text-center">
-                <div className="w-16 h-16 mx-auto rounded-full bg-white border border-[#C8A97E] flex items-center justify-center font-serif-luxury text-xl font-bold gold-gradient-text shadow-sm">
-                  {data.monogramDie.initials}
-                </div>
-                <div className="text-xs font-bold text-stone-900 mt-2">Die No. {data.monogramDie.dieId}</div>
-                <div className="text-[11px] text-stone-500">{data.monogramDie.metal} · {data.monogramDie.dimensions} · {data.monogramDie.relief}</div>
-              </div>
-
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Your physical master die remains preserved in our climate-shielded Hyderabad vault for complimentary re-orders (anniversary gift books, thank-you cards, and holiday wedding essentials).
-              </p>
-
-              <button 
-                onClick={() => setRecommissionModalOpen(true)}
-                className="w-full mt-4 py-2 border border-stone-300 hover:border-[#C8A97E] text-stone-700 text-xs font-medium uppercase tracking-wider rounded transition-colors"
-              >
-                Request Die Vault Re-Commission
-              </button>
-            </div>
-
-            {/* CLIENT VAULT DOCUMENTS & CEREMONIAL CONTRACTS */}
-            <div className="bg-white rounded-xl border border-[#E7D5BF] p-6 card-shadow">
-              <h3 className="text-base font-serif-luxury font-bold text-[#121212] border-b border-[#E7D5BF]/80 pb-3">
-                Client Vault Documents
-              </h3>
-
-              <div className="divide-y divide-[#E7D5BF]/60 text-xs mt-2">
-                {data.documents.map((doc) => (
-                  <div key={doc.id} className="py-3 flex items-center justify-between">
-                    <div>
-                      <span className="font-medium text-stone-900 block">{doc.name}</span>
-                      <span className="text-[10px] text-stone-400">{doc.meta}</span>
-                    </div>
-                    <button 
-                      onClick={() => { setActiveDoc(doc); setDocModalOpen(true); }}
-                      className="text-[#75542E] font-medium hover:underline text-[11px]"
-                    >
-                      {doc.actionLabel}
-                    </button>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* PRIORITY ASSISTANCE PROTOCOL */}
-            <div className="p-4 bg-[#F4ECE0]/50 rounded-lg border border-[#E7D5BF] text-xs space-y-1.5">
-              <span className="text-[10px] tracking-widest uppercase font-semibold text-[#75542E] block">Priority Ceremony Assistance</span>
-              <p className="text-stone-600 leading-relaxed">
-                Need urgent alterations to delivery coordinates, guest counts, or destination customs clearance?
-              </p>
-              <button 
-                onClick={() => setAssistanceModalOpen(true)}
-                className="inline-block text-[#9B7443] font-semibold hover:underline pt-1 text-left"
+          </div>
+        )}
+
+        {/* =========================================================================
+            TAB 3: WEDDING MONOGRAMS & PERSONALIZATION VAULT
+           ========================================================================= */}
+        {activeTab === 'monograms' && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="font-serif-luxury font-bold text-xl text-[#121212]">
+                  Saved Couple Monograms & Crests
+                </h3>
+                <p className="text-xs text-stone-500 mt-0.5">
+                  Your preserved hot-stamp initials, brass dies, and calligraphy crest styles applied across your wedding suites.
+                </p>
+              </div>
+              <button
+                onClick={() => setShowMonogramModal(true)}
+                className="px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded shadow transition-all flex items-center space-x-1.5"
               >
-                Dispatch Urgent Request to Master of Ceremonies →
+                <Plus className="w-3.5 h-3.5" />
+                <span>Save New Monogram Crest</span>
               </button>
             </div>
 
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {monograms.map((mono) => (
+                <div
+                  key={mono.id}
+                  className="bg-white rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4 hover:border-[#C8A97E] transition-all"
+                >
+                  <div className="w-24 h-24 mx-auto rounded-full bg-[#FAF7F2] border-2 border-[#C8A97E] flex flex-col items-center justify-center shadow-inner relative">
+                    <span className="font-serif-luxury text-2xl font-bold gold-gradient-text tracking-wider">
+                      {mono.initials}
+                    </span>
+                    <span className="text-[8px] uppercase tracking-widest text-[#9B7443] mt-0.5">
+                      Hot-Stamped
+                    </span>
+                  </div>
 
-        </div>
+                  <div className="text-center space-y-1">
+                    <h4 className="font-serif-luxury font-bold text-base text-[#121212]">
+                      {mono.names || 'Custom Union Crest'}
+                    </h4>
+                    <p className="text-xs text-[#75542E] font-medium">{mono.crestStyle}</p>
+                  </div>
+
+                  <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] text-xs space-y-1.5 text-stone-600">
+                    <div className="flex justify-between">
+                      <span className="text-stone-500">Foil Finish:</span>
+                      <span className="font-semibold text-stone-900">{mono.foilFinish}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-stone-500">Typography:</span>
+                      <span className="font-semibold text-stone-900">{mono.fontStyle}</span>
+                    </div>
+                    {mono.date && (
+                      <div className="flex justify-between">
+                        <span className="text-stone-500">Event Date:</span>
+                        <span className="font-semibold text-stone-900">{mono.date}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-2 flex items-center justify-between text-xs">
+                    <Link
+                      to="/personalized"
+                      className="text-[#75542E] hover:underline font-semibold text-[11px]"
+                    >
+                      Apply to New Heirloom →
+                    </Link>
+                    {monograms.length > 1 && (
+                      <button
+                        onClick={() => handleDeleteMonogram(mono.id)}
+                        className="text-stone-400 hover:text-red-600 p-1"
+                        title="Remove crest"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            TAB 4: SAVED TREASURES (WISHLIST)
+           ========================================================================= */}
+        {activeTab === 'wishlist' && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-serif-luxury font-bold text-xl text-[#121212]">
+                  Saved Treasures & Wishlist
+                </h3>
+                <p className="text-xs text-stone-500 mt-0.5">
+                  Bridal suites and ceremony essentials curated for your celebration.
+                </p>
+              </div>
+              <Link
+                to="/wishlist"
+                className="text-xs font-semibold text-[#75542E] hover:text-[#9B7443] flex items-center space-x-1"
+              >
+                <span>Open Full Wishlist Suite</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {wishlistItems.length === 0 ? (
+              <div className="bg-white rounded-xl border border-[#E7D5BF] p-10 text-center card-shadow max-w-xl mx-auto space-y-4">
+                <Heart className="w-12 h-12 text-stone-300 mx-auto" />
+                <h3 className="font-serif-luxury font-bold text-lg text-stone-800">Your Wishlist is Empty</h3>
+                <p className="text-xs text-stone-500 max-w-sm mx-auto">
+                  Browse our handcrafted collections to save keepsakes, trunk chests, and guest welcome sets.
+                </p>
+                <Link
+                  to="/shop"
+                  className="inline-block px-5 py-2 bg-[#75542E] text-white text-xs font-semibold uppercase tracking-wider rounded"
+                >
+                  Discover Collections
+                </Link>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {wishlistItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-xl border border-[#E7D5BF] card-shadow overflow-hidden flex flex-col justify-between hover:border-[#C8A97E] transition-all"
+                  >
+                    <div>
+                      <div className="h-48 bg-stone-100 relative overflow-hidden">
+                        {item.image ? (
+                          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-stone-400">
+                            <ShoppingBag className="w-8 h-8" />
+                          </div>
+                        )}
+                        <button
+                          onClick={() => removeFromWishlist(item.id)}
+                          className="absolute top-3 right-3 p-1.5 rounded-full bg-white/90 text-stone-400 hover:text-red-600 shadow"
+                          title="Remove from wishlist"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      <div className="p-4 space-y-2">
+                        <span className="text-[10px] uppercase font-bold text-[#9B7443] tracking-widest block">
+                          {item.categoryName || 'Bridal Keepsake'}
+                        </span>
+                        <h4 className="font-serif-luxury font-bold text-sm text-[#121212] line-clamp-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-stone-500 line-clamp-2">
+                          {item.description}
+                        </p>
+                        <div className="pt-1 flex items-baseline gap-2">
+                          <span className="font-serif-luxury font-bold text-base text-[#121212]">
+                            ₹{item.price?.toLocaleString('en-IN')}
+                          </span>
+                          {item.originalPrice && (
+                            <span className="text-xs text-stone-400 line-through">
+                              ₹{item.originalPrice?.toLocaleString('en-IN')}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-4 pt-0">
+                      <button
+                        onClick={() => {
+                          addToCart({
+                            id: item.id,
+                            title: item.title,
+                            price: item.price,
+                            image: item.image,
+                            quantity: 1
+                          });
+                          removeFromWishlist(item.id);
+                        }}
+                        className="w-full py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded transition-colors shadow flex items-center justify-center space-x-1.5"
+                      >
+                        <ShoppingBag className="w-3.5 h-3.5" />
+                        <span>Move to Bag</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* =========================================================================
+            TAB 5: WEDDING CONCIERGE & DEDICATED STYLIST
+           ========================================================================= */}
+        {activeTab === 'concierge' && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in duration-200">
+            
+            {/* Direct Stylist Hotline Card */}
+            <div className="bg-[#121212] text-white rounded-xl border border-[#C8A97E]/50 card-shadow p-6 space-y-5">
+              <div className="flex items-center space-x-3.5 border-b border-stone-800 pb-4">
+                <div className="w-12 h-12 rounded-full bg-[#1C1A17] border border-[#C8A97E] flex items-center justify-center font-serif-luxury text-base font-bold text-[#E7D5BF]">
+                  SN
+                </div>
+                <div>
+                  <span className="text-[10px] tracking-widest uppercase text-[#C8A97E] font-semibold block">
+                    Lead Wedding Architect
+                  </span>
+                  <h4 className="text-base font-serif-luxury font-bold text-white">
+                    Shagufta Naaz
+                  </h4>
+                  <span className="text-xs text-stone-400">
+                    Hyderabad Flagship Atelier
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-xs text-stone-300 leading-relaxed italic">
+                "Our master craftspeople are at your service for personalized gold-leaf proofing, ribbon pairing swatches, and international wedding venue delivery logistics."
+              </p>
+
+              <div className="space-y-2 pt-2">
+                <a
+                  href="https://wa.me/919692668263"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider rounded flex items-center justify-center space-x-2 transition-colors shadow"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Direct WhatsApp Channel</span>
+                </a>
+
+                <a
+                  href="tel:+919692668263"
+                  className="w-full py-2.5 bg-stone-900 hover:bg-stone-800 text-[#FAF7F2] border border-[#C8A97E]/50 text-xs font-semibold uppercase tracking-wider rounded flex items-center justify-center space-x-2 transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-[#C8A97E]" />
+                  <span>Call +91 96926 68263</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Concierge FAQs & Quick Help */}
+            <div className="md:col-span-2 bg-white rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-5">
+              <div className="border-b border-[#E7D5BF]/80 pb-3">
+                <h3 className="font-serif-luxury font-bold text-lg text-[#121212]">
+                  Ceremony Concierge & Assistance
+                </h3>
+                <p className="text-xs text-stone-500 mt-0.5">
+                  Frequently addressed inquiries regarding bespoke turnaround, proofing, and venue handovers.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] space-y-1.5">
+                  <h4 className="font-semibold text-stone-900 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#75542E]" />
+                    <span>How quickly can my order arrive?</span>
+                  </h4>
+                  <p className="text-stone-600 leading-relaxed">
+                    Standard dispatch is 24 to 48 hours. Urgent wedding dates can be prioritized for express white-glove courier handover.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] space-y-1.5">
+                  <h4 className="font-semibold text-stone-900 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#75542E]" />
+                    <span>Can I adjust names or initials?</span>
+                  </h4>
+                  <p className="text-stone-600 leading-relaxed">
+                    Yes. Before brass die milling or foil indentation commences, reach out on WhatsApp to update spellings with zero delay fee.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] space-y-1.5">
+                  <h4 className="font-semibold text-stone-900 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#75542E]" />
+                    <span>Direct Resort & Palace Delivery</span>
+                  </h4>
+                  <p className="text-stone-600 leading-relaxed">
+                    We coordinate directly with banquet managers, hotel concierges, or wedding planners across India and international destinations.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] space-y-1.5">
+                  <h4 className="font-semibold text-stone-900 flex items-center gap-1.5">
+                    <FileText className="w-3.5 h-3.5 text-[#75542E]" />
+                    <span>GST Invoices & Corporate Orders</span>
+                  </h4>
+                  <p className="text-stone-600 leading-relaxed">
+                    GST-compliant tax invoices are issued automatically with each dispatch and accessible directly via WhatsApp assistance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2 flex flex-wrap gap-4 text-xs">
+                <Link to="/faq" className="text-[#75542E] hover:underline font-semibold">
+                  Browse All FAQs →
+                </Link>
+                <Link to="/return-policy" className="text-stone-500 hover:text-stone-800">
+                  Return & Replacement Policy
+                </Link>
+                <Link to="/terms-of-service" className="text-stone-500 hover:text-stone-800">
+                  Terms of Service & Care
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        )}
 
       </main>
 
-      {/* =========================================================================
-          MINIMAL CLIENT DOCKET BAR (STRICTLY NO GENERAL WEBSITE FOOTER)
-         ========================================================================= */}
-      <footer className="w-full bg-[#FAF7F2] border-t border-[#E7D5BF]/80 py-4 px-6 lg:px-12 text-stone-500 text-[11px] mt-12 print:hidden">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center space-x-4">
-            <span className="font-serif-luxury font-bold tracking-widest text-[#75542E] uppercase">ASRA Wedding Canvas</span>
-            <span>·</span>
-            <span>Private Bridal Client Vault · Docket #{data.docketId}</span>
-          </div>
-
-          <div className="flex items-center space-x-6 text-[10px] tracking-wider uppercase">
-            <Link to="/privacy-policy" className="hover:text-[#75542E] transition-colors">Security &amp; NDA Protocol</Link>
-            <Link to="/return-policy" className="hover:text-[#75542E] transition-colors">Transit Insurance</Link>
-            <button 
-              onClick={() => setSessionLocked(true)}
-              className="hover:text-[#75542E] transition-colors text-stone-700 font-medium"
-            >
-              Lock &amp; Logout Portal
-            </button>
-          </div>
-        </div>
-      </footer>
-
-      {/* =========================================================================
-          INTERACTIVE MODALS & PREVIEWS
-         ========================================================================= */}
-
-      {/* 1. 3D FULLSCREEN CAD PREVIEW MODAL */}
-      {cadModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-[#161616] text-[#FAF7F2] max-w-3xl w-full rounded-2xl border border-[#C8A97E]/50 overflow-hidden shadow-2xl flex flex-col">
-            <div className="p-4 sm:p-6 border-b border-stone-800 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] uppercase tracking-widest text-[#C8A97E] font-semibold block">
-                  Interactive Milling CAD Simulation
-                </span>
-                <h3 className="text-xl font-serif-luxury font-bold text-white">
-                  3D Initials Depth &amp; Bevel Inspection
-                </h3>
-              </div>
-              <button 
-                onClick={() => setCadModalOpen(false)}
-                className="text-stone-400 hover:text-white transition-colors p-1"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-6 flex flex-col items-center justify-center bg-radial from-stone-900 to-black min-h-[360px] relative select-none">
-              {/* Simulated 3D Die Block */}
-              <div 
-                className="w-56 h-56 rounded-2xl flex flex-col items-center justify-center relative shadow-2xl transition-all duration-300"
-                style={{
-                  background: cadMetalFinish === '24k-gold' 
-                    ? 'linear-gradient(135deg, #ECC880 0%, #C8A97E 40%, #947137 100%)' 
-                    : cadMetalFinish === 'rose-gold'
-                    ? 'linear-gradient(135deg, #F3C3B8 0%, #C98A7D 50%, #87473A 100%)'
-                    : 'linear-gradient(135deg, #B58A55 0%, #8C6228 50%, #4D3310 100%)',
-                  transform: `rotate(${cadAngle}deg) scale(${cadDepthZoom})`,
-                  boxShadow: '0 20px 50px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -4px 8px rgba(0,0,0,0.6)'
-                }}
-              >
-                <div className="w-44 h-44 rounded-xl border-2 border-stone-900/30 flex flex-col items-center justify-center bg-black/10 backdrop-blur-xs">
-                  <span className="font-serif-luxury text-6xl font-extrabold text-stone-900/80 drop-shadow-[0_2px_2px_rgba(255,255,255,0.4)] tracking-tighter">
-                    {data.monogramDie.initials}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.3em] text-stone-900/70 font-bold mt-1">
-                    0.35mm Bevel
-                  </span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs text-stone-400">
-                <span>Relief: {data.monogramDie.relief}</span>
-                <span>Angle: {data.monogramDie.angle}</span>
-                <span>Alloy: CuZn39Pb3 Brass</span>
-              </div>
-            </div>
-
-            {/* Controls Bar */}
-            <div className="p-4 sm:p-6 bg-stone-900 border-t border-stone-800 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center space-x-4">
-                <span className="text-xs text-stone-400">Rotate:</span>
-                <button 
-                  onClick={() => setCadAngle((prev) => (prev + 45) % 360)}
-                  className="px-3 py-1.5 bg-stone-800 hover:bg-stone-700 text-xs rounded text-stone-200 flex items-center space-x-1.5"
-                >
-                  <RotateCw className="w-3.5 h-3.5 text-[#C8A97E]" />
-                  <span>{cadAngle}° Turn</span>
-                </button>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <span className="text-xs text-stone-400">Foil Shade:</span>
-                <button 
-                  onClick={() => setCadMetalFinish('24k-gold')}
-                  className={`px-3 py-1 text-xs rounded border ${cadMetalFinish === '24k-gold' ? 'border-[#C8A97E] text-[#C8A97E] bg-stone-800' : 'border-stone-700 text-stone-400'}`}
-                >
-                  24K Gold
-                </button>
-                <button 
-                  onClick={() => setCadMetalFinish('rose-gold')}
-                  className={`px-3 py-1 text-xs rounded border ${cadMetalFinish === 'rose-gold' ? 'border-[#C8A97E] text-[#C8A97E] bg-stone-800' : 'border-stone-700 text-stone-400'}`}
-                >
-                  Rose Gold
-                </button>
-                <button 
-                  onClick={() => setCadMetalFinish('antique-bronze')}
-                  className={`px-3 py-1 text-xs rounded border ${cadMetalFinish === 'antique-bronze' ? 'border-[#C8A97E] text-[#C8A97E] bg-stone-800' : 'border-stone-700 text-stone-400'}`}
-                >
-                  Bronze
-                </button>
-              </div>
-
-              <button
-                onClick={() => { handleApproveProof(); setCadModalOpen(false); }}
-                className="px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded transition-colors"
-              >
-                Approve This Specification
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 2. TYPOGRAPHIC REVISION REQUEST MODAL */}
-      {revisionModalOpen && (
+      {/* Address Creation Modal */}
+      {showAddressModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-lg w-full rounded-xl border border-[#C8A97E] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-              <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                Request Typographic Revision
-              </h3>
-              <button onClick={() => { setRevisionModalOpen(false); setRevisionSubmitted(false); }} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {!revisionSubmitted ? (
-              <form onSubmit={(e) => { e.preventDefault(); setRevisionSubmitted(true); }} className="space-y-3">
-                <p className="text-xs text-stone-600">
-                  Your notes will be dispatched immediately to Lead Engraver Jawed Ali and Stylist Shagufta Naaz.
-                </p>
-                <div>
-                  <label className="block text-[11px] font-semibold uppercase tracking-wider text-stone-700 mb-1">
-                    Requested Adjustment Details
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    value={revisionNotes}
-                    onChange={(e) => setRevisionNotes(e.target.value)}
-                    placeholder="E.g., Please widen the spacing between 'A' and 'S' by 0.2mm, or reduce bevel slope to 30 degrees..."
-                    className="w-full text-xs p-3 rounded border border-stone-300 focus:outline-none focus:border-[#75542E] bg-[#FAF7F2]"
-                  />
-                </div>
-                <div className="flex justify-end space-x-3 pt-2">
-                  <button 
-                    type="button" 
-                    onClick={() => setRevisionModalOpen(false)}
-                    className="px-4 py-2 border border-stone-300 text-xs uppercase tracking-wider rounded hover:bg-stone-50"
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    type="submit"
-                    className="px-5 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs uppercase tracking-wider font-semibold rounded shadow"
-                  >
-                    Submit Revision Docket
-                  </button>
-                </div>
-              </form>
-            ) : (
-              <div className="py-6 text-center space-y-3">
-                <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-6 h-6" />
-                </div>
-                <h4 className="text-base font-serif-luxury font-bold text-stone-900">Revision Docket Transmitted</h4>
-                <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Revision v2.2 draft will be delivered to your portal within 4 hours. Stylist Shagufta Naaz has been notified via priority WhatsApp channel.
-                </p>
-                <button 
-                  onClick={() => { setRevisionModalOpen(false); setRevisionSubmitted(false); }}
-                  className="px-5 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider rounded font-medium mt-2"
-                >
-                  Return to My Account
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* 3. SPEC SHEET MODAL (CHEST) */}
-      {specModalOpen && activeSpecItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-xl w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
+          <div className="bg-white max-w-md w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
+            <h3 className="font-serif-luxury font-bold text-lg text-[#121212] border-b border-stone-200 pb-3">
+              Add New Delivery Venue / Address
+            </h3>
+            <form onSubmit={handleAddAddress} className="space-y-3 text-xs">
               <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Collection Technical Dossier</span>
-                <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  {activeSpecItem.title}
-                </h3>
-              </div>
-              <button onClick={() => setSpecModalOpen(false)} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-3 text-xs text-stone-700">
-              <div className="p-3 bg-[#FAF7F2] rounded border border-[#E7D5BF] grid grid-cols-2 gap-3">
-                <div>
-                  <span className="text-[10px] uppercase text-stone-400 block">Exterior Wood</span>
-                  <span className="font-semibold text-stone-900">{activeSpecItem.spec.material}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase text-stone-400 block">Interior Lining</span>
-                  <span className="font-semibold text-stone-900">{activeSpecItem.spec.lining}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase text-stone-400 block">Dimensions</span>
-                  <span className="font-semibold text-stone-900">{activeSpecItem.spec.dimensions}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase text-stone-400 block">Hardware Lock</span>
-                  <span className="font-semibold text-stone-900">{activeSpecItem.spec.lock}</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#75542E] block mb-1">
-                  Master Guild Signatures
-                </span>
-                <p className="text-xs text-stone-600 leading-relaxed">
-                  Crafted under the direct supervision of {activeSpecItem.spec.artisan}. Hand-varnished with non-toxic natural beeswax emulsion. Sealed with certified holographic tamper-evident seal #ASRA-TRK-9801.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex justify-end pt-3 border-t border-stone-200">
-              <button
-                onClick={() => setSpecModalOpen(false)}
-                className="px-4 py-2 bg-[#75542E] text-white text-xs uppercase tracking-wider font-semibold rounded"
-              >
-                Close Spec Sheet
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 4. GUEST NAMES MANAGEMENT MODAL (120 HAMPERS) */}
-      {guestModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-2xl w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4 max-h-[90vh] flex flex-col">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-              <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Luggage Tag Debossing Roster</span>
-                <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  Manage 120 Royal Guest Favors
-                </h3>
-              </div>
-              <button onClick={() => setGuestModalOpen(false)} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Quick Add Guest */}
-            <form onSubmit={handleAddGuest} className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-[#FAF7F2] p-3 rounded-lg border border-[#E7D5BF]">
-              <input
-                type="text"
-                required
-                placeholder="Guest Full Name..."
-                value={newGuestName}
-                onChange={(e) => setNewGuestName(e.target.value)}
-                className="text-xs px-3 py-1.5 rounded border border-stone-300 focus:outline-none focus:border-[#75542E] bg-white sm:col-span-2"
-              />
-              <div className="flex gap-2">
+                <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Address Label</label>
                 <input
                   type="text"
-                  maxLength={3}
-                  placeholder="Initials"
-                  value={newGuestInitials}
-                  onChange={(e) => setNewGuestInitials(e.target.value)}
-                  className="w-20 text-xs px-2 py-1.5 rounded border border-stone-300 uppercase text-center focus:outline-none focus:border-[#75542E] bg-white"
+                  required
+                  placeholder="E.g., Udaivilas Suite / Home Residence"
+                  value={addressForm.label}
+                  onChange={(e) => setAddressForm({ ...addressForm, label: e.target.value })}
+                  className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
                 />
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Recipient Name</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Full name"
+                    value={addressForm.recipient}
+                    onChange={(e) => setAddressForm({ ...addressForm, recipient: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
+                </div>
+                <div>
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Phone Number</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="+91..."
+                    value={addressForm.phone}
+                    onChange={(e) => setAddressForm({ ...addressForm, phone: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Street / Venue Gate</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Address Line & Hotel / Landmark"
+                  value={addressForm.street}
+                  onChange={(e) => setAddressForm({ ...addressForm, street: e.target.value })}
+                  className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">City</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="City"
+                    value={addressForm.city}
+                    onChange={(e) => setAddressForm({ ...addressForm, city: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
+                </div>
+                <div>
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">State</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="State"
+                    value={addressForm.state}
+                    onChange={(e) => setAddressForm({ ...addressForm, state: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
+                </div>
+                <div>
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">PIN Code</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="313001"
+                    value={addressForm.pincode}
+                    onChange={(e) => setAddressForm({ ...addressForm, pincode: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
+                </div>
+              </div>
+              <label className="flex items-center space-x-2 pt-1 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={addressForm.isDefault}
+                  onChange={(e) => setAddressForm({ ...addressForm, isDefault: e.target.checked })}
+                  className="rounded text-[#75542E] focus:ring-[#75542E]"
+                />
+                <span className="text-stone-700">Set as primary dispatch address</span>
+              </label>
+
+              <div className="pt-2 flex justify-end space-x-2">
+                <button
+                  type="button"
+                  onClick={() => setShowAddressModal(false)}
+                  className="px-3 py-1.5 border border-stone-300 rounded hover:bg-stone-50"
+                >
+                  Cancel
+                </button>
                 <button
                   type="submit"
-                  className="flex-1 px-3 py-1.5 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold rounded"
+                  className="px-4 py-1.5 bg-[#75542E] hover:bg-[#9B7443] text-white font-semibold rounded shadow"
                 >
-                  + Add
+                  Save Address
                 </button>
               </div>
             </form>
-
-            {/* Guest List Preview */}
-            <div className="overflow-y-auto flex-1 divide-y divide-stone-100 text-xs pr-1">
-              {guests.map((g, idx) => (
-                <div key={idx} className="py-2.5 flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <span className="w-7 h-7 rounded bg-[#F4ECE0] text-[#75542E] font-serif-luxury font-bold flex items-center justify-center text-xs">
-                      {g.tagInitials}
-                    </span>
-                    <div>
-                      <span className="font-medium text-stone-900 block">{g.name}</span>
-                      <span className="text-[10px] text-stone-400">{g.table} · {g.gift}</span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200">
-                    Confirmed Die Ready
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-3 border-t border-stone-200 flex items-center justify-between text-xs">
-              <span className="text-stone-500">Showing {guests.length} of 120 guest dossiers entered</span>
-              <button
-                onClick={() => setGuestModalOpen(false)}
-                className="px-4 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider font-semibold rounded"
-              >
-                Save Roster Changes
-              </button>
-            </div>
           </div>
         </div>
       )}
 
-      {/* 5. AUDIO WAVEFORM TEST MODAL */}
-      {audioModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#121212] text-white max-w-md w-full rounded-2xl border border-[#C8A97E]/50 card-shadow p-6 space-y-5 text-center">
-            <div className="flex items-center justify-between border-b border-stone-800 pb-3">
-              <span className="text-[10px] uppercase tracking-widest text-[#C8A97E] font-semibold">
-                Spotify Cipher Acoustic Verification
-              </span>
-              <button onClick={() => { setAudioModalOpen(false); setIsPlayingAudio(false); }} className="text-stone-400 hover:text-white">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-1">
-              <h4 className="text-lg font-serif-luxury font-bold text-white">
-                Can't Help Falling In Love
-              </h4>
-              <p className="text-xs text-stone-400">Royal Philharmonic Orchestra · First Dance Commission</p>
-            </div>
-
-            {/* Simulated Visualizer */}
-            <div className="h-20 bg-stone-900/90 rounded-xl border border-stone-800 flex items-center justify-center space-x-1.5 px-4">
-              {[40, 65, 20, 80, 95, 30, 60, 85, 45, 100, 75, 35, 90, 60, 40, 80, 50, 70, 30, 85].map((h, i) => (
-                <div
-                  key={i}
-                  className={`w-1 rounded-full transition-all duration-200 ${
-                    isPlayingAudio ? 'bg-[#C8A97E]' : 'bg-stone-700'
-                  }`}
-                  style={{
-                    height: isPlayingAudio ? `${Math.max(15, (h + (i % 3) * 15) % 80)}px` : '20px'
-                  }}
-                />
-              ))}
-            </div>
-
-            <div className="space-y-3">
-              <button
-                onClick={() => setIsPlayingAudio(!isPlayingAudio)}
-                className="w-full py-3 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center space-x-2"
-              >
-                <Music className="w-4 h-4 text-[#E7D5BF]" />
-                <span>{isPlayingAudio ? 'Pause Acoustic Playback' : 'Play Crystal Etched Waveform'}</span>
-              </button>
-              <p className="text-[11px] text-stone-400 leading-relaxed">
-                Scan the optical crystal with the Spotify app camera on wedding night to seamlessly stream your ceremonial master track.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 6. VIDEO TASTING CALL MODAL */}
-      {videoModalOpen && (
+      {/* Monogram Creation Modal */}
+      {showMonogramModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white max-w-md w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-              <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Private Collection Salon</span>
-                <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  Schedule Video Tasting Call
-                </h3>
-              </div>
-              <button onClick={() => { setVideoModalOpen(false); setVideoBookingConfirmed(false); }} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {!videoBookingConfirmed ? (
-              <form onSubmit={(e) => { e.preventDefault(); setVideoBookingConfirmed(true); }} className="space-y-3 text-xs">
-                <p className="text-stone-600">
-                  Connect 1-on-1 with Lead Stylist <strong>Shagufta Naaz</strong> live from our Hyderabad studio to inspect ribbon dyes, fragrance oils, and wax seal swatches under studio lighting.
-                </p>
-
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Select Consultation Date</label>
+            <h3 className="font-serif-luxury font-bold text-lg text-[#121212] border-b border-stone-200 pb-3">
+              Save Couple Monogram & Crest
+            </h3>
+            <form onSubmit={handleAddMonogram} className="space-y-3 text-xs">
+              <div className="grid grid-cols-3 gap-2">
+                <div className="col-span-1">
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Initials</label>
                   <input
-                    type="date"
+                    type="text"
                     required
-                    value={selectedVideoDate}
-                    onChange={(e) => setSelectedVideoDate(e.target.value)}
-                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs"
+                    maxLength={5}
+                    placeholder="A & S"
+                    value={monogramForm.initials}
+                    onChange={(e) => setMonogramForm({ ...monogramForm, initials: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-center uppercase font-bold"
                   />
                 </div>
-
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Select Time Slot</label>
-                  <select
-                    value={selectedVideoTime}
-                    onChange={(e) => setSelectedVideoTime(e.target.value)}
-                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs"
-                  >
-                    <option value="11:00 IST">11:00 AM IST (Morning Salon)</option>
-                    <option value="14:30 IST">02:30 PM IST (Afternoon Studio Session)</option>
-                    <option value="16:00 IST">04:00 PM IST (Recommended Italian Daylight Match)</option>
-                    <option value="18:30 IST">06:30 PM IST (Twilight Velvet Inspection)</option>
-                  </select>
+                <div className="col-span-2">
+                  <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Full Names</label>
+                  <input
+                    type="text"
+                    placeholder="Asra & Shahnawaz"
+                    value={monogramForm.names}
+                    onChange={(e) => setMonogramForm({ ...monogramForm, names: e.target.value })}
+                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                  />
                 </div>
-
-                <div className="pt-2 flex justify-end space-x-3">
-                  <button 
-                    type="button" 
-                    onClick={() => setVideoModalOpen(false)}
-                    className="px-4 py-2 border border-stone-300 rounded uppercase tracking-wider text-xs"
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    type="submit"
-                    className="px-5 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white uppercase tracking-wider font-semibold rounded shadow text-xs"
-                  >
-                    Confirm Private Video Slot
-                  </button>
-                </div>
-              </form>
-            ) : (
-              <div className="py-6 text-center space-y-3">
-                <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-6 h-6" />
-                </div>
-                <h4 className="text-base font-serif-luxury font-bold text-stone-900">Salon Appointment Confirmed</h4>
-                <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Encrypted Google Meet link &amp; calendar invite sent to Asra &amp; Shahnawaz for <strong>{selectedVideoDate} at {selectedVideoTime}</strong>.
-                </p>
-                <button 
-                  onClick={() => { setVideoModalOpen(false); setVideoBookingConfirmed(false); }}
-                  className="px-5 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider rounded font-medium mt-2"
-                >
-                  Done
-                </button>
               </div>
-            )}
-          </div>
-        </div>
-      )}
 
-      {/* 7. DOCUMENT VIEWER / DOWNLOAD MODAL */}
-      {docModalOpen && activeDoc && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-lg w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
               <div>
-                <span className="text-[10px] tracking-widest uppercase text-[#9B7443] font-semibold block">Sovereign Vault Archive</span>
-                <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  {activeDoc.name}
-                </h3>
+                <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Crest Border Style</label>
+                <select
+                  value={monogramForm.crestStyle}
+                  onChange={(e) => setMonogramForm({ ...monogramForm, crestStyle: e.target.value })}
+                  className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                >
+                  <option>Classic Floral Crest</option>
+                  <option>Minimalist Geometric Border</option>
+                  <option>Florentine Filigree Frame</option>
+                  <option>Royal Botanical Wreath</option>
+                </select>
               </div>
-              <button onClick={() => setDocModalOpen(false)} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
 
-            <div className="p-4 bg-[#FAF7F2] rounded-lg border border-[#E7D5BF] space-y-2 text-xs text-stone-700">
-              <div className="flex justify-between border-b border-stone-200 pb-2">
-                <span className="text-stone-500">Document Type:</span>
-                <span className="font-semibold text-stone-900">{activeDoc.type}</span>
+              <div>
+                <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Preferred Foil Finish</label>
+                <select
+                  value={monogramForm.foilFinish}
+                  onChange={(e) => setMonogramForm({ ...monogramForm, foilFinish: e.target.value })}
+                  className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                >
+                  <option>24K Florentine Gold Foil</option>
+                  <option>Champagne Rose Gold Foil</option>
+                  <option>Hand-Burnished Antique Bronze</option>
+                  <option>Blind Deboss (No Foil)</option>
+                </select>
               </div>
-              <div className="flex justify-between border-b border-stone-200 pb-2">
-                <span className="text-stone-500">Docket Identification:</span>
-                <span className="font-semibold text-stone-900">#{data.docketId}</span>
+
+              <div>
+                <label className="block uppercase text-stone-500 text-[10px] font-semibold mb-1">Event Date (Optional)</label>
+                <input
+                  type="text"
+                  placeholder="18th November 2026"
+                  value={monogramForm.date}
+                  onChange={(e) => setMonogramForm({ ...monogramForm, date: e.target.value })}
+                  className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2]"
+                />
               </div>
-              <div className="flex justify-between border-b border-stone-200 pb-2">
-                <span className="text-stone-500">Execution Date:</span>
-                <span className="font-semibold text-stone-900">{activeDoc.date}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-stone-500">Security Signature:</span>
-                <span className="font-mono text-emerald-800 font-semibold text-[11px]">SHA-256 VERIFIED COLLECTION SEAL</span>
-              </div>
-            </div>
 
-            <p className="text-xs text-stone-600 leading-relaxed">
-              This document is cryptographically countersigned by Maison ASRA legal council and bonded by Lloyd's International Fine Arts &amp; Jewels Transit underwriting.
-            </p>
-
-            <div className="pt-3 border-t border-stone-200 flex justify-end space-x-3">
-              <button
-                onClick={() => { alert(`Downloading ${activeDoc.name} PDF...`); setDocModalOpen(false); }}
-                className="px-4 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white text-xs font-semibold uppercase tracking-wider rounded flex items-center space-x-1.5"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>Save Certified PDF</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 8. BRASS DIE RE-COMMISSION MODAL */}
-      {recommissionModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-md w-full rounded-xl border border-[#C8A97E] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-              <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                Re-Commission Master Brass Die
-              </h3>
-              <button onClick={() => { setRecommissionModalOpen(false); setRecommissionSuccess(false); }} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {!recommissionSuccess ? (
-              <form onSubmit={(e) => { e.preventDefault(); setRecommissionSuccess(true); }} className="space-y-3 text-xs">
-                <p className="text-stone-600">
-                  Your physical master die <strong>#{data.monogramDie.dieId}</strong> is safely cataloged in our climate vault. You can order subsequent celebratory pieces with zero tooling fees.
-                </p>
-
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Intended Re-order Scope</label>
-                  <select className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs">
-                    <option>Wedding Thank-You Cards &amp; Deckle Envelopes (Qty 100+)</option>
-                    <option>First Anniversary Gold-Embossed Memory Folio</option>
-                    <option>Holiday &amp; New Year Festive Gift Boxes</option>
-                    <option>Other Custom Customized Leather Item</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Artisan Instructions (Optional)</label>
-                  <textarea
-                    rows={3}
-                    value={recommissionNotes}
-                    onChange={(e) => setRecommissionNotes(e.target.value)}
-                    placeholder="E.g., Match the emerald velvet ribbon from our Lake Como welcome boxes..."
-                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs"
-                  />
-                </div>
-
-                <div className="pt-2 flex justify-end space-x-3">
-                  <button
-                    type="button"
-                    onClick={() => setRecommissionModalOpen(false)}
-                    className="px-4 py-2 border border-stone-300 rounded uppercase tracking-wider text-xs"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-5 py-2 bg-[#75542E] hover:bg-[#9B7443] text-white uppercase tracking-wider font-semibold rounded shadow text-xs"
-                  >
-                    Submit Re-Commission Request
-                  </button>
-                </div>
-              </form>
-            ) : (
-              <div className="py-6 text-center space-y-3">
-                <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-6 h-6" />
-                </div>
-                <h4 className="text-base font-serif-luxury font-bold text-stone-900">Die Request Registered</h4>
-                <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Stylist Shagufta Naaz will pull Die #{data.monogramDie.dieId} from vault storage and prepare digital layout proofs.
-                </p>
+              <div className="pt-2 flex justify-end space-x-2">
                 <button
-                  onClick={() => { setRecommissionModalOpen(false); setRecommissionSuccess(false); }}
-                  className="px-5 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider rounded font-medium mt-2"
+                  type="button"
+                  onClick={() => setShowMonogramModal(false)}
+                  className="px-3 py-1.5 border border-stone-300 rounded hover:bg-stone-50"
                 >
-                  Close
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-1.5 bg-[#75542E] hover:bg-[#9B7443] text-white font-semibold rounded shadow"
+                >
+                  Save Monogram Crest
                 </button>
               </div>
-            )}
+            </form>
           </div>
         </div>
       )}
 
-      {/* 9. PRIORITY ASSISTANCE MODAL */}
-      {assistanceModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white max-w-md w-full rounded-xl border border-[#E7D5BF] card-shadow p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-              <div>
-                <span className="text-[10px] tracking-widest uppercase text-amber-700 font-semibold block">Urgent Hotline</span>
-                <h3 className="text-lg font-serif-luxury font-bold text-[#121212]">
-                  Ceremony Support Dispatch
-                </h3>
-              </div>
-              <button onClick={() => { setAssistanceModalOpen(false); setAssistanceSent(false); }} className="text-stone-400 hover:text-stone-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+      {/* Footer */}
+      <footer className="w-full bg-[#FAF7F2] border-t border-[#E7D5BF]/80 py-6 px-6 lg:px-12 text-stone-500 text-xs mt-12">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center space-x-3">
+            <span className="font-serif-luxury font-bold tracking-widest text-[#75542E] uppercase">Maison ASRA</span>
+            <span>·</span>
+            <span>Client Sanctuary & Account Hub</span>
+          </div>
 
-            {!assistanceSent ? (
-              <form onSubmit={(e) => { e.preventDefault(); setAssistanceSent(true); }} className="space-y-3 text-xs">
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Emergency Category</label>
-                  <select
-                    value={assistancePriority}
-                    onChange={(e) => setAssistancePriority(e.target.value)}
-                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs"
-                  >
-                    <option value="customs">Italian Customs / Destination Clearance</option>
-                    <option value="address">Venue Address / Suite Coordinate Change</option>
-                    <option value="guests">Urgent Guest Count Increase (Express Air Remake)</option>
-                    <option value="delivery">Handover Schedule Time Adjustment</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block font-semibold uppercase text-stone-700 text-[10px] mb-1">Urgent Message</label>
-                  <textarea
-                    rows={3}
-                    required
-                    value={assistanceMessage}
-                    onChange={(e) => setAssistanceMessage(e.target.value)}
-                    placeholder="Describe the adjustment required immediately..."
-                    className="w-full p-2 border border-stone-300 rounded bg-[#FAF7F2] text-xs"
-                  />
-                </div>
-
-                <div className="pt-2 flex justify-end space-x-3">
-                  <button 
-                    type="button" 
-                    onClick={() => setAssistanceModalOpen(false)}
-                    className="px-4 py-2 border border-stone-300 rounded uppercase tracking-wider text-xs"
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    type="submit"
-                    className="px-5 py-2 bg-red-700 hover:bg-red-800 text-white uppercase tracking-wider font-semibold rounded shadow text-xs"
-                  >
-                    Dispatch High-Priority Alert
-                  </button>
-                </div>
-              </form>
-            ) : (
-              <div className="py-6 text-center space-y-3">
-                <div className="w-12 h-12 bg-red-100 text-red-700 rounded-full flex items-center justify-center mx-auto">
-                  <AlertCircle className="w-6 h-6" />
-                </div>
-                <h4 className="text-base font-serif-luxury font-bold text-stone-900">Dispatcher Paged</h4>
-                <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                  Duty Master of Ceremonies has received your alert. Expected telephone or WhatsApp callback within <strong>15 minutes</strong>.
-                </p>
-                <button 
-                  onClick={() => { setAssistanceModalOpen(false); setAssistanceSent(false); }}
-                  className="px-5 py-2 bg-stone-900 text-white text-xs uppercase tracking-wider rounded font-medium mt-2"
-                >
-                  Close
-                </button>
-              </div>
-            )}
+          <div className="flex items-center space-x-6 text-[11px] tracking-wider uppercase">
+            <Link to="/privacy-policy" className="hover:text-[#75542E] transition-colors">Privacy & Security</Link>
+            <Link to="/return-policy" className="hover:text-[#75542E] transition-colors">Transit Guarantees</Link>
+            <Link to="/contact" className="hover:text-[#75542E] transition-colors">Contact Concierge</Link>
           </div>
         </div>
-      )}
+      </footer>
 
     </div>
   );
