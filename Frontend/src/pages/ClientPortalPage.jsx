@@ -330,7 +330,7 @@ const ClientPortalPage = () => {
           <div>
             <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-semibold text-primary mb-1.5">
               <span>◆</span>
-              <span>Personal Wedding Atelier & Account Hub</span>
+              <span>Personal Wedding Design &amp; Account Hub</span>
               <span>◆</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface">
@@ -411,7 +411,7 @@ const ClientPortalPage = () => {
                   No Commissions Placed Yet
                 </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed max-w-md mx-auto">
-                  When you commission a bespoke bridal trunk, ring vault, or royal guest welcome favors, your real-time tracking dossier and production telemetry will display here.
+                  When you order a custom bridal trunk, ring vault, or royal guest welcome favors, your real-time tracking details and updates will display here.
                 </p>
                 <div className="pt-2">
                   <Link
@@ -707,7 +707,7 @@ const ClientPortalPage = () => {
                     </h3>
                   </div>
                   <p className="text-xs text-on-surface-variant mt-0.5">
-                    Select default shipping destinations for seamless one-click bespoke checkout.
+                    Select default shipping destinations for seamless one-click fast checkout.
                   </p>
                 </div>
                 <button
@@ -992,7 +992,7 @@ const ClientPortalPage = () => {
                     Shagufta Naaz
                   </h4>
                   <span className="text-xs text-outline">
-                    Hyderabad Flagship Atelier
+                    Hyderabad Flagship Showroom
                   </span>
                 </div>
               </div>
@@ -1029,7 +1029,7 @@ const ClientPortalPage = () => {
                   Ceremony Concierge & Assistance
                 </h3>
                 <p className="text-xs text-on-surface-variant mt-0.5">
-                  Frequently addressed inquiries regarding bespoke turnaround, proofing, and venue handovers.
+                  Frequently addressed inquiries regarding custom order turnaround, proofing, and venue handovers.
                 </p>
               </div>
 

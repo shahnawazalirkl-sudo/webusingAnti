@@ -169,7 +169,7 @@ const CartPage = () => {
               Your Gift Bag is Empty
             </h2>
             <p className="text-xs sm:text-sm text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6 font-sans">
-              Begin your bespoke celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
+              Begin your custom celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
             </p>
             <Link
               to="/shop"
@@ -579,12 +579,12 @@ const CartPage = () => {
                     Need Calligraphy or Initials Verification?
                   </div>
                   <div className="text-[11px] text-on-surface-variant font-sans">
-                    Our Senior Atelier Stylist can review your wedding crest proof before dispatch.
+                    Our Senior Design Stylist can review your wedding crest proof before dispatch.
                   </div>
                 </div>
               </div>
               <a
-                href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier%2C%20I%20would%20like%20to%20verify%20my%20wedding%20monogram%20proof%20for%20my%20cart%20order."
+                href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20would%20like%20to%20verify%20my%20wedding%20monogram%20proof%20for%20my%20cart%20order."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-semibold uppercase tracking-wider px-4 py-2 bg-surface-container-lowest hover:bg-white border border-primary/30 text-primary rounded-lg whitespace-nowrap transition-colors shadow-xs inline-block font-sans"
@@ -695,7 +695,7 @@ const CartPage = () => {
               <div className="flex items-baseline justify-between mb-6">
                 <div>
                   <span className="block font-serif text-2xl font-normal text-on-surface">Total Amount</span>
-                  <span className="text-[10px] text-on-surface-variant font-sans">Inclusive of all duties, bespoke craft &amp; insurance</span>
+                  <span className="text-[10px] text-on-surface-variant font-sans">Inclusive of all duties, custom craft &amp; insurance</span>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-on-surface font-sans">

@@ -318,7 +318,7 @@ const ShopPage = () => {
             </h1>
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed pt-1">
               Thoughtfully personalized gifts, customized wedding essentials, and timeless gift favors handcrafted for
-              life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our ateliers.
+              life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our workshops.
             </p>
           </div>
 
@@ -834,7 +834,7 @@ const ShopPage = () => {
                   Need assistance with bulk wedding favors, wedding essentials design, or urgent timelines?
                 </p>
                 <a
-                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
+                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
                   target="_blank"
                   rel="noreferrer"
                   className="font-label-sm text-[11px] text-primary hover:text-secondary font-bold uppercase tracking-wider mt-2 flex items-center gap-1"
@@ -849,18 +849,18 @@ const ShopPage = () => {
           <main className="lg:col-span-9 flex flex-col gap-8">
             {/* Products Grid */}
             {filteredProducts.length === 0 ? (
-              <div className="text-center py-20 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/40 shadow-sm flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-outline mb-3">
-                  <span className="material-symbols-outlined text-4xl">search_off</span>
+              <div className="bg-surface-container-lowest p-12 rounded-2xl border border-outline-variant/50 text-center flex flex-col items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-outline mb-4">
+                  <span className="material-symbols-outlined text-3xl">filter_alt_off</span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-on-surface">No Heirlooms Found</h3>
-                <p className="text-xs text-outline mt-1 mb-6 max-w-sm">
-                  We couldn't find matches for your active filter combination. Try resetting filters or searching with
-                  different keywords.
+                <h3 className="font-serif text-xl text-on-surface font-medium mb-2">No Matching Keepsakes Found</h3>
+                <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
+                  We couldn't find products matching all your active filter criteria. Try clearing some filters or searching for broader terms.
                 </p>
                 <button
                   onClick={resetAllFilters}
-                  className="px-6 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold shadow-sm hover:bg-primary/90 transition-colors"
+                  type="button"
+                  className="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm"
                 >
                   Reset All Filters
                 </button>
@@ -887,17 +887,17 @@ const ShopPage = () => {
                         <span>Private Consultation &amp; Bulk Favors</span>
                       </div>
                       <h2 className="font-serif text-2xl sm:text-3xl text-on-surface leading-tight font-normal">
-                        Planning a Wedding or Royal Soirée?
+                        Planning a Wedding or Celebration?
                       </h2>
                       <p className="font-sans text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-                        Connect directly with our Chief Atelier Designer. Receive physical wood and fabric swatch kits,
+                        Connect directly with our Chief Design Specialist. Receive physical wood and fabric swatch kits,
                         complimentary initials 3D mockups, and tailored volume pricing for 50+ pieces.
                       </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
                       <a
-                        href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20would%20like%20to%20consult%20for%20wedding%20favors"
+                        href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20would%20like%20to%20consult%20for%20wedding%20favors"
                         target="_blank"
                         rel="noreferrer"
                         className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] text-white hover:opacity-90 active:scale-[0.98] font-sans text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-xs font-semibold"

@@ -528,7 +528,7 @@ const AboutUsPage = () => {
               <div className="mt-4 pt-1">
                 <a
                   className="inline-flex items-center justify-center gap-2 w-full py-2 text-xs uppercase font-semibold tracking-wider bg-emerald-800 text-white hover:bg-emerald-900 transition-colors shadow-sm"
-                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20bespoke%20wedding%20keepsakes"
+                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20would%20like%20to%20inquire%20about%20custom%20wedding%20keepsakes"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

@@ -202,7 +202,7 @@ const MonogramPreviewStudio = () => {
                   {itemType === 'passport' ? 'Full-Grain Leather' : itemType === 'acrylic' ? 'Optic Acrylic Plaque' : 'Velvet Ring Vault'}
                 </span>
                 <span className="text-[9px] font-mono text-[#f5ebd7]/80 tracking-wider">
-                  ASRA • ATELIER
+                  ASRA • STUDIO
                 </span>
               </div>
 

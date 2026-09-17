@@ -433,7 +433,7 @@ const ProductDetailPage = () => {
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[20px] text-primary shrink-0">storefront</span>
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Flagship Ateliers</span>
+                  <span className="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Flagship Stores</span>
                   <span className="font-body-sm text-[11px] text-on-surface-variant">Hyderabad &amp; Bengaluru</span>
                 </div>
               </div>

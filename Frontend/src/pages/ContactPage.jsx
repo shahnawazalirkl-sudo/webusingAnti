@@ -197,7 +197,7 @@ const ContactPage = () => {
               </div>
               <div className="mt-8 pt-4 border-t border-asra-border/60 space-y-2">
                 <a
-                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Concierge,%20I%20would%20like%20to%20inquire%20about%20bespoke%20wedding%20keepsakes%20and%20private%20salon%20appointments."
+                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Support,%20I%20would%20like%20to%20inquire%20about%20custom%20wedding%20keepsakes%20and%20consultation%20appointments."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 text-xs uppercase font-semibold tracking-wider bg-emerald-800 text-white hover:bg-emerald-900 transition-colors shadow-sm"

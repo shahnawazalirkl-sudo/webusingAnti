@@ -287,7 +287,7 @@ const CollectionsPage = () => {
                 <div className="flex items-center gap-3 bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-xs border border-outline-variant/30">
                   <span className="material-symbols-outlined text-primary text-[22px]">auto_stories</span>
                   <div className="flex flex-col">
-                    <span className="text-[10px] uppercase tracking-wider text-outline leading-tight font-semibold">Atelier</span>
+                    <span className="text-[10px] uppercase tracking-wider text-outline leading-tight font-semibold">Workshop</span>
                     <span className="text-xs text-on-surface font-semibold leading-tight">Custom Studio</span>
                   </div>
                 </div>
@@ -549,7 +549,7 @@ const CollectionsPage = () => {
                 {/* Quick Consultation Form Card */}
                 <div className="lg:w-5/12 w-full bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-xs border border-outline-variant/30">
                   <h3 className="font-serif text-xl sm:text-2xl font-normal leading-tight text-on-surface mb-1">
-                    Book an Atelier Support Call
+                    Book a Design Consultation Call
                   </h3>
                   <p className="text-xs text-on-surface-variant mb-4 leading-relaxed">
                     Receive a curated digital moodboard and wholesale pricing deck within 24 hours.

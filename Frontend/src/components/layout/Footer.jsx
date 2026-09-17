@@ -25,12 +25,12 @@ const Footer = () => {
             <Link to="/client-portal" className="flex items-center gap-space-sm text-[#C5A880] hover:text-white transition-colors group">
               <span className="material-symbols-outlined text-[20px]">verified</span>
               <span className="font-label-sm text-label-sm tracking-widest group-hover:underline">
-                COLLECTION PRIVILEGE SUITE · MY ACCOUNT →
+                CUSTOMER PORTAL · MY ACCOUNT →
               </span>
             </Link>
           </div>
 
-          {/* Shop Atelier */}
+          {/* Shop Collection */}
           <div className="flex flex-col gap-space-xs">
             <h4 className="font-title-sm text-title-sm text-[#FAF8F5] tracking-wider uppercase mb-space-xs font-semibold">
               Shop Collection
@@ -58,22 +58,22 @@ const Footer = () => {
               Company
             </h4>
             <Link to="/client-portal" className="font-body-sm text-body-sm text-[#C5A880] hover:text-white font-medium transition-colors py-0.5">
-              My Account (Sovereign Vault)
+              My Account
             </Link>
             <Link to="/about" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Our Classic Story
+              Our Story
             </Link>
             <Link to="/contact#salons" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Private Salons &amp; Studios
+              Showrooms &amp; Studios
             </Link>
             <Link to="/bulk-orders" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              Corporate Privileges
+              Corporate &amp; Bulk Orders
             </Link>
             <Link to="/return-policy" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Care Instructions
             </Link>
             <Link to="/faq" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
-              FAQ &amp; Collection Help Desk
+              FAQ &amp; Help Center
             </Link>
             <Link to="/contact" className="font-body-sm text-body-sm text-[#B8AEA3] hover:text-[#C5A880] transition-colors py-0.5">
               Support &amp; Appointments
@@ -86,7 +86,7 @@ const Footer = () => {
               Connect
             </h4>
             <p className="font-body-sm text-body-sm text-[#B8AEA3] mb-space-xs">
-              Collection Flagship: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
+              Showrooms: Jubilee Hills, Hyderabad • Indiranagar, Bengaluru
             </p>
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
               Inquiries: <a href="mailto:shahnawazalirkl@gmail.com" className="hover:text-[#FAF8F5] transition-colors">shahnawazalirkl@gmail.com</a>
@@ -94,8 +94,8 @@ const Footer = () => {
             <p className="font-body-sm text-body-sm text-[#B8AEA3]">
               Appointments: <a href="tel:+919692668263" className="hover:text-[#FAF8F5] transition-colors">+91 96926 68263</a>
             </p>
-            <Link to="/contact#reservation-docket" className="font-label-sm text-[11px] text-[#C5A880] hover:underline mb-space-sm inline-block">
-              Reserve Private Salon Session →
+            <Link to="/contact" className="font-label-sm text-[11px] text-[#C5A880] hover:underline mb-space-sm inline-block">
+              Book a Private Consultation →
             </Link>
             <div className="flex items-center gap-space-xs text-[#FAF8F5]">
               <span className="material-symbols-outlined text-[20px] text-[#C5A880]">local_shipping</span>

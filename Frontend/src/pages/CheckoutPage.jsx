@@ -735,7 +735,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <a
-                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier%2C%20I%20have%20an%20inquiry%20regarding%20my%20bespoke%20ceremony%20dispatch%20order."
+                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20have%20an%20inquiry%20regarding%20my%20custom%20order."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whitespace-nowrap px-3.5 py-1.5 rounded-full border border-[#1F1B18]/20 bg-[#F4F0EA]/60 hover:bg-[#1F1B18] hover:text-[#FDFCFA] transition-colors text-[11px] font-semibold text-[#1F1B18] inline-flex items-center gap-1.5"
@@ -1188,14 +1188,14 @@ const CheckoutPage = () => {
                 We are currently working on our official payment gateway integration. Since there is no active payment gateway connected, <strong>no payments can be made and orders cannot be confirmed without payment gateway integration</strong>.
               </p>
               <p className="text-[11px] text-[#1F1B18]/70 border-t border-[#EAE5DC] pt-2">
-                If you wish to reserve your wedding date or make a direct bespoke arrangement, our Senior Atelier Stylist is available via WhatsApp.
+                If you wish to reserve your wedding date or make a direct custom order, our Senior Design Stylist is available via WhatsApp.
               </p>
             </div>
 
             {/* Modal Actions */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a
-                href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier%2C%20I%20am%20at%20checkout%20and%20would%20like%20to%20inquire%20about%20payment%20and%20reserving%20my%20wedding%20ensemble."
+                href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20am%20at%20checkout%20and%20would%20like%20to%20inquire%20about%20payment%20and%20reserving%20my%20order."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-[#1E6347] hover:bg-[#164d36] text-white py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
