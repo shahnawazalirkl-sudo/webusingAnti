@@ -72,7 +72,7 @@ const PersonalizedPage = () => {
               Artisan Precision Standard
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
-              How Bespoke Personalization Works
+              How Custom Personalization Works
             </h2>
           </div>
 

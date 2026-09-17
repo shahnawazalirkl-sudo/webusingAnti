@@ -521,7 +521,7 @@ const ReturnPolicyPage = () => {
               </p>
 
               <a
-                href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20have%20an%20urgent%20inquiry%20regarding%20my%20bespoke%20order%20covenant."
+                href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20have%20an%20urgent%20inquiry%20regarding%20my%20custom%20order."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BE5B] text-white font-semibold text-xs py-2.5 px-4 rounded-lg uppercase tracking-wider shadow-xs hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"

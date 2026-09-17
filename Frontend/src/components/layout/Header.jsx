@@ -32,7 +32,7 @@ const Header = () => {
           <div className="max-w-[1360px] mx-auto flex items-center justify-between">
             <div className="hidden lg:flex items-center gap-2 text-surface-container-high font-medium">
               <span className="material-symbols-outlined text-[15px] text-primary-fixed-dim">verified</span>
-              <span>Luxury Bespoke &amp; Handcrafted Keepsakes</span>
+              <span>Luxury Custom &amp; Handcrafted Keepsakes</span>
             </div>
             <p className="font-label-sm text-xs tracking-wider text-primary-fixed-dim mx-auto lg:mx-0 text-center font-medium">
               Complimentary Luxury Gift Box on Orders Above ₹2,499 | Use Code:{' '}
@@ -46,7 +46,7 @@ const Header = () => {
               <span>•</span>
               <a href="https://wa.me/919692668263" target="_blank" rel="noopener noreferrer" className="hover:text-primary-fixed-dim cursor-pointer transition-colors flex items-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">support_agent</span>
-                <span>Artisan Concierge</span>
+                <span>Customer Support</span>
               </a>
             </div>
           </div>
@@ -600,11 +600,11 @@ const Header = () => {
                     <div className="flex items-center gap-1.5 border-b border-outline-variant/30 pb-1.5">
                       <span className="material-symbols-outlined text-primary text-[18px]">design_services</span>
                       <span className="font-headline-sm text-xs text-on-surface font-serif font-semibold">
-                        Customized Studio &amp; Atelier
+                        Custom Design Studio &amp; Workshop
                       </span>
                     </div>
                     <p className="text-[11px] text-on-surface-variant leading-relaxed">
-                      Bring your wedding logo or custom crest. Our artisans craft 3D proofs and precision dies.
+                      Bring your wedding logo or custom crest. Our team crafts 3D proofs and precision designs.
                     </p>
                     <div className="grid grid-cols-2 gap-2 pt-0.5">
                       <Link to="/bespoke" className="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col border border-outline-variant/30">
@@ -612,8 +612,8 @@ const Header = () => {
                         <span className="text-[10px] text-outline">Free digital 3D proof</span>
                       </Link>
                       <a href="https://wa.me/919692668263" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col border border-outline-variant/30">
-                        <span className="text-[11px] font-semibold text-on-surface">Artisan Chat</span>
-                        <span className="text-[10px] text-outline">Instant concierge</span>
+                        <span className="text-[11px] font-semibold text-on-surface">Designer Chat</span>
+                        <span className="text-[10px] text-outline">Instant support</span>
                       </a>
                     </div>
                   </div>
@@ -724,9 +724,9 @@ const Header = () => {
               </div>
 
               <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[10px] uppercase font-bold text-outline tracking-widest">Support &amp; Concierge</span>
-                <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/about') ? 'text-primary font-bold' : 'hover:text-primary'}`}>About ASRA Atelier</Link>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/contact') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Contact &amp; Private Salon</Link>
+                <span className="text-[10px] uppercase font-bold text-outline tracking-widest">Support &amp; Help</span>
+                <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/about') ? 'text-primary font-bold' : 'hover:text-primary'}`}>About ASRA</Link>
+                <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/contact') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Contact &amp; Showrooms</Link>
                 <Link to="/faq" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/faq') ? 'text-primary font-bold' : 'hover:text-primary'}`}>FAQ &amp; Care Guides</Link>
               </div>
             </div>

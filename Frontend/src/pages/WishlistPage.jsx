@@ -590,7 +590,7 @@ const WishlistPage = () => {
 
             <div>
               <a 
-                href="https://wa.me/919692668263?text=Hi%20ASRA%20Atelier%2C%20I%20would%20like%20guidance%20on%20my%20Wedding%20Registry%20(ASRA-REG-2026-9921)"
+                href="https://wa.me/919692668263?text=Hi%20ASRA%20Team%2C%20I%20would%20like%20guidance%20on%20my%20Wedding%20Registry%20(ASRA-REG-2026-9921)"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold tracking-wider transition shadow active:scale-98"

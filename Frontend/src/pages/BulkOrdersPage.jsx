@@ -204,7 +204,7 @@ const BulkOrdersPage = () => {
               Volume Privileges &amp; Celebration Tiers
             </h2>
             <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl mx-auto mt-2 leading-relaxed">
-              Transparent volume collection pricing structured to reward grand celebrations with bespoke customization privileges.
+              Transparent volume collection pricing structured to reward grand celebrations with custom personalization privileges.
             </p>
           </div>
 
@@ -301,7 +301,7 @@ const BulkOrdersPage = () => {
                 Signature Favors &amp; Welcome Gifts
               </h2>
               <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl mt-2 leading-relaxed">
-                Hand-assembled by master craftsmen. All units include individualized gold monogramming and bespoke ribbon tying.
+                Hand-assembled by master craftsmen. All units include individualized gold monogramming and custom ribbon tying.
               </p>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -384,7 +384,7 @@ const BulkOrdersPage = () => {
                   Direct Collection Request
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mt-1.5">
-                  Book Bespoke Bulk Consultation
+                  Book Custom Bulk Consultation
                 </h2>
                 <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
                   Submit your celebration dates and preferences. A Senior Bridal Concierge Stylist will share digital renders &amp; volume quotation within 4 hours.
@@ -709,7 +709,7 @@ const BulkOrdersPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 text-center">
             <div className="p-4 sm:p-5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col items-center">
               <span className="material-symbols-outlined text-primary text-[28px] mb-2">fingerprint</span>
-              <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">100% Bespoke Craft</h4>
+              <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">100% Custom Craft</h4>
               <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
                 No prefabricated stock. Each suite is designed and personalized from scratch.
               </p>

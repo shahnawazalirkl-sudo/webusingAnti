@@ -63,7 +63,7 @@ const HomePage = () => {
       img: '/assets/cdn/img_8222cd4f9dd5.png'
     },
     {
-      title: 'Trousseau & Honeymoon',
+      title: 'Bridal Luggage & Honeymoon',
       subtitle: 'Debossed leather luggage suites',
       tag: 'Step 4',
       link: '/shop?cat=favors-trousseau',
@@ -75,11 +75,11 @@ const HomePage = () => {
   const faqs = [
     {
       q: 'How long does custom monogramming and debossing take?',
-      a: 'Standard personalized pieces take 24–48 hours for dispatch. Bespoke bridal trunks and large volume wedding favors take 3–7 business days. Express overnight dispatch is also available upon request.'
+      a: 'Standard personalized pieces take 24–48 hours for dispatch. Custom bridal trunks and large volume wedding favors take 3–7 business days. Express overnight dispatch is also available upon request.'
     },
     {
       q: 'Will I see a 3D digital proof before my items are crafted?',
-      a: 'Yes! For every customized order or bespoke bridal favor request, our atelier team sends a lifelike digital proof or render via WhatsApp/Email for your final sign-off before stamping.'
+      a: 'Yes! For every customized order or custom bridal favor request, our design team sends a lifelike digital proof or render via WhatsApp/Email for your final sign-off before stamping.'
     },
     {
       q: 'Can you handle bulk wedding favors for guests with custom guest names?',
@@ -102,7 +102,7 @@ const HomePage = () => {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high/80 backdrop-blur-xs rounded-full mb-3 border border-outline-variant/40">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
               <span className="font-label-sm text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-primary font-semibold">
-                The 2025 Bridal &amp; Wedding Gift Atelier
+                The 2025 Bridal &amp; Wedding Gift Studio
               </span>
             </div>
 
@@ -130,7 +130,7 @@ const HomePage = () => {
                 className="px-5 py-2.5 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant/50 hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-wider font-semibold"
               >
                 <span className="material-symbols-outlined text-[16px] text-primary">edit_note</span>
-                <span>Custom Atelier Studio</span>
+                <span>Custom Design Studio</span>
               </Link>
             </div>
 
@@ -229,7 +229,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-label-sm text-[10px] text-primary uppercase tracking-wider font-semibold">
-                    Atelier Certified
+                    Studio Certified
                   </span>
                   <span className="font-body-sm text-[11px] text-on-surface font-medium leading-tight">
                     Custom debossed with brass dies
@@ -622,7 +622,7 @@ const HomePage = () => {
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF4EB] text-primary border border-primary/20 rounded font-sans text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold mb-2">
                 <span className="material-symbols-outlined text-[14px]">brush</span>
-                <span>Bespoke Atelier Service</span>
+                <span>Custom Design Service</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal mb-2 leading-tight">
                 Your Idea → We Handcraft into Reality.
@@ -684,7 +684,7 @@ const HomePage = () => {
                   rel="noopener noreferrer"
                 >
                   <span className="material-symbols-outlined text-[16px]">chat</span>
-                  <span>WhatsApp Atelier Support</span>
+                  <span>WhatsApp Design Support</span>
                 </a>
 
                 <Link
@@ -707,7 +707,7 @@ const HomePage = () => {
                 />
                 <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-[10px] text-on-surface font-semibold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-                  <span>Atelier Live Workbench</span>
+                  <span>Workshop Live Studio</span>
                 </div>
               </div>
 
@@ -921,7 +921,7 @@ const HomePage = () => {
             </div>
             <div>
               <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
-                Dedicated Atelier Stylist
+                Dedicated Personal Stylist
               </h4>
               <p className="font-body-sm text-[11px] text-outline">Live 1-on-1 assistance via WhatsApp</p>
             </div>

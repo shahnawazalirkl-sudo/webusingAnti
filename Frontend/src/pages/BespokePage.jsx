@@ -262,7 +262,7 @@ const BespokePage = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href={`https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20just%20submitted%20bespoke%20brief%20for%20${encodeURIComponent(
+                  href={`https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20just%20submitted%20a%20custom%20order%20brief%20for%20${encodeURIComponent(
                     fullName || 'my wedding'
                   )}`}
                   target="_blank"
@@ -585,7 +585,7 @@ const BespokePage = () => {
                 <div>
                   <div className="border-b border-outline-variant/30 pb-4 mb-5">
                     <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
-                      White-Glove Atelier Service
+                      White-Glove Customer Service
                     </span>
                     <h3 className="font-serif text-2xl font-normal leading-tight text-on-surface">
                       Project Consultation &amp; Details
@@ -762,7 +762,7 @@ const BespokePage = () => {
 
                   <div className="mt-4 pt-4 border-t border-outline-variant/30 text-center">
                     <a
-                      href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20need%20instant%20consultation%20for%20a%20bespoke%20wedding%20gift"
+                      href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20need%20instant%20consultation%20for%20a%20custom%20wedding%20gift"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] hover:underline transition-colors"
