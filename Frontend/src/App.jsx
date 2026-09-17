@@ -89,7 +89,7 @@ const App = () => {
       {/* Content Area - Editorial pages use main with top padding; Minimal pages provide their own landmarks */}
       {(() => {
         const ContentContainer = !isMinimalPage ? 'main' : 'div';
-        const containerClasses = !isMinimalPage ? 'flex-grow w-full pt-[124px] md:pt-[158px]' : 'flex-grow w-full';
+        const containerClasses = !isMinimalPage ? 'flex-grow w-full pt-[98px] md:pt-[122px]' : 'flex-grow w-full';
 
         return (
           <ContentContainer className={containerClasses}>

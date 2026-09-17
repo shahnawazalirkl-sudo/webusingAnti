@@ -82,53 +82,53 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
         </div>
       </div>
 
-      {/* Content Details */}
-      <div className="p-space-md flex flex-col flex-1 justify-between gap-space-xs">
-        <div className="flex flex-col gap-1">
-          <span className="font-label-sm text-[10px] text-primary tracking-[0.2em] uppercase font-semibold">
+      {/* Content Details - Compact Height */}
+      <div className="p-3 flex flex-col flex-1 justify-between gap-1">
+        <div className="flex flex-col gap-0.5">
+          <span className="font-label-sm text-[9px] text-primary tracking-[0.2em] uppercase font-semibold">
             {product.techniqueTag || product.categoryLabel || 'Collection'}
           </span>
           <Link to={productUrl}>
-            <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors leading-tight line-clamp-1">
+            <h3 className="font-headline-sm text-xs sm:text-sm font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight line-clamp-1">
               {product.title}
             </h3>
           </Link>
 
           {/* Rating */}
-          <div className="flex items-center gap-1.5 pt-0.5">
+          <div className="flex items-center gap-1 pt-0.5">
             <div className="flex text-amber-700">
               {[...Array(5)].map((_, i) => (
                 <span
                   key={i}
-                  className="material-symbols-outlined text-[15px]"
+                  className="material-symbols-outlined text-[13px]"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   star
                 </span>
               ))}
             </div>
-            <span className="font-title-sm text-[12px] font-semibold text-on-surface">
+            <span className="font-title-sm text-[11px] font-semibold text-on-surface">
               {product.rating || '4.9'}
             </span>
-            <span className="font-body-sm text-[12px] text-outline">
-              ({product.reviewCount || 98} reviews)
+            <span className="font-body-sm text-[10px] text-outline">
+              ({product.reviewCount || 98})
             </span>
           </div>
         </div>
 
         {/* Price & Forward Link */}
-        <div className="flex items-baseline justify-between pt-space-xs border-t border-outline-variant/20 mt-1">
-          <div className="flex items-baseline gap-2">
-            <span className="font-title-md text-title-md font-bold text-on-surface">
+        <div className="flex items-baseline justify-between pt-1 border-t border-outline-variant/20 mt-1">
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-title-md text-xs sm:text-sm font-bold text-on-surface">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && (
-              <span className="font-body-sm text-body-sm text-outline line-through">
+              <span className="font-body-sm text-[10px] text-outline line-through">
                 ₹{product.originalPrice.toLocaleString('en-IN')}
               </span>
             )}
             {discountPercent && (
-              <span className="font-label-sm text-[10px] text-secondary font-bold bg-secondary-container/40 px-1.5 py-0.2 rounded">
+              <span className="font-label-sm text-[9px] text-secondary font-bold bg-secondary-container/40 px-1 py-0.2 rounded">
                 {discountPercent}% OFF
               </span>
             )}
@@ -138,7 +138,7 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
             className="text-outline hover:text-primary transition-colors"
             aria-label={`View details for ${product.title}`}
           >
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </Link>
         </div>
       </div>

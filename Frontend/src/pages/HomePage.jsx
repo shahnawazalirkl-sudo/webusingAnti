@@ -1,14 +1,16 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThreeGiftBox from '../components/common/ThreeGiftBox';
+import ProductCard from '../components/common/ProductCard';
+import MonogramPreviewStudio from '../components/common/MonogramPreviewStudio';
+import { PRODUCTS } from '../data/productsData';
 import { useCart } from '../context/CartContext';
-import { useWishlist } from '../context/WishlistContext';
 
 const HomePage = () => {
   const { showToast } = useCart();
-  const { isWishlisted, toggleWishlist } = useWishlist();
   const carouselRef = useRef(null);
   const [heroMode, setHeroMode] = useState('photo'); // 'photo' | '3d'
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const handleCopyCoupon = (code) => {
     if (navigator?.clipboard?.writeText) {
@@ -23,78 +25,153 @@ const HomePage = () => {
     }
   };
 
+  // Trending products selected from real shared catalog
+  const trendingProductIds = [
+    'bespoke-leather-travel-set',
+    'led-acrylic-song-plaque',
+    'custom-velvet-jewelry-box',
+    'gentleman-timepiece-set',
+    'velvet-ring-vault',
+    'grand-anniversary-hamper'
+  ];
+
+  const trendingProducts = trendingProductIds
+    .map((id) => PRODUCTS.find((p) => p.id === id))
+    .filter(Boolean);
+
+  // Wedding Ceremony Categories
+  const weddingCeremonies = [
+    {
+      title: 'Roka & Engagement',
+      subtitle: 'Ring vaults & luxury hampers',
+      tag: 'Step 1',
+      link: '/shop?cat=favors-trousseau',
+      img: '/assets/cdn/img_5ca8bace4375.jpg'
+    },
+    {
+      title: 'Mehendi & Sangeet',
+      subtitle: 'Custom favors & acoustic plaques',
+      tag: 'Step 2',
+      link: '/shop?cat=keepsakes',
+      img: '/assets/cdn/img_679ede3f1033.jpg'
+    },
+    {
+      title: 'The Wedding Day',
+      subtitle: 'Heirloom vow books & bridal suites',
+      tag: 'Step 3',
+      link: '/shop?cat=favors-trousseau',
+      img: '/assets/cdn/img_8222cd4f9dd5.png'
+    },
+    {
+      title: 'Trousseau & Honeymoon',
+      subtitle: 'Debossed leather luggage suites',
+      tag: 'Step 4',
+      link: '/shop?cat=favors-trousseau',
+      img: '/assets/cdn/img_48ec5e0e21c9.jpg'
+    },
+  ];
+
+  // Frequently Asked Questions
+  const faqs = [
+    {
+      q: 'How long does custom monogramming and debossing take?',
+      a: 'Standard personalized pieces take 24–48 hours for dispatch. Bespoke bridal trunks and large volume wedding favors take 3–7 business days. Express overnight dispatch is also available upon request.'
+    },
+    {
+      q: 'Will I see a 3D digital proof before my items are crafted?',
+      a: 'Yes! For every customized order or bespoke bridal favor request, our atelier team sends a lifelike digital proof or render via WhatsApp/Email for your final sign-off before stamping.'
+    },
+    {
+      q: 'Can you handle bulk wedding favors for guests with custom guest names?',
+      a: 'Absolutely. We specialize in wedding favors from 25 to 2,000+ units, with tiered volume pricing, individual guest name debossing, custom wax seals, and direct dispatch to your wedding destination.'
+    },
+    {
+      q: 'Are your items packaged ready for gifting?',
+      a: 'Every single ASRA keepsake arrives inside a rigid heirloom gift box, complete with handwritten personalized calligraphy note, wax seal stamp, and satin ribbon wrap at no additional cost.'
+    }
+  ];
+
   return (
     <div className="flex flex-col w-full">
-      {/* Editorial Hero Section */}
-      <section className="w-full pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 px-4 sm:px-margin relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/30 to-surface">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
+      {/* Editorial Hero Section - Streamlined & Balanced Height */}
+      <section className="w-full pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-6 lg:pb-12 px-4 sm:px-margin relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/20 to-surface">
+        <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Column: Editorial Content */}
-          <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-6 xl:pr-space-xl">
-            <div className="inline-flex items-center gap-space-xs px-3.5 py-1.5 bg-surface-container-high/80 backdrop-blur-xs rounded-full mb-4 sm:mb-space-md border border-outline-variant/40">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="font-label-sm text-[11px] sm:text-label-sm tracking-widest uppercase text-on-surface-variant font-medium">
-                The 2025 Bridal &amp; Gift Collection
+          <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high/80 backdrop-blur-xs rounded-full mb-3 border border-outline-variant/40">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              <span className="font-label-sm text-[10px] sm:text-[11px] tracking-widest uppercase text-on-surface-variant font-medium">
+                The 2025 Bridal &amp; Wedding Gift Atelier
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface font-normal tracking-tight mb-4 sm:mb-space-md leading-[1.14]">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-[2.2rem] lg:text-[2.35rem] text-on-surface font-normal tracking-tight mb-2.5 leading-[1.18]">
               Crafting Timeless <span className="italic font-normal text-primary">Gifts</span> for Life's Most Cherished Moments.
             </h1>
 
-            <p className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant max-w-xl mb-6 sm:mb-space-lg leading-relaxed font-light">
-              From custom debossed leather passport suites to glowing acrylic melodies and curated wedding essentials hampers, we immortalize love stories with meticulous artisanal craft.
+            <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-lg mb-4 leading-relaxed font-light">
+              From custom debossed leather passport suites to glowing acrylic melodies, heirloom ring vaults, and curated wedding hampers, we immortalize your love story with meticulous artisanal craft.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-space-md w-full sm:w-auto mb-8 sm:mb-space-xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto mb-4">
               <Link
-                to="/collections"
-                className="px-7 sm:px-8 py-3.5 bg-on-surface text-surface rounded-lg hover:bg-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold group"
+                to="/shop"
+                className="px-5 py-2 bg-on-surface text-surface rounded-lg hover:bg-primary transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-1.5 font-label-md text-xs tracking-wider uppercase font-semibold group"
               >
-                <span>Explore All Collections</span>
-                <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
+                <span>Explore Shop Catalog</span>
+                <span className="material-symbols-outlined text-[15px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
                 </span>
               </Link>
 
               <Link
                 to="/bespoke"
-                className="px-6 sm:px-7 py-3.5 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant/80 hover:border-primary hover:bg-surface-container-low transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-label-md text-label-md tracking-wider uppercase font-semibold"
+                className="px-4 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant/80 hover:border-primary hover:bg-surface-container-low transition-all duration-300 shadow-xs flex items-center justify-center gap-1.5 font-label-md text-xs tracking-wider uppercase font-semibold"
               >
-                <span className="material-symbols-outlined text-[18px] text-primary">edit_note</span>
-                <span>Create Your Own</span>
+                <span className="material-symbols-outlined text-[15px] text-primary">edit_note</span>
+                <span>Custom Atelier Studio</span>
               </Link>
             </div>
 
-            {/* Metric Callout Cards */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-space-md pt-5 sm:pt-space-md border-t border-outline-variant/30 w-full max-w-lg">
-              <div>
-                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">18,000+</span>
-                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Heirlooms Delivered</span>
+            {/* Trust Badges Bar */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 border-t border-outline-variant/30 w-full max-w-md">
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified</span>
+                <div>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">18,000+</span>
+                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Weddings Gifted</span>
+                </div>
               </div>
-              <div>
-                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">99.8%</span>
-                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Satisfaction Rate</span>
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">star</span>
+                <div>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">4.9 / 5</span>
+                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Couples Rated</span>
+                </div>
               </div>
-              <div>
-                <span className="font-serif text-2xl sm:text-3xl text-on-surface font-semibold block leading-tight">24–48h</span>
-                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block mt-0.5">Priority Dispatch</span>
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">bolt</span>
+                <div>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">24–48h</span>
+                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Express Dispatch</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Composition Hero (Interactive Luxury 3D & Photography Showcase) */}
-          <div className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0">
-            <div className="relative w-full max-w-[440px] sm:max-w-[460px]">
-              {/* Ambient Glow Background */}
-              <div className="absolute -top-10 -right-10 w-72 h-72 bg-secondary-container/40 rounded-full blur-3xl pointer-events-none"></div>
+          {/* Right Column: Visual Showcase (3D & High-Res Photography) */}
+          <div className="lg:col-span-5 relative flex justify-center mt-4 lg:mt-0">
+            <div className="relative w-full max-w-[380px] sm:max-w-[400px]">
+              {/* Ambient Glow */}
+              <div className="absolute -top-8 -right-8 w-60 h-60 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
 
-              {/* View Switcher Pill */}
-              <div className="absolute top-4 right-4 z-30 flex items-center bg-surface-container-lowest/90 backdrop-blur-md rounded-full p-1 border border-outline-variant/50 shadow-sm text-[11px] font-semibold">
+              {/* View Switcher */}
+              <div className="absolute top-3 right-3 z-30 flex items-center bg-surface-container-lowest/90 backdrop-blur-md rounded-full p-0.5 border border-outline-variant/50 shadow-sm text-[10px] font-semibold">
                 <button
                   type="button"
                   onClick={() => setHeroMode('photo')}
-                  className={`px-3 py-1 rounded-full transition-all ${
+                  className={`px-2.5 py-0.5 rounded-full transition-all ${
                     heroMode === 'photo'
                       ? 'bg-primary text-on-primary shadow-xs'
                       : 'text-on-surface-variant hover:text-primary'
@@ -105,24 +182,24 @@ const HomePage = () => {
                 <button
                   type="button"
                   onClick={() => setHeroMode('3d')}
-                  className={`px-3 py-1 rounded-full transition-all flex items-center gap-1 ${
+                  className={`px-2.5 py-0.5 rounded-full transition-all flex items-center gap-1 ${
                     heroMode === '3d'
                       ? 'bg-primary text-on-primary shadow-xs'
                       : 'text-on-surface-variant hover:text-primary'
                   }`}
                 >
-                  <span className="material-symbols-outlined text-[13px]">view_in_ar</span>
+                  <span className="material-symbols-outlined text-[12px]">view_in_ar</span>
                   3D View
                 </button>
               </div>
 
-              {/* Primary Hero Card with Embedded 3D Canvas / Photograph */}
-              <div className="relative bg-surface-container-lowest p-2 sm:p-space-sm rounded-2xl shadow-xl overflow-hidden group border border-outline-variant/40">
-                <div className="aspect-[4/5] min-h-[380px] sm:min-h-[440px] w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
+              {/* Primary Showcase Card */}
+              <div className="relative bg-surface-container-lowest p-2 rounded-2xl shadow-lg overflow-hidden group border border-outline-variant/40">
+                <div className="aspect-[4/5] min-h-[300px] sm:min-h-[340px] max-h-[360px] w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
                   {heroMode === 'photo' ? (
                     <img
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      alt="ASRA Wedding Canvas Luxury Gift Gift Bouquet Hamper"
+                      alt="ASRA Wedding Canvas Luxury Gift Hamper"
                       src="/assets/cdn/img_ea7b421bfaad.png"
                     />
                   ) : (
@@ -132,30 +209,30 @@ const HomePage = () => {
                   )}
                 </div>
 
-                <div className="p-3.5 sm:p-space-md flex items-center justify-between bg-surface-container-lowest relative z-20">
+                <div className="p-2.5 sm:p-3 flex items-center justify-between bg-surface-container-lowest relative z-20">
                   <div>
-                    <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold block">
+                    <span className="font-label-sm text-[9px] sm:text-[10px] text-primary uppercase tracking-widest font-semibold block">
                       Artisan Spotlight
                     </span>
-                    <h3 className="font-title-md text-sm sm:text-title-md text-on-surface font-semibold">
+                    <h3 className="font-title-md text-xs sm:text-sm text-on-surface font-semibold">
                       Wedding Essentials Travel Suite
                     </h3>
                   </div>
-                  <span className="font-title-md text-sm sm:text-title-md text-primary font-bold">₹1,699</span>
+                  <span className="font-title-md text-xs sm:text-sm text-primary font-bold">₹1,699</span>
                 </div>
               </div>
 
-              {/* Overlapping Floating Badge */}
-              <div className="absolute -bottom-4 sm:-bottom-6 -left-3 sm:-left-6 bg-surface-container-lowest/95 backdrop-blur-md p-3 sm:p-space-md rounded-xl shadow-lg border border-outline-variant/40 flex items-center gap-3 sm:gap-space-md max-w-[240px] sm:max-w-[260px] z-30">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
-                  <span className="material-symbols-outlined text-[20px] sm:text-[24px]">verified_user</span>
+              {/* Overlapping Certified Badge */}
+              <div className="absolute -bottom-3 sm:-bottom-4 -left-2 sm:-left-4 bg-surface-container-lowest/95 backdrop-blur-md p-2 sm:p-2.5 rounded-lg shadow-md border border-outline-variant/40 flex items-center gap-2 max-w-[210px] sm:max-w-[230px] z-30">
+                <div className="w-8 h-8 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
+                  <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-wider font-semibold">
-                    Collection Certified
+                  <span className="font-label-sm text-[9px] text-primary uppercase tracking-wider font-semibold">
+                    Atelier Certified
                   </span>
-                  <span className="font-body-sm text-[11px] sm:text-body-sm text-on-surface font-medium leading-tight">
-                    Debossed initials with real brass plates
+                  <span className="font-body-sm text-[10px] text-on-surface font-medium leading-tight">
+                    Custom debossed with brass dies
                   </span>
                 </div>
               </div>
@@ -166,408 +243,205 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Offers & Privileges Quick Bar */}
-      <section className="w-full bg-secondary-container/30 border-y border-outline-variant/40 py-space-md px-margin">
-        <div className="max-w-[1360px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md">
-          <div className="flex items-center gap-space-sm">
-            <span className="material-symbols-outlined text-[24px] text-primary">card_giftcard</span>
+      {/* Meaningful Privilege & Code Bar - Compact */}
+      <section className="w-full bg-secondary-container/30 border-y border-outline-variant/30 py-2.5 px-margin">
+        <div className="max-w-[1360px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-center md:text-left">
+            <span className="material-symbols-outlined text-[20px] text-primary shrink-0">card_giftcard</span>
             <div>
-              <span className="font-title-sm text-title-sm text-on-surface font-semibold block">
-                Exclusive Privileges &amp; Bank Offers
+              <span className="font-title-sm text-xs text-on-surface font-semibold block">
+                Complimentary Luxury Wax-Sealed Packaging
               </span>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Save up to ₹1,500 on collections today with certified wedding codes.
+              <p className="font-body-sm text-[11px] text-on-surface-variant">
+                Enjoy free custom couple initials debossing &amp; insured delivery on orders over ₹2,499.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-space-sm flex-wrap">
-            {/* Coupon Code Chips */}
+          <div className="flex items-center gap-2 flex-wrap justify-center">
             <button
               type="button"
               onClick={() => handleCopyCoupon('ASRAFIRST')}
-              className="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest rounded border border-primary/30 hover:border-primary transition-all text-on-surface group cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-lowest rounded-md border border-primary/30 hover:border-primary transition-all text-on-surface group cursor-pointer shadow-xs"
             >
-              <span className="font-label-sm text-[11px] text-outline uppercase font-semibold">Code:</span>
-              <span className="font-mono text-label-md font-bold text-primary">ASRAFIRST</span>
-              <span className="material-symbols-outlined text-[14px] text-outline group-hover:text-primary transition-colors">
-                content_copy
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleCopyCoupon('HDFCWED1500')}
-              className="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest rounded border border-primary/30 hover:border-primary transition-all text-on-surface group cursor-pointer"
-            >
-              <span className="font-label-sm text-[11px] text-outline uppercase font-semibold">HDFC:</span>
-              <span className="font-mono text-label-md font-bold text-primary">HDFCWED1500</span>
-              <span className="material-symbols-outlined text-[14px] text-outline group-hover:text-primary transition-colors">
+              <span className="font-label-sm text-[10px] text-outline uppercase font-semibold">Welcome Code:</span>
+              <span className="font-mono text-xs font-bold text-primary">ASRAFIRST</span>
+              <span className="material-symbols-outlined text-[13px] text-outline group-hover:text-primary transition-colors">
                 content_copy
               </span>
             </button>
 
             <Link
               to="/offers"
-              className="text-primary font-label-md text-label-md font-semibold hover:underline flex items-center gap-1 ml-2"
+              className="text-primary font-label-md text-xs font-semibold hover:underline flex items-center gap-1 ml-1"
             >
-              <span>View All (6) Offers</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              <span>View All Privileges</span>
+              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Trending & New Arrivals with Peek Affordance */}
-      <section className="w-full py-space-xl px-margin bg-surface">
+      {/* Wedding Journey Stage Finder - Reduced Height */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface-container-low/40">
         <div className="max-w-[1360px] mx-auto">
-          
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-2">
             <div>
-              <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold block mb-1">
-                Handpicked Daily
+              <span className="font-label-sm text-[11px] uppercase tracking-widest text-primary font-semibold block mb-0.5">
+                Shop By Celebration Stage
               </span>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface font-medium tracking-tight">
-                Trending Gifts &amp; Favors
+              <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal">
+                Curated for Every Wedding Milestone
               </h2>
             </div>
-            <div className="flex items-center gap-space-sm">
-              <div className="flex items-center gap-1 border border-outline-variant/60 rounded p-1">
-                <button
-                  type="button"
-                  aria-label="Previous"
-                  onClick={() => scrollCarousel(-320)}
-                  className="w-8 h-8 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_left</span>
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next"
-                  onClick={() => scrollCarousel(320)}
-                  className="w-8 h-8 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_right</span>
-                </button>
-              </div>
-              <Link
-                to="/collections"
-                className="font-label-md text-label-md text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 px-3 py-2"
-              >
-                <span>View All (48)</span>
-                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-              </Link>
-            </div>
+            <Link
+              to="/shop"
+              className="font-label-md text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1"
+            >
+              <span>Browse All Milestones</span>
+              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            </Link>
           </div>
 
-          {/* Horizontal Scroll Track with Peek Affordance */}
-          <div
-            ref={carouselRef}
-            className="flex gap-space-lg overflow-x-auto pb-space-lg scrollbar-none snap-x snap-mandatory"
-          >
-            {/* Card 1: Customized Leather Travel Set */}
-            <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Custom Initials Leather Travel Set"
-                  src="/assets/cdn/img_48ec5e0e21c9.jpg"
-                />
-                <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  BESTSELLER
-                </span>
-                <button
-                  type="button"
-                  aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'leather-travel-set', title: 'Custom Initials Leather Travel Set', price: 1699 })}
-                  className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('leather-travel-set') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[18px]">favorite</span>
-                </button>
-                <span className="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] tracking-wider uppercase rounded flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[12px] text-primary">bolt</span> 24h Dispatch
-                </span>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center gap-1 text-primary mb-1">
-                  <span className="material-symbols-outlined text-[14px]">star</span>
-                  <span className="font-label-sm text-label-sm font-semibold text-on-surface">4.9</span>
-                  <span className="text-outline text-[12px]">(284)</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {weddingCeremonies.map((stage, idx) => (
+              <Link
+                key={idx}
+                to={stage.link}
+                className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-md transition-all duration-300 border border-outline-variant/30 flex flex-col"
+              >
+                <div className="aspect-[4/3] max-h-[160px] w-full overflow-hidden bg-surface-container-low relative">
+                  <img
+                    src={stage.img}
+                    alt={stage.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <span className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface">
+                    {stage.tag}
+                  </span>
                 </div>
-                <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Custom Initials Leather Travel Set
-                </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Tan Italian Leather • Free Debossed Initials
-                </p>
-                <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-title-md text-title-md font-bold text-on-surface">₹1,699</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">₹2,499</span>
+                <div className="p-3.5 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h3 className="font-serif text-base font-medium text-on-surface group-hover:text-primary transition-colors mb-0.5">
+                      {stage.title}
+                    </h3>
+                    <p className="font-body-sm text-xs text-on-surface-variant line-clamp-1">
+                      {stage.subtitle}
+                    </p>
                   </div>
-                  <Link
-                    to="/product/sovereign-bridal-suite"
-                    className="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors"
-                  >
-                    Personalize
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: Personalized Acrylic Song Plaque */}
-            <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Acoustic First Dance Acrylic Lamp"
-                  src="/assets/cdn/img_679ede3f1033.jpg"
-                />
-                <span className="absolute top-2 left-2 px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  TRENDING
-                </span>
-                <button
-                  type="button"
-                  aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'acrylic-first-dance', title: 'Acoustic First Dance Acrylic Lamp', price: 1499 })}
-                  className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('acrylic-first-dance') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[18px]">favorite</span>
-                </button>
-                <span className="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] tracking-wider uppercase rounded flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[12px] text-primary">qr_code</span> Scannable Song
-                </span>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center gap-1 text-primary mb-1">
-                  <span className="material-symbols-outlined text-[14px]">star</span>
-                  <span className="font-label-sm text-label-sm font-semibold text-on-surface">5.0</span>
-                  <span className="text-outline text-[12px]">(612)</span>
-                </div>
-                <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Acoustic First Dance Acrylic Lamp
-                </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Solid Beechwood LED Base • Scannable Audio
-                </p>
-                <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-title-md text-title-md font-bold text-on-surface">₹1,499</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">₹2,199</span>
+                  <div className="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-primary font-label-sm font-semibold text-[11px] group-hover:translate-x-0.5 transition-transform">
+                    <span>Explore Stage Gifts</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
-                  <Link
-                    to="/product/aura-acrylic-melody"
-                    className="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors"
-                  >
-                    Personalize
-                  </Link>
                 </div>
-              </div>
-            </div>
-
-            {/* Card 3: Initials Velvet Jewelry Box */}
-            <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Initials Velvet Jewel Box &amp; Pendant"
-                  src="/assets/cdn/img_677956d05c8e.jpg"
-                />
-                <span className="absolute top-2 left-2 px-2 py-0.5 bg-tertiary text-on-tertiary font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  BRIDAL FAVORITE
-                </span>
-                <button
-                  type="button"
-                  aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'velvet-jewel-box', title: 'Initials Velvet Jewel Box & Pendant', price: 1899 })}
-                  className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('velvet-jewel-box') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[18px]">favorite</span>
-                </button>
-                <span className="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] tracking-wider uppercase rounded flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[12px] text-primary">auto_fix_high</span> Foil Stamped
-                </span>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center gap-1 text-primary mb-1">
-                  <span className="material-symbols-outlined text-[14px]">star</span>
-                  <span className="font-label-sm text-label-sm font-semibold text-on-surface">4.9</span>
-                  <span className="text-outline text-[12px]">(195)</span>
-                </div>
-                <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Initials Velvet Jewel Box &amp; Pendant
-                </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Blush Velvet • 18K Gold Plated Pendant
-                </p>
-                <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-title-md text-title-md font-bold text-on-surface">₹1,899</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">₹2,899</span>
-                  </div>
-                  <Link
-                    to="/product/velvet-ring-vault"
-                    className="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors"
-                  >
-                    Personalize
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4: Gentleman's Timepiece & Leather Set */}
-            <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  alt="Groom's Heirloom Timepiece &amp; Wallet"
-                  src="/assets/cdn/img_acd95c6f65de.jpg"
-                />
-                <span className="absolute top-2 left-2 px-2 py-0.5 bg-on-surface text-surface font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  GROOM'S SUITE
-                </span>
-                <button
-                  type="button"
-                  aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'grooms-timepiece', title: "Groom's Heirloom Timepiece & Wallet", price: 2799 })}
-                  className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('grooms-timepiece') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[18px]">favorite</span>
-                </button>
-                <span className="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant font-label-sm text-[10px] tracking-wider uppercase rounded flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[12px] text-primary">workspace_premium</span> Premium Box
-                </span>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center gap-1 text-primary mb-1">
-                  <span className="material-symbols-outlined text-[14px]">star</span>
-                  <span className="font-label-sm text-label-sm font-semibold text-on-surface">4.8</span>
-                  <span className="text-outline text-[12px]">(142)</span>
-                </div>
-                <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Groom's Heirloom Timepiece &amp; Wallet
-                </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Engraved Caseback • Full-Grain Leather
-                </p>
-                <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-title-md text-title-md font-bold text-on-surface">₹2,799</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">₹3,999</span>
-                  </div>
-                  <Link
-                    to="/product/sovereign-bridal-suite"
-                    className="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors"
-                  >
-                    Personalize
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 5: Handcrafted Gift Wooden Hamper (Peek Card) */}
-            <div className="w-[280px] sm:w-[320px] shrink-0 snap-start bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between">
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-surface-container-low mb-space-md">
-                <img
-                  alt="Luxury wedding hamper"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="/assets/cdn/img_56d7a2ebc8ba.jpg"
-                />
-                <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] tracking-widest uppercase rounded">
-                  LUXURY WEDDING ESSENTIALS
-                </span>
-                <button
-                  type="button"
-                  aria-label="Wishlist"
-                  onClick={() => toggleWishlist({ id: 'heritage-wooden-hamper', title: 'Grand Classic Wooden Hamper', price: 4999 })}
-                  className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors shadow-sm ${
-                    isWishlisted('classic-wooden-hamper') ? 'text-rose-600' : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[18px]">favorite</span>
-                </button>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center gap-1 text-primary mb-1">
-                  <span className="material-symbols-outlined text-[14px]">star</span>
-                  <span className="font-label-sm text-label-sm font-semibold text-on-surface">5.0</span>
-                  <span className="text-outline text-[12px]">(89)</span>
-                </div>
-                <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors mb-1 line-clamp-1">
-                  Grand Classic Wooden Hamper
-                </h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-space-sm">
-                  Engraved Gift Box • Gourmet &amp; Tea
-                </p>
-                <div className="mt-auto pt-space-xs flex items-center justify-between border-t border-outline-variant/30">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-title-md text-title-md font-bold text-on-surface">₹4,999</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">₹6,499</span>
-                  </div>
-                  <Link
-                    to="/product/grand-heritage-trousseau-trunk"
-                    className="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors"
-                  >
-                    Personalize
-                  </Link>
-                </div>
-              </div>
-            </div>
-
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Curated Recipient Showcase ("Gifts for Everyone") */}
-      <section className="w-full py-space-xl px-margin bg-surface-container-low">
+      {/* Dynamic Trending & Bestsellers Carousel - Compact Height */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface">
         <div className="max-w-[1360px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-space-xl">
-            <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-semibold block mb-1">
-              Customized Collection by Recipient
+          
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 gap-3">
+            <div>
+              <span className="font-label-sm text-[11px] uppercase tracking-widest text-primary font-semibold block mb-0.5">
+                Handpicked Favorites
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal">
+                Trending Wedding Keepsakes &amp; Favors
+              </h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 border border-outline-variant/50 rounded-lg p-0.5 bg-surface-container-lowest shadow-xs">
+                <button
+                  type="button"
+                  aria-label="Previous"
+                  onClick={() => scrollCarousel(-340)}
+                  className="w-7 h-7 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">chevron_left</span>
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next"
+                  onClick={() => scrollCarousel(340)}
+                  className="w-7 h-7 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+                </button>
+              </div>
+              <Link
+                to="/shop"
+                className="font-label-md text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 px-2 py-1"
+              >
+                <span>View All ({PRODUCTS.length})</span>
+                <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Dynamic Scroll Track using ProductCard */}
+          <div
+            ref={carouselRef}
+            className="flex gap-3 overflow-x-auto pb-3 scrollbar-none snap-x snap-mandatory"
+          >
+            {trendingProducts.map((prod) => (
+              <div key={prod.id} className="w-[205px] sm:w-[230px] shrink-0 snap-start flex flex-col">
+                <ProductCard product={prod} aspectRatio="square" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Live Monogram Preview Studio (NEW USP FEATURE) */}
+      <MonogramPreviewStudio />
+
+      {/* Targeted Recipient Showcase - Reduced Height */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface-container-low">
+        <div className="max-w-[1360px] mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-6">
+            <span className="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-0.5">
+              Curated by Wedding Recipient
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface font-medium">
-              Thoughtfully Made for Every Bond
+            <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal">
+              Thoughtfully Handcrafted for Every Sacred Bond
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              Tailored gifts crafted with personal initials, customized messages, and heirloom packaging.
+            <p className="font-body-md text-xs text-on-surface-variant mt-1.5">
+              From the blushing bride and stylish groom to bridal parties and parents, explore personalized collections created for each bond.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* 1. For Her */}
             <Link
-              to="/collections"
-              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+              to="/shop?cat=for-her"
+              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
                 <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="For Her Bridal Gifts"
                   src="/assets/cdn/img_c9193e0400dc.jpg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim mb-1">
-                    Collection Suite
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-widest text-primary-fixed-dim mb-0.5">
+                    Bride &amp; Maid of Honor
                   </span>
-                  <h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-medium mb-1">
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
                     For Her: Grace &amp; Sentiments
                   </h3>
-                  <p className="font-body-sm text-body-sm text-surface-container-high/90 mb-space-sm line-clamp-2">
-                    Velvet jewelry boxes, personalized pendants &amp; scented candles.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Velvet jewelry boxes, personalized pendants &amp; pure silk robes.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-label-md text-primary-fixed group-hover:translate-x-1 transition-transform">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform">
                     <span>Explore For Her</span>
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -575,29 +449,29 @@ const HomePage = () => {
 
             {/* 2. For Him */}
             <Link
-              to="/collections"
-              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+              to="/shop?cat=for-him"
+              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
                 <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  alt="For Him Gentleman's Edition"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="For Him Groom Gifts"
                   src="/assets/cdn/img_8a5a665d4d2e.jpg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim mb-1">
-                    Gentleman's Edition
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-widest text-primary-fixed-dim mb-0.5">
+                    Groom &amp; Groomsmen
                   </span>
-                  <h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-medium mb-1">
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
                     For Him: Refined &amp; Timeless
                   </h3>
-                  <p className="font-body-sm text-body-sm text-surface-container-high/90 mb-space-sm line-clamp-2">
-                    Engraved watches, hand-stitched wallets &amp; luxury cufflink cases.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Engraved timepieces, Italian leather wallets &amp; cufflink vaults.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-label-md text-primary-fixed group-hover:translate-x-1 transition-transform">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform">
                     <span>Explore For Him</span>
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -605,59 +479,59 @@ const HomePage = () => {
 
             {/* 3. For Couples & Anniversaries */}
             <Link
-              to="/collections"
-              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+              to="/shop?cat=couple"
+              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
                 <img
-                  alt="Luxury wedding hamper for couples"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  alt="Luxury wedding hampers for couples"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   src="/assets/cdn/img_ecfddff03b93.jpg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim mb-1">
-                    Cherished Duos
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-widest text-primary-fixed-dim mb-0.5">
+                    Newlyweds &amp; Milestones
                   </span>
-                  <h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-medium mb-1">
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
                     Couples &amp; Anniversaries
                   </h3>
-                  <p className="font-body-sm text-body-sm text-surface-container-high/90 mb-space-sm line-clamp-2">
-                    Heirloom wooden boxes, matching travel sets &amp; song plaques.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Heirloom wooden crates, matching passport sets &amp; song plaques.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-label-md text-primary-fixed group-hover:translate-x-1 transition-transform">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform">
                     <span>Explore Couples</span>
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
             </Link>
 
-            {/* 4. For Gifts & Little Ones */}
+            {/* 4. Wedding Favors & Bulk Hampers */}
             <Link
-              to="/collections"
-              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+              to="/bulk-orders"
+              className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-surface-container relative">
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
                 <img
-                  alt="Personalized kids gift gifts"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  src="/assets/cdn/img_448c691fa5fa.jpg"
+                  alt="Bulk wedding guest favors and hampers"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/assets/cdn/img_56d7a2ebc8ba.jpg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-space-md text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim mb-1">
-                    Nursery &amp; Early Years
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-widest text-primary-fixed-dim mb-0.5">
+                    Volume Favors (25–2000+)
                   </span>
-                  <h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-medium mb-1">
-                    Playful Memories
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
+                    Favors &amp; Bulk Hampers
                   </h3>
-                  <p className="font-body-sm text-body-sm text-surface-container-high/90 mb-space-sm line-clamp-2">
-                    Carved wooden name puzzles, birth plaques &amp; soft night lights.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Custom guest name debossing, crest stamping &amp; tiered pricing.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-label-md text-primary-fixed group-hover:translate-x-1 transition-transform">
-                    <span>Explore Gifts</span>
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform">
+                    <span>Explore Bulk Favors</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -667,112 +541,186 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* "Your Idea → We Create" Collection Customized Studio Experience */}
-      <section className="w-full py-space-xl lg:py-20 px-margin bg-surface">
-        <div className="max-w-[1360px] mx-auto bg-surface-container-lowest rounded-2xl p-space-lg lg:p-space-xl shadow-md border border-outline-variant/40 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+      {/* Bulk Wedding Favors Callout & Tier Calculator - Compact */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface border-y border-outline-variant/30">
+        <div className="max-w-[1360px] mx-auto bg-gradient-to-br from-[#1c1b1b] via-[#24211e] to-[#181716] text-[#FAF8F5] rounded-2xl p-5 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden">
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#c5a880]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+            <div className="lg:col-span-7 flex flex-col">
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-[#c5a880]/20 text-[#e5c193] rounded-full font-mono text-[10px] uppercase tracking-wider font-semibold mb-3 w-fit border border-[#c5a880]/30">
+                <span className="material-symbols-outlined text-[14px]">inventory_2</span>
+                Wedding Planners &amp; Family Volume Privileges
+              </span>
+
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#FAF8F5] font-normal mb-3 leading-tight">
+                Planning Wedding Favors for Your <span className="italic text-[#c5a880]">Special Guests</span>?
+              </h2>
+
+              <p className="font-body-md text-xs sm:text-sm text-[#d5ccc0] mb-4 max-w-xl leading-relaxed">
+                Whether you need 50 personalized leather luggage tags for destination guests, or 500 hand-poured botanical hampers, we deliver tiered volume discounts, personalized guest monograms, and direct delivery to your venue.
+              </p>
+
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
+                <div className="bg-white/5 border border-white/10 rounded-lg p-2 sm:p-2.5 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">15% OFF</span>
+                  <span className="font-label-sm text-[10px] text-[#b8aea3] uppercase">50–99 Units</span>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-2 sm:p-2.5 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">20% OFF</span>
+                  <span className="font-label-sm text-[10px] text-[#b8aea3] uppercase">100–249 Units</span>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-lg p-2 sm:p-2.5 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">25%+ OFF</span>
+                  <span className="font-label-sm text-[10px] text-[#b8aea3] uppercase">250+ Units</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  to="/bulk-orders"
+                  className="px-5 py-2.5 bg-[#c5a880] text-black font-label-md text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-white transition-all shadow-md text-center"
+                >
+                  Request Bulk Quote Dossier
+                </Link>
+                <a
+                  href="https://wa.me/919692668263?text=Hi%20ASRA%2C%20I%20would%20like%20to%20inquire%20about%20bulk%20wedding%20favors."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-white/10 border border-white/20 text-[#FAF8F5] font-label-md text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-[16px] text-[#25D366]">chat</span>
+                  <span>WhatsApp Wedding Stylist</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black/40 p-3">
+                <img
+                  src="/assets/cdn/img_23f7486a1ad8.jpg"
+                  alt="Wedding favor sample suite"
+                  className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 max-h-[220px]"
+                />
+                <div className="flex items-center justify-between text-[11px] text-[#d5ccc0]">
+                  <span className="flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px] text-[#c5a880]">verified</span>
+                    Complimentary physical sample kit
+                  </span>
+                  <span className="font-mono text-[#c5a880]">ASRA B2B</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* "Your Idea → We Create" Bespoke Studio Experience - Compact */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface">
+        <div className="max-w-[1360px] mx-auto bg-surface-container-lowest rounded-xl p-5 sm:p-7 lg:p-8 shadow-sm border border-outline-variant/40 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             
             {/* Left Explainer Text */}
             <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded font-label-sm text-[11px] tracking-wider uppercase font-semibold mb-space-sm">
-                <span className="material-symbols-outlined text-[14px]">brush</span>
-                <span>Collection Customized Service</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-secondary-container text-on-secondary-container rounded font-label-sm text-[10px] tracking-wider uppercase font-semibold mb-2">
+                <span className="material-symbols-outlined text-[13px]">brush</span>
+                <span>Bespoke Atelier Service</span>
               </div>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface font-normal mb-space-sm">
+              <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal mb-2 leading-tight">
                 Your Idea → We Handcraft into Reality.
               </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-space-lg">
-                Can't find the exact initials design or packaging dimension? Send us your wedding logo, customized sketches, or moodboard. Our lead master-craftsmen render a 3D digital proof within 6 hours.
+              <p className="font-body-md text-xs sm:text-sm text-on-surface-variant mb-4 leading-relaxed">
+                Can't find the exact dimensions, monogram style, or packaging hue? Send us your wedding logo crest, sketches, or moodboard. Our master-craftsmen render a 3D digital proof within 6 hours.
               </p>
 
               {/* 3-Step Process */}
-              <div className="flex flex-col gap-space-md w-full mb-space-lg">
-                <div className="flex items-start gap-space-sm">
-                  <span className="w-7 h-7 rounded-full bg-primary text-on-primary font-bold text-label-sm flex items-center justify-center shrink-0 mt-0.5">
+              <div className="flex flex-col gap-2.5 w-full mb-5">
+                <div className="flex items-start gap-2.5">
+                  <span className="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                     1
                   </span>
                   <div>
-                    <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
-                      Share Your Vision / Upload Logo
+                    <h4 className="font-title-sm text-xs font-semibold text-on-surface">
+                      Share Your Vision / Upload Wedding Crest
                     </h4>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
-                      Send vector crests, dates, calligraphy font names or rough sketch photos.
+                    <p className="font-body-sm text-[11px] text-on-surface-variant">
+                      Send vector crests, dates, calligraphy font names or rough sketches.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-space-sm">
-                  <span className="w-7 h-7 rounded-full bg-primary text-on-primary font-bold text-label-sm flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start gap-2.5">
+                  <span className="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                     2
                   </span>
                   <div>
-                    <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
-                      Digital 3D Collection Render &amp; Approval
+                    <h4 className="font-title-sm text-xs font-semibold text-on-surface">
+                      Digital 3D Proof &amp; Approval
                     </h4>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
-                      Review lifelike foil-embossed or laser-cut previews before metal dies are cast.
+                    <p className="font-body-sm text-[11px] text-on-surface-variant">
+                      Review lifelike foil-embossed or laser-cut previews before dies are cast.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-space-sm">
-                  <span className="w-7 h-7 rounded-full bg-primary text-on-primary font-bold text-label-sm flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start gap-2.5">
+                  <span className="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                     3
                   </span>
                   <div>
-                    <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
+                    <h4 className="font-title-sm text-xs font-semibold text-on-surface">
                       Hand-finished &amp; Wax-Sealed Delivery
                     </h4>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
+                    <p className="font-body-sm text-[11px] text-on-surface-variant">
                       Individual inspection, luxury velvet ribboning, and insured express dispatch.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <a
-                  className="px-6 py-3 bg-[#25D366] text-white rounded font-label-md text-label-md font-semibold tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                  className="px-5 py-2.5 bg-[#25D366] text-white rounded-lg font-label-md text-xs font-semibold tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-xs"
                   href="https://wa.me/919692668263"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="material-symbols-outlined text-[20px]">chat</span>
-                  <span>WhatsApp Collection Support</span>
+                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  <span>WhatsApp Atelier Support</span>
                 </a>
 
                 <Link
                   to="/bespoke"
-                  className="px-6 py-3 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md font-semibold tracking-wider flex items-center justify-center gap-2 transition-colors"
+                  className="px-5 py-2.5 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-xs font-semibold tracking-wider flex items-center justify-center gap-2 transition-colors border border-outline-variant/60"
                 >
-                  <span>Submit Custom Brief Form</span>
-                  <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+                  <span>Submit Custom Brief</span>
+                  <span className="material-symbols-outlined text-[16px]">open_in_new</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Visual Showcase / Mockup Area */}
-            <div className="lg:col-span-6 bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center relative">
-              <div className="w-full aspect-[4/3] rounded-lg overflow-hidden relative shadow-md bg-surface-container">
+            {/* Right Visual Showcase */}
+            <div className="lg:col-span-6 bg-surface-container-low rounded-xl p-3.5 sm:p-5 flex flex-col items-center justify-center relative">
+              <div className="w-full aspect-[4/3] max-h-[260px] rounded-lg overflow-hidden relative shadow-sm bg-surface-container">
                 <img
                   className="w-full h-full object-cover"
                   alt="Artisan hands applying gold foil stamp"
                   src="/assets/cdn/img_9e12f2d44ec6.jpg"
                 />
-                <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-                  <span>Collection Live Workbench</span>
+                <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-[10px] text-on-surface font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                  <span>Atelier Live Workbench</span>
                 </div>
               </div>
 
-              <div className="mt-space-md w-full flex items-center justify-between px-space-xs text-on-surface-variant">
-                <div className="flex items-center gap-2 font-label-sm text-label-sm">
-                  <span className="material-symbols-outlined text-[18px] text-primary">verified</span>
-                  <span>No Minimum Order for Couples</span>
+              <div className="mt-3 w-full flex items-center justify-between px-1 text-on-surface-variant text-xs">
+                <div className="flex items-center gap-1.5 font-label-sm text-[11px]">
+                  <span className="material-symbols-outlined text-[16px] text-primary">verified</span>
+                  <span>No Minimum Order</span>
                 </div>
-                <div className="flex items-center gap-2 font-label-sm text-label-sm">
-                  <span className="material-symbols-outlined text-[18px] text-primary">design_services</span>
-                  <span>Free 3D Proof Included</span>
+                <div className="flex items-center gap-1.5 font-label-sm text-[11px]">
+                  <span className="material-symbols-outlined text-[16px] text-primary">design_services</span>
+                  <span>Free 3D Proof</span>
                 </div>
               </div>
             </div>
@@ -781,40 +729,40 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Verified Couples & Bride Stories */}
-      <section className="w-full py-space-xl px-margin bg-surface-container-low">
+      {/* Verified Couples & Bride Stories - Compact */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface-container-low">
         <div className="max-w-[1360px] mx-auto">
-          <div className="text-center max-w-xl mx-auto mb-space-xl">
-            <span className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
+          <div className="text-center max-w-lg mx-auto mb-6">
+            <span className="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-0.5">
               Loved by 3,500+ Couples
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface font-medium">
+            <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal">
               Stories from the Wedding Canvas
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Review 1 */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-primary mb-space-sm">
+                <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="material-symbols-outlined text-[18px]">star</span>
+                    <span key={i} className="material-symbols-outlined text-[16px]">star</span>
                   ))}
                 </div>
-                <p className="font-body-md text-body-md text-on-surface-variant italic mb-space-md">
+                <p className="font-body-md text-xs sm:text-[13px] text-on-surface-variant italic mb-3 leading-relaxed">
                   "The custom initials leather passport and luggage sets were the highlight of our bridal party gifts! The gold foil quality was immaculate, and the team accommodated our quick deadline of 3 days."
                 </p>
               </div>
-              <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
-                <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center text-label-sm">
+              <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
+                <div className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center text-xs">
                   SS
                 </div>
                 <div>
-                  <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+                  <h4 className="font-title-sm text-xs text-on-surface font-semibold leading-tight">
                     Sagil &amp; Shagufta
                   </h4>
-                  <span className="font-label-sm text-label-sm text-outline">
+                  <span className="font-label-sm text-[10px] text-outline">
                     Destination Wedding • Udaipur
                   </span>
                 </div>
@@ -822,26 +770,26 @@ const HomePage = () => {
             </div>
 
             {/* Review 2 */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-primary mb-space-sm">
+                <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="material-symbols-outlined text-[18px]">star</span>
+                    <span key={i} className="material-symbols-outlined text-[16px]">star</span>
                   ))}
                 </div>
-                <p className="font-body-md text-body-md text-on-surface-variant italic mb-space-md">
+                <p className="font-body-md text-xs sm:text-[13px] text-on-surface-variant italic mb-3 leading-relaxed">
                   "We ordered the acrylic first dance plaque with our Spotify song. It now glows on our bedside every night. The wooden base engraving is so delicate and deeply meaningful. Truly unforgettable."
                 </p>
               </div>
-              <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
-                <div className="w-10 h-10 rounded-full bg-primary-container text-on-primary-container font-bold flex items-center justify-center text-label-sm">
+              <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
+                <div className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-bold flex items-center justify-center text-xs">
                   JA
                 </div>
                 <div>
-                  <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+                  <h4 className="font-title-sm text-xs text-on-surface font-semibold leading-tight">
                     Jawed &amp; Asra
                   </h4>
-                  <span className="font-label-sm text-label-sm text-outline">
+                  <span className="font-label-sm text-[10px] text-outline">
                     1st Anniversary • Bengaluru
                   </span>
                 </div>
@@ -849,26 +797,26 @@ const HomePage = () => {
             </div>
 
             {/* Review 3 */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-primary mb-space-sm">
+                <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="material-symbols-outlined text-[18px]">star</span>
+                    <span key={i} className="material-symbols-outlined text-[16px]">star</span>
                   ))}
                 </div>
-                <p className="font-body-md text-body-md text-on-surface-variant italic mb-space-md">
+                <p className="font-body-md text-xs sm:text-[13px] text-on-surface-variant italic mb-3 leading-relaxed">
                   "The customized bridal party velvet jewelry boxes were packaged like luxury Parisian heirloom gifts. The wax seals and handwritten calligraphy cards made my bridesmaids cry happy tears!"
                 </p>
               </div>
-              <div className="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant/30">
-                <div className="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container font-bold flex items-center justify-center text-label-sm">
+              <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
+                <div className="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container font-bold flex items-center justify-center text-xs">
                   SB
                 </div>
                 <div>
-                  <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+                  <h4 className="font-title-sm text-xs text-on-surface font-semibold leading-tight">
                     Miss Sultana Begum
                   </h4>
-                  <span className="font-label-sm text-label-sm text-outline">
+                  <span className="font-label-sm text-[10px] text-outline">
                     Bride • Mumbai
                   </span>
                 </div>
@@ -878,54 +826,106 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Brand Pillars Assurance Bar */}
-      <section className="w-full py-space-xl px-margin bg-surface border-t border-outline-variant/40">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-space-lg">
-          <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[26px]">handshake</span>
+      {/* Quick Buyer FAQ Accordion - Compact */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface">
+        <div className="max-w-[800px] mx-auto">
+          <div className="text-center mb-5">
+            <span className="font-label-sm text-[11px] uppercase tracking-widest text-primary font-semibold block mb-0.5">
+              Need Clarity?
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="space-y-2.5">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-lg border border-outline-variant/40 bg-surface-container-lowest overflow-hidden transition-all duration-200"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    className="w-full p-3 sm:p-3.5 text-left flex items-center justify-between gap-3 font-title-sm text-xs sm:text-sm text-on-surface font-semibold hover:text-primary transition-colors"
+                  >
+                    <span>{faq.q}</span>
+                    <span className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${isOpen ? 'rotate-180 text-primary' : 'text-outline'}`}>
+                      expand_more
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-3 sm:px-3.5 pb-3.5 pt-0 font-body-sm text-xs text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
+                      <p className="mt-2">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-5">
+            <Link
+              to="/faq"
+              className="text-primary font-label-md text-xs font-semibold hover:underline inline-flex items-center gap-1"
+            >
+              <span>Have more questions? Read Full FAQ Center</span>
+              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Brand Pillars Assurance Bar - Compact */}
+      <section className="w-full py-6 sm:py-8 px-margin bg-surface-container-low/50 border-t border-outline-variant/40">
+        <div className="max-w-[1360px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">handshake</span>
             </div>
             <div>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+              <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 100% Customized Craft
               </h4>
-              <p className="font-body-sm text-body-sm text-outline">Every item personalized with care</p>
+              <p className="font-body-sm text-[11px] text-outline">Every piece personalized with brass dies</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[26px]">local_shipping</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">local_shipping</span>
             </div>
             <div>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+              <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 Insured Express Delivery
               </h4>
-              <p className="font-body-sm text-body-sm text-outline">Across India &amp; 40+ countries</p>
+              <p className="font-body-sm text-[11px] text-outline">Across India &amp; 40+ countries</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[26px]">inventory_2</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">inventory_2</span>
             </div>
             <div>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
+              <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 Wax-Sealed Gift Wrap
               </h4>
-              <p className="font-body-sm text-body-sm text-outline">Complimentary unboxing grace</p>
+              <p className="font-body-sm text-[11px] text-outline">Complimentary unboxing grace</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[26px]">support_agent</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">support_agent</span>
             </div>
             <div>
-              <h4 className="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">
-                Collection Support
+              <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
+                Dedicated Atelier Stylist
               </h4>
-              <p className="font-body-sm text-body-sm text-outline">Dedicated wedding gift stylists</p>
+              <p className="font-body-sm text-[11px] text-outline">Live 1-on-1 assistance via WhatsApp</p>
             </div>
           </div>
         </div>
