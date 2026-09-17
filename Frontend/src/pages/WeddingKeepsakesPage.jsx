@@ -279,8 +279,9 @@ const WeddingKeepsakesPage = () => {
             product.id === 'deckle-vow-books' ||
             product.title?.toLowerCase().includes('vow');
           if (!match) return false;
-        } else if (activeTab === 'wedding essentials-vaults') {
+        } else if (activeTab === 'trousseau-vaults' || activeTab === 'wedding essentials-vaults') {
           const match =
+            product.subCategory === 'trousseau-vaults' ||
             product.subCategory === 'wedding essentials-vaults' ||
             product.category === 'velvet-boxes' ||
             product.category === 'wedding essentials-suites' ||
@@ -532,11 +533,11 @@ const WeddingKeepsakesPage = () => {
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[320px] bg-gradient-to-b from-primary-fixed/25 via-secondary-container/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
         {/* Collection Breadcrumb & Header Hero from Stitch MCP */}
-        <section className="max-w-[1360px] mx-auto px-4 sm:px-8 pt-6 pb-6 w-full">
+        <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
           {/* Breadcrumb Bar */}
           <nav
             aria-label="Breadcrumbs"
-            className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm mb-space-sm uppercase tracking-widest text-xs"
+            className="flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-outline mb-4"
           >
             <Link to="/" className="hover:text-primary transition-colors">
               Home
@@ -550,65 +551,57 @@ const WeddingKeepsakesPage = () => {
           </nav>
 
           {/* Editorial Banner Structure */}
-          <div className="bg-surface-container-lowest rounded-xl p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden mb-space-lg border border-outline-variant/30">
+          <div className="bg-surface-container-lowest rounded-xl p-6 sm:p-8 lg:p-10 shadow-xs relative overflow-hidden mb-8 border border-outline-variant/30">
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary-fixed/15 rounded-full blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full mb-space-sm shadow-2xs">
-                  <span
-                    className="material-symbols-outlined text-[15px] text-primary"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    stars
-                  </span>
-                  <span className="font-label-sm text-label-sm tracking-[0.2em] text-primary uppercase font-bold text-[11px]">
-                    The Collection Wedding Suite
-                  </span>
-                </div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-on-surface tracking-tight leading-tight mb-2">
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+              <div className="max-w-2xl">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2">
+                  The Collection Wedding Suite
+                </span>
+                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface mb-3">
                   Customized Wedding Gifts &amp; Bridal Luxuries
                 </h1>
-                <p className="font-sans text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed mt-2">
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
                   Celebrate timeless unions with handcrafted vow books, personalized bridal hampers, initials wedding essentials boxes, and heirloom gifts crafted to cherish forever.
                 </p>
               </div>
 
-              {/* Key Metrics Badges from Stitch MCP */}
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-space-sm shrink-0 mt-4 lg:mt-0">
-                <div className="bg-surface-container-low px-4 py-2.5 rounded-lg flex items-center gap-2.5 border border-outline-variant/30 shadow-2xs">
+              {/* Key Metrics Badges */}
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0 mt-4 lg:mt-0">
+                <div className="bg-surface-container-low px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-outline-variant/30 shadow-xs">
                   <span className="material-symbols-outlined text-primary text-[22px]">palette</span>
                   <div className="flex flex-col">
-                    <span className="font-sans text-sm text-on-surface leading-tight font-bold">
+                    <span className="text-sm text-on-surface leading-tight font-bold font-serif">
                       140+
                     </span>
-                    <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] text-outline uppercase tracking-wider font-semibold">
                       Wedding Creations
                     </span>
                   </div>
                 </div>
 
-                <div className="bg-surface-container-low px-4 py-2.5 rounded-lg flex items-center gap-2.5 border border-outline-variant/30 shadow-2xs">
+                <div className="bg-surface-container-low px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-outline-variant/30 shadow-xs">
                   <span className="material-symbols-outlined text-primary text-[22px]">
                     workspace_premium
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-sans text-sm text-on-surface leading-tight font-bold">
+                    <span className="text-sm text-on-surface leading-tight font-bold font-serif">
                       100%
                     </span>
-                    <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] text-outline uppercase tracking-wider font-semibold">
                       Handcrafted Quality
                     </span>
                   </div>
                 </div>
 
-                <div className="bg-surface-container-low px-4 py-2.5 rounded-lg flex items-center gap-2.5 border border-outline-variant/30 shadow-2xs">
+                <div className="bg-surface-container-low px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-outline-variant/30 shadow-xs">
                   <span className="material-symbols-outlined text-primary text-[22px]">bolt</span>
                   <div className="flex flex-col">
-                    <span className="font-sans text-sm text-on-surface leading-tight font-bold">
+                    <span className="text-sm text-on-surface leading-tight font-bold font-serif">
                       48H
                     </span>
-                    <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] text-outline uppercase tracking-wider font-semibold">
                       Priority Dispatch
                     </span>
                   </div>
@@ -635,10 +628,10 @@ const WeddingKeepsakesPage = () => {
                       }
                       setSearchParams(newParams);
                     }}
-                    className={`px-4 py-2 rounded-lg whitespace-nowrap text-xs transition-all font-semibold cursor-pointer shrink-0 ${
+                    className={`px-4 py-2 rounded-full text-xs whitespace-nowrap transition-all duration-300 font-semibold cursor-pointer shrink-0 ${
                       isActive
-                        ? 'bg-on-surface text-surface-container-lowest shadow-sm'
-                        : 'bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface-variant'
+                        ? 'bg-primary text-on-primary shadow-xs'
+                        : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'
                     }`}
                   >
                     {tab.label}
@@ -651,7 +644,7 @@ const WeddingKeepsakesPage = () => {
       </div>
 
       {/* Main Content Grid: Sidebar + Product Showcase */}
-      <section id="products" ref={productsSectionRef} className="max-w-[1360px] mx-auto px-4 sm:px-8 w-full pb-16 scroll-mt-32">
+      <section id="products" ref={productsSectionRef} className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12 sm:pb-16 scroll-mt-32">
         {/* Mobile Filter Drawer Open Button & Search Bar on Mobile */}
         <div className="lg:hidden mb-4 flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
@@ -817,10 +810,10 @@ const WeddingKeepsakesPage = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Filter Sidebar (Col 3 on Large) & Mobile Drawer */}
           <aside
-            className={`lg:col-span-3 flex flex-col gap-space-lg ${
+            className={`lg:col-span-3 flex flex-col gap-6 ${
               mobileFilterOpen
                 ? 'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm p-4 overflow-y-auto flex justify-end transition-opacity duration-300'
                 : 'hidden lg:flex'
@@ -832,7 +825,7 @@ const WeddingKeepsakesPage = () => {
             }}
           >
             <div
-              className={`bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col gap-5 border border-outline-variant/30 ${
+              className={`bg-surface-container-lowest p-5 rounded-xl shadow-xs flex flex-col gap-5 border border-outline-variant/30 ${
                 mobileFilterOpen
                   ? 'w-full max-w-sm h-full overflow-y-auto p-6 rounded-2xl animate-in slide-in-from-right duration-200'
                   : 'sticky top-[160px]'
@@ -1066,7 +1059,7 @@ const WeddingKeepsakesPage = () => {
                           onClick={() => setSelectedPriceRange(isSelected ? 'all' : p.id)}
                           className={`px-2 py-1.5 rounded text-[11px] transition-colors text-center cursor-pointer ${
                             isSelected
-                              ? 'bg-primary text-on-primary font-bold shadow-sm'
+                              ? 'bg-primary text-on-primary font-bold shadow-xs'
                               : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-medium'
                           }`}
                         >
@@ -1079,7 +1072,7 @@ const WeddingKeepsakesPage = () => {
               </div>
 
               {/* Support WhatsApp Callout Card from Stitch MCP */}
-              <div className="bg-gradient-to-br from-[#1C1B1B] to-[#2E2B28] text-surface-container-lowest rounded-xl flex flex-col gap-2 relative overflow-hidden mt-2 p-4 shadow-sm">
+              <div className="bg-gradient-to-br from-[#1C1B1B] to-[#2E2B28] text-surface-container-lowest rounded-xl flex flex-col gap-2 relative overflow-hidden mt-2 p-4 shadow-xs">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-primary-fixed text-[20px]">
                     support_agent
@@ -1092,7 +1085,7 @@ const WeddingKeepsakesPage = () => {
                   Need custom bridal suite favors for 50+ guests? Connect with our dedicated wedding curator.
                 </p>
                 <a
-                  className="mt-1 inline-flex items-center justify-center gap-2 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container text-xs uppercase tracking-wider font-bold rounded transition-colors"
+                  className="mt-1 inline-flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs uppercase tracking-wider font-semibold rounded-lg transition-all duration-300 shadow-xs"
                   href="https://wa.me/919692668263?text=Hello%20ASRA%20Wedding%20Canvas,%20I%20would%20like%20to%20consult%20with%20a%20wedding%20stylist%20for%20bridal%20keepsakes."
                   target="_blank"
                   rel="noopener noreferrer"
@@ -1106,7 +1099,7 @@ const WeddingKeepsakesPage = () => {
                 <button
                   type="button"
                   onClick={() => setMobileFilterOpen(false)}
-                  className="mt-2 w-full py-2.5 bg-primary text-on-primary text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm cursor-pointer"
+                  className="mt-2 w-full py-2.5 bg-primary text-on-primary text-xs font-semibold uppercase tracking-wider rounded-lg shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
                   Apply Filters ({sortedProducts.length} Results)
                 </button>
@@ -1115,15 +1108,15 @@ const WeddingKeepsakesPage = () => {
           </aside>
 
           {/* Products Grid Stream (Col 9 on Large) */}
-          <main className="lg:col-span-9 flex flex-col gap-space-lg">
-            {/* Sorting & Results Summary Bar from Stitch MCP */}
-            <div className="bg-surface-container-lowest px-4 py-3 rounded-xl flex flex-wrap items-center justify-between gap-space-sm shadow-sm border border-outline-variant/30">
+          <main className="lg:col-span-9 flex flex-col gap-6">
+            {/* Sorting & Results Summary Bar */}
+            <div className="bg-surface-container-lowest px-4 py-3 rounded-xl flex flex-wrap items-center justify-between gap-3 shadow-xs border border-outline-variant/30">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs sm:text-sm text-on-surface font-bold font-sans">
+                <span className="text-xs sm:text-sm text-on-surface font-semibold font-sans">
                   Showing {paginatedProducts.length} of {sortedProducts.length} Curated Masterpieces
                 </span>
                 <span className="text-outline-variant">•</span>
-                <span className="text-xs text-primary uppercase tracking-widest font-bold">
+                <span className="text-xs text-primary uppercase tracking-widest font-semibold">
                   Handmade On-Order
                 </span>
               </div>
@@ -1147,7 +1140,7 @@ const WeddingKeepsakesPage = () => {
 
             {/* 12 Luxury Product Cards Grid */}
             {paginatedProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-space-md">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                 {paginatedProducts.map((product) => {
                   const isWishlisted = isInWishlist(product.id);
                   const discountPercent = product.originalPrice
@@ -1159,7 +1152,7 @@ const WeddingKeepsakesPage = () => {
                   return (
                     <article
                       key={product.id}
-                      className="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-sm hover:shadow-md transition-all duration-300 relative border border-outline-variant/30"
+                      className="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group shadow-xs hover:shadow-md transition-all duration-300 relative border border-outline-variant/30"
                     >
                       {/* Card Thumbnail & Action Badges */}
                       <div className="relative w-full aspect-square overflow-hidden bg-surface-container-low">
@@ -1174,7 +1167,7 @@ const WeddingKeepsakesPage = () => {
                               e.target.onerror = null;
                               e.target.src = FALLBACK_IMAGE;
                             }}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                             loading="lazy"
                           />
                         </Link>
@@ -1182,31 +1175,12 @@ const WeddingKeepsakesPage = () => {
                         {/* Top-Left Category & Special Badges */}
                         <div className="absolute top-3 left-3 flex flex-col gap-1 z-10 pointer-events-none">
                           {product.badge && (
-                            <span
-                              className={`text-[10px] tracking-wider uppercase px-2 py-0.5 rounded font-bold shadow-xs ${
-                                product.badge.includes('Preservation') ||
-                                product.badge.includes('Timber') ||
-                                product.badge.includes('Makrana')
-                                  ? 'bg-[#725B38] text-surface-container-lowest'
-                                  : product.badge.includes('Silk') ||
-                                      product.badge.includes('Paper') ||
-                                      product.badge.includes('Crystal') ||
-                                      product.badge.includes('Wedding Essentials')
-                                    ? 'bg-secondary text-on-secondary'
-                                    : 'bg-primary text-on-primary'
-                              }`}
-                            >
+                            <span className="px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
                               {product.badge}
                             </span>
                           )}
                           {product.secondaryBadge && (
-                            <span
-                              className={`text-[10px] tracking-wider uppercase px-2 py-0.5 rounded shadow-xs ${
-                                product.secondaryBadge.includes('Mehendi')
-                                  ? 'bg-secondary-container text-on-secondary-container font-bold'
-                                  : 'bg-inverse-surface/85 text-surface-container-lowest'
-                              }`}
-                            >
+                            <span className="px-2 py-0.5 bg-black/75 backdrop-blur-sm text-white text-[10px] font-semibold uppercase tracking-wider rounded shadow-xs">
                               {product.secondaryBadge}
                             </span>
                           )}
@@ -1217,7 +1191,7 @@ const WeddingKeepsakesPage = () => {
                           type="button"
                           aria-label={isWishlisted ? 'Remove from Wishlist' : 'Save to Wishlist'}
                           onClick={() => toggleWishlist(product.id)}
-                          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm z-10 cursor-pointer"
+                          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-rose-600 transition-colors shadow-xs z-10 cursor-pointer"
                         >
                           <span
                             className={`material-symbols-outlined text-[18px] transition-colors ${
@@ -1234,7 +1208,7 @@ const WeddingKeepsakesPage = () => {
                           <button
                             type="button"
                             onClick={() => handleOpenQuickView(product)}
-                            className="w-full py-1.5 px-3 bg-surface-container-lowest/90 backdrop-blur-sm hover:bg-surface-container-lowest text-on-surface text-[11px] font-bold rounded-lg shadow-md flex items-center justify-center gap-1.5 border border-outline-variant/40 cursor-pointer"
+                            className="w-full py-1.5 px-3 bg-surface-container-lowest/90 backdrop-blur-sm hover:bg-surface-container-lowest text-on-surface text-[11px] font-semibold uppercase tracking-wider rounded-lg shadow-xs flex items-center justify-center gap-1.5 border border-outline-variant/40 cursor-pointer transition-all duration-300"
                           >
                             <span className="material-symbols-outlined text-[15px] text-primary">
                               visibility
@@ -1245,17 +1219,17 @@ const WeddingKeepsakesPage = () => {
                       </div>
 
                       {/* Card Content & Details */}
-                      <div className="p-4 flex flex-col flex-1 justify-between gap-3">
+                      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3">
                         <div className="flex flex-col">
                           {/* Rating & Reviews */}
-                          <div className="flex items-center gap-1 text-[#C5A880] mb-1">
+                          <div className="flex items-center gap-1 text-[#C5A880] mb-1.5">
                             <span
                               className="material-symbols-outlined text-[16px]"
                               style={{ fontVariationSettings: "'FILL' 1" }}
                             >
                               star
                             </span>
-                            <span className="text-xs text-on-surface font-bold font-sans">
+                            <span className="text-xs text-on-surface font-semibold font-sans">
                               {product.rating || 4.9}
                             </span>
                             <span className="text-[11px] text-outline font-sans">
@@ -1265,21 +1239,21 @@ const WeddingKeepsakesPage = () => {
 
                           {/* Title linking to product detail */}
                           <Link to={`/product/${product.slug || product.id}`}>
-                            <h2 className="font-serif text-base font-semibold text-on-surface group-hover:text-primary transition-colors leading-snug line-clamp-1">
+                            <h2 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface group-hover:text-primary transition-colors line-clamp-1">
                               {product.title}
                             </h2>
                           </Link>
 
                           {/* Short Description */}
-                          <p className="text-xs text-on-surface-variant line-clamp-2 mt-1 leading-relaxed">
+                          <p className="text-xs text-on-surface-variant line-clamp-2 mt-1.5 leading-relaxed font-sans">
                             {product.shortDescription}
                           </p>
                         </div>
 
                         {/* Price & CTA Section */}
-                        <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/20">
+                        <div className="flex flex-col gap-3 pt-3 border-t border-outline-variant/20">
                           <div className="flex items-baseline gap-2">
-                            <span className="font-serif text-base font-bold text-on-surface">
+                            <span className="font-serif text-lg font-normal text-on-surface">
                               ₹{product.price.toLocaleString('en-IN')}
                             </span>
                             {product.originalPrice && (
@@ -1288,7 +1262,7 @@ const WeddingKeepsakesPage = () => {
                               </span>
                             )}
                             {discountPercent && (
-                              <span className="text-xs text-primary font-bold font-sans">
+                              <span className="text-xs text-emerald-700 font-semibold font-sans">
                                 {discountPercent}% OFF
                               </span>
                             )}
@@ -1298,7 +1272,7 @@ const WeddingKeepsakesPage = () => {
                           <button
                             type="button"
                             onClick={() => handleOpenCustomizer(product)}
-                            className="w-full py-2.5 px-4 bg-on-surface hover:bg-primary text-surface-container-lowest text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 font-bold shadow-xs cursor-pointer"
+                            className="w-full px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <span className="material-symbols-outlined text-[18px]">edit</span>
                             <span>Customize For Wedding</span>
@@ -1314,25 +1288,25 @@ const WeddingKeepsakesPage = () => {
                 <span className="material-symbols-outlined text-outline text-[48px] mb-2">
                   search_off
                 </span>
-                <h3 className="font-serif text-lg text-on-surface font-semibold">
+                <h3 className="font-serif text-lg text-on-surface font-medium">
                   No Wedding Gifts Found
                 </h3>
-                <p className="text-xs text-on-surface-variant mt-1 max-w-sm mx-auto">
-                  We could not find items matching your active combination of filters. Try clearing some selections to explore our full collection collection.
+                <p className="text-xs text-on-surface-variant mt-1 max-w-sm mx-auto font-sans leading-relaxed">
+                  We could not find items matching your active combination of filters. Try clearing some selections to explore our full collection.
                 </p>
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="mt-4 px-4 py-2 bg-primary text-on-primary rounded text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-primary/90 transition-colors cursor-pointer"
+                  className="mt-4 px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
                   Reset All Filters
                 </button>
               </div>
             )}
 
-            {/* Pagination / Collection Load More from Stitch MCP */}
+            {/* Pagination */}
             {sortedProducts.length > 0 && (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-6 border-t border-outline-variant/20">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-outline-variant/20">
                 <span className="text-xs text-on-surface-variant font-sans">
                   Showing {Math.min((currentPage - 1) * itemsPerPage + 1, sortedProducts.length)} to{' '}
                   {Math.min(currentPage * itemsPerPage, sortedProducts.length)} of {sortedProducts.length} customized wedding creations
@@ -1343,7 +1317,7 @@ const WeddingKeepsakesPage = () => {
                       key={page}
                       type="button"
                       onClick={() => setCurrentPage(page)}
-                      className={`w-9 h-9 rounded text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer ${
+                      className={`w-9 h-9 rounded-lg text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer ${
                         currentPage === page
                           ? 'bg-primary text-on-primary font-bold shadow-xs'
                           : 'bg-surface-container hover:bg-surface-container-high text-on-surface'
@@ -1358,7 +1332,7 @@ const WeddingKeepsakesPage = () => {
                       <button
                         type="button"
                         onClick={() => setCurrentPage(totalPages)}
-                        className={`w-9 h-9 rounded text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer ${
+                        className={`w-9 h-9 rounded-lg text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer ${
                           currentPage === totalPages
                             ? 'bg-primary text-on-primary font-bold shadow-xs'
                             : 'bg-surface-container hover:bg-surface-container-high text-on-surface'
@@ -1372,7 +1346,7 @@ const WeddingKeepsakesPage = () => {
                     <button
                       type="button"
                       onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                      className="px-3 h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-medium flex items-center gap-1 transition-colors cursor-pointer"
+                      className="px-3 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold uppercase tracking-wider flex items-center gap-1 transition-colors cursor-pointer"
                     >
                       <span>Next</span>
                       <span className="material-symbols-outlined text-[16px]">chevron_right</span>
@@ -1385,14 +1359,14 @@ const WeddingKeepsakesPage = () => {
         </div>
       </section>
 
-      {/* Curated Wedding Collection Services & Bulk Gifting Highlight Banner from Stitch MCP */}
-      <section className="w-full bg-surface-container-low py-14 border-t border-outline-variant/20">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-sans text-xs text-primary uppercase tracking-[0.25em] font-bold">
+      {/* Curated Wedding Collection Services & Bulk Gifting Highlight Banner */}
+      <section className="w-full bg-surface-container-low py-8 sm:py-10 lg:py-12 border-t border-outline-variant/20">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2 font-sans">
               Specialist Wedding Services
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-on-surface mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
               Curated Wedding Collection Privileges
             </h2>
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
@@ -1400,24 +1374,24 @@ const WeddingKeepsakesPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
             {/* Collection Service 1 */}
-            <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
+            <div className="bg-surface-container-lowest rounded-xl shadow-xs flex flex-col justify-between group hover:shadow-md transition-all duration-300 p-6 border border-outline-variant/30">
               <div className="flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4 shadow-xs">
+                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 shadow-xs">
                   <span className="material-symbols-outlined text-[24px]">draw</span>
                 </div>
-                <h3 className="font-serif text-lg text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2 group-hover:text-primary transition-colors">
                   Complimentary Bridal Initials
                 </h3>
-                <p className="text-xs text-on-surface-variant leading-relaxed">
+                <p className="text-xs text-on-surface-variant leading-relaxed font-sans">
                   Every couple receives a customized digital and wax-stamp wedding initials crafted by our resident calligrapher on orders exceeding ₹5,000.
                 </p>
               </div>
               <div className="pt-4 border-t border-outline-variant/20 mt-4">
                 <Link
                   to="/bespoke"
-                  className="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline"
+                  className="inline-flex items-center gap-1.5 text-primary text-xs font-semibold uppercase tracking-wider hover:underline"
                 >
                   <span>Claim Initials Consult</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -1426,22 +1400,22 @@ const WeddingKeepsakesPage = () => {
             </div>
 
             {/* Collection Service 2 */}
-            <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
+            <div className="bg-surface-container-lowest rounded-xl shadow-xs flex flex-col justify-between group hover:shadow-md transition-all duration-300 p-6 border border-outline-variant/30">
               <div className="flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-4 shadow-xs">
+                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 shadow-xs">
                   <span className="material-symbols-outlined text-[24px]">diversity_1</span>
                 </div>
-                <h3 className="font-serif text-lg text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2 group-hover:text-primary transition-colors">
                   Bulk Favors &amp; Gifting Support
                 </h3>
-                <p className="text-xs text-on-surface-variant leading-relaxed">
+                <p className="text-xs text-on-surface-variant leading-relaxed font-sans">
                   Planning Mehendi or destination wedding welcome hampers? Enjoy tiered bridal party discounts, custom wax packaging, and direct venue dispatch.
                 </p>
               </div>
               <div className="pt-4 border-t border-outline-variant/20 mt-4">
                 <Link
                   to="/bulk-orders"
-                  className="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline"
+                  className="inline-flex items-center gap-1.5 text-primary text-xs font-semibold uppercase tracking-wider hover:underline"
                 >
                   <span>View Bulk Privilege Tiers</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -1450,22 +1424,22 @@ const WeddingKeepsakesPage = () => {
             </div>
 
             {/* Collection Service 3 */}
-            <div className="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-all p-6 border border-outline-variant/30">
+            <div className="bg-surface-container-lowest rounded-xl shadow-xs flex flex-col justify-between group hover:shadow-md transition-all duration-300 p-6 border border-outline-variant/30">
               <div className="flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-4 shadow-xs">
+                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 shadow-xs">
                   <span className="material-symbols-outlined text-[24px]">local_florist</span>
                 </div>
-                <h3 className="font-serif text-lg text-on-surface mb-2 font-semibold group-hover:text-primary transition-colors">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2 group-hover:text-primary transition-colors">
                   Archival Varmala Floral Preservation
                 </h3>
-                <p className="text-xs text-on-surface-variant leading-relaxed">
+                <p className="text-xs text-on-surface-variant leading-relaxed font-sans">
                   Ship your sacred ceremony varmalas and bouquets to our master lab in Hyderabad. We freeze dry and encase them forever in crystal UV resin frames.
                 </p>
               </div>
               <div className="pt-4 border-t border-outline-variant/20 mt-4">
                 <Link
                   to="/bespoke"
-                  className="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline"
+                  className="inline-flex items-center gap-1.5 text-primary text-xs font-semibold uppercase tracking-wider hover:underline"
                 >
                   <span>Book Flower Collection</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -1476,47 +1450,47 @@ const WeddingKeepsakesPage = () => {
         </div>
       </section>
 
-      {/* Value Trust Banners from Stitch MCP */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-8 py-12 w-full">
+      {/* Value Trust Banners */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
+          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">fingerprint</span>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
+            <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">
               100% Customized Craft
             </h4>
-            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal font-sans">
               Individualized couple names, dates &amp; vows
             </p>
           </div>
 
-          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
+          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">
               verified_user
             </span>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
+            <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">
               Insured Global Courier
             </h4>
-            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal font-sans">
               Zero damage guarantee across 140+ cities
             </p>
           </div>
 
-          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
+          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">loyalty</span>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
+            <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">
               Wax-Sealed Luxury Box
             </h4>
-            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal font-sans">
               Unboxing worthy of wedding celebrations
             </p>
           </div>
 
-          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-2xs">
+          <div className="flex flex-col items-center p-5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">headset_mic</span>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wide">
+            <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">
               Collection Privilege Desk
             </h4>
-            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+            <p className="text-[11px] text-on-surface-variant mt-1 leading-normal font-sans">
               Dedicated bridal coordinator via WhatsApp
             </p>
           </div>
@@ -1750,14 +1724,14 @@ const WeddingKeepsakesPage = () => {
                 <button
                   type="button"
                   onClick={() => setCustomizingProduct(null)}
-                  className="px-3.5 py-2 rounded-lg text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"
+                  className="px-4 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleConfirmCustomization}
-                  className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-on-primary rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-sm flex items-center gap-1.5 cursor-pointer"
+                  className="px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 flex items-center gap-1.5 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[16px]">shopping_bag</span>
                   <span>
@@ -1784,7 +1758,7 @@ const WeddingKeepsakesPage = () => {
           >
             <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-4">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded">
+                <span className="px-2 py-0.5 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
                   {quickViewProduct.badge || 'Collection Masterpiece'}
                 </span>
                 <h3 className="font-serif text-base font-semibold text-on-surface line-clamp-1">
@@ -1839,25 +1813,25 @@ const WeddingKeepsakesPage = () => {
               <div className="flex flex-col justify-between text-xs">
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="font-serif text-xl font-bold text-on-surface">
+                    <span className="font-serif text-xl font-normal text-on-surface">
                       ₹{quickViewProduct.price.toLocaleString('en-IN')}
                     </span>
                     {quickViewProduct.originalPrice && (
-                      <span className="text-outline line-through">
+                      <span className="text-outline line-through font-sans">
                         ₹{quickViewProduct.originalPrice.toLocaleString('en-IN')}
                       </span>
                     )}
                   </div>
-                  <p className="text-on-surface-variant leading-relaxed mb-3">
+                  <p className="text-on-surface-variant leading-relaxed mb-3 font-sans">
                     {quickViewProduct.description || quickViewProduct.shortDescription}
                   </p>
 
                   {quickViewProduct.inclusions && quickViewProduct.inclusions.length > 0 && (
                     <div className="bg-surface-container-low p-3 rounded-lg border border-outline-variant/30 mb-3">
-                      <span className="font-bold text-[11px] text-on-surface block mb-1 uppercase tracking-wide">
+                      <span className="font-semibold text-[11px] text-on-surface block mb-1 uppercase tracking-wider font-sans">
                         Collection Suite Inclusions:
                       </span>
-                      <ul className="space-y-1 text-[11px] text-on-surface-variant">
+                      <ul className="space-y-1 text-[11px] text-on-surface-variant font-sans">
                         {quickViewProduct.inclusions.slice(0, 4).map((inc, i) => (
                           <li key={i} className="flex items-start gap-1.5">
                             <span className="material-symbols-outlined text-[14px] text-primary shrink-0 mt-0.5">
@@ -1879,7 +1853,7 @@ const WeddingKeepsakesPage = () => {
                       setQuickViewProduct(null);
                       handleOpenCustomizer(prod);
                     }}
-                    className="w-full py-2.5 bg-primary hover:bg-primary/90 text-on-primary rounded-lg font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+                    className="w-full px-5 py-2.5 bg-primary text-on-primary rounded-lg font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-1.5 shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-[16px]">edit</span>
                     <span>Customize This Piece</span>
@@ -1887,7 +1861,7 @@ const WeddingKeepsakesPage = () => {
                   <Link
                     to={`/product/${quickViewProduct.slug || quickViewProduct.id}`}
                     onClick={() => setQuickViewProduct(null)}
-                    className="w-full py-2 text-center text-xs font-semibold text-primary hover:underline"
+                    className="w-full py-2 text-center text-xs font-semibold uppercase tracking-wider text-primary hover:underline"
                   >
                     View Comprehensive Specifications →
                   </Link>

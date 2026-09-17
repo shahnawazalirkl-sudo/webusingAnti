@@ -351,8 +351,8 @@ const ProductDetailPage = () => {
   return (
     <div className="flex flex-col w-full bg-surface text-on-surface antialiased">
       {/* Breadcrumb Navigation Bar */}
-      <nav aria-label="Breadcrumb" className="w-full bg-surface-container-low px-4 sm:px-8 lg:px-margin py-space-sm shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant overflow-x-auto whitespace-nowrap">
+      <nav aria-label="Breadcrumb" className="w-full bg-surface-container-low px-4 sm:px-6 lg:px-8 py-3 shadow-xs">
+        <div className="max-w-[1360px] mx-auto flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-on-surface-variant overflow-x-auto whitespace-nowrap">
           <Link to="/" className="hover:text-primary transition-colors">Home</Link>
           <span className="text-outline-variant font-serif">/</span>
           <Link to="/collections" className="hover:text-primary transition-colors">Wedding</Link>
@@ -364,14 +364,14 @@ const ProductDetailPage = () => {
       </nav>
 
       {/* Main Product Section (Two Column Masterpiece Layout) */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin py-space-xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-start">
+      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Left Column: Collection Media Gallery */}
-          <div className="lg:col-span-6 flex flex-col gap-space-md lg:sticky lg:top-28">
+          <div className="lg:col-span-6 flex flex-col gap-4 lg:sticky lg:top-28">
             
             {/* Main Spotlight Frame */}
-            <div className="relative w-full aspect-[4/5] bg-surface-container-lowest rounded-xl overflow-hidden shadow-xl group border border-outline-variant/40">
+            <div className="relative w-full aspect-[4/5] bg-surface-container-lowest rounded-xl overflow-hidden shadow-xs group border border-outline-variant/30">
               <img
                 id="mainProductImage"
                 src={activeImage}
@@ -481,21 +481,21 @@ const ProductDetailPage = () => {
                 </button>
               </div>
 
-              <h1 className="font-headline-lg text-headline-lg text-on-surface leading-tight font-normal">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface leading-[1.18] tracking-tight font-normal">
                 The Sovereign Bridal &amp; Wedding Essentials Suite
               </h1>
 
               {/* Rating & Activity Meter */}
-              <div className="flex flex-wrap items-center gap-space-md pt-1 pb-2">
+              <div className="flex flex-wrap items-center gap-3 pt-1 pb-2">
                 <div className="flex items-center gap-1 text-secondary">
                   <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                     star
                   </span>
-                  <span className="font-title-sm text-title-sm font-bold text-on-surface">4.9</span>
-                  <span className="text-on-surface-variant font-body-sm text-body-sm">(184 Verified Couples &amp; Brides)</span>
+                  <span className="font-sans text-xs sm:text-sm font-bold text-on-surface">4.9</span>
+                  <span className="text-on-surface-variant font-sans text-xs">(184 Verified Couples &amp; Brides)</span>
                 </div>
                 <span className="text-outline-variant hidden sm:inline">•</span>
-                <div className="flex items-center gap-1.5 text-primary text-label-sm font-label-sm font-semibold uppercase tracking-wider">
+                <div className="flex items-center gap-1.5 text-primary font-sans text-[11px] font-semibold uppercase tracking-wider">
                   <span className="material-symbols-outlined text-[16px] animate-pulse">local_fire_department</span>
                   <span>28 Collections Inquired Today</span>
                 </div>
@@ -503,25 +503,25 @@ const ProductDetailPage = () => {
             </div>
 
             {/* Price Panel & Privileges */}
-            <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs border border-outline-variant/40">
-              <div className="flex items-baseline gap-space-md">
-                <span className="font-headline-lg text-headline-lg font-bold text-on-surface">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs flex flex-col gap-2 border border-outline-variant/30">
+              <div className="flex items-baseline gap-3">
+                <span className="font-sans text-2xl sm:text-3xl font-bold text-on-surface">
                   ₹{selectedEdition.price.toLocaleString('en-IN')}
                 </span>
-                <span className="font-title-md text-title-md text-outline line-through">
+                <span className="font-sans text-base text-outline line-through">
                   ₹9,800
                 </span>
-                <span className="px-2.5 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-label-sm font-bold tracking-wider uppercase">
+                <span className="px-2.5 py-1 bg-[#FAF4EB] text-primary border border-primary/20 rounded-md text-[10px] font-bold tracking-wider uppercase font-sans">
                   SAVE {Math.round(((9800 - selectedEdition.price) / 9800) * 100)}% (₹{(9800 - selectedEdition.price).toLocaleString('en-IN')} OFF)
                 </span>
               </div>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">
+              <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
                 Inclusive of all taxes, complimentary 24k gold leaf calligraphy card, and custom bronze initials wax stamp.
               </p>
-              <div className="mt-2 pt-2 bg-surface-container-low px-space-md py-2 rounded-lg flex items-center justify-between border border-outline-variant/30">
+              <div className="mt-2 pt-2 bg-[#FAF4EB] px-3.5 py-2 rounded-lg flex items-center justify-between border border-primary/20">
                 <div className="flex items-center gap-2 text-on-surface">
                   <span className="material-symbols-outlined text-primary text-[18px]">workspace_premium</span>
-                  <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wide">
+                  <span className="font-sans text-[11px] font-semibold uppercase tracking-wide">
                     Earn 750 Collection Privilege Points + Free Insured Express Delivery
                   </span>
                 </div>
@@ -814,12 +814,12 @@ const ProductDetailPage = () => {
                   <button
                     type="button"
                     onClick={handleAddToCart}
-                    className="flex-1 bg-inverse-surface text-inverse-on-surface hover:bg-primary hover:text-on-primary transition-all py-3.5 px-space-lg rounded-lg shadow-md flex items-center justify-center gap-2 group"
+                    className="flex-1 bg-primary text-on-primary hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 py-3 px-5 rounded-lg shadow-xs flex items-center justify-center gap-2 group"
                   >
-                    <span className="material-symbols-outlined text-[20px] text-primary-fixed group-hover:text-on-primary transition-colors">
+                    <span className="material-symbols-outlined text-[18px]">
                       shopping_bag
                     </span>
-                    <span className="font-label-md text-label-md uppercase tracking-wider font-bold">
+                    <span className="font-sans text-xs uppercase tracking-wider font-semibold">
                       PERSONALIZE &amp; ADD TO BAG • ₹{totalPrice.toLocaleString('en-IN')}
                     </span>
                   </button>
@@ -830,11 +830,11 @@ const ProductDetailPage = () => {
                   href="https://wa.me/919692668263?text=Inquiring%20about%20Sovereign%20Bridal%20Suite%20Customization"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-surface-container-lowest hover:bg-surface-container-low text-on-surface py-3 px-space-md rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all border border-outline-variant/40"
+                  className="w-full bg-[#FAF4EB] hover:bg-[#f3e9da] text-primary py-2.5 px-4 rounded-lg shadow-xs flex items-center justify-center gap-2 transition-all border border-primary/20"
                 >
-                  <span className="material-symbols-outlined text-[18px] text-secondary">chat</span>
-                  <span className="font-label-sm text-label-sm uppercase tracking-wider font-semibold">
-                    Consult Dedicated Collection Stylist via WhatsApp
+                  <span className="material-symbols-outlined text-[18px] text-[#25D366]">chat</span>
+                  <span className="font-sans text-xs uppercase tracking-wider font-semibold">
+                    Consult Dedicated Stylist via WhatsApp
                   </span>
                 </a>
 
@@ -842,7 +842,7 @@ const ProductDetailPage = () => {
                 <div className="text-center pt-1">
                   <Link
                     to="/bulk-orders"
-                    className="font-label-sm text-label-sm text-primary hover:text-on-surface uppercase tracking-widest font-semibold transition-colors underline underline-offset-4"
+                    className="font-sans text-xs text-primary hover:text-on-surface uppercase tracking-wider font-semibold transition-colors underline underline-offset-4"
                   >
                     Planning Destination Wedding Gifting? Enquire for Custom Bulk Collection →
                   </Link>

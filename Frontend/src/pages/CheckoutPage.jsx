@@ -142,31 +142,22 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1F1B18] font-sans flex flex-col justify-between selection:bg-[#C5A880] selection:text-white">
-
-      {/* ========================================================= */}
-      {/* 1. MINIMAL DISTRACTION-FREE HEADER                        */}
-      {/* ========================================================= */}
-      <header className="w-full bg-[#FDFCFA]/95 backdrop-blur-md border-b border-[#EAE5DC] sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div className="min-h-screen bg-surface text-on-surface font-sans flex flex-col justify-between selection:bg-primary/20 selection:text-on-surface">
+      {/* 1. MINIMAL DISTRACTION-FREE HEADER */}
+      <header className="w-full bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-40">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           
           {/* Left: Return to Collection Cart */}
           <div className="flex items-center space-x-2">
             <Link
               to="/cart"
-              className="inline-flex items-center text-xs sm:text-sm font-medium tracking-wide text-[#1F1B18]/80 hover:text-[#1F1B18] transition-colors group"
+              className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors group font-sans"
             >
-              <svg
-                className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1 text-[#C5A880]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              <span className="uppercase tracking-wider font-semibold text-[11px] sm:text-xs">
-                Return to Collection Cart &amp; Customizations
+              <span className="material-symbols-outlined text-[16px] mr-1.5 transform group-hover:-translate-x-1 transition-transform">
+                arrow_back
               </span>
+              <span className="hidden sm:inline">Return to Gift Bag</span>
+              <span className="sm:hidden">Bag</span>
             </Link>
           </div>
 
@@ -175,7 +166,7 @@ const CheckoutPage = () => {
             <Link to="/">
               <img
                 alt="ASRA Wedding Canvas Crest Logo"
-                className="h-12 sm:h-14 w-auto object-contain hover:opacity-90 transition-opacity"
+                className="h-10 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity"
                 src="/assets/cdn/img_36917e8d2065.jpg"
               />
             </Link>
@@ -185,13 +176,13 @@ const CheckoutPage = () => {
           <div className="flex items-center space-x-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1E6347]" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
             </span>
             <div className="text-right hidden sm:block">
-              <div className="text-[11px] font-bold tracking-wider uppercase text-[#1F1B18] flex items-center gap-1 justify-end">
-                <span>256-Bit Encrypted SSL</span>
+              <div className="text-[11px] font-bold tracking-wider uppercase text-on-surface flex items-center gap-1 justify-end font-sans">
+                <span>256-Bit SSL Encrypted</span>
               </div>
-              <p className="text-[10px] text-[#1F1B18]/60 tracking-tight">
+              <p className="text-[10px] text-on-surface-variant tracking-tight font-sans">
                 White-Glove Insured Dispatch
               </p>
             </div>
@@ -200,51 +191,47 @@ const CheckoutPage = () => {
         </div>
       </header>
 
-      {/* ========================================================= */}
-      {/* 2. CHECKOUT STEPPER & RESERVATION COUNTDOWN BAR           */}
-      {/* ========================================================= */}
-      <div className="w-full bg-[#F4F0EA]/70 border-b border-[#EAE5DC] py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. CHECKOUT STEPPER & RESERVATION COUNTDOWN BAR */}
+      <div className="w-full bg-[#FAF4EB]/60 border-b border-outline-variant/30 py-3.5">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Multi-Step Progress Indicator */}
             <nav aria-label="Checkout Progress" className="w-full md:w-auto">
-              <ol className="flex items-center space-x-3 sm:space-x-8 text-xs font-medium tracking-wide">
+              <ol className="flex items-center space-x-3 sm:space-x-6 text-xs font-medium tracking-wide">
                 
                 {/* Step 1: Completed */}
                 <li>
-                  <Link to="/cart" className="flex items-center space-x-2 text-[#1F1B18]/70 hover:text-[#1F1B18] transition-colors">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#1F1B18] text-[#FDFCFA] text-xs font-semibold shadow-xs">
-                      <svg className="w-3.5 h-3.5 text-[#C5A880]" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
+                  <Link to="/cart" className="flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-xs font-semibold shadow-xs">
+                      <span className="material-symbols-outlined text-[14px]">check</span>
                     </span>
-                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-medium">1. Review Bag</span>
+                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-semibold font-sans">1. Review Bag</span>
                     <span className="sm:hidden text-[11px]">1. Bag</span>
                   </Link>
                 </li>
 
-                <li className="text-[#D9D2C5] font-light">—</li>
+                <li className="text-outline font-light">—</li>
 
                 {/* Step 2: Active Step */}
-                <li aria-current="step" className="flex items-center space-x-2 text-[#1F1B18] font-semibold">
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#C5A880] text-white text-xs font-bold ring-4 ring-[#C5A880]/20 shadow-xs">
+                <li aria-current="step" className="flex items-center space-x-2 text-on-surface font-semibold">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-xs font-bold ring-4 ring-primary/20 shadow-xs">
                     2
                   </span>
-                  <span className="uppercase text-[11px] tracking-wider text-[#2C2520] font-bold">
-                    2. Ceremony &amp; Delivery Address
+                  <span className="uppercase text-[11px] tracking-wider text-on-surface font-bold font-sans">
+                    2. Ceremony &amp; Address
                   </span>
                 </li>
 
-                <li className="text-[#D9D2C5] font-light">—</li>
+                <li className="text-outline font-light">—</li>
 
                 {/* Step 3: Upcoming */}
-                <li className="flex items-center space-x-2 text-[#1F1B18]/40">
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full border border-[#D9D2C5] text-[#1F1B18]/50 text-xs font-medium bg-[#FDFCFA]">
+                <li className="flex items-center space-x-2 text-outline">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full border border-outline-variant/50 text-outline text-xs font-medium bg-surface-container-lowest">
                     3
                   </span>
-                  <span className="hidden sm:inline uppercase text-[11px] tracking-wider">
-                    3. White-Glove Dispatch
+                  <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-sans">
+                    3. Dispatch Settlement
                   </span>
                   <span className="sm:hidden text-[11px]">3. Settlement</span>
                 </li>
@@ -253,13 +240,13 @@ const CheckoutPage = () => {
             </nav>
 
             {/* Customized Timer Reservation Pill */}
-            <aside aria-label="Slot Reservation" className="flex items-center space-x-2 bg-[#FDFCFA]/95 border border-[#C5A880]/40 px-3.5 py-1.5 rounded-full shadow-sm text-xs">
-              <svg className="w-4 h-4 text-[#C5A880] animate-pulse flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-[#1F1B18]/80 font-normal">
-                Customized 3D Initials Brass Die slot &amp; Chilled Transit reserved for:
-                <strong className="font-mono font-bold text-[#1F1B18] ml-1.5 text-[#9A7B4F]">
+            <aside aria-label="Slot Reservation" className="flex items-center space-x-2 bg-surface-container-lowest border border-primary/30 px-3.5 py-1.5 rounded-full shadow-xs text-xs">
+              <span className="material-symbols-outlined text-[16px] text-primary animate-pulse flex-shrink-0">
+                schedule
+              </span>
+              <span className="text-on-surface-variant font-sans text-xs">
+                Custom brass initials slot &amp; transit reserved for:
+                <strong className="font-mono font-bold text-primary ml-1.5">
                   {formatTimer(timeLeft)} min
                 </strong>
               </span>
@@ -272,18 +259,18 @@ const CheckoutPage = () => {
       {/* ========================================================= */}
       {/* 3. MAIN TWO-COLUMN CHECKOUT CONTENT                       */}
       {/* ========================================================= */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
+      <main className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full flex-grow">
         
         {/* Page Title Area */}
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#C5A880] font-semibold mb-1">
-            Confidential Customized Order Placement
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#2C2520] font-normal tracking-tight">
-            Ceremony Dispatch &amp; Collection Security
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1 font-sans">
+            Confidential Order Placement
+          </span>
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface font-normal leading-tight">
+            Ceremony Venue &amp; White-Glove Handover Details
           </h1>
-          <p className="text-sm text-[#1F1B18]/70 mt-1 max-w-2xl font-light leading-relaxed">
-            Please specify the royal palace, luxury resort, or bridal residence where our temperature-controlled fleet will coordinate the white-glove handover.
+          <p className="text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1.5 leading-relaxed font-sans">
+            Your customized order undergoes precision laser engraving, 24k gold die stamping, and climate-controlled packaging prior to dedicated transit.
           </p>
         </div>
 

@@ -66,7 +66,7 @@ const OffersPage = () => {
       code: 'ICICIASRA',
       partner: 'ICICI Bank',
       badge: 'Trending',
-      badgeStyle: 'bg-secondary-container text-on-secondary-container',
+      badgeStyle: 'bg-[#FAF4EB] text-primary border border-primary/20',
       title: '10% Instant Discount up to ₹1,000',
       description: 'Applicable on all ICICI Bank Credit Card full swipe and EMI transactions. Minimum cart value ₹3,999.',
       applicable: 'All Wedding Kits & Hampers',
@@ -78,7 +78,7 @@ const OffersPage = () => {
       code: 'SBIFESTIVE',
       partner: 'SBI Card',
       badge: 'No Cost EMI',
-      badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
+      badgeStyle: 'bg-primary/10 text-primary border border-primary/20',
       title: 'Flat ₹750 OFF on Credit Card EMI',
       description: 'Avail 3 and 6 months No Cost EMI tenures on customized wedding essentials orders. Minimum cart value ₹5,000.',
       applicable: '3M & 6M Tenures',
@@ -91,7 +91,7 @@ const OffersPage = () => {
       code: 'AXISLUXE',
       partner: 'Axis Bank',
       badge: 'Burgundy',
-      badgeStyle: 'bg-surface-container-highest text-on-surface',
+      badgeStyle: 'bg-[#FAF4EB] text-on-surface border border-outline-variant/30',
       title: 'Flat 12% OFF up to ₹1,200',
       description: 'Exclusive to Axis Bank Neo, Magnus & Burgundy Credit Cards on luxury bridal registry suites. Min spend ₹4,499.',
       applicable: 'Initials Gifts',
@@ -103,7 +103,7 @@ const OffersPage = () => {
       code: 'KOTAKGIFT',
       partner: 'Kotak Bank',
       badge: 'Debit Card',
-      badgeStyle: 'bg-surface-container-highest text-on-surface',
+      badgeStyle: 'bg-[#FAF4EB] text-on-surface border border-outline-variant/30',
       title: 'Flat ₹500 Instant Discount',
       description: 'Seamless instant discount applied on Kotak Debit Card purchases across curated floral and scent gifts. Min cart ₹2,999.',
       applicable: 'All Catalog Products',
@@ -116,7 +116,7 @@ const OffersPage = () => {
       partner: 'AMEX',
       partnerStyle: 'bg-inverse-surface text-inverse-on-surface',
       badge: 'Luxury Exclusive',
-      badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
+      badgeStyle: 'bg-primary/10 text-primary border border-primary/20',
       title: '15% OFF + Complimentary Luxury Perfume',
       description: 'Reserved for Amex Platinum & Centurion Cards. Includes a 50ml customized oud artisan perfume. Min spend ₹9,999.',
       applicable: 'Wedding Essentials & Silver Gifts',
@@ -128,7 +128,7 @@ const OffersPage = () => {
       code: 'ZEROEMI',
       partner: 'Collection EMI',
       badge: '0% Interest',
-      badgeStyle: 'bg-secondary-container text-on-secondary-container',
+      badgeStyle: 'bg-[#FAF4EB] text-primary border border-primary/20',
       title: 'Split in 3 or 6 Months No-Cost',
       description: 'Spread luxury wedding favor sets or massive bridal hampers with zero processing fee across all major domestic cards.',
       applicable: 'No documentation • Instant Approval',
@@ -180,7 +180,7 @@ const OffersPage = () => {
     {
       id: 'asrafirst',
       badge: 'First Order',
-      badgeStyle: 'bg-primary-fixed text-on-primary-fixed',
+      badgeStyle: 'bg-primary/10 text-primary border border-primary/20',
       discount: '15% OFF',
       discountStyle: 'text-primary',
       title: 'Welcome to ASRA Collection',
@@ -192,7 +192,7 @@ const OffersPage = () => {
     {
       id: 'wedbliss',
       badge: 'Wedding Hampers',
-      badgeStyle: 'bg-secondary-container text-on-secondary-container',
+      badgeStyle: 'bg-[#FAF4EB] text-primary border border-primary/20',
       discount: '₹800 OFF',
       discountStyle: 'text-secondary',
       title: 'Bride & Groom Suite',
@@ -204,7 +204,7 @@ const OffersPage = () => {
     {
       id: 'biglove',
       badge: 'Bulk Favors',
-      badgeStyle: 'bg-surface-container-highest text-on-surface',
+      badgeStyle: 'bg-[#FAF4EB] text-on-surface border border-outline-variant/30',
       discount: '20% OFF',
       discountStyle: 'text-on-surface',
       title: 'Celebratory Bulk Favor Sets',
@@ -309,17 +309,17 @@ const OffersPage = () => {
 
       <div className="flex flex-col w-full">
         {/* Editorial Header */}
-        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-8 pt-6 pb-8">
+        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
           {/* Header Content & Title */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pb-4">
             <div className="lg:col-span-8 flex flex-col">
-              <span className="font-label-sm text-label-sm text-primary tracking-[0.25em] uppercase mb-1">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary mb-1">
                 The Collection Privilege Suite
               </span>
-              <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface">
                 Save More With <span className="italic font-normal text-secondary">Exclusive Offers</span>
               </h1>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-on-surface-variant mt-2 max-w-2xl leading-relaxed">
                 Unlock curated privileges across leading credit cards, verified UPI cashbacks, no-cost wedding EMIs, and customized collection codes crafted to elevate every bridal gift and celebratory hamper.
               </p>
             </div>
@@ -331,10 +331,10 @@ const OffersPage = () => {
                   <span className="material-symbols-outlined text-primary text-[22px]">savings</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-outline">
                     Total Collection Savings
                   </span>
-                  <span className="font-title-md text-title-md text-on-surface font-semibold">
+                  <span className="font-serif text-base sm:text-lg font-medium text-on-surface">
                     Up to ₹4,500 Per Order
                   </span>
                 </div>
@@ -401,7 +401,7 @@ const OffersPage = () => {
 
         {/* Featured Top Luxury Highlights (2-Column Grand Banners) */}
         {(highlightHdfcMatches || highlightCredMatches) && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-10">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Highlight Card 1: HDFC Bank Grandeur */}
               {highlightHdfcMatches && (
@@ -411,7 +411,7 @@ const OffersPage = () => {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex flex-col">
                         <div className="flex items-center gap-2 mb-2 flex-wrap">
-                          <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] rounded uppercase font-bold tracking-widest">
+                          <span className="px-2 py-0.5 bg-[#FAF4EB] text-primary border border-primary/20 font-label-sm text-[10px] rounded uppercase font-bold tracking-widest">
                             Grand Highlight
                           </span>
                           <span className="flex items-center gap-1 text-tertiary font-label-sm text-[11px]">
@@ -419,10 +419,10 @@ const OffersPage = () => {
                             Valid till end of month
                           </span>
                         </div>
-                        <h3 className="font-headline-sm text-headline-sm text-on-surface tracking-wide">
+                        <h3 className="font-serif text-xl sm:text-2xl font-normal leading-tight text-on-surface tracking-wide">
                           WEDDING GRANDEUR: Flat ₹1,500 OFF
                         </h3>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                        <p className="text-xs text-on-surface-variant mt-1">
                           On personalized bridal hampers &amp; wedding essentials suites above ₹7,999 with HDFC Bank Credit &amp; Debit Cards.
                         </p>
                       </div>
@@ -444,8 +444,8 @@ const OffersPage = () => {
                     <div className="flex items-center gap-2.5">
                       <span className="material-symbols-outlined text-primary text-[20px]">local_activity</span>
                       <div className="flex flex-col">
-                        <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider">Coupon Code</span>
-                        <span className="font-title-sm text-title-sm text-on-surface font-mono font-bold tracking-wider">
+                        <span className="text-[10px] uppercase tracking-wider font-semibold text-outline">Coupon Code</span>
+                        <span className="font-mono text-xs font-bold text-primary tracking-wider font-bold tracking-wider">
                           HDFCWED1500
                         </span>
                       </div>
@@ -454,7 +454,7 @@ const OffersPage = () => {
                       <button
                         onClick={(e) => handleCopyCode('HDFCWED1500', e)}
                         type="button"
-                        className="px-4 py-2 bg-primary text-on-primary hover:bg-on-surface font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
+                        className="px-4 py-2 bg-primary text-on-primary hover:bg-on-surface text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
                       >
                         <span className="material-symbols-outlined text-[16px]">
                           {copiedCode === 'HDFCWED1500' ? 'done' : 'content_copy'}
@@ -482,7 +482,7 @@ const OffersPage = () => {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex flex-col">
                         <div className="flex items-center gap-2 mb-2 flex-wrap">
-                          <span className="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px] rounded uppercase font-bold tracking-widest">
+                          <span className="px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 font-label-sm text-[10px] rounded uppercase font-bold tracking-widest">
                             Instant UPI Privilege
                           </span>
                           <span className="flex items-center gap-1 text-tertiary font-label-sm text-[11px]">
@@ -490,10 +490,10 @@ const OffersPage = () => {
                             Instant Settled
                           </span>
                         </div>
-                        <h3 className="font-headline-sm text-headline-sm text-on-surface tracking-wide">
+                        <h3 className="font-serif text-xl sm:text-2xl font-normal leading-tight text-on-surface tracking-wide">
                           INSTANT 10% CASHBACK UP TO ₹500
                         </h3>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                        <p className="text-xs text-on-surface-variant mt-1">
                           On luxury hampers, registry contributions, and customized gifts above ₹1,999 via CRED UPI &amp; CRED Pay.
                         </p>
                       </div>
@@ -515,8 +515,8 @@ const OffersPage = () => {
                     <div className="flex items-center gap-2.5">
                       <span className="material-symbols-outlined text-secondary text-[20px]">currency_rupee</span>
                       <div className="flex flex-col">
-                        <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider">Voucher Code</span>
-                        <span className="font-title-sm text-title-sm text-on-surface font-mono font-bold tracking-wider">
+                        <span className="text-[10px] uppercase tracking-wider font-semibold text-outline">Voucher Code</span>
+                        <span className="font-mono text-xs font-bold text-primary tracking-wider font-bold tracking-wider">
                           CREDCELEBRATE
                         </span>
                       </div>
@@ -525,7 +525,7 @@ const OffersPage = () => {
                       <button
                         onClick={(e) => handleCopyCode('CREDCELEBRATE', e)}
                         type="button"
-                        className="px-4 py-2 bg-on-surface text-surface-container-lowest hover:bg-primary font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
+                        className="px-4 py-2 bg-on-surface text-surface-container-lowest hover:bg-primary text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
                       >
                         <span className="material-symbols-outlined text-[16px]">
                           {copiedCode === 'CREDCELEBRATE' ? 'done' : 'content_copy'}
@@ -550,14 +550,14 @@ const OffersPage = () => {
 
         {/* Visual Spend More, Save More Milestone Bar */}
         {(activeFilter === 'all' || activeFilter === 'collection') && !searchQuery && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm border border-outline-variant/30">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6">
                 <div>
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
                     Collection Tier Perks
                   </span>
-                  <h2 className="font-headline-sm text-headline-sm text-on-surface mt-0.5">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mt-0.5">
                     The Celebratory Gifting Scale
                   </h2>
                 </div>
@@ -580,15 +580,15 @@ const OffersPage = () => {
                   <div className="bg-surface-container-low p-5 rounded-xl flex flex-col justify-between shadow-sm border border-outline-variant/30 group hover:bg-surface-container transition-colors">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="px-2 py-0.5 bg-surface-container-highest text-on-surface font-mono font-bold text-[11px] rounded">
+                        <span className="px-2 py-0.5 bg-[#FAF4EB] text-on-surface border border-outline-variant/30 font-mono font-bold text-[11px] rounded">
                           CART ≥ ₹2,500
                         </span>
                         <span className="material-symbols-outlined text-primary text-[20px]">package_2</span>
                       </div>
-                      <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
+                      <h4 className="font-serif text-base font-medium leading-snug text-on-surface">
                         Complimentary Gift Box
                       </h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                      <p className="text-xs text-on-surface-variant mt-1">
                         Handcrafted rigid box adorned with pure satin ribbon and wax seal closure.
                       </p>
                     </div>
@@ -602,15 +602,15 @@ const OffersPage = () => {
                   <div className="bg-surface-container-low p-5 rounded-xl flex flex-col justify-between shadow-sm border border-secondary/30 group hover:bg-surface-container transition-colors">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-mono font-bold text-[11px] rounded">
+                        <span className="px-2 py-0.5 bg-[#FAF4EB] text-primary border border-primary/20 font-mono font-bold text-[11px] rounded">
                           CART ≥ ₹5,000
                         </span>
                         <span className="material-symbols-outlined text-secondary text-[20px]">celebration</span>
                       </div>
-                      <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
+                      <h4 className="font-serif text-base font-medium leading-snug text-on-surface">
                         Flat ₹500 Instant Cart Credit
                       </h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                      <p className="text-xs text-on-surface-variant mt-1">
                         Direct deduction across all luxury wedding registry and wedding essentials hampers.
                       </p>
                     </div>
@@ -624,15 +624,15 @@ const OffersPage = () => {
                   <div className="bg-surface-container-highest/60 p-5 rounded-xl flex flex-col justify-between shadow-sm border border-primary/30 group hover:bg-surface-container-highest transition-colors">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed font-mono font-bold text-[11px] rounded">
+                        <span className="px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 font-mono font-bold text-[11px] rounded">
                           CART ≥ ₹10,000
                         </span>
                         <span className="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
                       </div>
-                      <h4 className="font-title-sm text-title-sm text-on-surface font-semibold">
+                      <h4 className="font-serif text-base font-medium leading-snug text-on-surface">
                         ₹1,500 OFF + Gold Leaf Gift
                       </h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                      <p className="text-xs text-on-surface-variant mt-1">
                         Includes customized debossed wooden wedding essentials box and brass-etched tag.
                       </p>
                     </div>
@@ -649,17 +649,17 @@ const OffersPage = () => {
 
         {/* Bank & Card Partner Offers Grid (Perforated Luxury Ticket Cards) */}
         {filteredBankOffers.length > 0 && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
               <div>
                 <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
                   Verified Partnerships
                 </span>
-                <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface tracking-tight">
                   Bank &amp; Credit Card Privileges
                 </h2>
               </div>
-              <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+              <p className="text-xs text-on-surface-variant max-w-sm">
                 Instantly deducted at payment gateway. Valid on all customized wooden gifts, floral hampers, and silver suites.
               </p>
             </div>
@@ -681,10 +681,10 @@ const OffersPage = () => {
                         {card.badge}
                       </span>
                     </div>
-                    <h3 className="font-title-md text-title-md text-on-surface font-semibold mt-1">
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-on-surface mt-1">
                       {card.title}
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+                    <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                       {card.description}
                     </p>
                     <div className="mt-3 flex items-center gap-1.5 text-on-surface-variant font-label-sm text-[11px]">
@@ -708,7 +708,7 @@ const OffersPage = () => {
                       <span className="font-label-sm text-[9px] text-outline uppercase tracking-wider">
                         {card.isAutoApplied ? 'Auto Applied' : 'Offer Code'}
                       </span>
-                      <span className="font-title-sm text-title-sm text-on-surface font-mono font-bold tracking-wider">
+                      <span className="font-mono text-xs font-bold text-primary tracking-wider font-bold tracking-wider">
                         {card.code}
                       </span>
                     </div>
@@ -716,7 +716,7 @@ const OffersPage = () => {
                     {card.learnLink ? (
                       <Link
                         to={card.learnLink}
-                        className="px-4 py-1.5 bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors"
+                        className="px-4 py-1.5 bg-[#FAF4EB] text-on-surface border border-outline-variant/30 hover:bg-primary hover:text-on-primary text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors"
                       >
                         Learn
                       </Link>
@@ -724,7 +724,7 @@ const OffersPage = () => {
                       <button
                         onClick={(e) => handleCopyCode(card.code, e)}
                         type="button"
-                        className="px-4 py-1.5 bg-on-surface text-surface-container-lowest hover:bg-primary font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1"
+                        className="px-4 py-1.5 bg-on-surface text-surface-container-lowest hover:bg-primary text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1"
                       >
                         {copiedCode === card.code ? (
                           <>
@@ -745,7 +745,7 @@ const OffersPage = () => {
 
         {/* Editorial Inspiration Split Banner */}
         {activeFilter === 'all' && !searchQuery && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 grid grid-cols-1 lg:grid-cols-12 items-stretch">
               <div className="lg:col-span-6 relative min-h-[340px] lg:min-h-full">
                 <img
@@ -765,10 +765,10 @@ const OffersPage = () => {
                 <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em]">
                   Handcrafted Classic
                 </span>
-                <h2 className="font-headline-md text-headline-md text-on-surface mt-1 tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mt-1 tracking-tight">
                   Crafting Eternal Moments with Collection Savings
                 </h2>
-                <p className="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
                   Every personalized memory frame, etched silver coin, and artisanal wedding essentials trunk is lovingly constructed in our Jubilee Hills studio. Our bank privileges allow you to gift unmatched heirloom elegance without compromise.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -793,17 +793,17 @@ const OffersPage = () => {
 
         {/* UPI & Digital Wallet Cashback Section */}
         {filteredUpiOffers.length > 0 && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
               <div>
                 <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
                   Instant Digital Settlements
                 </span>
-                <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface tracking-tight">
                   UPI &amp; Digital Wallets
                 </h2>
               </div>
-              <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+              <p className="text-xs text-on-surface-variant max-w-xs">
                 Receive guaranteed instant cashback credited directly to your connected bank account or wallet.
               </p>
             </div>
@@ -824,10 +824,10 @@ const OffersPage = () => {
                         {wallet.reward}
                       </span>
                     </div>
-                    <h4 className="font-title-sm text-title-sm text-on-surface font-semibold mt-2">
+                    <h4 className="font-serif text-base font-medium leading-snug text-on-surface mt-2">
                       {wallet.title}
                     </h4>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                    <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
                       {wallet.description}
                     </p>
                   </div>
@@ -851,7 +851,7 @@ const OffersPage = () => {
                     </div>
                   ) : (
                     <div className="mt-5 pt-2 flex items-center justify-between bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/30">
-                      <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider">
+                      <span className="text-[10px] uppercase tracking-wider font-semibold text-outline">
                         {wallet.footerText}
                       </span>
                       <span className="material-symbols-outlined text-primary text-[18px]">
@@ -867,18 +867,18 @@ const OffersPage = () => {
 
         {/* Customized ASRA Coupon Codes (Store Exclusive Tiers) */}
         {filteredAtelierOffers.length > 0 && (
-          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+          <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
             <div className="bg-surface-container-low p-6 sm:p-8 rounded-2xl shadow-sm border border-outline-variant/40">
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
                 <div>
                   <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-semibold">
                     Collection Exclusive
                   </span>
-                  <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface tracking-tight">
                     Customized Store Vouchers
                   </h2>
                 </div>
-                <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+                <p className="text-xs text-on-surface-variant max-w-sm">
                   Direct collection voucher codes crafted for bridal showers, personalized wedding invitations, and wedding essentials trunks.
                 </p>
               </div>
@@ -899,10 +899,10 @@ const OffersPage = () => {
                           {voucher.discount}
                         </span>
                       </div>
-                      <h4 className="font-title-sm text-title-sm text-on-surface font-semibold mt-1">
+                      <h4 className="font-serif text-base font-medium leading-snug text-on-surface mt-1">
                         {voucher.title}
                       </h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                      <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
                         {voucher.description}
                       </p>
                       <div className="mt-3 text-outline font-label-sm text-[11px]">
@@ -911,13 +911,13 @@ const OffersPage = () => {
                     </div>
 
                     <div className="mt-5 pt-2 flex items-center justify-between bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/30">
-                      <span className="font-title-sm text-title-sm text-on-surface font-mono font-bold tracking-wider">
+                      <span className="font-mono text-xs font-bold text-primary tracking-wider font-bold tracking-wider">
                         {voucher.code}
                       </span>
                       <button
                         onClick={(e) => handleCopyCode(voucher.code, e)}
                         type="button"
-                        className="px-3.5 py-1 bg-on-surface text-surface-container-lowest hover:bg-primary font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1"
+                        className="px-3.5 py-1 bg-on-surface text-surface-container-lowest hover:bg-primary text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1"
                       >
                         {copiedCode === voucher.code ? (
                           <>
@@ -946,7 +946,7 @@ const OffersPage = () => {
               <h3 className="font-headline-sm text-headline-sm text-on-surface font-semibold">
                 No matching privileges found
               </h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              <p className="text-xs text-on-surface-variant mt-2">
                 We couldn't find any offers matching "{searchQuery}". Try searching for another bank, partner or clear your filters.
               </p>
               <button
@@ -954,7 +954,7 @@ const OffersPage = () => {
                   setSearchQuery('');
                   setActiveFilter('all');
                 }}
-                className="mt-5 px-5 py-2 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-lg hover:bg-on-surface transition-colors"
+                className="mt-5 px-5 py-2 bg-primary text-on-primary text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-on-surface transition-colors"
               >
                 Reset Filters
               </button>
@@ -963,15 +963,15 @@ const OffersPage = () => {
         )}
 
         {/* How to Redeem Your Offer (4-Step Visual Guide) */}
-        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-12">
+        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em]">
               Effortless Collection Experience
             </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface tracking-tight mt-1">
               How to Redeem Your Privileges
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">
+            <p className="text-xs sm:text-sm text-on-surface-variant mt-2">
               Follow four seamless steps to apply bank partner discounts and collection voucher codes during checkout.
             </p>
           </div>
@@ -985,8 +985,8 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">shopping_basket</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Browse Gifts</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              <h3 className="font-serif text-base font-medium leading-snug text-on-surface">Browse Gifts</h3>
+              <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Curate personalized wedding favors, artisanal hampers, or customized jewelry boxes into your collection bag.
               </p>
             </div>
@@ -999,8 +999,8 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">receipt_long</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Review Collection Cart</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              <h3 className="font-serif text-base font-medium leading-snug text-on-surface">Review Collection Cart</h3>
+              <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Confirm custom personalization details, gift messaging, and delivery schedule before clicking proceed.
               </p>
             </div>
@@ -1013,8 +1013,8 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">account_balance</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Select Payment Gateway</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              <h3 className="font-serif text-base font-medium leading-snug text-on-surface">Select Payment Gateway</h3>
+              <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Choose Credit Card, Net Banking, CRED Pay, or UPI to unlock partnered discounts seamlessly.
               </p>
             </div>
@@ -1027,8 +1027,8 @@ const OffersPage = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <span className="material-symbols-outlined text-primary text-[22px]">savings</span>
               </div>
-              <h3 className="font-title-sm text-title-sm text-on-surface font-semibold">Enter Code &amp; Save</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              <h3 className="font-serif text-base font-medium leading-snug text-on-surface">Enter Code &amp; Save</h3>
+              <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Paste your copied promo code in the coupon field or select from the pre-loaded bank offer list to save instantly.
               </p>
             </div>
@@ -1036,17 +1036,17 @@ const OffersPage = () => {
         </section>
 
         {/* Frequently Asked Questions (FAQ Accordion) */}
-        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-12 pb-16">
+        <section className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* FAQ Left Intro */}
             <div className="lg:col-span-5 flex flex-col">
               <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.25em] font-semibold">
                 Collection Help Desk
               </span>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+              <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface tracking-tight mt-1">
                 Frequently Asked Questions
               </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
                 Have inquiries regarding bank discount eligibility, multi-coupon stacking, or delivery terms for customized gifts? Our support is on standby.
               </p>
               <div className="mt-8 p-5 bg-surface-container-low rounded-xl border border-outline-variant/40 flex items-center gap-4">
@@ -1054,7 +1054,7 @@ const OffersPage = () => {
                   support_agent
                 </span>
                 <div className="flex flex-col">
-                  <span className="font-title-sm text-title-sm text-on-surface font-semibold">
+                  <span className="font-serif text-base font-medium leading-snug text-on-surface">
                     Wedding Support Desk
                   </span>
                   <a
@@ -1080,7 +1080,7 @@ const OffersPage = () => {
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? -1 : index)}
                       aria-expanded={isOpen}
-                      className="w-full p-5 flex items-center justify-between text-left font-title-sm text-title-sm text-on-surface font-semibold hover:text-primary transition-colors gap-4"
+                      className="w-full p-5 flex items-center justify-between text-left font-serif text-base font-medium leading-snug text-on-surface hover:text-primary transition-colors gap-4"
                     >
                       <span>{faq.q}</span>
                       <span
@@ -1128,7 +1128,7 @@ const OffersPage = () => {
                   <span className="material-symbols-outlined text-[20px]">close</span>
                 </button>
               </div>
-              <div className="py-4 font-body-sm text-body-sm text-on-surface-variant space-y-2.5 leading-relaxed max-h-80 overflow-y-auto pr-1">
+              <div className="py-4 text-xs text-on-surface-variant space-y-2.5 leading-relaxed max-h-80 overflow-y-auto pr-1">
                 <p>• Offer valid on HDFC Bank Retail Credit Cards, Debit Cards, and EasyEMI transactions.</p>
                 <p>• Minimum transaction value of ₹7,999 is calculated exclusive of shipping and taxes.</p>
                 <p>• Offer is valid up to 1 transaction per card during the calendar month.</p>
@@ -1173,7 +1173,7 @@ const OffersPage = () => {
                   <span className="material-symbols-outlined text-[20px]">close</span>
                 </button>
               </div>
-              <div className="py-4 font-body-sm text-body-sm text-on-surface-variant space-y-2.5 leading-relaxed max-h-80 overflow-y-auto pr-1">
+              <div className="py-4 text-xs text-on-surface-variant space-y-2.5 leading-relaxed max-h-80 overflow-y-auto pr-1">
                 <p>• Valid exclusively for registered CRED members paying via CRED UPI or CRED Pay gateway.</p>
                 <p>• Maximum cashback capped at ₹500 per approved order with minimum cart of ₹1,999.</p>
                 <p>• Cashback is disbursed directly into the user's primary linked bank account in the CRED app.</p>

@@ -303,23 +303,22 @@ const ShopPage = () => {
     <div className="w-full bg-surface min-h-screen text-on-surface">
 
       {/* 2. Editorial Page Header & Story Canvas */}
-      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 pt-6 pb-6">
-        <div className="relative overflow-hidden rounded-2xl bg-surface-container-low p-6 sm:p-10 shadow-sm border border-outline-variant/30">
+      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-6">
+        <div className="relative overflow-hidden rounded-2xl bg-surface-container-low p-6 sm:p-10 shadow-xs border border-outline-variant/30">
           {/* Ambient Glow Accent */}
           <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10 max-w-3xl flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-[0.25em]">
+            <div className="flex items-center gap-2 text-primary font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold">
               <span className="material-symbols-outlined text-[16px]">draw</span>
               <span>Curated Gift Archives</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-on-surface tracking-tight leading-tight">
-              The Collection Collection
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface tracking-tight leading-[1.18] font-normal">
+              The Collection Catalog
             </h1>
-            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-1">
-              Thoughtfully personalized gifts, customized wedding wedding essentials, and timeless gift favors handcrafted for
-              life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our Bengaluru &amp;
-              Hyderabad studios.
+            <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed pt-1">
+              Thoughtfully personalized gifts, customized wedding essentials, and timeless gift favors handcrafted for
+              life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our ateliers.
             </p>
           </div>
 
@@ -327,21 +326,21 @@ const ShopPage = () => {
           <div className="relative z-10 mt-6 pt-5 border-t border-outline-variant/40 flex flex-wrap items-center gap-6 sm:gap-10">
             <div className="flex flex-col">
               <span className="font-serif text-2xl font-bold text-primary">{PRODUCTS.length}</span>
-              <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant">
+              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
                 Archived Designs
               </span>
             </div>
             <div className="w-px h-8 bg-outline-variant/50 hidden sm:block"></div>
             <div className="flex flex-col">
               <span className="font-serif text-2xl font-bold text-primary">4.96 ★</span>
-              <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant">
+              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
                 Client Rating
               </span>
             </div>
             <div className="w-px h-8 bg-outline-variant/50 hidden sm:block"></div>
             <div className="flex flex-col">
               <span className="font-serif text-2xl font-bold text-primary">24-48h</span>
-              <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant">
+              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
                 Express Dispatch
               </span>
             </div>
@@ -359,17 +358,17 @@ const ShopPage = () => {
                     setCurrentPage(1);
                   }}
                   type="button"
-                  className={`group flex items-center gap-2 px-4 py-2 rounded-full font-label-md text-xs whitespace-nowrap transition-all shadow-sm ${
+                  className={`group flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-sans text-xs whitespace-nowrap transition-all shadow-xs ${
                     isSelected
-                      ? 'bg-inverse-surface text-inverse-on-surface font-semibold shadow-md'
+                      ? 'bg-primary text-on-primary font-semibold shadow-sm'
                       : 'bg-surface-container-lowest text-on-surface hover:bg-surface-container border border-outline-variant/40'
                   }`}
                 >
                   <span>{pill.label}</span>
                   <span
-                    className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                    className={`text-[10px] font-mono px-1.5 py-0.2 rounded ${
                       isSelected
-                        ? 'bg-surface-container-highest/30 text-inverse-on-surface'
+                        ? 'bg-white/20 text-on-primary'
                         : 'bg-surface-container-high text-on-surface-variant'
                     }`}
                   >
@@ -383,8 +382,8 @@ const ShopPage = () => {
       </section>
 
       {/* 3. Sticky Interactive Control Bar */}
-      <section className="sticky top-[148px] z-30 w-full bg-surface/90 backdrop-blur-md shadow-sm border-y border-outline-variant/30 mb-8">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-8 py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+      <section className="sticky top-[148px] z-30 w-full bg-surface/90 backdrop-blur-md shadow-xs border-y border-outline-variant/30 mb-8">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
           {/* Left: Active Filter Indicators & Total Count */}
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
             {/* Mobile Filter Drawer Button */}
@@ -556,12 +555,12 @@ const ShopPage = () => {
       </section>
 
       {/* 4. Two-Column Catalog Layout */}
-      <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 scroll-mt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Desktop Sticky Sidebar Filters (Left Column - 3.5 cols) */}
+      <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Desktop Sticky Sidebar Filters (Left Column - 3 cols) */}
           <aside
             id="filterSidebar"
-            className="lg:col-span-3 sticky top-[228px] max-h-[calc(100vh-250px)] overflow-y-auto scrollbar-none pr-1 hidden lg:flex flex-col gap-6 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/40 shadow-sm"
+            className="lg:col-span-3 sticky top-[228px] max-h-[calc(100vh-250px)] overflow-y-auto scrollbar-none pr-1 hidden lg:flex flex-col gap-6 bg-surface-container-lowest p-5 sm:p-6 rounded-xl border border-outline-variant/30 shadow-xs"
           >
             {/* Filter Header */}
             <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
@@ -573,7 +572,7 @@ const ShopPage = () => {
                 <button
                   onClick={resetAllFilters}
                   type="button"
-                  className="font-label-sm text-[11px] text-primary uppercase tracking-wider hover:underline font-bold"
+                  className="font-sans text-[11px] text-primary uppercase tracking-wider hover:underline font-bold"
                 >
                   Reset
                 </button>
@@ -582,7 +581,7 @@ const ShopPage = () => {
 
             {/* Keyword Search in Catalog */}
             <div>
-              <label className="block text-[11px] uppercase font-bold text-outline tracking-wider mb-2">
+              <label className="block text-[11px] uppercase font-bold text-outline tracking-wider mb-2 font-sans">
                 Keyword Search
               </label>
               <div className="relative">
@@ -597,7 +596,7 @@ const ShopPage = () => {
                     setCurrentPage(1);
                   }}
                   placeholder="Search gifts, acrylics..."
-                  className="w-full bg-surface-container-low pl-8 pr-3 py-2 rounded-lg border border-outline-variant/60 text-xs focus:ring-1 focus:ring-primary focus:outline-none"
+                  className="w-full bg-surface-container-low pl-8 pr-3 py-2 rounded-lg border border-outline-variant/50 text-xs focus:ring-1 focus:ring-primary focus:outline-none"
                 />
               </div>
             </div>
@@ -871,7 +870,7 @@ const ShopPage = () => {
                 <div
                   className={`grid grid-cols-1 sm:grid-cols-2 ${
                     gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
-                  } gap-6`}
+                  } gap-3 sm:gap-4 lg:gap-5`}
                 >
                   {/* First batch of products (up to 6) */}
                   {paginatedProducts.slice(0, 6).map((product) => (
@@ -880,18 +879,18 @@ const ShopPage = () => {
                 </div>
 
                 {/* Mid-Grid Editorial Banner / Collection Custom Notice */}
-                <div className="w-full rounded-2xl bg-surface-container p-6 sm:p-10 relative overflow-hidden shadow-sm border border-outline-variant/30">
+                <div className="w-full rounded-xl bg-[#FAF4EB] p-6 sm:p-8 relative overflow-hidden shadow-xs border border-primary/20">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                     <div className="flex flex-col max-w-xl text-center md:text-left">
-                      <div className="flex items-center justify-center md:justify-start gap-1 text-primary font-label-sm text-[11px] uppercase tracking-widest mb-1">
-                        <span className="material-symbols-outlined text-[18px]">support_agent</span>
+                      <div className="flex items-center justify-center md:justify-start gap-1.5 text-primary font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold mb-1">
+                        <span className="material-symbols-outlined text-[16px]">support_agent</span>
                         <span>Private Consultation &amp; Bulk Favors</span>
                       </div>
                       <h2 className="font-serif text-2xl sm:text-3xl text-on-surface leading-tight font-normal">
                         Planning a Wedding or Royal Soirée?
                       </h2>
-                      <p className="font-body-sm text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-                        Connect directly with our Chief Collection Designer. Receive physical wood and fabric swatch kits,
+                      <p className="font-sans text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
+                        Connect directly with our Chief Atelier Designer. Receive physical wood and fabric swatch kits,
                         complimentary initials 3D mockups, and tailored volume pricing for 50+ pieces.
                       </p>
                     </div>
@@ -901,14 +900,14 @@ const ShopPage = () => {
                         href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20would%20like%20to%20consult%20for%20wedding%20favors"
                         target="_blank"
                         rel="noreferrer"
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary font-label-md text-xs text-center transition-all flex items-center justify-center gap-2 shadow-sm font-semibold"
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] text-white hover:opacity-90 active:scale-[0.98] font-sans text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-xs font-semibold"
                       >
-                        <span className="material-symbols-outlined text-[18px]">chat</span>
+                        <span className="material-symbols-outlined text-[16px]">chat</span>
                         <span>Chat on WhatsApp</span>
                       </a>
                       <Link
                         to="/bespoke"
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-bright font-label-md text-xs text-center transition-all flex items-center justify-center gap-2 shadow-sm font-semibold border border-outline-variant/40"
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] font-sans text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-xs font-semibold border border-outline-variant/40"
                       >
                         <span>Submit Brief</span>
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -922,7 +921,7 @@ const ShopPage = () => {
                   <div
                     className={`grid grid-cols-1 sm:grid-cols-2 ${
                       gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
-                    } gap-6`}
+                    } gap-3 sm:gap-4 lg:gap-5`}
                   >
                     {paginatedProducts.slice(6).map((product) => (
                       <ProductCard key={product.id} product={product} />

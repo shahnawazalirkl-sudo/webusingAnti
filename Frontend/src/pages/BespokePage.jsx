@@ -106,32 +106,32 @@ const BespokePage = () => {
     <div className="w-full bg-surface min-h-screen text-on-surface">
 
       {/* 1. Hero Header */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-8 pt-6 pb-4">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
         {/* Hero Statement Row */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-6 border-b border-outline-variant/30">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-secondary-container/60 text-on-secondary-container px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-              <span>✨ Customized Commission Studio 2026</span>
-            </div>
-            <h1 className="font-serif text-4xl lg:text-5xl font-bold text-on-surface tracking-tight leading-none mb-3">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-8 border-b border-outline-variant/30">
+          <div className="max-w-2xl">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2">
+              Customized Commission Studio
+            </span>
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface mb-3">
               Your Idea → We Create
             </h1>
-            <p className="text-sm lg:text-base text-on-surface-variant leading-relaxed">
+            <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Turn your visionary wedding dreams, unique gift concepts, or one-of-a-kind couple heirloom ideas into
               masterfully handcrafted reality. From initial sketch to wax-sealed delivery.
             </p>
           </div>
 
           {/* Hero Metrics Bar */}
-          <div className="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/40 shadow-sm shrink-0">
-            <div className="flex items-center gap-3 px-3 py-1 border-r border-outline-variant/40">
+          <div className="flex items-center gap-3 sm:gap-4 bg-surface-container-lowest p-3.5 rounded-xl border border-outline-variant/30 shadow-xs shrink-0 flex-wrap sm:flex-nowrap">
+            <div className="flex items-center gap-3 px-3 py-1 border-r border-outline-variant/30">
               <span className="font-serif text-2xl font-bold text-primary">500+</span>
               <div className="text-[10px] uppercase tracking-wider text-on-surface-variant leading-tight">
                 Customized Concepts<br />
                 <span className="font-semibold text-on-surface">Realized</span>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-3 py-1 border-r border-outline-variant/40">
+            <div className="flex items-center gap-3 px-3 py-1 border-r border-outline-variant/30">
               <span className="font-serif text-2xl font-bold text-primary">1-on-1</span>
               <div className="text-[10px] uppercase tracking-wider text-on-surface-variant leading-tight">
                 Master Artisan<br />
@@ -150,60 +150,69 @@ const BespokePage = () => {
       </section>
 
       {/* 2. How It Works Timeline */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-10">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-bold">Collection Craft Journey</span>
-          <h2 className="font-serif text-3xl font-bold text-on-surface mt-1">How Your Idea Becomes Reality</h2>
-          <p className="text-xs text-on-surface-variant mt-1.5">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="text-center max-w-xl mx-auto mb-10">
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
+            Collection Craft Journey
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
+            How Your Idea Becomes Reality
+          </h2>
+          <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
             Our transparent four-step artisan process guarantees peerless attention to detail.
           </p>
         </div>
 
         {/* Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-          {/* Connecting decorative line */}
-          <div className="hidden md:block absolute top-1/2 -translate-y-8 left-[12%] right-[12%] h-[1px] bg-gradient-to-r from-outline-variant via-primary to-outline-variant -z-0"></div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 relative">
           {/* Step 1 */}
-          <div className="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 relative z-10 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-full bg-surface-container-low border-2 border-primary text-primary flex items-center justify-center font-serif font-bold text-lg mb-4 mx-auto">
+          <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 p-6 flex flex-col items-center text-center">
+            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center font-serif font-bold text-sm mb-4">
               01
             </div>
-            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Share Your Vision</h3>
-            <p className="text-xs text-on-surface-variant text-center leading-relaxed">
+            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2">
+              Share Your Vision
+            </h3>
+            <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant">
               Upload reference moodboards, Pinterest sketches, photos, or describe your concept in our studio configuration form.
             </p>
           </div>
 
           {/* Step 2 */}
-          <div className="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 relative z-10 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-full bg-surface-container-low border-2 border-primary text-primary flex items-center justify-center font-serif font-bold text-lg mb-4 mx-auto">
+          <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 p-6 flex flex-col items-center text-center">
+            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center font-serif font-bold text-sm mb-4">
               02
             </div>
-            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Digital Render &amp; Collection</h3>
-            <p className="text-xs text-on-surface-variant text-center leading-relaxed">
+            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2">
+              Digital Render &amp; Collection
+            </h3>
+            <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant">
               Receive a photorealistic 3D render, custom font styles, and physical material swatches like teakwood, Italian leather, or raw silk.
             </p>
           </div>
 
           {/* Step 3 */}
-          <div className="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 relative z-10 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-full bg-surface-container-low border-2 border-primary text-primary flex items-center justify-center font-serif font-bold text-lg mb-4 mx-auto">
+          <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 p-6 flex flex-col items-center text-center">
+            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center font-serif font-bold text-sm mb-4">
               03
             </div>
-            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Artisanal Handcrafting</h3>
-            <p className="text-xs text-on-surface-variant text-center leading-relaxed">
+            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2">
+              Artisanal Handcrafting
+            </h3>
+            <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant">
               Master calligraphers, laser engravers, and leather crafters bring the piece to life in our state-of-the-art jubilee collection.
             </p>
           </div>
 
           {/* Step 4 */}
-          <div className="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 relative z-10 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-full bg-surface-container-low border-2 border-primary text-primary flex items-center justify-center font-serif font-bold text-lg mb-4 mx-auto">
+          <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 p-6 flex flex-col items-center text-center">
+            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center font-serif font-bold text-sm mb-4">
               04
             </div>
-            <h3 className="font-serif text-lg font-bold text-center text-on-surface mb-2">Wax-Sealed Delivery</h3>
-            <p className="text-xs text-on-surface-variant text-center leading-relaxed">
+            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-2">
+              Wax-Sealed Delivery
+            </h3>
+            <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant">
               Insured white-glove packaging with complimentary wax seal unboxing delivered straight to your doorstep or destination wedding venue.
             </p>
           </div>
@@ -211,45 +220,45 @@ const BespokePage = () => {
       </section>
 
       {/* 3. Studio Request Form Section (Interactive Configurator) */}
-      <section ref={formRef} className="max-w-[1400px] mx-auto px-4 sm:px-8 py-8" id="customized-form">
-        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-lg overflow-hidden">
+      <section ref={formRef} className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12" id="customized-form">
+        <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs overflow-hidden">
           {/* Collection Form Header Ribbon */}
-          <div className="bg-gradient-to-r from-[#1f1e1c] via-[#2d2925] to-[#1f1e1c] text-[#fcf9f8] px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#3d3730]">
-            <div className="flex items-center gap-3">
-              <span className="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-wide">
+          <div className="bg-inverse-surface text-inverse-on-surface px-6 sm:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-outline-variant/30">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+              <span className="font-serif text-base sm:text-lg font-medium tracking-wide">
                 Interactive Customized Studio Commission Request
               </span>
             </div>
-            <span className="text-xs text-primary-fixed-dim tracking-wider uppercase font-medium">
-              Design Consultation ID: #ASRA-COLLECTION-2026
+            <span className="font-mono text-xs text-primary-fixed-dim tracking-wider uppercase">
+              Consultation ID: #ASRA-COLLECTION-2026
             </span>
           </div>
 
           {/* Two Column Studio Body */}
           {submitted ? (
             <div className="p-8 sm:p-14 text-center max-w-xl mx-auto">
-              <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-                <span className="material-symbols-outlined text-4xl">verified</span>
+              <div className="w-14 h-14 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <span className="material-symbols-outlined text-[28px]">verified</span>
               </div>
-              <span className="font-label-sm text-xs text-primary uppercase font-bold tracking-widest block mb-1">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
                 Commission Dispatched
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-on-surface mb-2">
+              <h3 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mb-2">
                 Thank You, {fullName || 'Dear Guest'}!
               </h3>
               <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">
                 Your customized design brief for{' '}
-                <strong className="text-on-surface">
-                  {category === 'wedding essentials' && 'Wedding Wedding Essentials Trunk'}
+                <strong className="text-on-surface font-semibold">
+                  {category === 'wedding essentials' && 'Wedding Essentials Trunk'}
                   {category === 'audio_acrylic' && 'Audio & Songwave Sculpture'}
                   {category === 'teak_box' && 'Hand-Carved Teak Memory Box'}
                   {category === 'floral_shadowbox' && 'Preserved Varmala Shadowbox'}
                   {category === 'vow_books' && 'Gilded Vow Books & Folios'}
-                  {category === 'other_concept' && 'Custom Customized Concept'}
+                  {category === 'other_concept' && 'Customized Visionary Concept'}
                 </strong>{' '}
                 has been received. Our chief design master is reviewing your references and will reach out via WhatsApp at{' '}
-                <strong className="text-primary">{phone || '+91 96926 68263'}</strong> within 2 hours.
+                <strong className="text-primary font-mono">{phone || '+91 96926 68263'}</strong> within 2 hours.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
@@ -258,9 +267,9 @@ const BespokePage = () => {
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto px-6 py-3 bg-inverse-surface text-inverse-on-surface rounded-lg text-xs uppercase tracking-wider font-semibold hover:bg-primary transition-colors flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-[#25D366] text-white rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#20b858] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  <span className="material-symbols-outlined text-[16px]">chat</span>
                   <span>Open WhatsApp Direct</span>
                 </a>
                 <button
@@ -269,35 +278,35 @@ const BespokePage = () => {
                     setConceptDetails('');
                     setUploadedFiles([]);
                   }}
-                  className="w-full sm:w-auto px-6 py-3 bg-surface-container-low text-on-surface rounded-lg text-xs uppercase tracking-wider font-semibold hover:bg-surface-container transition-colors border border-outline-variant/40"
+                  className="w-full sm:w-auto px-5 py-2.5 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300"
                 >
                   Submit Another Brief
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8">
               {/* LEFT COLUMN: Configure Your Vision (7 Cols) */}
               <div className="lg:col-span-7 space-y-6">
                 {/* 1. Gift Category */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center text-[11px] font-bold font-mono">
                       1
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-on-surface">
                       Select Gift / Product Category
                     </h3>
                   </div>
-                  <p className="text-xs text-on-surface-variant mb-3 ml-8">
+                  <p className="text-xs text-on-surface-variant mb-3 ml-7">
                     Choose the primary gift silhouette you envision creating:
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 ml-0 sm:ml-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 ml-0 sm:ml-7">
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'wedding essentials'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -308,16 +317,16 @@ const BespokePage = () => {
                         className="text-primary focus:ring-primary mt-0.5 accent-primary"
                       />
                       <div>
-                        <span className="text-xs font-semibold text-on-surface block">Wedding Wedding Essentials Trunk</span>
+                        <span className="text-xs font-semibold text-on-surface block">Wedding Essentials Trunk</span>
                         <span className="text-[10px] text-on-surface-variant">Hand-built velvet &amp; gilded vaults</span>
                       </div>
                     </label>
 
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'audio_acrylic'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -334,10 +343,10 @@ const BespokePage = () => {
                     </label>
 
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'teak_box'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -354,10 +363,10 @@ const BespokePage = () => {
                     </label>
 
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'floral_shadowbox'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -374,10 +383,10 @@ const BespokePage = () => {
                     </label>
 
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'vow_books'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -394,10 +403,10 @@ const BespokePage = () => {
                     </label>
 
                     <label
-                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition ${
+                      className={`cursor-pointer border rounded-lg p-3 flex items-start gap-2.5 transition-all duration-300 ${
                         category === 'other_concept'
-                          ? 'border-primary bg-secondary-container/20 shadow-sm'
-                          : 'border-outline-variant/50 hover:border-primary/50 bg-surface-container-lowest'
+                          ? 'border-primary bg-[#FAF4EB] shadow-xs'
+                          : 'border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest'
                       }`}
                     >
                       <input
@@ -418,17 +427,17 @@ const BespokePage = () => {
                 {/* 2. Primary Materials */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center text-[11px] font-bold font-mono">
                       2
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-on-surface">
                       Primary Materials of Choice
                     </h3>
                   </div>
-                  <p className="text-xs text-on-surface-variant mb-3 ml-0 sm:ml-8">
-                    Select materials you wish to incorporate (select all that apply):
+                  <p className="text-xs text-on-surface-variant mb-3 ml-0 sm:ml-7">
+                    Select materials you wish to incorporate:
                   </p>
-                  <div className="flex flex-wrap gap-2 ml-0 sm:ml-8">
+                  <div className="flex flex-wrap gap-2 ml-0 sm:ml-7">
                     {materialOptions.map((mat) => {
                       const isSelected = materials.includes(mat.id);
                       return (
@@ -436,10 +445,10 @@ const BespokePage = () => {
                           key={mat.id}
                           type="button"
                           onClick={() => toggleMaterial(mat.id)}
-                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs transition ${
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs transition-all duration-300 ${
                             isSelected
-                              ? 'bg-inverse-surface text-inverse-on-surface border-inverse-surface font-semibold shadow-sm'
-                              : 'border-outline-variant/60 bg-surface-container-low text-on-surface hover:border-primary'
+                              ? 'bg-primary text-on-primary border-primary font-semibold shadow-xs'
+                              : 'border-outline-variant/30 bg-surface-container-low text-on-surface hover:border-primary'
                           }`}
                         >
                           <span>{mat.label}</span>
@@ -452,14 +461,14 @@ const BespokePage = () => {
                 {/* 3. Customization Techniques */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center text-[11px] font-bold font-mono">
                       3
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-on-surface">
                       Customization Techniques
                     </h3>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 ml-0 sm:ml-8 mt-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 ml-0 sm:ml-7 mt-2">
                     {techniqueOptions.map((tech) => {
                       const isChecked = techniques.includes(tech.id);
                       return (
@@ -468,7 +477,7 @@ const BespokePage = () => {
                             type="checkbox"
                             checked={isChecked}
                             onChange={() => toggleTechnique(tech.id)}
-                            className="rounded border-outline-variant/60 text-primary focus:ring-primary accent-primary w-4 h-4 cursor-pointer"
+                            className="rounded border-outline-variant/30 text-primary focus:ring-primary accent-primary w-4 h-4 cursor-pointer"
                           />
                           <span>{tech.label}</span>
                         </label>
@@ -480,14 +489,14 @@ const BespokePage = () => {
                 {/* 4. Upload Sketches, Reference Photos or Moodboards */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center text-[11px] font-bold font-mono">
                       4
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-on-surface">
                       Upload Sketches, Reference Photos or Moodboards
                     </h3>
                   </div>
-                  <div className="ml-0 sm:ml-8 mt-2">
+                  <div className="ml-0 sm:ml-7 mt-2">
                     <div
                       onDragOver={(e) => {
                         e.preventDefault();
@@ -495,7 +504,7 @@ const BespokePage = () => {
                       }}
                       onDragLeave={() => setIsDragging(false)}
                       onDrop={handleDrop}
-                      className={`relative border-2 border-dashed rounded-xl p-6 text-center transition cursor-pointer group ${
+                      className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-all duration-300 cursor-pointer group ${
                         isDragging
                           ? 'border-primary bg-primary/10'
                           : 'border-primary/40 bg-surface-container-low hover:bg-surface-container'
@@ -508,8 +517,8 @@ const BespokePage = () => {
                         onChange={handleFileChange}
                         className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                       />
-                      <div className="w-12 h-12 mx-auto mb-2 text-primary group-hover:scale-110 transition duration-200">
-                        <span className="material-symbols-outlined text-4xl">cloud_upload</span>
+                      <div className="w-10 h-10 mx-auto mb-2 text-primary group-hover:scale-105 transition-transform duration-300">
+                        <span className="material-symbols-outlined text-[32px]">cloud_upload</span>
                       </div>
                       <p className="text-xs font-medium text-on-surface">
                         <span className="text-primary font-bold underline">Click to upload files</span> or drag and drop reference images
@@ -525,7 +534,7 @@ const BespokePage = () => {
                         {uploadedFiles.map((file, idx) => (
                           <div
                             key={idx}
-                            className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-outline-variant/50 text-xs shadow-sm"
+                            className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-outline-variant/30 text-xs shadow-xs"
                           >
                             {file.preview ? (
                               <img src={file.preview} alt="preview" className="w-6 h-6 object-cover rounded" />
@@ -533,11 +542,11 @@ const BespokePage = () => {
                               <span className="material-symbols-outlined text-[16px] text-primary">description</span>
                             )}
                             <span className="font-medium text-on-surface truncate max-w-[140px]">{file.name}</span>
-                            <span className="text-[10px] text-outline">({file.size})</span>
+                            <span className="text-[10px] font-mono text-outline">({file.size})</span>
                             <button
                               type="button"
                               onClick={() => removeFile(idx)}
-                              className="text-outline hover:text-rose-600 ml-1"
+                              className="text-outline hover:text-rose-600 ml-1 cursor-pointer"
                               aria-label="Remove uploaded file"
                             >
                               <span className="material-symbols-outlined text-[14px]">close</span>
@@ -552,51 +561,51 @@ const BespokePage = () => {
                 {/* 5. Concept Details */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold font-serif">
+                    <span className="w-5 h-5 rounded-full bg-[#FAF4EB] text-primary border border-primary/20 flex items-center justify-center text-[11px] font-bold font-mono">
                       5
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-on-surface">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-on-surface">
                       Concept Details &amp; Custom Engravings
                     </h3>
                   </div>
-                  <div className="ml-0 sm:ml-8 mt-2">
+                  <div className="ml-0 sm:ml-7 mt-2">
                     <textarea
                       value={conceptDetails}
                       onChange={(e) => setConceptDetails(e.target.value)}
                       rows={4}
                       placeholder="Describe your concept, couple's story, wedding hashtags, specific dimensions, secret quotes, or color palette desires (e.g. Sage Green & Champagne Gold, wedding logo vector link)..."
-                      className="w-full text-xs rounded-xl border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none p-3 text-on-surface placeholder:text-outline"
+                      className="w-full text-xs rounded-xl border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none p-3 text-on-surface placeholder:text-outline"
                     ></textarea>
                   </div>
                 </div>
               </div>
 
               {/* RIGHT COLUMN: Consultation & Support Details (5 Cols) */}
-              <div className="lg:col-span-5 bg-surface-container-low border border-outline-variant/40 rounded-xl p-6 lg:p-7 flex flex-col justify-between">
+              <div className="lg:col-span-5 bg-surface-container-low border border-outline-variant/30 rounded-xl p-6 lg:p-7 flex flex-col justify-between">
                 <div>
                   <div className="border-b border-outline-variant/30 pb-4 mb-5">
-                    <span className="text-[10px] uppercase font-bold text-primary tracking-widest block">
-                      White-Glove Collection Service
+                    <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
+                      White-Glove Atelier Service
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-on-surface">
-                      Project Consultation &amp; Support Details
+                    <h3 className="font-serif text-2xl font-normal leading-tight text-on-surface">
+                      Project Consultation &amp; Details
                     </h3>
-                    <p className="text-xs text-on-surface-variant mt-1">
+                    <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                       Our senior customized curator will craft a personalized layout &amp; quotation based on your choices.
                     </p>
                   </div>
 
                   {/* Budget Expectation */}
                   <div className="mb-5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-on-surface block mb-2">
+                    <label className="text-xs font-semibold uppercase tracking-wider text-on-surface block mb-2">
                       Budget Expectation
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       <label
-                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition ${
+                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition-all duration-300 ${
                           budget === '2.5k-5k'
-                            ? 'border-primary bg-secondary-container/40 font-bold text-on-surface'
-                            : 'border-outline-variant/60 bg-surface-container-lowest text-on-surface hover:border-primary'
+                            ? 'border-primary bg-[#FAF4EB] font-semibold text-primary shadow-xs'
+                            : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/40'
                         }`}
                       >
                         <input
@@ -610,10 +619,10 @@ const BespokePage = () => {
                       </label>
 
                       <label
-                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition ${
+                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition-all duration-300 ${
                           budget === '5k-10k'
-                            ? 'border-primary bg-secondary-container/40 font-bold text-on-surface'
-                            : 'border-outline-variant/60 bg-surface-container-lowest text-on-surface hover:border-primary'
+                            ? 'border-primary bg-[#FAF4EB] font-semibold text-primary shadow-xs'
+                            : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/40'
                         }`}
                       >
                         <input
@@ -627,10 +636,10 @@ const BespokePage = () => {
                       </label>
 
                       <label
-                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition ${
+                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition-all duration-300 ${
                           budget === '10k-25k'
-                            ? 'border-primary bg-secondary-container/40 font-bold text-on-surface'
-                            : 'border-outline-variant/60 bg-surface-container-lowest text-on-surface hover:border-primary'
+                            ? 'border-primary bg-[#FAF4EB] font-semibold text-primary shadow-xs'
+                            : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/40'
                         }`}
                       >
                         <input
@@ -644,10 +653,10 @@ const BespokePage = () => {
                       </label>
 
                       <label
-                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition ${
+                        className={`cursor-pointer border rounded-lg p-2.5 text-center text-xs font-medium transition-all duration-300 ${
                           budget === '25k+'
-                            ? 'border-primary bg-secondary-container/40 font-bold text-on-surface'
-                            : 'border-outline-variant/60 bg-surface-container-lowest text-on-surface hover:border-primary'
+                            ? 'border-primary bg-[#FAF4EB] font-semibold text-primary shadow-xs'
+                            : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/40'
                         }`}
                       >
                         <input
@@ -664,21 +673,21 @@ const BespokePage = () => {
 
                   {/* Target Delivery / Wedding Date */}
                   <div className="mb-5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-on-surface block mb-1.5">
+                    <label className="text-xs font-semibold uppercase tracking-wider text-on-surface block mb-1.5">
                       Target Delivery / Wedding Date
                     </label>
                     <input
                       type="date"
                       value={weddingDate}
                       onChange={(e) => setWeddingDate(e.target.value)}
-                      className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2.5 px-3 text-on-surface"
+                      className="w-full text-xs rounded-lg border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2.5 px-3 text-on-surface"
                     />
                   </div>
 
                   {/* Client Details */}
-                  <div className="space-y-3.5 mb-6">
+                  <div className="space-y-3 mb-6">
                     <div>
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-on-surface block mb-1">
+                      <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                         Full Name *
                       </label>
                       <input
@@ -687,18 +696,18 @@ const BespokePage = () => {
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. Asra Ansari"
-                        className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
+                        className="w-full text-xs rounded-lg border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-on-surface block mb-1">
+                        <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                           WhatsApp / Phone *
                         </label>
                         <div className="flex">
-                          <span className="inline-flex items-center px-2 rounded-l-lg border border-r-0 border-outline-variant/60 bg-surface-container-high text-xs text-on-surface font-medium">
-                            🇮🇳 +91
+                          <span className="inline-flex items-center px-2.5 rounded-l-lg border border-r-0 border-outline-variant/30 bg-surface-container-high text-xs text-on-surface font-medium">
+                            +91
                           </span>
                           <input
                             type="tel"
@@ -706,13 +715,13 @@ const BespokePage = () => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             placeholder="96926 68263"
-                            className="w-full text-xs rounded-r-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
+                            className="w-full text-xs rounded-r-lg border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="text-[11px] font-bold uppercase tracking-wider text-on-surface block mb-1">
+                        <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                           Email Address *
                         </label>
                         <input
@@ -721,13 +730,13 @@ const BespokePage = () => {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="shahnawazalirkl@gmail.com"
-                          className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
+                          className="w-full text-xs rounded-lg border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="text-[11px] font-bold uppercase tracking-wider text-on-surface block mb-1">
+                      <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                         Destination City / Venue Delivery
                       </label>
                       <input
@@ -735,7 +744,7 @@ const BespokePage = () => {
                         value={destinationCity}
                         onChange={(e) => setDestinationCity(e.target.value)}
                         placeholder="e.g. The Leela Palace, Udaipur or Mumbai"
-                        className="w-full text-xs rounded-lg border border-outline-variant/60 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
+                        className="w-full text-xs rounded-lg border border-outline-variant/30 bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none py-2 px-3 text-on-surface"
                       />
                     </div>
                   </div>
@@ -745,7 +754,7 @@ const BespokePage = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-inverse-surface hover:bg-primary text-inverse-on-surface py-3.5 px-6 rounded-lg text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition duration-300 shadow-md"
+                    className="w-full px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <span>Submit Customized Commission Request</span>
                     <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -756,9 +765,9 @@ const BespokePage = () => {
                       href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier,%20I%20need%20instant%20consultation%20for%20a%20bespoke%20wedding%20gift"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-700 hover:text-emerald-800 transition"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] hover:underline transition-colors"
                     >
-                      <span className="material-symbols-outlined text-[18px]">chat</span>
+                      <span className="material-symbols-outlined text-[16px]">chat</span>
                       <span>Need instant consultation? Chat on WhatsApp within 15 min</span>
                     </a>
                   </div>
@@ -770,29 +779,29 @@ const BespokePage = () => {
       </section>
 
       {/* 4. Masterpiece Hero Spotlight */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-6">
-        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 sm:p-10 flex flex-col lg:flex-row items-center gap-10 shadow-sm">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center gap-8 shadow-xs">
           <div className="lg:w-1/2 relative w-full">
-            <div className="overflow-hidden rounded-xl border border-outline-variant/40 shadow-inner bg-surface-container-low">
+            <div className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-low aspect-[4/3] group">
               <img
                 src="/assets/cdn/img_eafddfa4ed3e.jpg"
                 alt="The Sovereign Bridal and Wedding Essentials Masterpiece Suite"
-                className="w-full h-auto object-cover max-h-[480px] hover:scale-105 transition duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               />
             </div>
-            <span className="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded shadow-sm border border-outline-variant/40">
-              ★ Collection Masterpiece Realization
+            <span className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
+              ★ Collection Masterpiece
             </span>
           </div>
 
           <div className="lg:w-1/2 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-secondary-container/60 text-on-secondary-container px-3 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block">
               Signature Bridal Commission
-            </div>
-            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-on-surface leading-tight">
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
               The Sovereign Bridal &amp; Wedding Essentials Suite
             </h2>
-            <p className="text-sm text-on-surface-variant leading-relaxed">
+            <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               An opulent symphony of hand-embossed blush wedding essentials cases, artisanal Eau de Parfum, golden Ferrero confections,
               organic soy candle, silk scrunchie, and our signature ASRA golden ribbon insignia. Crafted specifically for
               unforgettable wedding essentials unboxing and morning-of-wedding reveals.
@@ -817,11 +826,14 @@ const BespokePage = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-outline-variant/30 flex items-center justify-between gap-4">
+            <div className="pt-4 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-outline block">Customized Suite Baseline</span>
-                <span className="font-serif text-2xl font-bold text-on-surface">₹7,499</span>
-                <span className="text-xs text-outline line-through ml-1.5">₹9,800</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-bold text-on-surface text-lg">₹7,499</span>
+                  <span className="line-through text-outline text-xs">₹9,800</span>
+                  <span className="text-emerald-700 font-semibold text-xs">(23% OFF)</span>
+                </div>
               </div>
 
               <button
@@ -834,7 +846,7 @@ const BespokePage = () => {
                   )
                 }
                 type="button"
-                className="bg-inverse-surface hover:bg-primary text-inverse-on-surface text-xs font-semibold uppercase tracking-wider py-3 px-6 rounded-lg transition duration-300 shadow-sm"
+                className="px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300"
               >
                 Customize Similar Suite →
               </button>
@@ -844,22 +856,22 @@ const BespokePage = () => {
       </section>
 
       {/* 5. Recent Customized Creations Realized (Showcase Gallery) */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-12">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div>
-            <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
               Archive of Realized Dreams
             </span>
-            <h2 className="font-serif text-3xl font-bold text-on-surface mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
               Recent Customized Creations Realized
             </h2>
-            <p className="text-xs text-on-surface-variant mt-1">
+            <p className="text-xs sm:text-sm text-on-surface-variant mt-1.5 leading-relaxed">
               Every commissioned piece is archived with its couple's journey and craftsmanship pedigree.
             </p>
           </div>
           <Link
             to="/shop"
-            className="text-xs font-bold uppercase tracking-wider text-primary hover:text-on-surface transition inline-flex items-center gap-1.5 mt-3 md:mt-0"
+            className="text-xs font-semibold uppercase tracking-wider text-primary hover:text-on-surface transition-colors inline-flex items-center gap-1.5 mt-3 md:mt-0"
           >
             <span>View All Collection Heirlooms</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -867,22 +879,22 @@ const BespokePage = () => {
         </div>
 
         {/* 4 Showcase Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {/* Card 1: The Royal Udaipur Vow Trunk */}
-          <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <article className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
-                <div className="w-full h-full rounded bg-gradient-to-tr from-[#3b2b1e] to-[#6b4f3a] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
+              <div className="relative bg-surface-container-low aspect-[4/3] overflow-hidden flex items-center justify-center p-4">
+                <div className="w-full h-full rounded bg-gradient-to-tr from-[#3b2b1e] to-[#6b4f3a] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-xs">
                   <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">A &amp; S</span>
                   <span className="font-serif text-sm font-bold mt-1">Hand-Carved Walnut Trunk</span>
-                  <span className="text-[10px] text-primary-fixed-dim mt-2">24k Gold Debossed Vows</span>
+                  <span className="text-[10px] font-mono text-primary-fixed-dim mt-2">24k Gold Debossed Vows</span>
                 </div>
-                <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Asra &amp; Shahnawaz
+                <span className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
+                  For Asra &amp; Shahnawaz
                 </span>
               </div>
-              <div className="p-5">
-                <h3 className="font-serif text-lg font-bold text-on-surface mb-1.5">
+              <div className="p-4">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1.5">
                   The Royal Udaipur Vow Trunk
                 </h3>
                 <p className="text-xs text-on-surface-variant line-clamp-3 mb-3 leading-relaxed">
@@ -893,7 +905,7 @@ const BespokePage = () => {
                 </blockquote>
               </div>
             </div>
-            <div className="p-5 pt-0">
+            <div className="p-4 pt-0">
               <button
                 onClick={() =>
                   handlePrefill(
@@ -904,7 +916,7 @@ const BespokePage = () => {
                   )
                 }
                 type="button"
-                className="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary text-[11px] font-bold uppercase tracking-wider py-2 rounded transition"
+                className="w-full px-5 py-2.5 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300"
               >
                 Request Similar Trunk
               </button>
@@ -912,20 +924,20 @@ const BespokePage = () => {
           </article>
 
           {/* Card 2: Preserved Jaimala Crystal Arch */}
-          <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <article className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
-                <div className="w-full h-full rounded bg-gradient-to-tr from-[#2f3e37] to-[#516b5e] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
+              <div className="relative bg-surface-container-low aspect-[4/3] overflow-hidden flex items-center justify-center p-4">
+                <div className="w-full h-full rounded bg-gradient-to-tr from-[#2f3e37] to-[#516b5e] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-xs">
                   <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">S &amp; S</span>
                   <span className="font-serif text-sm font-bold mt-1">Preserved Jaimala Flora</span>
-                  <span className="text-[10px] text-primary-fixed-dim mt-2">Crystal Optical Arch</span>
+                  <span className="text-[10px] font-mono text-primary-fixed-dim mt-2">Crystal Optical Arch</span>
                 </div>
-                <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Sagil &amp; Shagufta
+                <span className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
+                  For Sagil &amp; Shagufta
                 </span>
               </div>
-              <div className="p-5">
-                <h3 className="font-serif text-lg font-bold text-on-surface mb-1.5">
+              <div className="p-4">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1.5">
                   Preserved Jaimala Crystal Arch
                 </h3>
                 <p className="text-xs text-on-surface-variant line-clamp-3 mb-3 leading-relaxed">
@@ -936,7 +948,7 @@ const BespokePage = () => {
                 </blockquote>
               </div>
             </div>
-            <div className="p-5 pt-0">
+            <div className="p-4 pt-0">
               <button
                 onClick={() =>
                   handlePrefill(
@@ -947,28 +959,28 @@ const BespokePage = () => {
                   )
                 }
                 type="button"
-                className="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary text-[11px] font-bold uppercase tracking-wider py-2 rounded transition"
+                className="w-full px-5 py-2.5 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300"
               >
-                Request Floral Preservation
+                Request Preservation
               </button>
             </div>
           </article>
 
           {/* Card 3: Celestial First Dance Songwave */}
-          <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <article className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
-                <div className="w-full h-full rounded bg-gradient-to-tr from-[#1f242e] to-[#394458] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
+              <div className="relative bg-surface-container-low aspect-[4/3] overflow-hidden flex items-center justify-center p-4">
+                <div className="w-full h-full rounded bg-gradient-to-tr from-[#1f242e] to-[#394458] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-xs">
                   <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">J &amp; A</span>
                   <span className="font-serif text-sm font-bold mt-1">Songwave Audio Light</span>
-                  <span className="text-[10px] text-primary-fixed-dim mt-2">Backlit Italian Marble Base</span>
+                  <span className="text-[10px] font-mono text-primary-fixed-dim mt-2">Backlit Italian Marble</span>
                 </div>
-                <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Jawed &amp; Asra
+                <span className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
+                  For Jawed &amp; Asra
                 </span>
               </div>
-              <div className="p-5">
-                <h3 className="font-serif text-lg font-bold text-on-surface mb-1.5">
+              <div className="p-4">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1.5">
                   Celestial First Dance Songwave
                 </h3>
                 <p className="text-xs text-on-surface-variant line-clamp-3 mb-3 leading-relaxed">
@@ -979,7 +991,7 @@ const BespokePage = () => {
                 </blockquote>
               </div>
             </div>
-            <div className="p-5 pt-0">
+            <div className="p-4 pt-0">
               <button
                 onClick={() =>
                   handlePrefill(
@@ -990,7 +1002,7 @@ const BespokePage = () => {
                   )
                 }
                 type="button"
-                className="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary text-[11px] font-bold uppercase tracking-wider py-2 rounded transition"
+                className="w-full px-5 py-2.5 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300"
               >
                 Request Audio Gift
               </button>
@@ -998,20 +1010,20 @@ const BespokePage = () => {
           </article>
 
           {/* Card 4: Initials Passport Trunk */}
-          <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <article className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
             <div>
-              <div className="relative bg-surface-container-low h-52 overflow-hidden flex items-center justify-center p-4">
-                <div className="w-full h-full rounded bg-gradient-to-tr from-[#4a3328] to-[#805844] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-md">
+              <div className="relative bg-surface-container-low aspect-[4/3] overflow-hidden flex items-center justify-center p-4">
+                <div className="w-full h-full rounded bg-gradient-to-tr from-[#4a3328] to-[#805844] text-[#f7eedf] flex flex-col items-center justify-center p-4 text-center shadow-xs">
                   <span className="text-xs font-serif uppercase tracking-widest text-primary-fixed">Z &amp; S</span>
-                  <span className="font-serif text-sm font-bold mt-1">Italian Leather Honeymoon Trunk</span>
-                  <span className="text-[10px] text-primary-fixed-dim mt-2">Vintage Brass Die Stamped</span>
+                  <span className="font-serif text-sm font-bold mt-1">Italian Leather Trunk</span>
+                  <span className="text-[10px] font-mono text-primary-fixed-dim mt-2">Brass Die Stamped</span>
                 </div>
-                <span className="absolute top-3 left-3 bg-surface-container-lowest/90 text-on-surface text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shadow-sm">
-                  Commissioned For Zeeshan &amp; Shagufta
+                <span className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
+                  For Zeeshan &amp; Shagufta
                 </span>
               </div>
-              <div className="p-5">
-                <h3 className="font-serif text-lg font-bold text-on-surface mb-1.5">
+              <div className="p-4">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1.5">
                   Initials Passport Trunk
                 </h3>
                 <p className="text-xs text-on-surface-variant line-clamp-3 mb-3 leading-relaxed">
@@ -1022,7 +1034,7 @@ const BespokePage = () => {
                 </blockquote>
               </div>
             </div>
-            <div className="p-5 pt-0">
+            <div className="p-4 pt-0">
               <button
                 onClick={() =>
                   handlePrefill(
@@ -1033,7 +1045,7 @@ const BespokePage = () => {
                   )
                 }
                 type="button"
-                className="w-full border border-primary text-primary hover:bg-primary hover:text-on-primary text-[11px] font-bold uppercase tracking-wider py-2 rounded transition"
+                className="w-full px-5 py-2.5 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300"
               >
                 Request Leather Suite
               </button>
@@ -1043,44 +1055,44 @@ const BespokePage = () => {
       </section>
 
       {/* 6. Brand Trust Guarantees Bar (4 Pillars) */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-8">
-        <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/40 py-6 px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/30 shadow-sm">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest py-6 px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/30 shadow-xs">
           <div className="flex items-center justify-center gap-3 pt-4 sm:pt-0">
-            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-[20px]">tune</span>
+            <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+              <span className="material-symbols-outlined text-[18px]">tune</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">100% Customized Craft</h4>
+              <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">100% Customized Craft</h4>
               <p className="text-[11px] text-on-surface-variant">Custom dies &amp; real gold leaf</p>
             </div>
           </div>
 
           <div className="flex items-center justify-center gap-3 pt-4 sm:pt-0">
-            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-[20px]">local_shipping</span>
+            <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+              <span className="material-symbols-outlined text-[18px]">local_shipping</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">Insured Global Courier</h4>
+              <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">Insured Global Courier</h4>
               <p className="text-[11px] text-on-surface-variant">Doorstep transit protection</p>
             </div>
           </div>
 
           <div className="flex items-center justify-center gap-3 pt-4 sm:pt-0">
-            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-[20px]">featured_seasonal_and_gifts</span>
+            <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+              <span className="material-symbols-outlined text-[18px]">featured_seasonal_and_gifts</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">Wax-Sealed Luxury Box</h4>
+              <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">Wax-Sealed Luxury Box</h4>
               <p className="text-[11px] text-on-surface-variant">Complimentary presentation</p>
             </div>
           </div>
 
           <div className="flex items-center justify-center gap-3 pt-4 sm:pt-0">
-            <div className="w-10 h-10 rounded-full bg-surface-container-low border border-primary text-primary flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-[20px]">support_agent</span>
+            <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+              <span className="material-symbols-outlined text-[18px]">support_agent</span>
             </div>
             <div className="text-left">
-              <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider">Collection Privilege Desk</h4>
+              <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">Privilege Concierge</h4>
               <p className="text-[11px] text-on-surface-variant">Personal bridal stylist 24/7</p>
             </div>
           </div>

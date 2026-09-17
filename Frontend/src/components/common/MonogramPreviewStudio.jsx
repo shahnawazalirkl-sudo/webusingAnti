@@ -41,7 +41,7 @@ const MonogramPreviewStudio = () => {
           
           {/* Left Controls Column */}
           <div className="lg:col-span-6 flex flex-col">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-secondary-container/60 text-on-secondary-container rounded-full font-label-sm text-[10px] tracking-wider uppercase font-semibold mb-2 w-fit">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-secondary-container/60 text-on-secondary-container rounded-full font-label-sm text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold mb-2 w-fit">
               <span className="material-symbols-outlined text-[13px] text-primary">auto_fix_high</span>
               <span>Interactive Monogram Studio</span>
             </div>
@@ -50,7 +50,7 @@ const MonogramPreviewStudio = () => {
               Preview Your Wedding Initials <span className="italic text-primary">Live</span>
             </h2>
 
-            <p className="font-body-md text-xs sm:text-sm text-on-surface-variant mb-4 leading-relaxed">
+            <p className="font-body-md text-xs sm:text-sm text-on-surface-variant mb-4 leading-relaxed font-normal">
               Type your names and wedding date below to visualize your customized gold debossing die before our artisans hand-stamp your heirlooms.
             </p>
 

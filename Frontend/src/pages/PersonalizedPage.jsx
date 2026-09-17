@@ -50,99 +50,145 @@ const PersonalizedPage = () => {
   });
 
   return (
-    <div className="w-full pt-8 pb-20 px-4 sm:px-8 max-w-[1360px] mx-auto">
-      {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="text-[10px] text-primary uppercase font-bold tracking-widest block mb-1">
-          Individual Artisanship
-        </span>
-        <h1 className="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
-          Personalized Gifts
-        </h1>
-        <p className="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-          Every initials is individually rendered and debossed using real bronze metallurgy stamping dies for heirloom depth.
-        </p>
-      </div>
-
-      {/* How It Works Banner */}
-      <div className="bg-secondary-container/20 rounded-2xl p-6 sm:p-8 border border-secondary-container/50 mb-12">
-        <div className="text-center max-w-lg mx-auto mb-6">
-          <span className="text-[10px] text-primary uppercase font-bold tracking-wider block mb-1">
-            Artisan Precision Standard
+    <div className="w-full bg-surface text-on-surface antialiased py-8 sm:py-10 lg:py-12">
+      <div className="max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2">
+            Individual Artisanship
           </span>
-          <h2 className="font-serif text-xl font-semibold text-on-surface">How Customized Personalization Works</h2>
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface">
+            Personalized Gifts
+          </h1>
+          <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl mx-auto leading-relaxed mt-2.5">
+            Every monogram is individually rendered and debossed using real bronze metallurgy stamping dies for heirloom depth.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-on-surface-variant">
-          <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
-            <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif font-bold flex items-center justify-center mb-3">1</span>
-            <h4 className="font-serif text-sm font-semibold text-on-surface mb-1">Digital 3D CAD Proof</h4>
-            <p className="leading-relaxed">Within 6 hours of your order, our calligraphy team sends high-resolution typography proofs via WhatsApp.</p>
+        {/* How It Works Banner */}
+        <div className="bg-[#FAF4EB] rounded-xl p-5 sm:p-7 border border-primary/20 mb-10 sm:mb-12 shadow-xs">
+          <div className="text-center max-w-lg mx-auto mb-6">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1.5">
+              Artisan Precision Standard
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
+              How Bespoke Personalization Works
+            </h2>
           </div>
 
-          <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
-            <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif font-bold flex items-center justify-center mb-3">2</span>
-            <h4 className="font-serif text-sm font-semibold text-on-surface mb-1">Solid Bronze Die Metallurgy</h4>
-            <p className="leading-relaxed">We machine heavy brass plates heated to 140°C to permanently imprint your initials into full-grain leather and velvet.</p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 text-xs text-on-surface-variant">
+            <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 sm:p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300">
+              <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif text-xs font-semibold flex items-center justify-center mb-3 shadow-xs">
+                1
+              </span>
+              <h4 className="font-serif text-base font-medium leading-snug text-on-surface mb-1">
+                Digital 3D CAD Proof
+              </h4>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                Within 6 hours of your order, our calligraphy team sends high-resolution typography proofs via WhatsApp.
+              </p>
+            </div>
 
-          <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
-            <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif font-bold flex items-center justify-center mb-3">3</span>
-            <h4 className="font-serif text-sm font-semibold text-on-surface mb-1">Sealed Collection Certificate</h4>
-            <p className="leading-relaxed">Each finished creation is hand-checked for foil crispness and sealed with hot bronze wax before insured venue dispatch.</p>
+            <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 sm:p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300">
+              <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif text-xs font-semibold flex items-center justify-center mb-3 shadow-xs">
+                2
+              </span>
+              <h4 className="font-serif text-base font-medium leading-snug text-on-surface mb-1">
+                Solid Bronze Die Metallurgy
+              </h4>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                We machine heavy brass plates heated to 140°C to permanently imprint your monogram into full-grain leather and velvet.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 sm:p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300">
+              <span className="w-8 h-8 rounded-full bg-primary text-on-primary font-serif text-xs font-semibold flex items-center justify-center mb-3 shadow-xs">
+                3
+              </span>
+              <h4 className="font-serif text-base font-medium leading-snug text-on-surface mb-1">
+                Sealed Collection Certificate
+              </h4>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                Each finished creation is hand-checked for foil crispness and sealed with hot bronze wax before insured venue dispatch.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Craft & Recipient Filters */}
-      <div
-        id="products"
-        ref={productSectionRef}
-        className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-outline-variant/40 scroll-mt-28"
-      >
-        <div className="flex items-center gap-2 flex-wrap text-xs">
-          <span className="text-outline uppercase text-[10px] font-bold">Craft:</span>
-          {[
-            { id: 'all', label: 'All Techniques' },
-            { id: 'monogram', label: 'Initials' },
-            { id: 'velvet', label: 'Velvet & Silk' },
-            { id: 'wax', label: 'Wax & Deckle' },
-            { id: 'botanical', label: 'Preserved Florals' },
-            { id: 'gold', label: 'Gold Foil' }
-          ].map((c) => (
-            <button
-              key={c.id}
-              onClick={() => setCraftFilter(c.id)}
-              className={`px-3 py-1.5 rounded-lg transition-colors ${
-                craftFilter === c.id ? 'bg-primary text-on-primary font-semibold' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'
-              }`}
+        {/* Craft & Recipient Filters */}
+        <div
+          id="products"
+          ref={productSectionRef}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-5 mb-8 border-b border-outline-variant/30 scroll-mt-28"
+        >
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-outline">
+              Craft:
+            </span>
+            {[
+              { id: 'all', label: 'All Techniques' },
+              { id: 'monogram', label: 'Monogram' },
+              { id: 'velvet', label: 'Velvet & Silk' },
+              { id: 'wax', label: 'Wax & Deckle' },
+              { id: 'botanical', label: 'Preserved Florals' },
+              { id: 'gold', label: 'Gold Foil' }
+            ].map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => {
+                  setCraftFilter(c.id);
+                  setSearchParams((prev) => {
+                    const next = new URLSearchParams(prev);
+                    if (c.id === 'all') next.delete('craft');
+                    else next.set('craft', c.id);
+                    return next;
+                  });
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+                  craftFilter === c.id
+                    ? 'bg-primary text-on-primary shadow-xs'
+                    : 'bg-[#FAF4EB] border border-primary/20 text-on-surface hover:border-primary hover:text-primary'
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 self-end sm:self-auto">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-outline">
+              Recipient:
+            </span>
+            <select
+              value={recipientFilter}
+              onChange={(e) => {
+                const val = e.target.value;
+                setRecipientFilter(val);
+                setSearchParams((prev) => {
+                  const next = new URLSearchParams(prev);
+                  if (val === 'all') next.delete('recipient');
+                  else next.set('recipient', val);
+                  return next;
+                });
+              }}
+              className="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs font-semibold text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors cursor-pointer shadow-xs"
             >
-              {c.label}
-            </button>
+              <option value="all">All Recipients</option>
+              <option value="bride">Bride &amp; Bridesmaids</option>
+              <option value="groom">Groom &amp; Groomsmen</option>
+              <option value="couple">Couple &amp; Anniversary</option>
+              <option value="parents">Parents of the Couple</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+          {filtered.map((product) => (
+            <ProductCard key={product.id} product={product} aspectRatio="portrait" />
           ))}
         </div>
-
-        <div className="flex items-center gap-2 text-xs">
-          <span className="text-outline uppercase text-[10px] font-bold">Recipient:</span>
-          <select
-            value={recipientFilter}
-            onChange={(e) => setRecipientFilter(e.target.value)}
-            className="bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant/60 text-xs text-on-surface focus:outline-none"
-          >
-            <option value="all">All Recipients</option>
-            <option value="bride">Bride & Bridesmaids</option>
-            <option value="groom">Groom & Groomsmen</option>
-            <option value="couple">Couple & Anniversary</option>
-            <option value="parents">Parents of the Couple</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filtered.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
       </div>
     </div>
   );

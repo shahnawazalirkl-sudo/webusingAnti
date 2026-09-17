@@ -235,65 +235,60 @@ const CollectionsPage = () => {
   };
 
   return (
-    <div className="w-full bg-surface min-h-screen">
+    <div className="w-full bg-surface min-h-screen text-on-surface">
       <div className="flex flex-col w-full">
         {/* Subtle Ambient Glow Element */}
         <div className="relative w-full overflow-hidden">
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-secondary-container/20 rounded-full blur-[120px] pointer-events-none"></div>
 
           {/* Breadcrumb & Editorial Header */}
-          <section className="max-w-[1360px] mx-auto px-margin pt-space-lg pb-space-md">
+          <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-outline mb-space-sm">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-outline mb-4">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <span className="text-outline-variant">/</span>
               <span className="text-outline">Collections</span>
               <span className="text-outline-variant">/</span>
-              <span className="text-primary font-semibold">Signature Collection Collections</span>
+              <span className="text-primary font-semibold">Signature Collections</span>
             </nav>
 
             {/* Headline Block & Key Collection Metrics */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-lg">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-space-xs">
-                  <span className="material-symbols-outlined text-[15px] text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    hotel_class
-                  </span>
-                  <span className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary">
-                    Collection Editions 2025
-                  </span>
-                </div>
-                <h1 className="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight mb-space-xs">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-outline-variant/30">
+              <div className="max-w-2xl">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2">
+                  Collection Editions 2026
+                </span>
+                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface mb-3">
                   Curated Signature Collections
                 </h1>
-                <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light">
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
                   Explore masterfully curated wedding suites, gift vaults, bridal party tributes, and commemorative luxury hampers tailored by theme and celebration.
                 </p>
               </div>
 
               {/* Collection Metric Pills */}
-              <div className="flex items-center gap-space-sm shrink-0 flex-wrap">
-                <div className="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-sm rounded-lg shadow-sm border border-outline-variant/30">
-                  <span className="font-headline-md text-headline-md text-primary font-semibold">8</span>
+              <div className="flex items-center gap-3 sm:gap-4 shrink-0 flex-wrap sm:flex-nowrap">
+                <div className="flex items-center gap-3 bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-xs border border-outline-variant/30">
+                  <span className="font-serif text-2xl text-primary font-bold">8</span>
                   <div className="flex flex-col">
-                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline leading-tight">Curated</span>
-                    <span className="font-label-md text-label-md text-on-surface font-medium leading-tight">Series</span>
+                    <span className="text-[10px] uppercase tracking-wider text-outline leading-tight font-semibold">Curated</span>
+                    <span className="text-xs text-on-surface font-semibold leading-tight">Series</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-sm rounded-lg shadow-sm border border-outline-variant/30">
+                <div className="flex items-center gap-3 bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-xs border border-outline-variant/30">
                   <span className="material-symbols-outlined text-primary text-[22px]">workspace_premium</span>
                   <div className="flex flex-col">
-                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline leading-tight">100% Handcrafted</span>
-                    <span className="font-label-md text-label-md text-on-surface font-medium leading-tight">Artisanal Finish</span>
+                    <span className="text-[10px] uppercase tracking-wider text-outline leading-tight font-semibold">100% Handcrafted</span>
+                    <span className="text-xs text-on-surface font-semibold leading-tight">Artisanal Finish</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-sm rounded-lg shadow-sm border border-outline-variant/30">
+                <div className="flex items-center gap-3 bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-xs border border-outline-variant/30">
                   <span className="material-symbols-outlined text-primary text-[22px]">auto_stories</span>
                   <div className="flex flex-col">
-                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline leading-tight">Support</span>
-                    <span className="font-label-md text-label-md text-on-surface font-medium leading-tight">Customized Collection</span>
+                    <span className="text-[10px] uppercase tracking-wider text-outline leading-tight font-semibold">Atelier</span>
+                    <span className="text-xs text-on-surface font-semibold leading-tight">Custom Studio</span>
                   </div>
                 </div>
               </div>
@@ -301,8 +296,8 @@ const CollectionsPage = () => {
           </section>
 
           {/* Filter Bar / Quick Category Chips */}
-          <section className="max-w-[1360px] mx-auto px-margin mb-space-xl">
-            <div className="flex items-center gap-space-xs overflow-x-auto pb-space-xs scrollbar-none" id="collections-tab-bar">
+          <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="collections-tab-bar">
               {CATEGORIES.map((category) => {
                 const isActive = selectedCategory === category;
                 const label = category === 'All Collections' ? `All Collections (${COLLECTIONS_DATA.length})` : category;
@@ -320,9 +315,9 @@ const CollectionsPage = () => {
                         setSearchParams({ category: slug || category });
                       }
                     }}
-                    className={`tab-pill px-space-md py-space-xs rounded-full font-label-md text-label-md whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                    className={`px-4 py-2 rounded-full text-xs whitespace-nowrap transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? 'bg-primary text-on-primary shadow-sm font-semibold'
+                        ? 'bg-primary text-on-primary shadow-xs font-semibold'
                         : 'bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
                     }`}
                   >
@@ -334,86 +329,90 @@ const CollectionsPage = () => {
           </section>
 
           {/* Top Featured Spotlight Banner: The Sovereign Bridal & Wedding Essentials Suite */}
-          <section className="max-w-[1360px] mx-auto px-margin mb-space-xl">
-            <div className="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-xl flex flex-col lg:flex-row items-stretch border border-outline-variant/40">
+          <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
+            <div className="relative rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs overflow-hidden flex flex-col lg:flex-row items-stretch">
               {/* Left Visual Side with Official Hamper Asset */}
-              <div className="lg:w-7/12 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[520px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
+              <div className="lg:w-7/12 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[480px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
                 <img
                   src="/assets/cdn/img_eafddfa4ed3e.jpg"
                   alt="The Sovereign Bridal and Wedding Essentials Suite Luxury Hamper by ASRA Wedding Canvas"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent lg:hidden"></div>
-                <div className="absolute top-space-md left-space-md flex items-center gap-space-xs bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm border border-outline-variant/30">
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                  <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Featured Collection Masterpiece</span>
+                  <span>Featured Masterpiece</span>
                 </div>
               </div>
 
               {/* Right Content Spec Sheet */}
-              <div className="lg:w-5/12 p-space-lg lg:p-space-xl flex flex-col justify-between bg-surface-container-lowest relative z-10">
+              <div className="lg:w-5/12 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-surface-container-lowest relative z-10">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-space-xs">
-                    <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-outline">Exclusive Bridal Collection</span>
-                    <span className="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">18 Gifts Included</span>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary">
+                      Exclusive Bridal Collection
+                    </span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#FAF4EB] text-primary border border-primary/20">
+                      18 Gifts Included
+                    </span>
                   </div>
-                  <h2 className="font-headline-lg text-headline-lg text-on-surface leading-tight mb-space-sm">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mb-3">
                     The Sovereign Bridal &amp; Wedding Essentials Suite
                   </h2>
-                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">
                     An opulent symphony of hand-embossed blush wedding essentials cases, artisanal Eau de Parfum, golden Ferrero confections, organic soy candle, silk scrunchie, and our signature ASRA golden ribbon insignia. Crafted specifically for unforgettable wedding essentials and morning-of-wedding reveals.
                   </p>
 
                   {/* Inclusions Bullet Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-lg">
-                    <div className="flex items-start gap-space-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div className="flex items-start gap-2">
                       <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">diamond</span>
-                      <span className="font-body-sm text-body-sm text-on-surface">24k Gilded Custom Initials</span>
+                      <span className="text-xs text-on-surface font-medium">24k Gilded Custom Initials</span>
                     </div>
-                    <div className="flex items-start gap-space-xs">
+                    <div className="flex items-start gap-2">
                       <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">spa</span>
-                      <span className="font-body-sm text-body-sm text-on-surface">Fresh Baby's Breath &amp; Roses</span>
+                      <span className="text-xs text-on-surface font-medium">Fresh Baby's Breath &amp; Roses</span>
                     </div>
-                    <div className="flex items-start gap-space-xs">
+                    <div className="flex items-start gap-2">
                       <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">sentiment_satisfied</span>
-                      <span className="font-body-sm text-body-sm text-on-surface">Handmade Heirloom Plush Bear</span>
+                      <span className="text-xs text-on-surface font-medium">Handmade Heirloom Plush Bear</span>
                     </div>
-                    <div className="flex items-start gap-space-xs">
+                    <div className="flex items-start gap-2">
                       <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">inventory_2</span>
-                      <span className="font-body-sm text-body-sm text-on-surface">Debossed Hardbound Cylinder</span>
+                      <span className="text-xs text-on-surface font-medium">Debossed Hardbound Cylinder</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Action & Valuation */}
-                <div className="pt-space-md bg-surface-container-lowest flex flex-col sm:flex-row sm:items-center justify-between gap-space-md border-t border-outline-variant/30">
+                <div className="pt-4 bg-surface-container-lowest flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-outline-variant/30">
                   <div>
-                    <span className="font-label-sm text-label-sm uppercase tracking-widest text-outline block">Curated Suite From</span>
+                    <span className="text-[10px] uppercase tracking-wider text-outline block">Curated Suite From</span>
                     <div className="flex items-baseline gap-2">
-                      <span className="font-headline-md text-headline-md font-bold text-on-surface">₹7,499</span>
-                      <span className="font-body-sm text-body-sm text-outline line-through">₹9,800</span>
+                      <span className="font-bold text-lg text-on-surface">₹7,499</span>
+                      <span className="line-through text-outline text-xs">₹9,800</span>
+                      <span className="text-emerald-700 font-semibold text-xs">(23% OFF)</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-space-xs">
+                  <div className="flex items-center gap-2">
                     <Link
                       to="/product/sovereign-bridal-suite"
-                      className="flex-1 sm:flex-initial px-space-lg py-space-sm bg-inverse-surface hover:bg-primary text-inverse-on-surface font-label-md text-label-md tracking-wider uppercase rounded-lg shadow-md transition-all flex items-center justify-center gap-2 group/btn"
+                      className="flex-1 sm:flex-initial px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <span>Explore Collection</span>
-                      <span className="material-symbols-outlined text-[18px] group-hover/btn:translate-x-0.5 transition-transform">arrow_forward</span>
+                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                     </Link>
                     <button
                       type="button"
                       onClick={handleBookmarkSovereign}
-                      className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors cursor-pointer ${
-                        isSovereignBookmarked
-                          ? 'bg-secondary-container text-on-secondary-container'
-                          : 'bg-surface-container-low hover:bg-surface-container text-on-surface'
-                      }`}
+                      className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs transition-all duration-300 text-on-surface hover:text-primary cursor-pointer"
                       title={isSovereignBookmarked ? "Remove from Wishlist" : "Bookmark Suite"}
+                      aria-label="Wishlist Bookmark"
                     >
                       <span
-                        className="material-symbols-outlined text-[20px]"
+                        className={`material-symbols-outlined text-[18px] transition-colors ${
+                          isSovereignBookmarked ? 'text-rose-600' : 'text-outline hover:text-primary'
+                        }`}
                         style={{ fontVariationSettings: isSovereignBookmarked ? "'FILL' 1" : "'FILL' 0" }}
                       >
                         bookmark
@@ -429,28 +428,28 @@ const CollectionsPage = () => {
           <section
             id="products"
             ref={productsSectionRef}
-            className="max-w-[1360px] mx-auto px-margin mb-space-xl scroll-mt-32"
+            className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12 scroll-mt-32"
           >
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-3">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-3">
               <div>
-                <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary block mb-1">
-                  ASRAWEDDINGCANVAS COLLECTION ARCHIVE
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-1">
+                  Collection Archive
                 </span>
-                <h2 className="font-headline-md text-headline-md text-on-surface font-semibold">
-                  Handcrafted Wedding Suites &amp; Gift Themes
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface">
+                  Handcrafted Wedding Suites &amp; Themes
                 </h2>
               </div>
-              <p className="font-body-sm text-body-sm text-outline max-w-sm">
+              <p className="text-xs sm:text-sm text-on-surface-variant max-w-sm">
                 Select any curated series to personalize with initial debossing, custom wax seal colors, and personalized vow typography.
               </p>
             </div>
 
             {/* Bento Grid / Card Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
               {filteredCollections.map((item) => (
                 <article
                   key={item.id}
-                  className="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/30"
+                  className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col group"
                 >
                   <div className="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                     <img
@@ -459,37 +458,35 @@ const CollectionsPage = () => {
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute top-space-xs left-space-xs bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-[11px] font-semibold text-on-surface shadow-xs">
+                    <div className="absolute top-3 left-3 px-2 py-1 bg-[#FAF4EB] text-primary border border-primary/20 text-[10px] font-bold uppercase tracking-wider rounded shadow-xs">
                       {item.count}
                     </div>
-                    <div className="absolute bottom-space-xs right-space-xs bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded font-label-sm text-[10px] tracking-widest uppercase">
+                    <div className="absolute bottom-3 right-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded text-[10px] uppercase tracking-wider font-semibold">
                       {item.tag}
                     </div>
                   </div>
 
-                  <div className="p-space-md flex-1 flex flex-col justify-between">
+                  <div className="p-4 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-primary transition-colors leading-snug mb-1">
+                      <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface group-hover:text-primary transition-colors mb-1">
                         {item.title}
                       </h3>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+                      <p className="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="pt-space-sm flex items-center justify-between border-t border-outline-variant/20">
+                    <div className="pt-3 flex items-center justify-between border-t border-outline-variant/30">
                       <div>
-                        <span className="font-label-sm text-[10px] uppercase text-outline block">From</span>
-                        <span className="font-title-sm text-title-sm font-bold text-on-surface">{item.price}</span>
+                        <span className="text-[10px] uppercase tracking-wider text-outline block">From</span>
+                        <span className="font-bold text-sm text-on-surface">{item.price}</span>
                       </div>
                       <Link
                         to={item.link}
-                        className="px-3 py-1.5 bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm tracking-wider uppercase transition-colors flex items-center gap-1 group/btn"
+                        className="px-4 py-2 border border-outline-variant/50 text-on-surface rounded-lg text-xs font-semibold uppercase tracking-wider hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300 flex items-center gap-1"
                       >
                         <span>Discover</span>
-                        <span className="material-symbols-outlined text-[14px] group-hover/btn:translate-x-0.5 transition-transform">
-                          arrow_forward
-                        </span>
+                        <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                       </Link>
                     </div>
                   </div>
@@ -500,11 +497,11 @@ const CollectionsPage = () => {
             {filteredCollections.length === 0 && (
               <div className="py-16 text-center bg-surface-container-low rounded-xl border border-outline-variant/30">
                 <span className="material-symbols-outlined text-primary text-4xl mb-2">search_off</span>
-                <p className="font-title-sm text-on-surface font-medium">No collections found for this category</p>
+                <p className="font-serif text-base text-on-surface font-medium">No collections found for this category</p>
                 <button
                   type="button"
                   onClick={() => setSelectedCategory('All Collections')}
-                  className="mt-3 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm uppercase tracking-wider"
+                  className="mt-3 px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] transition-all duration-300"
                 >
                   View All Collections
                 </button>
@@ -513,54 +510,53 @@ const CollectionsPage = () => {
           </section>
 
           {/* Collection Curated Services Section: Custom Bundling & Privileges */}
-          <section className="max-w-[1360px] mx-auto px-margin mb-space-xl">
-            <div className="bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl relative overflow-hidden shadow-md border border-outline-variant/40">
+          <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
+            <div className="bg-surface-container-low rounded-xl p-6 sm:p-8 lg:p-10 relative overflow-hidden shadow-xs border border-outline-variant/30">
               <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-space-xl relative z-10">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
                 <div className="lg:w-7/12">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-lowest rounded-full mb-space-xs border border-outline-variant/30">
-                    <span className="material-symbols-outlined text-[16px] text-primary">draw</span>
-                    <span className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary">Customized Collection Privilege</span>
-                  </div>
-                  <h2 className="font-headline-md text-headline-md text-on-surface mb-space-xs font-semibold">
-                    Custom Collection Bundling &amp; Private Collection Consultation
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary block mb-2">
+                    Customized Collection Privilege
+                  </span>
+                  <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mb-3">
+                    Custom Collection Bundling &amp; Private Consultation
                   </h2>
-                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">
                     Dreaming of combining items across different collections? Whether curating 500 personalized destination welcome hampers for Udaipur or designing an exclusive customized bride-and-groom heirloom trunk, our dedicated wedding support crafts unified color suites, custom fonts, and private mockups.
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
-                    <div className="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border border-outline-variant/30">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <div className="bg-surface-container-lowest p-4 rounded-xl shadow-xs border border-outline-variant/30">
                       <span className="material-symbols-outlined text-primary text-[24px] mb-1">palette</span>
-                      <h4 className="font-title-sm text-title-sm font-semibold text-on-surface">Hue Harmonization</h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Matching wax, silk ribbons, and leather to your wedding invitation palette.</p>
+                      <h4 className="font-serif text-base font-medium text-on-surface">Hue Harmonization</h4>
+                      <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">Matching wax, silk ribbons, and leather to your wedding invitation palette.</p>
                     </div>
 
-                    <div className="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border border-outline-variant/30">
+                    <div className="bg-surface-container-lowest p-4 rounded-xl shadow-xs border border-outline-variant/30">
                       <span className="material-symbols-outlined text-primary text-[24px] mb-1">flight_takeoff</span>
-                      <h4 className="font-title-sm text-title-sm font-semibold text-on-surface">Destination Dispatch</h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">White-glove bulk delivery coordinated straight to palace and resort suites.</p>
+                      <h4 className="font-serif text-base font-medium text-on-surface">Destination Dispatch</h4>
+                      <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">White-glove bulk delivery coordinated straight to palace and resort suites.</p>
                     </div>
 
-                    <div className="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border border-outline-variant/30">
+                    <div className="bg-surface-container-lowest p-4 rounded-xl shadow-xs border border-outline-variant/30">
                       <span className="material-symbols-outlined text-primary text-[24px] mb-1">loyalty</span>
-                      <h4 className="font-title-sm text-title-sm font-semibold text-on-surface">Corporate &amp; Family Seal</h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Vector stamp creation and customized 3D metal crest debossing plates.</p>
+                      <h4 className="font-serif text-base font-medium text-on-surface">Family Seal</h4>
+                      <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">Vector stamp creation and customized 3D metal crest debossing plates.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Quick Consultation Form Card */}
-                <div className="lg:w-5/12 w-full bg-surface-container-lowest p-space-lg rounded-xl shadow-lg border border-outline-variant/40">
-                  <h3 className="font-title-md text-title-md text-on-surface font-semibold mb-1">
-                    Book an Collection Support Call
+                <div className="lg:w-5/12 w-full bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-xs border border-outline-variant/30">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal leading-tight text-on-surface mb-1">
+                    Book an Atelier Support Call
                   </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                  <p className="text-xs text-on-surface-variant mb-4 leading-relaxed">
                     Receive a curated digital moodboard and wholesale pricing deck within 24 hours.
                   </p>
-                  <form className="space-y-space-sm" onSubmit={handleFormSubmit}>
+                  <form className="space-y-3" onSubmit={handleFormSubmit}>
                     <div>
-                      <label htmlFor="support-name" className="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">
+                      <label htmlFor="support-name" className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                         Your Full Name
                       </label>
                       <input
@@ -568,16 +564,16 @@ const CollectionsPage = () => {
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleFormChange}
-                        className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-space-sm py-2 rounded-lg border border-outline-variant/40 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
+                        className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-xs px-3 py-2 rounded-lg border border-outline-variant/30 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
                         placeholder="e.g. Asra Ansari"
                         required
                         type="text"
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label htmlFor="support-phone" className="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">
+                        <label htmlFor="support-phone" className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                           Phone / WhatsApp
                         </label>
                         <input
@@ -585,14 +581,14 @@ const CollectionsPage = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleFormChange}
-                          className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-space-sm py-2 rounded-lg border border-outline-variant/40 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
+                          className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-xs px-3 py-2 rounded-lg border border-outline-variant/30 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
                           placeholder="+91 96926 68263"
                           required
                           type="tel"
                         />
                       </div>
                       <div>
-                        <label htmlFor="support-guests" className="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">
+                        <label htmlFor="support-guests" className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                           Expected Guests / Units
                         </label>
                         <input
@@ -600,7 +596,7 @@ const CollectionsPage = () => {
                           name="guests"
                           value={formData.guests}
                           onChange={handleFormChange}
-                          className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm px-space-sm py-2 rounded-lg border border-outline-variant/40 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
+                          className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-xs px-3 py-2 rounded-lg border border-outline-variant/30 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
                           placeholder="50 - 500"
                           type="number"
                         />
@@ -608,7 +604,7 @@ const CollectionsPage = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="support-date" className="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">
+                      <label htmlFor="support-date" className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface block mb-1">
                         Target Wedding / Event Date
                       </label>
                       <input
@@ -616,19 +612,19 @@ const CollectionsPage = () => {
                         name="eventDate"
                         value={formData.eventDate}
                         onChange={handleFormChange}
-                        className="w-full bg-surface-container-low text-on-surface text-body-sm font-body-sm px-space-sm py-2 rounded-lg border border-outline-variant/40 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
+                        className="w-full bg-surface-container-low text-on-surface text-xs px-3 py-2 rounded-lg border border-outline-variant/30 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest outline-none transition-all"
                         type="date"
                       />
                     </div>
 
                     <button
-                      className="w-full py-space-sm bg-primary hover:bg-on-primary-container text-on-primary font-label-md text-label-md tracking-wider uppercase rounded-lg shadow-md transition-colors mt-space-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                      className="w-full px-5 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider shadow-xs hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 mt-2 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                       type="submit"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="w-4 h-4 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></span>
+                          <span className="w-3.5 h-3.5 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></span>
                           <span>Connecting Support...</span>
                         </>
                       ) : (
@@ -642,37 +638,45 @@ const CollectionsPage = () => {
           </section>
 
           {/* Trust Highlights Banner */}
-          <section className="max-w-[1360px] mx-auto px-margin mb-space-xl">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-space-md py-space-lg bg-surface-container-low rounded-xl px-space-lg shadow-sm border border-outline-variant/30">
-              <div className="flex items-center gap-space-sm">
-                <span className="material-symbols-outlined text-primary text-[28px] shrink-0">handyman</span>
+          <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 py-6 px-6 sm:px-8 bg-surface-container-lowest rounded-xl shadow-xs border border-outline-variant/30 divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/30">
+              <div className="flex items-center gap-3 pt-4 sm:pt-0">
+                <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">handyman</span>
+                </div>
                 <div>
-                  <span className="font-title-sm text-title-sm font-bold text-on-surface block">100% Customized Craft</span>
-                  <span className="font-body-sm text-body-sm text-outline">Custom dies &amp; real gold leaf</span>
+                  <span className="text-xs font-semibold text-on-surface uppercase tracking-wider block">100% Customized Craft</span>
+                  <span className="text-[11px] text-on-surface-variant">Custom dies &amp; real gold leaf</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-space-sm">
-                <span className="material-symbols-outlined text-primary text-[28px] shrink-0">local_shipping</span>
+              <div className="flex items-center gap-3 pt-4 sm:pt-0 sm:pl-4">
+                <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">local_shipping</span>
+                </div>
                 <div>
-                  <span className="font-title-sm text-title-sm font-bold text-on-surface block">Insured Global Courier</span>
-                  <span className="font-body-sm text-body-sm text-outline">Doorstep transit protection</span>
+                  <span className="text-xs font-semibold text-on-surface uppercase tracking-wider block">Insured Global Courier</span>
+                  <span className="text-[11px] text-on-surface-variant">Doorstep transit protection</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-space-sm">
-                <span className="material-symbols-outlined text-primary text-[28px] shrink-0">redeem</span>
+              <div className="flex items-center gap-3 pt-4 sm:pt-0 sm:pl-4">
+                <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">redeem</span>
+                </div>
                 <div>
-                  <span className="font-title-sm text-title-sm font-bold text-on-surface block">Wax-Sealed Luxury Box</span>
-                  <span className="font-body-sm text-body-sm text-outline">Complimentary presentation</span>
+                  <span className="text-xs font-semibold text-on-surface uppercase tracking-wider block">Wax-Sealed Luxury Box</span>
+                  <span className="text-[11px] text-on-surface-variant">Complimentary presentation</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-space-sm">
-                <span className="material-symbols-outlined text-primary text-[28px] shrink-0">support_agent</span>
+              <div className="flex items-center gap-3 pt-4 sm:pt-0 sm:pl-4">
+                <div className="w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center shadow-xs text-primary shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">support_agent</span>
+                </div>
                 <div>
-                  <span className="font-title-sm text-title-sm font-bold text-on-surface block">Collection Privilege Desk</span>
-                  <span className="font-body-sm text-body-sm text-outline">Personal bridal stylist 24/7</span>
+                  <span className="text-xs font-semibold text-on-surface uppercase tracking-wider block">Privilege Concierge</span>
+                  <span className="text-[11px] text-on-surface-variant">Personal bridal stylist 24/7</span>
                 </div>
               </div>
             </div>

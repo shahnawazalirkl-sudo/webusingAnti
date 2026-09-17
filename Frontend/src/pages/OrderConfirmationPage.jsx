@@ -57,95 +57,83 @@ const OrderConfirmationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-cream text-brand-dark flex flex-col justify-between antialiased selection:bg-brand-gold/20 selection:text-brand-dark">
+    <div className="min-h-screen bg-surface text-on-surface flex flex-col justify-between antialiased selection:bg-primary/20 selection:text-on-surface font-sans">
       
-      {/* ==================== MINIMAL CUSTOMIZED UTILITY HEADER (NO GLOBAL NAVBAR) ==================== */}
-      <header className="w-full bg-white/95 backdrop-blur-md border-b border-brand-border/80 sticky top-0 z-50 no-print">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      {/* ==================== MINIMAL UTILITY HEADER ==================== */}
+      <header className="w-full bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-50 no-print">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-brand-muted hover:text-brand-dark transition-colors group"
+            className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-on-surface-variant hover:text-primary transition-colors group font-sans"
           >
-            <svg
-              className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform text-brand-gold"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
+            <span className="material-symbols-outlined text-[16px] transform group-hover:-translate-x-1 transition-transform text-primary">
+              arrow_back
+            </span>
             <span className="hidden sm:inline">Return to Homepage</span>
             <span className="sm:hidden">Home</span>
           </Link>
 
-          {/* Collection Central Gold Logo */}
+          {/* Central Logo */}
           <div className="flex flex-col items-center">
             <Link to="/">
               <img
                 src="/assets/cdn/img_f404984f128a.png"
                 alt="ASRA Wedding Canvas Logo"
-                className="h-9 sm:h-10 w-auto object-contain drop-shadow-sm"
+                className="h-9 sm:h-10 w-auto object-contain drop-shadow-xs"
               />
             </Link>
           </div>
 
           {/* Security & Support Status */}
-          <div className="flex items-center gap-4 text-xs">
-            <div className="hidden md:flex items-center gap-2 text-brand-muted bg-brand-cream/80 px-3 py-1.5 rounded-full border border-brand-border">
+          <div className="flex items-center gap-4 text-xs font-sans">
+            <div className="hidden md:flex items-center gap-2 text-on-surface-variant bg-[#FAF4EB] px-3 py-1.5 rounded-full border border-primary/20">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              <span className="font-medium text-brand-dark">Order Booked &amp; Vaulted</span>
+              <span className="font-semibold text-on-surface text-[11px]">Order Booked &amp; Vaulted</span>
             </div>
-            <div className="flex items-center gap-1.5 text-brand-muted">
-              <svg className="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-              <span className="hidden sm:inline font-medium text-[11px]">256-Bit Secured Order Docket</span>
+            <div className="flex items-center gap-1 text-on-surface-variant text-[11px]">
+              <span className="material-symbols-outlined text-[16px] text-primary">lock</span>
+              <span className="hidden sm:inline font-medium">256-Bit Secured Order Docket</span>
             </div>
           </div>
         </div>
 
         {/* Stepper Strip */}
-        <div className="bg-brand-cream/60 border-t border-brand-border/60 py-2.5 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto flex items-center justify-between text-xs">
+        <div className="bg-[#FAF4EB]/60 border-t border-outline-variant/30 py-2.5 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto flex items-center justify-between text-xs font-sans">
             {/* Step 1 Completed */}
-            <Link to="/cart" className="flex items-center gap-2 text-brand-muted hover:text-brand-dark transition-colors">
-              <span className="w-5 h-5 rounded-full bg-brand-dark text-white flex items-center justify-center text-[10px] font-bold">
+            <Link to="/cart" className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+              <span className="w-5 h-5 rounded-full bg-on-surface text-surface flex items-center justify-center text-[10px] font-bold">
                 ✓
               </span>
-              <span className="hidden sm:inline font-medium tracking-wide">1. REVIEW BAG</span>
-              <span className="sm:hidden text-[10px] font-medium">1. Bag</span>
+              <span className="hidden sm:inline font-semibold tracking-wider text-[11px]">1. REVIEW BAG</span>
+              <span className="sm:hidden text-[10px] font-semibold">1. Bag</span>
             </Link>
-            <div className="w-8 sm:w-16 md:w-24 h-[1px] bg-brand-gold"></div>
+            <div className="w-8 sm:w-16 md:w-24 h-[1px] bg-primary/40"></div>
 
             {/* Step 2 Completed */}
-            <Link to="/checkout" className="flex items-center gap-2 text-brand-muted hover:text-brand-dark transition-colors">
-              <span className="w-5 h-5 rounded-full bg-brand-dark text-white flex items-center justify-center text-[10px] font-bold">
+            <Link to="/checkout" className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+              <span className="w-5 h-5 rounded-full bg-on-surface text-surface flex items-center justify-center text-[10px] font-bold">
                 ✓
               </span>
-              <span className="hidden sm:inline font-medium tracking-wide">2. CEREMONY &amp; ADDRESS</span>
-              <span className="sm:hidden text-[10px] font-medium">2. Ceremony</span>
+              <span className="hidden sm:inline font-semibold tracking-wider text-[11px]">2. CEREMONY &amp; ADDRESS</span>
+              <span className="sm:hidden text-[10px] font-semibold">2. Address</span>
             </Link>
-            <div className="w-8 sm:w-16 md:w-24 h-[1px] bg-brand-gold"></div>
+            <div className="w-8 sm:w-16 md:w-24 h-[1px] bg-primary/40"></div>
 
             {/* Step 3 Active / Completed */}
-            <div className="flex items-center gap-2 text-brand-dark font-semibold">
-              <span className="w-5 h-5 rounded-full bg-brand-gold text-white flex items-center justify-center text-[10px] font-bold ring-2 ring-brand-gold/30">
+            <div className="flex items-center gap-2 text-primary font-bold">
+              <span className="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold ring-2 ring-primary/30">
                 ✓
               </span>
-              <span className="tracking-wide text-brand-goldDark hidden sm:inline">3. WHITE-GLOVE DISPATCH CONFIRMED</span>
-              <span className="tracking-wide text-brand-goldDark sm:hidden text-[10px]">3. Confirmed</span>
+              <span className="tracking-wider uppercase text-[11px] hidden sm:inline">3. DISPATCH CONFIRMED</span>
+              <span className="sm:hidden text-[10px]">3. Confirmed</span>
             </div>
           </div>
         </div>
       </header>
 
       {/* ==================== MAIN ORDER CONFIRMATION CONTENT ==================== */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full flex-grow">
+      <main className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full flex-grow font-sans">
         
         {/* Payment Gateway Integration Warning Banner */}
         {!isPaymentGatewayIntegrated && (

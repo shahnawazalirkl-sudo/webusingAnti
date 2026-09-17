@@ -130,52 +130,52 @@ const CartPage = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="bg-[#FAF7F2] min-h-screen py-10 px-4 sm:px-6 lg:px-12 flex flex-col items-center">
-        <div className="w-full max-w-7xl mx-auto">
+      <div className="bg-surface min-h-screen py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <div className="w-full max-w-[1360px] mx-auto">
           {/* Top Minimal Brand Bar */}
-          <div className="flex items-center justify-between pb-6 mb-8 border-b border-brand-border">
+          <div className="flex items-center justify-between pb-6 mb-8 border-b border-outline-variant/30">
             <Link
               to="/shop"
-              className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-brand-slate hover:text-brand-goldDark transition-colors group"
+              className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors group font-sans"
             >
-              <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Return to Collection Collections
+              <span className="material-symbols-outlined text-[16px] mr-1.5 transform group-hover:-translate-x-1 transition-transform">
+                arrow_back
+              </span>
+              <span>Return to Shop Catalog</span>
             </Link>
             <div className="flex items-center gap-3">
               <img
                 src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
-                className="h-10 object-contain"
+                className="h-9 sm:h-10 object-contain"
               />
-              <div className="hidden sm:block text-left border-l border-brand-border pl-3">
-                <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Gift Bag</div>
-                <div className="text-[11px] text-brand-slate font-medium">Customized Collection Checkout</div>
+              <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
+                <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Gift Bag</div>
+                <div className="text-[11px] text-on-surface-variant font-medium font-sans">Customized Checkout</div>
               </div>
             </div>
-            <div className="flex items-center text-xs text-brand-slate font-medium">
+            <div className="flex items-center text-xs text-on-surface-variant font-medium font-sans">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-2 animate-pulse" />
-              <span>256-Bit Encrypted & Insured Transit</span>
+              <span>256-Bit Encrypted &amp; Insured</span>
             </div>
           </div>
 
           {/* Empty State Card */}
-          <div className="bg-white border border-brand-border rounded-2xl p-12 text-center max-w-xl mx-auto shadow-sm my-16">
-            <div className="w-20 h-20 bg-brand-sand rounded-full flex items-center justify-center mx-auto mb-6 text-brand-goldDark text-3xl font-serif">
+          <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-xs my-12">
+            <div className="w-16 h-16 bg-[#FAF4EB] text-primary rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-serif">
               ✦
             </div>
-            <h2 className="font-cormorant text-3xl font-semibold text-brand-charcoal mb-3">
-              Your Collection Bag is Empty
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-on-surface mb-2">
+              Your Gift Bag is Empty
             </h2>
-            <p className="text-xs text-brand-slate max-w-md mx-auto leading-relaxed mb-8">
-              Begin your customized celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
+            <p className="text-xs sm:text-sm text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6 font-sans">
+              Begin your bespoke celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
             </p>
             <Link
               to="/shop"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-charcoal text-[#FAF7F2] rounded-lg text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#2C2927] transition-all shadow-md"
+              className="inline-flex items-center justify-center px-6 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-[#5f4b2d] active:scale-[0.98] transition-all shadow-xs font-sans"
             >
-              Explore Collection Collections
+              Explore Shop Catalog
             </Link>
           </div>
         </div>
@@ -184,20 +184,20 @@ const CartPage = () => {
   }
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen py-10 px-4 sm:px-6 lg:px-12 flex flex-col items-center">
-      {/* Main Cart Container (Strictly No Global Site Header or Footer) */}
-      <div className="w-full max-w-7xl mx-auto">
+    <div className="bg-surface min-h-screen py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      {/* Main Cart Container */}
+      <div className="w-full max-w-[1360px] mx-auto">
 
-        {/* Top Minimal Brand Bar & Back Link (Cart Context Only) */}
-        <div className="flex items-center justify-between pb-6 mb-8 border-b border-brand-border">
+        {/* Top Minimal Brand Bar */}
+        <div className="flex items-center justify-between pb-6 mb-8 border-b border-outline-variant/30">
           <Link
             to="/shop"
-            className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-brand-slate hover:text-brand-goldDark transition-colors group"
+            className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors group font-sans"
           >
-            <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Return to Collection Collections
+            <span className="material-symbols-outlined text-[16px] mr-1.5 transform group-hover:-translate-x-1 transition-transform">
+              arrow_back
+            </span>
+            <span>Return to Shop Catalog</span>
           </Link>
 
           {/* Minimal Subtle Logo Mark for Trust */}
@@ -206,19 +206,19 @@ const CartPage = () => {
               <img
                 src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
-                className="h-10 object-contain hover:opacity-90 transition-opacity"
+                className="h-9 sm:h-10 object-contain hover:opacity-90 transition-opacity"
               />
             </Link>
-            <div className="hidden sm:block text-left border-l border-brand-border pl-3">
-              <div className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">Gift Bag</div>
-              <div className="text-[11px] text-brand-slate font-medium">Customized Collection Checkout</div>
+            <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
+              <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Gift Bag</div>
+              <div className="text-[11px] text-on-surface-variant font-medium font-sans">Customized Checkout</div>
             </div>
           </div>
 
           {/* Secure Trust Indicator */}
-          <div className="flex items-center text-xs text-brand-slate font-medium">
+          <div className="flex items-center text-xs text-on-surface-variant font-medium font-sans">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-2 animate-pulse" />
-            <span className="hidden md:inline">256-Bit Encrypted & Insured Transit</span>
+            <span className="hidden md:inline">256-Bit Encrypted &amp; Insured Transit</span>
             <span className="md:hidden">Secure Bag</span>
           </div>
         </div>
@@ -510,57 +510,57 @@ const CartPage = () => {
             ))}
 
             {/* Curated Gift Add-ons / Upsell Section */}
-            <div className="bg-white border border-brand-border rounded-xl p-6 shadow-sm">
+            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 sm:p-6 shadow-xs">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h4 className="font-cormorant text-xl font-semibold text-brand-charcoal">
+                  <h4 className="font-serif text-lg sm:text-xl font-medium text-on-surface">
                     Complete The Bridal Wedding Essentials
                   </h4>
-                  <p className="text-xs text-brand-slate">
-                    Add complementary heirlooms crafted in the exact same blush & gold colorway.
+                  <p className="text-xs text-on-surface-variant font-sans">
+                    Add complementary heirlooms crafted in the exact same blush &amp; gold colorway.
                   </p>
                 </div>
-                <span className="text-xs font-semibold text-brand-goldDark">
-                  Special Cart Privilege
+                <span className="text-[10px] uppercase font-bold tracking-wider text-primary bg-[#FAF4EB] border border-primary/20 px-2 py-0.5 rounded font-sans">
+                  Special Privilege
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {/* Upsell Card 1: Vow Books */}
-                <div className="border border-brand-border rounded-lg p-3 flex items-center justify-between hover:border-brand-gold transition-colors bg-brand-sand/30">
+                <div className="border border-outline-variant/30 rounded-lg p-3 flex items-center justify-between hover:border-primary/40 transition-colors bg-[#FAF4EB]/30">
                   <div className="flex items-center gap-3">
-                    <div className="w-14 h-14 rounded bg-stone-200 border border-brand-border flex items-center justify-center text-xs font-serif font-bold text-brand-slate">
+                    <div className="w-12 h-12 rounded-md bg-surface-container border border-outline-variant/30 flex items-center justify-center text-xs font-serif font-bold text-primary">
                       Vows
                     </div>
                     <div>
-                      <h5 className="text-xs font-bold text-brand-charcoal">Deckle Edge Vow Books (Set of 2)</h5>
-                      <p className="text-[11px] text-brand-slate">100% Cotton Rag + Gold Leaf</p>
-                      <span className="text-xs font-bold text-brand-charcoal">₹1,299</span>
+                      <h5 className="text-xs font-semibold text-on-surface font-sans">Deckle Edge Vow Books</h5>
+                      <p className="text-[11px] text-on-surface-variant font-sans">100% Cotton Rag + Gold Leaf</p>
+                      <span className="text-xs font-bold text-on-surface font-sans">₹1,299</span>
                     </div>
                   </div>
                   <button
                     onClick={handleAddVowBooks}
-                    className="px-3 py-1.5 bg-white border border-brand-charcoal text-brand-charcoal hover:bg-brand-charcoal hover:text-white rounded text-xs font-semibold uppercase tracking-wider transition-all"
+                    className="px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/50 text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] rounded-md text-xs font-semibold uppercase tracking-wider transition-all shadow-xs font-sans"
                   >
                     + Add
                   </button>
                 </div>
 
                 {/* Upsell Card 2: Toasting Flutes */}
-                <div className="border border-brand-border rounded-lg p-3 flex items-center justify-between hover:border-brand-gold transition-colors bg-brand-sand/30">
+                <div className="border border-outline-variant/30 rounded-lg p-3 flex items-center justify-between hover:border-primary/40 transition-colors bg-[#FAF4EB]/30">
                   <div className="flex items-center gap-3">
-                    <div className="w-14 h-14 rounded bg-stone-200 border border-brand-border flex items-center justify-center text-xs font-serif font-bold text-brand-slate">
+                    <div className="w-12 h-12 rounded-md bg-surface-container border border-outline-variant/30 flex items-center justify-center text-xs font-serif font-bold text-primary">
                       Flutes
                     </div>
                     <div>
-                      <h5 className="text-xs font-bold text-brand-charcoal">Etched Crystal Toasting Flutes</h5>
-                      <p className="text-[11px] text-brand-slate">Lead-free Bohemian Crystal</p>
-                      <span className="text-xs font-bold text-brand-charcoal">₹2,199</span>
+                      <h5 className="text-xs font-semibold text-on-surface font-sans">Etched Crystal Toasting Flutes</h5>
+                      <p className="text-[11px] text-on-surface-variant font-sans">Lead-free Bohemian Crystal</p>
+                      <span className="text-xs font-bold text-on-surface font-sans">₹2,199</span>
                     </div>
                   </div>
                   <button
                     onClick={handleAddFlutes}
-                    className="px-3 py-1.5 bg-white border border-brand-charcoal text-brand-charcoal hover:bg-brand-charcoal hover:text-white rounded text-xs font-semibold uppercase tracking-wider transition-all"
+                    className="px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/50 text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] rounded-md text-xs font-semibold uppercase tracking-wider transition-all shadow-xs font-sans"
                   >
                     + Add
                   </button>
@@ -569,19 +569,17 @@ const CartPage = () => {
             </div>
 
             {/* Direct WhatsApp Support Assistance Strip */}
-            <div className="bg-[#F3EFEA] border border-brand-border rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="bg-[#FAF4EB] border border-primary/20 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.879.824 2.8.825 3.183 0 5.77-2.587 5.77-5.768 0-3.181-2.587-5.768-5.774-5.768zm0 10.426c-.84 0-1.637-.234-2.348-.654l-.168-.1-1.579.414.421-1.54-.11-.175c-.456-.724-.716-1.564-.715-2.433 0-2.483 2.02-4.502 4.503-4.502 2.484 0 4.503 2.019 4.503 4.502 0 2.483-2.02 4.503-4.503 4.503zm6.347-10.426c-1.695-1.696-3.949-2.63-6.347-2.63-4.945 0-8.966 4.021-8.968 8.967 0 1.58.411 3.123 1.192 4.477l-1.267 4.633 4.743-1.244c1.306.713 2.775 1.089 4.298 1.09h.004c4.945 0 8.967-4.022 8.968-8.968 0-2.398-.934-4.652-2.623-6.325z" />
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                  <span className="material-symbols-outlined text-[20px]">chat</span>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-brand-charcoal">
+                  <div className="text-xs font-bold text-on-surface font-sans">
                     Need Calligraphy or Initials Verification?
                   </div>
-                  <div className="text-[11px] text-brand-slate">
-                    Our Senior Collection Stylist can review your wedding crest proof before dispatch.
+                  <div className="text-[11px] text-on-surface-variant font-sans">
+                    Our Senior Atelier Stylist can review your wedding crest proof before dispatch.
                   </div>
                 </div>
               </div>
@@ -589,7 +587,7 @@ const CartPage = () => {
                 href="https://wa.me/919692668263?text=Hello%20ASRA%20Atelier%2C%20I%20would%20like%20to%20verify%20my%20wedding%20monogram%20proof%20for%20my%20cart%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-semibold px-4 py-2 bg-white hover:bg-stone-50 border border-emerald-600 text-emerald-800 rounded-lg whitespace-nowrap transition-colors shadow-xs inline-block"
+                className="text-xs font-semibold uppercase tracking-wider px-4 py-2 bg-surface-container-lowest hover:bg-white border border-primary/30 text-primary rounded-lg whitespace-nowrap transition-colors shadow-xs inline-block font-sans"
               >
                 Chat with Stylist
               </a>
@@ -601,28 +599,28 @@ const CartPage = () => {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Summary Card (Sticky) */}
-            <div className="bg-white border border-brand-border rounded-xl p-6 shadow-sm sticky top-6">
-              <h2 className="font-cormorant text-2xl font-bold text-brand-charcoal mb-4 pb-3 border-b border-brand-border">
-                Order & Collection Privileges
+            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 sm:p-6 shadow-xs sticky top-6">
+              <h2 className="font-serif text-xl sm:text-2xl font-normal text-on-surface mb-4 pb-3 border-b border-outline-variant/30">
+                Order &amp; Privileges Summary
               </h2>
 
               {/* Promo Code Form */}
               <div className="mb-5">
-                <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-slate mb-2">
-                  Apply Exclusive Wedding Code
+                <label className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-2 font-sans">
+                  Apply Exclusive Promo Code
                 </label>
                 {appliedCoupon ? (
-                  <div className="p-3 bg-brand-sand rounded-lg border border-brand-border space-y-1">
+                  <div className="p-3 bg-[#FAF4EB] rounded-lg border border-primary/30 space-y-1">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono font-bold text-brand-charcoal">{appliedCoupon.code}</span>
+                      <span className="font-mono font-bold text-primary tracking-wider">{appliedCoupon.code}</span>
                       <button
                         onClick={removeCoupon}
-                        className="text-rose-600 hover:underline text-[11px] font-semibold"
+                        className="text-rose-600 hover:underline text-[11px] font-semibold font-sans"
                       >
                         Remove
                       </button>
                     </div>
-                    <p className="text-[11px] text-emerald-700 font-medium">
+                    <p className="text-[11px] text-emerald-700 font-medium font-sans">
                       Code '{appliedCoupon.code}' Applied: 10% Extra Welcome Off
                     </p>
                   </div>
@@ -633,18 +631,18 @@ const CartPage = () => {
                         type="text"
                         value={promoInput}
                         onChange={(e) => setPromoInput(e.target.value.toUpperCase())}
-                        className="flex-1 bg-brand-sand border border-brand-border px-3 py-2 text-xs uppercase font-bold text-brand-charcoal rounded-lg focus:outline-none focus:border-brand-goldDark"
-                        placeholder="Enter promo code"
+                        className="flex-1 bg-surface-container-low border border-outline-variant/50 px-3 py-2 text-xs uppercase font-mono font-bold text-on-surface rounded-lg focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="ENTER COUPON CODE"
                       />
                       <button
                         type="submit"
-                        className="bg-brand-charcoal text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-brand-slate transition-colors uppercase tracking-wider"
+                        className="bg-primary text-on-primary text-xs font-semibold px-4 py-2 rounded-lg hover:bg-[#5f4b2d] active:scale-[0.98] transition-all uppercase tracking-wider font-sans shadow-xs"
                       >
                         Apply
                       </button>
                     </div>
                     {promoError && (
-                      <p className="text-[11px] text-rose-600 font-medium">{promoError}</p>
+                      <p className="text-[11px] text-rose-600 font-medium font-sans">{promoError}</p>
                     )}
                   </form>
                 )}
@@ -696,15 +694,15 @@ const CartPage = () => {
               {/* Final Payable Row */}
               <div className="flex items-baseline justify-between mb-6">
                 <div>
-                  <span className="block font-cormorant text-2xl font-bold text-brand-charcoal">Total Amount</span>
-                  <span className="text-[10px] text-brand-slate">Inclusive of all duties, customized craft & insurance</span>
+                  <span className="block font-serif text-2xl font-normal text-on-surface">Total Amount</span>
+                  <span className="text-[10px] text-on-surface-variant font-sans">Inclusive of all duties, bespoke craft &amp; insurance</span>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-brand-charcoal font-sans">
+                  <div className="text-2xl font-bold text-on-surface font-sans">
                     ₹{total.toLocaleString('en-IN')}
                   </div>
                   {totalSavings > 0 && (
-                    <span className="text-[11px] text-emerald-700 font-semibold block">
+                    <span className="text-[11px] text-emerald-700 font-semibold block font-sans">
                       Total Savings: ₹{totalSavings.toLocaleString('en-IN')}
                     </span>
                   )}
@@ -712,22 +710,22 @@ const CartPage = () => {
               </div>
 
               {/* Loyalty Points Callout */}
-              <div className="bg-brand-sand border border-brand-border/70 rounded-lg p-3 mb-6 flex items-center gap-2.5">
-                <span className="text-brand-goldDark text-base font-serif">✦</span>
-                <p className="text-[11px] text-brand-slate leading-snug">
-                  You will earn <strong className="font-bold text-brand-charcoal">{loyaltyPoints} ASRA Privilege Points</strong> with this order for future celebration milestones.
+              <div className="bg-[#FAF4EB] border border-primary/25 rounded-lg p-3 mb-6 flex items-center gap-2.5">
+                <span className="text-primary text-base font-serif">✦</span>
+                <p className="text-[11px] text-on-surface-variant leading-snug font-sans">
+                  You will earn <strong className="font-bold text-on-surface">{loyaltyPoints} ASRA Privilege Points</strong> with this order for future celebration milestones.
                 </p>
               </div>
 
               {/* Primary Checkout Button */}
               <button
                 onClick={() => navigate('/checkout')}
-                className="w-full py-3.5 bg-brand-charcoal hover:bg-[#2C2927] text-[#FAF7F2] rounded-lg text-xs font-semibold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl group"
+                className="w-full py-3.5 bg-primary hover:bg-[#5f4b2d] active:scale-[0.98] text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xs group font-sans"
               >
-                <span>Proceed to Ceremony & Address</span>
-                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <span>Proceed to Ceremony &amp; Address</span>
+                <span className="material-symbols-outlined text-[16px] transform group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
               </button>
 
               {/* Secondary One-Click Payment Options */}
