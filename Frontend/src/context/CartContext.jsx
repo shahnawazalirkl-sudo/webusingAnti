@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'sonner';
 import { COUPONS } from '../data/productsData';
 
 const CartContext = createContext();
@@ -109,6 +110,7 @@ export const CartProvider = ({ children }) => {
   const [toastMessage, setToastMessage] = useState(null);
 
   const showToast = (message) => {
+    toast(message);
     setToastMessage(message);
     setTimeout(() => {
       setToastMessage(null);

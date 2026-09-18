@@ -2,8 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-const ProductCard = ({ product, aspectRatio = 'square' }) => {
+const ProductCard = ({ product, aspectRatio = 'square', className = '' }) => {
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
   };
 
   return (
-    <article className="group relative flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-outline-variant/30 hover:border-primary/40 transition-all duration-300">
+    <Card className={`group relative flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-xs hover:shadow-md border-outline-variant/30 hover:border-primary/40 transition-all duration-300 ${className}`}>
       {/* Media Container */}
       <div className={`relative w-full ${aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/5]'} overflow-hidden bg-surface-container-low`}>
         <Link to={productUrl} className="block w-full h-full">
@@ -37,12 +39,12 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
         {/* Top Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1 items-start z-10 pointer-events-none">
           {product.badge && (
-            <span className="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-sm text-[10px] font-bold tracking-wider uppercase shadow-sm">
+            <span className="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-sm text-[10px] font-bold tracking-wider uppercase shadow-xs">
               {product.badge}
             </span>
           )}
           {(product.deliveryBadge || product.secondaryBadge) && (
-            <span className="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface px-2 py-0.5 rounded font-label-sm text-[9px] tracking-wider uppercase shadow-sm">
+            <span className="bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface px-2 py-0.5 rounded font-label-sm text-[9px] tracking-wider uppercase shadow-xs">
               {product.deliveryBadge || product.secondaryBadge}
             </span>
           )}
@@ -56,7 +58,7 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
             toggleWishlist(product.id);
           }}
           aria-label="Add to Wishlist"
-          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface hover:text-rose-600 flex items-center justify-center transition-all shadow-sm z-10"
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface hover:text-rose-600 flex items-center justify-center transition-all shadow-xs z-10"
           type="button"
         >
           <span
@@ -83,7 +85,7 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
       </div>
 
       {/* Content Details - Compact Height */}
-      <div className="p-3 flex flex-col flex-1 justify-between gap-1">
+      <CardContent className="p-3 flex flex-col flex-1 justify-between gap-1">
         <div className="flex flex-col gap-0.5">
           <span className="font-label-sm text-[9px] text-primary tracking-[0.2em] uppercase font-semibold">
             {product.techniqueTag || product.categoryLabel || 'Collection'}
@@ -141,8 +143,8 @@ const ProductCard = ({ product, aspectRatio = 'square' }) => {
             <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </Link>
         </div>
-      </div>
-    </article>
+      </CardContent>
+    </Card>
   );
 };
 

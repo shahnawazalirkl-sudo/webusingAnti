@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
+import { Calendar as CalendarIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 const MonogramPreviewStudio = () => {
   const [partner1, setPartner1] = useState('Aarav');
   const [partner2, setPartner2] = useState('Ananya');
-  const [weddingDate, setWeddingDate] = useState('24.12.2025');
+  const [selectedDate, setSelectedDate] = useState(() => new Date(2025, 11, 24));
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [foilStyle, setFoilStyle] = useState('gold'); // 'gold' | 'rose' | 'silver'
   const [itemType, setItemType] = useState('passport'); // 'passport' | 'acrylic' | 'ringbox'
 
   const initials = `${(partner1[0] || 'A').toUpperCase()} & ${(partner2[0] || 'A').toUpperCase()}`;
   const fullNameStr = `${partner1 || 'Partner 1'} & ${partner2 || 'Partner 2'}`;
+  const formattedWeddingDate = selectedDate ? format(selectedDate, 'dd.MM.yyyy') : '24.12.2025';
 
   const foilStyles = {
     gold: {
@@ -32,7 +42,7 @@ const MonogramPreviewStudio = () => {
     }
   };
 
-  const activeFoil = foilStyles[foilStyle];
+  const activeFoil = foilStyles[foilStyle] || foilStyles.gold;
 
   return (
     <section className="w-full py-8 sm:py-10 px-margin bg-surface relative overflow-hidden border-t border-outline-variant/30">
@@ -55,105 +65,129 @@ const MonogramPreviewStudio = () => {
             </p>
 
             <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl border border-outline-variant/50 shadow-xs space-y-3">
+              {/* Partner Names */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="font-label-sm text-[10px] text-outline uppercase tracking-wider block mb-1 font-semibold">
-                    First Name (Bride / Groom)
-                  </label>
-                  <input
+                <div className="space-y-1.5">
+                  <Label htmlFor="partner1">First Name (Bride / Groom)</Label>
+                  <Input
+                    id="partner1"
                     type="text"
                     maxLength={14}
                     value={partner1}
                     onChange={(e) => setPartner1(e.target.value)}
                     placeholder="Aarav"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant/60 focus:border-primary focus:bg-surface-container-lowest focus:outline-none text-on-surface font-body-sm transition-all"
                   />
                 </div>
 
-                <div>
-                  <label className="font-label-sm text-[11px] text-outline uppercase tracking-wider block mb-1.5 font-semibold">
-                    Second Name (Bride / Groom)
-                  </label>
-                  <input
+                <div className="space-y-1.5">
+                  <Label htmlFor="partner2">Second Name (Bride / Groom)</Label>
+                  <Input
+                    id="partner2"
                     type="text"
                     maxLength={14}
                     value={partner2}
                     onChange={(e) => setPartner2(e.target.value)}
                     placeholder="Ananya"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant/60 focus:border-primary focus:bg-surface-container-lowest focus:outline-none text-on-surface font-body-sm transition-all"
                   />
                 </div>
               </div>
 
+              {/* Date Picker & Foil Selection */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="font-label-sm text-[11px] text-outline uppercase tracking-wider block mb-1.5 font-semibold">
-                    Ceremony / Milestone Date
-                  </label>
-                  <input
-                    type="text"
-                    maxLength={15}
-                    value={weddingDate}
-                    onChange={(e) => setWeddingDate(e.target.value)}
-                    placeholder="24.12.2025"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant/60 focus:border-primary focus:bg-surface-container-lowest focus:outline-none text-on-surface font-body-sm transition-all"
-                  />
+                <div className="space-y-1.5">
+                  <Label>Ceremony / Milestone Date</Label>
+                  <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+                    <PopoverTrigger asChild>
+                      <button
+                        type="button"
+                        className={cn(
+                          'flex h-10 w-full items-center justify-between rounded-lg border border-outline-variant/60 bg-surface-container-low px-3.5 py-2 text-sm text-on-surface transition-all hover:bg-surface-container hover:border-outline focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-body-sm text-left',
+                          !selectedDate && 'text-outline/50'
+                        )}
+                      >
+                        <span className="flex items-center gap-2">
+                          <CalendarIcon className="h-4 w-4 text-primary shrink-0" />
+                          <span className="font-medium text-xs sm:text-sm">
+                            {formattedWeddingDate}
+                          </span>
+                        </span>
+                        <span className="text-[10px] text-outline uppercase font-mono tracking-wider">
+                          {selectedDate ? format(selectedDate, 'MMM yyyy') : 'Pick Date'}
+                        </span>
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0 border border-outline-variant/50 shadow-luxury" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={selectedDate}
+                        onSelect={(date) => {
+                          if (date) {
+                            setSelectedDate(date);
+                            setIsCalendarOpen(false);
+                          }
+                        }}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
 
-                <div>
-                  <label className="font-label-sm text-[11px] text-outline uppercase tracking-wider block mb-1.5 font-semibold">
-                    Metallic Foil Finish
-                  </label>
-                  <div className="flex gap-2">
+                <div className="space-y-1.5">
+                  <Label>Metallic Foil Finish</Label>
+                  <ToggleGroup
+                    type="single"
+                    value={foilStyle}
+                    onValueChange={(val) => {
+                      if (val) setFoilStyle(val);
+                    }}
+                    variant="outline"
+                    className="grid grid-cols-3 gap-2 w-full"
+                  >
                     {[
                       { id: 'gold', bg: 'bg-[#d4af37]', label: 'Gold' },
                       { id: 'rose', bg: 'bg-[#e0a899]', label: 'Rose' },
                       { id: 'silver', bg: 'bg-[#c0c0c0]', label: 'Silver' },
                     ].map((f) => (
-                      <button
+                      <ToggleGroupItem
                         key={f.id}
-                        type="button"
-                        onClick={() => setFoilStyle(f.id)}
-                        className={`flex-1 py-2 px-2.5 rounded-lg border text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-all ${
-                          foilStyle === f.id
-                            ? 'border-primary bg-primary-container/30 text-on-surface ring-1 ring-primary'
-                            : 'border-outline-variant/60 hover:border-outline text-on-surface-variant'
-                        }`}
+                        value={f.id}
+                        className="h-10 w-full flex items-center justify-center gap-1.5 text-[11px] font-semibold data-[state=on]:border-primary data-[state=on]:bg-primary-container/30 data-[state=on]:text-on-surface data-[state=on]:ring-1 data-[state=on]:ring-primary"
                       >
-                        <span className={`w-2.5 h-2.5 rounded-full ${f.bg} inline-block shrink-0 shadow-xs`}></span>
+                        <span className={`w-2.5 h-2.5 rounded-full ${f.bg} inline-block shrink-0 shadow-xs`} />
                         <span>{f.label}</span>
-                      </button>
+                      </ToggleGroupItem>
                     ))}
-                  </div>
+                  </ToggleGroup>
                 </div>
               </div>
 
               {/* Item Type Switcher */}
-              <div>
-                <label className="font-label-sm text-[11px] text-outline uppercase tracking-wider block mb-1.5 font-semibold">
-                  Preview On Heirloom Piece
-                </label>
-                <div className="grid grid-cols-3 gap-2">
+              <div className="space-y-1.5">
+                <Label>Preview On Heirloom Piece</Label>
+                <ToggleGroup
+                  type="single"
+                  value={itemType}
+                  onValueChange={(val) => {
+                    if (val) setItemType(val);
+                  }}
+                  variant="solid"
+                  className="grid grid-cols-3 gap-2 w-full"
+                >
                   {[
                     { id: 'passport', label: 'Leather Suite', icon: 'flight_takeoff' },
                     { id: 'acrylic', label: 'Acoustic Plaque', icon: 'lightbulb' },
                     { id: 'ringbox', label: 'Velvet Ring Vault', icon: 'inventory_2' },
                   ].map((item) => (
-                    <button
+                    <ToggleGroupItem
                       key={item.id}
-                      type="button"
-                      onClick={() => setItemType(item.id)}
-                      className={`p-2 rounded-lg border text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-all ${
-                        itemType === item.id
-                          ? 'border-primary bg-primary text-on-primary shadow-xs'
-                          : 'border-outline-variant/60 hover:border-primary text-on-surface-variant'
-                      }`}
+                      value={item.id}
+                      className="h-10 w-full flex items-center justify-center gap-1.5 text-[11px] font-semibold data-[state=on]:border-primary data-[state=on]:bg-primary data-[state=on]:text-on-primary data-[state=on]:shadow-xs"
                     >
-                      <span className="material-symbols-outlined text-[15px]">{item.icon}</span>
+                      <span className="material-symbols-outlined text-[15px] shrink-0">{item.icon}</span>
                       <span className="truncate">{item.label}</span>
-                    </button>
+                    </ToggleGroupItem>
                   ))}
-                </div>
+                </ToggleGroup>
               </div>
 
               <div className="pt-2 flex items-center justify-between">
@@ -223,7 +257,7 @@ const MonogramPreviewStudio = () => {
                 </div>
 
                 <div className="font-mono text-[10px] text-[#c5a880] tracking-[0.25em] uppercase mt-1">
-                  {weddingDate || 'EST. 2025'}
+                  {formattedWeddingDate}
                 </div>
               </div>
 
