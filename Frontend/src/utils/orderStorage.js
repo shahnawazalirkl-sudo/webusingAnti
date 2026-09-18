@@ -1,4 +1,5 @@
 // orderStorage.js - Centralized helper for managing dynamic orders and tracking synchronization
+import { safeStorage } from './safeStorage';
 
 const STORAGE_KEY_LAST = 'asra_last_order';
 const STORAGE_KEY_ALL = 'asra_orders_history';
@@ -14,14 +15,14 @@ export function generateOrderId() {
 }
 
 /**
- * Persist an order to local storage (both as last order and in cumulative order list)
+ * Persist an order to safe storage (both as last order and in cumulative order list)
  */
 export function saveOrder(order) {
-  if (!order || !order.orderId) return;
+  if (!order || typeof order !== 'object' || !order.orderId) return;
 
   try {
     // 1. Save as the latest order
-    localStorage.setItem(STORAGE_KEY_LAST, JSON.stringify(order));
+    safeStorage.setItem(STORAGE_KEY_LAST, order);
 
     // 2. Save into order dictionary / history
     const existing = getAllOrders();
@@ -29,9 +30,9 @@ export function saveOrder(order) {
       ...order,
       createdAt: order.createdAt || new Date().toISOString()
     };
-    localStorage.setItem(STORAGE_KEY_ALL, JSON.stringify(existing));
+    safeStorage.setItem(STORAGE_KEY_ALL, existing);
   } catch (err) {
-    console.warn('Error saving order to localStorage', err);
+    console.warn('Error saving order to safeStorage', err);
   }
 }
 
@@ -39,42 +40,30 @@ export function saveOrder(order) {
  * Get the most recently placed order
  */
 export function getLastOrder() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_LAST);
-    return raw ? JSON.parse(raw) : null;
-  } catch (err) {
-    console.warn('Error reading last order', err);
-    return null;
-  }
+  return safeStorage.getItem(STORAGE_KEY_LAST, null);
 }
 
 /**
  * Retrieve all user-placed orders
  */
 export function getAllOrders() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_ALL);
-    return raw ? JSON.parse(raw) : {};
-  } catch (err) {
-    console.warn('Error reading all orders', err);
-    return {};
-  }
+  return safeStorage.getItem(STORAGE_KEY_ALL, {});
 }
 
 /**
  * Get a specific order by ID
  */
 export function getOrderById(orderId) {
-  if (!orderId) return null;
+  if (!orderId || typeof orderId !== 'string') return null;
   const cleanId = orderId.trim().toUpperCase();
 
   const all = getAllOrders();
-  if (all[cleanId]) {
+  if (all && all[cleanId]) {
     return all[cleanId];
   }
 
   const last = getLastOrder();
-  if (last && last.orderId?.toUpperCase() === cleanId) {
+  if (last && typeof last.orderId === 'string' && last.orderId.toUpperCase() === cleanId) {
     return last;
   }
 
@@ -85,17 +74,17 @@ export function getOrderById(orderId) {
  * Formats a raw stored order into the rich telemetry structure expected by TrackOrderPage
  */
 export function formatOrderForTracking(order) {
-  if (!order) return null;
+  if (!order || typeof order !== 'object') return null;
 
-  const orderId = order.orderId;
-  const grandTotal = order.grandTotal ? `₹${order.grandTotal.toLocaleString('en-IN')}` : '₹8,459';
+  const orderId = order.orderId || 'ASRA-2026-0000X';
+  const grandTotal = order.grandTotal ? `₹${Number(order.grandTotal).toLocaleString('en-IN')}` : '₹8,459';
   const phone = order.phone || '+91 96926 68263';
   const recipientName = order.recipientName || 'Asra Ansari & Sk Shahnawaz Ali';
   const venueName = order.venueName || 'The Oberoi Udaivilas, Luxury Kohinoor Suite';
   const venueAddress = `${order.streetAddress || 'Badi-Gorela Canal Road'}, ${order.city || 'Udaipur'}, ${order.state || 'Rajasthan'} ${order.pincode || '313001'}`;
 
   // Extract initials from recipient name
-  const initialsMatch = recipientName.match(/\b([A-Z])/g);
+  const initialsMatch = typeof recipientName === 'string' ? recipientName.match(/\b([A-Z])/g) : null;
   const initials = initialsMatch && initialsMatch.length >= 2
     ? `"${initialsMatch[0]} & ${initialsMatch[1]}" • Personalized Crest`
     : '"A & S" • Classic Floral Crest';
@@ -104,7 +93,7 @@ export function formatOrderForTracking(order) {
     ? order.items.map((item, idx) => ({
         id: item.cartId || `item-${idx}`,
         title: item.title || 'Commissioned Bridal Piece',
-        price: item.price ? `₹${item.price.toLocaleString('en-IN')}` : '₹7,499',
+        price: item.price ? `₹${Number(item.price).toLocaleString('en-IN')}` : '₹7,499',
         image: item.image || '/assets/cdn/img_8222cd4f9dd5.png',
         palette: item.edition || 'Classic Blush & Champagne Gold',
         monogramText: item.monogramDie || initials,
@@ -126,7 +115,7 @@ export function formatOrderForTracking(order) {
 
   return {
     orderId: orderId,
-    clientTitle: `${recipientName.split('&')[0]?.trim() || 'Royal'}'s Sovereign Commission`,
+    clientTitle: `${typeof recipientName === 'string' ? recipientName.split('&')[0]?.trim() : 'Royal'}'s Sovereign Commission`,
     clientName: recipientName,
     phone: phone,
     initials: initials,
@@ -144,7 +133,7 @@ export function formatOrderForTracking(order) {
     driverBadge: 'ASRA-EXEC-19',
     driverPhone: phone,
     vehicleReg: 'Mercedes-Benz Sprinter Chilled Fleet (Reg: MH-04-AR-2026)',
-    otp: orderId.slice(-4),
+    otp: typeof orderId === 'string' ? orderId.slice(-4) : '2026',
     baseTemp: 18.2,
     gForce: '< 0.18 G',
     remainingKm: 85,

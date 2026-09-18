@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { COUPONS } from '../data/productsData';
+import { safeStorage } from '../utils/safeStorage';
 
 const CartContext = createContext();
 
@@ -63,46 +64,22 @@ export const DEFAULT_COUPON = {
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    try {
-      const saved = localStorage.getItem('asra_cart_items');
-      if (saved !== null) {
-        return JSON.parse(saved);
-      }
-    } catch (err) {
-      console.warn('Could not retrieve cart from localStorage', err);
-    }
-    return DEFAULT_CART_ITEMS;
+    return safeStorage.getItem('asra_cart_items', DEFAULT_CART_ITEMS);
   });
 
   const [appliedCoupon, setAppliedCoupon] = useState(() => {
-    try {
-      const saved = localStorage.getItem('asra_applied_coupon');
-      if (saved !== null) {
-        return JSON.parse(saved);
-      }
-    } catch (err) {
-      console.warn('Could not retrieve coupon from localStorage', err);
-    }
-    return DEFAULT_COUPON;
+    return safeStorage.getItem('asra_applied_coupon', DEFAULT_COUPON);
   });
 
   useEffect(() => {
-    try {
-      localStorage.setItem('asra_cart_items', JSON.stringify(cartItems));
-    } catch (err) {
-      console.warn('Could not persist cart to localStorage', err);
-    }
+    safeStorage.setItem('asra_cart_items', cartItems);
   }, [cartItems]);
 
   useEffect(() => {
-    try {
-      if (appliedCoupon) {
-        localStorage.setItem('asra_applied_coupon', JSON.stringify(appliedCoupon));
-      } else {
-        localStorage.removeItem('asra_applied_coupon');
-      }
-    } catch (err) {
-      console.warn('Could not persist coupon to localStorage', err);
+    if (appliedCoupon) {
+      safeStorage.setItem('asra_applied_coupon', appliedCoupon);
+    } else {
+      safeStorage.removeItem('asra_applied_coupon');
     }
   }, [appliedCoupon]);
 

@@ -7,6 +7,8 @@ import { Label } from '../ui/label';
 import { Separator } from '../ui/separator';
 import { toast } from 'sonner';
 import AddressDialog from './AddressDialog';
+import { safeStorage } from '../../utils/safeStorage';
+import { sanitizeFormData } from '../../utils/sanitizeInput';
 
 const STORAGE_KEY_PROFILE = 'asra_user_profile';
 const STORAGE_KEY_ADDRESSES = 'asra_saved_addresses';
@@ -19,29 +21,27 @@ const AccountProfile = ({ profile, setProfile, addresses, setAddresses }) => {
 
   const handleSaveProfile = (e) => {
     e.preventDefault();
-    setProfile(profileForm);
-    try {
-      localStorage.setItem(STORAGE_KEY_PROFILE, JSON.stringify(profileForm));
-    } catch (err) {
-      console.warn('Error saving profile', err);
-    }
+    const sanitized = sanitizeFormData(profileForm);
+    setProfile(sanitized);
+    safeStorage.setItem(STORAGE_KEY_PROFILE, sanitized);
     setIsEditingProfile(false);
     toast.success('Profile Dossier updated successfully');
   };
 
   const handleSaveAddress = (newAddr) => {
+    const cleanAddr = sanitizeFormData(newAddr);
     let updated = [...addresses];
     if (editingAddress) {
       // Update existing
-      updated = updated.map((a) => (a.id === editingAddress.id ? { ...newAddr, id: a.id } : a));
-      if (newAddr.isDefault) {
+      updated = updated.map((a) => (a.id === editingAddress.id ? { ...cleanAddr, id: a.id } : a));
+      if (cleanAddr.isDefault) {
         updated = updated.map((a) => ({ ...a, isDefault: a.id === editingAddress.id }));
       }
       toast.success('Address updated successfully');
     } else {
       // Add new
       const addrWithId = {
-        ...newAddr,
+        ...cleanAddr,
         id: `addr-${Date.now()}`
       };
       if (addrWithId.isDefault) {
@@ -52,22 +52,14 @@ const AccountProfile = ({ profile, setProfile, addresses, setAddresses }) => {
     }
 
     setAddresses(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
-    } catch (err) {
-      console.warn('Error saving addresses', err);
-    }
+    safeStorage.setItem(STORAGE_KEY_ADDRESSES, updated);
     setEditingAddress(null);
   };
 
   const handleDeleteAddress = (id) => {
     const updated = addresses.filter((a) => a.id !== id);
     setAddresses(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
-    } catch (err) {
-      console.warn('Error removing address', err);
-    }
+    safeStorage.setItem(STORAGE_KEY_ADDRESSES, updated);
     toast.info('Address removed from address book');
   };
 
@@ -77,11 +69,7 @@ const AccountProfile = ({ profile, setProfile, addresses, setAddresses }) => {
       isDefault: a.id === id
     }));
     setAddresses(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_ADDRESSES, JSON.stringify(updated));
-    } catch (err) {
-      console.warn('Error updating default address', err);
-    }
+    safeStorage.setItem(STORAGE_KEY_ADDRESSES, updated);
     toast.success('Primary dispatch address updated');
   };
 

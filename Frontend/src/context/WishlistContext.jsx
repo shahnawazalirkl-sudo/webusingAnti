@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { PRODUCTS } from '../data/productsData';
+import { safeStorage } from '../utils/safeStorage';
 
 const WishlistContext = createContext();
 
@@ -87,23 +88,11 @@ export const INITIAL_WISHLIST_ITEMS = [
 
 export const WishlistProvider = ({ children }) => {
   const [wishlistItems, setWishlistItems] = useState(() => {
-    try {
-      const saved = localStorage.getItem('asra_wishlist_items');
-      if (saved !== null) {
-        return JSON.parse(saved);
-      }
-    } catch (err) {
-      console.warn('Could not retrieve wishlist from localStorage', err);
-    }
-    return INITIAL_WISHLIST_ITEMS;
+    return safeStorage.getItem('asra_wishlist_items', INITIAL_WISHLIST_ITEMS);
   });
 
   useEffect(() => {
-    try {
-      localStorage.setItem('asra_wishlist_items', JSON.stringify(wishlistItems));
-    } catch (err) {
-      console.warn('Could not persist wishlist to localStorage', err);
-    }
+    safeStorage.setItem('asra_wishlist_items', wishlistItems);
   }, [wishlistItems]);
 
   const wishlistIds = useMemo(() => wishlistItems.map(item => item.id), [wishlistItems]);

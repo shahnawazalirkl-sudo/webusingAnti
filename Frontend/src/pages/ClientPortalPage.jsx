@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useWishlist } from '../context/WishlistContext';
 import { getAllOrders, getLastOrder } from '../utils/orderStorage';
+import { safeStorage } from '../utils/safeStorage';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs';
 import { Avatar, AvatarFallback } from '../components/ui/avatar';
 import AccountHeader from '../components/account/AccountHeader';
@@ -67,22 +68,12 @@ const ClientPortalPage = () => {
 
   // Profile State
   const [profile, setProfile] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY_PROFILE);
-      return saved ? JSON.parse(saved) : DEFAULT_PROFILE;
-    } catch {
-      return DEFAULT_PROFILE;
-    }
+    return safeStorage.getItem(STORAGE_KEY_PROFILE, DEFAULT_PROFILE);
   });
 
   // Addresses State
   const [addresses, setAddresses] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY_ADDRESSES);
-      return saved ? JSON.parse(saved) : DEFAULT_ADDRESSES;
-    } catch {
-      return DEFAULT_ADDRESSES;
-    }
+    return safeStorage.getItem(STORAGE_KEY_ADDRESSES, DEFAULT_ADDRESSES);
   });
 
   // Load Real Orders from Storage
