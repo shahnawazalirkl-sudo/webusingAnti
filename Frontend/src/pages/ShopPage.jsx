@@ -2,6 +2,13 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { PRODUCTS } from '../data/productsData';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { Card, CardContent } from '@/components/ui/card';
 
 // Quick categories for top pill filter
 const categoryPills = [
@@ -383,23 +390,31 @@ const ShopPage = () => {
 
       {/* 3. Sticky Interactive Control Bar */}
       <section className="sticky top-[148px] z-30 w-full bg-surface/90 backdrop-blur-md shadow-xs border-y border-outline-variant/30 mb-8">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
-          {/* Left: Active Filter Indicators & Total Count */}
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-            {/* Mobile Filter Drawer Button */}
-            <button
-              onClick={() => setIsMobileFilterOpen(true)}
-              type="button"
-              className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary transition-colors font-label-md text-xs font-semibold"
-            >
-              <span className="material-symbols-outlined text-[18px]">tune</span>
-              <span>Filters</span>
-              {activeFiltersCount > 0 && (
-                <span className="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">
-                  {activeFiltersCount}
-                </span>
-              )}
-            </button>
+        <TooltipProvider delayDuration={150}>
+          <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
+            {/* Left: Active Filter Indicators & Total Count */}
+            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+              {/* Mobile Filter Drawer Button */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={() => setIsMobileFilterOpen(true)}
+                    type="button"
+                    className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary transition-colors font-label-md text-xs font-semibold"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">tune</span>
+                    <span>Filters</span>
+                    {activeFiltersCount > 0 && (
+                      <span className="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">
+                        {activeFiltersCount}
+                      </span>
+                    )}
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <p>Refine Filters</p>
+                </TooltipContent>
+              </Tooltip>
 
             <span className="font-body-sm text-xs text-on-surface-variant">
               Showing{' '}
@@ -413,74 +428,87 @@ const ShopPage = () => {
             {activeFiltersCount > 0 && (
               <div className="hidden xl:flex items-center gap-1.5 flex-wrap">
                 {selectedPill !== 'all' && (
-                  <span className="flex items-center gap-1 bg-surface-container-low border border-outline-variant/40 px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface">
+                  <Badge
+                    variant="outline"
+                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
+                  >
                     {categoryPills.find((p) => p.id === selectedPill)?.label}
                     <button
                       onClick={() => setSelectedPill('all')}
-                      className="hover:text-rose-600 ml-0.5"
+                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
                       aria-label="Remove category filter"
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
-                  </span>
+                  </Badge>
                 )}
 
                 {selectedPriceRange !== 'all' && (
-                  <span className="flex items-center gap-1 bg-surface-container-low border border-outline-variant/40 px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface">
+                  <Badge
+                    variant="outline"
+                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
+                  >
                     {selectedPriceRange === 'under-1000' && 'Under ₹1,000'}
                     {selectedPriceRange === '1000-2500' && '₹1,000 - ₹2,500'}
                     {selectedPriceRange === '2500-5000' && '₹2,500 - ₹5,000'}
                     {selectedPriceRange === 'above-5000' && 'Above ₹5,000'}
                     <button
                       onClick={() => setSelectedPriceRange('all')}
-                      className="hover:text-rose-600 ml-0.5"
+                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
                       aria-label="Remove price filter"
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
-                  </span>
+                  </Badge>
                 )}
 
                 {selectedRecipient !== 'all' && (
-                  <span className="flex items-center gap-1 bg-surface-container-low border border-outline-variant/40 px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface">
+                  <Badge
+                    variant="outline"
+                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
+                  >
                     {selectedRecipient}
                     <button
                       onClick={() => setSelectedRecipient('all')}
-                      className="hover:text-rose-600 ml-0.5"
+                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
                       aria-label="Remove recipient filter"
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
-                  </span>
+                  </Badge>
                 )}
 
                 {selectedProductTypes.map((catId) => (
-                  <span
+                  <Badge
                     key={catId}
-                    className="flex items-center gap-1 bg-surface-container-low border border-outline-variant/40 px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface"
+                    variant="outline"
+                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
                   >
                     {productTypeOptions.find((p) => p.category === catId)?.label || catId}
                     <button
                       onClick={() => toggleProductType(catId)}
-                      className="hover:text-rose-600 ml-0.5"
+                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
                       aria-label={`Remove ${catId} filter`}
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
-                  </span>
+                  </Badge>
                 ))}
 
                 {searchQuery.trim() && (
-                  <span className="flex items-center gap-1 bg-surface-container-low border border-outline-variant/40 px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface">
+                  <Badge
+                    variant="outline"
+                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
+                  >
                     "{searchQuery}"
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="hover:text-rose-600 ml-0.5"
+                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
                       aria-label="Clear keyword search"
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
-                  </span>
+                  </Badge>
                 )}
 
                 <button
@@ -497,32 +525,45 @@ const ShopPage = () => {
           {/* Right: View Layout Toggle & Sorting Dropdown */}
           <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
             {/* Grid View Switcher */}
-            <div className="hidden lg:flex items-center bg-surface-container-low p-0.5 rounded-lg border border-outline-variant/40">
-              <button
-                onClick={() => setGridCols(3)}
-                type="button"
-                className={`p-1.5 rounded transition-all ${
-                  gridCols === 3
-                    ? 'text-on-surface bg-surface-container-lowest shadow-sm text-primary font-bold'
-                    : 'text-outline hover:text-primary'
-                }`}
-                title="3-Column Grid"
-              >
-                <span className="material-symbols-outlined text-[18px]">grid_view</span>
-              </button>
-              <button
-                onClick={() => setGridCols(4)}
-                type="button"
-                className={`p-1.5 rounded transition-all ${
-                  gridCols === 4
-                    ? 'text-on-surface bg-surface-container-lowest shadow-sm text-primary font-bold'
-                    : 'text-outline hover:text-primary'
-                }`}
-                title="4-Column Grid"
-              >
-                <span className="material-symbols-outlined text-[18px]">view_comfy_alt</span>
-              </button>
-            </div>
+            <ToggleGroup
+              type="single"
+              value={String(gridCols)}
+              onValueChange={(val) => {
+                if (val) setGridCols(Number(val));
+              }}
+              className="hidden lg:flex items-center bg-surface-container-low p-0.5 rounded-lg border border-outline-variant/40 gap-0.5"
+              aria-label="Grid layout"
+            >
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <ToggleGroupItem
+                    value="3"
+                    aria-label="3 Columns"
+                    className="p-1.5 h-auto w-auto rounded border-0 bg-transparent text-outline hover:text-primary data-[state=on]:bg-surface-container-lowest data-[state=on]:text-primary data-[state=on]:shadow-sm transition-all font-bold"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">grid_view</span>
+                  </ToggleGroupItem>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>3 Columns</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <ToggleGroupItem
+                    value="4"
+                    aria-label="4 Columns"
+                    className="p-1.5 h-auto w-auto rounded border-0 bg-transparent text-outline hover:text-primary data-[state=on]:bg-surface-container-lowest data-[state=on]:text-primary data-[state=on]:shadow-sm transition-all font-bold"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">view_comfy_alt</span>
+                  </ToggleGroupItem>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>4 Columns</p>
+                </TooltipContent>
+              </Tooltip>
+            </ToggleGroup>
 
             {/* Sorting Menu */}
             <div className="relative flex items-center">
@@ -552,7 +593,8 @@ const ShopPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </TooltipProvider>
+    </section>
 
       {/* 4. Two-Column Catalog Layout */}
       <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-32">
@@ -585,10 +627,10 @@ const ShopPage = () => {
                 Keyword Search
               </label>
               <div className="relative">
-                <span className="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">
+                <span className="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none z-10">
                   search
                 </span>
-                <input
+                <Input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => {
@@ -596,234 +638,303 @@ const ShopPage = () => {
                     setCurrentPage(1);
                   }}
                   placeholder="Search gifts, acrylics..."
-                  className="w-full bg-surface-container-low pl-8 pr-3 py-2 rounded-lg border border-outline-variant/50 text-xs focus:ring-1 focus:ring-primary focus:outline-none"
+                  className="pl-8 text-xs h-9"
                 />
               </div>
             </div>
 
-            {/* 1. Product Types Multi-select */}
-            <div className="flex flex-col gap-2">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Product Types
-              </span>
-              <div className="flex flex-col gap-2 mt-1">
-                {productTypeOptions.map((type) => {
-                  const isChecked = selectedProductTypes.includes(type.category);
-                  const count = PRODUCTS.filter((p) => p.category === type.category).length;
-                  return (
-                    <label
-                      key={type.id}
-                      className="flex items-center justify-between cursor-pointer group select-none"
-                    >
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={isChecked}
-                          onChange={() => toggleProductType(type.category)}
-                          className="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer"
-                        />
-                        <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
-                          {type.label}
-                        </span>
-                      </div>
-                      <span className="font-label-sm text-[11px] text-outline">{count}</span>
-                    </label>
-                  );
-                })}
-              </div>
-            </div>
+            {/* Filter Accordion */}
+            <Accordion type="multiple" defaultValue={['types', 'price', 'recipient']} className="flex flex-col gap-3">
+              {/* 1. Product Types Multi-select */}
+              <AccordionItem value="types">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Product Types
+                    </span>
+                    {selectedProductTypes.length > 0 && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        {selectedProductTypes.length}
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-col gap-2">
+                    {productTypeOptions.map((type) => {
+                      const isChecked = selectedProductTypes.includes(type.category);
+                      const count = PRODUCTS.filter((p) => p.category === type.category).length;
+                      return (
+                        <label
+                          key={type.id}
+                          className="flex items-center justify-between cursor-pointer group select-none"
+                        >
+                          <div className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => toggleProductType(type.category)}
+                              className="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer"
+                            />
+                            <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                              {type.label}
+                            </span>
+                          </div>
+                          <span className="font-label-sm text-[11px] text-outline">{count}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-            {/* 2. Price Range */}
-            <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/30">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Price Range
-              </span>
-              <div className="grid grid-cols-2 gap-1.5 mt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000');
-                    setCurrentPage(1);
-                  }}
-                  className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                    selectedPriceRange === 'under-1000'
-                      ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                      : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                  }`}
-                >
-                  Under ₹1,000
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500');
-                    setCurrentPage(1);
-                  }}
-                  className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                    selectedPriceRange === '1000-2500'
-                      ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                      : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                  }`}
-                >
-                  ₹1K – ₹2.5K
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000');
-                    setCurrentPage(1);
-                  }}
-                  className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                    selectedPriceRange === '2500-5000'
-                      ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                      : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                  }`}
-                >
-                  ₹2.5K – ₹5K
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000');
-                    setCurrentPage(1);
-                  }}
-                  className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                    selectedPriceRange === 'above-5000'
-                      ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                      : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                  }`}
-                >
-                  ₹5,000+
-                </button>
-              </div>
-            </div>
-
-            {/* 3. Gift Recipient */}
-            <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/30">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Gift Recipient
-              </span>
-              <div className="flex flex-wrap gap-1.5 mt-1">
-                {recipientOptions.map((rec) => {
-                  const isSelected = selectedRecipient === rec;
-                  return (
+              {/* 2. Price Range */}
+              <AccordionItem value="price">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Price Range
+                    </span>
+                    {selectedPriceRange !== 'all' && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        1
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-2 gap-1.5">
                     <button
-                      key={rec}
                       type="button"
                       onClick={() => {
-                        setSelectedRecipient(isSelected ? 'all' : rec);
+                        setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000');
                         setCurrentPage(1);
                       }}
-                      className={`px-2.5 py-1 rounded-full text-xs font-label-sm transition-colors ${
-                        isSelected
-                          ? 'bg-primary text-on-primary font-semibold shadow-sm'
-                          : 'bg-surface-container-low text-on-surface hover:bg-primary-fixed'
+                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
+                        selectedPriceRange === 'under-1000'
+                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
+                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
                       }`}
                     >
-                      {rec}
+                      Under ₹1,000
                     </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 4. Occasion */}
-            <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/30">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Occasion
-              </span>
-              <div className="flex flex-col gap-2 mt-1">
-                {occasionOptions.map((occ) => {
-                  const isChecked = selectedOccasions.includes(occ);
-                  return (
-                    <label
-                      key={occ}
-                      className="flex items-center gap-2 cursor-pointer group select-none"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500');
+                        setCurrentPage(1);
+                      }}
+                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
+                        selectedPriceRange === '1000-2500'
+                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
+                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
+                      }`}
                     >
+                      ₹1K – ₹2.5K
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000');
+                        setCurrentPage(1);
+                      }}
+                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
+                        selectedPriceRange === '2500-5000'
+                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
+                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
+                      }`}
+                    >
+                      ₹2.5K – ₹5K
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000');
+                        setCurrentPage(1);
+                      }}
+                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
+                        selectedPriceRange === 'above-5000'
+                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
+                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
+                      }`}
+                    >
+                      ₹5,000+
+                    </button>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* 3. Gift Recipient */}
+              <AccordionItem value="recipient">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Gift Recipient
+                    </span>
+                    {selectedRecipient !== 'all' && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        1
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-wrap gap-1.5">
+                    {recipientOptions.map((rec) => {
+                      const isSelected = selectedRecipient === rec;
+                      return (
+                        <button
+                          key={rec}
+                          type="button"
+                          onClick={() => {
+                            setSelectedRecipient(isSelected ? 'all' : rec);
+                            setCurrentPage(1);
+                          }}
+                          className={`px-2.5 py-1 rounded-full text-xs font-label-sm transition-colors ${
+                            isSelected
+                              ? 'bg-primary text-on-primary font-semibold shadow-sm'
+                              : 'bg-surface-container-low text-on-surface hover:bg-primary-fixed'
+                          }`}
+                        >
+                          {rec}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* 4. Occasion */}
+              <AccordionItem value="occasion">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Occasion
+                    </span>
+                    {selectedOccasions.length > 0 && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        {selectedOccasions.length}
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-col gap-2">
+                    {occasionOptions.map((occ) => {
+                      const isChecked = selectedOccasions.includes(occ);
+                      return (
+                        <label
+                          key={occ}
+                          className="flex items-center gap-2 cursor-pointer group select-none"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => toggleOccasion(occ)}
+                            className="w-4 h-4 rounded text-primary accent-primary cursor-pointer"
+                          />
+                          <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                            {occ}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* 5. Personalization Mode */}
+              <AccordionItem value="personalization">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Personalization Mode
+                    </span>
+                    {selectedPersonalization !== 'all' && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        1
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <select
+                    value={selectedPersonalization}
+                    onChange={(e) => {
+                      setSelectedPersonalization(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="w-full bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/60 text-xs text-on-surface focus:ring-1 focus:ring-primary focus:outline-none cursor-pointer"
+                  >
+                    <option value="all">All Modes</option>
+                    <option value="engraved">Precision Laser Engraved</option>
+                    <option value="debossed">Gold Foil Stamping / Debossing</option>
+                    <option value="photo">HD Archival Photo Print &amp; Mount</option>
+                    <option value="audio">Scannable Spotify / Audio Waveform</option>
+                  </select>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* 6. Dispatch Window */}
+              <AccordionItem value="dispatch">
+                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
+                      Dispatch Window
+                    </span>
+                    {selectedDispatch !== 'all' && (
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
+                        1
+                      </Badge>
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-col gap-2">
+                    <label className="flex items-center gap-2 cursor-pointer">
                       <input
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => toggleOccasion(occ)}
-                        className="w-4 h-4 rounded text-primary accent-primary cursor-pointer"
+                        type="radio"
+                        name="dispatch"
+                        checked={selectedDispatch === 'all'}
+                        onChange={() => setSelectedDispatch('all')}
+                        className="accent-primary cursor-pointer"
                       />
-                      <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
-                        {occ}
-                      </span>
+                      <span className="font-body-sm text-xs text-on-surface">All Timelines</span>
                     </label>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 5. Personalization Mode */}
-            <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/30">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Personalization Mode
-              </span>
-              <select
-                value={selectedPersonalization}
-                onChange={(e) => {
-                  setSelectedPersonalization(e.target.value);
-                  setCurrentPage(1);
-                }}
-                className="w-full bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/60 text-xs text-on-surface focus:ring-1 focus:ring-primary focus:outline-none"
-              >
-                <option value="all">All Modes</option>
-                <option value="engraved">Precision Laser Engraved</option>
-                <option value="debossed">Gold Foil Stamping / Debossing</option>
-                <option value="photo">HD Archival Photo Print &amp; Mount</option>
-                <option value="audio">Scannable Spotify / Audio Waveform</option>
-              </select>
-            </div>
-
-            {/* 6. Dispatch Window */}
-            <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/30">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Dispatch Window
-              </span>
-              <div className="flex flex-col gap-2 mt-1">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="dispatch"
-                    checked={selectedDispatch === 'all'}
-                    onChange={() => setSelectedDispatch('all')}
-                    className="accent-primary"
-                  />
-                  <span className="font-body-sm text-xs text-on-surface">All Timelines</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="dispatch"
-                    checked={selectedDispatch === '24h'}
-                    onChange={() => setSelectedDispatch('24h')}
-                    className="accent-primary"
-                  />
-                  <span className="font-body-sm text-xs text-on-surface">⚡ Express 24-Hour Dispatch</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="dispatch"
-                    checked={selectedDispatch === 'standard'}
-                    onChange={() => setSelectedDispatch('standard')}
-                    className="accent-primary"
-                  />
-                  <span className="font-body-sm text-xs text-on-surface">Standard Artisanal (2–3 Days)</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="dispatch"
-                    checked={selectedDispatch === 'customized'}
-                    onChange={() => setSelectedDispatch('customized')}
-                    className="accent-primary"
-                  />
-                  <span className="font-body-sm text-xs text-on-surface">Customized Initials (5–7 Days)</span>
-                </label>
-              </div>
-            </div>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="dispatch"
+                        checked={selectedDispatch === '24h'}
+                        onChange={() => setSelectedDispatch('24h')}
+                        className="accent-primary cursor-pointer"
+                      />
+                      <span className="font-body-sm text-xs text-on-surface">⚡ Express 24-Hour Dispatch</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="dispatch"
+                        checked={selectedDispatch === 'standard'}
+                        onChange={() => setSelectedDispatch('standard')}
+                        className="accent-primary cursor-pointer"
+                      />
+                      <span className="font-body-sm text-xs text-on-surface">Standard Artisanal (2–3 Days)</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="dispatch"
+                        checked={selectedDispatch === 'customized'}
+                        onChange={() => setSelectedDispatch('customized')}
+                        className="accent-primary cursor-pointer"
+                      />
+                      <span className="font-body-sm text-xs text-on-surface">Customized Initials (5–7 Days)</span>
+                    </label>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
 
             {/* Support Direct Advisory Box */}
             <div className="bg-primary-container/20 p-4 rounded-xl flex items-start gap-3 border border-primary/20 mt-2">
@@ -849,22 +960,24 @@ const ShopPage = () => {
           <main className="lg:col-span-9 flex flex-col gap-8">
             {/* Products Grid */}
             {filteredProducts.length === 0 ? (
-              <div className="bg-surface-container-lowest p-12 rounded-2xl border border-outline-variant/50 text-center flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-outline mb-4">
-                  <span className="material-symbols-outlined text-3xl">filter_alt_off</span>
-                </div>
-                <h3 className="font-serif text-xl text-on-surface font-medium mb-2">No Matching Keepsakes Found</h3>
-                <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
-                  We couldn't find products matching all your active filter criteria. Try clearing some filters or searching for broader terms.
-                </p>
-                <button
-                  onClick={resetAllFilters}
-                  type="button"
-                  className="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm"
-                >
-                  Reset All Filters
-                </button>
-              </div>
+              <Card className="rounded-2xl border border-outline-variant/50 bg-surface-container-lowest shadow-xs">
+                <CardContent className="p-8 sm:p-12 text-center flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-outline mb-4">
+                    <span className="material-symbols-outlined text-3xl">filter_alt_off</span>
+                  </div>
+                  <h3 className="font-serif text-xl text-on-surface font-medium mb-2">No Matching Keepsakes Found</h3>
+                  <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
+                    We couldn't find products matching all your active filter criteria. Try clearing some filters or searching for broader terms.
+                  </p>
+                  <button
+                    onClick={resetAllFilters}
+                    type="button"
+                    className="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm cursor-pointer"
+                  >
+                    Reset All Filters
+                  </button>
+                </CardContent>
+              </Card>
             ) : (
               <>
                 <div
@@ -928,86 +1041,123 @@ const ShopPage = () => {
                     ))}
 
                     {/* Customized Discovery Card inserted at end of catalog grid */}
-                    <div className="flex flex-col justify-center items-center text-center p-6 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
-                        <span className="material-symbols-outlined text-[24px]">palette</span>
-                      </div>
-                      <span className="font-label-sm text-[10px] text-primary uppercase tracking-widest font-semibold">
-                        Customized Commission
-                      </span>
-                      <h3 className="font-serif text-lg text-on-surface mt-1 font-semibold">Have a Unique Vision?</h3>
-                      <p className="font-body-sm text-xs text-on-surface-variant mt-2 mb-4 max-w-xs leading-relaxed">
-                        Upload your wedding logo, custom motif, or personalized calligraphy poem for customized casting.
-                      </p>
-                      <Link
-                        to="/bespoke"
-                        className="px-4 py-2 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary font-label-md text-xs transition-all shadow-sm font-semibold"
-                      >
-                        Your Idea → We Create
-                      </Link>
-                    </div>
+                    <Card className="flex flex-col justify-center items-center text-center p-0 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-xs hover:border-primary/40 hover:shadow-sm transition-all">
+                      <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                        <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+                          <span className="material-symbols-outlined text-[24px]">palette</span>
+                        </div>
+                        <span className="font-label-sm text-[10px] text-primary uppercase tracking-widest font-semibold">
+                          Customized Commission
+                        </span>
+                        <h3 className="font-serif text-lg text-on-surface mt-1 font-semibold">Have a Unique Vision?</h3>
+                        <p className="font-body-sm text-xs text-on-surface-variant mt-2 mb-4 max-w-xs leading-relaxed">
+                          Upload your wedding logo, custom motif, or personalized calligraphy poem for customized casting.
+                        </p>
+                        <Link
+                          to="/bespoke"
+                          className="px-4 py-2 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary font-label-md text-xs transition-all shadow-sm font-semibold inline-flex items-center gap-1.5"
+                        >
+                          <span>Your Idea → We Create</span>
+                        </Link>
+                      </CardContent>
+                    </Card>
                   </div>
                 )}
 
                 {/* Refined Pagination Bar & Action Footer */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/40 shadow-sm">
-                  <span className="font-body-sm text-xs text-on-surface-variant">
-                    Page <strong className="text-on-surface font-semibold">{currentPage}</strong> of{' '}
-                    <strong className="text-on-surface font-semibold">{totalPages}</strong> •{' '}
-                    {filteredProducts.length} Handcrafted Designs
+                <nav
+                  aria-label="Catalog pagination"
+                  className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/40 shadow-sm"
+                >
+                  <span className="font-body-sm text-xs text-on-surface-variant" aria-live="polite">
+                    {showAllProducts ? (
+                      <>
+                        Showing all <strong className="text-on-surface font-semibold">{filteredProducts.length}</strong> Handcrafted Designs
+                      </>
+                    ) : (
+                      <>
+                        Page <strong className="text-on-surface font-semibold">{currentPage}</strong> of{' '}
+                        <strong className="text-on-surface font-semibold">{totalPages}</strong> •{' '}
+                        {filteredProducts.length} Handcrafted Designs
+                      </>
+                    )}
                   </span>
 
                   <div className="flex items-center gap-1.5">
                     <button
-                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                      disabled={currentPage === 1}
+                      onClick={() => {
+                        setCurrentPage((p) => Math.max(1, p - 1));
+                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      disabled={currentPage === 1 || showAllProducts}
                       type="button"
-                      className="w-8 h-8 rounded bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                       aria-label="Previous page"
                     >
-                      <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
                     </button>
 
-                    {[...Array(totalPages)].map((_, i) => {
-                      const pageNum = i + 1;
-                      return (
-                        <button
-                          key={pageNum}
-                          onClick={() => setCurrentPage(pageNum)}
-                          type="button"
-                          className={`w-8 h-8 rounded font-label-md text-xs flex items-center justify-center font-bold transition-colors ${
-                            currentPage === pageNum
-                              ? 'bg-inverse-surface text-inverse-on-surface'
-                              : 'bg-surface-container-low hover:bg-surface-container text-on-surface'
-                          }`}
-                        >
-                          {pageNum}
-                        </button>
-                      );
-                    })}
+                    {!showAllProducts &&
+                      [...Array(totalPages)].map((_, i) => {
+                        const pageNum = i + 1;
+                        const isActive = currentPage === pageNum;
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => {
+                              setCurrentPage(pageNum);
+                              catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            type="button"
+                            aria-label={`Page ${pageNum}`}
+                            aria-current={isActive ? 'page' : undefined}
+                            className={`w-9 h-9 rounded-lg font-label-md text-xs flex items-center justify-center font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                              isActive
+                                ? 'bg-primary text-on-primary shadow-xs ring-1 ring-primary/30'
+                                : 'bg-surface-container-low hover:bg-surface-container text-on-surface'
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      })}
 
                     <button
-                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                      disabled={currentPage === totalPages}
+                      onClick={() => {
+                        setCurrentPage((p) => Math.min(totalPages, p + 1));
+                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      disabled={currentPage === totalPages || showAllProducts}
                       type="button"
-                      className="w-8 h-8 rounded bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                       aria-label="Next page"
                     >
-                      <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
                     </button>
                   </div>
 
                   <button
-                    onClick={() => setShowAllProducts((prev) => !prev)}
+                    onClick={() => {
+                      setShowAllProducts((prev) => !prev);
+                      if (showAllProducts) {
+                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     type="button"
-                    className="font-label-md text-xs text-primary font-semibold hover:underline flex items-center gap-1"
+                    aria-pressed={showAllProducts}
+                    aria-label={showAllProducts ? 'Switch to paginated view' : `View all ${filteredProducts.length} products`}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-label-md font-semibold transition-all cursor-pointer border ${
+                      showAllProducts
+                        ? 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20'
+                        : 'bg-surface-container-low text-on-surface hover:bg-surface-container border-outline-variant/40'
+                    }`}
                   >
-                    <span>{showAllProducts ? 'Paginate Catalog' : `View All ${filteredProducts.length} Products`}</span>
+                    <span>{showAllProducts ? 'Paginate Catalog' : `View All (${filteredProducts.length})`}</span>
                     <span className="material-symbols-outlined text-[16px]">
                       {showAllProducts ? 'compress' : 'expand_all'}
                     </span>
                   </button>
-                </div>
+                </nav>
               </>
             )}
           </main>
@@ -1059,133 +1209,128 @@ const ShopPage = () => {
         </div>
       </section>
 
-      {/* 6. Mobile Filter Drawer Modal */}
-      {isMobileFilterOpen && (
-        <div className="fixed inset-0 z-50 flex lg:hidden">
-          {/* Backdrop */}
-          <div
-            onClick={() => setIsMobileFilterOpen(false)}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
-          />
+      {/* 6. Mobile Filter Drawer Sheet */}
+      <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
+        <SheetContent side="right" className="w-full max-w-xs p-6 overflow-y-auto flex flex-col justify-between">
+          <div>
+            <SheetHeader className="pb-4 border-b border-outline-variant/40 mb-4 text-left pr-6">
+              <SheetTitle className="flex items-center gap-2 text-on-surface">
+                <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
+                <span>Refine Collection</span>
+              </SheetTitle>
+              <SheetDescription className="sr-only">
+                Filter and refine the wedding gift collection
+              </SheetDescription>
+            </SheetHeader>
 
-          {/* Drawer Panel */}
-          <div className="relative ml-auto w-full max-w-xs bg-surface-container-lowest h-full shadow-2xl p-6 overflow-y-auto flex flex-col justify-between z-10">
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-outline-variant/40 mb-4">
-                <div className="flex items-center gap-2 text-on-surface">
-                  <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
-                  <span className="font-serif text-lg font-semibold">Refine Collection</span>
-                </div>
+            {/* Product Types */}
+            <div className="mb-6">
+              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
+                Product Types
+              </span>
+              <div className="flex flex-col gap-2">
+                {productTypeOptions.map((type) => (
+                  <label key={type.id} className="flex items-center justify-between text-xs cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedProductTypes.includes(type.category)}
+                        onChange={() => toggleProductType(type.category)}
+                        className="accent-primary w-4 h-4 rounded"
+                      />
+                      <span>{type.label}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Price Ranges */}
+            <div className="mb-6">
+              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
+                Price Range
+              </span>
+              <div className="grid grid-cols-2 gap-1.5">
                 <button
-                  onClick={() => setIsMobileFilterOpen(false)}
-                  className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface"
+                  type="button"
+                  onClick={() => setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000')}
+                  className={`py-1 px-2 rounded text-xs ${
+                    selectedPriceRange === 'under-1000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
+                  }`}
                 >
-                  <span className="material-symbols-outlined text-[18px]">close</span>
+                  &lt; ₹1,000
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500')}
+                  className={`py-1 px-2 rounded text-xs ${
+                    selectedPriceRange === '1000-2500' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
+                  }`}
+                >
+                  ₹1K - ₹2.5K
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000')}
+                  className={`py-1 px-2 rounded text-xs ${
+                    selectedPriceRange === '2500-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
+                  }`}
+                >
+                  ₹2.5K - ₹5K
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000')}
+                  className={`py-1 px-2 rounded text-xs ${
+                    selectedPriceRange === 'above-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
+                  }`}
+                >
+                  ₹5,000+
                 </button>
               </div>
-
-              {/* Product Types */}
-              <div className="mb-6">
-                <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                  Product Types
-                </span>
-                <div className="flex flex-col gap-2">
-                  {productTypeOptions.map((type) => (
-                    <label key={type.id} className="flex items-center justify-between text-xs cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={selectedProductTypes.includes(type.category)}
-                          onChange={() => toggleProductType(type.category)}
-                          className="accent-primary w-4 h-4 rounded"
-                        />
-                        <span>{type.label}</span>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Price Ranges */}
-              <div className="mb-6">
-                <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                  Price Range
-                </span>
-                <div className="grid grid-cols-2 gap-1.5">
-                  <button
-                    onClick={() => setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000')}
-                    className={`py-1 px-2 rounded text-xs ${
-                      selectedPriceRange === 'under-1000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                    }`}
-                  >
-                    &lt; ₹1,000
-                  </button>
-                  <button
-                    onClick={() => setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500')}
-                    className={`py-1 px-2 rounded text-xs ${
-                      selectedPriceRange === '1000-2500' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                    }`}
-                  >
-                    ₹1K - ₹2.5K
-                  </button>
-                  <button
-                    onClick={() => setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000')}
-                    className={`py-1 px-2 rounded text-xs ${
-                      selectedPriceRange === '2500-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                    }`}
-                  >
-                    ₹2.5K - ₹5K
-                  </button>
-                  <button
-                    onClick={() => setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000')}
-                    className={`py-1 px-2 rounded text-xs ${
-                      selectedPriceRange === 'above-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                    }`}
-                  >
-                    ₹5,000+
-                  </button>
-                </div>
-              </div>
-
-              {/* Recipient */}
-              <div className="mb-6">
-                <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                  Recipient
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {recipientOptions.map((rec) => (
-                    <button
-                      key={rec}
-                      onClick={() => setSelectedRecipient(selectedRecipient === rec ? 'all' : rec)}
-                      className={`px-2.5 py-1 rounded-full text-xs ${
-                        selectedRecipient === rec ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                      }`}
-                    >
-                      {rec}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            {/* Bottom Actions */}
-            <div className="pt-4 border-t border-outline-variant/30 flex gap-2">
-              <button
-                onClick={resetAllFilters}
-                className="flex-1 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-xs"
-              >
-                Clear
-              </button>
-              <button
-                onClick={() => setIsMobileFilterOpen(false)}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-xs font-semibold"
-              >
-                View {filteredProducts.length} Items
-              </button>
+            {/* Recipient */}
+            <div className="mb-6">
+              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
+                Recipient
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {recipientOptions.map((rec) => (
+                  <button
+                    key={rec}
+                    type="button"
+                    onClick={() => setSelectedRecipient(selectedRecipient === rec ? 'all' : rec)}
+                    className={`px-2.5 py-1 rounded-full text-xs ${
+                      selectedRecipient === rec ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
+                    }`}
+                  >
+                    {rec}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+
+          {/* Bottom Actions */}
+          <div className="pt-4 border-t border-outline-variant/30 flex gap-2">
+            <button
+              onClick={resetAllFilters}
+              type="button"
+              className="flex-1 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-xs"
+            >
+              Clear
+            </button>
+            <button
+              onClick={() => setIsMobileFilterOpen(false)}
+              type="button"
+              className="flex-1 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-xs font-semibold"
+            >
+              View {filteredProducts.length} Items
+            </button>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };
