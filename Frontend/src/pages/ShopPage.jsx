@@ -1,24 +1,46 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { PRODUCTS } from '../data/productsData';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
-import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
-// Quick categories for top pill filter
-const categoryPills = [
-  { id: 'all', label: 'All Products' },
-  { id: 'keepsakes', label: 'Personalized Gifts', filterCat: ['photo-frames', 'acrylic-plaques', 'wooden-keepsakes'] },
-  { id: 'favors-trousseau', label: 'Wedding Favors & Wedding Essentials', filterCat: ['wedding-favors', 'trousseau-suites', 'vow-books'] },
-  { id: 'for-her', label: 'Gifts For Her', recipient: 'For Her', aliases: ['bride'] },
-  { id: 'for-him', label: 'Gifts For Him', recipient: 'For Him', aliases: ['groom'] },
-  { id: 'couple', label: 'Anniversary & Couple', recipient: 'Couple', aliases: ['bride & groom'] },
-  { id: 'hampers', label: 'Luxury Hampers', filterCat: ['hampers', 'bridal-hampers'] },
+// Modular Shop Subcomponents
+import ShopHeader, { CATEGORY_PILLS } from '../components/shop/ShopHeader';
+import ShopControlBar from '../components/shop/ShopControlBar';
+import ShopFilters from '../components/shop/ShopFilters';
+import ShopPagination from '../components/shop/ShopPagination';
+
+// Available Filter Options
+const PRODUCT_TYPE_OPTIONS = [
+  { id: 'photo-frames', label: 'Engraved Photo Frames', category: 'photo-frames' },
+  { id: 'acrylic-plaques', label: 'LED Acrylic Song Plaques', category: 'acrylic-plaques' },
+  { id: 'velvet-boxes', label: 'Initials Velvet Jewelry Boxes', category: 'velvet-boxes' },
+  { id: 'wooden-keepsakes', label: 'Wooden Gift Boxes', category: 'wooden-keepsakes' },
+  { id: 'leather-travel', label: 'Customized Travel Sets', category: 'leather-travel' },
+  { id: 'hampers', label: 'Couple Celebration Hampers', category: 'hampers' },
+  { id: 'wedding-favors', label: 'Wedding Guest Favors', category: 'wedding-favors' },
+  { id: 'trousseau-suites', label: 'Bridal Wedding Essentials Suites', category: 'trousseau-suites' },
+  { id: 'vow-books', label: 'Heirloom Vow Books', category: 'vow-books' },
+  { id: 'robes-silk', label: 'Pure Mulberry Silk Robes', category: 'robes-silk' },
+];
+
+const OCCASION_OPTIONS = [
+  'Wedding & Reception',
+  'Engagement & Roka',
+  'Anniversary Milestones',
+  'Birthday & Celebration',
+  'Housewarming / Griha Pravesh',
+];
+
+const RECIPIENT_OPTIONS = [
+  'For Her',
+  'For Him',
+  'Couple',
+  'Parents',
+  'Bridesmaids',
+  'Groomsmen',
 ];
 
 const ShopPage = () => {
@@ -26,30 +48,30 @@ const ShopPage = () => {
   const location = useLocation();
   const catalogSectionRef = useRef(null);
 
-  // Search and Category from query parameters
+  // Read URL query parameters
   const initialCategory = searchParams.get('cat') || 'all';
   const initialSearch = searchParams.get('search') || '';
 
   // Local state for all facets
   const [selectedPill, setSelectedPill] = useState(initialCategory);
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
-  const [selectedPriceRange, setSelectedPriceRange] = useState('all'); // 'all', 'under-1000', '1000-2500', '2500-5000', 'above-5000'
-  const [selectedRecipient, setSelectedRecipient] = useState('all'); // 'all', 'For Her', 'For Him', 'Couple', 'Parents', 'Bridesmaids', 'Groomsmen'
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
+  const [selectedRecipient, setSelectedRecipient] = useState('all');
   const [selectedOccasions, setSelectedOccasions] = useState([]);
   const [selectedPersonalization, setSelectedPersonalization] = useState('all');
-  const [selectedDispatch, setSelectedDispatch] = useState('all'); // 'all', '24h', 'standard', 'customized'
-  const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-asc', 'price-desc', 'rating', 'newest'
+  const [selectedDispatch, setSelectedDispatch] = useState('all');
+  const [sortBy, setSortBy] = useState('featured');
   const [searchQuery, setSearchQuery] = useState(initialSearch);
-  const [gridCols, setGridCols] = useState(3); // 3 or 4 columns
+  const [gridCols, setGridCols] = useState(3);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [showAllProducts, setShowAllProducts] = useState(false);
 
-  // Sync with URL params
+  // Synchronize state with URL parameters
   useEffect(() => {
     const urlCat = searchParams.get('cat');
     if (urlCat && urlCat !== 'all') {
-      const isPill = categoryPills.some((p) => p.id === urlCat);
+      const isPill = CATEGORY_PILLS.some((p) => p.id === urlCat);
       if (isPill) {
         setSelectedPill(urlCat);
       } else {
@@ -60,13 +82,13 @@ const ShopPage = () => {
       setSelectedPill('all');
       setSelectedProductTypes([]);
     }
+
     const urlSearch = searchParams.get('search');
     if (urlSearch !== null) {
       setSearchQuery(urlSearch);
     }
     setCurrentPage(1);
 
-    // If navigated with a category filter, search query, or #products anchor, directly scroll to products
     const hasCategoryOrAnchor = (urlCat && urlCat !== 'all') || urlSearch || location.hash === '#products';
     if (hasCategoryOrAnchor && catalogSectionRef.current) {
       setTimeout(() => {
@@ -83,43 +105,10 @@ const ShopPage = () => {
     }
   }, [searchParams, location.hash]);
 
-  // Product types for sidebar checkboxes with dynamic labels
-  const productTypeOptions = [
-    { id: 'photo-frames', label: 'Engraved Photo Frames', category: 'photo-frames' },
-    { id: 'acrylic-plaques', label: 'LED Acrylic Song Plaques', category: 'acrylic-plaques' },
-    { id: 'velvet-boxes', label: 'Initials Velvet Jewelry Boxes', category: 'velvet-boxes' },
-    { id: 'wooden-keepsakes', label: 'Wooden Gift Boxes', category: 'wooden-keepsakes' },
-    { id: 'leather-travel', label: 'Customized Travel Sets', category: 'leather-travel' },
-    { id: 'hampers', label: 'Couple Celebration Hampers', category: 'hampers' },
-    { id: 'wedding-favors', label: 'Wedding Guest Favors', category: 'wedding-favors' },
-    { id: 'trousseau-suites', label: 'Bridal Wedding Essentials Suites', category: 'trousseau-suites' },
-    { id: 'vow-books', label: 'Heirloom Vow Books', category: 'vow-books' },
-    { id: 'robes-silk', label: 'Pure Mulberry Silk Robes', category: 'robes-silk' }
-  ];
-
-  // Occasions list
-  const occasionOptions = [
-    'Wedding & Reception',
-    'Engagement & Roka',
-    'Anniversary Milestones',
-    'Birthday & Celebration',
-    'Housewarming / Griha Pravesh'
-  ];
-
-  // Recipients list
-  const recipientOptions = [
-    'For Her',
-    'For Him',
-    'Couple',
-    'Parents',
-    'Bridesmaids',
-    'Groomsmen'
-  ];
-
-  // Filter products
+  // Filter products using all active criteria
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
-      // 1. Search Query
+      // 1. Keyword search
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
         const matchesTitle = product.title?.toLowerCase().includes(query);
@@ -134,7 +123,7 @@ const ShopPage = () => {
 
       // 2. Top Category Pill
       if (selectedPill !== 'all') {
-        const foundPill = categoryPills.find((p) => p.id === selectedPill);
+        const foundPill = CATEGORY_PILLS.find((p) => p.id === selectedPill);
         if (foundPill) {
           if (foundPill.filterCat && !foundPill.filterCat.includes(product.category)) {
             return false;
@@ -151,20 +140,20 @@ const ShopPage = () => {
         }
       }
 
-      // 3. Product Types Checkbox multi-select
+      // 3. Product Types multi-select
       if (selectedProductTypes.length > 0) {
         if (!selectedProductTypes.includes(product.category)) {
           return false;
         }
       }
 
-      // 4. Price Range
+      // 4. Price Brackets
       if (selectedPriceRange === 'under-1000' && product.price >= 1000) return false;
       if (selectedPriceRange === '1000-2500' && (product.price < 1000 || product.price > 2500)) return false;
       if (selectedPriceRange === '2500-5000' && (product.price < 2500 || product.price > 5000)) return false;
       if (selectedPriceRange === 'above-5000' && product.price <= 5000) return false;
 
-      // 5. Recipient
+      // 5. Gift Recipient
       if (selectedRecipient !== 'all') {
         if (!product.recipient?.toLowerCase().includes(selectedRecipient.toLowerCase())) {
           return false;
@@ -180,7 +169,7 @@ const ShopPage = () => {
         if (!matchesOccasion) return false;
       }
 
-      // 7. Personalization Technique / Mode
+      // 7. Personalization Technique
       if (selectedPersonalization !== 'all') {
         const craft = (product.craft || '').toLowerCase();
         const tech = (product.techniqueTag || '').toLowerCase();
@@ -221,13 +210,13 @@ const ShopPage = () => {
     selectedOccasions,
     selectedPersonalization,
     selectedDispatch,
-    sortBy
+    sortBy,
   ]);
 
-  // Compute counts for top pills
+  // Compute counts for top category pills
   const pillCounts = useMemo(() => {
     const counts = {};
-    categoryPills.forEach((pill) => {
+    CATEGORY_PILLS.forEach((pill) => {
       if (pill.id === 'all') {
         counts[pill.id] = PRODUCTS.length;
       } else if (pill.filterCat) {
@@ -243,7 +232,7 @@ const ShopPage = () => {
     return counts;
   }, []);
 
-  // Compute active filters count for badge
+  // Compute active filters count
   const activeFiltersCount = useMemo(() => {
     let count = 0;
     if (selectedPill !== 'all') count += 1;
@@ -263,7 +252,7 @@ const ShopPage = () => {
     selectedOccasions,
     selectedPersonalization,
     selectedDispatch,
-    searchQuery
+    searchQuery,
   ]);
 
   // Clear all filters
@@ -308,657 +297,90 @@ const ShopPage = () => {
 
   return (
     <div className="w-full bg-surface min-h-screen text-on-surface">
+      {/* 1. Page Header & Category Pills */}
+      <ShopHeader
+        selectedPill={selectedPill}
+        onSelectPill={(pillId) => {
+          setSelectedPill(pillId);
+          setCurrentPage(1);
+        }}
+        pillCounts={pillCounts}
+      />
 
-      {/* 2. Editorial Page Header & Story Canvas */}
-      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-6">
-        <div className="relative overflow-hidden rounded-2xl bg-surface-container-low p-6 sm:p-10 shadow-xs border border-outline-variant/30">
-          {/* Ambient Glow Accent */}
-          <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none"></div>
+      {/* 2. Sticky Interactive Control Bar */}
+      <ShopControlBar
+        totalItems={PRODUCTS.length}
+        filteredCount={filteredProducts.length}
+        displayCount={showAllProducts ? filteredProducts.length : paginatedProducts.length}
+        activeFiltersCount={activeFiltersCount}
+        selectedPill={selectedPill}
+        onResetPill={() => setSelectedPill('all')}
+        selectedPriceRange={selectedPriceRange}
+        onResetPrice={() => setSelectedPriceRange('all')}
+        selectedRecipient={selectedRecipient}
+        onResetRecipient={() => setSelectedRecipient('all')}
+        selectedProductTypes={selectedProductTypes}
+        onToggleProductType={toggleProductType}
+        productTypeOptions={PRODUCT_TYPE_OPTIONS}
+        searchQuery={searchQuery}
+        onClearSearch={() => setSearchQuery('')}
+        onResetAll={resetAllFilters}
+        gridCols={gridCols}
+        onGridColsChange={setGridCols}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+        onOpenMobileFilters={() => setIsMobileFilterOpen(true)}
+      />
 
-          <div className="relative z-10 max-w-3xl flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-primary font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold">
-              <span className="material-symbols-outlined text-[16px]">draw</span>
-              <span>Curated Gift Archives</span>
-            </div>
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface tracking-tight leading-[1.18] font-normal">
-              The Collection Catalog
-            </h1>
-            <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed pt-1">
-              Thoughtfully personalized gifts, customized wedding essentials, and timeless gift favors handcrafted for
-              life's most unforgettable moments. Each piece debossed, engraved, or hand-finished in our workshops.
-            </p>
-          </div>
-
-          {/* Metrics summary banner */}
-          <div className="relative z-10 mt-6 pt-5 border-t border-outline-variant/40 flex flex-wrap items-center gap-6 sm:gap-10">
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-bold text-primary">{PRODUCTS.length}</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
-                Archived Designs
-              </span>
-            </div>
-            <div className="w-px h-8 bg-outline-variant/50 hidden sm:block"></div>
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-bold text-primary">4.96 ★</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
-                Client Rating
-              </span>
-            </div>
-            <div className="w-px h-8 bg-outline-variant/50 hidden sm:block"></div>
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-bold text-primary">24-48h</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-on-surface-variant">
-                Express Dispatch
-              </span>
-            </div>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="relative z-10 mt-6 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {categoryPills.map((pill) => {
-              const isSelected = selectedPill === pill.id;
-              return (
-                <button
-                  key={pill.id}
-                  onClick={() => {
-                    setSelectedPill(pill.id);
-                    setCurrentPage(1);
-                  }}
-                  type="button"
-                  className={`group flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-sans text-xs whitespace-nowrap transition-all shadow-xs ${
-                    isSelected
-                      ? 'bg-primary text-on-primary font-semibold shadow-sm'
-                      : 'bg-surface-container-lowest text-on-surface hover:bg-surface-container border border-outline-variant/40'
-                  }`}
-                >
-                  <span>{pill.label}</span>
-                  <span
-                    className={`text-[10px] font-mono px-1.5 py-0.2 rounded ${
-                      isSelected
-                        ? 'bg-white/20 text-on-primary'
-                        : 'bg-surface-container-high text-on-surface-variant'
-                    }`}
-                  >
-                    {pillCounts[pill.id] ?? 0}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Sticky Interactive Control Bar */}
-      <section className="sticky top-[148px] z-30 w-full bg-surface/90 backdrop-blur-md shadow-xs border-y border-outline-variant/30 mb-8">
-        <TooltipProvider delayDuration={150}>
-          <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row items-center justify-between gap-3">
-            {/* Left: Active Filter Indicators & Total Count */}
-            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-              {/* Mobile Filter Drawer Button */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={() => setIsMobileFilterOpen(true)}
-                    type="button"
-                    className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary transition-colors font-label-md text-xs font-semibold"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">tune</span>
-                    <span>Filters</span>
-                    {activeFiltersCount > 0 && (
-                      <span className="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">
-                        {activeFiltersCount}
-                      </span>
-                    )}
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p>Refine Filters</p>
-                </TooltipContent>
-              </Tooltip>
-
-            <span className="font-body-sm text-xs text-on-surface-variant">
-              Showing{' '}
-              <strong className="text-on-surface font-semibold">
-                {filteredProducts.length === 0 ? 0 : showAllProducts ? filteredProducts.length : paginatedProducts.length}
-              </strong>{' '}
-              of <strong className="text-on-surface font-semibold">{filteredProducts.length}</strong> items
-            </span>
-
-            {/* Active Tags Quick Dismiss */}
-            {activeFiltersCount > 0 && (
-              <div className="hidden xl:flex items-center gap-1.5 flex-wrap">
-                {selectedPill !== 'all' && (
-                  <Badge
-                    variant="outline"
-                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
-                  >
-                    {categoryPills.find((p) => p.id === selectedPill)?.label}
-                    <button
-                      onClick={() => setSelectedPill('all')}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
-                      aria-label="Remove category filter"
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                )}
-
-                {selectedPriceRange !== 'all' && (
-                  <Badge
-                    variant="outline"
-                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
-                  >
-                    {selectedPriceRange === 'under-1000' && 'Under ₹1,000'}
-                    {selectedPriceRange === '1000-2500' && '₹1,000 - ₹2,500'}
-                    {selectedPriceRange === '2500-5000' && '₹2,500 - ₹5,000'}
-                    {selectedPriceRange === 'above-5000' && 'Above ₹5,000'}
-                    <button
-                      onClick={() => setSelectedPriceRange('all')}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
-                      aria-label="Remove price filter"
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                )}
-
-                {selectedRecipient !== 'all' && (
-                  <Badge
-                    variant="outline"
-                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
-                  >
-                    {selectedRecipient}
-                    <button
-                      onClick={() => setSelectedRecipient('all')}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
-                      aria-label="Remove recipient filter"
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                )}
-
-                {selectedProductTypes.map((catId) => (
-                  <Badge
-                    key={catId}
-                    variant="outline"
-                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
-                  >
-                    {productTypeOptions.find((p) => p.category === catId)?.label || catId}
-                    <button
-                      onClick={() => toggleProductType(catId)}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
-                      aria-label={`Remove ${catId} filter`}
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                ))}
-
-                {searchQuery.trim() && (
-                  <Badge
-                    variant="outline"
-                    className="gap-1 font-label-sm text-[11px] text-on-surface py-0.5 px-2"
-                  >
-                    "{searchQuery}"
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center"
-                      aria-label="Clear keyword search"
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                )}
-
-                <button
-                  onClick={resetAllFilters}
-                  type="button"
-                  className="font-label-sm text-[11px] text-primary hover:underline ml-1 font-semibold"
-                >
-                  Clear all
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Right: View Layout Toggle & Sorting Dropdown */}
-          <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
-            {/* Grid View Switcher */}
-            <ToggleGroup
-              type="single"
-              value={String(gridCols)}
-              onValueChange={(val) => {
-                if (val) setGridCols(Number(val));
-              }}
-              className="hidden lg:flex items-center bg-surface-container-low p-0.5 rounded-lg border border-outline-variant/40 gap-0.5"
-              aria-label="Grid layout"
-            >
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <ToggleGroupItem
-                    value="3"
-                    aria-label="3 Columns"
-                    className="p-1.5 h-auto w-auto rounded border-0 bg-transparent text-outline hover:text-primary data-[state=on]:bg-surface-container-lowest data-[state=on]:text-primary data-[state=on]:shadow-sm transition-all font-bold"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">grid_view</span>
-                  </ToggleGroupItem>
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                  <p>3 Columns</p>
-                </TooltipContent>
-              </Tooltip>
-
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <ToggleGroupItem
-                    value="4"
-                    aria-label="4 Columns"
-                    className="p-1.5 h-auto w-auto rounded border-0 bg-transparent text-outline hover:text-primary data-[state=on]:bg-surface-container-lowest data-[state=on]:text-primary data-[state=on]:shadow-sm transition-all font-bold"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">view_comfy_alt</span>
-                  </ToggleGroupItem>
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                  <p>4 Columns</p>
-                </TooltipContent>
-              </Tooltip>
-            </ToggleGroup>
-
-            {/* Sorting Menu */}
-            <div className="relative flex items-center">
-              <label
-                htmlFor="sortDropdown"
-                className="font-label-sm text-[11px] text-outline uppercase tracking-wider mr-2 hidden sm:inline"
-              >
-                Sort by:
-              </label>
-              <div className="relative">
-                <select
-                  id="sortDropdown"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-surface-container-lowest text-on-surface font-title-sm text-xs pl-3 pr-8 py-1.5 rounded-lg shadow-sm border border-outline-variant/50 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
-                >
-                  <option value="featured">Featured Collection Edits</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                  <option value="rating">Customer Ratings (Top Rated)</option>
-                  <option value="newest">Newest Collection Arrivals</option>
-                </select>
-                <span className="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[16px]">
-                  expand_more
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </TooltipProvider>
-    </section>
-
-      {/* 4. Two-Column Catalog Layout */}
-      <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-32">
+      {/* 3. Catalog Grid & Two-Column Layout */}
+      <div id="products" ref={catalogSectionRef} className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-32 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Desktop Sticky Sidebar Filters (Left Column - 3 cols) */}
+          {/* Desktop Sticky Sidebar (3 Columns) */}
           <aside
             id="filterSidebar"
-            className="lg:col-span-3 sticky top-[228px] max-h-[calc(100vh-250px)] overflow-y-auto scrollbar-none pr-1 hidden lg:flex flex-col gap-6 bg-surface-container-lowest p-5 sm:p-6 rounded-xl border border-outline-variant/30 shadow-xs"
+            className="lg:col-span-3 sticky top-[228px] max-h-[calc(100vh-250px)] overflow-y-auto scrollbar-none pr-1 hidden lg:flex flex-col bg-surface-container-lowest p-5 sm:p-6 rounded-xl border border-outline-variant/30 shadow-xs"
           >
-            {/* Filter Header */}
-            <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
-              <div className="flex items-center gap-1.5 text-on-surface">
-                <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
-                <span className="font-serif text-base font-semibold tracking-wide">Refine Collection</span>
-              </div>
-              {activeFiltersCount > 0 && (
-                <button
-                  onClick={resetAllFilters}
-                  type="button"
-                  className="font-sans text-[11px] text-primary uppercase tracking-wider hover:underline font-bold"
-                >
-                  Reset
-                </button>
-              )}
-            </div>
-
-            {/* Keyword Search in Catalog */}
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-outline tracking-wider mb-2 font-sans">
-                Keyword Search
-              </label>
-              <div className="relative">
-                <span className="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none z-10">
-                  search
-                </span>
-                <Input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  placeholder="Search gifts, acrylics..."
-                  className="pl-8 text-xs h-9"
-                />
-              </div>
-            </div>
-
-            {/* Filter Accordion */}
-            <Accordion type="multiple" defaultValue={['types', 'price', 'recipient']} className="flex flex-col gap-3">
-              {/* 1. Product Types Multi-select */}
-              <AccordionItem value="types">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Product Types
-                    </span>
-                    {selectedProductTypes.length > 0 && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        {selectedProductTypes.length}
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-col gap-2">
-                    {productTypeOptions.map((type) => {
-                      const isChecked = selectedProductTypes.includes(type.category);
-                      const count = PRODUCTS.filter((p) => p.category === type.category).length;
-                      return (
-                        <label
-                          key={type.id}
-                          className="flex items-center justify-between cursor-pointer group select-none"
-                        >
-                          <div className="flex items-center gap-2">
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={() => toggleProductType(type.category)}
-                              className="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer"
-                            />
-                            <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
-                              {type.label}
-                            </span>
-                          </div>
-                          <span className="font-label-sm text-[11px] text-outline">{count}</span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* 2. Price Range */}
-              <AccordionItem value="price">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Price Range
-                    </span>
-                    {selectedPriceRange !== 'all' && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        1
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000');
-                        setCurrentPage(1);
-                      }}
-                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                        selectedPriceRange === 'under-1000'
-                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                      }`}
-                    >
-                      Under ₹1,000
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500');
-                        setCurrentPage(1);
-                      }}
-                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                        selectedPriceRange === '1000-2500'
-                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                      }`}
-                    >
-                      ₹1K – ₹2.5K
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000');
-                        setCurrentPage(1);
-                      }}
-                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                        selectedPriceRange === '2500-5000'
-                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                      }`}
-                    >
-                      ₹2.5K – ₹5K
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000');
-                        setCurrentPage(1);
-                      }}
-                      className={`px-2 py-1.5 rounded text-center text-xs transition-colors font-medium ${
-                        selectedPriceRange === 'above-5000'
-                          ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
-                          : 'bg-surface-container-low hover:bg-secondary-container/50 text-on-surface'
-                      }`}
-                    >
-                      ₹5,000+
-                    </button>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* 3. Gift Recipient */}
-              <AccordionItem value="recipient">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Gift Recipient
-                    </span>
-                    {selectedRecipient !== 'all' && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        1
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-wrap gap-1.5">
-                    {recipientOptions.map((rec) => {
-                      const isSelected = selectedRecipient === rec;
-                      return (
-                        <button
-                          key={rec}
-                          type="button"
-                          onClick={() => {
-                            setSelectedRecipient(isSelected ? 'all' : rec);
-                            setCurrentPage(1);
-                          }}
-                          className={`px-2.5 py-1 rounded-full text-xs font-label-sm transition-colors ${
-                            isSelected
-                              ? 'bg-primary text-on-primary font-semibold shadow-sm'
-                              : 'bg-surface-container-low text-on-surface hover:bg-primary-fixed'
-                          }`}
-                        >
-                          {rec}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* 4. Occasion */}
-              <AccordionItem value="occasion">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Occasion
-                    </span>
-                    {selectedOccasions.length > 0 && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        {selectedOccasions.length}
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-col gap-2">
-                    {occasionOptions.map((occ) => {
-                      const isChecked = selectedOccasions.includes(occ);
-                      return (
-                        <label
-                          key={occ}
-                          className="flex items-center gap-2 cursor-pointer group select-none"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={() => toggleOccasion(occ)}
-                            className="w-4 h-4 rounded text-primary accent-primary cursor-pointer"
-                          />
-                          <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
-                            {occ}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* 5. Personalization Mode */}
-              <AccordionItem value="personalization">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Personalization Mode
-                    </span>
-                    {selectedPersonalization !== 'all' && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        1
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <select
-                    value={selectedPersonalization}
-                    onChange={(e) => {
-                      setSelectedPersonalization(e.target.value);
-                      setCurrentPage(1);
-                    }}
-                    className="w-full bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/60 text-xs text-on-surface focus:ring-1 focus:ring-primary focus:outline-none cursor-pointer"
-                  >
-                    <option value="all">All Modes</option>
-                    <option value="engraved">Precision Laser Engraved</option>
-                    <option value="debossed">Gold Foil Stamping / Debossing</option>
-                    <option value="photo">HD Archival Photo Print &amp; Mount</option>
-                    <option value="audio">Scannable Spotify / Audio Waveform</option>
-                  </select>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* 6. Dispatch Window */}
-              <AccordionItem value="dispatch">
-                <AccordionTrigger className="py-2.5 px-3 hover:no-underline">
-                  <div className="flex items-center gap-2">
-                    <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                      Dispatch Window
-                    </span>
-                    {selectedDispatch !== 'all' && (
-                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
-                        1
-                      </Badge>
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-col gap-2">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="dispatch"
-                        checked={selectedDispatch === 'all'}
-                        onChange={() => setSelectedDispatch('all')}
-                        className="accent-primary cursor-pointer"
-                      />
-                      <span className="font-body-sm text-xs text-on-surface">All Timelines</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="dispatch"
-                        checked={selectedDispatch === '24h'}
-                        onChange={() => setSelectedDispatch('24h')}
-                        className="accent-primary cursor-pointer"
-                      />
-                      <span className="font-body-sm text-xs text-on-surface">⚡ Express 24-Hour Dispatch</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="dispatch"
-                        checked={selectedDispatch === 'standard'}
-                        onChange={() => setSelectedDispatch('standard')}
-                        className="accent-primary cursor-pointer"
-                      />
-                      <span className="font-body-sm text-xs text-on-surface">Standard Artisanal (2–3 Days)</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="dispatch"
-                        checked={selectedDispatch === 'customized'}
-                        onChange={() => setSelectedDispatch('customized')}
-                        className="accent-primary cursor-pointer"
-                      />
-                      <span className="font-body-sm text-xs text-on-surface">Customized Initials (5–7 Days)</span>
-                    </label>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-
-            {/* Support Direct Advisory Box */}
-            <div className="bg-primary-container/20 p-4 rounded-xl flex items-start gap-3 border border-primary/20 mt-2">
-              <span className="material-symbols-outlined text-primary text-[22px] shrink-0">support_agent</span>
-              <div className="flex flex-col">
-                <h4 className="font-serif text-sm text-on-surface font-semibold">Customized Support</h4>
-                <p className="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
-                  Need assistance with bulk wedding favors, wedding essentials design, or urgent timelines?
-                </p>
-                <a
-                  href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-label-sm text-[11px] text-primary hover:text-secondary font-bold uppercase tracking-wider mt-2 flex items-center gap-1"
-                >
-                  Connect on WhatsApp <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
-                </a>
-              </div>
-            </div>
+            <ShopFilters
+              searchQuery={searchQuery}
+              onSearchChange={(val) => {
+                setSearchQuery(val);
+                setCurrentPage(1);
+              }}
+              selectedProductTypes={selectedProductTypes}
+              onToggleProductType={toggleProductType}
+              productTypeOptions={PRODUCT_TYPE_OPTIONS}
+              productsList={PRODUCTS}
+              selectedPriceRange={selectedPriceRange}
+              onSelectPriceRange={(val) => {
+                setSelectedPriceRange(val);
+                setCurrentPage(1);
+              }}
+              selectedRecipient={selectedRecipient}
+              onSelectRecipient={(val) => {
+                setSelectedRecipient(val);
+                setCurrentPage(1);
+              }}
+              recipientOptions={RECIPIENT_OPTIONS}
+              selectedOccasions={selectedOccasions}
+              onToggleOccasion={toggleOccasion}
+              occasionOptions={OCCASION_OPTIONS}
+              selectedPersonalization={selectedPersonalization}
+              onSelectPersonalization={(val) => {
+                setSelectedPersonalization(val);
+                setCurrentPage(1);
+              }}
+              selectedDispatch={selectedDispatch}
+              onSelectDispatch={(val) => {
+                setSelectedDispatch(val);
+                setCurrentPage(1);
+              }}
+              activeFiltersCount={activeFiltersCount}
+              onResetAll={resetAllFilters}
+            />
           </aside>
 
-          {/* Main Product Grid & Editorial Flow (Right Column - 9 cols) */}
+          {/* Main Product Grid (9 Columns) */}
           <main className="lg:col-span-9 flex flex-col gap-8">
-            {/* Products Grid */}
             {filteredProducts.length === 0 ? (
               <Card className="rounded-2xl border border-outline-variant/50 bg-surface-container-lowest shadow-xs">
                 <CardContent className="p-8 sm:p-12 text-center flex flex-col items-center justify-center">
@@ -969,247 +391,51 @@ const ShopPage = () => {
                   <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
                     We couldn't find products matching all your active filter criteria. Try clearing some filters or searching for broader terms.
                   </p>
-                  <button
+                  <Button
                     onClick={resetAllFilters}
-                    type="button"
-                    className="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm cursor-pointer"
+                    className="h-10 px-6 font-semibold"
                   >
                     Reset All Filters
-                  </button>
+                  </Button>
                 </CardContent>
               </Card>
             ) : (
               <>
+                {/* Responsive Product Grid */}
                 <div
                   className={`grid grid-cols-1 sm:grid-cols-2 ${
                     gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
                   } gap-3 sm:gap-4 lg:gap-5`}
                 >
-                  {/* First batch of products (up to 6) */}
-                  {paginatedProducts.slice(0, 6).map((product) => (
+                  {paginatedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
                 </div>
 
-                {/* Mid-Grid Editorial Banner / Collection Custom Notice */}
-                <div className="w-full rounded-xl bg-[#FAF4EB] p-6 sm:p-8 relative overflow-hidden shadow-xs border border-primary/20">
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-                    <div className="flex flex-col max-w-xl text-center md:text-left">
-                      <div className="flex items-center justify-center md:justify-start gap-1.5 text-primary font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold mb-1">
-                        <span className="material-symbols-outlined text-[16px]">support_agent</span>
-                        <span>Private Consultation &amp; Bulk Favors</span>
-                      </div>
-                      <h2 className="font-serif text-2xl sm:text-3xl text-on-surface leading-tight font-normal">
-                        Planning a Wedding or Celebration?
-                      </h2>
-                      <p className="font-sans text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
-                        Connect directly with our Chief Design Specialist. Receive physical wood and fabric swatch kits,
-                        complimentary initials 3D mockups, and tailored volume pricing for 50+ pieces.
-                      </p>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
-                      <a
-                        href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20would%20like%20to%20consult%20for%20wedding%20favors"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] text-white hover:opacity-90 active:scale-[0.98] font-sans text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-xs font-semibold"
-                      >
-                        <span className="material-symbols-outlined text-[16px]">chat</span>
-                        <span>Chat on WhatsApp</span>
-                      </a>
-                      <Link
-                        to="/bespoke"
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] font-sans text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 shadow-xs font-semibold border border-outline-variant/40"
-                      >
-                        <span>Submit Brief</span>
-                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Second batch of products (cards 7 onwards) */}
-                {paginatedProducts.length > 6 && (
-                  <div
-                    className={`grid grid-cols-1 sm:grid-cols-2 ${
-                      gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
-                    } gap-3 sm:gap-4 lg:gap-5`}
-                  >
-                    {paginatedProducts.slice(6).map((product) => (
-                      <ProductCard key={product.id} product={product} />
-                    ))}
-
-                    {/* Customized Discovery Card inserted at end of catalog grid */}
-                    <Card className="flex flex-col justify-center items-center text-center p-0 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-xs hover:border-primary/40 hover:shadow-sm transition-all">
-                      <CardContent className="p-6 flex flex-col items-center justify-center h-full">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
-                          <span className="material-symbols-outlined text-[24px]">palette</span>
-                        </div>
-                        <span className="font-label-sm text-[10px] text-primary uppercase tracking-widest font-semibold">
-                          Customized Commission
-                        </span>
-                        <h3 className="font-serif text-lg text-on-surface mt-1 font-semibold">Have a Unique Vision?</h3>
-                        <p className="font-body-sm text-xs text-on-surface-variant mt-2 mb-4 max-w-xs leading-relaxed">
-                          Upload your wedding logo, custom motif, or personalized calligraphy poem for customized casting.
-                        </p>
-                        <Link
-                          to="/bespoke"
-                          className="px-4 py-2 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary font-label-md text-xs transition-all shadow-sm font-semibold inline-flex items-center gap-1.5"
-                        >
-                          <span>Your Idea → We Create</span>
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </div>
-                )}
-
-                {/* Refined Pagination Bar & Action Footer */}
-                <nav
-                  aria-label="Catalog pagination"
-                  className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/40 shadow-sm"
-                >
-                  <span className="font-body-sm text-xs text-on-surface-variant" aria-live="polite">
-                    {showAllProducts ? (
-                      <>
-                        Showing all <strong className="text-on-surface font-semibold">{filteredProducts.length}</strong> Handcrafted Designs
-                      </>
-                    ) : (
-                      <>
-                        Page <strong className="text-on-surface font-semibold">{currentPage}</strong> of{' '}
-                        <strong className="text-on-surface font-semibold">{totalPages}</strong> •{' '}
-                        {filteredProducts.length} Handcrafted Designs
-                      </>
-                    )}
-                  </span>
-
-                  <div className="flex items-center gap-1.5">
-                    <button
-                      onClick={() => {
-                        setCurrentPage((p) => Math.max(1, p - 1));
-                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      disabled={currentPage === 1 || showAllProducts}
-                      type="button"
-                      className="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                      aria-label="Previous page"
-                    >
-                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                    </button>
-
-                    {!showAllProducts &&
-                      [...Array(totalPages)].map((_, i) => {
-                        const pageNum = i + 1;
-                        const isActive = currentPage === pageNum;
-                        return (
-                          <button
-                            key={pageNum}
-                            onClick={() => {
-                              setCurrentPage(pageNum);
-                              catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            type="button"
-                            aria-label={`Page ${pageNum}`}
-                            aria-current={isActive ? 'page' : undefined}
-                            className={`w-9 h-9 rounded-lg font-label-md text-xs flex items-center justify-center font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
-                              isActive
-                                ? 'bg-primary text-on-primary shadow-xs ring-1 ring-primary/30'
-                                : 'bg-surface-container-low hover:bg-surface-container text-on-surface'
-                            }`}
-                          >
-                            {pageNum}
-                          </button>
-                        );
-                      })}
-
-                    <button
-                      onClick={() => {
-                        setCurrentPage((p) => Math.min(totalPages, p + 1));
-                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      disabled={currentPage === totalPages || showAllProducts}
-                      type="button"
-                      className="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                      aria-label="Next page"
-                    >
-                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                    </button>
-                  </div>
-
-                  <button
-                    onClick={() => {
-                      setShowAllProducts((prev) => !prev);
-                      if (showAllProducts) {
-                        catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    type="button"
-                    aria-pressed={showAllProducts}
-                    aria-label={showAllProducts ? 'Switch to paginated view' : `View all ${filteredProducts.length} products`}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-label-md font-semibold transition-all cursor-pointer border ${
-                      showAllProducts
-                        ? 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20'
-                        : 'bg-surface-container-low text-on-surface hover:bg-surface-container border-outline-variant/40'
-                    }`}
-                  >
-                    <span>{showAllProducts ? 'Paginate Catalog' : `View All (${filteredProducts.length})`}</span>
-                    <span className="material-symbols-outlined text-[16px]">
-                      {showAllProducts ? 'compress' : 'expand_all'}
-                    </span>
-                  </button>
-                </nav>
+                {/* Pagination Controls */}
+                <ShopPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  totalFiltered={filteredProducts.length}
+                  showAllProducts={showAllProducts}
+                  onPageChange={(page) => {
+                    setCurrentPage(page);
+                    catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  onToggleShowAll={() => {
+                    setShowAllProducts((prev) => !prev);
+                    if (showAllProducts) {
+                      catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                />
               </>
             )}
           </main>
         </div>
       </div>
 
-      {/* 5. Trust & Collection Quality Assurance Section */}
-      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 bg-surface-container-low rounded-2xl border border-outline-variant/30 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-              <span className="material-symbols-outlined text-[24px]">verified</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">100% Customized Craft</span>
-              <span className="font-body-sm text-xs text-on-surface-variant">Master engravers &amp; artisans</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-              <span className="material-symbols-outlined text-[24px]">local_shipping</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">Insured Express Delivery</span>
-              <span className="font-body-sm text-xs text-on-surface-variant">Safe door-to-door transit</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-              <span className="material-symbols-outlined text-[24px]">featured_seasonal_and_gifts</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">Luxury Wax Gift Wrap</span>
-              <span className="font-body-sm text-xs text-on-surface-variant">Complimentary ribbons &amp; box</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-              <span className="material-symbols-outlined text-[24px]">ring_volume</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-sm text-on-surface font-semibold">Dedicated Support</span>
-              <span className="font-body-sm text-xs text-on-surface-variant">Direct planner assistance</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Mobile Filter Drawer Sheet */}
+      {/* 4. Mobile Filter Drawer Sheet */}
       <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
         <SheetContent side="right" className="w-full max-w-xs p-6 overflow-y-auto flex flex-col justify-between">
           <div>
@@ -1223,111 +449,61 @@ const ShopPage = () => {
               </SheetDescription>
             </SheetHeader>
 
-            {/* Product Types */}
-            <div className="mb-6">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                Product Types
-              </span>
-              <div className="flex flex-col gap-2">
-                {productTypeOptions.map((type) => (
-                  <label key={type.id} className="flex items-center justify-between text-xs cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={selectedProductTypes.includes(type.category)}
-                        onChange={() => toggleProductType(type.category)}
-                        className="accent-primary w-4 h-4 rounded"
-                      />
-                      <span>{type.label}</span>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Price Ranges */}
-            <div className="mb-6">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                Price Range
-              </span>
-              <div className="grid grid-cols-2 gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setSelectedPriceRange(selectedPriceRange === 'under-1000' ? 'all' : 'under-1000')}
-                  className={`py-1 px-2 rounded text-xs ${
-                    selectedPriceRange === 'under-1000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                  }`}
-                >
-                  &lt; ₹1,000
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedPriceRange(selectedPriceRange === '1000-2500' ? 'all' : '1000-2500')}
-                  className={`py-1 px-2 rounded text-xs ${
-                    selectedPriceRange === '1000-2500' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                  }`}
-                >
-                  ₹1K - ₹2.5K
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedPriceRange(selectedPriceRange === '2500-5000' ? 'all' : '2500-5000')}
-                  className={`py-1 px-2 rounded text-xs ${
-                    selectedPriceRange === '2500-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                  }`}
-                >
-                  ₹2.5K - ₹5K
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedPriceRange(selectedPriceRange === 'above-5000' ? 'all' : 'above-5000')}
-                  className={`py-1 px-2 rounded text-xs ${
-                    selectedPriceRange === 'above-5000' ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                  }`}
-                >
-                  ₹5,000+
-                </button>
-              </div>
-            </div>
-
-            {/* Recipient */}
-            <div className="mb-6">
-              <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold block mb-2">
-                Recipient
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {recipientOptions.map((rec) => (
-                  <button
-                    key={rec}
-                    type="button"
-                    onClick={() => setSelectedRecipient(selectedRecipient === rec ? 'all' : rec)}
-                    className={`px-2.5 py-1 rounded-full text-xs ${
-                      selectedRecipient === rec ? 'bg-primary text-on-primary' : 'bg-surface-container-low'
-                    }`}
-                  >
-                    {rec}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/* Reusable Filter Subcomponent inside Mobile Drawer */}
+            <ShopFilters
+              searchQuery={searchQuery}
+              onSearchChange={(val) => {
+                setSearchQuery(val);
+                setCurrentPage(1);
+              }}
+              selectedProductTypes={selectedProductTypes}
+              onToggleProductType={toggleProductType}
+              productTypeOptions={PRODUCT_TYPE_OPTIONS}
+              productsList={PRODUCTS}
+              selectedPriceRange={selectedPriceRange}
+              onSelectPriceRange={(val) => {
+                setSelectedPriceRange(val);
+                setCurrentPage(1);
+              }}
+              selectedRecipient={selectedRecipient}
+              onSelectRecipient={(val) => {
+                setSelectedRecipient(val);
+                setCurrentPage(1);
+              }}
+              recipientOptions={RECIPIENT_OPTIONS}
+              selectedOccasions={selectedOccasions}
+              onToggleOccasion={toggleOccasion}
+              occasionOptions={OCCASION_OPTIONS}
+              selectedPersonalization={selectedPersonalization}
+              onSelectPersonalization={(val) => {
+                setSelectedPersonalization(val);
+                setCurrentPage(1);
+              }}
+              selectedDispatch={selectedDispatch}
+              onSelectDispatch={(val) => {
+                setSelectedDispatch(val);
+                setCurrentPage(1);
+              }}
+              activeFiltersCount={activeFiltersCount}
+              onResetAll={resetAllFilters}
+            />
           </div>
 
-          {/* Bottom Actions */}
-          <div className="pt-4 border-t border-outline-variant/30 flex gap-2">
-            <button
+          {/* Bottom Action Footer */}
+          <div className="pt-4 mt-6 border-t border-outline-variant/30 flex gap-2">
+            <Button
               onClick={resetAllFilters}
-              type="button"
-              className="flex-1 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-xs"
+              variant="outline"
+              className="flex-1 py-2 text-xs"
             >
               Clear
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setIsMobileFilterOpen(false)}
-              type="button"
-              className="flex-1 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-xs font-semibold"
+              className="flex-1 py-2 text-xs font-semibold"
             >
               View {filteredProducts.length} Items
-            </button>
+            </Button>
           </div>
         </SheetContent>
       </Sheet>

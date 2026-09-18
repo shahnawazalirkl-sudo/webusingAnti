@@ -107,14 +107,9 @@ export const CartProvider = ({ children }) => {
   }, [appliedCoupon]);
 
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState(null);
 
   const showToast = (message) => {
     toast(message);
-    setToastMessage(message);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 3500);
   };
 
   const addToCart = (product, customOptions = {}) => {
@@ -256,7 +251,6 @@ export const CartProvider = ({ children }) => {
         isCartDrawerOpen,
         openCartDrawer: () => setIsCartDrawerOpen(true),
         closeCartDrawer: () => setIsCartDrawerOpen(false),
-        toastMessage,
         showToast
       }}
     >
