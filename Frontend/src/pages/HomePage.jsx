@@ -1,28 +1,37 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThreeGiftBox from '../components/common/ThreeGiftBox';
 import ProductCard from '../components/common/ProductCard';
 import MonogramPreviewStudio from '../components/common/MonogramPreviewStudio';
 import { PRODUCTS } from '../data/productsData';
 import { useCart } from '../context/CartContext';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const HomePage = () => {
   const { showToast } = useCart();
-  const carouselRef = useRef(null);
   const [heroMode, setHeroMode] = useState('photo'); // 'photo' | '3d'
-  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const handleCopyCoupon = (code) => {
     if (navigator?.clipboard?.writeText) {
       navigator.clipboard.writeText(code);
     }
     showToast(`Coupon ${code} copied to clipboard!`);
-  };
-
-  const scrollCarousel = (offset) => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: offset, behavior: 'smooth' });
-    }
   };
 
   // Trending products selected from real shared catalog
@@ -99,12 +108,12 @@ const HomePage = () => {
           
           {/* Left Column: Editorial Content */}
           <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high/80 backdrop-blur-xs rounded-full mb-3 border border-outline-variant/40">
+            <Badge variant="outline" className="gap-1.5 px-3 py-1 mb-3 rounded-full border-outline-variant/40 bg-surface-container-high/80">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
               <span className="font-label-sm text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-primary font-semibold">
                 The 2025 Bridal &amp; Wedding Gift Studio
               </span>
-            </div>
+            </Badge>
 
             <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface font-normal tracking-tight mb-2.5 leading-[1.18]">
               Crafting Timeless <span className="italic font-normal text-primary">Gifts</span> for Life's Most Cherished Moments.
@@ -167,31 +176,21 @@ const HomePage = () => {
               <div className="absolute -top-8 -right-8 w-60 h-60 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* View Switcher */}
-              <div className="absolute top-3 right-3 z-30 flex items-center bg-surface-container-lowest/90 backdrop-blur-md rounded-full p-0.5 border border-outline-variant/50 shadow-sm text-[10px] font-semibold">
-                <button
-                  type="button"
-                  onClick={() => setHeroMode('photo')}
-                  className={`px-2.5 py-0.5 rounded-full transition-all ${
-                    heroMode === 'photo'
-                      ? 'bg-primary text-on-primary shadow-xs'
-                      : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  Photo
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setHeroMode('3d')}
-                  className={`px-2.5 py-0.5 rounded-full transition-all flex items-center gap-1 ${
-                    heroMode === '3d'
-                      ? 'bg-primary text-on-primary shadow-xs'
-                      : 'text-on-surface-variant hover:text-primary'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[12px]">view_in_ar</span>
-                  3D View
-                </button>
-              </div>
+              <Tabs
+                value={heroMode}
+                onValueChange={setHeroMode}
+                className="absolute top-3 right-3 z-30"
+              >
+                <TabsList className="text-[10px] font-semibold">
+                  <TabsTrigger value="photo" className="px-2.5 py-0.5 text-[10px]">
+                    Photo
+                  </TabsTrigger>
+                  <TabsTrigger value="3d" className="px-2.5 py-0.5 text-[10px] flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[12px]">view_in_ar</span>
+                    3D View
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
 
               {/* Primary Showcase Card */}
               <div className="relative bg-surface-container-lowest p-2 rounded-2xl shadow-lg overflow-hidden group border border-outline-variant/40">
@@ -227,11 +226,11 @@ const HomePage = () => {
                 <div className="w-8 h-8 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
                   <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-label-sm text-[10px] text-primary uppercase tracking-wider font-semibold">
+                <div className="flex flex-col items-start">
+                  <Badge variant="secondary" className="px-1.5 py-0 text-[10px] font-semibold tracking-wider uppercase text-primary bg-secondary-container/50 border-0">
                     Studio Certified
-                  </span>
-                  <span className="font-body-sm text-[11px] text-on-surface font-medium leading-tight">
+                  </Badge>
+                  <span className="font-body-sm text-[11px] text-on-surface font-medium leading-tight mt-0.5">
                     Custom debossed with brass dies
                   </span>
                 </div>
@@ -259,17 +258,26 @@ const HomePage = () => {
           </div>
 
           <div className="flex items-center gap-2.5 flex-wrap justify-center">
-            <button
-              type="button"
-              onClick={() => handleCopyCoupon('ASRAFIRST')}
-              className="flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest rounded-lg border border-primary/30 hover:border-primary transition-all text-on-surface group cursor-pointer shadow-xs"
-            >
-              <span className="font-sans text-[10px] text-outline uppercase font-semibold">Welcome Code:</span>
-              <code className="font-mono text-xs font-bold text-primary tracking-wider">ASRAFIRST</code>
-              <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">
-                content_copy
-              </span>
-            </button>
+            <TooltipProvider delayDuration={150}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyCoupon('ASRAFIRST')}
+                    className="flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest rounded-lg border border-primary/30 hover:border-primary transition-all text-on-surface group cursor-pointer shadow-xs"
+                  >
+                    <span className="font-sans text-[10px] text-outline uppercase font-semibold">Welcome Code:</span>
+                    <code className="font-mono text-xs font-bold text-primary tracking-wider">ASRAFIRST</code>
+                    <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">
+                      content_copy
+                    </span>
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>Click to copy code</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
 
             <Link
               to="/offers"
@@ -317,9 +325,9 @@ const HomePage = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                  <span className="absolute top-3 left-3 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface">
+                  <Badge variant="outline" className="absolute top-3 left-3 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded border-0 font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface shadow-xs">
                     {stage.tag}
-                  </span>
+                  </Badge>
                 </div>
                 <div className="p-3.5 flex flex-col flex-1 justify-between">
                   <div>
@@ -344,57 +352,44 @@ const HomePage = () => {
       {/* Dynamic Trending & Bestsellers Carousel */}
       <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-surface">
         <div className="max-w-[1360px] mx-auto">
-          
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-3">
-            <div>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
-                Handpicked Favorites
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal leading-tight">
-                Trending Wedding Keepsakes &amp; Favors
-              </h2>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 border border-outline-variant/50 rounded-lg p-0.5 bg-surface-container-lowest shadow-xs">
-                <button
-                  type="button"
-                  aria-label="Previous"
-                  onClick={() => scrollCarousel(-340)}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_left</span>
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next"
-                  onClick={() => scrollCarousel(340)}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_right</span>
-                </button>
+          <Carousel opts={{ align: 'start' }} className="w-full">
+            {/* Section Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-3">
+              <div>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
+                  Handpicked Favorites
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal leading-tight">
+                  Trending Wedding Keepsakes &amp; Favors
+                </h2>
               </div>
-              <Link
-                to="/shop"
-                className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 px-2.5 py-1.5 uppercase tracking-wider"
-              >
-                <span>View All ({PRODUCTS.length})</span>
-                <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
-              </Link>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 border border-outline-variant/50 rounded-lg p-0.5 bg-surface-container-lowest shadow-xs">
+                  <CarouselPrevious className="static translate-y-0 h-8 w-8 rounded-full border-0 bg-transparent hover:bg-surface-container-high text-on-surface transition-colors" />
+                  <CarouselNext className="static translate-y-0 h-8 w-8 rounded-full border-0 bg-transparent hover:bg-surface-container-high text-on-surface transition-colors" />
+                </div>
+                <Link
+                  to="/shop"
+                  className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 px-2.5 py-1.5 uppercase tracking-wider"
+                >
+                  <span>View All ({PRODUCTS.length})</span>
+                  <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+                </Link>
+              </div>
             </div>
-          </div>
 
-          {/* Dynamic Scroll Track using ProductCard */}
-          <div
-            ref={carouselRef}
-            className="flex gap-3 sm:gap-4 lg:gap-5 overflow-x-auto pb-3 scrollbar-none snap-x snap-mandatory"
-          >
-            {trendingProducts.map((prod) => (
-              <div key={prod.id} className="w-[210px] sm:w-[240px] shrink-0 snap-start flex flex-col">
-                <ProductCard product={prod} aspectRatio="square" />
-              </div>
-            ))}
-          </div>
+            {/* Dynamic Scroll Track using Carousel */}
+            <CarouselContent className="-ml-3 sm:-ml-4 lg:-ml-5 pb-3">
+              {trendingProducts.map((prod) => (
+                <CarouselItem
+                  key={prod.id}
+                  className="pl-3 sm:pl-4 lg:pl-5 basis-[210px] sm:basis-[240px] md:basis-[260px] shrink-0 grow-0"
+                >
+                  <ProductCard product={prod} aspectRatio="square" />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
@@ -753,9 +748,11 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
-                <div className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center text-xs">
-                  SS
-                </div>
+                <Avatar className="w-8 h-8">
+                  <AvatarFallback className="bg-secondary-container text-on-secondary-container font-bold text-xs">
+                    SS
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <h4 className="font-title-sm text-xs font-semibold leading-tight text-on-surface">
                     Sagil &amp; Shagufta
@@ -780,9 +777,11 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
-                <div className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-bold flex items-center justify-center text-xs">
-                  JA
-                </div>
+                <Avatar className="w-8 h-8">
+                  <AvatarFallback className="bg-primary-container text-on-primary-container font-bold text-xs">
+                    JA
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <h4 className="font-title-sm text-xs font-semibold leading-tight text-on-surface">
                     Jawed &amp; Asra
@@ -807,9 +806,11 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="flex items-center gap-2.5 pt-2.5 border-t border-outline-variant/30">
-                <div className="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container font-bold flex items-center justify-center text-xs">
-                  SB
-                </div>
+                <Avatar className="w-8 h-8">
+                  <AvatarFallback className="bg-tertiary-container text-on-tertiary-container font-bold text-xs">
+                    SB
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <h4 className="font-title-sm text-xs font-semibold leading-tight text-on-surface">
                     Miss Sultana Begum
@@ -836,33 +837,18 @@ const HomePage = () => {
             </h2>
           </div>
 
-          <div className="space-y-2.5">
-            {faqs.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-lg border border-outline-variant/40 bg-surface-container-lowest overflow-hidden transition-all duration-200"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full p-3 sm:p-3.5 text-left flex items-center justify-between gap-3 font-title-sm text-xs sm:text-sm text-on-surface font-semibold hover:text-primary transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <span className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${isOpen ? 'rotate-180 text-primary' : 'text-outline'}`}>
-                      expand_more
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="px-3 sm:px-3.5 pb-3.5 pt-0 font-body-sm text-xs text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
-                      <p className="mt-2">{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <Accordion type="single" collapsible className="space-y-2.5">
+            {faqs.map((faq, idx) => (
+              <AccordionItem key={idx} value={`faq-${idx}`}>
+                <AccordionTrigger>
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p>{faq.a}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
 
           <div className="text-center mt-5">
             <Link

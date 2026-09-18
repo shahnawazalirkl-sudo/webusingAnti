@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from './dialog';
 
 const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
   const [pincode, setPincode] = useState('');
   const [verifiedCity, setVerifiedCity] = useState(null);
 
-  if (!isOpen) return null;
-
-  const popularCities = ['Mumbai', 'Delhi NCR', 'Bengaluru', 'Jaipur', 'Udaipur', 'Goa', 'Hyderabad', 'Chennai'];
+  const popularCities = [
+    'Mumbai',
+    'Delhi NCR',
+    'Bengaluru',
+    'Jaipur',
+    'Udaipur',
+    'Goa',
+    'Hyderabad',
+    'Chennai',
+  ];
 
   const handlePincodeCheck = (e) => {
     e.preventDefault();
@@ -18,24 +32,21 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-surface-container-lowest max-w-md w-full rounded-2xl p-6 shadow-2xl border border-outline-variant/60 relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-outline hover:text-on-surface p-1 rounded-full transition-colors"
-        >
-          <span className="material-symbols-outlined text-[20px]">close</span>
-        </button>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
+      <DialogContent className="max-w-md w-full rounded-2xl p-6 shadow-2xl border border-outline-variant/60 bg-surface-container-lowest">
+        <DialogHeader className="space-y-1 text-left">
+          <div className="flex items-center gap-2.5 text-primary mb-1">
+            <span className="material-symbols-outlined text-[24px]">location_on</span>
+            <DialogTitle className="font-serif text-lg font-semibold text-on-surface">
+              Select Delivery Location
+            </DialogTitle>
+          </div>
+          <DialogDescription className="text-body-sm text-xs text-on-surface-variant">
+            Enter your wedding or residence pincode to check dispatch transit times and customized white-glove availability.
+          </DialogDescription>
+        </DialogHeader>
 
-        <div className="flex items-center gap-2.5 text-primary mb-2">
-          <span className="material-symbols-outlined text-[24px]">location_on</span>
-          <h3 className="font-serif text-lg font-semibold text-on-surface">Select Delivery Location</h3>
-        </div>
-        <p className="text-body-sm text-xs text-on-surface-variant mb-5">
-          Enter your wedding or residence pincode to check dispatch transit times and customized white-glove availability.
-        </p>
-
-        <form onSubmit={handlePincodeCheck} className="flex gap-2 mb-4">
+        <form onSubmit={handlePincodeCheck} className="flex gap-2 my-2">
           <input
             type="text"
             maxLength={6}
@@ -53,7 +64,7 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
         </form>
 
         {verifiedCity && (
-          <div className="p-3 bg-secondary-container/20 rounded-lg text-xs text-on-surface border border-secondary-container/60 mb-4 flex items-center gap-2">
+          <div className="p-3 bg-secondary-container/20 rounded-lg text-xs text-on-surface border border-secondary-container/60 mb-2 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary text-[16px]">local_shipping</span>
             <span>{verifiedCity}</span>
           </div>
@@ -67,6 +78,7 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
             {popularCities.map((city) => (
               <button
                 key={city}
+                type="button"
                 onClick={() => {
                   onSelectCity(city);
                   onClose();
@@ -78,8 +90,8 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 

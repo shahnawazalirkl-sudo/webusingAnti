@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import CartDrawer from './components/common/CartDrawer';
-import Toast from './components/common/Toast';
+import { Toaster } from './components/ui/sonner';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -147,7 +147,7 @@ const App = () => {
 
       {/* Global Slide-Over Cart Drawer & Floating Toast Notifications */}
       <CartDrawer />
-      <Toast />
+      <Toaster position="bottom-right" closeButton />
     </div>
   );
 };
