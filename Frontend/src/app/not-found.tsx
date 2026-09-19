@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -62,11 +64,11 @@ const NotFoundPage = () => {
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center gap-2 group" aria-label="Maison ASRA Home">
               {!imageError ? (
-                <img
+                <Image
                   alt="Maison ASRA - Wedding Canvas"
                   className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                   src="/assets/cdn/img_0c66544d9d27.png"
-                  onError={() => setImageError(true)}
+                  onError={() => setImageError(true)} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
               ) : (
                 <div className="w-9 h-9 rounded-full border border-primary/40 flex items-center justify-center bg-surface shadow-xs">

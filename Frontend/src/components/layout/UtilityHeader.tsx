@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from 'react';
 import Link from 'next/link';
 
@@ -18,11 +19,11 @@ const UtilityHeader = ({ backTo = '/', backText = 'Return to Store', badgeText =
 
         {/* Center: Atelier Brand Emblem */}
         <div className="flex items-center justify-center">
-          <Link href="/">
-            <img
+          <Link href="/" className="relative">
+            <Image
               alt="ASRA Wedding Canvas Crest"
               className="h-10 w-auto object-contain"
-              src="/assets/cdn/img_016731a0c986.png"
+              src="/assets/cdn/img_016731a0c986.png" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
             />
           </Link>
         </div>

@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { usePathname, useSearchParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -237,11 +239,11 @@ const TrackOrderPageInner = () => {
 
           {/* Center: Collection Brand Emblem */}
           <div className="flex items-center justify-center">
-            <Link href="/">
-              <img
+            <Link href="/" className="relative">
+              <Image
                 alt="ASRA Wedding Canvas Crest"
                 className="h-9 sm:h-10 w-auto object-contain"
-                src="/assets/cdn/img_016731a0c986.png"
+                src="/assets/cdn/img_016731a0c986.png" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
           </div>
@@ -793,11 +795,11 @@ const TrackOrderPageInner = () => {
               {/* Item 1: Masterpiece Hamper */}
               {currentDocket.items[0] && (
                 <div className="py-4 border-b border-outline-variant/20 flex gap-3.5">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-outline-variant/30 bg-surface">
-                    <img
+                  <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-outline-variant/30 bg-surface relative">
+                    <Image
                       alt={currentDocket.items[0].title}
                       className="w-full h-full object-cover"
-                      src={currentDocket.items[0].image}
+                      src={currentDocket.items[0].image} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div className="flex-1 min-w-0">

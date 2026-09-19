@@ -1,9 +1,23 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import ThreeGiftBox from '@/components/common/ThreeGiftBox';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import ProductCard from '@/components/common/ProductCard';
-import MonogramPreviewStudio from '@/components/common/MonogramPreviewStudio';
+
+const ThreeGiftBox = dynamic(() => import('@/components/common/ThreeGiftBox'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-surface-container-low animate-pulse rounded-xl">
+      <span className="text-xs text-primary font-medium tracking-wider uppercase">Loading 3D Canvas...</span>
+    </div>
+  ),
+});
+
+const MonogramPreviewStudio = dynamic(() => import('@/components/common/MonogramPreviewStudio'), {
+  ssr: false,
+});
+
 import { PRODUCTS } from '@/data/productsData';
 import { useCart } from '@/context/CartContext';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -197,10 +211,13 @@ const HomePage = () => {
               <div className="relative bg-surface-container-lowest p-2 rounded-2xl shadow-lg overflow-hidden group border border-outline-variant/40">
                 <div className="aspect-[4/5] min-h-[300px] sm:min-h-[340px] max-h-[360px] w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
                   {heroMode === 'photo' ? (
-                    <img
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      alt="ASRA Wedding Canvas Luxury Gift Hamper"
+                    <Image
                       src="/assets/cdn/img_ea7b421bfaad.png"
+                      alt="ASRA Wedding Canvas Luxury Gift Hamper"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 500px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
                     <div className="w-full h-full">
@@ -320,10 +337,10 @@ const HomePage = () => {
                 className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 border border-outline-variant/30 flex flex-col"
               >
                 <div className="aspect-[4/3] max-h-[180px] w-full overflow-hidden bg-surface-container-low relative">
-                  <img
+                  <Image
                     src={stage.img}
                     alt={stage.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   <Badge variant="outline" className="absolute top-3 left-3 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded border-0 font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface shadow-xs">
@@ -419,10 +436,10 @@ const HomePage = () => {
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+                <Image
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="For Her Bridal Gifts"
-                  src="/assets/cdn/img_c9193e0400dc.jpg"
+                  src="/assets/cdn/img_c9193e0400dc.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
@@ -449,10 +466,10 @@ const HomePage = () => {
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+                <Image
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="For Him Groom Gifts"
-                  src="/assets/cdn/img_8a5a665d4d2e.jpg"
+                  src="/assets/cdn/img_8a5a665d4d2e.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
@@ -479,10 +496,10 @@ const HomePage = () => {
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+                <Image
                   alt="Luxury wedding hampers for couples"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="/assets/cdn/img_ecfddff03b93.jpg"
+                  src="/assets/cdn/img_ecfddff03b93.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
@@ -509,10 +526,10 @@ const HomePage = () => {
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+                <Image
                   alt="Bulk wedding guest favors and hampers"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="/assets/cdn/img_56d7a2ebc8ba.jpg"
+                  src="/assets/cdn/img_56d7a2ebc8ba.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
@@ -591,10 +608,10 @@ const HomePage = () => {
 
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black/40 p-3">
-                <img
+                <Image
                   src="/assets/cdn/img_23f7486a1ad8.jpg"
                   alt="Wedding favor sample suite"
-                  className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 max-h-[220px]"
+                  className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 max-h-[220px]" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="flex items-center justify-between text-[11px] text-[#d5ccc0]">
                   <span className="flex items-center gap-1 font-sans text-[11px]">
@@ -696,10 +713,10 @@ const HomePage = () => {
             {/* Right Visual Showcase */}
             <div className="lg:col-span-6 bg-surface-container-low rounded-xl p-3.5 sm:p-5 flex flex-col items-center justify-center relative">
               <div className="w-full aspect-[4/3] max-h-[260px] rounded-lg overflow-hidden relative shadow-sm bg-surface-container">
-                <img
+                <Image
                   className="w-full h-full object-cover"
                   alt="Artisan hands applying gold foil stamp"
-                  src="/assets/cdn/img_9e12f2d44ec6.jpg"
+                  src="/assets/cdn/img_9e12f2d44ec6.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-[10px] text-on-surface font-semibold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>

@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -166,11 +168,11 @@ const CheckoutPage = () => {
 
           {/* Center: Official ASRA Brand Emblem */}
           <div className="flex flex-col items-center justify-center py-2">
-            <Link href="/">
-              <img
+            <Link href="/" className="relative">
+              <Image
                 alt="ASRA Wedding Canvas Crest Logo"
                 className="h-10 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity"
-                src="/assets/cdn/img_36917e8d2065.jpg"
+                src="/assets/cdn/img_36917e8d2065.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
           </div>

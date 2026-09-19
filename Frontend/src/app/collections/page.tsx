@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { usePathname, useSearchParams } from 'next/navigation';
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -349,10 +351,10 @@ const setSearchParams = (params: any) => {};
               <Card className="border-outline-variant/30 bg-surface-container-lowest shadow-xs overflow-hidden flex flex-col lg:flex-row items-stretch p-0">
                 {/* Left Visual Side with Official Hamper Asset */}
                 <div className="lg:w-7/12 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[480px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
-                  <img
+                  <Image
                     src="/assets/cdn/img_eafddfa4ed3e.jpg"
                     alt="The Sovereign Bridal and Wedding Essentials Suite Luxury Hamper by ASRA Wedding Canvas"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent lg:hidden" />
                   <div className="absolute top-3 left-3 flex items-center gap-1.5">
@@ -477,11 +479,11 @@ const setSearchParams = (params: any) => {};
                     className="border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col group p-0"
                   >
                     <div className="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.imageAlt || item.title}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" fill sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       <div className="absolute top-3 left-3">
                         <Badge variant="gold" className="text-[10px] font-bold uppercase tracking-wider">

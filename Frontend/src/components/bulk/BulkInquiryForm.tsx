@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -354,10 +356,10 @@ const BulkInquiryForm = ({
 
             {/* Luxury Hamper Highlight */}
             <div className="rounded-xl overflow-hidden border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 relative group">
-              <img
+              <Image
                 className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 alt="Close up of exquisite gold foiled ASRA Wedding Canvas monogram emblem stamped in warm gold"
-                src="/assets/cdn/img_be70ca7356d1.jpg"
+                src="/assets/cdn/img_be70ca7356d1.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="p-4 bg-surface-container-lowest flex items-center justify-between border-t border-outline-variant/30">
                 <div>

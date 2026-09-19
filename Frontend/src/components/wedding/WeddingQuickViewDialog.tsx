@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
@@ -51,15 +53,15 @@ const WeddingQuickViewDialog = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
           {/* Photos & Thumbnails */}
           <div className="flex flex-col gap-2">
-            <div className="w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/30">
-              <img
+            <div className="w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/30 relative">
+              <Image
                 src={currentImage}
                 alt={product.title}
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).onerror = null;
                   (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
-                }}
+                }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             {product.gallery && product.gallery.length > 1 && (
@@ -69,20 +71,20 @@ const WeddingQuickViewDialog = ({
                     key={idx}
                     type="button"
                     onClick={() => setActivePhotoIndex(idx)}
-                    className={`w-14 h-14 rounded-lg overflow-hidden border-2 cursor-pointer shrink-0 transition-all ${
-                      activePhotoIndex === idx
-                        ? 'border-primary ring-1 ring-primary'
-                        : 'border-outline-variant/40 opacity-70 hover:opacity-100'
-                    }`}
+                    className={`${`w-14 h-14 rounded-lg overflow-hidden border-2 cursor-pointer shrink-0 transition-all ${
+                                          activePhotoIndex === idx
+                                            ? 'border-primary ring-1 ring-primary'
+                                            : 'border-outline-variant/40 opacity-70 hover:opacity-100'
+                                        }`} relative`}
                   >
-                    <img
+                    <Image
                       src={img}
                       alt=""
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).onerror = null;
                         (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
-                      }}
+                      }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </button>
                 ))}

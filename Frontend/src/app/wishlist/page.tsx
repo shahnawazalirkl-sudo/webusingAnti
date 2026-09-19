@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -172,8 +174,8 @@ const WishlistPage = () => {
           </Link>
 
           {/* Centered Official ASRA Logo */}
-          <Link href="/" className="flex flex-col items-center">
-            <img 
+          <Link href="/" className="flex flex-col items-center relative">
+            <Image 
               src="/assets/cdn/img_0e64e51cb5ac.png" 
               alt="ASRA Wedding Canvas Logo" 
               className="h-9 sm:h-11 md:h-12 w-auto object-contain drop-shadow-sm hover:opacity-95 transition-opacity" 
@@ -181,7 +183,7 @@ const WishlistPage = () => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
                 if (target.nextSibling) (target.nextSibling as HTMLElement).style.display = 'block';
-              }}
+              }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
             />
             <span className="hidden font-serif text-xl tracking-[0.2em] font-semibold text-on-surface">
               ASRA <span className="font-light italic text-primary">Canvas</span>
@@ -402,13 +404,13 @@ const WishlistPage = () => {
                     </div>
                   ) : (
                     <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-surface mb-4">
-                      <img 
+                      <Image 
                         src={item.image} 
                         alt={item.title} 
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800';
-                        }}
+                        }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm border border-outline-variant/30/80 px-2.5 py-1 rounded-md text-[10px] uppercase font-semibold tracking-wider text-on-surface">
                         {item.badge}

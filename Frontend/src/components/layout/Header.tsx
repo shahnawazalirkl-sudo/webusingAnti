@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -67,11 +69,11 @@ const Header = () => {
             
             {/* Logo & Delivery Location */}
             <div className="flex items-center gap-space-md md:gap-space-lg shrink-0">
-              <Link href="/" className="group flex flex-col items-start">
-                <img
+              <Link href="/" className="group flex flex-col items-start relative">
+                <Image
                   src="/assets/cdn/img_c432d69126c7.png"
                   alt="ASRA Wedding Canvas"
-                  className="h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-90"
+                  className="h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-90" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </Link>
 

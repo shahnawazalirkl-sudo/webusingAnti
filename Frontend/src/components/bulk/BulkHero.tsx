@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from 'react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -59,10 +60,10 @@ const BulkHero = ({ onOpenSampleModal, onScrollToSection, refs }) => {
           {/* Hero Embellishment Graphic */}
           <div className="lg:col-span-5 relative flex justify-center items-center">
             <div className="relative w-full max-w-md aspect-[4/3] rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm hover:shadow-md border border-outline-variant/30 group transition-all duration-300">
-              <img
+              <Image
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 alt="Deluxe pastel pink bridal welcome hamper wrapped in pure silk ribbon with custom gold foil ASRA crest"
-                src="/assets/cdn/img_ce96f997d2cf.jpg"
+                src="/assets/cdn/img_ce96f997d2cf.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-5 sm:p-6">
                 <Badge variant="secondary" className="w-fit mb-1 bg-[#FAF4EB]/90 text-primary uppercase tracking-widest text-[9px] font-bold">

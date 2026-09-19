@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -63,10 +65,10 @@ const BulkCatalogGrid = ({ onAddItemToDossier, onOpenSampleModal }) => {
                   className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col overflow-hidden group"
                 >
                   <div className="relative aspect-[4/3] bg-surface-container-low overflow-hidden">
-                    <img
+                    <Image
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       alt={item.name}
-                      src={item.image}
+                      src={item.image} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <Badge className="absolute top-3 left-3 bg-[#FAF4EB] text-primary border border-primary/20 text-[9px] font-bold uppercase tracking-wider shadow-xs hover:bg-[#FAF4EB]">
                       MIN: {item.minUnits} UNITS

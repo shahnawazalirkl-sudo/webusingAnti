@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState, useEffect } from 'react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -328,7 +330,7 @@ const BespokeConfigurator = ({
                   className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs shadow-xs"
                 >
                   {file.preview ? (
-                    <img src={file.preview} alt="preview" className="w-6 h-6 object-cover rounded" />
+                    <Image src={file.preview} alt="preview" className="w-6 h-6 object-cover rounded" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
                   ) : (
                     <span className="material-symbols-outlined text-[16px] text-primary">description</span>
                   )}
