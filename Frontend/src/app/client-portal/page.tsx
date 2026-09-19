@@ -74,17 +74,19 @@ const ClientPortalContent = () => {
   const [orders, setOrders] = useState<any[]>([]);
 
   // Profile State
-  const [profile, setProfile] = useState<any>(() => {
-    return safeStorage.getItem(STORAGE_KEY_PROFILE, DEFAULT_PROFILE);
-  });
+  const [profile, setProfile] = useState<any>(DEFAULT_PROFILE);
 
   // Addresses State
-  const [addresses, setAddresses] = useState<any>(() => {
-    return safeStorage.getItem(STORAGE_KEY_ADDRESSES, DEFAULT_ADDRESSES);
-  });
+  const [addresses, setAddresses] = useState<any>(DEFAULT_ADDRESSES);
 
-  // Load Real Orders from Storage
+  // Load profile, addresses and orders from storage after mount
   useEffect(() => {
+    const savedProfile = safeStorage.getItem(STORAGE_KEY_PROFILE, null);
+    if (savedProfile !== null) setProfile(savedProfile);
+
+    const savedAddresses = safeStorage.getItem(STORAGE_KEY_ADDRESSES, null);
+    if (savedAddresses !== null) setAddresses(savedAddresses);
+
     try {
       const all = getAllOrders();
       const list = Object.values(all || {});

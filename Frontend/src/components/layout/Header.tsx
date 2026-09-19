@@ -15,8 +15,13 @@ const Header = () => {
   const [deliveryCity, setDeliveryCity] = useState('Select Location');
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const navigate = useRouter();
   const location = usePathname();
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isActive = (path: string) => location === path;
 
@@ -118,7 +123,7 @@ const Header = () => {
                 title="Saved Wishlist"
               >
                 <span className="material-symbols-outlined text-[22px]">favorite_border</span>
-                {wishlistCount > 0 && (
+                {mounted && wishlistCount > 0 && (
                   <span className="absolute 0 top-0.5 right-0.5 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold">
                     {wishlistCount}
                   </span>
@@ -134,7 +139,7 @@ const Header = () => {
               >
                 <div className="relative flex items-center justify-center">
                   <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
-                  {itemCount > 0 && (
+                  {mounted && itemCount > 0 && (
                     <span className="absolute -top-1 -right-2 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold">
                       {itemCount}
                     </span>
@@ -710,7 +715,7 @@ const Header = () => {
                     <span className="material-symbols-outlined text-[18px]">favorite</span>
                     <span>My Saved Gifts</span>
                   </span>
-                  {wishlistCount > 0 && (
+                  {mounted && wishlistCount > 0 && (
                     <span className="text-[10px] bg-primary text-on-primary px-1.5 py-0.2 rounded-full font-bold">{wishlistCount}</span>
                   )}
                 </Link>

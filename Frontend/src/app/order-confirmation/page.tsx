@@ -8,20 +8,18 @@ const OrderConfirmationPage = () => {
   const location = usePathname();
   const [copied, setCopied] = useState(false);
 
-  // Read order data from localStorage
-  const [order] = useState(() => {
-
+  // Read order data from localStorage (after mount to avoid SSR mismatch)
+  const [order, setOrder] = useState<any>(null);
+  React.useEffect(() => {
     try {
       const savedOrder = localStorage.getItem('asra_last_order');
       if (savedOrder) {
-        return JSON.parse(savedOrder);
+        setOrder(JSON.parse(savedOrder));
       }
     } catch (e) {
       console.warn('Error reading saved order', e);
     }
-
-    return null;
-  });
+  }, []);
 
   // Flag: check if order was actually paid through an active gateway (currently no payment gateway exists)
   const isPaymentGatewayIntegrated = false;

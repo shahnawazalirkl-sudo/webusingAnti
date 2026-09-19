@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
 
         {/* Google Fonts Preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

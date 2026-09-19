@@ -137,13 +137,22 @@ export const INITIAL_WISHLIST_ITEMS: WishlistItem[] = [
 ];
 
 export const WishlistProvider = ({ children }) => {
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>(() => {
-    return safeStorage.getItem('asra_wishlist_items', INITIAL_WISHLIST_ITEMS) || [];
-  });
+  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>(INITIAL_WISHLIST_ITEMS);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    safeStorage.setItem('asra_wishlist_items', wishlistItems);
-  }, [wishlistItems]);
+    const saved = safeStorage.getItem('asra_wishlist_items', null) as WishlistItem[] | null;
+    if (saved !== null) {
+      setWishlistItems(saved);
+    }
+    setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (isHydrated) {
+      safeStorage.setItem('asra_wishlist_items', wishlistItems);
+    }
+  }, [wishlistItems, isHydrated]);
 
   const wishlistIds = useMemo(() => wishlistItems.map(item => item.id).filter((id): id is string => Boolean(id)), [wishlistItems]);
 

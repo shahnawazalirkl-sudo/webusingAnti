@@ -133,24 +133,36 @@ export const DEFAULT_COUPON: Coupon = {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    return safeStorage.getItem('asra_cart_items', DEFAULT_CART_ITEMS) as CartItem[] || [];
-  });
-  const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(() => {
-    return safeStorage.getItem('asra_applied_coupon', DEFAULT_COUPON) as Coupon | null || null;
-  });
+  const [cartItems, setCartItems] = useState<CartItem[]>(DEFAULT_CART_ITEMS);
+  const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(DEFAULT_COUPON);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    safeStorage.setItem('asra_cart_items', cartItems);
-  }, [cartItems]);
+    const savedItems = safeStorage.getItem('asra_cart_items', null) as CartItem[] | null;
+    if (savedItems !== null) {
+      setCartItems(savedItems);
+    }
+    const savedCoupon = safeStorage.getItem('asra_applied_coupon', null) as Coupon | null;
+    if (savedCoupon !== null) {
+      setAppliedCoupon(savedCoupon);
+    }
+    setIsHydrated(true);
+  }, []);
 
   useEffect(() => {
+    if (isHydrated) {
+      safeStorage.setItem('asra_cart_items', cartItems);
+    }
+  }, [cartItems, isHydrated]);
+
+  useEffect(() => {
+    if (!isHydrated) return;
     if (appliedCoupon) {
       safeStorage.setItem('asra_applied_coupon', appliedCoupon);
     } else {
       safeStorage.removeItem('asra_applied_coupon');
     }
-  }, [appliedCoupon]);
+  }, [appliedCoupon, isHydrated]);
 
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
 

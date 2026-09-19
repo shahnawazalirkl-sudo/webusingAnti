@@ -125,20 +125,26 @@ const TrackOrderPageInner = () => {
     return null;
   };
 
-  const [activeDocketId, setActiveDocketId] = useState(() => {
-    // 1. Check URL params
-    const paramId = searchParams ? (searchParams.get('docket') || searchParams.get('orderId')) : null;
-    if (paramId && resolveDocketData(paramId)) {
-      return paramId.trim().toUpperCase();
-    }
-    // 3. From last placed order in localStorage
+  // Initialise from URL param (safe during SSR); localStorage fallback runs after mount
+  const paramIdInitial = searchParams ? (searchParams.get('docket') || searchParams.get('orderId')) : null;
+  const [activeDocketId, setActiveDocketId] = useState<string>(
+    (paramIdInitial && resolveDocketData(paramIdInitial))
+      ? paramIdInitial.trim().toUpperCase()
+      : 'ASRA-2026-8842X'
+  );
+
+  // After mount: override with last real order from localStorage if no URL param
+  useEffect(() => {
+    if (paramIdInitial) return; // URL param takes precedence
     const lastOrder = getLastOrder();
     if (lastOrder && lastOrder.orderId) {
-      return (lastOrder.orderId as string).trim().toUpperCase();
+      const id = (lastOrder.orderId as string).trim().toUpperCase();
+      if (resolveDocketData(id)) {
+        setActiveDocketId(id);
+      }
     }
-    // 4. Default fallback
-    return 'ASRA-2026-8842X';
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Current resolved docket data
   const currentDocket = resolveDocketData(activeDocketId) || PRESET_DOCKETS['ASRA-2026-8842X'];
