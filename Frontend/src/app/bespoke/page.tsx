@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState, useRef } from 'react';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '@/components/ui/badge';
@@ -222,11 +224,11 @@ const BespokePage = () => {
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
         <Card className="p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center gap-8 shadow-xs border-primary/20 bg-surface-container-lowest">
           <div className="lg:w-1/2 relative w-full">
-            <div className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-low aspect-[4/3] group">
-              <img
+            <div className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-low aspect-[4/3] group relative">
+              <Image
                 src="/assets/cdn/img_eafddfa4ed3e.jpg"
                 alt="The Sovereign Bridal and Wedding Essentials Masterpiece Suite"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <Badge variant="gold" className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider">

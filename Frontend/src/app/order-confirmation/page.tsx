@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -74,11 +76,11 @@ const OrderConfirmationPage = () => {
 
           {/* Central Logo */}
           <div className="flex flex-col items-center">
-            <Link href="/">
-              <img
+            <Link href="/" className="relative">
+              <Image
                 src="/assets/cdn/img_f404984f128a.png"
                 alt="ASRA Wedding Canvas Logo"
-                className="h-9 sm:h-10 w-auto object-contain drop-shadow-xs"
+                className="h-9 sm:h-10 w-auto object-contain drop-shadow-xs" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
           </div>
@@ -429,11 +431,11 @@ const OrderConfirmationPage = () => {
 
               {/* Item 1: Masterpiece Hamper */}
               <div className="pb-5 mb-5 border-b border-brand-border/60">
-                <div className="flex gap-4">
-                  <img
+                <div className="flex gap-4 relative">
+                  <Image
                     src="/assets/cdn/img_8222cd4f9dd5.png"
                     alt="The Sovereign Bridal & Wedding Essentials Suite"
-                    className="w-20 h-20 rounded-xl object-cover border border-brand-border flex-shrink-0 shadow-sm"
+                    className="w-20 h-20 rounded-xl object-cover border border-brand-border flex-shrink-0 shadow-sm" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="flex-grow">
                     <div className="flex items-start justify-between gap-2">

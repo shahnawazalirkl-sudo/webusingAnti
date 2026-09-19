@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from 'react';
 import Link from 'next/link';
 
@@ -9,11 +10,11 @@ const Footer = () => {
           
           {/* Brand & Mission Column */}
           <div className="lg:col-span-2 flex flex-col pr-space-lg">
-            <Link href="/" className="mb-space-sm inline-block">
-              <img
+            <Link href="/" className="mb-space-sm inline-block relative">
+              <Image
                 src="/assets/cdn/img_cfbb18b97ef1.png"
                 alt="ASRA Wedding Canvas"
-                className="h-14 w-auto object-contain brightness-0 invert hover:opacity-90 transition-opacity"
+                className="h-14 w-auto object-contain brightness-0 invert hover:opacity-90 transition-opacity" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
             <p className="font-label-sm text-label-sm text-[#C5A880] tracking-[0.2em] mb-space-md">

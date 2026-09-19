@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -147,11 +149,11 @@ const CartPage = () => {
               </span>
               <span>Return to Shop Catalog</span>
             </Link>
-            <div className="flex items-center gap-3">
-              <img
+            <div className="flex items-center gap-3 relative">
+              <Image
                 src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
-                className="h-9 sm:h-10 object-contain"
+                className="h-9 sm:h-10 object-contain" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
                 <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Gift Bag</div>
@@ -206,11 +208,11 @@ const CartPage = () => {
 
           {/* Minimal Subtle Logo Mark for Trust */}
           <div className="flex items-center gap-3">
-            <Link href="/">
-              <img
+            <Link href="/" className="relative">
+              <Image
                 src="/assets/cdn/img_6f8c141ac172.png"
                 alt="ASRA Wedding Canvas"
-                className="h-9 sm:h-10 object-contain hover:opacity-90 transition-opacity"
+                className="h-9 sm:h-10 object-contain hover:opacity-90 transition-opacity" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
             <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
@@ -335,10 +337,10 @@ const CartPage = () => {
                           </div>
                         </div>
                       ) : (
-                        <img
+                        <Image
                           src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
                           alt={item.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       )}
                       <span className="absolute top-2 left-2 bg-brand-charcoal/90 backdrop-blur-sm text-white text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent } from '../ui/card';
@@ -65,10 +66,10 @@ const AccountWishlist = () => {
             <div>
               <div className="h-48 bg-surface-container-low relative overflow-hidden">
                 {item.image ? (
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-outline">

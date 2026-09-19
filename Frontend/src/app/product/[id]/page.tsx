@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 
@@ -375,11 +377,11 @@ const ProductDetailPage = () => {
             
             {/* Main Spotlight Frame */}
             <div className="relative w-full aspect-[4/5] bg-surface-container-lowest rounded-xl overflow-hidden shadow-xs group border border-outline-variant/30">
-              <img
+              <Image
                 id="mainProductImage"
                 src={activeImage}
                 alt="The Sovereign Bridal & Wedding Essentials Suite"
-                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               
               {/* Collection Floating Badges */}
@@ -416,10 +418,10 @@ const ProductDetailPage = () => {
                     }`}
                     title={thumb.label}
                   >
-                    <img
+                    <Image
                       src={thumb.src}
                       alt={thumb.label}
-                      className={`w-full h-full object-cover ${thumb.isVideo ? 'brightness-75' : ''}`}
+                      className={`w-full h-full object-cover ${thumb.isVideo ? 'brightness-75' : ''}`} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     {thumb.isVideo && (
                       <span className="material-symbols-outlined absolute inset-0 m-auto flex items-center justify-center text-[22px] text-primary-fixed drop-shadow-md">
@@ -878,12 +880,12 @@ const ProductDetailPage = () => {
                 key={idx}
                 className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm group hover:shadow-md transition-all border border-outline-variant/30"
               >
-                <div className="aspect-video w-full rounded-lg overflow-hidden bg-surface-container">
-                  <img
+                <div className="aspect-video w-full rounded-lg overflow-hidden bg-surface-container relative">
+                  <Image
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    loading="lazy" fill sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -965,12 +967,12 @@ const ProductDetailPage = () => {
 
           {/* Right Visual Story Mosaic */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-            <div className="flex flex-col gap-space-md">
-              <img
+            <div className="flex flex-col gap-space-md relative">
+              <Image
                 src={SOVEREIGN_ASSETS.story.artisanCalligraphy}
                 alt="Artisan Calligraphy Hand"
                 className="w-full aspect-[3/4] object-cover rounded-xl shadow-md border border-outline-variant/30"
-                loading="lazy"
+                loading="lazy" fill sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="p-space-md bg-surface-container-low rounded-xl border border-outline-variant/30">
                 <span className="font-headline-md text-headline-md font-bold text-primary block">
@@ -982,7 +984,7 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-space-md sm:pt-space-lg">
+            <div className="flex flex-col gap-space-md sm:pt-space-lg relative">
               <div className="p-space-md bg-inverse-surface text-inverse-on-surface rounded-xl shadow-md">
                 <span className="material-symbols-outlined text-primary-fixed text-[28px] mb-1">auto_awesome</span>
                 <span className="font-headline-sm text-headline-sm block text-secondary-fixed">
@@ -992,11 +994,11 @@ const ProductDetailPage = () => {
                   Preserved and gifted to the couple in a velvet gift pouch.
                 </span>
               </div>
-              <img
+              <Image
                 src={SOVEREIGN_ASSETS.story.bridalSuitePresentation}
                 alt="Bridal Suite Presentation"
                 className="w-full aspect-[3/4] object-cover rounded-xl shadow-md border border-outline-variant/30"
-                loading="lazy"
+                loading="lazy" fill sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -1049,11 +1051,11 @@ const ProductDetailPage = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 pt-space-md mt-space-md bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-xl border-t border-outline-variant/20">
-                  <img
+                <div className="flex items-center gap-3 pt-space-md mt-space-md bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-xl border-t border-outline-variant/20 relative">
+                  <Image
                     src={review.avatar}
                     alt={review.couple}
-                    className="w-10 h-10 rounded-full object-cover border border-outline-variant/50"
+                    className="w-10 h-10 rounded-full object-cover border border-outline-variant/50" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="flex flex-col">
                     <span className="font-title-sm text-title-sm font-semibold text-on-surface">
@@ -1136,12 +1138,12 @@ const ProductDetailPage = () => {
                 className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between group border border-outline-variant/30 hover:shadow-md transition-all"
               >
                 <div className="flex flex-col gap-space-sm">
-                  <div className="aspect-square w-full rounded-lg overflow-hidden bg-surface-container">
-                    <img
+                  <div className="aspect-square w-full rounded-lg overflow-hidden bg-surface-container relative">
+                    <Image
                       src={cross.image}
                       alt={cross.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
+                      loading="lazy" fill sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -1193,10 +1195,10 @@ const ProductDetailPage = () => {
 
             {/* Video Visualizer Container */}
             <div className="relative aspect-video w-full bg-inverse-surface flex items-center justify-center overflow-hidden">
-              <img
+              <Image
                 src={SOVEREIGN_ASSETS.gallery[5].src}
                 alt="Unboxing preview"
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover opacity-60" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent">
                 <div className="w-16 h-16 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-lg animate-pulse">

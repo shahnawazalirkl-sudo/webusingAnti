@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -140,11 +142,11 @@ const ReturnPolicyPage = () => {
 
           {/* Centered ASRA Crest Logo */}
           <div className="flex items-center justify-center">
-            <Link href="/" title="ASRA Wedding Canvas Home">
-              <img
+            <Link href="/" title="ASRA Wedding Canvas Home" className="relative">
+              <Image
                 src="/assets/cdn/img_07137c99d96f.png"
                 alt="ASRA Wedding Canvas Crest Logo"
-                className="h-10 sm:h-11 w-auto object-contain drop-shadow-xs hover:opacity-90 transition-opacity"
+                className="h-10 sm:h-11 w-auto object-contain drop-shadow-xs hover:opacity-90 transition-opacity" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
           </div>

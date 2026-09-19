@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -116,10 +118,10 @@ const CartDrawer = () => {
                     <span className="text-[8px] uppercase tracking-wider opacity-80">Velvet Vault</span>
                   </div>
                 ) : (
-                  <img
+                  <Image
                     src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
                     alt={item.title}
-                    className="w-20 h-24 object-cover rounded-lg shrink-0 border border-outline-variant/40"
+                    className="w-20 h-24 object-cover rounded-lg shrink-0 border border-outline-variant/40" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 )}
 

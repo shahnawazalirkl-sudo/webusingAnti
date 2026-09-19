@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState } from 'react';
 
 import {
@@ -101,13 +103,13 @@ const AboutUsPage = () => {
       <section className="relative py-10 sm:py-14 lg:py-16 overflow-hidden" data-purpose="classic-hero">
         {/* Subtle Decorative Background Watermark */}
         <div className="absolute -right-24 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none w-[600px] select-none">
-          <img
+          <Image
             alt="Emblem Watermark"
             className="w-full h-auto"
             src="/assets/cdn/img_875b0894aaaa.png"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
-            }}
+            }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
@@ -183,14 +185,14 @@ const AboutUsPage = () => {
                   </div>
 
                   {/* Gold Crest Initials Image */}
-                  <div className="my-3 transform transition-transform hover:scale-105 duration-500">
-                    <img
+                  <div className="my-3 transform transition-transform hover:scale-105 duration-500 relative">
+                    <Image
                       alt="ASRA Wedding Canvas Master Initials Crest"
                       className="w-48 sm:w-52 h-auto max-h-[190px] mx-auto object-contain filter drop-shadow-md"
                       src="/assets/cdn/img_863a6bfc47db.png"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
-                      }}
+                      }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
 

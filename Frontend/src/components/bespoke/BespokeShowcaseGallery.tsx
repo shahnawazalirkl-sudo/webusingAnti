@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -116,14 +118,14 @@ const BespokeShowcaseGallery = ({ onPrefill }) => {
             <div>
               {/* Media Thumbnail */}
               <div className="relative aspect-[4/3] overflow-hidden bg-surface-container-low">
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     // Fallback to stylized cover if specific asset is missing
                     e.currentTarget.src = '/assets/cdn/img_eafddfa4ed3e.jpg';
-                  }}
+                  }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                 <Badge
