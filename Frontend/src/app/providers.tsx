@@ -6,6 +6,7 @@ import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import CartDrawer from '@/components/common/CartDrawer';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -51,7 +52,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const isMinimalPage = !isEditorialPage;
 
   const ContentContainer = !isMinimalPage ? 'main' : 'div';
-  const containerClasses = !isMinimalPage ? 'flex-grow w-full pt-[98px] md:pt-[122px]' : 'flex-grow w-full';
+  const containerClasses = !isMinimalPage
+    ? 'flex-grow w-full pt-[98px] md:pt-[122px] pb-16 md:pb-0'
+    : 'flex-grow w-full';
 
   return (
     <WishlistProvider>
@@ -68,6 +71,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           {/* Global Slide-Over Cart Drawer & Floating Toast Notifications */}
           <CartDrawer />
           <Toaster position="bottom-right" closeButton />
+
+          {/* Fixed App-Like Bottom Navigation for Mobile */}
+          {!isMinimalPage && <MobileBottomNav />}
         </div>
       </CartProvider>
     </WishlistProvider>

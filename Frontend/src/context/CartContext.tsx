@@ -68,6 +68,7 @@ export interface CartContextType {
   freeShippingThreshold: number;
   freeShippingProgress: number;
   isCartDrawerOpen: boolean;
+  openCart: () => void;
   openCartDrawer: () => void;
   closeCartDrawer: () => void;
   setIsCartDrawerOpen: (val: boolean) => void;
@@ -308,6 +309,7 @@ export const CartProvider = ({ children }) => {
         freeShippingProgress,
         isCartDrawerOpen,
         setIsCartDrawerOpen,
+        openCart: () => setIsCartDrawerOpen(true),
         openCartDrawer: () => setIsCartDrawerOpen(true),
         closeCartDrawer: () => setIsCartDrawerOpen(false),
         showToast

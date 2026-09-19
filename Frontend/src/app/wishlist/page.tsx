@@ -223,39 +223,39 @@ const WishlistPage = () => {
           </p>
 
           {/* Registry Metadata Quick Pill Bar */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 bg-white/90 border border-outline-variant/30 px-4 sm:px-6 py-3 rounded-2xl shadow-sm text-xs text-on-surface-variant">
+          <div className="mt-4 sm:mt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2.5 sm:gap-6 bg-white/90 border border-outline-variant/30 p-3 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl shadow-xs text-xs text-on-surface-variant text-left sm:text-center">
             <div>
-              <span className="uppercase tracking-wider text-[10px] text-primary font-semibold block">Registry ID</span>
-              <span className="font-mono text-on-surface font-medium">ASRA-REG-2026-9921</span>
+              <span className="uppercase tracking-wider text-[9px] sm:text-[10px] text-primary font-semibold block">Registry ID</span>
+              <span className="font-mono text-on-surface font-medium text-[11px] sm:text-xs">ASRA-REG-2026-9921</span>
             </div>
             <div className="h-6 w-px bg-[#E8E1D7] hidden sm:block"></div>
             <div>
-              <span className="uppercase tracking-wider text-[10px] text-primary font-semibold block">Curated Items</span>
-              <span className="text-on-surface font-medium">{wishlistCount} Heirlooms Vaulted</span>
+              <span className="uppercase tracking-wider text-[9px] sm:text-[10px] text-primary font-semibold block">Curated Items</span>
+              <span className="text-on-surface font-medium text-[11px] sm:text-xs">{wishlistCount} Heirlooms</span>
             </div>
             <div className="h-6 w-px bg-[#E8E1D7] hidden sm:block"></div>
             <div>
-              <span className="uppercase tracking-wider text-[10px] text-primary font-semibold block">Estimated Value</span>
-              <span className="text-on-surface font-semibold">₹{totalWishlistValue.toLocaleString('en-IN')}</span>
+              <span className="uppercase tracking-wider text-[9px] sm:text-[10px] text-primary font-semibold block">Estimated Value</span>
+              <span className="text-on-surface font-semibold text-[11px] sm:text-xs">₹{totalWishlistValue.toLocaleString('en-IN')}</span>
             </div>
             <div className="h-6 w-px bg-[#E8E1D7] hidden sm:block"></div>
             <div>
-              <span className="uppercase tracking-wider text-[10px] text-primary font-semibold block">Brass Die Status</span>
-              <span className="text-emerald-700 font-medium">"A & S" Ready to Mill</span>
+              <span className="uppercase tracking-wider text-[9px] sm:text-[10px] text-primary font-semibold block">Brass Die Status</span>
+              <span className="text-emerald-700 font-medium text-[11px] sm:text-xs">"A & S" Ready to Mill</span>
             </div>
           </div>
         </div>
 
         {/* ACTION CONTROLS & FILTER BAR */}
-        <div className="bg-white rounded-2xl border border-outline-variant/30 p-3 sm:p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+        <div className="bg-white rounded-xl sm:rounded-2xl border border-outline-variant/30 p-2.5 sm:p-4 mb-6 sm:mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4 shadow-xs">
           
           {/* Tabs / Categories */}
-          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs font-medium uppercase tracking-wider">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full md:w-auto pb-1.5 md:pb-0 text-xs font-medium uppercase tracking-wider no-scrollbar">
             <button 
               onClick={() => setActiveTab('all')}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all duration-200 ${
+              className={`min-h-[40px] px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl whitespace-nowrap transition-all duration-200 active:scale-95 text-[11px] sm:text-xs ${
                 activeTab === 'all'
-                  ? 'bg-[#1A1817] text-white shadow-sm'
+                  ? 'bg-[#1A1817] text-white shadow-xs'
                   : 'bg-transparent hover:bg-surface text-on-surface-variant hover:text-on-surface'
               }`}
             >
@@ -263,19 +263,19 @@ const WishlistPage = () => {
             </button>
             <button 
               onClick={() => setActiveTab('bridal-wedding essentials')}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all duration-200 ${
+              className={`min-h-[40px] px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl whitespace-nowrap transition-all duration-200 active:scale-95 text-[11px] sm:text-xs ${
                 activeTab === 'bridal-wedding essentials'
-                  ? 'bg-[#1A1817] text-white shadow-sm'
+                  ? 'bg-[#1A1817] text-white shadow-xs'
                   : 'bg-transparent hover:bg-surface text-on-surface-variant hover:text-on-surface'
               }`}
             >
-              Bridal Wedding Essentials ({categoryCounts['bridal-wedding essentials']})
+              Bridal Essentials ({categoryCounts['bridal-wedding essentials']})
             </button>
             <button 
               onClick={() => setActiveTab('heirloom-vaults')}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all duration-200 ${
+              className={`min-h-[40px] px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl whitespace-nowrap transition-all duration-200 active:scale-95 text-[11px] sm:text-xs ${
                 activeTab === 'heirloom-vaults'
-                  ? 'bg-[#1A1817] text-white shadow-sm'
+                  ? 'bg-[#1A1817] text-white shadow-xs'
                   : 'bg-transparent hover:bg-surface text-on-surface-variant hover:text-on-surface'
               }`}
             >
@@ -283,9 +283,9 @@ const WishlistPage = () => {
             </button>
             <button 
               onClick={() => setActiveTab('guest-favors')}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all duration-200 ${
+              className={`min-h-[40px] px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl whitespace-nowrap transition-all duration-200 active:scale-95 text-[11px] sm:text-xs ${
                 activeTab === 'guest-favors'
-                  ? 'bg-[#1A1817] text-white shadow-sm'
+                  ? 'bg-[#1A1817] text-white shadow-xs'
                   : 'bg-transparent hover:bg-surface text-on-surface-variant hover:text-on-surface'
               }`}
             >
@@ -299,25 +299,25 @@ const WishlistPage = () => {
             {/* Share Wishlist with Planner or WhatsApp */}
             <button 
               onClick={() => setIsShareModalOpen(true)}
-              className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl border border-outline-variant/30 hover:border-primary bg-surface/70 hover:bg-surface text-xs text-on-surface font-medium tracking-wide transition"
+              className="flex-1 md:flex-initial min-h-[44px] flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-lg sm:rounded-xl border border-outline-variant/30 hover:border-primary bg-surface/70 hover:bg-surface text-xs text-on-surface font-medium tracking-wide transition active:scale-95"
             >
-              <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">share</span>
-              <span>Share with Planner</span>
+              <span className="material-symbols-outlined w-4 h-4 text-primary">share</span>
+              <span className="truncate">Share with Planner</span>
             </button>
 
             {/* Move All to Bag CTA */}
             <button 
               onClick={handleTransferAllToBag}
-              className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#1A1817] hover:bg-black text-white text-xs font-semibold tracking-wider uppercase shadow hover:shadow-md transition active:scale-98"
+              className="flex-1 md:flex-initial min-h-[44px] flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 rounded-lg sm:rounded-xl bg-[#1A1817] hover:bg-black text-white text-xs font-semibold tracking-wider uppercase shadow-xs hover:shadow transition active:scale-95"
             >
-              <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">shopping_bag</span>
-              <span>Transfer All to Bag</span>
+              <span className="material-symbols-outlined w-4 h-4 text-primary">shopping_bag</span>
+              <span className="truncate">Transfer All</span>
             </button>
           </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* WISHLIST CARDS GRID                                                       */}
+        {/* WISHLIST CARDS GRID (2-column on mobile, 4-column on desktop)            */}
         {/* ========================================================================= */}
         {filteredItems.length === 0 ? (
           <div className="bg-white rounded-3xl border border-outline-variant/30 p-8 sm:p-12 text-center max-w-xl mx-auto my-12 shadow-sm">
@@ -335,31 +335,32 @@ const WishlistPage = () => {
               {activeTab !== 'all' && (
                 <button
                   onClick={() => setActiveTab('all')}
-                  className="px-5 py-2.5 bg-surface border border-outline-variant/30 rounded-xl text-xs font-semibold text-on-surface hover:border-primary transition"
+                  className="min-h-[44px] px-5 py-2.5 bg-surface border border-outline-variant/30 rounded-xl text-xs font-semibold text-on-surface hover:border-primary transition active:scale-95"
                 >
                   View All Saved ({wishlistCount})
                 </button>
               )}
               <Link
                 href="/shop"
-                className="px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition shadow-sm inline-block"
+                className="min-h-[44px] inline-flex items-center justify-center px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition shadow-sm active:scale-95"
               >
                 Explore Collections
               </Link>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 mb-12">
             {filteredItems.map((item) => (
               <div 
                 key={item.id}
-                className="bg-white rounded-2xl border border-outline-variant/30 p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 group relative"
+                className="bg-white rounded-xl sm:rounded-2xl border border-outline-variant/30 p-2.5 sm:p-5 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-300 group relative"
               >
                 {/* Remove / Unheart Button */}
                 <button 
                   onClick={() => handleRemoveItem(item)}
                   title="Remove from Wishlist" 
-                  className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/90 border border-outline-variant/30 flex items-center justify-center text-red-500 hover:bg-red-50 transition shadow-sm group-hover:border-red-200"
+                  aria-label="Remove from Wishlist"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-9 h-9 min-w-[36px] min-h-[36px] sm:w-8 sm:h-8 rounded-full bg-white/95 border border-outline-variant/30 flex items-center justify-center text-red-500 hover:bg-red-50 active:scale-90 transition shadow-xs group-hover:border-red-200"
                 >
                   <span className="material-symbols-outlined w-4 h-4 fill-current">favorite</span>
                 </button>
@@ -367,41 +368,41 @@ const WishlistPage = () => {
                 <div>
                   {/* Visual Display: Image or Specialized Graphic */}
                   {item.isEmeraldVaultVisual ? (
-                    <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[#133E2B] text-white flex flex-col items-center justify-center p-6 text-center mb-4 shadow-inner">
-                      <div className="border border-primary/50 p-6 rounded-lg w-full h-full flex flex-col items-center justify-center">
-                        <span className="font-serif text-2xl tracking-widest text-[#E8D5B5]">A & S</span>
-                        <span className="text-[9px] uppercase tracking-widest text-primary/80 mt-1">EMERALD SILK VAULT</span>
-                        <div className="w-6 h-px bg-primary/40 my-2"></div>
-                        <span className="text-[10px] text-white/70">Solid Brass Latch</span>
+                    <div className="relative w-full aspect-square rounded-lg sm:rounded-xl overflow-hidden bg-[#133E2B] text-white flex flex-col items-center justify-center p-3 sm:p-6 text-center mb-2.5 sm:mb-4 shadow-inner">
+                      <div className="border border-primary/50 p-3 sm:p-6 rounded-lg w-full h-full flex flex-col items-center justify-center">
+                        <span className="font-serif text-lg sm:text-2xl tracking-widest text-[#E8D5B5]">A & S</span>
+                        <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-primary/80 mt-0.5 sm:mt-1">EMERALD SILK VAULT</span>
+                        <div className="w-5 sm:w-6 h-px bg-primary/40 my-1.5 sm:my-2"></div>
+                        <span className="text-[9px] sm:text-[10px] text-white/70">Solid Brass Latch</span>
                       </div>
-                      <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-0.5 rounded text-[10px] uppercase font-semibold text-white">
+                      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-black/60 backdrop-blur-sm border border-white/20 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] uppercase font-semibold text-white">
                         {item.badge}
                       </div>
                     </div>
                   ) : item.isVowBookVisual ? (
-                    <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[#F5EFE6] flex flex-col items-center justify-center p-6 text-center mb-4 border border-outline-variant/30">
-                      <div className="w-3/4 h-5/6 bg-surface border border-[#DDD3C4] shadow-md rounded p-4 flex flex-col justify-between">
-                        <span className="text-[9px] uppercase tracking-widest text-on-surface-variant">His & Her Vows</span>
-                        <div className="font-serif italic text-lg text-on-surface">"Our Sacred Covenant"</div>
-                        <span className="text-[8px] text-primary font-semibold">100% Hand-Poured Cotton</span>
+                    <div className="relative w-full aspect-square rounded-lg sm:rounded-xl overflow-hidden bg-[#F5EFE6] flex flex-col items-center justify-center p-3 sm:p-6 text-center mb-2.5 sm:mb-4 border border-outline-variant/30">
+                      <div className="w-3/4 h-5/6 bg-surface border border-[#DDD3C4] shadow-md rounded p-2 sm:p-4 flex flex-col justify-between">
+                        <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-on-surface-variant">His & Her Vows</span>
+                        <div className="font-serif italic text-xs sm:text-lg text-on-surface">"Our Sacred Covenant"</div>
+                        <span className="text-[7px] sm:text-[8px] text-primary font-semibold">Hand-Poured Cotton</span>
                       </div>
-                      <div className="absolute bottom-3 left-3 bg-white/90 border border-outline-variant/30 px-2 py-0.5 rounded text-[10px] uppercase font-semibold text-on-surface">
+                      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-white/90 border border-outline-variant/30 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] uppercase font-semibold text-on-surface">
                         {item.badge}
                       </div>
                     </div>
                   ) : item.isHamperVisual ? (
-                    <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[#2D2825] text-white flex flex-col items-center justify-center p-6 text-center mb-4">
-                      <div className="w-full h-full border border-primary/40 rounded-lg flex flex-col items-center justify-center p-4">
-                        <span className="text-primary text-2xl font-serif">✦ ✦ ✦</span>
-                        <span className="font-serif text-xl text-[#E8D5B5] mt-2">Palatial Room Favors</span>
-                        <span className="text-[9px] uppercase tracking-wider text-white/70 mt-1">Tiered Support Gifting</span>
+                    <div className="relative w-full aspect-square rounded-lg sm:rounded-xl overflow-hidden bg-[#2D2825] text-white flex flex-col items-center justify-center p-3 sm:p-6 text-center mb-2.5 sm:mb-4">
+                      <div className="w-full h-full border border-primary/40 rounded-lg flex flex-col items-center justify-center p-2 sm:p-4">
+                        <span className="text-primary text-xl sm:text-2xl font-serif">✦ ✦ ✦</span>
+                        <span className="font-serif text-sm sm:text-xl text-[#E8D5B5] mt-1 sm:mt-2 text-center">Palatial Room Favors</span>
+                        <span className="text-[8px] sm:text-[9px] uppercase tracking-wider text-white/70 mt-0.5 sm:mt-1">Tiered Support</span>
                       </div>
-                      <div className="absolute bottom-3 left-3 bg-primary/90 text-white px-2 py-0.5 rounded text-[10px] uppercase font-semibold">
+                      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-primary/90 text-white px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] uppercase font-semibold">
                         {item.badge}
                       </div>
                     </div>
                   ) : (
-                    <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-surface mb-4">
+                    <div className="relative w-full aspect-square rounded-lg sm:rounded-xl overflow-hidden bg-surface mb-2.5 sm:mb-4">
                       <img 
                         src={item.image} 
                         alt={item.title} 
@@ -410,11 +411,11 @@ const WishlistPage = () => {
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800';
                         }}
                       />
-                      <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm border border-outline-variant/30/80 px-2.5 py-1 rounded-md text-[10px] uppercase font-semibold tracking-wider text-on-surface">
+                      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-white/90 backdrop-blur-sm border border-outline-variant/30/80 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded text-[8px] sm:text-[10px] uppercase font-semibold tracking-wider text-on-surface truncate max-w-[85%]">
                         {item.badge}
                       </div>
                       {item.subBadge && (
-                        <div className="absolute top-3 left-3 bg-primary/90 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-primary/90 text-white px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-bold uppercase tracking-wider">
                           {item.subBadge}
                         </div>
                       )}
@@ -422,34 +423,34 @@ const WishlistPage = () => {
                   )}
 
                   {/* Product Details */}
-                  <div className="mb-4">
-                    <span className="text-[10px] uppercase tracking-widest text-primary font-semibold">
+                  <div className="mb-2 sm:mb-4">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-primary font-semibold block truncate">
                       {item.editionBadge}
                     </span>
                     <Link href={item.slug ? `/product/${item.slug}` : '/shop'}>
-                      <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mt-1 hover:text-primary transition">
+                      <h3 className="font-serif text-xs sm:text-base font-medium leading-snug text-on-surface mt-0.5 sm:mt-1 hover:text-primary transition line-clamp-2">
                         {item.title}
                       </h3>
                     </Link>
-                    <p className="text-xs text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+                    <p className="hidden sm:block text-xs text-on-surface-variant mt-1 line-clamp-2 leading-relaxed font-light">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Customization Tags */}
                   {item.customizations && item.customizations.length > 0 && (
-                    <div className="bg-surface/80 rounded-xl p-3 border border-outline-variant/30/60 text-xs mb-4 space-y-1.5">
+                    <div className="bg-surface/80 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-outline-variant/30/60 text-[10px] sm:text-xs mb-2.5 sm:mb-4 space-y-1 sm:space-y-1.5">
                       {item.customizations.map((c, i) => (
-                        <div key={i} className="flex justify-between items-center text-[11px]">
-                          <span className="text-on-surface-variant">{c.label}:</span>
-                          <span className={`font-medium ${c.highlight ? 'text-emerald-700' : 'text-on-surface'} flex items-center gap-1.5`}>
+                        <div key={i} className="flex justify-between items-center text-[10px] sm:text-[11px] gap-1">
+                          <span className="text-on-surface-variant shrink-0">{c.label}:</span>
+                          <span className={`font-medium ${c.highlight ? 'text-emerald-700' : 'text-on-surface'} flex items-center gap-1 truncate text-right`}>
                             {c.colorDot && (
                               <span 
-                                className="w-2.5 h-2.5 rounded-full border border-black/10 inline-block" 
+                                className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-black/10 inline-block shrink-0" 
                                 style={{ backgroundColor: c.colorDot }}
                               />
                             )}
-                            <span>{c.value}</span>
+                            <span className="truncate">{c.value}</span>
                           </span>
                         </div>
                       ))}
@@ -458,33 +459,30 @@ const WishlistPage = () => {
                 </div>
 
                 {/* Pricing & Action Button */}
-                <div>
-                  <div className="flex items-baseline justify-between mb-3">
-                    <div>
-                      <span className="text-lg font-bold text-on-surface">
+                <div className="pt-2 border-t border-outline-variant/20 sm:border-t-0 sm:pt-0">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2 sm:mb-3 gap-0.5">
+                    <div className="flex items-baseline flex-wrap gap-1">
+                      <span className="text-sm sm:text-lg font-bold text-on-surface">
                         ₹{item.price?.toLocaleString('en-IN')}
                       </span>
-                      {item.unitNote && (
-                        <span className="text-xs text-on-surface-variant ml-1 font-normal">{item.unitNote}</span>
-                      )}
                       {item.originalPrice && (
-                        <span className="text-xs text-on-surface-variant line-through ml-1.5">
+                        <span className="text-[10px] sm:text-xs text-on-surface-variant line-through">
                           ₹{item.originalPrice?.toLocaleString('en-IN')}
                         </span>
                       )}
                     </div>
                     {item.savings ? (
-                      <span className="text-[11px] text-emerald-700 font-medium">Save ₹{item.savings.toLocaleString('en-IN')}</span>
+                      <span className="text-[9px] sm:text-[11px] text-emerald-700 font-medium whitespace-nowrap">Save ₹{item.savings.toLocaleString('en-IN')}</span>
                     ) : item.priceSubtitle ? (
-                      <span className="text-[11px] text-primary font-medium">{item.priceSubtitle}</span>
+                      <span className="text-[9px] sm:text-[11px] text-primary font-medium truncate">{item.priceSubtitle}</span>
                     ) : null}
                   </div>
 
                   <button 
                     onClick={() => handleMoveToBag(item)}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#1A1817] hover:bg-black text-white text-xs uppercase font-semibold tracking-wider transition shadow-sm hover:shadow active:scale-98"
+                    className="w-full min-h-[40px] sm:min-h-[44px] flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-lg sm:rounded-xl bg-[#1A1817] hover:bg-black text-white text-[11px] sm:text-xs uppercase font-semibold tracking-wider transition shadow-2xs hover:shadow active:scale-95"
                   >
-                    <span className="material-symbols-outlined w-4 h-4 text-primary">shopping_bag</span>
+                    <span className="material-symbols-outlined w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary">shopping_bag</span>
                     <span>Move to Bag</span>
                   </button>
                 </div>
@@ -499,7 +497,7 @@ const WishlistPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
           
           {/* Box 1: Registry Share with Wedding Guests or Architect */}
-          <div className="bg-white rounded-2xl border border-outline-variant/30 p-6 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-2xl border border-outline-variant/30 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <span className="material-symbols-outlined w-5 h-5">share</span>
@@ -513,20 +511,20 @@ const WishlistPage = () => {
                   type="text" 
                   readOnly 
                   value={registryUrl} 
-                  className="bg-transparent text-xs text-on-surface flex-grow px-2 outline-none font-mono selection:bg-primary/20" 
+                  className="bg-transparent text-xs text-on-surface flex-grow px-2 outline-none font-mono selection:bg-primary/20 min-h-[40px]" 
                 />
                 <button 
                   onClick={handleCopyLink}
-                  className="bg-white px-3 py-1.5 rounded-lg border border-outline-variant/30 text-[11px] font-semibold text-on-surface hover:text-primary shadow-2xs transition flex items-center gap-1"
+                  className="bg-white min-h-[40px] px-3.5 py-2 rounded-lg border border-outline-variant/30 text-xs font-semibold text-on-surface hover:text-primary shadow-2xs transition active:scale-95 flex items-center gap-1.5"
                 >
                   {copiedLink ? (
                     <>
-                      <span className="material-symbols-outlined w-3 h-3 text-emerald-600">check</span>
+                      <span className="material-symbols-outlined w-4 h-4 text-emerald-600">check</span>
                       <span className="text-emerald-700">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <span className="material-symbols-outlined w-3 h-3 text-on-surface-variant">content_copy</span>
+                      <span className="material-symbols-outlined w-4 h-4 text-on-surface-variant">content_copy</span>
                       <span>Copy Link</span>
                     </>
                   )}
@@ -535,7 +533,7 @@ const WishlistPage = () => {
             </div>
             <div className="mt-4 pt-4 border-t border-outline-variant/30/60 flex items-center justify-between text-[11px] text-on-surface-variant">
               <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined w-3 h-3 text-primary">lock</span>
+                <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">lock</span>
                 Protected with 256-Bit Vaulting
               </span>
               <span className="text-emerald-700 font-medium">PIN Protection On</span>
@@ -543,7 +541,7 @@ const WishlistPage = () => {
           </div>
 
           {/* Box 2: Brass Die & Archival Guarantee */}
-          <div className="bg-white rounded-2xl border border-outline-variant/30 p-6 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-2xl border border-outline-variant/30 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <span className="material-symbols-outlined w-5 h-5">verified_user</span>
@@ -570,16 +568,16 @@ const WishlistPage = () => {
             <div className="mt-4 pt-4 border-t border-outline-variant/30/60">
               <button 
                 onClick={() => setIsDieProtocolModalOpen(true)}
-                className="text-[11px] text-primary font-semibold uppercase tracking-wider hover:underline flex items-center gap-1"
+                className="min-h-[44px] inline-flex items-center text-xs text-primary font-semibold uppercase tracking-wider hover:underline gap-1 active:scale-95"
               >
                 <span>Read Die Vaulting Protocol</span>
-                <span className="material-symbols-outlined w-3.5 h-3.5">chevron_right</span>
+                <span className="material-symbols-outlined w-4 h-4">chevron_right</span>
               </button>
             </div>
           </div>
 
           {/* Box 3: WhatsApp Senior Stylist Hotline */}
-          <div className="bg-[#2D2825] text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <div className="bg-[#2D2825] text-white rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col justify-between relative overflow-hidden">
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
             <div>
               <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#E8D5B5] mb-4">
@@ -597,7 +595,7 @@ const WishlistPage = () => {
                 href="https://wa.me/919692668263?text=Hi%20ASRA%20Team%2C%20I%20would%20like%20guidance%20on%20my%20Wedding%20Registry%20(ASRA-REG-2026-9921)"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold tracking-wider transition shadow active:scale-98"
+                className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold tracking-wider transition shadow active:scale-95"
               >
                 <span>Chat with Lead Stylist on WhatsApp</span>
                 <span className="material-symbols-outlined w-4 h-4">chevron_right</span>
@@ -614,7 +612,7 @@ const WishlistPage = () => {
         {/* ========================================================================= */}
         {/* RECOMMENDED TO COMPLEMENT YOUR WISHLIST (COLLECTION PICKS)                   */}
         {/* ========================================================================= */}
-        <div className="border-t border-outline-variant/30 pt-10">
+        <div className="border-t border-outline-variant/30 pt-8 sm:pt-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
             <div>
               <span className="text-xs uppercase tracking-widest text-primary font-semibold">Collection Recommendations</span>
@@ -624,14 +622,14 @@ const WishlistPage = () => {
             </div>
             <Link 
               href="/collections" 
-              className="text-xs font-semibold uppercase tracking-wider text-on-surface hover:text-primary flex items-center gap-1 transition"
+              className="min-h-[36px] inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface hover:text-primary gap-1 transition active:scale-95"
             >
               <span>Explore All Collections</span>
               <span className="material-symbols-outlined w-4 h-4">chevron_right</span>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {RECOMMENDATIONS.map((rec) => {
               const alreadyInWishlist = isInWishlist(rec.id);
               return (
@@ -639,17 +637,17 @@ const WishlistPage = () => {
                   key={rec.id}
                   className="bg-white rounded-2xl border border-outline-variant/30 p-4 flex items-center gap-4 hover:border-primary transition group shadow-2xs"
                 >
-                  <div className="w-20 h-20 rounded-xl bg-surface border border-outline-variant/30 flex flex-col items-center justify-center text-center p-2 flex-shrink-0">
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-xl bg-surface border border-outline-variant/30 flex flex-col items-center justify-center text-center p-2 flex-shrink-0">
                     <span className="text-[10px] uppercase font-serif text-primary font-bold">{rec.tag}</span>
                     <span className="text-[9px] text-on-surface-variant mt-1">{rec.material}</span>
                   </div>
                   <div className="flex-grow min-w-0">
-                    <h4 className="font-serif text-base font-medium text-on-surface group-hover:text-primary transition leading-tight truncate">
+                    <h4 className="font-serif text-sm sm:text-base font-medium text-on-surface group-hover:text-primary transition leading-tight truncate">
                       {rec.title}
                     </h4>
                     <p className="text-[11px] text-on-surface-variant line-clamp-1">{rec.description}</p>
-                    <div className="flex items-center justify-between mt-2">
-                      <span className="text-xs font-bold text-on-surface">₹{rec.price.toLocaleString('en-IN')}</span>
+                    <div className="flex items-center justify-between mt-2 gap-2">
+                      <span className="text-xs font-bold text-on-surface whitespace-nowrap">₹{rec.price.toLocaleString('en-IN')}</span>
                       <button 
                         onClick={() => {
                           if (alreadyInWishlist) {
@@ -659,13 +657,13 @@ const WishlistPage = () => {
                             showToast(`"${rec.title}" added to your Wishlist!`);
                           }
                         }}
-                        className={`text-[11px] font-semibold uppercase tracking-wider transition ${
+                        className={`min-h-[36px] px-2.5 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition active:scale-95 ${
                           alreadyInWishlist
-                            ? 'text-emerald-700 hover:text-emerald-800'
-                            : 'text-primary hover:text-on-surface'
+                            ? 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100'
+                            : 'text-primary bg-primary/10 hover:bg-primary/20'
                         }`}
                       >
-                        {alreadyInWishlist ? '✓ In Wishlist' : '+ Add to Wishlist'}
+                        {alreadyInWishlist ? '✓ In Wishlist' : '+ Add'}
                       </button>
                     </div>
                   </div>
@@ -690,14 +688,14 @@ const WishlistPage = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs">
             <button 
               onClick={() => setIsPrivacyModalOpen(true)}
-              className="hover:text-on-surface transition hover:underline"
+              className="min-h-[36px] inline-flex items-center hover:text-on-surface transition hover:underline"
             >
               Registry Privacy Protocol
             </button>
             <span>•</span>
             <button 
               onClick={() => setIsDieProtocolModalOpen(true)}
-              className="hover:text-on-surface transition hover:underline"
+              className="min-h-[36px] inline-flex items-center hover:text-on-surface transition hover:underline"
             >
               Customized Initials Guarantee
             </button>
@@ -715,9 +713,10 @@ const WishlistPage = () => {
           <div className="bg-white rounded-3xl border border-outline-variant/30 max-w-lg w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
             <button 
               onClick={() => setIsShareModalOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-90 transition"
+              aria-label="Close modal"
             >
-              <span className="material-symbols-outlined w-4 h-4">close</span>
+              <span className="material-symbols-outlined w-5 h-5">close</span>
             </button>
 
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
@@ -741,11 +740,11 @@ const WishlistPage = () => {
                   type="text" 
                   readOnly 
                   value={registryUrl} 
-                  className="bg-transparent text-xs text-on-surface flex-grow px-2 outline-none font-mono" 
+                  className="bg-transparent text-xs text-on-surface flex-grow px-2 outline-none font-mono min-h-[40px]" 
                 />
                 <button 
                   onClick={handleCopyLink}
-                  className="px-4 py-2 bg-[#1A1817] text-white rounded-lg text-xs font-semibold hover:bg-black transition flex items-center gap-1"
+                  className="min-h-[44px] px-4 py-2 bg-[#1A1817] text-white rounded-lg text-xs font-semibold hover:bg-black active:scale-95 transition flex items-center gap-1.5"
                 >
                   {copiedLink ? (
                     <>
@@ -768,10 +767,10 @@ const WishlistPage = () => {
                 href={`https://wa.me/919692668263?text=${encodeURIComponent(`Review our curated ASRA Wedding Registry & Gifts for Asra & Shahnawaz: ${registryUrl}`)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/30 hover:border-primary hover:bg-surface/60 transition text-xs text-on-surface font-medium"
+                className="w-full min-h-[48px] flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/30 hover:border-primary hover:bg-surface/60 active:scale-98 transition text-xs text-on-surface font-medium"
               >
                 <span className="flex items-center gap-3">
-                  <span className="material-symbols-outlined w-4 h-4 text-emerald-600">chat</span>
+                  <span className="material-symbols-outlined w-5 h-5 text-emerald-600">chat</span>
                   <span>Share on WhatsApp with Bridal Party</span>
                 </span>
                 <span className="material-symbols-outlined w-4 h-4 text-on-surface-variant">open_in_new</span>
@@ -779,10 +778,10 @@ const WishlistPage = () => {
 
               <a 
                 href={`mailto:?subject=${encodeURIComponent("Asra & Shahnawaz's Wedding Registry — ASRA Collection")}&body=${encodeURIComponent(`Dear Planner,\n\nPlease review our hand-selected ceremonial gifts and custom brass initials die code for our upcoming wedding:\n\n${registryUrl}\n\nWarmly,\nAsra & Shahnawaz`)}`}
-                className="w-full flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/30 hover:border-primary hover:bg-surface/60 transition text-xs text-on-surface font-medium"
+                className="w-full min-h-[48px] flex items-center justify-between p-3.5 rounded-xl border border-outline-variant/30 hover:border-primary hover:bg-surface/60 active:scale-98 transition text-xs text-on-surface font-medium"
               >
                 <span className="flex items-center gap-3">
-                  <span className="material-symbols-outlined w-4 h-4 text-primary">share</span>
+                  <span className="material-symbols-outlined w-5 h-5 text-primary">share</span>
                   <span>Send Docket to Wedding Planner via Email</span>
                 </span>
                 <span className="material-symbols-outlined w-4 h-4 text-on-surface-variant">open_in_new</span>
@@ -805,9 +804,10 @@ const WishlistPage = () => {
           <div className="bg-white rounded-3xl border border-outline-variant/30 max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button 
               onClick={() => setIsDieProtocolModalOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-90 transition"
+              aria-label="Close modal"
             >
-              <span className="material-symbols-outlined w-4 h-4">close</span>
+              <span className="material-symbols-outlined w-5 h-5">close</span>
             </button>
 
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
@@ -847,7 +847,7 @@ const WishlistPage = () => {
             <div className="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-end">
               <button 
                 onClick={() => setIsDieProtocolModalOpen(false)}
-                className="px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-black transition"
+                className="min-h-[44px] px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-black active:scale-95 transition"
               >
                 Close Protocol Docket
               </button>
@@ -864,9 +864,10 @@ const WishlistPage = () => {
           <div className="bg-white rounded-3xl border border-outline-variant/30 max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button 
               onClick={() => setIsPrivacyModalOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-90 transition"
+              aria-label="Close modal"
             >
-              <span className="material-symbols-outlined w-4 h-4">close</span>
+              <span className="material-symbols-outlined w-5 h-5">close</span>
             </button>
 
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
@@ -906,7 +907,7 @@ const WishlistPage = () => {
             <div className="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-end">
               <button 
                 onClick={() => setIsPrivacyModalOpen(false)}
-                className="px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-black transition"
+                className="min-h-[44px] px-6 py-2.5 bg-[#1A1817] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-black active:scale-95 transition"
               >
                 Acknowledge Privacy Terms
               </button>

@@ -46,12 +46,12 @@ const MonogramPreviewStudio = () => {
   const activeFoil = foilStyles[foilStyle] || foilStyles.gold;
 
   return (
-    <section className="w-full py-8 sm:py-10 px-margin bg-surface relative overflow-hidden border-t border-outline-variant/30">
-      <div className="max-w-[1360px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+    <section className="w-full max-w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface relative overflow-hidden border-t border-outline-variant/30">
+      <div className="max-w-[1360px] mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full">
           
           {/* Left Controls Column */}
-          <div className="lg:col-span-6 flex flex-col">
+          <div className="lg:col-span-6 flex flex-col w-full max-w-full">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-secondary-container/60 text-on-secondary-container rounded-full font-label-sm text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold mb-2 w-fit">
               <span className="material-symbols-outlined text-[13px] text-primary">auto_fix_high</span>
               <span>Interactive Monogram Studio</span>
@@ -193,14 +193,14 @@ const MonogramPreviewStudio = () => {
                 </ToggleGroup>
               </div>
 
-              <div className="pt-2 flex items-center justify-between">
-                <span className="font-body-sm text-[12px] text-outline flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px] text-primary">verified</span>
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span className="font-body-sm text-[11px] sm:text-[12px] text-outline flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[15px] text-primary">verified</span>
                   Free physical brass proof on approval
                 </span>
                 <Link
                   href="/bespoke"
-                  className="text-primary font-label-md text-label-md font-semibold hover:underline flex items-center gap-1"
+                  className="text-primary font-label-md text-xs font-semibold hover:underline flex items-center gap-1 w-fit"
                 >
                   <span>Start Custom Order</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -209,9 +209,9 @@ const MonogramPreviewStudio = () => {
             </div>
           </div>
 
-          {/* Right Live Canvas Simulation - Sleek & Reduced Height */}
-          <div className="lg:col-span-6 flex items-center justify-center">
-            <div className="relative w-full max-w-[380px] aspect-[4/3.8] max-h-[340px] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/40 flex flex-col justify-between p-4 sm:p-5 text-center select-none transition-all duration-700">
+          {/* Right Live Canvas Simulation - Sleek & Mobile Optimized Height */}
+          <div className="lg:col-span-6 flex items-center justify-center w-full max-w-full overflow-hidden mt-2 lg:mt-0">
+            <div className="relative w-full max-w-[380px] h-[280px] sm:h-[340px] md:h-[360px] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/40 flex flex-col justify-between p-3.5 sm:p-5 text-center select-none transition-all duration-700">
               
               {/* Item Backdrop & Textures */}
               {itemType === 'passport' && (

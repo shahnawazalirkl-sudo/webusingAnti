@@ -6,6 +6,53 @@ import Link from 'next/link';
 import { PRODUCTS } from '@/data/productsData';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@/components/ui/accordion';
+
+const SUITE_SPECIFICATIONS = [
+  { label: 'Presentation Dimensions', value: '28 cm Diameter × 24 cm Height' },
+  { label: 'Box Construction', value: '1200 GSM Rigid European Binderboard' },
+  { label: 'Velvet Lining', value: 'Double-tier Plush Silk-Blend Velvet' },
+  { label: 'Initials Debossing', value: 'Custom 3D Metal Die in 24k Gold Leaf' },
+  { label: 'Fragrance Volume', value: '50ml / 1.7 fl. oz. French Flacon' },
+  { label: 'Soy Candle Net Wt.', value: '220g / 7.8 oz (40+ Hours Clean Burn)' },
+  { label: 'Bridal Scrunchie', value: '100% Grade 6A Pure Mulberry Silk (22 Momme)' },
+  { label: 'Floral Preservation', value: 'Hydro-Stem Moisture Retention Capsules' },
+  { label: 'Gross Transit Weight', value: '2.85 kg Insured Boutique Carton' },
+  { label: 'Workshop Origin', value: 'Flagship Studios (Hyderabad & Bengaluru)' },
+];
+
+const CARE_GUIDELINES = [
+  {
+    icon: 'spa',
+    title: 'Fresh & Preserved Florals',
+    desc: 'Each rose stem is mounted in an individual hydrating hydro-capsule. Keep in a temperate environment away from direct heating vents or harsh sunlight.',
+  },
+  {
+    icon: 'inventory_2',
+    title: 'Velvet Hatbox & 24k Gold Foil',
+    desc: 'Store in a dry room. Dust velvet exterior with a soft microfiber cloth or gentle lint brush. Avoid moisture or abrasive detergents on the gold debossed die.',
+  },
+  {
+    icon: 'local_fire_department',
+    title: 'Artisanal Botanical Candle',
+    desc: 'Trim wick to 5mm prior to every burn. For optimal melt pool, burn for at least 2 hours during first illumination. Keep out of drafts.',
+  },
+  {
+    icon: 'dry_cleaning',
+    title: 'Mulberry Silk Scrunchie',
+    desc: 'Hand wash in cold water using silk-safe pH-neutral detergent if needed. Air dry flat away from direct sunlight. Do not iron directly.',
+  },
+  {
+    icon: 'sanitizer',
+    title: 'Perfume Preservation',
+    desc: 'Store bottle upright away from excessive humidity or direct heat to safeguard delicate Kashmiri rose & oud essential oils.',
+  },
+];
 
 // Official Stitch Assets for The Sovereign Bridal Suite
 const SOVEREIGN_ASSETS = {
@@ -226,6 +273,7 @@ const ProductDetailPage = () => {
     message: 'Jubilee Hills / Hyderabad: Same-day VIP white-glove chauffeur delivery available on order booking.'
   });
   const [orderQty, setOrderQty] = useState(1);
+  const [activeDetailTab, setActiveDetailTab] = useState<'inside' | 'specs' | 'care'>('inside');
 
   // FAQ Accordion State
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -352,7 +400,7 @@ const ProductDetailPage = () => {
   const totalPrice = selectedEdition.price * orderQty;
 
   return (
-    <div className="flex flex-col w-full bg-surface text-on-surface antialiased">
+    <div className="flex flex-col w-full bg-surface text-on-surface antialiased pb-28 md:pb-0">
       {/* Breadcrumb Navigation Bar */}
       <nav aria-label="Breadcrumb" className="w-full bg-surface-container-low px-4 sm:px-6 lg:px-8 py-3 shadow-xs">
         <div className="max-w-[1360px] mx-auto flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-on-surface-variant overflow-x-auto whitespace-nowrap">
@@ -367,14 +415,14 @@ const ProductDetailPage = () => {
       </nav>
 
       {/* Main Product Section (Two Column Masterpiece Layout) */}
-      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Left Column: Collection Media Gallery */}
-          <div className="lg:col-span-6 flex flex-col gap-4 lg:sticky lg:top-28">
+          <div className="lg:col-span-6 flex flex-col gap-3 sm:gap-4 lg:sticky lg:top-28">
             
             {/* Main Spotlight Frame */}
-            <div className="relative w-full aspect-[4/5] bg-surface-container-lowest rounded-xl overflow-hidden shadow-xs group border border-outline-variant/30">
+            <div className="relative w-full aspect-[4/5] bg-surface-container-lowest rounded-2xl overflow-hidden shadow-xs group border border-outline-variant/30">
               <img
                 id="mainProductImage"
                 src={activeImage}
@@ -383,25 +431,30 @@ const ProductDetailPage = () => {
               />
               
               {/* Collection Floating Badges */}
-              <div className="absolute top-4 left-4 flex flex-col gap-2 z-10 pointer-events-none">
-                <span className="bg-inverse-surface/90 backdrop-blur-md text-secondary-fixed text-label-sm font-label-sm uppercase tracking-widest px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex flex-col gap-1.5 sm:gap-2 z-10 pointer-events-none max-w-[calc(100%-75px)]">
+                <span className="bg-inverse-surface/90 backdrop-blur-md text-secondary-fixed text-[10px] sm:text-label-sm font-label-sm uppercase tracking-widest px-2.5 sm:px-3 py-1 sm:py-1.5 rounded shadow-sm flex items-center gap-1.5 truncate">
                   <span className="material-symbols-outlined text-[14px] text-primary-fixed">diamond</span>
                   Flagship Masterpiece
                 </span>
-                <span className="bg-primary-container text-on-primary-container text-label-sm font-label-sm uppercase tracking-widest px-3 py-1 rounded shadow-sm">
+                <span className="bg-primary-container text-on-primary-container text-[10px] sm:text-label-sm font-label-sm uppercase tracking-widest px-2.5 sm:px-3 py-0.5 sm:py-1 rounded shadow-sm truncate">
                   Handcrafted On Order
                 </span>
               </div>
 
+              {/* Mobile Image Index Indicator */}
+              <div className="absolute top-3 right-3 sm:hidden bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider shadow-sm z-10">
+                {activeThumbIndex + 1} / {SOVEREIGN_ASSETS.gallery.length}
+              </div>
+
               {/* Interactive Magnifier Cue */}
-              <div className="absolute bottom-4 right-4 bg-surface/85 backdrop-blur-md text-on-surface text-label-sm font-label-sm uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none">
+              <div className="hidden sm:flex absolute bottom-4 right-4 bg-surface/85 backdrop-blur-md text-on-surface text-label-sm font-label-sm uppercase tracking-wider px-3 py-1.5 rounded-full items-center gap-1.5 shadow-sm pointer-events-none">
                 <span className="material-symbols-outlined text-[16px] text-primary">zoom_in</span>
                 <span>Hover to Inspect Craft</span>
               </div>
             </div>
 
-            {/* Thumbnail Carousel */}
-            <div className="grid grid-cols-6 gap-2 sm:gap-3">
+            {/* Thumbnail Carousel - Swipeable Snap Strip on Mobile */}
+            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto scrollbar-none snap-x snap-mandatory py-1 px-1 -mx-1 touch-pan-x sm:grid sm:grid-cols-6 sm:mx-0 sm:px-0">
               {SOVEREIGN_ASSETS.gallery.map((thumb, idx) => {
                 const isActive = activeThumbIndex === idx;
                 return (
@@ -409,10 +462,10 @@ const ProductDetailPage = () => {
                     key={idx}
                     type="button"
                     onClick={() => handleSelectThumbnail(thumb, idx)}
-                    className={`gallery-thumb relative aspect-square bg-surface-container rounded-lg overflow-hidden transition-all ${
+                    className={`gallery-thumb relative shrink-0 w-16 h-16 sm:w-auto sm:aspect-square snap-start bg-surface-container rounded-lg overflow-hidden transition-all touch-manipulation min-w-[56px] min-h-[56px] cursor-pointer ${
                       isActive 
-                        ? 'ring-2 ring-primary opacity-100 shadow-sm' 
-                        : 'opacity-70 hover:opacity-100 hover:ring-1 hover:ring-primary/40'
+                        ? 'ring-2 ring-primary ring-offset-2 ring-offset-surface opacity-100 shadow-sm scale-95 sm:scale-100' 
+                        : 'opacity-70 hover:opacity-100 border border-outline-variant/40'
                     }`}
                     title={thumb.label}
                   >
@@ -556,7 +609,7 @@ const ProductDetailPage = () => {
                         key={edition.name}
                         type="button"
                         onClick={() => handleSelectEdition(edition)}
-                        className={`edition-btn p-3 rounded-lg text-left shadow-sm transition-all border ${
+                        className={`edition-btn min-h-[64px] p-3 rounded-lg text-left shadow-sm transition-all border touch-manipulation active:scale-[0.98] ${
                           isSelected
                             ? 'bg-surface-container-lowest ring-2 ring-primary border-transparent'
                             : 'bg-surface-container-low border-outline-variant/50 hover:bg-surface-container-lowest'
@@ -597,7 +650,7 @@ const ProductDetailPage = () => {
 
                 {/* Couple Names Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-1.5">
                     <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
                       Bride's First Name
                     </span>
@@ -606,10 +659,10 @@ const ProductDetailPage = () => {
                       value={brideName}
                       onChange={(e) => setBrideName(e.target.value)}
                       placeholder="e.g. Asra"
-                      className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
+                      className="w-full h-11 min-h-[44px] bg-surface-container-low px-space-md py-2.5 rounded-lg font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all touch-manipulation"
                     />
                   </div>
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-1.5">
                     <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
                       Groom's First Name
                     </span>
@@ -618,14 +671,14 @@ const ProductDetailPage = () => {
                       value={groomName}
                       onChange={(e) => setGroomName(e.target.value)}
                       placeholder="e.g. Shahnawaz"
-                      className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
+                      className="w-full h-11 min-h-[44px] bg-surface-container-low px-space-md py-2.5 rounded-lg font-body-md text-body-md text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all touch-manipulation"
                     />
                   </div>
                 </div>
 
                 {/* Wedding Date & Crest Style */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md items-center">
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-1.5">
                     <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
                       Auspicious Wedding / Event Date
                     </span>
@@ -633,18 +686,18 @@ const ProductDetailPage = () => {
                       type="date"
                       value={weddingDate}
                       onChange={(e) => setWeddingDate(e.target.value)}
-                      className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
+                      className="w-full h-11 min-h-[44px] bg-surface-container-low px-space-md py-2.5 rounded-lg font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all touch-manipulation"
                     />
                   </div>
 
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-1.5">
                     <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
                       Die Debossing Crest Style
                     </span>
                     <select
                       value={crestStyle}
                       onChange={(e) => setCrestStyle(e.target.value)}
-                      className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all"
+                      className="w-full h-11 min-h-[44px] bg-surface-container-low px-space-md py-2.5 rounded-lg font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all touch-manipulation cursor-pointer"
                     >
                       <option value="classic">Classic Floral Crest</option>
                       <option value="artdeco">Art Deco Intertwined</option>
@@ -692,30 +745,52 @@ const ProductDetailPage = () => {
                   placeholder="Enter custom message to be inscribed in gold calligraphy..."
                   className="w-full bg-surface-container-lowest p-space-md rounded-lg font-body-md text-body-md text-on-surface shadow-sm border border-outline-variant/50 focus:outline-none focus:ring-1 focus:ring-primary transition-all"
                 />
-                <div className="flex flex-wrap items-center gap-space-md pt-1">
+                <div className="flex flex-col gap-1.5 pt-1">
                   <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
                     Calligraphy Hand:
                   </span>
-                  <label className="flex items-center gap-1.5 cursor-pointer font-body-sm text-body-sm text-on-surface">
-                    <input
-                      type="radio"
-                      name="calligraphyScript"
-                      checked={calligraphyHand === 'Royal Copperplate Script'}
-                      onChange={() => setCalligraphyHand('Royal Copperplate Script')}
-                      className="accent-primary"
-                    />
-                    <span>Royal Copperplate Script</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 cursor-pointer font-body-sm text-body-sm text-on-surface">
-                    <input
-                      type="radio"
-                      name="calligraphyScript"
-                      checked={calligraphyHand === 'Renaissance Cursive'}
-                      onChange={() => setCalligraphyHand('Renaissance Cursive')}
-                      className="accent-primary"
-                    />
-                    <span>Renaissance Cursive</span>
-                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setCalligraphyHand('Royal Copperplate Script')}
+                      className={`min-h-[42px] px-3 py-2 rounded-lg border text-left flex items-center gap-2 transition-all touch-manipulation active:scale-95 ${
+                        calligraphyHand === 'Royal Copperplate Script'
+                          ? 'bg-surface-container-lowest border-primary ring-1 ring-primary text-primary font-medium'
+                          : 'bg-surface-container-low border-outline-variant/40 text-on-surface hover:bg-surface-container-lowest'
+                      }`}
+                    >
+                      <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
+                        calligraphyHand === 'Royal Copperplate Script'
+                          ? 'border-primary bg-primary'
+                          : 'border-outline'
+                      }`}>
+                        {calligraphyHand === 'Royal Copperplate Script' && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-surface" />
+                        )}
+                      </span>
+                      <span className="font-body-sm text-xs sm:text-sm">Royal Copperplate Script</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCalligraphyHand('Renaissance Cursive')}
+                      className={`min-h-[42px] px-3 py-2 rounded-lg border text-left flex items-center gap-2 transition-all touch-manipulation active:scale-95 ${
+                        calligraphyHand === 'Renaissance Cursive'
+                          ? 'bg-surface-container-lowest border-primary ring-1 ring-primary text-primary font-medium'
+                          : 'bg-surface-container-low border-outline-variant/40 text-on-surface hover:bg-surface-container-lowest'
+                      }`}
+                    >
+                      <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
+                        calligraphyHand === 'Renaissance Cursive'
+                          ? 'border-primary bg-primary'
+                          : 'border-outline'
+                      }`}>
+                        {calligraphyHand === 'Renaissance Cursive' && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-surface" />
+                        )}
+                      </span>
+                      <span className="font-body-sm text-xs sm:text-sm">Renaissance Cursive</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -728,31 +803,30 @@ const ProductDetailPage = () => {
                   {SCENT_PROFILES.map((scent) => {
                     const isSelected = selectedScent === scent.name;
                     return (
-                      <label
+                      <button
                         key={scent.id}
-                        className={`p-3 rounded-lg cursor-pointer flex items-center gap-2 shadow-sm transition-all border ${
+                        type="button"
+                        onClick={() => setSelectedScent(scent.name)}
+                        className={`min-h-[56px] p-3 rounded-lg text-left flex items-center gap-2.5 shadow-sm transition-all border touch-manipulation active:scale-[0.98] ${
                           isSelected
                             ? 'bg-surface-container-lowest ring-1 ring-primary border-transparent'
                             : 'bg-surface-container-low border-outline-variant/40 hover:bg-surface-container-lowest'
                         }`}
                       >
-                        <input
-                          type="radio"
-                          name="scentChoice"
-                          value={scent.name}
-                          checked={isSelected}
-                          onChange={() => setSelectedScent(scent.name)}
-                          className="accent-primary"
-                        />
-                        <div className="flex flex-col">
-                          <span className="font-title-sm text-[13px] font-semibold text-on-surface">
+                        <span className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                          isSelected ? 'border-primary bg-primary' : 'border-outline'
+                        }`}>
+                          {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-surface" />}
+                        </span>
+                        <div className="flex flex-col min-w-0">
+                          <span className="font-title-sm text-[13px] font-semibold text-on-surface leading-tight truncate">
                             {scent.name}
                           </span>
-                          <span className={`font-body-sm text-[11px] ${isSelected ? 'text-primary font-medium' : 'text-outline'}`}>
+                          <span className={`font-body-sm text-[11px] leading-tight mt-0.5 truncate ${isSelected ? 'text-primary font-medium' : 'text-outline'}`}>
                             {scent.note}
                           </span>
                         </div>
-                      </label>
+                      </button>
                     );
                   })}
                 </div>
@@ -769,12 +843,12 @@ const ProductDetailPage = () => {
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
                     placeholder="Enter Delivery Pincode (e.g. 500034 / 110001)"
-                    className="flex-1 bg-surface-container-lowest px-space-md py-2.5 rounded-lg shadow-sm font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="flex-1 bg-surface-container-lowest h-11 min-h-[44px] px-space-md py-2.5 rounded-lg shadow-sm font-body-sm text-body-sm text-on-surface border border-outline-variant/50 focus:outline-none focus:ring-1 focus:ring-primary touch-manipulation"
                   />
                   <button
                     type="button"
                     onClick={handleCheckPincode}
-                    className="px-space-lg py-2.5 bg-inverse-surface text-inverse-on-surface rounded-lg font-label-sm text-label-sm uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all"
+                    className="h-11 min-h-[44px] px-space-lg py-2.5 bg-inverse-surface text-inverse-on-surface rounded-lg font-label-sm text-label-sm uppercase tracking-wider hover:bg-primary hover:text-on-primary active:scale-95 transition-all touch-manipulation shrink-0"
                   >
                     Check
                   </button>
@@ -793,21 +867,23 @@ const ProductDetailPage = () => {
               <div className="flex flex-col gap-space-sm pt-space-xs">
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
                   {/* Quantity Selector */}
-                  <div className="flex items-center justify-between sm:justify-center bg-surface-container-lowest rounded-lg shadow-sm px-3 py-2 border border-outline-variant/50">
+                  <div className="flex items-center justify-between sm:justify-center bg-surface-container-lowest rounded-lg shadow-sm p-1 border border-outline-variant/50">
                     <button
                       type="button"
                       onClick={() => setOrderQty(Math.max(1, orderQty - 1))}
-                      className="text-on-surface-variant hover:text-on-surface text-title-md font-bold px-2.5"
+                      aria-label="Decrease quantity"
+                      className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low active:scale-90 transition-all text-title-md font-bold touch-manipulation"
                     >
                       -
                     </button>
-                    <span className="px-4 font-title-sm text-title-sm font-bold text-on-surface">
+                    <span className="w-10 text-center font-title-sm text-title-sm font-bold text-on-surface">
                       {orderQty}
                     </span>
                     <button
                       type="button"
                       onClick={() => setOrderQty(orderQty + 1)}
-                      className="text-on-surface-variant hover:text-on-surface text-title-md font-bold px-2.5"
+                      aria-label="Increase quantity"
+                      className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low active:scale-90 transition-all text-title-md font-bold touch-manipulation"
                     >
                       +
                     </button>
@@ -817,7 +893,7 @@ const ProductDetailPage = () => {
                   <button
                     type="button"
                     onClick={handleAddToCart}
-                    className="flex-1 bg-primary text-on-primary hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 py-3 px-5 rounded-lg shadow-xs flex items-center justify-center gap-2 group"
+                    className="flex-1 min-h-[48px] h-12 bg-primary text-on-primary hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 px-5 rounded-lg shadow-xs flex items-center justify-center gap-2 group touch-manipulation"
                   >
                     <span className="material-symbols-outlined text-[18px]">
                       shopping_bag
@@ -833,7 +909,7 @@ const ProductDetailPage = () => {
                   href="https://wa.me/919692668263?text=Inquiring%20about%20Sovereign%20Bridal%20Suite%20Customization"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#FAF4EB] hover:bg-[#f3e9da] text-primary py-2.5 px-4 rounded-lg shadow-xs flex items-center justify-center gap-2 transition-all border border-primary/20"
+                  className="w-full min-h-[44px] h-11 bg-[#FAF4EB] hover:bg-[#f3e9da] text-primary px-4 rounded-lg shadow-xs flex items-center justify-center gap-2 transition-all border border-primary/20 active:scale-95 touch-manipulation"
                 >
                   <span className="material-symbols-outlined text-[18px] text-[#25D366]">chat</span>
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold">
@@ -845,7 +921,7 @@ const ProductDetailPage = () => {
                 <div className="text-center pt-1">
                   <Link
                     href="/bulk-orders"
-                    className="font-sans text-xs text-primary hover:text-on-surface uppercase tracking-wider font-semibold transition-colors underline underline-offset-4"
+                    className="font-sans text-xs text-primary hover:text-on-surface uppercase tracking-wider font-semibold transition-colors underline underline-offset-4 touch-manipulation py-1 inline-block"
                   >
                     Planning Destination Wedding Gifting? Enquire for Custom Bulk Collection →
                   </Link>
@@ -857,53 +933,239 @@ const ProductDetailPage = () => {
         </div>
       </section>
 
-      {/* Section: What's Inside The Sovereign Suite (6-Item Visual Showcase) */}
-      <section className="w-full bg-surface-container-low py-space-xl border-y border-outline-variant/30">
+      {/* Section: What's Inside, Specifications & Care Guides (Hybrid Mobile Accordion + Desktop Tabs) */}
+      <section className="w-full bg-surface-container-low py-10 sm:py-space-xl border-y border-outline-variant/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-margin">
-          <div className="flex flex-col items-center text-center mb-space-xl">
+          <div className="flex flex-col items-center text-center mb-6 sm:mb-space-xl">
             <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-bold">
               The Complete Wedding Essentials Ensemble
             </span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface mt-1 font-normal">
-              What's Inside The Sovereign Suite
+              Suite Composition &amp; Craftsmanship
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-2">
               Six meticulously crafted heirloom elements harmonized into an opulent presentation, designed to be treasured for generations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-            {SOVEREIGN_ASSETS.whatsInside.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm group hover:shadow-md transition-all border border-outline-variant/30"
+          {/* Desktop Tabs Header (hidden on mobile) */}
+          <div className="hidden md:flex justify-center mb-8 border-b border-outline-variant/40">
+            <div className="inline-flex gap-2 p-1 bg-surface-container rounded-xl">
+              <button
+                type="button"
+                onClick={() => setActiveDetailTab('inside')}
+                className={`min-h-[44px] px-6 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all ${
+                  activeDetailTab === 'inside'
+                    ? 'bg-surface text-primary shadow-sm'
+                    : 'text-on-surface-variant hover:text-on-surface'
+                }`}
               >
-                <div className="aspect-video w-full rounded-lg overflow-hidden bg-surface-container">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm text-primary font-bold tracking-widest uppercase">
-                      {item.number}
-                    </span>
-                    <span className="font-label-sm text-label-sm text-outline">
-                      {item.tag}
-                    </span>
+                What's Inside ({SOVEREIGN_ASSETS.whatsInside.length} Elements)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveDetailTab('specs')}
+                className={`min-h-[44px] px-6 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all ${
+                  activeDetailTab === 'specs'
+                    ? 'bg-surface text-primary shadow-sm'
+                    : 'text-on-surface-variant hover:text-on-surface'
+                }`}
+              >
+                Specifications &amp; Dimensions
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveDetailTab('care')}
+                className={`min-h-[44px] px-6 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all ${
+                  activeDetailTab === 'care'
+                    ? 'bg-surface text-primary shadow-sm'
+                    : 'text-on-surface-variant hover:text-on-surface'
+                }`}
+              >
+                Care &amp; Preservation
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Tab Contents (hidden on mobile) */}
+          <div className="hidden md:block">
+            {activeDetailTab === 'inside' && (
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-space-lg">
+                {SOVEREIGN_ASSETS.whatsInside.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm group hover:shadow-md transition-all border border-outline-variant/30"
+                  >
+                    <div className="aspect-video w-full rounded-lg overflow-hidden bg-surface-container">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex items-center justify-between">
+                        <span className="font-label-sm text-label-sm text-primary font-bold tracking-widest uppercase">
+                          {item.number}
+                        </span>
+                        <span className="font-label-sm text-label-sm text-outline">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 font-medium">
+                        {item.title}
+                      </h3>
+                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 font-medium">
-                    {item.title}
-                  </h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
+
+            {activeDetailTab === 'specs' && (
+              <div className="max-w-4xl mx-auto bg-surface-container-lowest rounded-2xl p-6 lg:p-8 shadow-sm border border-outline-variant/30">
+                <h3 className="font-headline-sm text-lg font-medium text-on-surface mb-6 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary">straighten</span>
+                  Boutique Specifications &amp; Material Standards
+                </h3>
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                  {SUITE_SPECIFICATIONS.map((spec, index) => (
+                    <div key={index} className="flex flex-col pb-3 border-b border-outline-variant/30">
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-outline">
+                        {spec.label}
+                      </dt>
+                      <dd className="text-sm font-medium text-on-surface mt-0.5">
+                        {spec.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+
+            {activeDetailTab === 'care' && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {CARE_GUIDELINES.map((care, index) => (
+                  <div
+                    key={index}
+                    className="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                      <span className="material-symbols-outlined text-[22px]">{care.icon}</span>
+                    </div>
+                    <h4 className="font-title-sm text-sm font-semibold text-on-surface mt-1">
+                      {care.title}
+                    </h4>
+                    <p className="text-xs text-on-surface-variant leading-relaxed">
+                      {care.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Collapsible Accordion (block md:hidden) */}
+          <div className="block md:hidden">
+            <Accordion type="single" collapsible defaultValue="inside" className="space-y-3">
+              <AccordionItem value="inside" className="bg-surface-container-lowest rounded-xl px-4 border border-outline-variant/30 overflow-hidden shadow-xs">
+                <AccordionTrigger className="py-4 font-serif text-base font-medium text-on-surface hover:no-underline">
+                  <div className="flex items-center gap-2.5 text-left">
+                    <span className="material-symbols-outlined text-primary text-[20px]">featured_play_list</span>
+                    <span>What's Inside ({SOVEREIGN_ASSETS.whatsInside.length} Elements)</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 pt-1">
+                  <div className="grid grid-cols-1 gap-4">
+                    {SOVEREIGN_ASSETS.whatsInside.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-surface-container-low p-3.5 rounded-lg flex gap-3 items-start border border-outline-variant/20"
+                      >
+                        <div className="w-20 h-20 rounded-md overflow-hidden bg-surface-container shrink-0">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="flex flex-col min-w-0">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-label-sm text-[10px] text-primary font-bold tracking-wider uppercase">
+                              {item.number}
+                            </span>
+                            <span className="font-label-sm text-[10px] text-outline truncate">
+                              {item.tag}
+                            </span>
+                          </div>
+                          <h4 className="font-title-sm text-xs font-semibold text-on-surface mt-0.5 leading-snug">
+                            {item.title}
+                          </h4>
+                          <p className="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="specs" className="bg-surface-container-lowest rounded-xl px-4 border border-outline-variant/30 overflow-hidden shadow-xs">
+                <AccordionTrigger className="py-4 font-serif text-base font-medium text-on-surface hover:no-underline">
+                  <div className="flex items-center gap-2.5 text-left">
+                    <span className="material-symbols-outlined text-primary text-[20px]">straighten</span>
+                    <span>Specifications &amp; Dimensions</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 pt-1">
+                  <dl className="divide-y divide-outline-variant/20">
+                    {SUITE_SPECIFICATIONS.map((spec, index) => (
+                      <div key={index} className="py-2.5 flex items-baseline justify-between gap-3">
+                        <dt className="text-xs font-medium text-on-surface-variant">
+                          {spec.label}
+                        </dt>
+                        <dd className="text-xs font-semibold text-on-surface text-right">
+                          {spec.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="care" className="bg-surface-container-lowest rounded-xl px-4 border border-outline-variant/30 overflow-hidden shadow-xs">
+                <AccordionTrigger className="py-4 font-serif text-base font-medium text-on-surface hover:no-underline">
+                  <div className="flex items-center gap-2.5 text-left">
+                    <span className="material-symbols-outlined text-primary text-[20px]">spa</span>
+                    <span>Care &amp; Preservation Guides</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 pt-1">
+                  <div className="space-y-3">
+                    {CARE_GUIDELINES.map((care, index) => (
+                      <div key={index} className="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/20">
+                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5 shrink-0">
+                          {care.icon}
+                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-xs font-semibold text-on-surface">
+                            {care.title}
+                          </span>
+                          <span className="text-[11px] text-on-surface-variant leading-relaxed mt-0.5">
+                            {care.desc}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
@@ -1227,6 +1489,36 @@ const ProductDetailPage = () => {
           </div>
         </div>
       )}
+      {/* Sticky Mobile Purchase Bar (Sits immediately above MobileBottomNav at bottom-14) */}
+      <div className="block md:hidden fixed bottom-14 left-0 right-0 z-30 bg-surface/95 backdrop-blur-md px-4 py-2.5 border-t border-border shadow-2xl">
+        <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
+          <div className="flex flex-col min-w-0">
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-headline-sm text-base font-bold text-on-surface truncate">
+                ₹{totalPrice.toLocaleString('en-IN')}
+              </span>
+              {orderQty > 1 && (
+                <span className="text-[11px] text-outline font-medium">
+                  ({orderQty}x)
+                </span>
+              )}
+            </div>
+            <span className="text-[11px] text-primary font-medium truncate flex items-center gap-0.5">
+              <span className="material-symbols-outlined text-[13px]">local_shipping</span>
+              Free Insured Delivery
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleAddToCart}
+            className="h-11 px-5 bg-primary text-on-primary font-sans text-xs uppercase tracking-wider font-semibold rounded-lg shadow-sm active:scale-95 transition-all flex items-center justify-center gap-1.5 shrink-0 touch-manipulation hover:bg-primary/90"
+          >
+            <span className="material-symbols-outlined text-[17px]">shopping_bag</span>
+            <span>Add to Bag</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

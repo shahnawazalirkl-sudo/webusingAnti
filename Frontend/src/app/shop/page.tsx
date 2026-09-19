@@ -406,11 +406,11 @@ const setSearchParams = (params: any) => {};
               </Card>
             ) : (
               <>
-                {/* Responsive Product Grid */}
+                {/* Responsive Product Grid: 2-column standardized on mobile */}
                 <div
-                  className={`grid grid-cols-1 sm:grid-cols-2 ${
-                    gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
-                  } gap-3 sm:gap-4 lg:gap-5`}
+                  className={`grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 ${
+                    gridCols === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+                  }`}
                 >
                   {paginatedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
@@ -442,19 +442,34 @@ const setSearchParams = (params: any) => {};
 
       {/* 4. Mobile Filter Drawer Sheet */}
       <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
-        <SheetContent side="right" className="w-full max-w-xs p-6 overflow-y-auto flex flex-col justify-between">
-          <div>
-            <SheetHeader className="pb-4 border-b border-outline-variant/40 mb-4 text-left pr-6">
-              <SheetTitle className="flex items-center gap-2 text-on-surface">
+        <SheetContent
+          side="right"
+          className="w-full sm:max-w-md p-0 flex flex-col h-full bg-surface text-on-surface border-l border-outline-variant/30 overflow-hidden"
+        >
+          {/* Header */}
+          <SheetHeader className="p-4 sm:p-5 border-b border-outline-variant/30 text-left shrink-0 bg-surface-container-low/50">
+            <div className="flex items-center justify-between pr-8">
+              <SheetTitle className="flex items-center gap-2 text-base font-serif text-on-surface">
                 <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
                 <span>Refine Collection</span>
               </SheetTitle>
-              <SheetDescription className="sr-only">
-                Filter and refine the wedding gift collection
-              </SheetDescription>
-            </SheetHeader>
+              {activeFiltersCount > 0 && (
+                <button
+                  type="button"
+                  onClick={resetAllFilters}
+                  className="text-xs text-primary hover:underline font-bold uppercase tracking-wider"
+                >
+                  Reset ({activeFiltersCount})
+                </button>
+              )}
+            </div>
+            <SheetDescription className="text-xs text-on-surface-variant mt-0.5">
+              Refine by craft technique, recipient, price, or dispatch timeline.
+            </SheetDescription>
+          </SheetHeader>
 
-            {/* Reusable Filter Subcomponent inside Mobile Drawer */}
+          {/* Scrollable Body */}
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5 overscroll-contain">
             <ShopFilters
               searchQuery={searchQuery}
               onSearchChange={(val) => {
@@ -491,23 +506,27 @@ const setSearchParams = (params: any) => {};
               }}
               activeFiltersCount={activeFiltersCount}
               onResetAll={resetAllFilters}
+              hideHeader={true}
             />
           </div>
 
-          {/* Bottom Action Footer */}
-          <div className="pt-4 mt-6 border-t border-outline-variant/30 flex gap-2">
+          {/* Sticky Bottom Action Footer with Apply & Reset */}
+          <div className="p-3 sm:p-4 border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md shrink-0 flex items-center gap-2.5 z-10 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
             <Button
               onClick={resetAllFilters}
               variant="outline"
-              className="flex-1 py-2 text-xs"
+              className="flex-1 h-11 text-xs font-semibold uppercase tracking-wider border-outline-variant/50 touch-manipulation active:scale-98"
             >
-              Clear
+              Reset All
             </Button>
             <Button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="flex-1 py-2 text-xs font-semibold"
+              className="flex-[2] h-11 text-xs font-semibold uppercase tracking-wider bg-primary text-on-primary hover:bg-[#5f4b2d] touch-manipulation active:scale-98 shadow-sm flex items-center justify-center gap-1.5"
             >
-              View {filteredProducts.length} Items
+              <span>Apply Filters</span>
+              <span className="bg-white/20 px-1.5 py-0.5 rounded text-[11px] font-mono">
+                {filteredProducts.length}
+              </span>
             </Button>
           </div>
         </SheetContent>
