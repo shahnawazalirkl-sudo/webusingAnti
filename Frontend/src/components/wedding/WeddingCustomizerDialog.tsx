@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import {
@@ -88,15 +90,15 @@ const WeddingCustomizerDialog = ({
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto p-5 sm:p-6">
         {/* Header with thumbnail */}
         <DialogHeader className="pb-3 border-b border-outline-variant/30 text-left">
-          <div className="flex items-center gap-3">
-            <img
+          <div className="flex items-center gap-3 relative">
+            <Image
               src={product.image || FALLBACK_IMAGE}
               alt={product.title}
               className="w-14 h-14 object-cover rounded-lg bg-surface-container-low border border-outline-variant/30 shrink-0"
               onError={(e) => {
                 (e.target as HTMLImageElement).onerror = null;
                 (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
-              }}
+              }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="flex-1 min-w-0">
               <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">

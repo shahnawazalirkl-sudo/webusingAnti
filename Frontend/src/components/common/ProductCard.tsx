@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -30,10 +31,12 @@ const ProductCard = ({ product, aspectRatio = 'square', className = '' }) => {
       {/* Media Container */}
       <div className={`relative w-full ${aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/5]'} overflow-hidden bg-surface-container-low`}>
         <Link href={productUrl} className="block w-full h-full">
-          <img
+          <Image
             src={product.image}
             alt={product.title}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+            fill
+            sizes="(max-width: 768px) 50vw, 33vw"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
             loading="lazy"
           />
         </Link>

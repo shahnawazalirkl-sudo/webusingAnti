@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { usePathname, useSearchParams } from 'next/navigation';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 
@@ -797,9 +799,9 @@ const setSearchParams = (params: any) => {};
                       <div className="relative w-full aspect-square overflow-hidden bg-surface-container-low">
                         <Link
                           href={`/product/${product.slug || product.id}`}
-                          className="block w-full h-full cursor-pointer"
+                          className="block w-full h-full cursor-pointer relative"
                         >
-                          <img
+                          <Image
                             alt={product.title}
                             src={product.image || FALLBACK_IMAGE}
                                   onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -807,7 +809,7 @@ const setSearchParams = (params: any) => {};
                                     (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
                                   }}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                            loading="lazy"
+                            loading="lazy" fill sizes="(max-width: 768px) 100vw, 50vw"
                           />
                         </Link>
 
