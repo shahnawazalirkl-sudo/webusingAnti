@@ -1,14 +1,11 @@
 "use client";
-import Image from "next/image";
-
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-
+import { usePathname, useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import LocationModal from '../ui/LocationModal';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
 
 const Header = () => {
   const { itemCount, openCartDrawer } = useCart();
@@ -17,21 +14,28 @@ const Header = () => {
   const [deliveryCity, setDeliveryCity] = useState('Select Location');
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const navigate = useRouter();
   const location = usePathname();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setIsMobileSearchOpen(false);
+  }, [location]);
+
   const isActive = (path: string) => location === path;
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
       setMobileMenuOpen(false);
+      setIsMobileSearchOpen(false);
     }
   };
 
@@ -39,13 +43,13 @@ const Header = () => {
     <>
       <header className="fixed top-0 left-0 right-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
         {/* Top Announcement Bar - Streamlined & Focused */}
-        <div className="bg-inverse-surface text-inverse-on-surface py-1.5 px-margin text-xs">
+        <div className="bg-inverse-surface text-inverse-on-surface py-1.5 px-3 sm:px-6 lg:px-margin text-xs">
           <div className="max-w-[1360px] mx-auto flex items-center justify-between">
             <div className="hidden lg:flex items-center gap-2 text-surface-container-high font-medium">
               <span className="material-symbols-outlined text-[15px] text-primary-fixed-dim">verified</span>
               <span>Luxury Custom &amp; Handcrafted Keepsakes</span>
             </div>
-            <p className="font-label-sm text-xs tracking-wider text-primary-fixed-dim mx-auto lg:mx-0 text-center font-medium">
+            <p className="font-label-sm text-[11px] sm:text-xs tracking-wider text-primary-fixed-dim mx-auto lg:mx-0 text-center font-medium truncate sm:whitespace-normal">
               Complimentary Luxury Gift Box on Orders Above ₹2,499 | Use Code:{' '}
               <span className="text-white font-bold tracking-normal underline decoration-primary underline-offset-2">ASRAFIRST</span>
             </p>
@@ -63,17 +67,17 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Main Header Bar - Reduced Height from h-20 to h-16 for modern sleek look */}
-        <div className="max-w-[1360px] mx-auto px-margin">
-          <div className="h-16 flex items-center justify-between gap-space-md">
+        {/* Main Header Bar - Compact & Sleek */}
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-margin">
+          <div className="h-14 md:h-16 flex items-center justify-between gap-2 md:gap-space-md">
             
             {/* Logo & Delivery Location */}
-            <div className="flex items-center gap-space-md md:gap-space-lg shrink-0">
-              <Link href="/" className="group flex flex-col items-start relative">
-                <Image
+            <div className="flex items-center gap-2 sm:gap-space-md md:gap-space-lg shrink-0">
+              <Link href="/" className="group flex flex-col items-start">
+                <img
                   src="/assets/cdn/img_c432d69126c7.png"
                   alt="ASRA Wedding Canvas"
-                  className="h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-90" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
+                  className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-opacity duration-300 hover:opacity-90"
                 />
               </Link>
 
@@ -94,7 +98,7 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Global Search Bar */}
+            {/* Global Search Bar (Desktop) */}
             <div className="flex-1 max-w-md mx-2 md:mx-4 hidden md:block">
               <form onSubmit={handleSearchSubmit} className="relative flex items-center">
                 <span className="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[18px]">
@@ -118,15 +122,29 @@ const Header = () => {
             </div>
 
             {/* Right Header Navigation */}
-            <div className="flex items-center gap-2 md:gap-4 shrink-0 justify-end">
+            <div className="flex items-center gap-1 sm:gap-2 md:gap-4 shrink-0 justify-end">
+              {/* Mobile Quick Search Button */}
+              <button
+                type="button"
+                onClick={() => setIsMobileSearchOpen((prev) => !prev)}
+                className="md:hidden flex items-center justify-center w-10 h-10 text-on-surface hover:text-primary rounded-full hover:bg-surface-container-low transition-colors"
+                aria-label="Search"
+                title="Search"
+              >
+                <span className="material-symbols-outlined text-[22px]">
+                  {isMobileSearchOpen ? 'close' : 'search'}
+                </span>
+              </button>
+
+              {/* Desktop Wishlist Button */}
               <Link
                 href="/wishlist"
-                className="relative flex items-center justify-center p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors"
+                className="hidden md:flex relative items-center justify-center p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors"
                 title="Saved Wishlist"
               >
                 <span className="material-symbols-outlined text-[22px]">favorite_border</span>
                 {mounted && wishlistCount > 0 && (
-                  <span className="absolute 0 top-0.5 right-0.5 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold">
+                  <span className="absolute top-0.5 right-0.5 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold">
                     {wishlistCount}
                   </span>
                 )}
@@ -136,13 +154,14 @@ const Header = () => {
               <button
                 type="button"
                 onClick={openCartDrawer}
-                className="flex items-center gap-1.5 p-1.5 px-2.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface transition-colors border border-outline-variant/40"
+                className="flex items-center gap-1.5 p-1.5 px-2.5 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface transition-colors border border-outline-variant/40 touch-manipulation"
                 title="View Cart"
+                aria-label="View Cart"
               >
                 <div className="relative flex items-center justify-center">
                   <span className="material-symbols-outlined text-[20px]">shopping_cart</span>
                   {mounted && itemCount > 0 && (
-                    <span className="absolute -top-1 -right-2 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold">
+                    <span className="absolute -top-1 -right-2 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold leading-none">
                       {itemCount}
                     </span>
                   )}
@@ -150,30 +169,55 @@ const Header = () => {
                 <span className="hidden sm:inline font-label-md text-xs font-semibold">Cart</span>
               </button>
 
+              {/* Desktop Account Button */}
               <Link
                 href="/client-portal"
                 aria-label="My Account & Orders"
                 title="My Account"
-                className="p-2 rounded-full hover:bg-surface-container-low text-on-surface hover:text-primary inline-flex items-center justify-center shrink-0 transition-colors"
+                className="hidden md:inline-flex p-2 rounded-full hover:bg-surface-container-low text-on-surface hover:text-primary items-center justify-center shrink-0 transition-colors"
               >
                 <span className="material-symbols-outlined text-[22px]">account_circle</span>
               </Link>
 
-              {/* Mobile Burger Toggle */}
+              {/* Mobile Burger Toggle Button */}
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-1 text-on-surface hover:text-primary"
-                aria-label="Toggle Navigation Menu"
+                onClick={() => setMobileMenuOpen(true)}
+                className="md:hidden flex items-center justify-center w-10 h-10 text-on-surface hover:text-primary rounded-full hover:bg-surface-container-low transition-colors touch-manipulation"
+                aria-label="Open Navigation Menu"
               >
-                <span className="material-symbols-outlined text-[26px]">
-                  {mobileMenuOpen ? 'close' : 'menu'}
-                </span>
+                <span className="material-symbols-outlined text-[24px]">menu</span>
               </button>
             </div>
 
           </div>
         </div>
+
+        {/* Mobile Expandable Quick Search Bar */}
+        {isMobileSearchOpen && (
+          <div className="md:hidden px-4 py-2.5 bg-surface-container-lowest border-t border-outline-variant/30 animate-in fade-in-0 slide-in-from-top-2 duration-200 shadow-sm">
+            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
+              <span className="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[18px]">
+                search
+              </span>
+              <input
+                type="search"
+                autoFocus
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search personalized gifts, hampers..."
+                className="w-full bg-surface-container-low text-on-surface placeholder:text-outline text-xs pl-9 pr-16 py-2 rounded-full border border-outline-variant/50 focus:border-primary focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner"
+              />
+              <button
+                type="submit"
+                aria-label="Search"
+                className="absolute right-1 px-3 py-1 bg-primary text-on-primary hover:bg-primary/90 rounded-full flex items-center gap-1 font-label-sm text-[11px] font-medium transition-all"
+              >
+                <span>Search</span>
+              </button>
+            </form>
+          </div>
+        )}
 
         {/* Secondary Navigation Menu with Refined Mega Dropdowns - Ultra Compact */}
         <div className="border-t border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md hidden md:block shadow-sm">
@@ -687,62 +731,267 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-surface-container-lowest border-b border-outline-variant/60 px-5 py-4 space-y-4 max-h-[80vh] overflow-y-auto shadow-2xl">
-            <form onSubmit={handleSearchSubmit} className="relative">
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search gifts, keepsakes, hampers..."
-                className="w-full bg-surface-container-low text-xs px-3.5 py-2 rounded-lg border border-outline-variant/60 focus:outline-none"
-              />
-            </form>
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetContent
+            side="left"
+            className="w-[85vw] max-w-[340px] p-0 flex flex-col justify-between bg-surface-container-lowest border-r border-outline-variant/40 shadow-2xl z-50 h-full"
+          >
+            {/* Drawer Header */}
+            <div className="p-4 border-b border-outline-variant/30 flex items-center justify-between pr-12">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex flex-col items-start">
+                <img
+                  src="/assets/cdn/img_c432d69126c7.png"
+                  alt="ASRA Wedding Canvas"
+                  className="h-8 w-auto object-contain"
+                />
+                <span className="font-label-sm text-[9px] text-primary tracking-[0.2em] uppercase font-semibold mt-1">
+                  Artisanal Keepsakes
+                </span>
+              </Link>
+            </div>
 
-            <div className="flex flex-col gap-2.5 text-xs font-medium tracking-wide text-on-surface divide-y divide-outline-variant/20">
-              <div className="flex flex-col gap-2 pt-1">
-                <Link href="/client-portal" onClick={() => setMobileMenuOpen(false)} className={`py-1 flex items-center justify-between ${isActive('/client-portal') ? 'text-primary font-bold' : 'hover:text-primary'}`}>
-                  <span className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[18px]">account_circle</span>
-                    <span>My Account &amp; Vault</span>
-                  </span>
-                  <span className="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-semibold">Portal</span>
+            {/* Drawer Scrollable Content */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+              {/* Search Input in Drawer */}
+              <form onSubmit={handleSearchSubmit} className="relative">
+                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">
+                  search
+                </span>
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search gifts, keepsakes, hampers..."
+                  className="w-full bg-surface-container-low text-xs pl-9 pr-14 py-2.5 rounded-lg border border-outline-variant/50 focus:outline-none focus:border-primary text-on-surface"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-primary text-on-primary text-[10px] font-semibold rounded-md uppercase"
+                >
+                  Go
+                </button>
+              </form>
+
+              {/* Quick Patron Links */}
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/client-portal"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`p-2.5 rounded-lg border flex items-center gap-2 transition-colors ${
+                    isActive('/client-portal')
+                      ? 'bg-primary/10 border-primary/40 text-primary'
+                      : 'bg-surface-container-low hover:bg-surface-container border-outline-variant/30 text-on-surface'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[20px] text-primary">account_circle</span>
+                  <div className="flex flex-col">
+                    <span className="text-[11px] font-semibold">Client Portal</span>
+                    <span className="text-[9px] text-outline">Orders &amp; Vault</span>
+                  </div>
                 </Link>
-                <Link href="/track-order" onClick={() => setMobileMenuOpen(false)} className={`py-1 flex items-center gap-2 ${isActive('/track-order') ? 'text-primary font-bold' : 'hover:text-primary'}`}>
-                  <span className="material-symbols-outlined text-[18px]">local_shipping</span>
-                  <span>Track My Order</span>
-                </Link>
-                <Link href="/wishlist" onClick={() => setMobileMenuOpen(false)} className={`py-1 flex items-center justify-between ${isActive('/wishlist') ? 'text-primary font-bold' : 'hover:text-primary'}`}>
-                  <span className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[18px]">favorite</span>
-                    <span>My Saved Gifts</span>
-                  </span>
-                  {mounted && wishlistCount > 0 && (
-                    <span className="text-[10px] bg-primary text-on-primary px-1.5 py-0.2 rounded-full font-bold">{wishlistCount}</span>
-                  )}
+                <Link
+                  href="/track-order"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`p-2.5 rounded-lg border flex items-center gap-2 transition-colors ${
+                    isActive('/track-order')
+                      ? 'bg-primary/10 border-primary/40 text-primary'
+                      : 'bg-surface-container-low hover:bg-surface-container border-outline-variant/30 text-on-surface'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-[20px] text-primary">local_shipping</span>
+                  <div className="flex flex-col">
+                    <span className="text-[11px] font-semibold">Track Order</span>
+                    <span className="text-[9px] text-outline">GPS Transit</span>
+                  </div>
                 </Link>
               </div>
 
-              <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[10px] uppercase font-bold text-outline tracking-widest">Collections &amp; Gifts</span>
-                <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/shop') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Shop All Collections</Link>
-                <Link href="/personalized" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/personalized') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Personalized Gifts</Link>
-                <Link href="/wedding-keepsakes" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/wedding-keepsakes') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Wedding Keepsakes &amp; Favors</Link>
-                <Link href="/collections" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/collections') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Signature Collections</Link>
-                <Link href="/bespoke" onClick={() => setMobileMenuOpen(false)} className={`py-1 font-semibold text-primary hover:underline`}>Your Idea → We Create</Link>
-                <Link href="/bulk-orders" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/bulk-orders') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Bulk Orders &amp; Corporate</Link>
-                <Link href="/offers" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/offers') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Offers &amp; Discounts</Link>
-              </div>
+              {/* Nav Sections */}
+              <div className="flex flex-col gap-3 text-xs font-medium tracking-wide divide-y divide-outline-variant/20">
+                <div className="flex flex-col gap-1 pt-1">
+                  <span className="text-[10px] uppercase font-bold text-outline tracking-widest px-1 mb-1">
+                    Collections &amp; Gifts
+                  </span>
+                  <Link
+                    href="/shop"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/shop')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">storefront</span>
+                      <span>Shop All Collections</span>
+                    </span>
+                    <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                  </Link>
+                  <Link
+                    href="/personalized"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/personalized')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">brush</span>
+                      <span>Personalized Keepsakes</span>
+                    </span>
+                    <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                  </Link>
+                  <Link
+                    href="/wedding-keepsakes"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/wedding-keepsakes')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">celebration</span>
+                      <span>Wedding Keepsakes &amp; Favors</span>
+                    </span>
+                    <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                  </Link>
+                  <Link
+                    href="/collections"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/collections')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">collections_bookmark</span>
+                      <span>Signature Collections</span>
+                    </span>
+                    <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                  </Link>
+                  <Link
+                    href="/bespoke"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/bespoke')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">design_services</span>
+                      <span className="font-semibold text-primary">Your Idea → We Create</span>
+                    </span>
+                    <span className="text-[9px] uppercase font-bold bg-primary/15 text-primary px-1.5 py-0.5 rounded">Custom</span>
+                  </Link>
+                  <Link
+                    href="/bulk-orders"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/bulk-orders')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">corporate_fare</span>
+                      <span>Bulk &amp; Corporate Gifting</span>
+                    </span>
+                    <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                  </Link>
+                  <Link
+                    href="/offers"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center justify-between ${
+                      isActive('/offers')
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px] text-primary">local_offer</span>
+                      <span>Privilege Offers &amp; Deals</span>
+                    </span>
+                    <span className="text-[9px] uppercase font-bold bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded">Deals</span>
+                  </Link>
+                </div>
 
-              <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[10px] uppercase font-bold text-outline tracking-widest">Support &amp; Help</span>
-                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/about') ? 'text-primary font-bold' : 'hover:text-primary'}`}>About ASRA</Link>
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/contact') ? 'text-primary font-bold' : 'hover:text-primary'}`}>Contact &amp; Showrooms</Link>
-                <Link href="/faq" onClick={() => setMobileMenuOpen(false)} className={`py-1 ${isActive('/faq') ? 'text-primary font-bold' : 'hover:text-primary'}`}>FAQ &amp; Care Guides</Link>
+                <div className="flex flex-col gap-1 pt-3">
+                  <span className="text-[10px] uppercase font-bold text-outline tracking-widest px-1 mb-1">
+                    Atelier &amp; Concierge
+                  </span>
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center gap-2.5 ${
+                      isActive('/about') ? 'bg-primary/10 text-primary font-bold' : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[18px] text-primary">history_edu</span>
+                    <span>About Our Atelier</span>
+                  </Link>
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center gap-2.5 ${
+                      isActive('/contact') ? 'bg-primary/10 text-primary font-bold' : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[18px] text-primary">pin_drop</span>
+                    <span>Showrooms &amp; Salons</span>
+                  </Link>
+                  <Link
+                    href="/faq"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-2 rounded-md flex items-center gap-2.5 ${
+                      isActive('/faq') ? 'bg-primary/10 text-primary font-bold' : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[18px] text-primary">help</span>
+                    <span>FAQ &amp; Care Guides</span>
+                  </Link>
+                  <a
+                    href="https://wa.me/919692668263"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-2 px-2 rounded-md flex items-center gap-2.5 text-on-surface hover:bg-surface-container-low hover:text-primary"
+                  >
+                    <span className="material-symbols-outlined text-[18px] text-emerald-600">chat</span>
+                    <span>WhatsApp Concierge (24/7)</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+
+            {/* Drawer Footer */}
+            <div className="p-4 border-t border-outline-variant/30 bg-surface-container-low space-y-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsLocationModalOpen(true);
+                }}
+                className="w-full flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:text-primary transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px] text-primary">location_on</span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[9px] text-outline uppercase tracking-wider">Deliver to</span>
+                    <span className="font-semibold text-xs truncate max-w-[150px]">{deliveryCity}</span>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+              </button>
+              <p className="text-[10px] text-outline text-center tracking-wide">
+                Complimentary gift box on orders above ₹2,499
+              </p>
+            </div>
+          </SheetContent>
+        </Sheet>
       </header>
 
       {/* Location Modal */}

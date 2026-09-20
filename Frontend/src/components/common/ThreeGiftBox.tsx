@@ -147,12 +147,12 @@ const ThreeGiftBox = () => {
     let targetRotationY = 0.2;
     let targetRotationX = 0.05;
 
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: MouseEvent) => {
       isDragging = true;
       previousMouseX = e.clientX;
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (isDragging) {
         const deltaX = e.clientX - previousMouseX;
         targetRotationY += deltaX * 0.01;
@@ -164,14 +164,36 @@ const ThreeGiftBox = () => {
       isDragging = false;
     };
 
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        previousMouseX = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging && e.touches.length === 1) {
+        const deltaX = e.touches[0].clientX - previousMouseX;
+        targetRotationY += deltaX * 0.01;
+        previousMouseX = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isDragging = false;
+    };
+
     const domEl = renderer.domElement;
     domEl.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
+    domEl.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd);
 
     // Animation Loop
     const clock = new THREE.Clock();
-    let animId;
+    let animId: number;
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
@@ -210,6 +232,9 @@ const ThreeGiftBox = () => {
       domEl.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
+      domEl.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('resize', handleResize);
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);
@@ -219,10 +244,10 @@ const ThreeGiftBox = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[380px] sm:min-h-[440px] flex items-center justify-center cursor-grab active:cursor-grabbing">
+    <div className="relative w-full h-full min-h-0 flex items-center justify-center cursor-grab active:cursor-grabbing overflow-hidden">
       <div ref={mountRef} className="w-full h-full" style={{ touchAction: 'none' }} />
-      <div className="absolute bottom-3 right-4 pointer-events-none bg-surface-container-lowest/80 backdrop-blur-sm px-2.5 py-1 rounded-full border border-outline-variant/40 flex items-center gap-1.5 text-[11px] text-primary font-medium">
-        <span className="material-symbols-outlined text-[14px]">3d_rotation</span>
+      <div className="absolute bottom-2.5 right-3 pointer-events-none bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-outline-variant/40 flex items-center gap-1.5 text-[10px] sm:text-[11px] text-primary font-medium shadow-xs">
+        <span className="material-symbols-outlined text-[13px] sm:text-[14px]">3d_rotation</span>
         <span>Drag to rotate 3D box</span>
       </div>
     </div>

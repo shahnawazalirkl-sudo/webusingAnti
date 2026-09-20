@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-
 import { usePathname, useSearchParams } from 'next/navigation';
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -314,8 +312,8 @@ const setSearchParams = (params: any) => {};
             </section>
 
             {/* Filter Bar / Quick Category Chips using Badges & Buttons */}
-            <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="collections-tab-bar">
+            <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
+              <div className="flex items-center gap-2 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 -mx-1 px-1 touch-pan-x" id="collections-tab-bar">
                 {CATEGORIES.map((category) => {
                   const isActive = selectedCategory === category;
                   const label = category === 'All Collections' ? `All Collections (${COLLECTIONS_DATA.length})` : category;
@@ -333,10 +331,10 @@ const setSearchParams = (params: any) => {};
                           setSearchParams({ category: slug || category });
                         }
                       }}
-                      className={`px-4 py-2 rounded-full text-xs whitespace-nowrap transition-all duration-300 cursor-pointer font-medium ${
+                      className={`snap-start shrink-0 min-h-[38px] px-4 py-2 rounded-full text-xs whitespace-nowrap transition-all duration-300 cursor-pointer font-medium touch-manipulation active:scale-95 ${
                         isActive
-                          ? 'bg-primary text-on-primary shadow-xs font-semibold'
-                          : 'bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                          ? 'bg-primary text-on-primary shadow-xs font-semibold ring-1 ring-primary/50'
+                          : 'bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30'
                       }`}
                     >
                       {label}
@@ -347,18 +345,18 @@ const setSearchParams = (params: any) => {};
             </section>
 
             {/* Top Featured Spotlight Banner: The Sovereign Bridal & Wedding Essentials Suite */}
-            <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
-              <Card className="border-outline-variant/30 bg-surface-container-lowest shadow-xs overflow-hidden flex flex-col lg:flex-row items-stretch p-0">
+            <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+              <Card className="border-outline-variant/30 bg-surface-container-lowest shadow-xs overflow-hidden flex flex-col lg:flex-row items-stretch p-0 rounded-2xl">
                 {/* Left Visual Side with Official Hamper Asset */}
-                <div className="lg:w-7/12 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[480px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
-                  <Image
+                <div className="lg:w-7/12 relative min-h-[280px] sm:min-h-[380px] lg:min-h-[480px] bg-surface-container-low flex items-center justify-center overflow-hidden group">
+                  <img
                     src="/assets/cdn/img_eafddfa4ed3e.jpg"
                     alt="The Sovereign Bridal and Wedding Essentials Suite Luxury Hamper by ASRA Wedding Canvas"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent lg:hidden" />
                   <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                    <Badge variant="gold" className="gap-1.5 font-bold uppercase tracking-wider text-[10px]">
+                    <Badge variant="gold" className="gap-1.5 font-bold uppercase tracking-wider text-[10px] shadow-xs">
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                       <span>Featured Masterpiece</span>
                     </Badge>
@@ -366,7 +364,7 @@ const setSearchParams = (params: any) => {};
                 </div>
 
                 {/* Right Content Spec Sheet */}
-                <div className="lg:w-5/12 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-surface-container-lowest relative z-10">
+                <div className="lg:w-5/12 p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-surface-container-lowest relative z-10">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-primary">
@@ -376,15 +374,15 @@ const setSearchParams = (params: any) => {};
                         18 Gifts Included
                       </Badge>
                     </div>
-                    <h2 className="font-serif text-2xl sm:text-3xl font-normal leading-tight text-on-surface mb-3">
+                    <h2 className="font-serif text-xl sm:text-3xl font-normal leading-tight text-on-surface mb-2.5 sm:mb-3">
                       The Sovereign Bridal &amp; Wedding Essentials Suite
                     </h2>
-                    <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-5 sm:mb-6">
                       An opulent symphony of hand-embossed blush wedding essentials cases, artisanal Eau de Parfum, golden Ferrero confections, organic soy candle, silk scrunchie, and our signature ASRA golden ribbon insignia. Crafted specifically for unforgettable wedding essentials and morning-of-wedding reveals.
                     </p>
 
                     {/* Inclusions Bullet Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6">
                       <div className="flex items-start gap-2">
                         <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">diamond</span>
                         <span className="text-xs text-on-surface font-medium">24k Gilded Custom Initials</span>
@@ -407,17 +405,17 @@ const setSearchParams = (params: any) => {};
                   {/* Bottom Action & Valuation */}
                   <div>
                     <Separator className="mb-4" />
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                       <div>
-                        <span className="text-[10px] uppercase tracking-wider text-outline block">Curated Suite From</span>
+                        <span className="text-[10px] uppercase tracking-wider text-outline block font-medium">Curated Suite From</span>
                         <div className="flex items-baseline gap-2">
                           <span className="font-bold text-lg text-on-surface">₹7,499</span>
                           <span className="line-through text-outline text-xs">₹9,800</span>
                           <span className="text-emerald-700 font-semibold text-xs">(23% OFF)</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Button asChild size="default" className="flex-1 sm:flex-initial">
+                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                        <Button asChild size="default" className="flex-1 sm:flex-initial h-11 min-h-[44px] px-5 text-xs font-semibold uppercase tracking-wider touch-manipulation active:scale-98">
                           <Link href="/product/sovereign-bridal-suite">
                             <span>Explore Collection</span>
                             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -430,6 +428,7 @@ const setSearchParams = (params: any) => {};
                               size="icon"
                               onClick={handleBookmarkSovereign}
                               aria-label={isSovereignBookmarked ? "Remove from Wishlist" : "Bookmark Suite"}
+                              className="h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation shrink-0"
                             >
                               <span
                                 className={`material-symbols-outlined text-[18px] transition-colors ${
@@ -471,51 +470,51 @@ const setSearchParams = (params: any) => {};
                 </p>
               </div>
 
-              {/* Bento Grid / Card Matrix */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+              {/* Bento Grid / Card Matrix: Adapts cleanly from 1-col to 2-col to 4-col */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-5">
                 {filteredCollections.map((item) => (
                   <Card
                     key={item.id}
-                    className="border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col group p-0"
+                    className="border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 overflow-hidden flex flex-col group p-0 rounded-xl"
                   >
-                    <div className="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                      <Image
+                    <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] bg-surface-container-low overflow-hidden">
+                      <img
                         src={item.image}
                         alt={item.imageAlt || item.title}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" fill sizes="(max-width: 768px) 100vw, 50vw"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
-                      <div className="absolute top-3 left-3">
-                        <Badge variant="gold" className="text-[10px] font-bold uppercase tracking-wider">
+                      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3">
+                        <Badge variant="gold" className="text-[10px] font-bold uppercase tracking-wider shadow-xs">
                           {item.count}
                         </Badge>
                       </div>
-                      <div className="absolute bottom-3 right-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded text-[10px] uppercase tracking-wider font-semibold">
+                      <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded text-[10px] uppercase tracking-wider font-semibold">
                         {item.tag}
                       </div>
                     </div>
 
-                    <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                    <CardContent className="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-3">
                       <div>
-                        <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface group-hover:text-primary transition-colors mb-1">
+                        <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface group-hover:text-primary transition-colors mb-1.5 line-clamp-2">
                           {item.title}
                         </h3>
-                        <p className="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+                        <p className="text-xs text-on-surface-variant line-clamp-2 sm:line-clamp-3 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
 
                       <div>
                         <Separator className="mb-3" />
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between gap-2">
                           <div>
-                            <span className="text-[10px] uppercase tracking-wider text-outline block">From</span>
-                            <span className="font-bold text-sm text-on-surface">{item.price}</span>
+                            <span className="text-[10px] uppercase tracking-wider text-outline block font-medium">From</span>
+                            <span className="font-bold text-sm sm:text-base text-on-surface">{item.price}</span>
                           </div>
-                          <Button asChild variant="outline" size="sm" className="gap-1">
+                          <Button asChild variant="outline" size="sm" className="gap-1 h-10 min-h-[40px] px-3.5 text-xs font-semibold uppercase tracking-wider rounded-lg touch-manipulation active:scale-95 border-outline-variant/50 hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
                             <Link href={item.link}>
                               <span>Discover</span>
-                              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                             </Link>
                           </Button>
                         </div>
@@ -587,7 +586,7 @@ const setSearchParams = (params: any) => {};
                     </CardHeader>
                     <form className="space-y-4" onSubmit={handleFormSubmit}>
                       <div className="space-y-1.5">
-                        <Label htmlFor="support-name">Your Full Name</Label>
+                        <Label htmlFor="support-name" className="text-xs font-semibold">Your Full Name</Label>
                         <Input
                           id="support-name"
                           name="fullName"
@@ -596,12 +595,13 @@ const setSearchParams = (params: any) => {};
                           placeholder="e.g. Asra Ansari"
                           required
                           type="text"
+                          className="h-11 min-h-[44px] text-sm touch-manipulation"
                         />
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <Label htmlFor="support-phone">Phone / WhatsApp</Label>
+                          <Label htmlFor="support-phone" className="text-xs font-semibold">Phone / WhatsApp</Label>
                           <Input
                             id="support-phone"
                             name="phone"
@@ -610,10 +610,11 @@ const setSearchParams = (params: any) => {};
                             placeholder="+91 96926 68263"
                             required
                             type="tel"
+                            className="h-11 min-h-[44px] text-sm touch-manipulation"
                           />
                         </div>
                         <div className="space-y-1.5">
-                          <Label htmlFor="support-guests">Expected Guests / Units</Label>
+                          <Label htmlFor="support-guests" className="text-xs font-semibold">Expected Guests / Units</Label>
                           <Input
                             id="support-guests"
                             name="guests"
@@ -621,23 +622,25 @@ const setSearchParams = (params: any) => {};
                             onChange={handleFormChange}
                             placeholder="50 - 500"
                             type="number"
+                            className="h-11 min-h-[44px] text-sm touch-manipulation"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-1.5">
-                        <Label htmlFor="support-date">Target Wedding / Event Date</Label>
+                        <Label htmlFor="support-date" className="text-xs font-semibold">Target Wedding / Event Date</Label>
                         <Input
                           id="support-date"
                           name="eventDate"
                           value={formData.eventDate}
                           onChange={handleFormChange}
                           type="date"
+                          className="h-11 min-h-[44px] text-sm touch-manipulation"
                         />
                       </div>
 
                       <Button
-                        className="w-full mt-2"
+                        className="w-full h-12 min-h-[48px] text-xs font-semibold uppercase tracking-wider touch-manipulation active:scale-98 mt-2"
                         type="submit"
                         disabled={isSubmitting}
                       >
