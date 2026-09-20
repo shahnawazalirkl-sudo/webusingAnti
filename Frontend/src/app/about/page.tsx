@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useState } from 'react';
 
 import {
-  Sparkles,
   Feather,
   ShieldCheck,
   Layers,
@@ -329,7 +328,7 @@ const AboutUsPage = () => {
               </CardHeader>
               <CardContent className="p-5 sm:p-6 pt-0">
                 <p className="text-xs text-gray-600 leading-relaxed font-light">
-                  Fully insured, shock-cushioned and climate-stabilized transit across 40+ countries. Direct suite &amp; ballroom delivery for royal destination weddings.
+                  Fully insured, shock-cushioned and climate-stabilized delivery across 40+ countries. Direct suite &amp; ballroom delivery for royal destination weddings.
                 </p>
               </CardContent>
               <CardFooter className="p-5 sm:p-6 pt-3 border-t border-asra-border/60">

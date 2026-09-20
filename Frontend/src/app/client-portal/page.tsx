@@ -244,7 +244,7 @@ const ClientPortalContent = () => {
 
           <div className="flex items-center space-x-6 text-[11px] tracking-wider uppercase">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy & Security</Link>
-            <Link href="/return-policy" className="hover:text-primary transition-colors">Transit Guarantees</Link>
+            <Link href="/return-policy" className="hover:text-primary transition-colors">Delivery Guarantees</Link>
             <Link href="/contact" className="hover:text-primary transition-colors">Contact Concierge</Link>
           </div>
         </div>

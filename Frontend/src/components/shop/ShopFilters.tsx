@@ -13,31 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-interface ShopFiltersProps {
-  searchQuery: string;
-  onSearchChange: (val: string) => void;
-  selectedProductTypes: string[];
-  onToggleProductType: (cat: string) => void;
-  productTypeOptions: Array<{ id: string; label: string; category: string }>;
-  productsList: any[];
-  selectedPriceRange: string;
-  onSelectPriceRange: (val: string) => void;
-  selectedRecipient: string;
-  onSelectRecipient: (val: string) => void;
-  recipientOptions: string[];
-  selectedOccasions: string[];
-  onToggleOccasion: (occ: string) => void;
-  occasionOptions: string[];
-  selectedPersonalization: string;
-  onSelectPersonalization: (val: string) => void;
-  selectedDispatch: string;
-  onSelectDispatch: (val: string) => void;
-  activeFiltersCount: number;
-  onResetAll: () => void;
-  hideHeader?: boolean;
-}
-
-const ShopFilters: React.FC<ShopFiltersProps> = ({
+const ShopFilters = ({
   searchQuery,
   onSearchChange,
   selectedProductTypes,
@@ -58,29 +34,26 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
   onSelectDispatch,
   activeFiltersCount,
   onResetAll,
-  hideHeader = false,
 }) => {
   return (
-    <div className="flex flex-col gap-4 sm:gap-5">
-      {/* Header with Title and Reset (hidden in drawer to avoid duplicate header) */}
-      {!hideHeader && (
-        <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
-          <div className="flex items-center gap-1.5 text-on-surface">
-            <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
-            <span className="font-serif text-base font-semibold tracking-wide">Refine Collection</span>
-          </div>
-          {activeFiltersCount > 0 && (
-            <Button
-              onClick={onResetAll}
-              variant="ghost"
-              size="sm"
-              className="h-auto p-0 text-[11px] text-primary uppercase tracking-wider font-bold hover:bg-transparent hover:underline"
-            >
-              Reset
-            </Button>
-          )}
+    <div className="flex flex-col gap-5">
+      {/* Header with Title and Reset */}
+      <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+        <div className="flex items-center gap-1.5 text-on-surface">
+          <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
+          <span className="font-serif text-base font-semibold tracking-wide">Refine Collection</span>
         </div>
-      )}
+        {activeFiltersCount > 0 && (
+          <Button
+            onClick={onResetAll}
+            variant="ghost"
+            size="sm"
+            className="h-auto p-0 text-[11px] text-primary uppercase tracking-wider font-bold hover:bg-transparent hover:underline"
+          >
+            Reset
+          </Button>
+        )}
+      </div>
 
       {/* Keyword Search */}
       <div>
@@ -118,28 +91,26 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-2.5">
               {productTypeOptions.map((type) => {
                 const isChecked = selectedProductTypes.includes(type.category);
                 const count = productsList.filter((p) => p.category === type.category).length;
                 return (
                   <div
                     key={type.id}
-                    onClick={() => onToggleProductType(type.category)}
-                    className="flex items-center justify-between cursor-pointer group select-none py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface-container-low transition-colors touch-manipulation min-h-[36px]"
+                    className="flex items-center justify-between group select-none py-0.5"
                   >
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <Checkbox
                         checked={isChecked}
                         onCheckedChange={() => onToggleProductType(type.category)}
                         id={`type-${type.id}`}
-                        className="w-4 h-4"
                       />
-                      <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                      <label htmlFor={`type-${type.id}`} className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors cursor-pointer">
                         {type.label}
-                      </span>
+                      </label>
                     </div>
-                    <span className="font-label-sm text-[11px] text-outline font-mono">{count}</span>
+                    <span className="font-label-sm text-[11px] text-outline">{count}</span>
                   </div>
                 );
               })}
@@ -162,7 +133,7 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-1.5">
               {[
                 { id: 'under-1000', label: 'Under ₹1,000' },
                 { id: '1000-2500', label: '₹1K – ₹2.5K' },
@@ -174,11 +145,12 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
                   <button
                     key={range.id}
                     type="button"
+                    aria-pressed={isActive}
                     onClick={() => onSelectPriceRange(isActive ? 'all' : range.id)}
-                    className={`px-3 py-2.5 rounded-lg text-center text-xs transition-all font-medium cursor-pointer touch-manipulation min-h-[40px] active:scale-95 ${
+                    className={`px-2 py-1.5 rounded-lg text-center text-xs transition-colors font-medium cursor-pointer ${
                       isActive
-                        ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30 shadow-xs'
-                        : 'bg-surface-container-low hover:bg-secondary-container/40 text-on-surface border border-transparent'
+                        ? 'bg-secondary-container text-on-secondary-container font-bold border border-secondary/30'
+                        : 'bg-surface-container-low hover:bg-secondary-container/40 text-on-surface'
                     }`}
                   >
                     {range.label}
@@ -204,18 +176,19 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {recipientOptions.map((rec) => {
                 const isSelected = selectedRecipient === rec;
                 return (
                   <button
                     key={rec}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => onSelectRecipient(isSelected ? 'all' : rec)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-label-sm transition-all cursor-pointer touch-manipulation min-h-[36px] active:scale-95 ${
+                    className={`px-2.5 py-1 rounded-full text-xs font-label-sm transition-colors cursor-pointer ${
                       isSelected
                         ? 'bg-primary text-on-primary font-semibold shadow-xs'
-                        : 'bg-surface-container-low text-on-surface hover:bg-primary-fixed border border-outline-variant/30'
+                        : 'bg-surface-container-low text-on-surface hover:bg-primary-fixed'
                     }`}
                   >
                     {rec}
@@ -241,24 +214,22 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-2.5">
               {occasionOptions.map((occ) => {
                 const isChecked = selectedOccasions.includes(occ);
                 return (
                   <div
                     key={occ}
-                    onClick={() => onToggleOccasion(occ)}
-                    className="flex items-center gap-2.5 cursor-pointer group select-none py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface-container-low transition-colors touch-manipulation min-h-[36px]"
+                    className="flex items-center gap-2 group select-none py-0.5"
                   >
                     <Checkbox
                       checked={isChecked}
                       onCheckedChange={() => onToggleOccasion(occ)}
                       id={`occ-${occ}`}
-                      className="w-4 h-4"
                     />
-                    <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                    <label htmlFor={`occ-${occ}`} className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors cursor-pointer">
                       {occ}
-                    </span>
+                    </label>
                   </div>
                 );
               })}
@@ -282,7 +253,7 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
             <Select value={selectedPersonalization} onValueChange={onSelectPersonalization}>
-              <SelectTrigger className="h-10 text-xs touch-manipulation">
+              <SelectTrigger className="h-9 text-xs">
                 <SelectValue placeholder="All Craft Techniques" />
               </SelectTrigger>
               <SelectContent>
@@ -296,12 +267,12 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
           </AccordionContent>
         </AccordionItem>
 
-        {/* 6. Dispatch Window */}
-        <AccordionItem value="dispatch">
+        {/* 6. Shipping Window */}
+        <AccordionItem value="shipping">
           <AccordionTrigger className="py-2.5 px-1 hover:no-underline">
             <div className="flex items-center gap-2">
               <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Dispatch Window
+                Shipping Window
               </span>
               {selectedDispatch !== 'all' && (
                 <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
@@ -311,20 +282,16 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-3">
-            <RadioGroup value={selectedDispatch} onValueChange={onSelectDispatch} className="gap-1.5">
+            <RadioGroup value={selectedDispatch} onValueChange={onSelectDispatch} className="gap-2.5">
               {[
                 { value: 'all', label: 'All Timelines' },
-                { value: '24h', label: '⚡ Express 24-Hour Dispatch' },
+                { value: '24h', label: '⚡ Express 24-Hour Shipping' },
                 { value: 'standard', label: 'Standard Artisanal (2–3 Days)' },
                 { value: 'customized', label: 'Customized Initials (5–7 Days)' },
               ].map((opt) => (
-                <div
-                  key={opt.value}
-                  onClick={() => onSelectDispatch(opt.value)}
-                  className="flex items-center gap-2.5 cursor-pointer py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface-container-low transition-colors touch-manipulation min-h-[36px]"
-                >
-                  <RadioGroupItem value={opt.value} id={`dispatch-${opt.value}`} />
-                  <label htmlFor={`dispatch-${opt.value}`} className="text-xs text-on-surface cursor-pointer select-none">
+                <div key={opt.value} className="flex items-center gap-2 cursor-pointer py-0.5">
+                  <RadioGroupItem value={opt.value} id={`shipping-${opt.value}`} />
+                  <label htmlFor={`shipping-${opt.value}`} className="text-xs text-on-surface cursor-pointer select-none">
                     {opt.label}
                   </label>
                 </div>
@@ -345,7 +312,7 @@ const ShopFilters: React.FC<ShopFiltersProps> = ({
           <a
             href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-[11px] text-primary hover:text-secondary font-bold uppercase tracking-wider mt-2 flex items-center gap-1"
           >
             Connect on WhatsApp <span className="material-symbols-outlined text-[13px]">arrow_forward</span>

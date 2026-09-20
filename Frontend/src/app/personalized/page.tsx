@@ -136,7 +136,7 @@ const setSearchParams = (params: any) => {};
               </CardHeader>
               <CardContent>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
-                  Each finished creation is hand-checked for foil crispness and sealed with hot bronze wax before insured venue dispatch.
+                  Each finished creation is hand-checked for foil crispness and sealed with hot bronze wax before insured venue shipping.
                 </p>
               </CardContent>
             </Card>

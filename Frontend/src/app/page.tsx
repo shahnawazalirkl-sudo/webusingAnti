@@ -1,15 +1,36 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import ThreeGiftBox from '@/components/common/ThreeGiftBox';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import ProductCard from '@/components/common/ProductCard';
-import MonogramPreviewStudio from '@/components/common/MonogramPreviewStudio';
+
+const ThreeGiftBox = dynamic(() => import('@/components/common/ThreeGiftBox'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-surface-container-low animate-pulse rounded-xl">
+      <span className="text-xs text-primary font-medium tracking-wider uppercase">Loading 3D Canvas...</span>
+    </div>
+  ),
+});
+
+const MonogramPreviewStudio = dynamic(() => import('@/components/common/MonogramPreviewStudio'), {
+  ssr: false,
+});
+
 import { PRODUCTS } from '@/data/productsData';
 import { useCart } from '@/context/CartContext';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel';
 import {
   Tooltip,
   TooltipContent,
@@ -78,7 +99,7 @@ const HomePage = () => {
   const faqs = [
     {
       q: 'How long does custom monogramming and debossing take?',
-      a: 'Standard personalized pieces take 24–48 hours for dispatch. Custom bridal trunks and large volume wedding favors take 3–7 business days. Express overnight dispatch is also available upon request.'
+      a: 'Standard personalized pieces take 24–48 hours for shipping. Custom bridal trunks and large volume wedding favors take 3–7 business days. Express overnight shipping is also available upon request.'
     },
     {
       q: 'Will I see a 3D digital proof before my items are crafted?',
@@ -86,7 +107,7 @@ const HomePage = () => {
     },
     {
       q: 'Can you handle bulk wedding favors for guests with custom guest names?',
-      a: 'Absolutely. We specialize in wedding favors from 25 to 2,000+ units, with tiered volume pricing, individual guest name debossing, custom wax seals, and direct dispatch to your wedding destination.'
+      a: 'Absolutely. We specialize in wedding favors from 25 to 2,000+ units, with tiered volume pricing, individual guest name debossing, custom wax seals, and direct shipping to your wedding destination.'
     },
     {
       q: 'Are your items packaged ready for gifting?',
@@ -95,9 +116,9 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full overflow-x-hidden">
+    <div className="flex flex-col w-full">
       {/* Editorial Hero Section - Streamlined & Balanced Height */}
-      <section className="w-full pt-4 pb-8 sm:pt-8 sm:pb-12 md:pt-10 md:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/20 to-surface">
+      <section className="w-full pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-6 lg:pb-12 px-4 sm:px-margin relative overflow-hidden bg-gradient-to-b from-surface via-surface-container-low/20 to-surface">
         <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Column: Editorial Content */}
@@ -109,63 +130,63 @@ const HomePage = () => {
               </span>
             </Badge>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-on-surface font-normal tracking-tight mb-3 leading-[1.12] sm:leading-[1.15]">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-on-surface font-normal tracking-tight mb-2.5 leading-[1.18]">
               Crafting Timeless <span className="italic font-normal text-primary">Gifts</span> for Life's Most Cherished Moments.
             </h1>
 
-            <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-lg mb-5 leading-relaxed font-normal">
+            <p className="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-lg mb-4 leading-relaxed font-normal">
               From custom debossed leather passport suites to glowing acrylic melodies, heirloom ring vaults, and curated wedding hampers, we immortalize your love story with meticulous artisanal craft.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto mb-4">
               <Link
                 href="/shop"
-                className="h-12 px-6 bg-primary text-on-primary rounded-xl hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-sans text-sm font-medium uppercase tracking-wider group w-full sm:w-auto cursor-pointer"
+                className="px-5 py-2.5 bg-primary text-on-primary rounded-lg hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-wider font-semibold group"
               >
                 <span>Explore Shop Catalog</span>
-                <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
+                <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                   arrow_forward
                 </span>
               </Link>
 
               <Link
                 href="/bespoke"
-                className="h-12 px-6 bg-surface-container-lowest text-on-surface rounded-xl border border-outline-variant/50 hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-sans text-sm font-medium uppercase tracking-wider w-full sm:w-auto cursor-pointer"
+                className="px-5 py-2.5 bg-surface-container-lowest text-on-surface rounded-lg border border-outline-variant/50 hover:border-primary hover:text-primary active:scale-[0.98] transition-all duration-300 shadow-xs flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-wider font-semibold"
               >
-                <span className="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+                <span className="material-symbols-outlined text-[16px] text-primary">edit_note</span>
                 <span>Custom Design Studio</span>
               </Link>
             </div>
 
             {/* Trust Badges Bar */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 border-t border-outline-variant/30 w-full max-w-md">
-              <div className="flex items-start gap-1 sm:gap-1.5">
-                <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0 mt-0.5">verified</span>
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified</span>
                 <div>
-                  <span className="font-serif text-sm sm:text-base md:text-lg text-on-surface font-semibold block leading-tight">18,000+</span>
-                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Weddings Gifted</span>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">18,000+</span>
+                  <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider block">Weddings Gifted</span>
                 </div>
               </div>
-              <div className="flex items-start gap-1 sm:gap-1.5">
-                <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0 mt-0.5">star</span>
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">star</span>
                 <div>
-                  <span className="font-serif text-sm sm:text-base md:text-lg text-on-surface font-semibold block leading-tight">4.9 / 5</span>
-                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Couples Rated</span>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">4.9 / 5</span>
+                  <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider block">Couples Rated</span>
                 </div>
               </div>
-              <div className="flex items-start gap-1 sm:gap-1.5">
-                <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0 mt-0.5">bolt</span>
+              <div className="flex items-start gap-1.5">
+                <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">bolt</span>
                 <div>
-                  <span className="font-serif text-sm sm:text-base md:text-lg text-on-surface font-semibold block leading-tight">24–48h</span>
-                  <span className="font-label-sm text-[9px] sm:text-[10px] text-outline uppercase tracking-wider block">Express Dispatch</span>
+                  <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">24–48h</span>
+                  <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider block">Express Shipping</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Column: Visual Showcase (3D & High-Res Photography) */}
-          <div className="lg:col-span-5 relative flex justify-center mt-4 lg:mt-0 w-full max-w-full">
-            <div className="relative w-full max-w-[380px] sm:max-w-[400px] overflow-hidden">
+          <div className="lg:col-span-5 relative flex justify-center mt-4 lg:mt-0">
+            <div className="relative w-full max-w-[380px] sm:max-w-[400px]">
               {/* Ambient Glow */}
               <div className="absolute -top-8 -right-8 w-60 h-60 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -173,36 +194,33 @@ const HomePage = () => {
               <Tabs
                 value={heroMode}
                 onValueChange={setHeroMode}
-                className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-30"
+                className="absolute top-3 right-3 z-30"
               >
-                <TabsList className="text-[10px] sm:text-xs font-semibold bg-surface-container-lowest/90 backdrop-blur-md p-0.5 rounded-lg border border-outline-variant/40 shadow-xs">
-                  <TabsTrigger
-                    value="photo"
-                    className="px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-md data-[state=active]:bg-primary data-[state=active]:text-on-primary transition-all active:scale-95 touch-manipulation cursor-pointer"
-                  >
+                <TabsList className="text-[10px] font-semibold">
+                  <TabsTrigger value="photo" className="px-2.5 py-0.5 text-[10px]">
                     Photo
                   </TabsTrigger>
-                  <TabsTrigger
-                    value="3d"
-                    className="px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-md data-[state=active]:bg-primary data-[state=active]:text-on-primary flex items-center gap-1 transition-all active:scale-95 touch-manipulation cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[13px]">view_in_ar</span>
-                    <span>3D View</span>
+                  <TabsTrigger value="3d" className="px-2.5 py-0.5 text-[10px] flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[12px]">view_in_ar</span>
+                    3D View
                   </TabsTrigger>
                 </TabsList>
               </Tabs>
 
               {/* Primary Showcase Card */}
               <div className="relative bg-surface-container-lowest p-2 rounded-2xl shadow-lg overflow-hidden group border border-outline-variant/40">
-                <div className="aspect-[4/5] h-[280px] sm:h-[340px] md:h-[360px] w-full max-w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
+                <div className="aspect-[4/5] min-h-[300px] sm:min-h-[340px] max-h-[360px] w-full overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-lowest via-surface-container-low/50 to-surface-container relative flex items-center justify-center">
                   {heroMode === 'photo' ? (
-                    <img
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      alt="ASRA Wedding Canvas Luxury Gift Hamper"
+                    <Image
                       src="/assets/cdn/img_ea7b421bfaad.png"
+                      alt="ASRA Wedding Canvas Luxury Gift Hamper"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 500px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
-                    <div className="w-full h-full max-w-full overflow-hidden">
+                    <div className="w-full h-full">
                       <ThreeGiftBox />
                     </div>
                   )}
@@ -222,7 +240,7 @@ const HomePage = () => {
               </div>
 
               {/* Overlapping Certified Badge */}
-              <div className="absolute -bottom-2 sm:-bottom-4 left-2 sm:-left-2 bg-surface-container-lowest/95 backdrop-blur-md p-2 sm:p-2.5 rounded-xl shadow-md border border-outline-variant/40 flex items-center gap-2 max-w-[210px] sm:max-w-[230px] z-20">
+              <div className="absolute -bottom-3 sm:-bottom-4 -left-2 sm:-left-4 bg-surface-container-lowest/95 backdrop-blur-md p-2 sm:p-2.5 rounded-lg shadow-md border border-outline-variant/40 flex items-center gap-2 max-w-[210px] sm:max-w-[230px] z-30">
                 <div className="w-8 h-8 rounded-full bg-secondary-container/60 flex items-center justify-center shrink-0 text-primary">
                   <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
                 </div>
@@ -291,9 +309,9 @@ const HomePage = () => {
       </section>
 
       {/* Wedding Journey Stage Finder */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface-container-low/40 overflow-hidden">
+      <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-surface-container-low/40">
         <div className="max-w-[1360px] mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-2">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-2">
             <div>
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
                 Shop By Celebration Stage
@@ -304,45 +322,43 @@ const HomePage = () => {
             </div>
             <Link
               href="/shop"
-              className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-wider w-fit"
+              className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-wider"
             >
               <span>Browse All Milestones</span>
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>
 
-          {/* Swipeable snap strip on mobile (< md), responsive grid on desktop */}
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
             {weddingCeremonies.map((stage, idx) => (
               <Link
                 key={idx}
                 href={stage.link}
-                className="shrink-0 w-[240px] sm:w-[260px] md:w-auto snap-start group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 border border-outline-variant/30 flex flex-col"
+                className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 border border-outline-variant/30 flex flex-col"
               >
-                <div className="aspect-[4/3] max-h-[160px] sm:max-h-[180px] w-full overflow-hidden bg-surface-container-low relative">
-                  <img
+                <div className="aspect-[4/3] max-h-[180px] w-full overflow-hidden bg-surface-container-low relative">
+                  <Image
                     src={stage.img}
                     alt={stage.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                  <Badge variant="outline" className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded border-0 font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface shadow-xs">
+                  <Badge variant="outline" className="absolute top-3 left-3 px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded border-0 font-mono text-[9px] tracking-widest uppercase font-bold text-on-surface shadow-xs">
                     {stage.tag}
                   </Badge>
                 </div>
-                <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+                <div className="p-3.5 flex flex-col flex-1 justify-between">
                   <div>
-                    <h3 className="font-serif text-sm sm:text-base font-medium text-on-surface group-hover:text-primary transition-colors mb-0.5">
+                    <h3 className="font-serif text-base font-medium text-on-surface group-hover:text-primary transition-colors mb-0.5">
                       {stage.title}
                     </h3>
-                    <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant line-clamp-1">
+                    <p className="font-sans text-xs text-on-surface-variant line-clamp-1">
                       {stage.subtitle}
                     </p>
                   </div>
-                  <div className="mt-2.5 sm:mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-primary font-sans font-semibold text-[10px] sm:text-[11px] group-hover:translate-x-0.5 transition-transform uppercase tracking-wider">
+                  <div className="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-primary font-sans font-semibold text-[11px] group-hover:translate-x-0.5 transition-transform uppercase tracking-wider">
                     <span>Explore Stage Gifts</span>
-                    <span className="material-symbols-outlined text-[14px] sm:text-[15px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                   </div>
                 </div>
               </Link>
@@ -351,34 +367,47 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Dynamic Trending & Curated Products Grid */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface">
+      {/* Dynamic Trending & Bestsellers Carousel */}
+      <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-surface">
         <div className="max-w-[1360px] mx-auto">
-          {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
-            <div>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
-                Handpicked Favorites
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal leading-tight">
-                Trending Wedding Keepsakes &amp; Favors
-              </h2>
+          <Carousel opts={{ align: 'start' }} className="w-full">
+            {/* Section Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-3">
+              <div>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
+                  Handpicked Favorites
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-on-surface font-normal leading-tight">
+                  Trending Wedding Keepsakes &amp; Favors
+                </h2>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 border border-outline-variant/50 rounded-lg p-0.5 bg-surface-container-lowest shadow-xs">
+                  <CarouselPrevious className="static translate-y-0 h-8 w-8 rounded-full border-0 bg-transparent hover:bg-surface-container-high text-on-surface transition-colors" />
+                  <CarouselNext className="static translate-y-0 h-8 w-8 rounded-full border-0 bg-transparent hover:bg-surface-container-high text-on-surface transition-colors" />
+                </div>
+                <Link
+                  href="/shop"
+                  className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 px-2.5 py-1.5 uppercase tracking-wider"
+                >
+                  <span>View All ({PRODUCTS.length})</span>
+                  <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/shop"
-              className="font-sans text-xs text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-wider w-fit"
-            >
-              <span>View All ({PRODUCTS.length})</span>
-              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
-            </Link>
-          </div>
 
-          {/* Modern e-commerce standard 2-column layout on mobile, 3-column on tablet/desktop */}
-          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 w-full">
-            {trendingProducts.map((prod) => (
-              <ProductCard key={prod.id} product={prod} aspectRatio="square" />
-            ))}
-          </div>
+            {/* Dynamic Scroll Track using Carousel */}
+            <CarouselContent className="-ml-3 sm:-ml-4 lg:-ml-5 pb-3">
+              {trendingProducts.map((prod) => (
+                <CarouselItem
+                  key={prod.id}
+                  className="pl-3 sm:pl-4 lg:pl-5 basis-[210px] sm:basis-[240px] md:basis-[260px] shrink-0 grow-0"
+                >
+                  <ProductCard product={prod} aspectRatio="square" />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
@@ -386,7 +415,7 @@ const HomePage = () => {
       <MonogramPreviewStudio />
 
       {/* Targeted Recipient Showcase */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface-container-low">
+      <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-surface-container-low">
         <div className="max-w-[1360px] mx-auto">
           <div className="text-center max-w-xl mx-auto mb-6">
             <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1">
@@ -400,33 +429,32 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
             {/* 1. For Her */}
             <Link
               href="/shop?cat=for-her"
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] max-h-[220px] sm:max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
+                <Image
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="For Her Bridal Gifts"
-                  src="/assets/cdn/img_c9193e0400dc.jpg"
-                  loading="lazy"
+                  src="/assets/cdn/img_c9193e0400dc.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3.5 text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
-                    Bride &amp; Maid
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
+                    Bride &amp; Maid of Honor
                   </span>
-                  <h3 className="font-serif text-xs sm:text-base text-surface font-medium mb-0.5 leading-snug">
-                    For Her: Grace
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
+                    For Her: Grace &amp; Sentiments
                   </h3>
-                  <p className="font-body-sm text-[10px] sm:text-[11px] text-surface-container-high/90 mb-1 sm:mb-2 line-clamp-1">
-                    Jewelry boxes, silk robes &amp; pendants.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Velvet jewelry boxes, personalized pendants &amp; pure silk robes.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-[10px] sm:text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
                     <span>Explore For Her</span>
-                    <span className="material-symbols-outlined text-[13px] sm:text-[14px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -437,27 +465,26 @@ const HomePage = () => {
               href="/shop?cat=for-him"
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] max-h-[220px] sm:max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
+                <Image
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt="For Him Groom Gifts"
-                  src="/assets/cdn/img_8a5a665d4d2e.jpg"
-                  loading="lazy"
+                  src="/assets/cdn/img_8a5a665d4d2e.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3.5 text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
-                    Groom &amp; Men
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
+                    Groom &amp; Groomsmen
                   </span>
-                  <h3 className="font-serif text-xs sm:text-base text-surface font-medium mb-0.5 leading-snug">
-                    For Him: Refined
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
+                    For Him: Refined &amp; Timeless
                   </h3>
-                  <p className="font-body-sm text-[10px] sm:text-[11px] text-surface-container-high/90 mb-1 sm:mb-2 line-clamp-1">
-                    Timepieces, wallets &amp; cufflink vaults.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Engraved timepieces, Italian leather wallets &amp; cufflink vaults.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-[10px] sm:text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
                     <span>Explore For Him</span>
-                    <span className="material-symbols-outlined text-[13px] sm:text-[14px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -468,27 +495,26 @@ const HomePage = () => {
               href="/shop?cat=couple"
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] max-h-[220px] sm:max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
+                <Image
                   alt="Luxury wedding hampers for couples"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="/assets/cdn/img_ecfddff03b93.jpg"
-                  loading="lazy"
+                  src="/assets/cdn/img_ecfddff03b93.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3.5 text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
-                    Milestones
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
+                    Newlyweds &amp; Milestones
                   </span>
-                  <h3 className="font-serif text-xs sm:text-base text-surface font-medium mb-0.5 leading-snug">
-                    Couples &amp; Sets
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
+                    Couples &amp; Anniversaries
                   </h3>
-                  <p className="font-body-sm text-[10px] sm:text-[11px] text-surface-container-high/90 mb-1 sm:mb-2 line-clamp-1">
-                    Passport sets, crates &amp; song plaques.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Heirloom wooden crates, matching passport sets &amp; song plaques.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-[10px] sm:text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
                     <span>Explore Couples</span>
-                    <span className="material-symbols-outlined text-[13px] sm:text-[14px]">arrow_forward</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -499,27 +525,26 @@ const HomePage = () => {
               href="/bulk-orders"
               className="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="aspect-[3/4] max-h-[220px] sm:max-h-[280px] w-full overflow-hidden bg-surface-container relative">
-                <img
+              <div className="aspect-[3/4] max-h-[280px] w-full overflow-hidden bg-surface-container relative">
+                <Image
                   alt="Bulk wedding guest favors and hampers"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  src="/assets/cdn/img_56d7a2ebc8ba.jpg"
-                  loading="lazy"
+                  src="/assets/cdn/img_56d7a2ebc8ba.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3.5 text-surface flex flex-col justify-end">
-                  <span className="font-label-sm text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
-                    Volume (25–2000+)
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 text-surface flex flex-col justify-end">
+                  <span className="font-label-sm text-[10px] uppercase tracking-[0.2em] text-primary-fixed-dim mb-0.5 font-semibold">
+                    Volume Favors (25–2000+)
                   </span>
-                  <h3 className="font-serif text-xs sm:text-base text-surface font-medium mb-0.5 leading-snug">
-                    Favors &amp; Bulk
+                  <h3 className="font-serif text-base text-surface font-medium mb-0.5">
+                    Favors &amp; Bulk Hampers
                   </h3>
-                  <p className="font-body-sm text-[10px] sm:text-[11px] text-surface-container-high/90 mb-1 sm:mb-2 line-clamp-1">
-                    Custom guest name debossing &amp; tiered pricing.
+                  <p className="font-body-sm text-[11px] text-surface-container-high/90 mb-2 line-clamp-1">
+                    Custom guest name debossing, crest stamping &amp; tiered pricing.
                   </p>
-                  <div className="flex items-center gap-1 font-label-md text-[10px] sm:text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
-                    <span>Explore Favors</span>
-                    <span className="material-symbols-outlined text-[13px] sm:text-[14px]">arrow_forward</span>
+                  <div className="flex items-center gap-1 font-label-md text-xs text-primary-fixed group-hover:translate-x-1 transition-transform font-semibold">
+                    <span>Explore Bulk Favors</span>
+                    <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </div>
                 </div>
               </div>
@@ -530,7 +555,7 @@ const HomePage = () => {
       </section>
 
       {/* High-Impact Bulk Wedding Favors Banner */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-[#1C1A17] text-[#FAF8F5] relative overflow-hidden">
+      <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-[#1C1A17] text-[#FAF8F5] relative overflow-hidden">
         <div className="max-w-[1360px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             <div className="lg:col-span-7 flex flex-col">
@@ -548,24 +573,24 @@ const HomePage = () => {
               </p>
 
               <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-2 sm:p-3 text-center">
-                  <span className="font-serif text-base sm:text-xl text-[#c5a880] font-bold block leading-tight">15% OFF</span>
-                  <span className="font-sans text-[9px] sm:text-[10px] text-[#b8aea3] uppercase tracking-wider">50–99 Units</span>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">15% OFF</span>
+                  <span className="font-sans text-[10px] text-[#b8aea3] uppercase tracking-wider">50–99 Units</span>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-2 sm:p-3 text-center">
-                  <span className="font-serif text-base sm:text-xl text-[#c5a880] font-bold block leading-tight">20% OFF</span>
-                  <span className="font-sans text-[9px] sm:text-[10px] text-[#b8aea3] uppercase tracking-wider">100–249 Units</span>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">20% OFF</span>
+                  <span className="font-sans text-[10px] text-[#b8aea3] uppercase tracking-wider">100–249 Units</span>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-2 sm:p-3 text-center">
-                  <span className="font-serif text-base sm:text-xl text-[#c5a880] font-bold block leading-tight">25%+ OFF</span>
-                  <span className="font-sans text-[9px] sm:text-[10px] text-[#b8aea3] uppercase tracking-wider">250+ Units</span>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 text-center">
+                  <span className="font-serif text-lg sm:text-xl text-[#c5a880] font-bold block leading-tight">25%+ OFF</span>
+                  <span className="font-sans text-[10px] text-[#b8aea3] uppercase tracking-wider">250+ Units</span>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <Link
                   href="/bulk-orders"
-                  className="h-12 px-6 bg-primary text-on-primary font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider rounded-xl hover:bg-[#5f4b2d] active:scale-[0.98] transition-all shadow-xs text-center flex items-center justify-center cursor-pointer"
+                  className="px-5 py-2.5 bg-primary text-on-primary font-sans text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#5f4b2d] active:scale-[0.98] transition-all shadow-xs text-center"
                 >
                   Request Bulk Quote Dossier
                 </Link>
@@ -573,26 +598,25 @@ const HomePage = () => {
                   href="https://wa.me/919692668263?text=Hi%20ASRA%2C%20I%20would%20like%20to%20inquire%20about%20bulk%20wedding%20favors."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 px-6 bg-[#25D366] text-white font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider rounded-xl hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                  className="px-5 py-2.5 bg-[#25D366] text-white font-sans text-xs font-semibold uppercase tracking-wider rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xs"
                 >
-                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  <span className="material-symbols-outlined text-[16px]">chat</span>
                   <span>WhatsApp Wedding Stylist</span>
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex justify-center w-full max-w-full">
+            <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black/40 p-3">
-                <img
+                <Image
                   src="/assets/cdn/img_23f7486a1ad8.jpg"
                   alt="Wedding favor sample suite"
-                  className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 max-h-[220px]"
-                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 max-h-[220px]" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="flex items-center justify-between text-[11px] text-[#d5ccc0]">
                   <span className="flex items-center gap-1 font-sans text-[11px]">
                     <span className="material-symbols-outlined text-[15px] text-[#c5a880]">verified</span>
-                    Complimentary sample kit
+                    Complimentary physical sample kit
                   </span>
                   <span className="font-mono text-xs text-[#c5a880] font-semibold">ASRA B2B</span>
                 </div>
@@ -603,12 +627,12 @@ const HomePage = () => {
       </section>
 
       {/* "Your Idea → We Create" Bespoke Studio Experience */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface">
-        <div className="max-w-[1360px] mx-auto bg-surface-container-lowest rounded-2xl p-4 sm:p-7 lg:p-8 shadow-xs border border-outline-variant/30 relative overflow-hidden">
+      <section className="w-full py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 bg-surface">
+        <div className="max-w-[1360px] mx-auto bg-surface-container-lowest rounded-xl p-5 sm:p-7 lg:p-8 shadow-xs border border-outline-variant/30 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             
             {/* Left Explainer Text */}
-            <div className="lg:col-span-6 flex flex-col items-start w-full max-w-full">
+            <div className="lg:col-span-6 flex flex-col items-start">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF4EB] text-primary border border-primary/20 rounded font-sans text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold mb-2">
                 <span className="material-symbols-outlined text-[14px]">brush</span>
                 <span>Custom Design Service</span>
@@ -659,7 +683,7 @@ const HomePage = () => {
                       Hand-finished &amp; Wax-Sealed Delivery
                     </h4>
                     <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant">
-                      Individual inspection, luxury velvet ribboning, and insured express dispatch.
+                      Individual inspection, luxury velvet ribboning, and insured express shipping.
                     </p>
                   </div>
                 </div>
@@ -667,33 +691,32 @@ const HomePage = () => {
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <a
-                  className="h-12 px-6 bg-[#25D366] text-white rounded-xl font-sans text-xs sm:text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-xs cursor-pointer"
+                  className="px-5 py-2.5 bg-[#25D366] text-white rounded-lg font-sans text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-xs"
                   href="https://wa.me/919692668263"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  <span className="material-symbols-outlined text-[16px]">chat</span>
                   <span>WhatsApp Design Support</span>
                 </a>
 
                 <Link
                   href="/bespoke"
-                  className="h-12 px-6 bg-surface-container-lowest border border-outline-variant/50 text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] rounded-xl font-sans text-xs sm:text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
+                  className="px-5 py-2.5 bg-surface-container-lowest border border-outline-variant/50 text-on-surface hover:border-primary hover:text-primary active:scale-[0.98] rounded-lg font-sans text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-xs"
                 >
                   <span>Submit Custom Brief</span>
-                  <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+                  <span className="material-symbols-outlined text-[16px]">open_in_new</span>
                 </Link>
               </div>
             </div>
 
             {/* Right Visual Showcase */}
-            <div className="lg:col-span-6 bg-surface-container-low rounded-xl p-3.5 sm:p-5 flex flex-col items-center justify-center relative w-full max-w-full overflow-hidden mt-4 lg:mt-0">
+            <div className="lg:col-span-6 bg-surface-container-low rounded-xl p-3.5 sm:p-5 flex flex-col items-center justify-center relative">
               <div className="w-full aspect-[4/3] max-h-[260px] rounded-lg overflow-hidden relative shadow-sm bg-surface-container">
-                <img
+                <Image
                   className="w-full h-full object-cover"
                   alt="Artisan hands applying gold foil stamp"
-                  src="/assets/cdn/img_9e12f2d44ec6.jpg"
-                  loading="lazy"
+                  src="/assets/cdn/img_9e12f2d44ec6.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow font-label-sm text-[10px] text-on-surface font-semibold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
@@ -702,11 +725,11 @@ const HomePage = () => {
               </div>
 
               <div className="mt-3 w-full flex items-center justify-between px-1 text-on-surface-variant text-xs">
-                <div className="flex items-center gap-1.5 font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
+                <div className="flex items-center gap-1.5 font-label-sm text-[11px] uppercase tracking-wider font-semibold">
                   <span className="material-symbols-outlined text-[16px] text-primary">verified</span>
                   <span>No Minimum Order</span>
                 </div>
-                <div className="flex items-center gap-1.5 font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
+                <div className="flex items-center gap-1.5 font-label-sm text-[11px] uppercase tracking-wider font-semibold">
                   <span className="material-symbols-outlined text-[16px] text-primary">design_services</span>
                   <span>Free 3D Proof</span>
                 </div>
@@ -717,8 +740,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Verified Couples & Bride Stories - Swipeable on mobile */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface-container-low overflow-hidden">
+      {/* Verified Couples & Bride Stories - Compact */}
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface-container-low">
         <div className="max-w-[1360px] mx-auto">
           <div className="text-center max-w-lg mx-auto mb-6">
             <span className="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-0.5">
@@ -729,9 +752,9 @@ const HomePage = () => {
             </h2>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Review 1 */}
-            <div className="shrink-0 w-[280px] sm:w-[320px] md:w-auto snap-start bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -760,7 +783,7 @@ const HomePage = () => {
             </div>
 
             {/* Review 2 */}
-            <div className="shrink-0 w-[280px] sm:w-[320px] md:w-auto snap-start bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -789,7 +812,7 @@ const HomePage = () => {
             </div>
 
             {/* Review 3 */}
-            <div className="shrink-0 w-[280px] sm:w-[320px] md:w-auto snap-start bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+            <div className="bg-surface-container-lowest p-4 sm:p-5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-0.5 text-primary mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -821,7 +844,7 @@ const HomePage = () => {
       </section>
 
       {/* Quick Buyer FAQ Accordion - Compact */}
-      <section className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-surface">
+      <section className="w-full py-8 sm:py-10 px-margin bg-surface">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-5">
             <span className="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-0.5">
@@ -858,53 +881,53 @@ const HomePage = () => {
       </section>
 
       {/* Brand Pillars Assurance Bar - Compact */}
-      <section className="w-full py-6 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-surface-container-low/50 border-t border-outline-variant/40">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[20px] sm:text-[22px]">handshake</span>
+      <section className="w-full py-6 sm:py-8 px-margin bg-surface-container-low/50 border-t border-outline-variant/40">
+        <div className="max-w-[1360px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">handshake</span>
             </div>
             <div>
               <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 100% Customized Craft
               </h4>
-              <p className="font-body-sm text-[10px] sm:text-[11px] text-outline">Every piece personalized with brass dies</p>
+              <p className="font-body-sm text-[11px] text-outline">Every piece personalized with brass dies</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[20px] sm:text-[22px]">local_shipping</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">local_shipping</span>
             </div>
             <div>
               <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 Insured Express Delivery
               </h4>
-              <p className="font-body-sm text-[10px] sm:text-[11px] text-outline">Across India &amp; 40+ countries</p>
+              <p className="font-body-sm text-[11px] text-outline">Across India &amp; 40+ countries</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[20px] sm:text-[22px]">inventory_2</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">inventory_2</span>
             </div>
             <div>
               <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 Wax-Sealed Gift Wrap
               </h4>
-              <p className="font-body-sm text-[10px] sm:text-[11px] text-outline">Complimentary unboxing grace</p>
+              <p className="font-body-sm text-[11px] text-outline">Complimentary unboxing grace</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
-              <span className="material-symbols-outlined text-[20px] sm:text-[22px]">support_agent</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-xs flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">support_agent</span>
             </div>
             <div>
               <h4 className="font-title-sm text-xs font-semibold text-on-surface leading-tight">
                 Dedicated Personal Stylist
               </h4>
-              <p className="font-body-sm text-[10px] sm:text-[11px] text-outline">Live 1-on-1 assistance via WhatsApp</p>
+              <p className="font-body-sm text-[11px] text-outline">Live 1-on-1 assistance via WhatsApp</p>
             </div>
           </div>
         </div>

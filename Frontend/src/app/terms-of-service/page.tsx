@@ -50,7 +50,7 @@ const ARTICLES = [
           <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
             <strong className="text-on-surface block mb-1.5 font-serif text-sm">Turnaround on Digital Proofs</strong>
             <p className="leading-relaxed">
-              Initial vector layouts and 3D depth simulations are dispatched via WhatsApp and Client Portal within 6 hours of order docketing.
+              Initial vector layouts and 3D depth simulations are shipped via WhatsApp and Client Portal within 6 hours of order docketing.
             </p>
           </div>
           <div className="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs">
@@ -111,7 +111,7 @@ const ARTICLES = [
     tag: 'Production Timelines',
     sectionCode: '§ 4.1',
     title: 'Production Schedules, Deadlines & Emergency Rush',
-    summary: 'Standard dispatch lead times and VIP accelerated foundry production schedule.',
+    summary: 'Standard shipping lead times and VIP accelerated foundry production schedule.',
     content: (
       <>
         <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-4">
@@ -130,8 +130,8 @@ const ARTICLES = [
             <tbody className="divide-y divide-outline-variant/20 text-on-surface-variant text-xs">
               <tr className="hover:bg-[#FAF4EB]/40 transition-colors">
                 <td className="p-3.5 sm:p-4 font-medium text-on-surface">Pre-Curated Luxury Gift Hampers</td>
-                <td className="p-3.5 sm:p-4">24 to 48 Hours Dispatch</td>
-                <td className="p-3.5 sm:p-4 text-primary font-medium">Same-Day Priority Aircraft Dispatch</td>
+                <td className="p-3.5 sm:p-4">24 to 48 Hours Shipping</td>
+                <td className="p-3.5 sm:p-4 text-primary font-medium">Same-Day Priority Aircraft Shipping</td>
               </tr>
               <tr className="hover:bg-[#FAF4EB]/40 transition-colors">
                 <td className="p-3.5 sm:p-4 font-medium text-on-surface">Custom Debossed Leather &amp; Optical Acrylic</td>
@@ -157,9 +157,9 @@ const ARTICLES = [
   {
     id: 'article-05',
     number: 'Article 05',
-    tag: 'Transit & Insurance',
+    tag: 'Delivery & Insurance',
     sectionCode: '§ 5.3',
-    title: 'White-Glove Transit, Customs & Venue Delivery',
+    title: 'White-Glove Delivery, Customs & Venue Delivery',
     summary: '100% bonded transport, temperature-insulated packaging, and emergency remake warranty.',
     content: (
       <>
@@ -175,9 +175,9 @@ const ARTICLES = [
             </p>
           </div>
           <div className="p-4 rounded-xl bg-[#FAF4EB] border border-primary/20">
-            <strong className="text-on-surface block mb-1">5.2 100% Comprehensive Transit Replacement:</strong>
+            <strong className="text-on-surface block mb-1">5.2 100% Comprehensive Delivery Replacement:</strong>
             <p className="leading-relaxed">
-              If an heirloom sustains verified transit fractures or customs damage, ASRA activates emergency 24-hour priority remake and re-ships via next-flight-out protocol at zero cost to the client.
+              If an heirloom sustains verified delivery fractures or customs damage, ASRA activates emergency 24-hour priority remake and re-ships via next-flight-out protocol at zero cost to the client.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-[#FAF4EB] border border-primary/20">
@@ -277,7 +277,7 @@ const ARTICLES = [
                 Collection Craft Flaw or Discrepancy Remedy
               </strong>
               <p className="text-on-surface-variant leading-relaxed">
-                If a delivered gift diverges from the approved digital 3D proof due to collection error, ASRA remakes the piece unconditionally with expedited same-day courier dispatch.
+                If a delivered gift diverges from the approved digital 3D proof due to collection error, ASRA remakes the piece unconditionally with expedited same-day courier shipping.
               </p>
             </div>
           </div>
@@ -543,7 +543,7 @@ const TermsOfServicePage = () => {
             </div>
             <h3 className="font-serif text-base font-semibold text-on-surface mb-1.5">Insured Ceremonial Handover</h3>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              All destination consignments (Udaipur, Lake Como, Paris) are climate-sealed, crated, and 100% bonded against transit interruption.
+              All destination consignments (Udaipur, Lake Como, Paris) are climate-sealed, crated, and 100% bonded against delivery interruption.
             </p>
           </div>
         </div>
@@ -713,7 +713,7 @@ const TermsOfServicePage = () => {
               <div className="p-12 text-center bg-surface-container-lowest rounded-xl border border-outline-variant/30">
                 <span className="material-symbols-outlined text-3xl text-outline mx-auto mb-2">help</span>
                 <h3 className="font-serif text-base text-on-surface font-medium mb-1">No matching clauses found</h3>
-                <p className="text-xs text-on-surface-variant mb-4">Try searching for terms like "proof", "refund", "brass", or "transit".</p>
+                <p className="text-xs text-on-surface-variant mb-4">Try searching for terms like "proof", "refund", "brass", or "delivery".</p>
                 <button
                   onClick={() => setSearchQuery('')}
                   className="px-4 py-2 bg-[#FAF4EB] text-primary border border-primary/20 text-xs font-semibold rounded-lg hover:bg-[#f0e3d0] transition-colors cursor-pointer"

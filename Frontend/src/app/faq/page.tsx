@@ -13,7 +13,6 @@ import {
   ChevronDown,
   ExternalLink,
   Lock,
-  Sparkles,
   Archive,
   Truck,
   RotateCcw,
@@ -74,11 +73,11 @@ const FAQ_CATEGORIES = [
     items: [
       {
         id: 'faq-2-1',
-        question: 'How soon will my wedding essentials or gift suite be dispatched?',
+        question: 'How soon will my wedding essentials or gift suite be shipped?',
         answer: (
           <div className="space-y-2">
             <p>
-              <strong>Pre-curated in-stock items:</strong> Dispatched within 24 to 48 hours via insured priority air cargo.
+              <strong>Pre-curated in-stock items:</strong> Shipped within 24 to 48 hours via insured priority air cargo.
             </p>
             <p>
               <strong>Custom Brass Die Debossed Suites:</strong> 7 to 10 working days to accommodate CNC metallurgy casting, hand-leather gilding, and botanic cryo-stabilization.
@@ -88,17 +87,17 @@ const FAQ_CATEGORIES = [
             </p>
           </div>
         ),
-        keywords: ['timeline', 'dispatch', 'turnaround', 'rush orders', '24-hour dispatch', 'express delivery']
+        keywords: ['timeline', 'shipping', 'turnaround', 'rush orders', '24-hour shipping', 'express delivery']
       },
       {
         id: 'faq-2-2',
-        question: 'How is white-glove climate transit ensured for destination weddings?',
+        question: 'How is white-glove climate delivery ensured for destination weddings?',
         answer: (
           <p>
             Botanical wedding gifts and cryo-hydrated Parisian florals are housed in 18°C temperature-stabilized, sealed chambers with interior zero-vibration shock absorbers. We ship regularly directly to palace destinations in Udaipur, Jaipur, Lake Como, and Bali with pre-coordinated destination bridal concierges.
           </p>
         ),
-        keywords: ['destination weddings', 'climate transit', 'white-glove', 'chilled', 'udaipur', 'jaipur', 'lake como', 'bali']
+        keywords: ['destination weddings', 'climate delivery', 'white-glove', 'chilled', 'udaipur', 'jaipur', 'lake como', 'bali']
       }
     ]
   },
@@ -123,7 +122,7 @@ const FAQ_CATEGORIES = [
         question: 'Can we split shipments across multiple bridal suites or cities?',
         answer: (
           <p>
-            Absolutely. You can furnish a manifest of multi-city bridal party addresses or split transit between your primary home residence and the palace hospitality desk 5 days ahead of auspicious ceremonies.
+            Absolutely. You can furnish a manifest of multi-city bridal party addresses or split delivery between your primary home residence and the palace hospitality desk 5 days ahead of auspicious ceremonies.
           </p>
         ),
         keywords: ['split shipments', 'multi-city', 'bridal party addresses', 'hospitality desk']
@@ -156,13 +155,13 @@ const FAQ_CATEGORIES = [
       },
       {
         id: 'faq-4-2',
-        question: 'How do I request a complimentary replacement if transit damage occurs?',
+        question: 'How do I request a complimentary replacement if delivery damage occurs?',
         answer: (
           <p>
             Share 2 clear photographs of the damage alongside the serial badge via WhatsApp at +91 96926 68263 within 24 hours of delivery. A Senior Stylist verifies the claim in under 45 minutes and issues a priority air remake.
           </p>
         ),
-        keywords: ['transit damage', 'complimentary replacement', 'insurance', 'whatsapp claim', 'air remake']
+        keywords: ['delivery damage', 'complimentary replacement', 'insurance', 'whatsapp claim', 'air remake']
       }
     ]
   }
@@ -176,7 +175,7 @@ const PROTOCOLS_DATA = {
     content: [
       {
         h: '1. Muhurat Date Guarantee',
-        p: 'All wedding commissions linked to confirmed Muhurat schedules are tagged with continuous telemetry. In the event of transit or flight delays, express air hand-carry couriers are dispatched at zero client cost.'
+        p: 'All wedding commissions linked to confirmed Muhurat schedules are tagged with continuous telemetry. In the event of delivery or flight delays, express air hand-carry couriers are shipped at zero client cost.'
       },
       {
         h: '2. Destination Palace Liaison',
@@ -185,7 +184,7 @@ const PROTOCOLS_DATA = {
     ]
   },
   insurance: {
-    title: 'White-Glove Transit Insurance Policy',
+    title: 'White-Glove Delivery Insurance Policy',
     ref: 'ASRA-TRANS-9921 / NTU Underwritten',
     content: [
       {
@@ -411,7 +410,7 @@ const FaqPage = () => {
 
           {/* Subtitle */}
           <p className="text-asra-muted text-sm sm:text-base font-normal max-w-2xl mx-auto leading-relaxed mb-8">
-            Curated answers to assist your customized heirloom commissions, bridal registries, personalized metallurgy dies, and white-glove climate transit.
+            Curated answers to assist your customized heirloom commissions, bridal registries, personalized metallurgy dies, and white-glove climate delivery.
           </p>
 
           {/* Interactive Search Bar */}
@@ -421,7 +420,7 @@ const FaqPage = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search keywords, order IDs, customization queries, or transit policies..."
+              placeholder="Search keywords, order IDs, customization queries, or delivery policies..."
               className="w-full border-none focus:ring-0 text-xs sm:text-sm text-asra-dark placeholder:text-asra-muted/70 bg-transparent py-2 px-1 focus:outline-none"
             />
             {searchQuery && (
@@ -448,7 +447,7 @@ const FaqPage = () => {
             {[
               { label: 'Initials Proofing', query: 'initials proofing' },
               { label: 'Brass Die Vault', query: 'brass die' },
-              { label: '24-Hour Dispatch', query: '24-hour dispatch' },
+              { label: '24-Hour Shipping', query: '24-hour shipping' },
               { label: 'Destination Weddings', query: 'destination weddings' },
               { label: 'Returns & Alterations', query: 'returns & alterations' }
             ].map((tag, idx, arr) => (
@@ -735,7 +734,7 @@ const FaqPage = () => {
                       className="w-full text-xs rounded border border-asra-border bg-asra-ivory/50 px-3 py-2 text-asra-dark focus:border-asra-gold focus:ring-1 focus:ring-asra-gold focus:outline-none transition-all"
                     >
                       <option>Initials Proofing &amp; Die Revision</option>
-                      <option>Transit Status &amp; White-Glove Dispatch</option>
+                      <option>Delivery Status &amp; White-Glove Shipping</option>
                       <option>Bulk Destination Hamper Sample Request</option>
                       <option>Damage, Replacement &amp; Vault Verification</option>
                       <option>GST Invoicing &amp; Billing Protocol</option>
@@ -778,7 +777,7 @@ const FaqPage = () => {
                 >
                   <span className="text-[10px] text-asra-muted uppercase tracking-wider mb-1 flex items-center gap-1">
                     <Truck className="w-3 h-3 text-asra-gold" />
-                    <span>Live Transit</span>
+                    <span>Live Delivery</span>
                   </span>
                   <span className="font-medium group-hover:text-asra-gold flex items-center justify-between">
                     Track Docket →
@@ -849,7 +848,7 @@ const FaqPage = () => {
               onClick={() => setActiveProtocol('insurance')}
               className="hover:text-asra-dark transition-colors underline decoration-asra-border hover:decoration-asra-gold"
             >
-              Transit Insurance Policy
+              Delivery Insurance Policy
             </button>
             <button
               type="button"

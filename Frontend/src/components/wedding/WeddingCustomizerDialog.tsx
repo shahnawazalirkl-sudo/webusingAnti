@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { ArrowRight, ShoppingBag, Minus, Plus } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Minus, Plus } from 'lucide-react';
 
 const FALLBACK_IMAGE = '/assets/cdn/img_11a57511dc47.jpg';
 
@@ -311,9 +311,9 @@ const WeddingCustomizerDialog = ({
               onClick={handleConfirm}
               className="bg-primary hover:bg-[#5f4b2d] text-on-primary text-xs font-semibold uppercase tracking-wider gap-1.5 shadow-xs"
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingCart className="w-4 h-4" />
               <span>
-                Add to Bag (₹{(activePrice * quantity).toLocaleString('en-IN')})
+                Add to Cart (₹{(activePrice * quantity).toLocaleString('en-IN')})
               </span>
             </Button>
           </div>

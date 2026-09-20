@@ -48,7 +48,7 @@ export const BULK_TIERS = [
     perks: [
       "Dedicated logistics coordinator",
       "Custom fabric lining & ribbon selection",
-      "Multi-resort split dispatch option"
+      "Multi-resort split shipping option"
     ]
   },
   {
@@ -236,7 +236,7 @@ export const BULK_CASE_STUDIES = [
     title: "Rambagh Palace, Jaipur",
     locationTag: "Heritage Gala",
     unitsBadge: "620 Keepsake Vaults",
-    quote: "The velvet trinket vaults with custom initials became the talk of our wedding. Impeccable craftsmanship and zero transit damage across 600+ delicate units.",
+    quote: "The velvet trinket vaults with custom initials became the talk of our wedding. Impeccable craftsmanship and zero delivery damage across 600+ delicate units.",
     couple: "Meera & Dev",
     initials: "MD",
     subInfo: "620 Units • Grand Palatial Gala"
@@ -246,7 +246,7 @@ export const BULK_CASE_STUDIES = [
     title: "Bulgari Resort Dubai",
     locationTag: "International Luxury",
     unitsBadge: "350 Silk Robe Suites",
-    quote: "Flawless international air transit directly to our bridal suite in Dubai. The gold foiling matched our decor scheme flawlessly.",
+    quote: "Flawless international air delivery directly to our bridal suite in Dubai. The gold foiling matched our decor scheme flawlessly.",
     couple: "Zoya & Farhan",
     initials: "ZF",
     subInfo: "350 Units • Destination Reception"
@@ -257,12 +257,12 @@ export const BULK_FAQS = [
   {
     id: "sample-box",
     question: "How do I receive a physical sample box before placing a bulk order?",
-    answer: "For all serious celebrations and corporate inquiries of 50+ units, we dispatch a complimentary Master Sample Box within 48 hours. This includes material swatches, ribbon options, fragrance samples, and physical foil stamping samples so you can inspect quality in person before production begins."
+    answer: "For all serious celebrations and corporate inquiries of 50+ units, we ship a complimentary Master Sample Box within 48 hours. This includes material swatches, ribbon options, fragrance samples, and physical foil stamping samples so you can inspect quality in person before production begins."
   },
   {
     id: "lead-times",
     question: "What is the typical production and delivery lead time for bulk orders?",
-    answer: "Standard production lead times range from 7 to 14 business days depending on quantity and monogram customization complexity. For urgent timelines, our Express Bridal Rush service can dispatch within 5 to 7 business days with direct courier delivery."
+    answer: "Standard production lead times range from 7 to 14 business days depending on quantity and monogram customization complexity. For urgent timelines, our Express Bridal Rush service can ship within 5 to 7 business days with direct courier delivery."
   },
   {
     id: "minimum-orders",
@@ -277,7 +277,7 @@ export const BULK_FAQS = [
   {
     id: "split-delivery",
     question: "Can you ship directly to our destination hotel or split across multiple venues?",
-    answer: "Absolutely. We offer white-glove direct-to-venue logistics across 140+ destinations in India and worldwide. We can split your dispatch across multiple resort addresses, room numbers, or family residences with climate-controlled packaging."
+    answer: "Absolutely. We offer white-glove direct-to-venue logistics across 140+ destinations in India and worldwide. We can split your shipment across multiple resort addresses, room numbers, or family residences with climate-controlled packaging."
   },
   {
     id: "customization-limits",

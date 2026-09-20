@@ -165,11 +165,11 @@ const SOVEREIGN_ASSETS = {
     },
     {
       q: "How long does personalized production and gold debossing take?",
-      a: "Custom initials are engraved and foil-stamped within 24 to 48 hours in our Hyderabad & Bengaluru flagships. Express delivery ensures transit within 2-3 business days across all metro cities in India."
+      a: "Custom initials are engraved and foil-stamped within 24 to 48 hours in our Hyderabad & Bengaluru flagships. Express delivery ensures delivery within 2-3 business days across all metro cities in India."
     },
     {
-      q: "Are the fresh florals and chocolate confections protected against transit heat?",
-      a: "Absolutely. Each bouquet is shipped in a custom dual-chamber thermal insulating carton equipped with food-grade gel ice packs and moisture retaining hydro-capsules for every rose stem, ensuring freshness for up to 96 hours of transit."
+      q: "Are the fresh florals and chocolate confections protected against delivery heat?",
+      a: "Absolutely. Each bouquet is shipped in a custom dual-chamber thermal insulating carton equipped with food-grade gel ice packs and moisture retaining hydro-capsules for every rose stem, ensuring freshness for up to 96 hours of delivery."
     },
     {
       q: "Do you provide previews of the calligraphy card before it is written?",
@@ -352,7 +352,7 @@ const ProductDetailPage = () => {
         setPincodeStatus({
           checked: true,
           valid: true,
-          message: `Pincode ${trimmed} verified: Express insured fragrance & confectionery transit arrives in 48-72 hrs.`
+          message: `Pincode ${trimmed} verified: Express insured fragrance & confectionery delivery arrives in 48-72 hrs.`
         });
       }
     } else {
@@ -364,7 +364,7 @@ const ProductDetailPage = () => {
     }
   };
 
-  // Add to Bag Handlers
+  // Add to Cart Handlers
   const handleAddToCart = () => {
     addToCart(product, {
       price: selectedEdition.price,
@@ -496,7 +496,7 @@ const ProductDetailPage = () => {
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[20px] text-primary shrink-0">ac_unit</span>
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Climate Transit</span>
+                  <span className="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Climate Delivery</span>
                   <span className="font-body-sm text-[11px] text-on-surface-variant">Protected Confectionery</span>
                 </div>
               </div>
@@ -504,7 +504,7 @@ const ProductDetailPage = () => {
                 <span className="material-symbols-outlined text-[20px] text-primary shrink-0">verified_user</span>
                 <div className="flex flex-col">
                   <span className="font-label-sm text-label-sm text-on-surface font-semibold uppercase">100% Assurance</span>
-                  <span className="font-body-sm text-[11px] text-on-surface-variant">Safe Transit Guarantee</span>
+                  <span className="font-body-sm text-[11px] text-on-surface-variant">Safe Delivery Guarantee</span>
                 </div>
               </div>
             </div>
@@ -521,7 +521,7 @@ const ProductDetailPage = () => {
                 </span>
                 <button
                   type="button"
-                  onClick={() => toggleWishlist(product.id)}
+                  onClick={() => toggleWishlist(product)}
                   className="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm uppercase"
                   title={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
                 >
@@ -835,7 +835,7 @@ const ProductDetailPage = () => {
               {/* 5. Delivery Pincode Checker */}
               <div className="flex flex-col gap-2">
                 <label className="font-title-sm text-title-sm text-on-surface font-semibold uppercase tracking-wider">
-                  5. Check Dispatch &amp; Hand-Delivery Schedule
+                  5. Check Shipping &amp; Hand-Delivery Schedule
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -896,10 +896,10 @@ const ProductDetailPage = () => {
                     className="flex-1 min-h-[48px] h-12 bg-primary text-on-primary hover:bg-[#5f4b2d] active:scale-[0.98] transition-all duration-300 px-5 rounded-lg shadow-xs flex items-center justify-center gap-2 group touch-manipulation"
                   >
                     <span className="material-symbols-outlined text-[18px]">
-                      shopping_bag
+                      shopping_cart
                     </span>
                     <span className="font-sans text-xs uppercase tracking-wider font-semibold">
-                      PERSONALIZE &amp; ADD TO BAG • ₹{totalPrice.toLocaleString('en-IN')}
+                      PERSONALIZE &amp; add to cart • ₹{totalPrice.toLocaleString('en-IN')}
                     </span>
                   </button>
                 </div>
@@ -1183,7 +1183,7 @@ const ProductDetailPage = () => {
               The Philosophy of Timeless Bridal Presentation
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              At ASRA Wedding Canvas, every Sovereign Suite is treated not merely as a gift parcel, but as a treasured ceremonial artifact. Sourced hours before dispatch, our fresh florals are bound in handmade deckle-edge paper and double-faced satin ribbons imported from Lyon.
+              At ASRA Wedding Canvas, every Sovereign Suite is treated not merely as a gift parcel, but as a treasured ceremonial artifact. Sourced hours before shipping, our fresh florals are bound in handmade deckle-edge paper and double-faced satin ribbons imported from Lyon.
             </p>
 
             <div className="flex flex-col gap-space-sm pt-2">
@@ -1215,7 +1215,7 @@ const ProductDetailPage = () => {
                 <span className="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">local_shipping</span>
                 <div className="flex flex-col">
                   <span className="font-title-sm text-title-sm font-semibold text-on-surface">
-                    Chauffeured Transit Protocols
+                    Chauffeured Delivery Protocols
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">
                     Specially engineered shock-absorbent packaging guarantees every element arrives in flawless boutique stillness.

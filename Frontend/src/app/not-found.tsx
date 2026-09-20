@@ -214,7 +214,7 @@ const NotFoundPage = () => {
                   Track an Existing Commission
                 </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed font-light">
-                  Access live foundry debossing status, 3D brass die proofs, and insured temperature-controlled transit.
+                  Access live foundry debossing status, 3D brass die proofs, and insured temperature-controlled delivery.
                 </p>
               </div>
               <Link

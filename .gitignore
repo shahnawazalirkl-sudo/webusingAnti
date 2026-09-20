@@ -15,22 +15,54 @@ jspm_packages/
 .pnp
 .pnp.js
 
-# Build Outputs
+# Build Outputs & Framework Caches
 dist/
+dist-ssr/
 Frontend/dist/
 build/
 Backend/dist/
 out/
 .next/
+**/.next/
+.turbo/
+.vercel/
+
+# TypeScript Build Cache
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+Frontend/tsconfig.tsbuildinfo
+
+# Testing & Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Linter & Tool Caches
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.temp/
+.cache/
 
 # Environment Variables & Secrets
 .env
 .env.local
+.env.*.local
 .env.development.local
 .env.test.local
 .env.production.local
 *.env
 !.env.example
+*.pem
+*.key
+*.cert
+*.crt
+
+# Git & Diff Dumps / Scratch
+*.diff
+*.patch
+diff_output.txt
+git_diff.txt
 
 # OS Generated Files
 .DS_Store
@@ -40,6 +72,8 @@ out/
 .Trashes
 ehthumbs.db
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
 # IDE & Editors
 .idea/
@@ -50,7 +84,8 @@ Thumbs.db
 !.vscode/extensions.json
 *.sublime-workspace
 *.sublime-project
-
-# Temporary / Scratch
-.temp/
-.cache/
+*.swp
+*.swo
+*~
+*.bak
+*.tmp

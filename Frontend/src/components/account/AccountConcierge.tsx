@@ -5,6 +5,7 @@ import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Separator } from '../ui/separator';
+import { Sparkles } from 'lucide-react';
 
 const AccountConcierge = () => {
   return (
@@ -67,16 +68,16 @@ const AccountConcierge = () => {
           <div className="p-4 bg-surface-container-low rounded-xl border border-outline-variant/30 space-y-1.5">
             <h4 className="font-semibold text-on-surface flex items-center gap-1.5">
               <span className="material-symbols-outlined text-base text-primary">schedule</span>
-              <span>Turnaround & Express Dispatch</span>
+              <span>Turnaround & Express Shipping</span>
             </h4>
             <p className="text-on-surface-variant leading-relaxed">
-              Standard dispatch is 24 to 48 hours. Urgent wedding ceremonies are prioritized for express white-glove courier handover.
+              Standard shipping is 24 to 48 hours. Urgent wedding ceremonies are prioritized for express white-glove courier handover.
             </p>
           </div>
 
           <div className="p-4 bg-surface-container-low rounded-xl border border-outline-variant/30 space-y-1.5">
             <h4 className="font-semibold text-on-surface flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-primary">sparkles</span>
+              <Sparkles className="w-4 h-4 text-primary" />
               <span>Crest & Monogram Proofing</span>
             </h4>
             <p className="text-on-surface-variant leading-relaxed">
@@ -115,7 +116,7 @@ const AccountConcierge = () => {
           </Button>
           <Separator orientation="vertical" className="h-4" />
           <Button asChild variant="link" className="p-0 h-auto text-on-surface-variant hover:text-primary">
-            <Link href="/return-policy">Transit Guarantees</Link>
+            <Link href="/return-policy">Delivery Guarantees</Link>
           </Button>
         </div>
       </Card>

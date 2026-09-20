@@ -131,7 +131,7 @@ export const INITIAL_WISHLIST_ITEMS: WishlistItem[] = [
     customizations: [
       { label: 'Min Units', value: '25+ Favors Tier' },
       { label: 'Palace Tagging', value: 'Complimentary Luggage Tags', highlight: true },
-      { label: 'Dispatch Mode', value: 'Chilled Transit to Udaivilas' }
+      { label: 'Shipping Mode', value: 'Chilled Delivery to Udaivilas' }
     ]
   }
 ];
@@ -172,21 +172,21 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = (productOrItem) => {
     if (!productOrItem) return;
-    const id = productOrItem.id;
+    const id = typeof productOrItem === 'object' && productOrItem !== null ? productOrItem.id : productOrItem;
     if (!id || isInWishlist(id)) return;
 
     // If it is an item from PRODUCTS or a custom recommendation
-    const fullProduct = PRODUCTS.find(p => p.id === id) || productOrItem;
+    const fullProduct = PRODUCTS.find(p => p.id === id) || (typeof productOrItem === 'object' ? productOrItem : {});
     const category = fullProduct.category === 'bulk' || id === 'royal-destination-welcome-suite'
       ? 'guest-favors'
-      : fullProduct.category?.includes('vault') || id.includes('vault') || id.includes('registry')
+      : fullProduct.category?.includes('vault') || (typeof id === 'string' && (id.includes('vault') || id.includes('registry')))
       ? 'heirloom-vaults'
       : 'bridal-trousseau';
 
     const newItem = {
-      id: fullProduct.id,
-      slug: fullProduct.slug || fullProduct.id,
-      title: fullProduct.title,
+      id: fullProduct.id || id,
+      slug: fullProduct.slug || (typeof id === 'string' ? id : 'unknown'),
+      title: fullProduct.title || (typeof id === 'string' ? id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Unknown Item'),
       editionBadge: fullProduct.editionBadge || fullProduct.categoryLabel || 'Collection',
       badge: fullProduct.badge || 'Ceremony Heirloom',
       subBadge: fullProduct.subBadge || null,

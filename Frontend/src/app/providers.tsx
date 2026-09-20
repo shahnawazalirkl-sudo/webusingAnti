@@ -43,8 +43,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     '/atelier-charter',
     '/privacy-policy',
     '/privacy',
-    '/return-policy',
-    '/wishlist'
+    '/return-policy'
   ];
 
   const isEditorialPage =

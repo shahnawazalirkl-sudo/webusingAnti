@@ -55,11 +55,11 @@ const CartDrawer = () => {
         className="w-full sm:max-w-md p-0 flex flex-col justify-between border-l border-outline-variant/60 bg-surface-container-lowest shadow-2xl h-full"
       >
         {/* Header */}
-        <SheetHeader className="p-4 sm:p-5 border-b border-outline-variant/40 flex flex-row items-center justify-between space-y-0 pr-12">
+        <SheetHeader className="p-5 border-b border-outline-variant/40 flex flex-row items-center justify-between space-y-0 pr-12">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[22px]">shopping_bag</span>
-            <SheetTitle className="font-serif text-base sm:text-lg font-semibold text-on-surface">
-              Collection Shopping Bag
+            <span className="material-symbols-outlined text-primary text-[22px]">shopping_cart</span>
+            <SheetTitle className="font-serif text-lg font-semibold text-on-surface">
+              Collection Shopping Cart
             </SheetTitle>
             <span className="text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">
               {cartItems.length}
@@ -71,7 +71,7 @@ const CartDrawer = () => {
         </SheetHeader>
 
         {/* Free Shipping Progress */}
-        <div className="bg-secondary-container/20 px-4 sm:px-5 py-3 border-b border-secondary-container/40">
+        <div className="bg-secondary-container/20 px-5 py-3 border-b border-secondary-container/40">
           <div className="flex items-center justify-between text-[11px] mb-1.5 font-medium">
             <span className="text-on-surface">
               {subtotal >= freeShippingThreshold
@@ -89,11 +89,11 @@ const CartDrawer = () => {
         </div>
 
         {/* Cart Item List */}
-        <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-5 space-y-3.5 touch-pan-y">
+        <div className="flex-1 overflow-y-auto p-5 space-y-4">
           {cartItems.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-outline text-5xl mb-2">shopping_basket</span>
-              <p className="font-serif text-base text-on-surface font-semibold">Your shopping bag is empty</p>
+              <p className="font-serif text-base text-on-surface font-semibold">Your shopping cart is empty</p>
               <p className="text-xs text-outline mt-1 mb-5">Explore our customized wedding gifts to begin.</p>
               <button
                 type="button"
@@ -101,7 +101,7 @@ const CartDrawer = () => {
                   closeCartDrawer();
                   router.push('/shop');
                 }}
-                className="min-h-[44px] px-6 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-primary/90 active:scale-95 transition-all inline-flex items-center justify-center"
+                className="px-6 py-2.5 bg-primary text-on-primary rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-primary/90 transition-colors"
               >
                 Explore Collections
               </button>
@@ -110,7 +110,7 @@ const CartDrawer = () => {
             cartItems.map((item) => (
               <div
                 key={item.cartId}
-                className="p-3 sm:p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/50 flex gap-3 relative"
+                className="p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/50 flex gap-3 relative"
               >
                 {item.isVelvetVaultThumbnail ? (
                   <div className="w-20 h-24 bg-[#1A3328] text-[#E8DCB9] rounded-lg shrink-0 border border-outline-variant/40 flex flex-col items-center justify-center text-center p-1">
@@ -125,71 +125,64 @@ const CartDrawer = () => {
                   />
                 )}
 
-                <div className="flex-1 flex flex-col justify-between min-w-0">
+                <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-1">
-                      <h4 className="font-serif text-xs sm:text-sm font-semibold text-on-surface line-clamp-1">
+                      <h4 className="font-serif text-xs font-semibold text-on-surface line-clamp-1">
                         {item.title}
                       </h4>
                       <button
                         type="button"
                         onClick={() => removeFromCart(item.cartId)}
-                        className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center -mr-1.5 -mt-1.5 text-outline hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors active:scale-90 shrink-0"
-                        title="Remove item"
-                        aria-label="Remove item"
+                        className="text-outline hover:text-rose-600 transition-colors"
                       >
-                        <span className="material-symbols-outlined text-[18px]">delete</span>
+                        <span className="material-symbols-outlined text-[16px]">delete</span>
                       </button>
                     </div>
-                    <span className="text-[11px] text-primary font-medium block truncate">
+                    <span className="text-[11px] text-primary font-medium block">
                       {item.edition}
                     </span>
 
                     {/* Custom Monogram Badge */}
                     {item.brideName && item.groomName && (
-                      <div className="mt-1 inline-flex items-center gap-1 bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/40 text-[10px] text-on-surface-variant max-w-full truncate">
+                      <div className="mt-1 inline-flex items-center gap-1 bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/40 text-[10px] text-on-surface-variant">
                         <span className="font-semibold text-primary">{item.brideName} &amp; {item.groomName}</span>
                         {item.weddingDate && (
                           <>
                             <span>•</span>
-                            <span className="truncate">{item.weddingDate}</span>
+                            <span>{item.weddingDate}</span>
                           </>
                         )}
                       </div>
                     )}
                     {item.scentChoice && (
-                      <div className="text-[10px] text-on-surface-variant/80 mt-0.5 flex items-center gap-1 truncate">
-                        <span className="material-symbols-outlined text-[12px] text-primary shrink-0">spa</span>
-                        <span className="truncate">{item.scentChoice}</span>
+                      <div className="text-[10px] text-on-surface-variant/80 mt-0.5 flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[12px] text-primary">spa</span>
+                        <span>{item.scentChoice}</span>
                       </div>
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between mt-2.5 pt-1">
-                    {/* Quantity Stepper with >=36px targets */}
-                    <div className="flex items-center border border-outline-variant/60 rounded-lg bg-surface-container-lowest overflow-hidden shadow-2xs">
+                  <div className="flex items-center justify-between mt-2">
+                    <div className="flex items-center border border-outline-variant/60 rounded bg-surface-container-lowest">
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.cartId, -1)}
-                        className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-90 transition-all"
-                        aria-label="Decrease quantity"
+                        className="px-2 py-0.5 text-xs text-outline hover:text-on-surface"
                       >
-                        −
+                        -
                       </button>
-                      <span className="w-8 text-center text-xs font-semibold text-on-surface">
-                        {item.quantity}
-                      </span>
+                      <span className="px-2 py-0.5 text-xs font-semibold">{item.quantity}</span>
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.cartId, 1)}
-                        className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-90 transition-all"
-                        aria-label="Increase quantity"
+                        className="px-2 py-0.5 text-xs text-outline hover:text-on-surface"
                       >
                         +
                       </button>
                     </div>
 
-                    <span className="font-serif text-sm font-bold text-on-surface">
+                    <span className="font-serif text-xs font-bold text-on-surface">
                       ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                     </span>
                   </div>
@@ -201,10 +194,10 @@ const CartDrawer = () => {
 
         {/* Coupon Input & Summary Section */}
         {cartItems.length > 0 && (
-          <div className="p-4 sm:p-5 bg-surface-container-low border-t border-outline-variant/50 space-y-3">
+          <div className="p-5 bg-surface-container-low border-t border-outline-variant/50 space-y-3">
             {/* Active or New Coupon */}
             {appliedCoupon ? (
-              <div className="flex items-center justify-between p-2.5 bg-secondary-container/30 rounded-lg border border-secondary-container min-h-[44px]">
+              <div className="flex items-center justify-between p-2.5 bg-secondary-container/30 rounded-lg border border-secondary-container">
                 <div className="flex items-center gap-1.5 text-xs">
                   <span className="material-symbols-outlined text-primary text-[16px]">verified</span>
                   <span className="font-mono font-bold text-primary">{appliedCoupon.code}</span>
@@ -213,7 +206,7 @@ const CartDrawer = () => {
                 <button
                   type="button"
                   onClick={removeCoupon}
-                  className="min-h-[36px] px-2 text-[11px] text-rose-700 hover:underline font-semibold flex items-center"
+                  className="text-[11px] text-rose-700 hover:underline font-semibold"
                 >
                   Remove
                 </button>
@@ -224,12 +217,12 @@ const CartDrawer = () => {
                   type="text"
                   value={couponInput}
                   onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
-                  placeholder="Enter code (e.g. ASRAFIRST)"
-                  className="flex-1 min-h-[44px] bg-surface-container-lowest px-3 py-2 rounded-lg border border-outline-variant/60 text-xs font-mono uppercase focus:ring-1 focus:ring-primary focus:outline-none"
+                  placeholder="Enter privilege code (e.g. ASRAFIRST)"
+                  className="flex-1 bg-surface-container-lowest px-3 py-2 rounded-lg border border-outline-variant/60 text-xs font-mono uppercase focus:ring-1 focus:ring-primary focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="min-h-[44px] px-4 bg-on-surface text-surface rounded-lg text-xs font-semibold uppercase hover:bg-primary transition-colors active:scale-95 shrink-0"
+                  className="px-3.5 py-2 bg-on-surface text-surface rounded-lg text-xs font-semibold uppercase hover:bg-primary transition-colors"
                 >
                   Apply
                 </button>
@@ -250,7 +243,7 @@ const CartDrawer = () => {
                 </div>
               )}
               <div className="flex justify-between text-on-surface-variant">
-                <span>Insured White-Glove Dispatch</span>
+                <span>Insured White-Glove Shipping</span>
                 <span>{shipping === 0 ? <span className="text-brand-emerald font-semibold uppercase text-[11px]">Complimentary</span> : `₹${shipping}`}</span>
               </div>
               <div className="flex justify-between text-sm font-bold text-on-surface pt-1 border-t border-outline-variant/40">
@@ -267,9 +260,9 @@ const CartDrawer = () => {
                   closeCartDrawer();
                   router.push('/checkout');
                 }}
-                className="w-full min-h-[48px] py-3.5 bg-primary hover:bg-primary/90 text-on-primary rounded-xl text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98]"
+                className="w-full py-3 bg-primary hover:bg-primary/90 text-on-primary rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-md"
               >
-                <span className="material-symbols-outlined text-[18px]">lock</span>
+                <span className="material-symbols-outlined text-[16px]">lock</span>
                 <span>Proceed to Customized Checkout</span>
               </button>
               <button
@@ -278,7 +271,7 @@ const CartDrawer = () => {
                   closeCartDrawer();
                   router.push('/cart');
                 }}
-                className="w-full min-h-[44px] py-2.5 bg-surface-container-lowest hover:bg-surface-container-high text-on-surface rounded-xl text-xs font-semibold border border-outline-variant/60 transition-colors active:scale-[0.98]"
+                className="w-full py-2 bg-surface-container-lowest hover:bg-surface-container-high text-on-surface rounded-lg text-xs font-semibold border border-outline-variant/60 transition-colors"
               >
                 View Full Cart &amp; Customization Proof
               </button>

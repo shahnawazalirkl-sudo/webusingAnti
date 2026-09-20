@@ -321,7 +321,7 @@ const BespokePage = () => {
             </div>
             <div className="text-left">
               <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider">Insured Global Courier</h4>
-              <p className="text-[11px] text-on-surface-variant">Doorstep transit protection</p>
+              <p className="text-[11px] text-on-surface-variant">Doorstep delivery protection</p>
             </div>
           </div>
 

@@ -45,7 +45,7 @@ const AccountHeader = ({ profile }) => {
       <div className="flex items-center gap-3 shrink-0">
         <Button asChild size="sm" className="gap-2">
           <Link href="/shop">
-            <span className="material-symbols-outlined text-base">shopping_bag</span>
+            <span className="material-symbols-outlined text-base">shopping_cart</span>
             <span>Explore Collections</span>
           </Link>
         </Button>

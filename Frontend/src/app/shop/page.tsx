@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 
 import ProductCard from '@/components/common/ProductCard';
@@ -46,54 +46,62 @@ const RECIPIENT_OPTIONS = [
 ];
 
 const ShopPageInner = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
-const setSearchParams = (params: any) => {};
-  const location = usePathname();
+  const pathname = usePathname();
   const catalogSectionRef = useRef<HTMLDivElement | null>(null);
 
-  // Read URL query parameters
-  const initialCategory = searchParams?.get('cat') || 'all';
-  const initialSearch = searchParams?.get('search') || '';
+  // Derive state from URL
+  const selectedPill = searchParams?.get('cat') || 'all';
+  const searchQuery = searchParams?.get('search') || '';
+  const selectedProductTypes = searchParams?.get('types')?.split(',').filter(Boolean) || [];
+  const selectedPriceRange = searchParams?.get('price') || 'all';
+  const selectedRecipient = searchParams?.get('recipient') || 'all';
+  const selectedOccasions = searchParams?.get('occasions')?.split(',').filter(Boolean) || [];
+  const selectedPersonalization = searchParams?.get('personalization') || 'all';
+  const selectedDispatch = searchParams?.get('dispatch') || 'all';
+  const sortBy = searchParams?.get('sort') || 'featured';
+  const currentPage = Number(searchParams?.get('page')) || 1;
+  const showAllProducts = searchParams?.get('showAll') === 'true';
 
-  // Local state for all facets
-  const [selectedPill, setSelectedPill] = useState(initialCategory);
-  const [selectedProductTypes, setSelectedProductTypes] = useState<string[]>([]);
-  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
-  const [selectedRecipient, setSelectedRecipient] = useState('all');
-  const [selectedOccasions, setSelectedOccasions] = useState<string[]>([]);
-  const [selectedPersonalization, setSelectedPersonalization] = useState('all');
-  const [selectedDispatch, setSelectedDispatch] = useState('all');
-  const [sortBy, setSortBy] = useState('featured');
-  const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [gridCols, setGridCols] = useState(3);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [showAllProducts, setShowAllProducts] = useState(false);
 
-  // Synchronize state with URL parameters
+  const latestParamsRef = useRef<URLSearchParams | null>(null);
+  if (!latestParamsRef.current) {
+    latestParamsRef.current = new URLSearchParams(searchParams?.toString() || '');
+  }
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
-    const urlCat = searchParams?.get('cat');
-    if (urlCat && urlCat !== 'all') {
-      const isPill = CATEGORY_PILLS.some((p) => p.id === urlCat);
-      if (isPill) {
-        setSelectedPill(urlCat);
+    latestParamsRef.current = new URLSearchParams(searchParams?.toString() || '');
+  }, [searchParams]);
+
+  const updateUrl = (updates: Record<string, string | null>) => {
+    const params = new URLSearchParams(latestParamsRef.current?.toString() || '');
+    for (const [key, value] of Object.entries(updates)) {
+      if (value === null || value === 'all' || value === '') {
+        params.delete(key);
       } else {
-        setSelectedProductTypes([urlCat]);
-        setSelectedPill('all');
+        params.set(key, value);
       }
-    } else {
-      setSelectedPill('all');
-      setSelectedProductTypes([]);
     }
-
-    const urlSearch = searchParams?.get('search');
-    if (urlSearch) {
-      setSearchQuery(urlSearch);
+    if (updates.page === undefined) {
+      params.delete('page');
     }
-    setCurrentPage(1);
+    latestParamsRef.current = params;
 
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    debounceTimerRef.current = setTimeout(() => {
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    }, 300);
+  };
+
+  useEffect(() => {
     const hash = typeof window !== 'undefined' ? window.location.hash : '';
-    const hasCategoryOrAnchor = (urlCat && urlCat !== 'all') || urlSearch || hash === '#products';
+    const hasCategoryOrAnchor = (selectedPill && selectedPill !== 'all') || searchQuery || hash === '#products';
     if (hasCategoryOrAnchor && catalogSectionRef.current) {
       setTimeout(() => {
         if (catalogSectionRef.current) {
@@ -107,7 +115,7 @@ const setSearchParams = (params: any) => {};
         }
       }, 70);
     }
-  }, [searchParams, location]);
+  }, [searchParams, pathname, selectedPill, searchQuery]);
 
   // Filter products using all active criteria
   const filteredProducts = useMemo(() => {
@@ -159,7 +167,16 @@ const setSearchParams = (params: any) => {};
 
       // 5. Gift Recipient
       if (selectedRecipient !== 'all') {
-        if (!product.recipient?.toLowerCase().includes(selectedRecipient.toLowerCase())) {
+        const prodRec = (product.recipient || '').toLowerCase();
+        const targetRec = selectedRecipient.toLowerCase();
+        const matchesDirect = prodRec.includes(targetRec);
+        
+        let matchesAlias = false;
+        if (targetRec === 'for her') matchesAlias = prodRec.includes('bride');
+        if (targetRec === 'for him') matchesAlias = prodRec.includes('groom');
+        if (targetRec === 'couple') matchesAlias = prodRec.includes('bride & groom');
+
+        if (!matchesDirect && !matchesAlias) {
           return false;
         }
       }
@@ -183,7 +200,7 @@ const setSearchParams = (params: any) => {};
         if (selectedPersonalization === 'audio' && !craft.includes('scannable') && !craft.includes('audio') && !tech.includes('audio')) return false;
       }
 
-      // 8. Dispatch Speed
+      // 8. Shipping Speed
       if (selectedDispatch === '24h') {
         const is24h = (product.timeline || '').includes('48h') ||
           (product.timeline || '').includes('24-Hour') ||
@@ -202,7 +219,11 @@ const setSearchParams = (params: any) => {};
       if (sortBy === 'price-asc') return a.price - b.price;
       if (sortBy === 'price-desc') return b.price - a.price;
       if (sortBy === 'rating') return (b.rating || 0) - (a.rating || 0);
-      if (sortBy === 'newest') return b.id.localeCompare(a.id);
+      if (sortBy === 'newest') {
+        const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+        const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+        return dateB - dateA;
+      }
       return 0; // featured
     });
   }, [
@@ -226,9 +247,13 @@ const setSearchParams = (params: any) => {};
       } else if (pill.filterCat) {
         counts[pill.id] = PRODUCTS.filter((p) => pill.filterCat.includes(p.category)).length;
       } else if (pill.recipient) {
-        counts[pill.id] = PRODUCTS.filter((p) =>
-          p.recipient?.toLowerCase().includes(pill.recipient.toLowerCase())
-        ).length;
+        counts[pill.id] = PRODUCTS.filter((p) => {
+          const prodRec = (p.recipient || '').toLowerCase();
+          const targetRec = pill.recipient.toLowerCase();
+          const matchesDirect = prodRec.includes(targetRec);
+          const matchesAlias = pill.aliases && pill.aliases.some((a) => prodRec.includes(a));
+          return matchesDirect || matchesAlias;
+        }).length;
       } else {
         counts[pill.id] = 0;
       }
@@ -261,34 +286,24 @@ const setSearchParams = (params: any) => {};
 
   // Clear all filters
   const resetAllFilters = () => {
-    setSelectedPill('all');
-    setSelectedProductTypes([]);
-    setSelectedPriceRange('all');
-    setSelectedRecipient('all');
-    setSelectedOccasions([]);
-    setSelectedPersonalization('all');
-    setSelectedDispatch('all');
-    setSortBy('featured');
-    setSearchQuery('');
-    setSearchParams({});
-    setCurrentPage(1);
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    router.replace(pathname, { scroll: false });
   };
 
   // Toggle single product type checkbox
   const toggleProductType = (cat: string) => {
-    setSelectedProductTypes((prev: string[]) =>
-      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
-    );
-    setSelectedPill('all'); // Clear quick-pill if advanced filter is used
-    setCurrentPage(1);
+    const prev = selectedProductTypes;
+    const next = prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat];
+    updateUrl({ types: next.length ? next.join(',') : null, cat: null }); // Clear quick-pill if advanced filter is used
   };
 
   // Toggle occasion checkbox
   const toggleOccasion = (occ: string) => {
-    setSelectedOccasions((prev: string[]) =>
-      prev.includes(occ) ? prev.filter((o) => o !== occ) : [...prev, occ]
-    );
-    setCurrentPage(1);
+    const prev = selectedOccasions;
+    const next = prev.includes(occ) ? prev.filter((o) => o !== occ) : [...prev, occ];
+    updateUrl({ occasions: next.length ? next.join(',') : null });
   };
 
   // Pagination calculations (8 products per page unless showAllProducts is true)
@@ -305,10 +320,7 @@ const setSearchParams = (params: any) => {};
       {/* 1. Page Header & Category Pills */}
       <ShopHeader
         selectedPill={selectedPill}
-        onSelectPill={(pillId) => {
-          setSelectedPill(pillId);
-          setCurrentPage(1);
-        }}
+        onSelectPill={(pillId) => updateUrl({ cat: pillId })}
         pillCounts={pillCounts}
       />
 
@@ -319,21 +331,22 @@ const setSearchParams = (params: any) => {};
         displayCount={showAllProducts ? filteredProducts.length : paginatedProducts.length}
         activeFiltersCount={activeFiltersCount}
         selectedPill={selectedPill}
-        onResetPill={() => setSelectedPill('all')}
+        onResetPill={() => updateUrl({ cat: null })}
         selectedPriceRange={selectedPriceRange}
-        onResetPrice={() => setSelectedPriceRange('all')}
+        onResetPrice={() => updateUrl({ price: null })}
         selectedRecipient={selectedRecipient}
-        onResetRecipient={() => setSelectedRecipient('all')}
+        onResetRecipient={() => updateUrl({ recipient: null })}
         selectedProductTypes={selectedProductTypes}
         onToggleProductType={toggleProductType}
         productTypeOptions={PRODUCT_TYPE_OPTIONS}
         searchQuery={searchQuery}
-        onClearSearch={() => setSearchQuery('')}
+        onClearSearch={() => updateUrl({ search: null })}
         onResetAll={resetAllFilters}
         gridCols={gridCols}
         onGridColsChange={setGridCols}
         sortBy={sortBy}
-        onSortChange={setSortBy}
+        onSortChange={(val) => updateUrl({ sort: val })}
+        isMobileFilterOpen={isMobileFilterOpen}
         onOpenMobileFilters={() => setIsMobileFilterOpen(true)}
       />
 
@@ -347,38 +360,23 @@ const setSearchParams = (params: any) => {};
           >
             <ShopFilters
               searchQuery={searchQuery}
-              onSearchChange={(val) => {
-                setSearchQuery(val);
-                setCurrentPage(1);
-              }}
+              onSearchChange={(val) => updateUrl({ search: val })}
               selectedProductTypes={selectedProductTypes}
               onToggleProductType={toggleProductType}
               productTypeOptions={PRODUCT_TYPE_OPTIONS}
               productsList={PRODUCTS}
               selectedPriceRange={selectedPriceRange}
-              onSelectPriceRange={(val) => {
-                setSelectedPriceRange(val);
-                setCurrentPage(1);
-              }}
+              onSelectPriceRange={(val) => updateUrl({ price: val })}
               selectedRecipient={selectedRecipient}
-              onSelectRecipient={(val) => {
-                setSelectedRecipient(val);
-                setCurrentPage(1);
-              }}
+              onSelectRecipient={(val) => updateUrl({ recipient: val })}
               recipientOptions={RECIPIENT_OPTIONS}
               selectedOccasions={selectedOccasions}
               onToggleOccasion={toggleOccasion}
               occasionOptions={OCCASION_OPTIONS}
               selectedPersonalization={selectedPersonalization}
-              onSelectPersonalization={(val) => {
-                setSelectedPersonalization(val);
-                setCurrentPage(1);
-              }}
+              onSelectPersonalization={(val) => updateUrl({ personalization: val })}
               selectedDispatch={selectedDispatch}
-              onSelectDispatch={(val) => {
-                setSelectedDispatch(val);
-                setCurrentPage(1);
-              }}
+              onSelectDispatch={(val) => updateUrl({ dispatch: val })}
               activeFiltersCount={activeFiltersCount}
               onResetAll={resetAllFilters}
             />
@@ -406,11 +404,11 @@ const setSearchParams = (params: any) => {};
               </Card>
             ) : (
               <>
-                {/* Responsive Product Grid: 2-column standardized on mobile */}
+                {/* Responsive Product Grid */}
                 <div
-                  className={`grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 ${
-                    gridCols === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
-                  }`}
+                  className={`grid grid-cols-1 sm:grid-cols-2 ${
+                    gridCols === 4 ? 'lg:grid-cols-3 xl:grid-cols-4' : 'xl:grid-cols-3'
+                  } gap-3 sm:gap-4 lg:gap-5`}
                 >
                   {paginatedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
@@ -424,12 +422,12 @@ const setSearchParams = (params: any) => {};
                   totalFiltered={filteredProducts.length}
                   showAllProducts={showAllProducts}
                   onPageChange={(page) => {
-                    setCurrentPage(page);
+                    updateUrl({ page: page.toString() });
                     catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   onToggleShowAll={() => {
-                    setShowAllProducts((prev) => !prev);
-                    if (showAllProducts) {
+                    updateUrl({ showAll: !showAllProducts ? 'true' : null, page: null });
+                    if (!showAllProducts) {
                       catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
@@ -442,91 +440,57 @@ const setSearchParams = (params: any) => {};
 
       {/* 4. Mobile Filter Drawer Sheet */}
       <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
-        <SheetContent
-          side="right"
-          className="w-full sm:max-w-md p-0 flex flex-col h-full bg-surface text-on-surface border-l border-outline-variant/30 overflow-hidden"
-        >
-          {/* Header */}
-          <SheetHeader className="p-4 sm:p-5 border-b border-outline-variant/30 text-left shrink-0 bg-surface-container-low/50">
-            <div className="flex items-center justify-between pr-8">
-              <SheetTitle className="flex items-center gap-2 text-base font-serif text-on-surface">
+        <SheetContent side="right" className="w-full max-w-xs p-0 flex flex-col justify-between">
+          <div className="flex-1 overflow-y-auto p-6">
+            <SheetHeader className="pb-4 border-b border-outline-variant/40 mb-4 text-left pr-6">
+              <SheetTitle className="flex items-center gap-2 text-on-surface">
                 <span className="material-symbols-outlined text-[20px] text-primary">filter_vintage</span>
                 <span>Refine Collection</span>
               </SheetTitle>
-              {activeFiltersCount > 0 && (
-                <button
-                  type="button"
-                  onClick={resetAllFilters}
-                  className="text-xs text-primary hover:underline font-bold uppercase tracking-wider"
-                >
-                  Reset ({activeFiltersCount})
-                </button>
-              )}
-            </div>
-            <SheetDescription className="text-xs text-on-surface-variant mt-0.5">
-              Refine by craft technique, recipient, price, or dispatch timeline.
-            </SheetDescription>
-          </SheetHeader>
+              <SheetDescription className="sr-only">
+                Filter and refine the wedding gift collection
+              </SheetDescription>
+            </SheetHeader>
 
-          {/* Scrollable Body */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-5 overscroll-contain">
+            {/* Reusable Filter Subcomponent inside Mobile Drawer */}
             <ShopFilters
               searchQuery={searchQuery}
-              onSearchChange={(val) => {
-                setSearchQuery(val);
-                setCurrentPage(1);
-              }}
+              onSearchChange={(val) => updateUrl({ search: val })}
               selectedProductTypes={selectedProductTypes}
               onToggleProductType={toggleProductType}
               productTypeOptions={PRODUCT_TYPE_OPTIONS}
               productsList={PRODUCTS}
               selectedPriceRange={selectedPriceRange}
-              onSelectPriceRange={(val) => {
-                setSelectedPriceRange(val);
-                setCurrentPage(1);
-              }}
+              onSelectPriceRange={(val) => updateUrl({ price: val })}
               selectedRecipient={selectedRecipient}
-              onSelectRecipient={(val) => {
-                setSelectedRecipient(val);
-                setCurrentPage(1);
-              }}
+              onSelectRecipient={(val) => updateUrl({ recipient: val })}
               recipientOptions={RECIPIENT_OPTIONS}
               selectedOccasions={selectedOccasions}
               onToggleOccasion={toggleOccasion}
               occasionOptions={OCCASION_OPTIONS}
               selectedPersonalization={selectedPersonalization}
-              onSelectPersonalization={(val) => {
-                setSelectedPersonalization(val);
-                setCurrentPage(1);
-              }}
+              onSelectPersonalization={(val) => updateUrl({ personalization: val })}
               selectedDispatch={selectedDispatch}
-              onSelectDispatch={(val) => {
-                setSelectedDispatch(val);
-                setCurrentPage(1);
-              }}
+              onSelectDispatch={(val) => updateUrl({ dispatch: val })}
               activeFiltersCount={activeFiltersCount}
               onResetAll={resetAllFilters}
-              hideHeader={true}
             />
           </div>
 
-          {/* Sticky Bottom Action Footer with Apply & Reset */}
-          <div className="p-3 sm:p-4 border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md shrink-0 flex items-center gap-2.5 z-10 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
+          {/* Bottom Action Footer */}
+          <div className="p-6 pt-4 border-t border-outline-variant/30 flex gap-2 shrink-0 bg-surface">
             <Button
               onClick={resetAllFilters}
               variant="outline"
-              className="flex-1 h-11 text-xs font-semibold uppercase tracking-wider border-outline-variant/50 touch-manipulation active:scale-98"
+              className="flex-1 py-2 text-xs"
             >
-              Reset All
+              Clear
             </Button>
             <Button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="flex-[2] h-11 text-xs font-semibold uppercase tracking-wider bg-primary text-on-primary hover:bg-[#5f4b2d] touch-manipulation active:scale-98 shadow-sm flex items-center justify-center gap-1.5"
+              className="flex-1 py-2 text-xs font-semibold"
             >
-              <span>Apply Filters</span>
-              <span className="bg-white/20 px-1.5 py-0.5 rounded text-[11px] font-mono">
-                {filteredProducts.length}
-              </span>
+              View {filteredProducts.length} Items
             </Button>
           </div>
         </SheetContent>

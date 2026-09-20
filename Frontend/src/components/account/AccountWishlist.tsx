@@ -29,7 +29,7 @@ const AccountWishlist = () => {
         <div className="pt-2">
           <Button asChild className="gap-2">
             <Link href="/shop">
-              <span className="material-symbols-outlined text-base">shopping_bag</span>
+              <span className="material-symbols-outlined text-base">shopping_cart</span>
               <span>Discover Collections</span>
             </Link>
           </Button>
@@ -73,7 +73,7 @@ const AccountWishlist = () => {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-outline">
-                    <span className="material-symbols-outlined text-3xl">shopping_bag</span>
+                    <span className="material-symbols-outlined text-3xl">shopping_cart</span>
                   </div>
                 )}
                 <Button
@@ -124,13 +124,13 @@ const AccountWishlist = () => {
                     quantity: 1
                   });
                   removeFromWishlist(item.id);
-                  toast.success('Moved item to your shopping bag');
+                  toast.success('Moved item to your shopping cart');
                 }}
                 className="w-full gap-2"
                 size="sm"
               >
-                <span className="material-symbols-outlined text-sm">shopping_bag</span>
-                <span>Move to Bag</span>
+                <span className="material-symbols-outlined text-sm">shopping_cart</span>
+                <span>Move to Cart</span>
               </Button>
             </div>
           </Card>

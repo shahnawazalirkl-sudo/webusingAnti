@@ -141,7 +141,7 @@ const AddressDialog = ({ open, onOpenChange, onSaveAddress, editingAddress }) =>
               className="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4"
             />
             <Label htmlFor="addr-default" className="text-xs cursor-pointer text-on-surface font-normal normal-case">
-              Set as primary dispatch address for one-click checkout
+              Set as primary shipping address for one-click checkout
             </Label>
           </div>
 

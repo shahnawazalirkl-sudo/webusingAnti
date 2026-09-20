@@ -159,7 +159,7 @@ const Header = () => {
                 aria-label="View Cart"
               >
                 <div className="relative flex items-center justify-center">
-                  <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
+                  <span className="material-symbols-outlined text-[20px]">shopping_cart</span>
                   {mounted && itemCount > 0 && (
                     <span className="absolute -top-1 -right-2 bg-primary text-on-primary text-[10px] min-w-4 h-4 px-1 rounded-full flex items-center justify-center font-bold leading-none">
                       {itemCount}

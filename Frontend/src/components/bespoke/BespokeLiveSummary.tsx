@@ -78,7 +78,7 @@ const BespokeLiveSummary = ({
           <span className="material-symbols-outlined text-[28px]">verified</span>
         </div>
         <Badge variant="gold" className="text-[10px] uppercase tracking-widest px-3 py-1 mb-2">
-          Commission Dispatched
+          Commission Shipped
         </Badge>
         <h3 className="font-serif text-2xl sm:text-3xl font-normal text-on-surface mb-2">
           Thank You, {fullName || 'Dear Guest'}!

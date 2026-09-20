@@ -8,7 +8,6 @@ import {
   Phone,
   Mail,
   CheckCircle2,
-  Sparkles,
   ChevronDown,
   ExternalLink,
   ShieldCheck,
@@ -135,7 +134,7 @@ const ContactPage = () => {
     },
     {
       q: 'How does the international virtual support consultation work?',
-      a: 'We conduct live HD video walkthroughs where a Senior Bridal Stylist presents actual fabric folios under studio lighting. Following the call, photorealistic 3D renders and physical swatch folios can be dispatched worldwide via express courier.'
+      a: 'We conduct live HD video walkthroughs where a Senior Bridal Stylist presents actual fabric folios under studio lighting. Following the call, photorealistic 3D renders and physical swatch folios can be shipped worldwide via express courier.'
     },
     {
       q: 'What is the lead time for customized wedding orders?',
@@ -650,7 +649,7 @@ const ContactPage = () => {
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-asra-muted">Lead Stylist Dispatch:</span>
+                      <span className="text-asra-muted">Lead Stylist Shipping:</span>
                       <span className="text-emerald-700 font-medium">Within 2 Hours via WhatsApp</span>
                     </div>
                   </div>
@@ -819,7 +818,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Swatch Sample Dispatch Box */}
+              {/* Swatch Sample Shipping Box */}
               <div className="bg-white border border-dashed border-asra-gold/50 p-6 shadow-sm rounded">
                 <div className="flex items-start gap-3">
                   <span className="text-xl">📫</span>
@@ -913,7 +912,7 @@ const ContactPage = () => {
             {!swatchSubmitted ? (
               <>
                 <span className="text-[10px] uppercase tracking-[0.25em] text-asra-goldDark font-bold block mb-1">
-                  EXPRESS DISPATCH
+                  EXPRESS SHIPPING
                 </span>
                 <h3 className="font-cormorant text-2xl font-bold text-asra-charcoal mb-2">
                   Request Physical Swatch Folio
@@ -974,7 +973,7 @@ const ContactPage = () => {
                     type="submit"
                     className="w-full py-3 bg-asra-gold hover:bg-asra-goldDark text-white text-xs font-semibold uppercase tracking-widest transition-colors shadow-sm"
                   >
-                    Dispatch Complimentary Swatches
+                    Shipping Complimentary Swatches
                   </button>
                   <p className="text-[10px] text-gray-400 text-center">
                     Complimentary for prospective couples with upcoming celebrations.
@@ -987,10 +986,10 @@ const ContactPage = () => {
                   ✓
                 </div>
                 <h3 className="font-cormorant text-2xl font-bold text-asra-charcoal">
-                  Swatch Folio Dispatched
+                  Swatch Folio Shipped
                 </h3>
                 <p className="text-xs text-asra-muted">
-                  Your luxury tactile preview kit is queued for dispatch to {swatchAddress.name}. Tracking telemetry will arrive via SMS shortly.
+                  Your luxury tactile preview kit is queued for shipping to {swatchAddress.name}. Tracking telemetry will arrive via SMS shortly.
                 </p>
                 <button
                   type="button"

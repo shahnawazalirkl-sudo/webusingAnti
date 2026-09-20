@@ -121,7 +121,7 @@ export const DEFAULT_CART_ITEMS: CartItem[] = [
     monogramDie: 'Matching A&S Couple Die',
     savingsNote: 'Saved ₹600 with Ensemble Bundle',
     footerNote: 'Matched to Suite Initials at No Extra Charge',
-    dispatchTimeline: 'Dispatched together with Masterpiece Suite'
+    dispatchTimeline: 'Shipped together with Masterpiece Suite'
   }
 ];
 
@@ -173,42 +173,53 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = (product, customOptions: Record<string, unknown> = {}) => {
-    const newItem = {
-      cartId: `item-${product.id}-${Date.now()}`,
-      id: product.id,
-      sku: product.sku || `ASRA-${(product.id || 'BESPOKE').toUpperCase().slice(0, 6)}`,
-      title: product.title,
-      subtitle: product.categoryLabel ? `${product.categoryLabel} • Customized Gift` : 'Customized Gift',
-      badge: product.badge || 'Collection Selection',
-      price: Number(customOptions.price || product.price),
-      originalPrice: Number(customOptions.originalPrice || product.originalPrice || Math.round((Number(customOptions.price) || Number(product.price)) * 1.3)),
-      quantity: Number(customOptions.quantity || 1),
-      image: customOptions.image || product.image || '',
-      edition: customOptions.edition || 'Signature Collection Edition',
-      colorDot: customOptions.colorDot || '#C5A880',
-      brideName: customOptions.brideName || '',
-      groomName: customOptions.groomName || '',
-      weddingDate: customOptions.weddingDate || '',
-      crestStyle: customOptions.crestStyle || 'Classic Floral Crest',
-      monogramDie: customOptions.monogramDie || (customOptions.brideName ? `"${customOptions.brideName[0]} & ${customOptions.groomName?.[0] || 'R'}" Initials Die` : ''),
-      cardInscription: customOptions.cardInscription || '',
-      calligraphyScript: customOptions.calligraphyScript || '',
-      scentChoice: customOptions.scentChoice || '',
-      fabricShade: customOptions.fabricShade || '',
-      metalHardware: customOptions.metalHardware || '',
-      footerNote: customOptions.footerNote || 'Artisanal White-Glove Transit Guaranteed',
-      dispatchTimeline: customOptions.dispatchTimeline || 'Within 48-72 Hours'
-    } as unknown as CartItem;
+    setCartItems(prev => {
+      const customKeys = Object.keys(customOptions).filter(k => k !== 'quantity');
+      const isCustomized = customKeys.length > 0;
+      
+      let cartId = `item-${product.id}`;
+      if (isCustomized) {
+        const sortedOptions = [...customKeys].sort().map(k => `${k}:${JSON.stringify(customOptions[k])}`).join('|');
+        const hash = sortedOptions.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
+        cartId = `${cartId}-${Math.abs(hash)}`;
+      }
 
-    setCartItems(prev => [...prev, newItem]);
-    showToast(`Added "${product.title}" to Collection Gift Bag`);
+      const existingItemIndex = prev.findIndex(item => item.cartId === cartId);
+
+      if (existingItemIndex >= 0) {
+        const newItems = [...prev];
+        newItems[existingItemIndex] = {
+          ...newItems[existingItemIndex],
+          quantity: newItems[existingItemIndex].quantity + Number(customOptions.quantity || 1)
+        };
+        setTimeout(() => showToast(`Updated "${product.title}" quantity in cart`), 0);
+        return newItems;
+      }
+
+      const newItem = {
+        cartId,
+        id: product.id,
+        sku: product.sku || `ASRA-${(product.id || 'BESPOKE').toUpperCase().slice(0, 6)}`,
+        title: product.title,
+        subtitle: product.categoryLabel ? `${product.categoryLabel} • Customized Gift` : 'Customized Gift',
+        badge: product.badge || 'Collection Selection',
+        price: Number(customOptions.price || product.price),
+        originalPrice: Number(customOptions.originalPrice || product.originalPrice || Math.round((Number(customOptions.price) || Number(product.price)) * 1.3)),
+        quantity: Number(customOptions.quantity || 1),
+        image: customOptions.image || product.image || '',
+        ...customOptions
+      } as unknown as CartItem;
+
+      setTimeout(() => showToast(`Added "${product.title}" to Collection Cart`), 0);
+      return [...prev, newItem];
+    });
   };
 
   const removeFromCart = (cartId) => {
     const item = cartItems.find(i => i.cartId === cartId);
     setCartItems(prev => prev.filter(i => i.cartId !== cartId));
     if (item) {
-      showToast(`Removed "${item.title}" from your bag`);
+      showToast(`Removed "${item.title}" from your cart`);
     }
   };
 

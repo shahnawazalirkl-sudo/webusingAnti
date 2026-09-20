@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
@@ -41,7 +43,7 @@ const CheckoutPage = () => {
   // Handover venue type: 'palace' | 'residence'
   const [venueType, setVenueType] = useState('palace');
 
-  // Transit method: 'white_glove' (₹0) | 'diplomatic' (+₹1,499)
+  // Delivery method: 'white_glove' (₹0) | 'diplomatic' (+₹1,499)
   const [transitMethod, setTransitMethod] = useState('white_glove');
   const transitCost = transitMethod === 'diplomatic' ? 1499 : 0;
 
@@ -63,9 +65,6 @@ const CheckoutPage = () => {
     "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum."
   );
   const [monogramConsent, setMonogramConsent] = useState(true);
-
-  // Mobile Collapsible Order Summary state
-  const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
 
   // Settlement / Payment mode: 'upi' | 'card'
   const [paymentMethod, setPaymentMethod] = useState('upi');
@@ -151,109 +150,107 @@ const CheckoutPage = () => {
     <div className="min-h-screen bg-surface text-on-surface font-sans flex flex-col justify-between selection:bg-primary/20 selection:text-on-surface">
       {/* 1. MINIMAL DISTRACTION-FREE HEADER */}
       <header className="w-full bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-40">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           
           {/* Left: Return to Collection Cart */}
           <div className="flex items-center space-x-2">
             <Link
               href="/cart"
-              className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors group font-sans min-h-[36px]"
+              className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors group font-sans"
             >
               <span className="material-symbols-outlined text-[16px] mr-1.5 transform group-hover:-translate-x-1 transition-transform">
                 arrow_back
               </span>
-              <span className="hidden sm:inline">Return to Gift Bag</span>
-              <span className="sm:hidden">Bag</span>
+              <span className="hidden sm:inline">Return to Cart</span>
+              <span className="sm:hidden">Cart</span>
             </Link>
           </div>
 
           {/* Center: Official ASRA Brand Emblem */}
           <div className="flex flex-col items-center justify-center py-2">
-            <Link href="/">
-              <img
+            <Link href="/" className="relative">
+              <Image
                 alt="ASRA Wedding Canvas Crest Logo"
-                className="h-9 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity"
-                src="/assets/cdn/img_36917e8d2065.jpg"
+                className="h-10 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity"
+                src="/assets/cdn/img_36917e8d2065.jpg" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
             </Link>
           </div>
 
           {/* Right: Security & Insurance Guarantee */}
-          <div className="flex items-center space-x-2">
-            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
+          <div className="flex items-center space-x-2.5">
+            <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-600" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
             </span>
             <div className="text-right hidden sm:block">
               <div className="text-[11px] font-bold tracking-wider uppercase text-on-surface flex items-center gap-1 justify-end font-sans">
                 <span>256-Bit SSL Encrypted</span>
               </div>
               <p className="text-[10px] text-on-surface-variant tracking-tight font-sans">
-                White-Glove Insured Dispatch
+                White-Glove Insured Shipping
               </p>
             </div>
-            <span className="sm:hidden text-[10px] font-semibold text-on-surface uppercase tracking-wider">SSL</span>
           </div>
 
         </div>
       </header>
 
       {/* 2. CHECKOUT STEPPER & RESERVATION COUNTDOWN BAR */}
-      <div className="w-full bg-[#FAF4EB]/60 border-b border-outline-variant/30 py-2.5 sm:py-3.5">
+      <div className="w-full bg-[#FAF4EB]/60 border-b border-outline-variant/30 py-3.5">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-2.5 sm:gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
-            {/* Multi-Step Progress Indicator (Compact on mobile text-xs) */}
+            {/* Multi-Step Progress Indicator */}
             <nav aria-label="Checkout Progress" className="w-full md:w-auto">
-              <ol className="flex items-center space-x-2 sm:space-x-4 text-xs font-medium tracking-wide">
+              <ol className="flex items-center space-x-3 sm:space-x-6 text-xs font-medium tracking-wide">
                 
                 {/* Step 1: Completed */}
                 <li>
-                  <Link href="/cart" className="flex items-center space-x-1.5 text-on-surface-variant hover:text-primary transition-colors min-h-[32px]">
-                    <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary text-on-primary text-[10px] sm:text-xs font-semibold shadow-xs">
-                      <span className="material-symbols-outlined text-[12px] sm:text-[14px]">check</span>
+                  <Link href="/cart" className="flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-xs font-semibold shadow-xs">
+                      <span className="material-symbols-outlined text-[14px]">check</span>
                     </span>
-                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-semibold font-sans">1. Review Bag</span>
-                    <span className="sm:hidden text-[10px] uppercase font-semibold">1. Bag</span>
+                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-semibold font-sans">1. Review Cart</span>
+                    <span className="sm:hidden text-[11px]">1. Cart</span>
                   </Link>
                 </li>
 
-                <li className="text-outline font-light text-xs">—</li>
+                <li className="text-outline font-light">—</li>
 
                 {/* Step 2: Active Step */}
-                <li aria-current="step" className="flex items-center space-x-1.5 text-on-surface font-semibold">
-                  <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary text-on-primary text-[10px] sm:text-xs font-bold ring-2 sm:ring-4 ring-primary/20 shadow-xs">
+                <li aria-current="step" className="flex items-center space-x-2 text-on-surface font-semibold">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-xs font-bold ring-4 ring-primary/20 shadow-xs">
                     2
                   </span>
-                  <span className="uppercase text-[10px] sm:text-[11px] tracking-wider text-on-surface font-bold font-sans">
-                    <span className="hidden sm:inline">2. Ceremony &amp; Address</span>
-                    <span className="sm:hidden">2. Details</span>
+                  <span className="uppercase text-[11px] tracking-wider text-on-surface font-bold font-sans">
+                    2. Ceremony &amp; Address
                   </span>
                 </li>
 
-                <li className="text-outline font-light text-xs">—</li>
+                <li className="text-outline font-light">—</li>
 
                 {/* Step 3: Upcoming */}
-                <li className="flex items-center space-x-1.5 text-outline">
-                  <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-outline-variant/50 text-outline text-[10px] sm:text-xs font-medium bg-surface-container-lowest">
+                <li className="flex items-center space-x-2 text-outline">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full border border-outline-variant/50 text-outline text-xs font-medium bg-surface-container-lowest">
                     3
                   </span>
                   <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-sans">
-                    3. Dispatch Settlement
+                    3. Shipping Settlement
                   </span>
-                  <span className="sm:hidden text-[10px] uppercase font-sans">3. Settlement</span>
+                  <span className="sm:hidden text-[11px]">3. Settlement</span>
                 </li>
 
               </ol>
             </nav>
 
             {/* Customized Timer Reservation Pill */}
-            <aside aria-label="Slot Reservation" className="flex items-center space-x-2 bg-surface-container-lowest border border-primary/30 px-3 py-1.5 rounded-full shadow-xs text-xs max-w-full">
-              <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-primary animate-pulse shrink-0">
+            <aside aria-label="Slot Reservation" className="flex items-center space-x-2 bg-surface-container-lowest border border-primary/30 px-3.5 py-1.5 rounded-full shadow-xs text-xs">
+              <span className="material-symbols-outlined text-[16px] text-primary animate-pulse flex-shrink-0">
                 schedule
               </span>
-              <span className="text-on-surface-variant font-sans text-[11px] sm:text-xs truncate">
-                Slot reserved for:
+              <span className="text-on-surface-variant font-sans text-xs">
+                Custom brass initials slot &amp; delivery reserved for:
                 <strong className="font-mono font-bold text-primary ml-1.5">
                   {formatTimer(timeLeft)} min
                 </strong>
@@ -267,88 +264,8 @@ const CheckoutPage = () => {
       {/* ========================================================= */}
       {/* 3. MAIN TWO-COLUMN CHECKOUT CONTENT                       */}
       {/* ========================================================= */}
-      <main className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-12 w-full flex-grow">
+      <main className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full flex-grow">
         
-        {/* Mobile Collapsible Order Summary (Top of Mobile Checkout) */}
-        <div className="lg:hidden w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl mb-6 overflow-hidden shadow-xs">
-          <button
-            type="button"
-            onClick={() => setIsMobileSummaryOpen(prev => !prev)}
-            className="w-full py-3.5 px-4 flex items-center justify-between min-h-[48px] text-xs font-medium text-on-surface bg-surface-container-lowest active:bg-surface-container-low transition-colors"
-            aria-expanded={isMobileSummaryOpen}
-          >
-            <div className="flex items-center gap-2 text-primary font-semibold font-sans">
-              <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
-              <span>{isMobileSummaryOpen ? 'Hide Order Summary' : 'Show Order Summary'}</span>
-              <span
-                className="material-symbols-outlined text-[18px] transition-transform duration-200"
-                style={{ transform: isMobileSummaryOpen ? 'rotate(180deg)' : 'none' }}
-              >
-                expand_more
-              </span>
-            </div>
-            <div className="text-right">
-              <span className="font-serif text-base font-bold text-on-surface">
-                ₹{grandTotal.toLocaleString('en-IN')}
-              </span>
-            </div>
-          </button>
-
-          {/* Collapsible Items & Breakdown */}
-          {isMobileSummaryOpen && (
-            <div className="px-4 pb-4 pt-2 border-t border-outline-variant/30 bg-[#FAF4EB]/40 space-y-3 animate-in slide-in-from-top-2 duration-200">
-              {/* Product Item Previews */}
-              <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1 text-xs">
-                {displayItems.map((item, idx) => (
-                  <div key={item.cartId || idx} className="flex items-start justify-between gap-2 border-b border-outline-variant/20 pb-2">
-                    <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-on-surface truncate">
-                        {item.quantity || 1}× {item.title}
-                      </p>
-                      <p className="text-[10px] text-on-surface-variant truncate">
-                        {item.edition || 'Blush & Gold'} | Initials: {item.monogramDie || '"A & R"'}
-                      </p>
-                    </div>
-                    <span className="font-serif text-xs font-semibold text-on-surface shrink-0">
-                      ₹{((item.price || 7499) * (item.quantity || 1)).toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Financial Lines */}
-              <div className="space-y-1.5 text-xs pt-1 border-t border-outline-variant/30 text-on-surface-variant">
-                <div className="flex justify-between">
-                  <span>Items Total ({itemCount || displayItems.length} Pieces)</span>
-                  <span className="font-medium text-on-surface">₹{(originalTotal || 12299).toLocaleString('en-IN')}</span>
-                </div>
-                {effectiveCatalogueSavings > 0 && (
-                  <div className="flex justify-between text-emerald-700">
-                    <span>Catalogue Privilege Savings</span>
-                    <span>- ₹{effectiveCatalogueSavings.toLocaleString('en-IN')}</span>
-                  </div>
-                )}
-                {effectiveDiscount > 0 && (
-                  <div className="flex justify-between text-emerald-700">
-                    <span>Promo Privilege ({appliedCoupon?.code || 'ASRAFIRST'})</span>
-                    <span>- ₹{effectiveDiscount.toLocaleString('en-IN')}</span>
-                  </div>
-                )}
-                <div className="flex justify-between">
-                  <span>Transit Tier</span>
-                  <span className="font-semibold text-emerald-700">
-                    {transitCost > 0 ? `+ ₹${transitCost.toLocaleString('en-IN')}` : 'Complimentary'}
-                  </span>
-                </div>
-                <div className="flex justify-between text-[11px] text-on-surface-variant/80">
-                  <span>Estimated GST (18% Included)</span>
-                  <span>₹{Math.round((grandTotal * 18) / 118).toLocaleString('en-IN')}</span>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
         {/* Page Title Area */}
         <div className="mb-8">
           <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary font-semibold block mb-1 font-sans">
@@ -358,7 +275,7 @@ const CheckoutPage = () => {
             Ceremony Venue &amp; White-Glove Handover Details
           </h1>
           <p className="text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1.5 leading-relaxed font-sans">
-            Your customized order undergoes precision laser engraving, 24k gold die stamping, and climate-controlled packaging prior to dedicated transit.
+            Your customized order undergoes precision laser engraving, 24k gold die stamping, and climate-controlled packaging prior to dedicated delivery.
           </p>
         </div>
 
@@ -379,7 +296,7 @@ const CheckoutPage = () => {
                     I
                   </span>
                   <h2 className="font-serif text-xl sm:text-2xl text-[#2C2520] font-medium">
-                    Digital Calligraphy Proof &amp; Dispatch Updates
+                    Digital Calligraphy Proof &amp; Shipping Updates
                   </h2>
                 </div>
                 <span className="text-xs font-semibold text-[#C5A880] hover:underline cursor-pointer">
@@ -400,7 +317,7 @@ const CheckoutPage = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="shahnawazalirkl@gmail.com"
-                    className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] placeholder-[#1F1B18]/40 transition-colors"
+                    className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] placeholder-[#1F1B18]/40 transition-colors"
                   />
                   <p className="text-[11px] text-[#1F1B18]/60 mt-1">
                     High-resolution vector deboss proofs and climate tracking links will be sent here.
@@ -413,7 +330,7 @@ const CheckoutPage = () => {
                     Support Mobile &amp; WhatsApp Number <span className="text-[#C5A880]">*</span>
                   </label>
                   <div className="flex rounded-md shadow-xs">
-                    <span className="inline-flex items-center px-3.5 min-h-[44px] rounded-l-md border border-r-0 border-[#EAE5DC] bg-[#F4F0EA]/60 text-[#1F1B18]/70 text-xs font-medium">
+                    <span className="inline-flex items-center px-3.5 rounded-l-md border border-r-0 border-[#EAE5DC] bg-[#F4F0EA]/60 text-[#1F1B18]/70 text-xs font-medium">
                       🇮🇳 +91
                     </span>
                     <input
@@ -423,7 +340,7 @@ const CheckoutPage = () => {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="96926 68263"
-                      className="flex-1 min-w-0 block w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-none rounded-r-md py-2.5 px-3.5 text-[#1F1B18] placeholder-[#1F1B18]/40"
+                      className="flex-1 min-w-0 block w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-none rounded-r-md py-2.5 px-3.5 text-[#1F1B18] placeholder-[#1F1B18]/40"
                     />
                   </div>
                 </div>
@@ -431,7 +348,7 @@ const CheckoutPage = () => {
 
               {/* Verified WhatsApp Status Checkbox */}
               <div className="mt-4 pt-3 border-t border-[#EAE5DC]/60">
-                <label className="relative flex items-start cursor-pointer py-1">
+                <label className="relative flex items-start cursor-pointer">
                   <input
                     type="checkbox"
                     checked={receiveWhatsappProofs}
@@ -439,7 +356,7 @@ const CheckoutPage = () => {
                     className="h-4 w-4 rounded border-[#D9D2C5] text-[#1F1B18] focus:ring-[#C5A880] focus:ring-offset-0 mt-0.5 accent-[#1F1B18]"
                   />
                   <span className="ml-3 text-xs text-[#1F1B18]/85 leading-relaxed">
-                    <strong className="font-semibold text-[#1F1B18]">Receive WhatsApp Visual Proofs:</strong> Get instant die casting photo previews and private GPS link of our White-Glove transit van prior to hotel delivery.
+                    <strong className="font-semibold text-[#1F1B18]">Receive WhatsApp Visual Proofs:</strong> Get instant die casting photo previews and private GPS link of our White-Glove delivery van prior to hotel delivery.
                   </span>
                 </label>
               </div>
@@ -463,16 +380,16 @@ const CheckoutPage = () => {
                 </span>
               </div>
 
-              {/* Destination Venue Type Tabs (min-h-[48px] touch targets) */}
+              {/* Destination Venue Type Tabs */}
               <div className="mb-6">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#1F1B18]/80 mb-2">
                   Venue Handover Type
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" role="tablist">
+                <div className="grid grid-cols-2 gap-3" role="tablist">
                   <button
                     type="button"
                     onClick={() => setVenueType('residence')}
-                    className={`min-h-[48px] flex items-center justify-center py-3 px-3.5 rounded-xl text-xs font-semibold transition-all active:scale-[0.98] ${
+                    className={`flex items-center justify-center py-2.5 px-3 rounded-lg text-xs font-semibold transition-all ${
                       venueType === 'residence'
                         ? 'border-2 border-[#1F1B18] bg-[#1F1B18] text-[#FDFCFA] shadow-sm'
                         : 'border border-[#EAE5DC] bg-[#F4F0EA]/50 text-[#1F1B18]/70 hover:bg-[#F4F0EA]'
@@ -492,7 +409,7 @@ const CheckoutPage = () => {
                   <button
                     type="button"
                     onClick={() => setVenueType('palace')}
-                    className={`min-h-[48px] flex items-center justify-center py-3 px-3.5 rounded-xl text-xs font-semibold transition-all active:scale-[0.98] ${
+                    className={`flex items-center justify-center py-2.5 px-3 rounded-lg text-xs font-semibold transition-all ${
                       venueType === 'palace'
                         ? 'border-2 border-[#1F1B18] bg-[#1F1B18] text-[#FDFCFA] shadow-sm'
                         : 'border border-[#EAE5DC] bg-[#F4F0EA]/50 text-[#1F1B18]/70 hover:bg-[#F4F0EA]'
@@ -526,7 +443,7 @@ const CheckoutPage = () => {
                       required
                       value={recipientName}
                       onChange={(e) => setRecipientName(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] font-medium"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18] font-medium"
                     />
                   </div>
                   <div>
@@ -539,7 +456,7 @@ const CheckoutPage = () => {
                       value={weddingPlanner}
                       onChange={(e) => setWeddingPlanner(e.target.value)}
                       placeholder="e.g. Shagufta Naaz (+91 96926 68263)"
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18]"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18]"
                     />
                   </div>
                 </div>
@@ -556,14 +473,14 @@ const CheckoutPage = () => {
                       required
                       value={venueName}
                       onChange={(e) => setVenueName(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] pr-20"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18] pr-20"
                     />
                     <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-[#1F1B18]/40 text-[10px] font-semibold uppercase">
                       {venueType === 'palace' ? 'Palace Tag' : 'Private Suite'}
                     </span>
                   </div>
                   <p className="text-[11px] text-[#1F1B18]/60 mt-1">
-                    Our dispatch marshal hands over directly to the head support with formal luggage route tags.
+                    Our shipping marshal hands over directly to the head support with formal luggage route tags.
                   </p>
                 </div>
 
@@ -579,7 +496,7 @@ const CheckoutPage = () => {
                       required
                       value={streetAddress}
                       onChange={(e) => setStreetAddress(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18]"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18]"
                     />
                   </div>
                   <div>
@@ -591,7 +508,7 @@ const CheckoutPage = () => {
                       type="text"
                       value={landmark}
                       onChange={(e) => setLandmark(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18]"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18]"
                     />
                   </div>
                 </div>
@@ -608,7 +525,7 @@ const CheckoutPage = () => {
                       required
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] font-medium"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18] font-medium"
                     />
                   </div>
                   <div>
@@ -619,7 +536,7 @@ const CheckoutPage = () => {
                       id="state"
                       value={state}
                       onChange={(e) => setState(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18]"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18]"
                     >
                       <option value="Rajasthan">Rajasthan</option>
                       <option value="Delhi NCR">Delhi NCR</option>
@@ -639,7 +556,7 @@ const CheckoutPage = () => {
                       required
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
-                      className="w-full min-h-[44px] text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3.5 text-[#1F1B18] font-medium"
+                      className="w-full text-sm bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3.5 text-[#1F1B18] font-medium"
                     />
                   </div>
                 </div>
@@ -657,7 +574,7 @@ const CheckoutPage = () => {
                         required
                         value={arrivalDate}
                         onChange={(e) => setArrivalDate(e.target.value)}
-                        className="w-full min-h-[44px] text-xs font-semibold bg-white border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3 text-[#1F1B18]"
+                        className="w-full text-xs font-semibold bg-white border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3 text-[#1F1B18]"
                       />
                       <span className="text-[10px] text-[#1F1B18]/60 block mt-1">
                         Recommended: 4 days before ceremony (18th Nov 2026) for fresh botanical acclimation.
@@ -672,7 +589,7 @@ const CheckoutPage = () => {
                         id="preferred-slot"
                         value={timingSlot}
                         onChange={(e) => setTimingSlot(e.target.value)}
-                        className="w-full min-h-[44px] text-xs font-semibold bg-white border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2.5 px-3 text-[#1F1B18]"
+                        className="w-full text-xs font-semibold bg-white border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md py-2 px-3 text-[#1F1B18]"
                       >
                         <option value="Morning Slot (09:00 AM – 01:00 PM)">Morning Slot (09:00 AM – 01:00 PM)</option>
                         <option value="Twilight Royal Arrival (04:00 PM – 08:00 PM)">Twilight Royal Arrival (04:00 PM – 08:00 PM)</option>
@@ -689,7 +606,7 @@ const CheckoutPage = () => {
             </article>
 
             {/* ---------------------------------------------------- */}
-            {/* SECTION III: White-Glove Wedding Transit Tier */}
+            {/* SECTION III: White-Glove Wedding Delivery Tier */}
             {/* ---------------------------------------------------- */}
             <article className="bg-[#FDFCFA] border border-[#EAE5DC] rounded-xl p-6 sm:p-7 shadow-[0_4px_20px_0_rgba(44,37,32,0.04)]">
               <div className="flex items-center space-x-3 border-b border-[#EAE5DC] pb-4 mb-5">
@@ -697,19 +614,19 @@ const CheckoutPage = () => {
                   III
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl text-[#2C2520] font-medium">
-                  White-Glove Wedding Transit Tier
+                  White-Glove Wedding Delivery Tier
                 </h2>
               </div>
 
               <fieldset className="space-y-3.5">
-                <legend className="sr-only">Select transit preference tier</legend>
+                <legend className="sr-only">Select delivery preference tier</legend>
 
                 {/* Option 1: Complimentary Climate-Controlled */}
                 <label
                   onClick={() => setTransitMethod('white_glove')}
-                  className={`relative flex items-start sm:items-center min-h-[56px] p-4 cursor-pointer rounded-xl transition-all ${
+                  className={`relative flex p-4 cursor-pointer rounded-xl transition-all ${
                     transitMethod === 'white_glove'
-                      ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/40 shadow-xs'
+                      ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/40'
                       : 'border border-[#EAE5DC] bg-white hover:bg-[#F4F0EA]/20'
                   }`}
                 >
@@ -719,12 +636,12 @@ const CheckoutPage = () => {
                     value="white_glove"
                     checked={transitMethod === 'white_glove'}
                     onChange={() => setTransitMethod('white_glove')}
-                    className="h-5 w-5 text-[#1F1B18] border-[#D9D2C5] focus:ring-0 mt-0.5 sm:mt-0 accent-[#1F1B18] cursor-pointer"
+                    className="h-4 w-4 text-[#1F1B18] border-[#D9D2C5] focus:ring-0 mt-0.5 accent-[#1F1B18]"
                   />
                   <div className="ml-3.5 flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                      <span className="text-xs font-bold text-[#1F1B18] uppercase tracking-wider flex flex-wrap items-center gap-2">
-                        Temperature-Controlled White-Glove Transit
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-[#1F1B18] uppercase tracking-wider flex items-center gap-2">
+                        Temperature-Controlled White-Glove Delivery
                         <span className="bg-[#1E6347]/10 text-[#1E6347] text-[9px] font-bold px-2 py-0.5 rounded tracking-normal">
                           Included (Free)
                         </span>
@@ -740,9 +657,9 @@ const CheckoutPage = () => {
                 {/* Option 2: Diplomatic Courier Hand-Carry */}
                 <label
                   onClick={() => setTransitMethod('diplomatic')}
-                  className={`relative flex items-start sm:items-center min-h-[56px] p-4 cursor-pointer rounded-xl transition-all ${
+                  className={`relative flex p-4 cursor-pointer rounded-xl transition-all ${
                     transitMethod === 'diplomatic'
-                      ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/40 shadow-xs'
+                      ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/40'
                       : 'border border-[#EAE5DC] bg-white hover:bg-[#F4F0EA]/20'
                   }`}
                 >
@@ -752,11 +669,11 @@ const CheckoutPage = () => {
                     value="diplomatic"
                     checked={transitMethod === 'diplomatic'}
                     onChange={() => setTransitMethod('diplomatic')}
-                    className="h-5 w-5 text-[#1F1B18] border-[#D9D2C5] focus:ring-0 mt-0.5 sm:mt-0 accent-[#1F1B18] cursor-pointer"
+                    className="h-4 w-4 text-[#1F1B18] border-[#D9D2C5] focus:ring-0 mt-0.5 accent-[#1F1B18]"
                   />
                   <div className="ml-3.5 flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                      <span className="text-xs font-bold text-[#1F1B18] uppercase tracking-wider flex flex-wrap items-center gap-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-[#1F1B18] uppercase tracking-wider flex items-center gap-2">
                         Hand-Carried Diplomatic Courier (Direct to Bridal Suite)
                         <span className="bg-[#C5A880]/20 text-[#2C2520] text-[9px] font-bold px-2 py-0.5 rounded">
                           Royal Weddings
@@ -782,7 +699,7 @@ const CheckoutPage = () => {
                   value={chauffeurNotes}
                   onChange={(e) => setChauffeurNotes(e.target.value)}
                   placeholder="e.g. Handover only to wedding planner Miss Shagufta Naaz or Bride's mother Miss Sultana Begum. Do not leave unattended."
-                  className="w-full min-h-[44px] text-xs bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-lg p-2.5 text-[#1F1B18]"
+                  className="w-full text-xs bg-[#F4F0EA]/30 border border-[#EAE5DC] focus:border-[#1F1B18] focus:ring-0 rounded-md p-2.5 text-[#1F1B18]"
                 />
               </div>
             </article>
@@ -826,10 +743,10 @@ const CheckoutPage = () => {
                   href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20have%20an%20inquiry%20regarding%20my%20custom%20order."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto min-h-[44px] justify-center px-4 py-2.5 rounded-full border border-[#1F1B18]/20 bg-[#F4F0EA]/60 hover:bg-[#1F1B18] hover:text-[#FDFCFA] active:scale-95 transition-all text-xs font-semibold text-[#1F1B18] inline-flex items-center gap-2"
+                  className="whitespace-nowrap px-3.5 py-1.5 rounded-full border border-[#1F1B18]/20 bg-[#F4F0EA]/60 hover:bg-[#1F1B18] hover:text-[#FDFCFA] transition-colors text-[11px] font-semibold text-[#1F1B18] inline-flex items-center gap-1.5"
                 >
                   <span>Chat with Stylist</span>
-                  <svg className="w-3.5 h-3.5 text-[#C5A880]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 text-[#C5A880]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
@@ -914,12 +831,12 @@ const CheckoutPage = () => {
                         value={promoInput}
                         onChange={(e) => setPromoInput(e.target.value.toUpperCase())}
                         placeholder="ENTER WEDDING CODE"
-                        className="flex-1 min-h-[44px] bg-[#F4F0EA] border border-[#EAE5DC] px-3 py-2 text-xs uppercase font-mono font-bold text-[#1F1B18] rounded-lg focus:outline-none focus:border-[#1F1B18]"
+                        className="flex-1 bg-[#F4F0EA] border border-[#EAE5DC] px-2.5 py-1.5 text-xs uppercase font-mono font-bold text-[#1F1B18] rounded focus:outline-none"
                       />
                       <button
                         type="button"
                         onClick={handleApplyPromo}
-                        className="min-h-[44px] min-w-[72px] bg-[#1F1B18] text-white text-[11px] uppercase font-semibold px-4 py-2 rounded-lg hover:bg-[#2C2520] active:scale-95 transition-all"
+                        className="bg-[#1F1B18] text-white text-[10px] uppercase font-semibold px-3 py-1.5 rounded hover:bg-[#2C2520]"
                       >
                         Apply
                       </button>
@@ -959,7 +876,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="flex justify-between text-[#1F1B18]/80">
-                  <span>White-Glove Insured Chilled Transit</span>
+                  <span>White-Glove Insured Chilled Delivery</span>
                   <span className={`text-xs font-semibold uppercase ${transitCost > 0 ? 'text-[#1F1B18]' : 'text-[#1E6347]'}`}>
                     {transitCost > 0 ? `+ ₹${transitCost.toLocaleString('en-IN')}` : 'Free'}
                   </span>
@@ -1033,39 +950,39 @@ const CheckoutPage = () => {
                 </div>
 
                 {/* Payment Tabs */}
-                <div className="grid grid-cols-2 gap-2.5 text-xs mb-3">
+                <div className="grid grid-cols-2 gap-2 text-xs mb-3">
                   {/* UPI Pay Tab */}
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('upi')}
-                    className={`min-h-[48px] p-3 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 cursor-pointer transition-all active:scale-[0.98] ${
+                    className={`p-2.5 rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       paymentMethod === 'upi'
-                        ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/50 shadow-xs'
+                        ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/50'
                         : 'border border-[#EAE5DC] bg-white hover:bg-[#F4F0EA]/30'
                     }`}
                   >
                     <div className="flex items-center space-x-2">
-                      <span className={`w-3 h-3 rounded-full ${paymentMethod === 'upi' ? 'bg-[#1F1B18]' : 'border border-[#D9D2C5]'}`} />
-                      <span className="font-bold text-[#1F1B18] text-xs">UPI Instant</span>
+                      <span className={`w-2.5 h-2.5 rounded-full ${paymentMethod === 'upi' ? 'bg-[#1F1B18]' : 'border border-[#D9D2C5]'}`} />
+                      <span className="font-bold text-[#1F1B18]">UPI Instant</span>
                     </div>
-                    <span className="text-[9px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded whitespace-nowrap">Pending Gateway</span>
+                    <span className="text-[9px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">Pending Gateway</span>
                   </button>
 
                   {/* Card / EMI Tab */}
                   <button
                     type="button"
                     onClick={() => setPaymentMethod('card')}
-                    className={`min-h-[48px] p-3 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 cursor-pointer transition-all active:scale-[0.98] ${
+                    className={`p-2.5 rounded-lg flex items-center justify-between cursor-pointer transition-all ${
                       paymentMethod === 'card'
-                        ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/50 shadow-xs'
+                        ? 'border-2 border-[#1F1B18] bg-[#F4F0EA]/50'
                         : 'border border-[#EAE5DC] bg-white hover:bg-[#F4F0EA]/30'
                     }`}
                   >
                     <div className="flex items-center space-x-2">
-                      <span className={`w-3 h-3 rounded-full ${paymentMethod === 'card' ? 'bg-[#1F1B18]' : 'border border-[#D9D2C5]'}`} />
-                      <span className="font-medium text-[#1F1B18] text-xs">Card / EMI</span>
+                      <span className={`w-2.5 h-2.5 rounded-full ${paymentMethod === 'card' ? 'bg-[#1F1B18]' : 'border border-[#D9D2C5]'}`} />
+                      <span className="font-medium text-[#1F1B18]">Card / EMI</span>
                     </div>
-                    <span className="text-[9px] font-bold bg-[#C5A880]/20 text-[#2C2520] px-1.5 py-0.5 rounded whitespace-nowrap">
+                    <span className="text-[9px] font-bold bg-[#C5A880]/20 text-[#2C2520] px-1.5 py-0.5 rounded">
                       Pending Gateway
                     </span>
                   </button>
@@ -1073,12 +990,12 @@ const CheckoutPage = () => {
 
                 {/* Conditional Payment UI */}
                 {paymentMethod === 'upi' ? (
-                  <div className="p-3.5 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-xl mb-5">
+                  <div className="p-3 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-lg mb-5">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-medium text-[#1F1B18]">Direct UPI ID / VPA</span>
                       <span className="text-amber-800 text-[10px] font-medium bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Gateway not connected</span>
                     </div>
-                    <div className="mt-2.5 flex">
+                    <div className="mt-2 flex">
                       <input
                         type="text"
                         value={upiId}
@@ -1087,12 +1004,12 @@ const CheckoutPage = () => {
                           setIsUpiVerified(false);
                         }}
                         placeholder="e.g. yourname@okhdfcbank"
-                        className="flex-1 min-h-[44px] text-xs sm:text-sm bg-white border border-[#EAE5DC] rounded-l-lg px-3 py-2 text-[#1F1B18] font-mono focus:border-[#1F1B18] focus:ring-0"
+                        className="flex-1 text-xs bg-white border border-[#EAE5DC] rounded-l-md px-3 py-2 text-[#1F1B18] font-mono focus:border-[#1F1B18] focus:ring-0"
                       />
                       <button
                         type="button"
                         onClick={handleVerifyUpi}
-                        className={`min-h-[44px] min-w-[80px] text-[11px] font-semibold px-4 py-2 rounded-r-lg uppercase tracking-wider transition-all active:scale-95 ${
+                        className={`text-[11px] font-semibold px-3.5 py-2 rounded-r-md uppercase tracking-wider transition-colors ${
                           isUpiVerified
                             ? 'bg-[#1E6347] text-white'
                             : 'bg-[#1F1B18] text-[#FDFCFA] hover:bg-[#2C2520]'
@@ -1101,12 +1018,12 @@ const CheckoutPage = () => {
                         {isUpiVerified ? '✓ Verified' : 'Verify'}
                       </button>
                     </div>
-                    <p className="text-[10px] text-amber-800 mt-2 flex items-center gap-1">
+                    <p className="text-[10px] text-amber-800 mt-1.5 flex items-center gap-1">
                       <span>⚠️ Note: Online transaction processing is disabled until payment gateway integration is completed.</span>
                     </p>
                   </div>
                 ) : (
-                  <div className="p-3.5 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-xl mb-5 space-y-3">
+                  <div className="p-3 bg-[#F4F0EA]/40 border border-[#EAE5DC] rounded-lg mb-5 space-y-2">
                     <div className="text-xs">
                       <div className="flex justify-between items-center mb-1">
                         <label className="block text-[10px] font-semibold uppercase text-[#1F1B18]/70">
@@ -1118,8 +1035,7 @@ const CheckoutPage = () => {
                         type="text"
                         value={cardDetails.number}
                         onChange={(e) => setCardDetails({ ...cardDetails, number: e.target.value })}
-                        placeholder="1234 5678 9012 3456"
-                        className="w-full min-h-[44px] text-xs sm:text-sm bg-white border border-[#EAE5DC] rounded-lg px-3 py-2 font-mono focus:border-[#1F1B18] focus:ring-0"
+                        className="w-full text-xs bg-white border border-[#EAE5DC] rounded px-3 py-1.5 font-mono"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-xs">
@@ -1131,8 +1047,7 @@ const CheckoutPage = () => {
                           type="text"
                           value={cardDetails.expiry}
                           onChange={(e) => setCardDetails({ ...cardDetails, expiry: e.target.value })}
-                          placeholder="MM/YY"
-                          className="w-full min-h-[44px] text-xs sm:text-sm bg-white border border-[#EAE5DC] rounded-lg px-3 py-2 font-mono focus:border-[#1F1B18] focus:ring-0"
+                          className="w-full text-xs bg-white border border-[#EAE5DC] rounded px-2.5 py-1.5 font-mono"
                         />
                       </div>
                       <div>
@@ -1143,8 +1058,7 @@ const CheckoutPage = () => {
                           type="password"
                           value={cardDetails.cvv}
                           onChange={(e) => setCardDetails({ ...cardDetails, cvv: e.target.value })}
-                          placeholder="123"
-                          className="w-full min-h-[44px] text-xs sm:text-sm bg-white border border-[#EAE5DC] rounded-lg px-3 py-2 font-mono focus:border-[#1F1B18] focus:ring-0"
+                          className="w-full text-xs bg-white border border-[#EAE5DC] rounded px-2.5 py-1.5 font-mono"
                         />
                       </div>
                     </div>
@@ -1157,10 +1071,10 @@ const CheckoutPage = () => {
                 {/* PRIMARY SUBMISSION BUTTON */}
                 <button
                   type="submit"
-                  className="w-full min-h-[52px] sm:min-h-[56px] bg-[#1F1B18] hover:bg-[#2C2520] text-[#FDFCFA] py-3.5 px-6 rounded-xl font-serif text-base sm:text-lg tracking-wide uppercase transition-all duration-200 shadow-md hover:shadow-xl flex items-center justify-center space-x-3 group active:scale-[0.98]"
+                  className="w-full bg-[#1F1B18] hover:bg-[#2C2520] text-[#FDFCFA] py-4 px-6 rounded-lg font-serif text-lg tracking-wide uppercase transition-all duration-200 shadow-md hover:shadow-xl flex items-center justify-center space-x-3 group active:scale-[0.99]"
                 >
                   <span>Complete Customized Order &amp; Lock Die</span>
-                  <span className="text-[#C5A880] font-sans font-semibold text-sm sm:text-base">• ₹{grandTotal.toLocaleString('en-IN')}</span>
+                  <span className="text-[#C5A880] font-sans font-semibold text-base">• ₹{grandTotal.toLocaleString('en-IN')}</span>
                   <svg className="w-4 h-4 text-[#C5A880] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -1178,7 +1092,7 @@ const CheckoutPage = () => {
                   <svg className="w-4 h-4 text-[#C5A880] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  <span><strong>100% Damage-Proof Transit Guarantee</strong> (Instant suite replacement)</span>
+                  <span><strong>100% Damage-Proof Delivery Guarantee</strong> (Instant suite replacement)</span>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -1232,7 +1146,7 @@ const CheckoutPage = () => {
           <div className="flex flex-wrap items-center justify-center space-x-6 text-[11px]">
             <Link href="/bespoke" className="hover:text-[#1F1B18] transition-colors">Support Protocols</Link>
             <Link href="/about" className="hover:text-[#1F1B18] transition-colors">Hallmark Verification</Link>
-            <Link href="/return-policy" className="hover:text-[#1F1B18] transition-colors">Transit Insurance Policy</Link>
+            <Link href="/return-policy" className="hover:text-[#1F1B18] transition-colors">Delivery Insurance Policy</Link>
             <Link href="/terms-of-service" className="hover:text-[#1F1B18] transition-colors">Terms of Service</Link>
             <Link href="/privacy-policy" className="hover:text-[#1F1B18] transition-colors">Confidentiality Guarantee</Link>
           </div>
@@ -1289,7 +1203,7 @@ const CheckoutPage = () => {
                 href="https://wa.me/919692668263?text=Hello%20ASRA%20Team%2C%20I%20am%20at%20checkout%20and%20would%20like%20to%20inquire%20about%20payment%20and%20reserving%20my%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 min-h-[48px] bg-[#1E6347] hover:bg-[#164d36] active:scale-95 text-white py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                className="flex-1 bg-[#1E6347] hover:bg-[#164d36] text-white py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
@@ -1300,7 +1214,7 @@ const CheckoutPage = () => {
               <button
                 type="button"
                 onClick={() => setShowPaymentModal(false)}
-                className="flex-1 min-h-[48px] bg-[#1F1B18] hover:bg-[#2C2520] active:scale-95 text-[#FDFCFA] py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all"
+                className="flex-1 bg-[#1F1B18] hover:bg-[#2C2520] text-[#FDFCFA] py-3 px-4 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
               >
                 Back to Review
               </button>
@@ -1310,7 +1224,7 @@ const CheckoutPage = () => {
             <button
               type="button"
               onClick={() => setShowPaymentModal(false)}
-              className="absolute top-3 right-3 text-[#1F1B18]/50 hover:text-[#1F1B18] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full active:scale-90 transition-all"
+              className="absolute top-4 right-4 text-[#1F1B18]/40 hover:text-[#1F1B18] p-1 rounded-full"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

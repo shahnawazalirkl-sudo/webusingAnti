@@ -21,7 +21,7 @@ const BESPOKE_FAQS = [
   {
     id: 'faq-3',
     question: 'How are delicate materials like preserved flowers and Makrana marble shipped?',
-    answer: 'All bespoke heirlooms are enclosed in shock-absorbing foam inserts inside custom wooden reinforcement crates, accompanied by tamper-evident wax seals and transit insurance. We partner with specialized express white-glove couriers across India and internationally.'
+    answer: 'All bespoke heirlooms are enclosed in shock-absorbing foam inserts inside custom wooden reinforcement crates, accompanied by tamper-evident wax seals and delivery insurance. We partner with specialized express white-glove couriers across India and internationally.'
   },
   {
     id: 'faq-4',

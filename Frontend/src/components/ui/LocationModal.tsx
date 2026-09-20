@@ -42,7 +42,7 @@ const LocationModal = ({ isOpen, onClose, onSelectCity }) => {
             </DialogTitle>
           </div>
           <DialogDescription className="text-body-sm text-xs text-on-surface-variant">
-            Enter your wedding or residence pincode to check dispatch transit times and customized white-glove availability.
+            Enter your wedding or residence pincode to check shipping delivery times and customized white-glove availability.
           </DialogDescription>
         </DialogHeader>
 

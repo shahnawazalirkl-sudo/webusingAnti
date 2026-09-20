@@ -141,7 +141,7 @@ export const BANK_OFFERS = [
     terms: [
       'Reserved for American Express Platinum and Centurion Card members.',
       'Minimum spend of ₹9,999 required.',
-      'Complimentary 50ml Oud Artisan Perfume automatically added to packaging during dispatch.'
+      'Complimentary 50ml Oud Artisan Perfume automatically added to packaging during shipping.'
     ]
   },
   {
@@ -330,6 +330,6 @@ export const OFFER_FAQS = [
   {
     id: 'faq-returns',
     question: 'What happens to the discount if an item is returned or refunded?',
-    answer: 'In the unlikely scenario that non-personalized merchandise is approved for return, refunds are computed strictly on the net amount paid after proportional offer deductions. Customized personalized gifts are handcrafted to order and covered under our transit damage protection guarantee.'
+    answer: 'In the unlikely scenario that non-personalized merchandise is approved for return, refunds are computed strictly on the net amount paid after proportional offer deductions. Customized personalized gifts are handcrafted to order and covered under our delivery damage protection guarantee.'
   }
 ];

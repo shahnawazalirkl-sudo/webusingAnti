@@ -22,7 +22,7 @@ const BulkHero = ({ onOpenSampleModal, onScrollToSection, refs }) => {
             </h1>
 
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-xl mb-6">
-              From 25 intimate keepsakes to 5,000+ guest royal gala suites. Handcrafted in India with complimentary custom couple initial brass dies, volume tiered pricing, and direct-to-venue white-glove transit worldwide.
+              From 25 intimate keepsakes to 5,000+ guest royal gala suites. Handcrafted in India with complimentary custom couple initial brass dies, volume tiered pricing, and direct-to-venue white-glove delivery worldwide.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -114,7 +114,7 @@ const BulkHero = ({ onOpenSampleModal, onScrollToSection, refs }) => {
             <div>
               <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">Direct Venue Logistics</h4>
               <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mt-1">
-                Temperature-controlled white-glove dispatch with resort room placement across 140+ global destinations.
+                Temperature-controlled white-glove shipping with resort room placement across 140+ global destinations.
               </p>
             </div>
           </div>
