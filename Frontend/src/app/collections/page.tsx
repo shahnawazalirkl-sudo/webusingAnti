@@ -563,7 +563,7 @@ const setSearchParams = (params: any) => {};
 
                       <Card className="p-4 shadow-xs border-outline-variant/30 bg-surface-container-lowest">
                         <span className="material-symbols-outlined text-primary text-[24px] mb-1">flight_takeoff</span>
-                        <h4 className="font-serif text-base font-medium text-on-surface">Destination Dispatch</h4>
+                        <h4 className="font-serif text-base font-medium text-on-surface">Destination Shipping</h4>
                         <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">White-glove bulk delivery coordinated straight to palace and resort suites.</p>
                       </Card>
 
@@ -675,7 +675,7 @@ const setSearchParams = (params: any) => {};
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-on-surface uppercase tracking-wider block">Insured Global Courier</span>
-                    <span className="text-[11px] text-on-surface-variant">Doorstep transit protection</span>
+                    <span className="text-[11px] text-on-surface-variant">Doorstep delivery protection</span>
                   </div>
                 </div>
 

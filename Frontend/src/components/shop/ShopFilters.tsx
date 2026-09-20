@@ -98,8 +98,7 @@ const ShopFilters = ({
                 return (
                   <div
                     key={type.id}
-                    onClick={() => onToggleProductType(type.category)}
-                    className="flex items-center justify-between cursor-pointer group select-none py-0.5"
+                    className="flex items-center justify-between group select-none py-0.5"
                   >
                     <div className="flex items-center gap-2">
                       <Checkbox
@@ -107,9 +106,9 @@ const ShopFilters = ({
                         onCheckedChange={() => onToggleProductType(type.category)}
                         id={`type-${type.id}`}
                       />
-                      <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                      <label htmlFor={`type-${type.id}`} className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors cursor-pointer">
                         {type.label}
-                      </span>
+                      </label>
                     </div>
                     <span className="font-label-sm text-[11px] text-outline">{count}</span>
                   </div>
@@ -146,6 +145,7 @@ const ShopFilters = ({
                   <button
                     key={range.id}
                     type="button"
+                    aria-pressed={isActive}
                     onClick={() => onSelectPriceRange(isActive ? 'all' : range.id)}
                     className={`px-2 py-1.5 rounded-lg text-center text-xs transition-colors font-medium cursor-pointer ${
                       isActive
@@ -183,6 +183,7 @@ const ShopFilters = ({
                   <button
                     key={rec}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => onSelectRecipient(isSelected ? 'all' : rec)}
                     className={`px-2.5 py-1 rounded-full text-xs font-label-sm transition-colors cursor-pointer ${
                       isSelected
@@ -219,17 +220,16 @@ const ShopFilters = ({
                 return (
                   <div
                     key={occ}
-                    onClick={() => onToggleOccasion(occ)}
-                    className="flex items-center gap-2 cursor-pointer group select-none py-0.5"
+                    className="flex items-center gap-2 group select-none py-0.5"
                   >
                     <Checkbox
                       checked={isChecked}
                       onCheckedChange={() => onToggleOccasion(occ)}
                       id={`occ-${occ}`}
                     />
-                    <span className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors">
+                    <label htmlFor={`occ-${occ}`} className="font-body-sm text-xs text-on-surface group-hover:text-primary transition-colors cursor-pointer">
                       {occ}
-                    </span>
+                    </label>
                   </div>
                 );
               })}
@@ -267,12 +267,12 @@ const ShopFilters = ({
           </AccordionContent>
         </AccordionItem>
 
-        {/* 6. Dispatch Window */}
-        <AccordionItem value="dispatch">
+        {/* 6. Shipping Window */}
+        <AccordionItem value="shipping">
           <AccordionTrigger className="py-2.5 px-1 hover:no-underline">
             <div className="flex items-center gap-2">
               <span className="font-label-md text-xs uppercase tracking-wider text-on-surface font-semibold">
-                Dispatch Window
+                Shipping Window
               </span>
               {selectedDispatch !== 'all' && (
                 <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 text-primary font-bold">
@@ -285,13 +285,13 @@ const ShopFilters = ({
             <RadioGroup value={selectedDispatch} onValueChange={onSelectDispatch} className="gap-2.5">
               {[
                 { value: 'all', label: 'All Timelines' },
-                { value: '24h', label: '⚡ Express 24-Hour Dispatch' },
+                { value: '24h', label: '⚡ Express 24-Hour Shipping' },
                 { value: 'standard', label: 'Standard Artisanal (2–3 Days)' },
                 { value: 'customized', label: 'Customized Initials (5–7 Days)' },
               ].map((opt) => (
                 <div key={opt.value} className="flex items-center gap-2 cursor-pointer py-0.5">
-                  <RadioGroupItem value={opt.value} id={`dispatch-${opt.value}`} />
-                  <label htmlFor={`dispatch-${opt.value}`} className="text-xs text-on-surface cursor-pointer select-none">
+                  <RadioGroupItem value={opt.value} id={`shipping-${opt.value}`} />
+                  <label htmlFor={`shipping-${opt.value}`} className="text-xs text-on-surface cursor-pointer select-none">
                     {opt.label}
                   </label>
                 </div>
@@ -312,7 +312,7 @@ const ShopFilters = ({
           <a
             href="https://wa.me/919692668263?text=Hello%20ASRA%20Team,%20I%20need%20assistance%20with%20custom%20wedding%20gifting"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-[11px] text-primary hover:text-secondary font-bold uppercase tracking-wider mt-2 flex items-center gap-1"
           >
             Connect on WhatsApp <span className="material-symbols-outlined text-[13px]">arrow_forward</span>

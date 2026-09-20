@@ -13,7 +13,7 @@ const POLICY_ANNEXURES = {
     content: [
       {
         heading: '1. Priority Escalation for Auspicious Dates',
-        text: 'All customized orders linked to a certified muhurat date receive active monitoring from our dedicated bridal dispatch desk. If transit telemetry indicates any potential weather or logistics bottleneck, the contingency courier protocol is initiated 24 hours prior to the muhurat.'
+        text: 'All customized orders linked to a certified muhurat date receive active monitoring from our dedicated bridal shipping desk. If delivery telemetry indicates any potential weather or logistics bottleneck, the contingency courier protocol is initiated 24 hours prior to the muhurat.'
       },
       {
         heading: '2. Dedicated Wedding Planner Handover',
@@ -21,21 +21,21 @@ const POLICY_ANNEXURES = {
       },
       {
         heading: '3. Immediate 24/7 Redressal',
-        text: 'Our WhatsApp Support desk is staffed 24/7 during October–March peak auspicious cycles. Response time for active transit shipments is guaranteed within 8 minutes.'
+        text: 'Our WhatsApp Support desk is staffed 24/7 during October–March peak auspicious cycles. Response time for active delivery shipments is guaranteed within 8 minutes.'
       }
     ]
   },
   insurance: {
-    title: 'White-Glove Transit Insurance Policy',
-    subtitle: 'Underwritten by National Transit Underwriters • Policy #ASRA-TRANS-9921',
+    title: 'White-Glove Delivery Insurance Policy',
+    subtitle: 'Underwritten by National Delivery Underwriters • Policy #ASRA-TRANS-9921',
     content: [
       {
         heading: '1. 100% Comprehensive Coverage',
-        text: 'Every shipment leaving our Hyderabad collection travels with full transit insurance encompassing structural stress, glass/acrylic fractures, temperature deviations in chilled logistics vans, and water intrusion.'
+        text: 'Every shipment leaving our Hyderabad collection travels with full delivery insurance encompassing structural stress, glass/acrylic fractures, temperature deviations in chilled logistics vans, and water intrusion.'
       },
       {
         heading: '2. Zero-Deductible Replacement',
-        text: 'In the event of qualifying transit damage, the patron incurs zero deductibles or processing charges. ASRA finances the entire re-casting, re-engraving, and express courier dispatch.'
+        text: 'In the event of qualifying delivery damage, the patron incurs zero deductibles or processing charges. ASRA finances the entire re-casting, re-engraving, and express courier shipping.'
       },
       {
         heading: '3. Claim Window & Photographic Proof',
@@ -57,7 +57,7 @@ const POLICY_ANNEXURES = {
       },
       {
         heading: '3. Physical Die Possession Request',
-        text: 'Patrons may request release and physical home delivery of their engraved brass die at any time. The die is polished, oiled, and dispatched in a handcrafted Indian Rosewood presentation case.'
+        text: 'Patrons may request release and physical home delivery of their engraved brass die at any time. The die is polished, oiled, and shipped in a handcrafted Indian Rosewood presentation case.'
       }
     ]
   },
@@ -248,10 +248,10 @@ const ReturnPolicyPage = () => {
             <div className="w-12 h-12 rounded-full bg-[#FAF4EB] text-primary flex items-center justify-center mb-3 border border-primary/20">
               <span className="material-symbols-outlined text-[24px]">local_shipping</span>
             </div>
-            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1">Transit Protection</h3>
+            <h3 className="font-serif text-base sm:text-lg font-medium leading-snug text-on-surface mb-1">Delivery Protection</h3>
             <p className="text-xs font-semibold text-emerald-700 mb-2">100% Remake &amp; Express Air</p>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              Any breakage or floral wilting in white-glove transit replaced within 24–48 hours at zero cost.
+              Any breakage or floral wilting in white-glove delivery replaced within 24–48 hours at zero cost.
             </p>
           </div>
 
@@ -376,7 +376,7 @@ const ReturnPolicyPage = () => {
                       <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-800 mb-1">
                         Stage 03 • Post-Crafting &amp; Botanical Assembly (After 12h)
                       </span>
-                      <h4 className="text-xs sm:text-sm font-semibold text-on-surface">Assembly Completed or In Transit</h4>
+                      <h4 className="text-xs sm:text-sm font-semibold text-on-surface">Assembly Completed or In Delivery</h4>
                       <p className="text-xs text-on-surface-variant mt-1">
                         Once hot foil debossing, fresh dawn floral insertion, and wax sealing are finalized, orders cannot be cancelled or refunded as goods are fully tailored.
                       </p>
@@ -391,19 +391,19 @@ const ReturnPolicyPage = () => {
               </div>
             </article>
 
-            {/* Clause 3: Replacement Guarantee for Transit Damaged Goods */}
+            {/* Clause 3: Replacement Guarantee for Delivery Damaged Goods */}
             <article className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold font-serif">
                   III
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-normal leading-tight text-on-surface">
-                  100% White-Glove Transit &amp; Defect Warranty
+                  100% White-Glove Delivery &amp; Defect Warranty
                 </h2>
               </div>
 
               <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant mb-4">
-                While custom products are non-returnable for aesthetic reconsideration, <strong className="text-on-surface">ASRA Wedding Canvas assumes 100% comprehensive liability for physical transit damage, typographical errors on our part, or biological floral defects.</strong>
+                While custom products are non-returnable for aesthetic reconsideration, <strong className="text-on-surface">ASRA Wedding Canvas assumes 100% comprehensive liability for physical delivery damage, typographical errors on our part, or biological floral defects.</strong>
               </p>
 
               <div className="bg-[#FAF4EB] rounded-xl p-5 border border-primary/20 mb-5">
@@ -420,7 +420,7 @@ const ReturnPolicyPage = () => {
                   <li className="flex items-start gap-2.5">
                     <span className="material-symbols-outlined text-[18px] text-emerald-700 shrink-0">check_circle</span>
                     <span>
-                      <strong className="text-on-surface">Floral Hydration Compromise:</strong> If fresh roses or botanical elements suffer shock, wilting, or temperature-control failure during chilled van transit.
+                      <strong className="text-on-surface">Floral Hydration Compromise:</strong> If fresh roses or botanical elements suffer shock, wilting, or temperature-control failure during chilled van delivery.
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
@@ -439,7 +439,7 @@ const ReturnPolicyPage = () => {
                   <span>Our 24-Hour Emergency Protocol:</span>
                 </h4>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
-                  If an issue is reported before your wedding ceremony, our emergency collection team activates express remake protocol. Replacement units are hand-carried by air or dispatched via priority express to your resort or bridal suite before the twilight auspicious hour.
+                  If an issue is reported before your wedding ceremony, our emergency collection team activates express remake protocol. Replacement units are hand-carried by air or shipped via priority express to your resort or bridal suite before the twilight auspicious hour.
                 </p>
               </div>
             </article>
@@ -485,7 +485,7 @@ const ReturnPolicyPage = () => {
                     Step 02 • Master Artisan Review (Under 45 Minutes)
                   </h4>
                   <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
-                    Our Senior Stylist and Quality Director verify the discrepancy against your vaulted digital initials proof and sensor temperature logs from the white-glove transit van.
+                    Our Senior Stylist and Quality Director verify the discrepancy against your vaulted digital initials proof and sensor temperature logs from the white-glove delivery van.
                   </p>
                 </div>
 
@@ -596,7 +596,7 @@ const ReturnPolicyPage = () => {
                       activeFaq === 'support' ? 'mt-2 max-h-40 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    Notify us at least 7 days before dispatched date. We will hold your unprinted wedding essentials components and fresh floral arrangement schedules without penalty for up to 90 days.
+                    Notify us at least 7 days before shipped date. We will hold your unprinted wedding essentials components and fresh floral arrangement schedules without penalty for up to 90 days.
                   </div>
                 </div>
 
@@ -656,7 +656,7 @@ const ReturnPolicyPage = () => {
                 ASRA Quality Hallmark
               </h4>
               <p className="text-[11px] text-on-surface-variant leading-snug">
-                Protected under 24k Gold Authenticity Standard, Bureau of Indian Standards (BIS) &amp; White-Glove Transit Insurance.
+                Protected under 24k Gold Authenticity Standard, Bureau of Indian Standards (BIS) &amp; White-Glove Delivery Insurance.
               </p>
             </div>
 
@@ -677,7 +677,7 @@ const ReturnPolicyPage = () => {
               onClick={() => setActiveModalKey('insurance')}
               className="hover:text-primary underline decoration-outline-variant underline-offset-4 cursor-pointer focus:outline-hidden"
             >
-              Transit Insurance Policy
+              Delivery Insurance Policy
             </button>
             <button
               onClick={() => setActiveModalKey('archival')}

@@ -71,7 +71,7 @@ const AccountProfile = ({ profile, setProfile, addresses, setAddresses }) => {
     }));
     setAddresses(updated);
     safeStorage.setItem(STORAGE_KEY_ADDRESSES, updated);
-    toast.success('Primary dispatch address updated');
+    toast.success('Primary shipping address updated');
   };
 
   return (
@@ -276,7 +276,7 @@ const AccountProfile = ({ profile, setProfile, addresses, setAddresses }) => {
                     </Button>
                   ) : (
                     <span className="text-emerald-700 font-medium text-[11px] flex items-center gap-1">
-                      <span className="material-symbols-outlined text-sm">check_circle</span> Primary Dispatch
+                      <span className="material-symbols-outlined text-sm">check_circle</span> Primary Shipping
                     </span>
                   )}
                 </div>

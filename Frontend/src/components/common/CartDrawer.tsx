@@ -57,9 +57,9 @@ const CartDrawer = () => {
         {/* Header */}
         <SheetHeader className="p-5 border-b border-outline-variant/40 flex flex-row items-center justify-between space-y-0 pr-12">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[22px]">shopping_bag</span>
+            <span className="material-symbols-outlined text-primary text-[22px]">shopping_cart</span>
             <SheetTitle className="font-serif text-lg font-semibold text-on-surface">
-              Collection Shopping Bag
+              Collection Shopping Cart
             </SheetTitle>
             <span className="text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">
               {cartItems.length}
@@ -93,7 +93,7 @@ const CartDrawer = () => {
           {cartItems.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-outline text-5xl mb-2">shopping_basket</span>
-              <p className="font-serif text-base text-on-surface font-semibold">Your shopping bag is empty</p>
+              <p className="font-serif text-base text-on-surface font-semibold">Your shopping cart is empty</p>
               <p className="text-xs text-outline mt-1 mb-5">Explore our customized wedding gifts to begin.</p>
               <button
                 type="button"
@@ -243,7 +243,7 @@ const CartDrawer = () => {
                 </div>
               )}
               <div className="flex justify-between text-on-surface-variant">
-                <span>Insured White-Glove Dispatch</span>
+                <span>Insured White-Glove Shipping</span>
                 <span>{shipping === 0 ? <span className="text-brand-emerald font-semibold uppercase text-[11px]">Complimentary</span> : `₹${shipping}`}</span>
               </div>
               <div className="flex justify-between text-sm font-bold text-on-surface pt-1 border-t border-outline-variant/40">

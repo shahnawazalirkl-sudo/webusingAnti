@@ -16,7 +16,7 @@ const PRESET_DOCKETS = {
     clientName: 'Asra Ansari & Sk Shahnawaz Ali',
     phone: '+91 96926 68263',
     initials: '"A & S" • Classic Floral Crest',
-    status: 'IN TRANSIT • CHILLED VAN FLT-08',
+    status: 'IN DELIVERY • CHILLED VAN FLT-08',
     statusCategory: 'in_transit',
     expectedArrival: 'Nov 14, 2026 • 04:00 PM – 08:00 PM',
     slotNotice: '(Twilight Royal Slot Guaranteed)',
@@ -25,7 +25,7 @@ const PRESET_DOCKETS = {
     venueAddress: 'Badi-Gorela Canal Road, Haridas Ji Ki Magri, Udaipur 313001',
     plannerName: 'Shagufta Naaz (Designated Wedding Architect)',
     plannerPhone: '+91 96926 68263',
-    confidentialProtocol: "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.",
+    confidentialProtocol: "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of delivery.",
     driverName: 'Marshal Jawed Ali',
     driverBadge: 'ASRA-EXEC-19',
     driverPhone: '+91 96926 68263',
@@ -248,7 +248,7 @@ const TrackOrderPageInner = () => {
             </Link>
           </div>
 
-          {/* Right: Security & Live Transit Status Badges */}
+          {/* Right: Security & Live Delivery Status Badges */}
           <div className="flex items-center gap-2 sm:gap-4 text-[11px]">
             <Link
               href={`/client-portal?docket=${activeDocketId}`}
@@ -259,7 +259,7 @@ const TrackOrderPageInner = () => {
             </Link>
             <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-[#E8F3EE] text-[#0F3828] font-medium rounded-full border border-[#D3E5DC]">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
-              <span>Live White-Glove GPS Transit</span>
+              <span>Live White-Glove GPS Delivery</span>
             </div>
             <div className="hidden md:flex items-center gap-1.5 text-on-surface-variant">
               <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">shield</span>
@@ -274,20 +274,20 @@ const TrackOrderPageInner = () => {
         
         {/* HERO SECTION */}
         <section className="text-center max-w-4xl mx-auto mb-8">
-          {/* Ceremony Dispatch Badge */}
+          {/* Ceremony Shipping Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4EB] border border-primary/20 text-primary text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold mb-3">
             <span className="material-symbols-outlined w-3.5 h-3.5 fill-current">sparkles</span>
-            <span>Ceremony Dispatch &amp; Transit Surveillance</span>
+            <span>Ceremony Shipping &amp; Delivery Surveillance</span>
           </div>
 
           {/* Heading */}
           <h1 className="font-serif text-3xl sm:text-4xl md:text-[42px] font-normal text-on-surface tracking-normal leading-tight">
-            Track Your Customized Ceremony Dispatch
+            Track Your Customized Ceremony Shipping
           </h1>
 
           {/* Sub-headline */}
           <p className="mt-2 text-on-surface-variant text-[13px] md:text-[14px] max-w-2xl mx-auto font-light leading-relaxed">
-            Real-time surveillance, climate telemetry, and white-glove transit logs for your custom initials bridal &amp; wedding essentials ensembles.
+            Real-time surveillance, climate telemetry, and white-glove delivery logs for your custom initials bridal &amp; wedding essentials ensembles.
           </p>
 
           {/* Docket Switcher & Lookup Input Bar */}
@@ -372,10 +372,10 @@ const TrackOrderPageInner = () => {
         {/* ==================== TWO COLUMN TRACKER LAYOUT ==================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* ==================== LEFT COLUMN: Artisanal Timeline & Transit Telemetry (7 Cols) ==================== */}
+          {/* ==================== LEFT COLUMN: Artisanal Timeline & Delivery Telemetry (7 Cols) ==================== */}
           <section className="lg:col-span-7 space-y-6">
             
-            {/* Live Transit Overview Card */}
+            {/* Live Delivery Overview Card */}
             <div className="bg-white border border-outline-variant/30 rounded-2xl p-5 sm:p-6 shadow-sm relative overflow-hidden">
               <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-outline-variant/30">
                 <div>
@@ -425,7 +425,7 @@ const TrackOrderPageInner = () => {
                     I
                   </span>
                   <h3 className="font-serif text-lg font-bold uppercase tracking-widest text-on-surface">
-                    Artisanal Milestone &amp; Transit Log
+                    Artisanal Milestone &amp; Delivery Log
                   </h3>
                 </div>
                 <span className="text-[10px] font-semibold uppercase tracking-wider bg-[#FDF6EC] text-primary border border-[#F3DFC1] px-2.5 py-0.5 rounded-full">
@@ -589,7 +589,7 @@ const TrackOrderPageInner = () => {
                   </ol>
                 </div>
 
-                {/* PHASE B: CLIMATE-CONTROLLED TRANSIT & PALATIAL HANDOVER */}
+                {/* PHASE B: CLIMATE-CONTROLLED DELIVERY & PALATIAL HANDOVER */}
                 <div className="bg-white border border-outline-variant/30 rounded-xl p-4 sm:p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b border-outline-variant/30">
                     <div className="flex items-center gap-2.5">
@@ -601,20 +601,20 @@ const TrackOrderPageInner = () => {
                           Phase II • Active Surveillance
                         </span>
                         <h4 className="font-serif text-base font-bold text-on-surface">
-                          Climate-Controlled White-Glove Transit &amp; Handover
+                          Climate-Controlled White-Glove Delivery &amp; Handover
                         </h4>
                       </div>
                     </div>
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#E9F3EE] text-[#0B4B32] border border-[#CDE5D8] flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping"></span>
-                      Active Transit Segment
+                      Active Delivery Segment
                     </span>
                   </div>
 
-                  {/* Transit Steps Timeline */}
+                  {/* Delivery Steps Timeline */}
                   <ol className="relative pl-6 sm:pl-8 space-y-6 before:content-[''] before:absolute before:left-[11px] sm:before:left-[15px] before:top-2 before:bottom-3 before:w-[1.5px] before:bg-[#E2D6C5]">
                     
-                    {/* Transit Step 6: ACTIVE LEG */}
+                    {/* Delivery Step 6: ACTIVE LEG */}
                     <li className="relative group bg-[#FAF4EB] -mx-3 p-3.5 rounded-xl border border-[#D8C7B0] shadow-sm" aria-current="step">
                       <span className="absolute -left-3 sm:-left-5 top-4 w-6 h-6 rounded-full bg-[#9E7A44] text-white flex items-center justify-center text-xs shadow-md ring-4 ring-[#FAF6F0]">
                         <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -625,7 +625,7 @@ const TrackOrderPageInner = () => {
 
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="text-xs font-bold text-on-surface">6. Chilled Transit Van Dispatched &amp; Ajmer Highway Segment</h5>
+                          <h5 className="text-xs font-bold text-on-surface">6. Chilled Delivery Van Shipped &amp; Ajmer Highway Segment</h5>
                           <span className="px-2 py-0.5 text-[9px] font-bold bg-[#E5D7C2] text-[#4A3B25] rounded uppercase tracking-wider">
                             Active In-Flight
                           </span>
@@ -656,7 +656,7 @@ const TrackOrderPageInner = () => {
                       </div>
                     </li>
 
-                    {/* Transit Step 7: Scheduled Udaivilas Check-in */}
+                    {/* Delivery Step 7: Scheduled Udaivilas Check-in */}
                     <li className="relative group opacity-85">
                       <span className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full bg-white border-2 border-[#D5C6B1] text-on-surface-variant flex items-center justify-center text-xs shadow-sm ring-4 ring-white font-serif font-bold">
                         7
@@ -675,7 +675,7 @@ const TrackOrderPageInner = () => {
                       </p>
                     </li>
 
-                    {/* Transit Step 8: Scheduled Final Handover */}
+                    {/* Delivery Step 8: Scheduled Final Handover */}
                     <li className="relative group opacity-85">
                       <span className="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full bg-white border-2 border-[#D5C6B1] text-on-surface-variant flex items-center justify-center text-xs shadow-sm ring-4 ring-white font-serif font-bold">
                         8
@@ -731,7 +731,7 @@ const TrackOrderPageInner = () => {
                   </div>
 
                   <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3">
-                    <span className="text-[10px] uppercase font-bold text-on-surface-variant block tracking-wider">Transit Marshal</span>
+                    <span className="text-[10px] uppercase font-bold text-on-surface-variant block tracking-wider">Delivery Marshal</span>
                     <div className="text-xs font-bold text-on-surface mt-2">
                       {currentDocket.driverName}
                     </div>
@@ -785,7 +785,7 @@ const TrackOrderPageInner = () => {
             <div className="bg-white border border-outline-variant/30 rounded-2xl p-5 shadow-sm">
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
                 <h3 className="font-serif text-xl font-bold text-on-surface uppercase tracking-wider">
-                  Ensemble Under Transit
+                  Ensemble Under Delivery
                 </h3>
                 <span className="text-[11px] font-medium bg-[#FAF4EB] border border-outline-variant/30 px-2.5 py-0.5 rounded-full text-primary">
                   {currentDocket.items.length} Heirlooms Vaulted
@@ -994,7 +994,7 @@ const TrackOrderPageInner = () => {
           <span>•</span>
           <span>Hallmark Verification</span>
           <span>•</span>
-          <span>Transit Insurance Policy</span>
+          <span>Delivery Insurance Policy</span>
           <span>•</span>
           <span>Confidentiality Guarantee</span>
           <span>•</span>
@@ -1034,7 +1034,7 @@ const TrackOrderPageInner = () => {
                   <strong className="text-on-surface">{currentDocket.driverBadge}</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-on-surface-variant">Assigned Transit Vehicle:</span>
+                  <span className="text-on-surface-variant">Assigned Delivery Vehicle:</span>
                   <strong className="text-on-surface">{currentDocket.vehicleReg}</strong>
                 </div>
                 <div className="flex justify-between">
@@ -1114,7 +1114,7 @@ const TrackOrderPageInner = () => {
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-xs text-on-surface">{docket.orderId}</span>
                     <span className="text-[9px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
-                      {docket.statusCategory === 'in_transit' ? 'In Transit' : 'In Production'}
+                      {docket.statusCategory === 'in_transit' ? 'In Delivery' : 'In Production'}
                     </span>
                   </div>
                   <h4 className="font-serif text-sm font-semibold text-on-surface mt-1">

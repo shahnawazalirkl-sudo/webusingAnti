@@ -114,7 +114,7 @@ const CartPage = () => {
       edition: '100% Cotton Rag + Gold Leaf'
     }, {
       footerNote: 'Includes hand-torn deckled edges and gold leaf lettering',
-      dispatchTimeline: 'Dispatched together with Masterpiece Suite'
+      dispatchTimeline: 'Shipped together with Masterpiece Suite'
     });
   };
 
@@ -130,7 +130,7 @@ const CartPage = () => {
       edition: 'Lead-free Bohemian Crystal'
     }, {
       footerNote: 'Features laser-etched couple crest & satin padded wooden vault',
-      dispatchTimeline: 'Dispatched together with Masterpiece Suite'
+      dispatchTimeline: 'Shipped together with Masterpiece Suite'
     });
   };
 
@@ -156,7 +156,7 @@ const CartPage = () => {
                 className="h-9 sm:h-10 object-contain" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
-                <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Gift Bag</div>
+                <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Cart</div>
                 <div className="text-[11px] text-on-surface-variant font-medium font-sans">Customized Checkout</div>
               </div>
             </div>
@@ -172,7 +172,7 @@ const CartPage = () => {
               ✦
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-normal text-on-surface mb-2">
-              Your Gift Bag is Empty
+              Your Cart is Empty
             </h2>
             <p className="text-xs sm:text-sm text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6 font-sans">
               Begin your custom celebration journey with our handcrafted wedding essentials suites, personalized wax-sealed vow books, and engraved velvet vaults.
@@ -216,7 +216,7 @@ const CartPage = () => {
               />
             </Link>
             <div className="hidden sm:block text-left border-l border-outline-variant/30 pl-3">
-              <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Gift Bag</div>
+              <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-primary font-sans">Cart</div>
               <div className="text-[11px] text-on-surface-variant font-medium font-sans">Customized Checkout</div>
             </div>
           </div>
@@ -224,8 +224,8 @@ const CartPage = () => {
           {/* Secure Trust Indicator */}
           <div className="flex items-center text-xs text-on-surface-variant font-medium font-sans">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-2 animate-pulse" />
-            <span className="hidden md:inline">256-Bit Encrypted &amp; Insured Transit</span>
-            <span className="md:hidden">Secure Bag</span>
+            <span className="hidden md:inline">256-Bit Encrypted &amp; Insured Delivery</span>
+            <span className="md:hidden">Secure Cart</span>
           </div>
         </div>
 
@@ -240,7 +240,7 @@ const CartPage = () => {
                 1
               </div>
               <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-charcoal mt-2">
-                1. Review Bag ({itemCount})
+                1. Review Cart ({itemCount})
               </span>
             </div>
 
@@ -263,7 +263,7 @@ const CartPage = () => {
                 3
               </div>
               <span className="text-[11px] font-medium uppercase tracking-wider text-brand-slate mt-2">
-                3. White-Glove Dispatch
+                3. White-Glove Shipping
               </span>
             </div>
           </div>
@@ -276,7 +276,7 @@ const CartPage = () => {
               Your Curated Ensemble
             </span>
             <h1 className="font-cormorant text-4xl lg:text-5xl font-normal text-brand-charcoal">
-              Collection Shopping Bag & Customizations
+              Collection Shopping Cart & Customizations
             </h1>
           </div>
           <div className="inline-flex items-center bg-[#FFF8EE] border border-[#F3DFC1] px-4 py-2.5 rounded-lg text-xs text-[#8A5814] shadow-xs">
@@ -317,21 +317,22 @@ const CartPage = () => {
             </div>
 
             {/* Render Cart Items dynamically */}
-            {cartItems.map((item) => (
-              <div
-                key={item.cartId}
-                className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm transition-all hover:shadow-md"
-              >
-                <div className="p-6">
-                  <div className="flex flex-col sm:flex-row gap-6">
+            {/* Render Cart Items dynamically */}
+            <div className="space-y-4">
+              {cartItems.map((item) => (
+                <div
+                  key={item.cartId}
+                  className="bg-white border border-brand-border rounded-xl overflow-hidden shadow-sm transition-all hover:shadow-md p-4"
+                >
+                  <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                     
                     {/* Product Image Thumbnail */}
-                    <div className="relative w-full sm:w-44 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-stone-100 border border-brand-border/60">
+                    <div className="relative w-full sm:w-28 sm:h-28 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-stone-100 border border-brand-border/60">
                       {item.isVelvetVaultThumbnail ? (
-                        <div className="w-full h-full flex items-center justify-center bg-[#1A3328] text-[#E8DCB9] p-4 text-center">
-                          <div className="space-y-1">
-                            <span className="text-3xl font-serif">{item.monogramInitials || 'A & R'}</span>
-                            <p className="text-[10px] uppercase tracking-widest text-[#E8DCB9]/80">
+                        <div className="w-full h-full flex items-center justify-center bg-[#1A3328] text-[#E8DCB9] p-2 text-center">
+                          <div className="space-y-0.5">
+                            <span className="text-xl font-serif">{item.monogramInitials || 'A & R'}</span>
+                            <p className="text-[8px] uppercase tracking-widest text-[#E8DCB9]/80 leading-tight">
                               {item.vaultTag || 'Emerald Velvet Vault'}
                             </p>
                           </div>
@@ -340,180 +341,85 @@ const CartPage = () => {
                         <Image
                           src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
                           alt={item.title}
-                          className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
+                          className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 640px) 100vw, 112px"
                         />
                       )}
-                      <span className="absolute top-2 left-2 bg-brand-charcoal/90 backdrop-blur-sm text-white text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded">
-                        {item.badge || 'Gift Edition'}
-                      </span>
                     </div>
 
-                    {/* Product Info & Customized Customizations Breakdown */}
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-start justify-between gap-2 mb-1">
-                          <div>
-                            <span className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">
-                              {item.subtitle || `2026 BRIDAL EDITION • SKU: ${item.sku || 'ASRA-SOV-019'}`}
-                            </span>
-                            <h3 className="font-cormorant text-2xl font-semibold text-brand-charcoal leading-tight">
-                              {item.title}
-                            </h3>
+                    {/* Product Info - Basic Details */}
+                    <div className="flex-1 w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      
+                      <div className="flex-1">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-brand-goldDark">
+                          SKU: {item.sku || 'ASRA-SOV-019'}
+                        </span>
+                        <h3 className="font-cormorant text-xl font-semibold text-brand-charcoal leading-tight mt-0.5 mb-1">
+                          {item.title}
+                        </h3>
+                        {item.edition && (
+                          <div className="text-[11px] text-brand-slate font-medium flex items-center gap-1.5">
+                            <span
+                              className="w-2 h-2 rounded-full inline-block border border-black/10"
+                              style={{ backgroundColor: item.colorDot || '#E8C2B3' }}
+                            />
+                            {item.edition}
                           </div>
-                          <button
-                            onClick={() => removeFromCart(item.cartId)}
-                            className="text-brand-slate hover:text-rose-600 transition-colors p-1"
-                            title="Remove item"
-                          >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                          </button>
-                        </div>
-
-                        {/* Configured Specifications Badge Box */}
-                        <div className="mt-3 bg-[#FAF8F5] border border-brand-border/80 rounded-lg p-3 text-xs space-y-1.5">
-                          {item.edition && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Hamper Palette Edition:</span>
-                              <span className="font-semibold text-brand-charcoal flex items-center gap-1.5">
-                                <span
-                                  className="w-2.5 h-2.5 rounded-full inline-block border border-black/10"
-                                  style={{ backgroundColor: item.colorDot || '#E8C2B3' }}
-                                />
-                                {item.edition}
-                              </span>
-                            </div>
-                          )}
-
-                          {item.fabricShade && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Fabric & Shade:</span>
-                              <span className="font-semibold text-brand-charcoal">{item.fabricShade}</span>
-                            </div>
-                          )}
-
-                          {item.metalHardware && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Metal Hardware:</span>
-                              <span className="font-medium text-brand-charcoal">{item.metalHardware}</span>
-                            </div>
-                          )}
-
-                          {item.monogramDie && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Debossed Initials:</span>
-                              <span className="font-semibold text-brand-goldDark bg-brand-sand px-2 py-0.5 rounded border border-brand-border">
-                                {item.monogramDie}
-                              </span>
-                            </div>
-                          )}
-
-                          {item.brideName && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Couple Names:</span>
-                              <span className="font-medium text-brand-charcoal">
-                                {item.brideName} {item.groomName ? `& ${item.groomName}` : ''}
-                              </span>
-                            </div>
-                          )}
-
-                          {item.weddingDate && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Wedding Date:</span>
-                              <span className="font-medium text-brand-charcoal">{item.weddingDate}</span>
-                            </div>
-                          )}
-
-                          {item.cardInscription && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Gift Inscription:</span>
-                              <span className="font-serif italic text-brand-charcoal">{item.cardInscription}</span>
-                            </div>
-                          )}
-
-                          {item.scentChoice && (
-                            <div className="flex items-center justify-between text-[11px]">
-                              <span className="text-brand-slate font-medium">Artisanal Fragrance:</span>
-                              <span className="font-medium text-brand-charcoal">{item.scentChoice}</span>
-                            </div>
-                          )}
-                        </div>
+                        )}
                       </div>
 
-                      {/* Quantity, Edit Link & Pricing Row */}
-                      <div className="mt-5 pt-4 border-t border-brand-border/60 flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex items-center gap-4">
-                          {/* Quantity Stepper */}
-                          <div className="flex items-center border border-brand-border rounded-lg bg-white overflow-hidden shadow-xs">
-                            <button
-                              onClick={() => updateQuantity(item.cartId, -1)}
-                              className="w-8 h-8 flex items-center justify-center text-brand-slate hover:bg-brand-sand hover:text-brand-charcoal transition-colors"
-                            >
-                              −
-                            </button>
-                            <span className="w-9 text-center text-xs font-semibold text-brand-charcoal">
-                              {item.quantity}
-                            </span>
-                            <button
-                              onClick={() => updateQuantity(item.cartId, 1)}
-                              className="w-8 h-8 flex items-center justify-center text-brand-slate hover:bg-brand-sand hover:text-brand-charcoal transition-colors"
-                            >
-                              +
-                            </button>
-                          </div>
-
-                          {/* Edit Inscriptions link */}
+                      {/* Controls: Quantity, Price, Remove */}
+                      <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto mt-2 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-0 border-brand-border/60">
+                        
+                        {/* Quantity Stepper */}
+                        <div className="flex items-center border border-brand-border rounded-lg bg-white overflow-hidden shadow-xs">
                           <button
-                            onClick={() => openEditModal(item)}
-                            className="text-xs text-brand-goldDark hover:underline font-medium flex items-center gap-1"
+                            onClick={() => updateQuantity(item.cartId, -1)}
+                            className="w-8 h-8 flex items-center justify-center text-brand-slate hover:bg-brand-sand hover:text-brand-charcoal transition-colors"
                           >
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                            <span>Edit Customizations</span>
+                            −
+                          </button>
+                          <span className="w-8 text-center text-xs font-semibold text-brand-charcoal">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() => updateQuantity(item.cartId, 1)}
+                            className="w-8 h-8 flex items-center justify-center text-brand-slate hover:bg-brand-sand hover:text-brand-charcoal transition-colors"
+                          >
+                            +
                           </button>
                         </div>
 
                         {/* Price Calculation */}
-                        <div className="text-right">
+                        <div className="text-right min-w-[80px]">
                           <div className="flex items-baseline gap-2 justify-end">
                             {item.originalPrice && item.originalPrice > item.price && (
-                              <span className="text-xs text-brand-slate line-through">
+                              <span className="text-[10px] text-brand-slate line-through hidden sm:inline-block">
                                 ₹{(item.originalPrice * item.quantity).toLocaleString('en-IN')}
                               </span>
                             )}
-                            <span className="text-xl font-bold font-sans text-brand-charcoal">
+                            <span className="text-lg font-bold font-sans text-brand-charcoal">
                               ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                             </span>
                           </div>
-                          {item.originalPrice && item.originalPrice > item.price && (
-                            <span className="text-[10px] text-emerald-600 font-semibold block">
-                              {item.savingsNote || `Saved ₹${((item.originalPrice - item.price) * item.quantity).toLocaleString('en-IN')}`}
-                            </span>
-                          )}
                         </div>
+
+                        {/* Remove Item */}
+                        <button
+                          onClick={() => removeFromCart(item.cartId)}
+                          className="text-brand-slate hover:text-rose-600 transition-colors p-1.5 rounded-md hover:bg-rose-50"
+                          title="Remove item"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
+                        
                       </div>
-
                     </div>
-
                   </div>
                 </div>
-                
-                {/* Item Footer Note */}
-                <div className="bg-[#FAF7F2] px-6 py-2.5 border-t border-brand-border/60 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] text-brand-slate gap-1">
-                  <span className="flex items-center gap-1.5">
-                    <svg className="w-3.5 h-3.5 text-brand-goldDark flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>{item.footerNote || 'Includes 24k Gold Calligraphy Card & Climate-Controlled Packaging'}</span>
-                  </span>
-                  <span className="text-brand-charcoal font-medium">
-                    {item.dispatchTimeline || 'Estimated Dispatch: Within 48 Hours'}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             {/* Curated Gift Add-ons / Upsell Section */}
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-5 sm:p-6 shadow-xs">
@@ -585,7 +491,7 @@ const CartPage = () => {
                     Need Calligraphy or Initials Verification?
                   </div>
                   <div className="text-[11px] text-on-surface-variant font-sans">
-                    Our Senior Design Stylist can review your wedding crest proof before dispatch.
+                    Our Senior Design Stylist can review your wedding crest proof before shipping.
                   </div>
                 </div>
               </div>
@@ -763,7 +669,7 @@ const CartPage = () => {
                   <svg className="w-4 h-4 text-brand-goldDark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  <span>100% Damage-Proof Climate Transit Guarantee</span>
+                  <span>100% Damage-Proof Climate Delivery Guarantee</span>
                 </div>
 
                 <div className="flex items-center gap-2">

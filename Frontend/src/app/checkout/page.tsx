@@ -43,7 +43,7 @@ const CheckoutPage = () => {
   // Handover venue type: 'palace' | 'residence'
   const [venueType, setVenueType] = useState('palace');
 
-  // Transit method: 'white_glove' (₹0) | 'diplomatic' (+₹1,499)
+  // Delivery method: 'white_glove' (₹0) | 'diplomatic' (+₹1,499)
   const [transitMethod, setTransitMethod] = useState('white_glove');
   const transitCost = transitMethod === 'diplomatic' ? 1499 : 0;
 
@@ -161,8 +161,8 @@ const CheckoutPage = () => {
               <span className="material-symbols-outlined text-[16px] mr-1.5 transform group-hover:-translate-x-1 transition-transform">
                 arrow_back
               </span>
-              <span className="hidden sm:inline">Return to Gift Bag</span>
-              <span className="sm:hidden">Bag</span>
+              <span className="hidden sm:inline">Return to Cart</span>
+              <span className="sm:hidden">Cart</span>
             </Link>
           </div>
 
@@ -188,7 +188,7 @@ const CheckoutPage = () => {
                 <span>256-Bit SSL Encrypted</span>
               </div>
               <p className="text-[10px] text-on-surface-variant tracking-tight font-sans">
-                White-Glove Insured Dispatch
+                White-Glove Insured Shipping
               </p>
             </div>
           </div>
@@ -211,8 +211,8 @@ const CheckoutPage = () => {
                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-xs font-semibold shadow-xs">
                       <span className="material-symbols-outlined text-[14px]">check</span>
                     </span>
-                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-semibold font-sans">1. Review Bag</span>
-                    <span className="sm:hidden text-[11px]">1. Bag</span>
+                    <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-semibold font-sans">1. Review Cart</span>
+                    <span className="sm:hidden text-[11px]">1. Cart</span>
                   </Link>
                 </li>
 
@@ -236,7 +236,7 @@ const CheckoutPage = () => {
                     3
                   </span>
                   <span className="hidden sm:inline uppercase text-[11px] tracking-wider font-sans">
-                    3. Dispatch Settlement
+                    3. Shipping Settlement
                   </span>
                   <span className="sm:hidden text-[11px]">3. Settlement</span>
                 </li>
@@ -250,7 +250,7 @@ const CheckoutPage = () => {
                 schedule
               </span>
               <span className="text-on-surface-variant font-sans text-xs">
-                Custom brass initials slot &amp; transit reserved for:
+                Custom brass initials slot &amp; delivery reserved for:
                 <strong className="font-mono font-bold text-primary ml-1.5">
                   {formatTimer(timeLeft)} min
                 </strong>
@@ -275,7 +275,7 @@ const CheckoutPage = () => {
             Ceremony Venue &amp; White-Glove Handover Details
           </h1>
           <p className="text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1.5 leading-relaxed font-sans">
-            Your customized order undergoes precision laser engraving, 24k gold die stamping, and climate-controlled packaging prior to dedicated transit.
+            Your customized order undergoes precision laser engraving, 24k gold die stamping, and climate-controlled packaging prior to dedicated delivery.
           </p>
         </div>
 
@@ -296,7 +296,7 @@ const CheckoutPage = () => {
                     I
                   </span>
                   <h2 className="font-serif text-xl sm:text-2xl text-[#2C2520] font-medium">
-                    Digital Calligraphy Proof &amp; Dispatch Updates
+                    Digital Calligraphy Proof &amp; Shipping Updates
                   </h2>
                 </div>
                 <span className="text-xs font-semibold text-[#C5A880] hover:underline cursor-pointer">
@@ -356,7 +356,7 @@ const CheckoutPage = () => {
                     className="h-4 w-4 rounded border-[#D9D2C5] text-[#1F1B18] focus:ring-[#C5A880] focus:ring-offset-0 mt-0.5 accent-[#1F1B18]"
                   />
                   <span className="ml-3 text-xs text-[#1F1B18]/85 leading-relaxed">
-                    <strong className="font-semibold text-[#1F1B18]">Receive WhatsApp Visual Proofs:</strong> Get instant die casting photo previews and private GPS link of our White-Glove transit van prior to hotel delivery.
+                    <strong className="font-semibold text-[#1F1B18]">Receive WhatsApp Visual Proofs:</strong> Get instant die casting photo previews and private GPS link of our White-Glove delivery van prior to hotel delivery.
                   </span>
                 </label>
               </div>
@@ -480,7 +480,7 @@ const CheckoutPage = () => {
                     </span>
                   </div>
                   <p className="text-[11px] text-[#1F1B18]/60 mt-1">
-                    Our dispatch marshal hands over directly to the head support with formal luggage route tags.
+                    Our shipping marshal hands over directly to the head support with formal luggage route tags.
                   </p>
                 </div>
 
@@ -606,7 +606,7 @@ const CheckoutPage = () => {
             </article>
 
             {/* ---------------------------------------------------- */}
-            {/* SECTION III: White-Glove Wedding Transit Tier */}
+            {/* SECTION III: White-Glove Wedding Delivery Tier */}
             {/* ---------------------------------------------------- */}
             <article className="bg-[#FDFCFA] border border-[#EAE5DC] rounded-xl p-6 sm:p-7 shadow-[0_4px_20px_0_rgba(44,37,32,0.04)]">
               <div className="flex items-center space-x-3 border-b border-[#EAE5DC] pb-4 mb-5">
@@ -614,12 +614,12 @@ const CheckoutPage = () => {
                   III
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl text-[#2C2520] font-medium">
-                  White-Glove Wedding Transit Tier
+                  White-Glove Wedding Delivery Tier
                 </h2>
               </div>
 
               <fieldset className="space-y-3.5">
-                <legend className="sr-only">Select transit preference tier</legend>
+                <legend className="sr-only">Select delivery preference tier</legend>
 
                 {/* Option 1: Complimentary Climate-Controlled */}
                 <label
@@ -641,7 +641,7 @@ const CheckoutPage = () => {
                   <div className="ml-3.5 flex-1">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-[#1F1B18] uppercase tracking-wider flex items-center gap-2">
-                        Temperature-Controlled White-Glove Transit
+                        Temperature-Controlled White-Glove Delivery
                         <span className="bg-[#1E6347]/10 text-[#1E6347] text-[9px] font-bold px-2 py-0.5 rounded tracking-normal">
                           Included (Free)
                         </span>
@@ -876,7 +876,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="flex justify-between text-[#1F1B18]/80">
-                  <span>White-Glove Insured Chilled Transit</span>
+                  <span>White-Glove Insured Chilled Delivery</span>
                   <span className={`text-xs font-semibold uppercase ${transitCost > 0 ? 'text-[#1F1B18]' : 'text-[#1E6347]'}`}>
                     {transitCost > 0 ? `+ ₹${transitCost.toLocaleString('en-IN')}` : 'Free'}
                   </span>
@@ -1092,7 +1092,7 @@ const CheckoutPage = () => {
                   <svg className="w-4 h-4 text-[#C5A880] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  <span><strong>100% Damage-Proof Transit Guarantee</strong> (Instant suite replacement)</span>
+                  <span><strong>100% Damage-Proof Delivery Guarantee</strong> (Instant suite replacement)</span>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -1146,7 +1146,7 @@ const CheckoutPage = () => {
           <div className="flex flex-wrap items-center justify-center space-x-6 text-[11px]">
             <Link href="/bespoke" className="hover:text-[#1F1B18] transition-colors">Support Protocols</Link>
             <Link href="/about" className="hover:text-[#1F1B18] transition-colors">Hallmark Verification</Link>
-            <Link href="/return-policy" className="hover:text-[#1F1B18] transition-colors">Transit Insurance Policy</Link>
+            <Link href="/return-policy" className="hover:text-[#1F1B18] transition-colors">Delivery Insurance Policy</Link>
             <Link href="/terms-of-service" className="hover:text-[#1F1B18] transition-colors">Terms of Service</Link>
             <Link href="/privacy-policy" className="hover:text-[#1F1B18] transition-colors">Confidentiality Guarantee</Link>
           </div>

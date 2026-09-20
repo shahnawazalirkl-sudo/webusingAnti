@@ -99,7 +99,7 @@ const BulkOrdersPage = () => {
   };
 
   const handleSubmitSampleRequest = (sampleData) => {
-    showToast(`Sample box request dispatched for ${sampleData.name}! Confirmation sent to WhatsApp.`);
+    showToast(`Sample box request shipped for ${sampleData.name}! Confirmation sent to WhatsApp.`);
   };
 
   const handleSubmitInquiry = (data) => {

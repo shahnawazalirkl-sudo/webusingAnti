@@ -42,6 +42,7 @@ const ShopHeader = ({ selectedPill, onSelectPill, pillCounts }) => {
                 key={pill.id}
                 onClick={() => onSelectPill(pill.id)}
                 type="button"
+                aria-pressed={isSelected}
                 className={`group flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-sans text-xs whitespace-nowrap transition-all shadow-xs cursor-pointer select-none ${
                   isSelected
                     ? 'bg-primary text-on-primary font-semibold shadow-sm'

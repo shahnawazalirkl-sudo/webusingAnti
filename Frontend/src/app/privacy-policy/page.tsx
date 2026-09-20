@@ -86,7 +86,7 @@ const CLAUSES = [
               Automated Purging
             </span>
             <span className="text-xs text-on-surface-variant">
-              Guest lists uploaded for laser engraving or calligraphy dispatch are permanently scrubbed 60 days following ceremonial delivery.
+              Guest lists uploaded for laser engraving or calligraphy shipping are permanently scrubbed 60 days following ceremonial delivery.
             </span>
           </div>
         </div>
@@ -151,12 +151,12 @@ const CLAUSES = [
     id: 'clause-6',
     articleNum: 'ARTICLE 06',
     category: 'International Logistics',
-    title: 'White-Glove Transit & International Customs',
+    title: 'White-Glove Delivery & International Customs',
     summary: 'Bonded air courier data exchange restricted purely to export compliance.',
     content: (
       <div className="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-3.5">
         <p>
-          For destination wedding consignments dispatched across Europe, the GCC, the United Kingdom, or the United States, we share requisite declarations with international customs authorities and our bonded air courier partners (DHL Luxury Express / FedEx Custom Critical).
+          For destination wedding consignments shipped across Europe, the GCC, the United Kingdom, or the United States, we share requisite declarations with international customs authorities and our bonded air courier partners (DHL Luxury Express / FedEx Custom Critical).
         </p>
         <p>
           Such data sharing is limited exclusively to export compliance, customs clearance tariff codes, recipient destination addresses, and consignee tax IDs where legally mandated. We require all global courier partners to maintain strict confidentiality and zero retention beyond successful delivery confirmation.
@@ -197,7 +197,7 @@ const CLAUSES = [
           <div className="border border-outline-variant/30 p-3.5 rounded-xl bg-surface-container-lowest shadow-xs hover:border-primary/40 transition-colors">
             <span className="text-xs font-bold text-on-surface block mb-1">Right to Die Surrender</span>
             <span className="text-xs text-on-surface-variant">
-              Request the decommissioning or physical dispatch of your custom brass stamping die at any milestone.
+              Request the decommissioning or physical shipping of your custom brass stamping die at any milestone.
             </span>
           </div>
         </div>

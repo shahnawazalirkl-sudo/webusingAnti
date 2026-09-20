@@ -126,11 +126,11 @@ const WishlistPage = () => {
       });
     });
 
-    showToast(`Transferred ${filteredItems.length} heirlooms into your Collection Bag!`);
+    showToast(`Transferred ${filteredItems.length} heirlooms into your Cart!`);
     setIsCartDrawerOpen(true);
   };
 
-  // Move single item to bag
+  // Move single item to cart
   const handleMoveToBag = (item) => {
     addToCart({
       id: item.id,
@@ -145,7 +145,7 @@ const WishlistPage = () => {
       weddingDate: '18th November 2026',
       monogramDie: item.customizations?.find(c => c.label === 'Initials')?.value || '"A & S" • Classic Crest'
     });
-    showToast(`"${item.title}" moved to your Collection Bag!`);
+    showToast(`"${item.title}" moved to your Cart!`);
   };
 
   // Remove single item with feedback
@@ -307,13 +307,13 @@ const WishlistPage = () => {
               <span>Share with Planner</span>
             </button>
 
-            {/* Move All to Bag CTA */}
+            {/* Move All to Cart CTA */}
             <button 
               onClick={handleTransferAllToBag}
               className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#1A1817] hover:bg-black text-white text-xs font-semibold tracking-wider uppercase shadow hover:shadow-md transition active:scale-98"
             >
-              <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">shopping_bag</span>
-              <span>Transfer All to Bag</span>
+              <span className="material-symbols-outlined w-3.5 h-3.5 text-primary">shopping_cart</span>
+              <span>Transfer All to Cart</span>
             </button>
           </div>
         </div>
@@ -486,8 +486,8 @@ const WishlistPage = () => {
                     onClick={() => handleMoveToBag(item)}
                     className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#1A1817] hover:bg-black text-white text-xs uppercase font-semibold tracking-wider transition shadow-sm hover:shadow active:scale-98"
                   >
-                    <span className="material-symbols-outlined w-4 h-4 text-primary">shopping_bag</span>
-                    <span>Move to Bag</span>
+                    <span className="material-symbols-outlined w-4 h-4 text-primary">shopping_cart</span>
+                    <span>Move to Cart</span>
                   </button>
                 </div>
               </div>
@@ -841,7 +841,7 @@ const WishlistPage = () => {
               <div className="p-4 bg-surface rounded-xl border border-outline-variant/30">
                 <h5 className="font-semibold text-on-surface mb-1">3. Optional Physical Release</h5>
                 <p className="text-on-surface-variant">
-                  Following wedding fulfillment, patrons may request physical dispatch of their custom brass die presented in a hand-crafted Sheesham wood presentation casket.
+                  Following wedding fulfillment, patrons may request physical shipping of their custom brass die presented in a hand-crafted Sheesham wood presentation casket.
                 </p>
               </div>
             </div>

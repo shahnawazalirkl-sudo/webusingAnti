@@ -59,7 +59,7 @@ const BulkFaq = () => {
 
           <div className="p-4 sm:p-5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col items-center">
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">flight_takeoff</span>
-            <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">Insured Global Transit</h4>
+            <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">Insured Global Delivery</h4>
             <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
               Safe express air courier delivery to 140+ countries and domestic luxury hubs.
             </p>
@@ -77,7 +77,7 @@ const BulkFaq = () => {
             <span className="material-symbols-outlined text-primary text-[28px] mb-2">support_agent</span>
             <h4 className="font-serif text-sm sm:text-base font-semibold text-on-surface">Dedicated Concierge</h4>
             <p className="text-xs text-on-surface-variant mt-1 leading-relaxed">
-              Direct 1-on-1 WhatsApp bridal stylist support from inception to final dispatch.
+              Direct 1-on-1 WhatsApp bridal stylist support from inception to final shipping.
             </p>
           </div>
         </div>

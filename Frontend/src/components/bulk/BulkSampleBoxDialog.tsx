@@ -63,7 +63,7 @@ const BulkSampleBoxDialog = ({ open, onOpenChange, initialProduct, onSubmitSampl
               <span className="material-symbols-outlined text-[28px]">check_circle</span>
             </div>
             <h4 className="font-serif text-lg font-medium text-on-surface">
-              Sample Box Request Dispatched to Concierge
+              Sample Box Request Shipped to Concierge
             </h4>
             <p className="text-xs text-on-surface-variant max-w-sm leading-relaxed">
               Our lead bridal stylist will WhatsApp you at <strong className="text-on-surface">{sampleData.phone}</strong> to confirm your courier tracking and custom swatch selection.
@@ -77,7 +77,7 @@ const BulkSampleBoxDialog = ({ open, onOpenChange, initialProduct, onSubmitSampl
             <div className="p-3 bg-[#FAF4EB] rounded-lg border border-primary/20 text-[11px] text-on-surface-variant flex items-start gap-2">
               <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified</span>
               <span>
-                <strong>100% Complimentary</strong> for celebrations above 50 units. Dispatched via express air courier within 48 business hours.
+                <strong>100% Complimentary</strong> for celebrations above 50 units. Shipped via express air courier within 48 business hours.
               </span>
             </div>
 
@@ -174,7 +174,7 @@ const BulkSampleBoxDialog = ({ open, onOpenChange, initialProduct, onSubmitSampl
                 Cancel
               </Button>
               <Button type="submit" className="text-xs font-semibold uppercase tracking-wider">
-                Dispatch Sample Kit Request
+                Shipping Sample Kit Request
               </Button>
             </DialogFooter>
           </form>

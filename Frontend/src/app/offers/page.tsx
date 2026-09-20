@@ -46,7 +46,7 @@ const OffersPage = () => {
       }
       setCopiedCode(code);
       applyCoupon(code);
-      showToast(`Coupon "${code}" copied & applied to your shopping bag!`);
+      showToast(`Coupon "${code}" copied & applied to your shopping cart!`);
       setTimeout(() => setCopiedCode(null), 2500);
     } catch (err) {
       console.error('Failed to copy code', err);
@@ -190,13 +190,13 @@ const OffersPage = () => {
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                 <span className="text-xs text-on-surface">
-                  Active Bag Coupon: <strong className="font-mono text-primary">{appliedCoupon.code}</strong> (
+                  Active Cart Coupon: <strong className="font-mono text-primary">{appliedCoupon.code}</strong> (
                   {appliedCoupon.title || appliedCoupon.description})
                 </span>
               </div>
               <Link href="/cart">
                 <Button size="sm" variant="outline" className="text-xs h-7 px-2.5">
-                  View Bag
+                  View Cart
                 </Button>
               </Link>
             </div>
@@ -429,7 +429,7 @@ const OffersPage = () => {
               </div>
               <h3 className="font-serif text-base font-medium leading-snug text-on-surface">Browse Gifts</h3>
               <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
-                Curate personalized wedding favors, artisanal hampers, or customized jewelry boxes into your collection bag.
+                Curate personalized wedding favors, artisanal hampers, or customized jewelry boxes into your collection cart.
               </p>
             </div>
 

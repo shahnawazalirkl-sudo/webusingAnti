@@ -524,7 +524,7 @@ const setSearchParams = (params: any) => {};
                       48H
                     </span>
                     <span className="text-[10px] text-outline uppercase tracking-wider font-semibold">
-                      Priority Dispatch
+                      Priority Shipping
                     </span>
                   </div>
                 </div>
@@ -831,7 +831,7 @@ const setSearchParams = (params: any) => {};
                         <button
                           type="button"
                           aria-label={isWishlisted ? 'Remove from Wishlist' : 'Save to Wishlist'}
-                          onClick={() => toggleWishlist(product.id)}
+                          onClick={() => toggleWishlist(product)}
                           className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-rose-600 transition-colors shadow-xs z-10 cursor-pointer"
                         >
                           <Heart
@@ -1026,7 +1026,7 @@ const setSearchParams = (params: any) => {};
                   Bulk Favors &amp; Gifting Support
                 </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed font-sans">
-                  Planning Mehendi or destination wedding welcome hampers? Enjoy tiered bridal party discounts, custom wax packaging, and direct venue dispatch.
+                  Planning Mehendi or destination wedding welcome hampers? Enjoy tiered bridal party discounts, custom wax packaging, and direct venue shipping.
                 </p>
               </div>
               <div className="pt-4 border-t border-outline-variant/20 mt-4">

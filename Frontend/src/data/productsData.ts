@@ -3,6 +3,7 @@
 export const PRODUCTS = [
   // 1. The Sovereign Bridal Collection Hamper (Flagship Masterpiece)
   {
+    createdAt: "2023-01-01T00:00:00.000Z",
     id: "sovereign-bridal-suite",
     slug: "sovereign-bridal-suite",
     aliases: ["sovereign-bridal-hamper"],
@@ -47,6 +48,7 @@ export const PRODUCTS = [
 
   // 2. Heirloom Wax-Sealed Deckle Vow Books
   {
+    createdAt: "2023-01-06T00:00:00.000Z",
     id: "deckle-vow-books",
     slug: "deckle-vow-books",
     title: "Heirloom Wax-Sealed Deckle Vow Books",
@@ -84,6 +86,7 @@ export const PRODUCTS = [
 
   // 3. Customized Velvet Double Ring Vault
   {
+    createdAt: "2023-01-11T00:00:00.000Z",
     id: "velvet-ring-vault",
     slug: "velvet-ring-vault",
     title: "Customized Velvet Double Ring & Mangalsutra Vault",
@@ -122,6 +125,7 @@ export const PRODUCTS = [
 
   // 4. Botanical Preserved Floral Varmala Gift
   {
+    createdAt: "2023-01-16T00:00:00.000Z",
     id: "botanical-varmala-frame",
     slug: "botanical-varmala-frame",
     title: "Botanical Preserved Floral Varmala Gift",
@@ -150,7 +154,7 @@ export const PRODUCTS = [
     ],
     inclusions: [
       "1x Archival UV-Filter Double Glass Shadowbox Frame",
-      "Free Insured Flower Collection Kit dispatched to your wedding venue",
+      "Free Insured Flower Collection Kit shipped to your wedding venue",
       "1x Custom Laser Etched Brass Date & Initials Plaque",
       "Certificate of 25-Year Flower Preservation Guarantee"
     ]
@@ -158,6 +162,7 @@ export const PRODUCTS = [
 
   // 5. Pure Mulberry Silk Robe Suite
   {
+    createdAt: "2023-01-21T00:00:00.000Z",
     id: "mulberry-silk-robes",
     slug: "mulberry-silk-robes",
     title: "Pure Mulberry Silk \"Bride\" & \"Groom\" Robe Suite",
@@ -193,6 +198,7 @@ export const PRODUCTS = [
 
   // 6. Custom Carved Teakwood Guestbook Box
   {
+    createdAt: "2023-01-26T00:00:00.000Z",
     id: "carved-teakwood-guestbook",
     slug: "carved-teakwood-guestbook",
     title: "Custom Carved Teakwood Guestbook Box",
@@ -229,6 +235,7 @@ export const PRODUCTS = [
 
   // 7. First Dance Soundwave Acrylic Lamp
   {
+    createdAt: "2023-01-31T00:00:00.000Z",
     id: "soundwave-acrylic-lamp",
     slug: "soundwave-acrylic-lamp",
     title: "First Dance Soundwave Acrylic Lamp",
@@ -265,6 +272,7 @@ export const PRODUCTS = [
 
   // 8. Personalized Crystal Toasting Flutes
   {
+    createdAt: "2023-02-05T00:00:00.000Z",
     id: "crystal-toasting-flutes",
     slug: "crystal-toasting-flutes",
     title: "Personalized Crystal Toasting Flutes (Set of 2)",
@@ -299,6 +307,7 @@ export const PRODUCTS = [
 
   // 9. Groom's Watch & Cufflink Walnut Casing
   {
+    createdAt: "2023-02-10T00:00:00.000Z",
     id: "groom-watch-casing",
     slug: "groom-watch-casing",
     title: "Groom's Watch & Cufflink Walnut Casing",
@@ -334,6 +343,7 @@ export const PRODUCTS = [
 
   // 10. Luxury Wedding Essentials Celebration Trunk
   {
+    createdAt: "2023-02-15T00:00:00.000Z",
     id: "luxury-trousseau-trunk",
     slug: "luxury-trousseau-trunk",
     aliases: ["grand-heritage-trousseau-trunk"],
@@ -371,6 +381,7 @@ export const PRODUCTS = [
 
   // 11. Botanical Soy Candle Favors (Pack of 20)
   {
+    createdAt: "2023-02-20T00:00:00.000Z",
     id: "botanical-candle-favors",
     slug: "botanical-candle-favors",
     title: "Botanical Soy Candle Favors (Pack of 20)",
@@ -407,6 +418,7 @@ export const PRODUCTS = [
 
   // 12. Personalized Marble & Brass Platter
   {
+    createdAt: "2023-02-25T00:00:00.000Z",
     id: "marble-brass-platter",
     slug: "marble-brass-platter",
     title: "Personalized Marble & Brass Platter",
@@ -440,6 +452,7 @@ export const PRODUCTS = [
     ]
   },
   {
+    createdAt: "2023-03-02T00:00:00.000Z",
     id: "acrylic-song-plaque",
     slug: "acrylic-song-plaque",
     aliases: ["aura-acrylic-melody"],
@@ -464,6 +477,7 @@ export const PRODUCTS = [
     ]
   },
   {
+    createdAt: "2023-03-07T00:00:00.000Z",
     id: "leather-passport-suite",
     slug: "leather-passport-suite",
     title: "Tuscan Leather Travel & Passport Suite",
@@ -489,6 +503,7 @@ export const PRODUCTS = [
 
   // 16. Personalized Memory Photo Frame (Stitch Card 1)
   {
+    createdAt: "2023-03-12T00:00:00.000Z",
     id: "personalized-memory-frame",
     slug: "personalized-memory-frame",
     title: "Personalized Memory Photo Frame",
@@ -500,12 +515,12 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 104,
     badge: "BESTSELLER",
-    deliveryBadge: "⚡ Dispatch in 24h",
+    deliveryBadge: "⚡ Shipping in 24h",
     techniqueTag: "Custom Photo & Date",
     craft: "Precision Laser Engraved",
     recipient: "Couple",
     occasion: "Wedding & Reception",
-    timeline: "⚡ Express 24-Hour Dispatch",
+    timeline: "⚡ Express 24-Hour Shipping",
     inStock: true,
     image: "/assets/cdn/img_34983dcdc6ec.jpg",
     gallery: [
@@ -525,6 +540,7 @@ export const PRODUCTS = [
 
   // 17. Custom Name Velvet Jewelry Box (Stitch Card 2)
   {
+    createdAt: "2023-03-17T00:00:00.000Z",
     id: "custom-velvet-jewelry-box",
     slug: "custom-velvet-jewelry-box",
     title: "Custom Name Velvet Jewelry Box",
@@ -562,6 +578,7 @@ export const PRODUCTS = [
 
   // 18. Customized Leather Travel Set (Stitch Card 3)
   {
+    createdAt: "2023-03-22T00:00:00.000Z",
     id: "bespoke-leather-travel-set",
     slug: "bespoke-leather-travel-set",
     title: "Customized Leather Travel Set",
@@ -573,12 +590,12 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 88,
     badge: "NEW",
-    deliveryBadge: "⚡ Dispatch in 24h",
+    deliveryBadge: "⚡ Shipping in 24h",
     techniqueTag: "Debossed Initials",
     craft: "Blind Debossing",
     recipient: "Couple",
     occasion: "Wedding & Reception",
-    timeline: "⚡ Express 24-Hour Dispatch",
+    timeline: "⚡ Express 24-Hour Shipping",
     inStock: true,
     image: "/assets/cdn/img_1502db7547cc.jpg",
     gallery: [
@@ -598,6 +615,7 @@ export const PRODUCTS = [
 
   // 19. Acrylic Song Plaque with LED Base (Stitch Card 4)
   {
+    createdAt: "2023-03-27T00:00:00.000Z",
     id: "led-acrylic-song-plaque",
     slug: "led-acrylic-song-plaque",
     title: "Acrylic Song Plaque with LED Base",
@@ -634,6 +652,7 @@ export const PRODUCTS = [
 
   // 20. Gentleman's Timepiece & Leather Set (Stitch Card 5)
   {
+    createdAt: "2023-04-01T00:00:00.000Z",
     id: "gentleman-timepiece-set",
     slug: "gentleman-timepiece-set",
     title: "Gentleman's Timepiece & Leather Set",
@@ -671,6 +690,7 @@ export const PRODUCTS = [
 
   // 21. Grand Anniversary Hamper (Stitch Card 6)
   {
+    createdAt: "2023-04-06T00:00:00.000Z",
     id: "grand-anniversary-hamper",
     slug: "grand-anniversary-hamper",
     title: "Grand Anniversary Hamper",
@@ -709,6 +729,7 @@ export const PRODUCTS = [
 
   // 22. Handcrafted Wooden Name Puzzle (Stitch Card 7)
   {
+    createdAt: "2023-04-11T00:00:00.000Z",
     id: "wooden-name-puzzle",
     slug: "wooden-name-puzzle",
     title: "Handcrafted Wooden Name Puzzle",
@@ -746,6 +767,7 @@ export const PRODUCTS = [
 
   // 23. Aesthetic Celebration Gift Box (Stitch Card 8)
   {
+    createdAt: "2023-04-16T00:00:00.000Z",
     id: "aesthetic-celebration-box",
     slug: "aesthetic-celebration-box",
     title: "Aesthetic Celebration Gift Box",
@@ -762,7 +784,7 @@ export const PRODUCTS = [
     craft: "Gold Foil Stamping",
     recipient: "Bridesmaids",
     occasion: "Wedding & Reception",
-    timeline: "⚡ Express 24-Hour Dispatch",
+    timeline: "⚡ Express 24-Hour Shipping",
     inStock: true,
     image: "/assets/cdn/img_4d35c34779cb.jpg",
     gallery: [

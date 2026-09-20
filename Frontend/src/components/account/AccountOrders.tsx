@@ -61,7 +61,7 @@ const AccountOrders = ({ orders = [], defaultProfile }: AccountOrderProps) => {
         <div className="pt-2">
           <Button asChild className="gap-2">
             <Link href="/shop">
-              <span className="material-symbols-outlined text-base">shopping_bag</span>
+              <span className="material-symbols-outlined text-base">shopping_cart</span>
               <span>Explore Bridal Masterpieces</span>
             </Link>
           </Button>
@@ -171,7 +171,7 @@ const AccountOrders = ({ orders = [], defaultProfile }: AccountOrderProps) => {
                             {item.image ? (
                               <Image src={item.image} alt={item.title} className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
                             ) : (
-                              <span className="material-symbols-outlined text-outline">shopping_bag</span>
+                              <span className="material-symbols-outlined text-outline">shopping_cart</span>
                             )}
                           </div>
                           <div>

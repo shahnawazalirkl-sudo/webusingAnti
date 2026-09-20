@@ -99,7 +99,7 @@ const HomePage = () => {
   const faqs = [
     {
       q: 'How long does custom monogramming and debossing take?',
-      a: 'Standard personalized pieces take 24–48 hours for dispatch. Custom bridal trunks and large volume wedding favors take 3–7 business days. Express overnight dispatch is also available upon request.'
+      a: 'Standard personalized pieces take 24–48 hours for shipping. Custom bridal trunks and large volume wedding favors take 3–7 business days. Express overnight shipping is also available upon request.'
     },
     {
       q: 'Will I see a 3D digital proof before my items are crafted?',
@@ -107,7 +107,7 @@ const HomePage = () => {
     },
     {
       q: 'Can you handle bulk wedding favors for guests with custom guest names?',
-      a: 'Absolutely. We specialize in wedding favors from 25 to 2,000+ units, with tiered volume pricing, individual guest name debossing, custom wax seals, and direct dispatch to your wedding destination.'
+      a: 'Absolutely. We specialize in wedding favors from 25 to 2,000+ units, with tiered volume pricing, individual guest name debossing, custom wax seals, and direct shipping to your wedding destination.'
     },
     {
       q: 'Are your items packaged ready for gifting?',
@@ -178,7 +178,7 @@ const HomePage = () => {
                 <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">bolt</span>
                 <div>
                   <span className="font-serif text-base sm:text-lg text-on-surface font-semibold block leading-tight">24–48h</span>
-                  <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider block">Express Dispatch</span>
+                  <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider block">Express Shipping</span>
                 </div>
               </div>
             </div>
@@ -683,7 +683,7 @@ const HomePage = () => {
                       Hand-finished &amp; Wax-Sealed Delivery
                     </h4>
                     <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant">
-                      Individual inspection, luxury velvet ribboning, and insured express dispatch.
+                      Individual inspection, luxury velvet ribboning, and insured express shipping.
                     </p>
                   </div>
                 </div>

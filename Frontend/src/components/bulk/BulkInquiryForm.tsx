@@ -14,7 +14,7 @@ const SPECIAL_REQUIREMENTS = [
   { id: 'custom-brass-die', label: 'Custom Initial Hot-Stamp Brass Die' },
   { id: 'individual-monogram', label: 'Individualized Guest Monogramming' },
   { id: 'room-placement', label: 'Direct Hotel Guest Room Staging' },
-  { id: 'split-shipping', label: 'Multi-Resort / Split Destination Transit' },
+  { id: 'split-shipping', label: 'Multi-Resort / Split Destination Delivery' },
   { id: 'gst-invoice', label: '18% GST Corporate Tax Invoice with ITC' }
 ];
 
@@ -314,7 +314,7 @@ const BulkInquiryForm = ({
                   Complimentary Physical Sample Box
                 </h3>
                 <p className="text-xs sm:text-sm text-on-surface-variant mb-4 leading-relaxed">
-                  We dispatch an unboxing sample box directly to your residence within 48 hours for verified inquiries above 50 units. Feel the heavy silk textures, smell artisanal scents, and approve 3D metal crest stamping in person.
+                  We ship an unboxing sample box directly to your residence within 48 hours for verified inquiries above 50 units. Feel the heavy silk textures, smell artisanal scents, and approve 3D metal crest stamping in person.
                 </p>
                 <Button
                   variant="outline"

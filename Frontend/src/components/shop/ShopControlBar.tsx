@@ -41,6 +41,7 @@ const ShopControlBar = ({
   onGridColsChange,
   sortBy,
   onSortChange,
+  isMobileFilterOpen,
   onOpenMobileFilters,
 }) => {
   return (
@@ -50,27 +51,21 @@ const ShopControlBar = ({
           {/* Left: Filter Indicators & Item Count */}
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
             {/* Mobile Filter Drawer Trigger */}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  onClick={onOpenMobileFilters}
-                  variant="outline"
-                  size="sm"
-                  className="lg:hidden flex items-center gap-1.5 h-8 text-xs font-semibold"
-                >
-                  <span className="material-symbols-outlined text-[18px]">tune</span>
-                  <span>Filters</span>
-                  {activeFiltersCount > 0 && (
-                    <span className="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">
-                      {activeFiltersCount}
-                    </span>
-                  )}
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">
-                <p>Refine Filters</p>
-              </TooltipContent>
-            </Tooltip>
+            <Button
+              onClick={onOpenMobileFilters}
+              variant="outline"
+              size="sm"
+              aria-expanded={isMobileFilterOpen}
+              className="lg:hidden flex items-center gap-1.5 h-8 text-xs font-semibold"
+            >
+              <span className="material-symbols-outlined text-[18px]">tune</span>
+              <span>Filters</span>
+              {activeFiltersCount > 0 && (
+                <span className="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">
+                  {activeFiltersCount}
+                </span>
+              )}
+            </Button>
 
             <span className="font-body-sm text-xs text-on-surface-variant">
               Showing <strong className="text-on-surface font-semibold">{displayCount}</strong> of{' '}
@@ -84,64 +79,78 @@ const ShopControlBar = ({
                   <Badge variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
                     {CATEGORY_PILLS.find((p) => p.id === selectedPill)?.label}
                     <button
+                      type="button"
                       onClick={onResetPill}
                       className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
-                      aria-label="Remove category filter"
+                      aria-label={`Remove ${CATEGORY_PILLS.find((p) => p.id === selectedPill)?.label} filter`}
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
                   </Badge>
                 )}
 
-                {selectedPriceRange !== 'all' && (
-                  <Badge variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
-                    {selectedPriceRange === 'under-1000' && 'Under ₹1,000'}
-                    {selectedPriceRange === '1000-2500' && '₹1,000 - ₹2,500'}
-                    {selectedPriceRange === '2500-5000' && '₹2,500 - ₹5,000'}
-                    {selectedPriceRange === 'above-5000' && 'Above ₹5,000'}
-                    <button
-                      onClick={onResetPrice}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
-                      aria-label="Remove price filter"
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                )}
+                {selectedPriceRange !== 'all' && (() => {
+                  const priceLabels = {
+                    'under-1000': 'Under ₹1,000',
+                    '1000-2500': '₹1,000 - ₹2,500',
+                    '2500-5000': '₹2,500 - ₹5,000',
+                    'above-5000': 'Above ₹5,000'
+                  };
+                  const label = priceLabels[selectedPriceRange] || selectedPriceRange;
+                  return (
+                    <Badge variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
+                      {label}
+                      <button
+                        type="button"
+                        onClick={onResetPrice}
+                        className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
+                        aria-label={`Remove ${label} filter`}
+                      >
+                        <span className="material-symbols-outlined text-[13px]">close</span>
+                      </button>
+                    </Badge>
+                  );
+                })()}
 
                 {selectedRecipient !== 'all' && (
                   <Badge variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
                     {selectedRecipient}
                     <button
+                      type="button"
                       onClick={onResetRecipient}
                       className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
-                      aria-label="Remove recipient filter"
+                      aria-label={`Remove ${selectedRecipient} filter`}
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
                   </Badge>
                 )}
 
-                {selectedProductTypes.map((catId) => (
-                  <Badge key={catId} variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
-                    {productTypeOptions.find((p) => p.category === catId)?.label || catId}
-                    <button
-                      onClick={() => onToggleProductType(catId)}
-                      className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
-                      aria-label={`Remove ${catId} filter`}
-                    >
-                      <span className="material-symbols-outlined text-[13px]">close</span>
-                    </button>
-                  </Badge>
-                ))}
+                {selectedProductTypes.map((catId) => {
+                  const label = productTypeOptions.find((p) => p.category === catId)?.label || catId;
+                  return (
+                    <Badge key={catId} variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
+                      {label}
+                      <button
+                        type="button"
+                        onClick={() => onToggleProductType(catId)}
+                        className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
+                        aria-label={`Remove ${label} filter`}
+                      >
+                        <span className="material-symbols-outlined text-[13px]">close</span>
+                      </button>
+                    </Badge>
+                  );
+                })}
 
                 {searchQuery.trim() && (
                   <Badge variant="outline" className="gap-1 text-[11px] py-0.5 px-2">
                     "{searchQuery}"
                     <button
+                      type="button"
                       onClick={onClearSearch}
                       className="hover:text-rose-600 ml-0.5 inline-flex items-center cursor-pointer"
-                      aria-label="Clear keyword search"
+                      aria-label={`Clear search for ${searchQuery}`}
                     >
                       <span className="material-symbols-outlined text-[13px]">close</span>
                     </button>
@@ -209,7 +218,7 @@ const ShopControlBar = ({
               </span>
               <div className="w-48">
                 <Select value={sortBy} onValueChange={onSortChange}>
-                  <SelectTrigger className="h-8 text-xs bg-surface-container-lowest font-medium">
+                  <SelectTrigger className="h-8 text-xs bg-surface-container-lowest font-medium" aria-label="Sort products">
                     <SelectValue placeholder="Sort products" />
                   </SelectTrigger>
                   <SelectContent align="end">

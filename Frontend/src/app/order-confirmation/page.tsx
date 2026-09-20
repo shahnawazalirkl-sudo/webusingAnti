@@ -40,7 +40,7 @@ const OrderConfirmationPage = () => {
   const settledAmount = order?.grandTotal ? `₹${order.grandTotal.toLocaleString('en-IN')}` : '₹8,459';
   const arrivalDateText = order?.arrivalDate ? `${order.arrivalDate} (Twilight Slot)` : 'Nov 14, 2026 (Twilight Slot)';
   const chauffeurInstructions = order?.chauffeurNotes ||
-    "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of transit.";
+    "Handover strictly to wedding planner Miss Shagufta Naaz at the Kohinoor Suite or Bride's mother Miss Sultana Begum. Temperature to remain stabilized at 18°C during all segments of delivery.";
   const paymentHandle = 'Pending Payment Gateway Integration';
   const monogramCode = order?.monogramDie || '"A & S" • Classic Floral Crest';
   const loyaltyPoints = order?.loyaltyPoints || 845;
@@ -106,8 +106,8 @@ const OrderConfirmationPage = () => {
               <span className="w-5 h-5 rounded-full bg-on-surface text-surface flex items-center justify-center text-[10px] font-bold">
                 ✓
               </span>
-              <span className="hidden sm:inline font-semibold tracking-wider text-[11px]">1. REVIEW BAG</span>
-              <span className="sm:hidden text-[10px] font-semibold">1. Bag</span>
+              <span className="hidden sm:inline font-semibold tracking-wider text-[11px]">1. REVIEW CART</span>
+              <span className="sm:hidden text-[10px] font-semibold">1. Cart</span>
             </Link>
             <div className="w-8 sm:w-16 md:w-24 h-[1px] bg-primary/40"></div>
 
@@ -126,7 +126,7 @@ const OrderConfirmationPage = () => {
               <span className="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px] font-bold ring-2 ring-primary/30">
                 ✓
               </span>
-              <span className="tracking-wider uppercase text-[11px] hidden sm:inline">3. DISPATCH CONFIRMED</span>
+              <span className="tracking-wider uppercase text-[11px] hidden sm:inline">3. SHIPPING CONFIRMED</span>
               <span className="sm:hidden text-[10px]">3. Confirmed</span>
             </div>
           </div>
@@ -153,7 +153,7 @@ const OrderConfirmationPage = () => {
                   </span>
                 </div>
                 <p className="mt-1 text-amber-900/90 leading-relaxed">
-                  No payments can be made. We are actively working on our online payment gateway integration. Without payment gateway processing, <strong>no order can be confirmed or dispatched</strong>.
+                  No payments can be made. We are actively working on our online payment gateway integration. Without payment gateway processing, <strong>no order can be confirmed or shipped</strong>.
                 </p>
               </div>
             </div>
@@ -243,14 +243,14 @@ const OrderConfirmationPage = () => {
           {/* LEFT COLUMN: Timeline, Protocol & Handover Specs (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
 
-            {/* 1. Artisanal Production & White-Glove Transit Timeline */}
+            {/* 1. Artisanal Production & White-Glove Delivery Timeline */}
             <div className="bg-white rounded-2xl p-6 sm:p-7 border border-brand-border shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-brand-border/70">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-brand-cream border border-brand-gold text-brand-dark flex items-center justify-center font-serif text-sm font-semibold">
                     I
                   </span>
-                  <h2 className="serif-title text-xl sm:text-2xl text-brand-dark">Artisanal Collection &amp; Transit Timeline</h2>
+                  <h2 className="serif-title text-xl sm:text-2xl text-brand-dark">Artisanal Collection &amp; Delivery Timeline</h2>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <Link
@@ -522,7 +522,7 @@ const OrderConfirmationPage = () => {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span>White-Glove Temperature Chilled Transit</span>
+                  <span>White-Glove Temperature Chilled Delivery</span>
                   <span className="text-emerald-700 font-semibold uppercase text-[10px] bg-emerald-50 px-1.5 py-0.5 rounded">
                     Free (Included)
                   </span>
@@ -612,7 +612,7 @@ const OrderConfirmationPage = () => {
               <div className="grid grid-cols-2 gap-2 text-[10px] text-brand-charcoal pt-1">
                 <div className="flex items-center gap-1.5">
                   <span className="text-brand-gold font-bold">✓</span>
-                  <span>100% Transit Replacement</span>
+                  <span>100% Delivery Replacement</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-brand-gold font-bold">✓</span>
@@ -662,7 +662,7 @@ const OrderConfirmationPage = () => {
             <span>•</span>
             <Link href="/about" className="hover:text-brand-dark transition-colors">Hallmark Verification</Link>
             <span>•</span>
-            <Link href="/return-policy" className="hover:text-brand-dark transition-colors">Transit Insurance Policy</Link>
+            <Link href="/return-policy" className="hover:text-brand-dark transition-colors">Delivery Insurance Policy</Link>
             <span>•</span>
             <Link href="/terms-of-service" className="hover:text-brand-dark transition-colors">Terms of Service</Link>
             <span>•</span>
