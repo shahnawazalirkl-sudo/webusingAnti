@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { getOrderById, formatOrderForTracking, getLastOrder } from '@/utils/orderStorage';
+import { Sparkles } from 'lucide-react';
 
 
 const PRESET_DOCKETS = {
@@ -276,7 +277,7 @@ const TrackOrderPageInner = () => {
         <section className="text-center max-w-4xl mx-auto mb-8">
           {/* Ceremony Shipping Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4EB] border border-primary/20 text-primary text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold mb-3">
-            <span className="material-symbols-outlined w-3.5 h-3.5 fill-current">sparkles</span>
+            <Sparkles className="w-3.5 h-3.5" />
             <span>Ceremony Shipping &amp; Delivery Surveillance</span>
           </div>
 

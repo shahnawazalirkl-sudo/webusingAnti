@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useWishlist } from '@/context/WishlistContext';
 import { useCart } from '@/context/CartContext';
+import { Sparkles } from 'lucide-react';
 
 
 const RECOMMENDATIONS = [
@@ -169,7 +170,7 @@ const WishlistPage = () => {
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors font-medium group"
           >
             <span className="material-symbols-outlined w-4 h-4 transition-transform group-hover:-translate-x-1 text-primary">arrow_back</span>
-            <span className="hidden sm:inline">Return to Collection Collections</span>
+            <span className="hidden sm:inline">Return to Collections</span>
             <span className="sm:hidden">Collections</span>
           </Link>
 
@@ -208,14 +209,14 @@ const WishlistPage = () => {
       {/* ========================================================================= */}
       {/* MAIN WISHLIST CONTENT                                                     */}
       {/* ========================================================================= */}
-      <main className="flex-grow max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+      <main className="flex-grow max-w-[1360px] mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16">
         
         {/* PAGE TITLE & CEREMONY BANNER */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4EB] border border-primary/20 text-primary text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold mb-3 sm:mb-4">
-            <span className="material-symbols-outlined w-3 h-3 text-primary">sparkles</span>
+            <Sparkles className="w-3 h-3 text-primary" />
             <span>Curated Ceremony Registry & Gifts</span>
-            <span className="material-symbols-outlined w-3 h-3 text-primary">sparkles</span>
+            <Sparkles className="w-3 h-3 text-primary" />
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight text-on-surface mb-3">
             Saved Gifts & <span className="italic font-light">Wedding Essentials Wishlist</span>
@@ -225,7 +226,7 @@ const WishlistPage = () => {
           </p>
 
           {/* Registry Metadata Quick Pill Bar */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 bg-white/90 border border-outline-variant/30 px-4 sm:px-6 py-3 rounded-2xl shadow-sm text-xs text-on-surface-variant">
+          <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 bg-white/90 border border-outline-variant/30 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-sm text-xs text-on-surface-variant">
             <div>
               <span className="uppercase tracking-wider text-[10px] text-primary font-semibold block">Registry ID</span>
               <span className="font-mono text-on-surface font-medium">ASRA-REG-2026-9921</span>
@@ -249,7 +250,7 @@ const WishlistPage = () => {
         </div>
 
         {/* ACTION CONTROLS & FILTER BAR */}
-        <div className="bg-white rounded-2xl border border-outline-variant/30 p-3 sm:p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+        <div className="bg-white rounded-2xl border border-outline-variant/30 p-3 sm:p-4 mb-6 sm:mb-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
           
           {/* Tabs / Categories */}
           <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs font-medium uppercase tracking-wider">
@@ -405,8 +406,8 @@ const WishlistPage = () => {
                   ) : (
                     <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-surface mb-4">
                       <Image 
-                        src={item.image} 
-                        alt={item.title} 
+                        src={item.image || '/assets/cdn/img_0e64e51cb5ac.png'} 
+                        alt={item.title || 'Wishlist item'} 
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800';

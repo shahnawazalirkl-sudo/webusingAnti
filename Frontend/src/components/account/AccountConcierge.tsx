@@ -5,6 +5,7 @@ import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Separator } from '../ui/separator';
+import { Sparkles } from 'lucide-react';
 
 const AccountConcierge = () => {
   return (
@@ -76,7 +77,7 @@ const AccountConcierge = () => {
 
           <div className="p-4 bg-surface-container-low rounded-xl border border-outline-variant/30 space-y-1.5">
             <h4 className="font-semibold text-on-surface flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-base text-primary">sparkles</span>
+              <Sparkles className="w-4 h-4 text-primary" />
               <span>Crest & Monogram Proofing</span>
             </h4>
             <p className="text-on-surface-variant leading-relaxed">

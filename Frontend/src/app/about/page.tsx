@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useState } from 'react';
 
 import {
-  Sparkles,
   Feather,
   ShieldCheck,
   Layers,

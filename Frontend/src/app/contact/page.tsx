@@ -8,7 +8,6 @@ import {
   Phone,
   Mail,
   CheckCircle2,
-  Sparkles,
   ChevronDown,
   ExternalLink,
   ShieldCheck,

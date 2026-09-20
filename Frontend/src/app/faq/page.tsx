@@ -13,7 +13,6 @@ import {
   ChevronDown,
   ExternalLink,
   Lock,
-  Sparkles,
   Archive,
   Truck,
   RotateCcw,
