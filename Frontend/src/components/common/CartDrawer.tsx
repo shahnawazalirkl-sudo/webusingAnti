@@ -120,7 +120,7 @@ const CartDrawer = () => {
                 ) : (
                   <Image
                     src={item.image || '/assets/cdn/img_8222cd4f9dd5.png'}
-                    alt={item.title}
+                    alt={item.title || 'Cart item'}
                     className="w-20 h-24 object-cover rounded-lg shrink-0 border border-outline-variant/40" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 )}

@@ -7,6 +7,7 @@ import {
   sanitizeInputs 
 } from './src/middleware/security.js';
 import { notFoundHandler, globalErrorHandler } from './src/middleware/errorHandler.js';
+import logRoutes from './src/routes/logRoutes.js';
 
 dotenv.config();
 
@@ -67,6 +68,9 @@ app.get('/api/products', (req, res) => {
     data: []
   });
 });
+
+// Client Telemetry Logging Route
+app.use('/api', logRoutes);
 
 // 8. 404 Route Not Found Handler
 app.use(notFoundHandler);

@@ -1,185 +1,40 @@
-"use client";
-import React, { useState, useRef } from 'react';
-import { useCart } from '@/context/CartContext';
-import BulkHero from '@/components/bulk/BulkHero';
-import BulkPriceCalculator from '@/components/bulk/BulkPriceCalculator';
-import BulkTiersGrid from '@/components/bulk/BulkTiersGrid';
-import BulkCatalogGrid from '@/components/bulk/BulkCatalogGrid';
-import BulkInquiryForm from '@/components/bulk/BulkInquiryForm';
-import BulkCaseStudies from '@/components/bulk/BulkCaseStudies';
-import BulkFaq from '@/components/bulk/BulkFaq';
-import BulkSampleBoxDialog from '@/components/bulk/BulkSampleBoxDialog';
+import React from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import BulkOrderFormClient from '@/components/bulk/BulkOrderFormClient';
 
-const BulkOrdersPage = () => {
-  const { showToast } = useCart();
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [sampleModalOpen, setSampleModalOpen] = useState(false);
-  const [sampleInitialProduct, setSampleInitialProduct] = useState(null);
-
-  const [dossierItems, setDossierItems] = useState([
-    'Mulberry Silk Robe & Stole Suite'
-  ]);
-
-  const [formData, setFormData] = useState({
-    milestone: 'welcome-kit',
-    quantity: '76-200',
-    eventDate: '',
-    destination: '',
-    coupleNames: '',
-    budget: '1000-2000',
-    contactName: '',
-    phone: '',
-    email: '',
-    notes: ''
-  });
-
-  const inquiryFormRef = useRef(null);
-  const volumeTiersRef = useRef(null);
-  const calculatorRef = useRef(null);
-
-  // Smooth scroll helper
-  const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  // Add signature favor to dossier
-  const handleAddItemToDossier = (item) => {
-    const itemName = typeof item === 'string' ? item : item.name;
-    setDossierItems((prev) => {
-      if (prev.includes(itemName)) {
-        showToast(`"${itemName}" is already in your inquiry dossier.`);
-        return prev;
-      }
-      showToast(`Added "${itemName}" to your inquiry dossier!`);
-      return [...prev, itemName];
-    });
-  };
-
-  // Remove favor from dossier
-  const handleRemoveDossierItem = (itemName) => {
-    setDossierItems((prev) => prev.filter((item) => item !== itemName));
-    showToast(`Removed "${itemName}" from your inquiry dossier.`);
-  };
-
-  // Transfer from Live Calculator
-  const handleTransferEstimate = (estimate) => {
-    handleAddItemToDossier(estimate.productName);
-
-    // Map quantity to form dropdown value
-    let qtyRange = '76-200';
-    if (estimate.quantity <= 75) qtyRange = '25-75';
-    else if (estimate.quantity <= 200) qtyRange = '76-200';
-    else if (estimate.quantity <= 500) qtyRange = '201-500';
-    else qtyRange = '500+';
-
-    setFormData((prev) => ({
-      ...prev,
-      quantity: qtyRange,
-      notes: prev.notes
-        ? `${prev.notes}\n[Estimated ${estimate.quantity} units of ${estimate.productName} @ ₹${estimate.effectivePerUnit}/u with ${estimate.discount} discount]`
-        : `[Estimated ${estimate.quantity} units of ${estimate.productName} @ ₹${estimate.effectivePerUnit}/u with ${estimate.discount} discount]`
-    }));
-
-    scrollToSection(inquiryFormRef);
-    showToast(`Transferred ${estimate.quantity}× ${estimate.productName} estimate to your dossier!`);
-  };
-
-  // Select a tier from the volume privileges cards
-  const handleSelectTier = (tierValue, tierRange) => {
-    setFormData((prev) => ({ ...prev, quantity: tierValue }));
-    scrollToSection(inquiryFormRef);
-    showToast(`Selected ${tierRange} tier pricing for your celebration.`);
-  };
-
-  const handleOpenSampleModal = (product = null) => {
-    setSampleInitialProduct(product);
-    setSampleModalOpen(true);
-  };
-
-  const handleSubmitSampleRequest = (sampleData) => {
-    showToast(`Sample box request shipped for ${sampleData.name}! Confirmation sent to WhatsApp.`);
-  };
-
-  const handleSubmitInquiry = (data) => {
-    setFormSubmitted(true);
-    showToast('Bulk Concierge Inquiry received! A bridal stylist will connect on WhatsApp within 2 hours.');
-  };
-
-  const handleResetForm = () => {
-    setFormSubmitted(false);
-    setFormData({
-      milestone: '',
-      quantity: '',
-      eventDate: '',
-      destination: '',
-      coupleNames: '',
-      budget: '1000-2000',
-      contactName: '',
-      phone: '',
-      email: '',
-      notes: ''
-    });
-  };
-
-  return (
-    <div className="w-full bg-surface text-on-surface flex flex-col antialiased">
-      {/* 1. Hero Section */}
-      <BulkHero
-        onOpenSampleModal={() => handleOpenSampleModal()}
-        onScrollToSection={scrollToSection}
-        refs={{ inquiryFormRef, calculatorRef, volumeTiersRef }}
-      />
-
-      {/* 2. Interactive Real-Time Price & Savings Calculator */}
-      <div ref={calculatorRef}>
-        <BulkPriceCalculator onTransferEstimate={handleTransferEstimate} />
-      </div>
-
-      {/* 3. Tier Comparison Matrix */}
-      <div ref={volumeTiersRef}>
-        <BulkTiersGrid
-          selectedTierValue={formData.quantity}
-          onSelectTier={handleSelectTier}
-          onScrollToForm={() => scrollToSection(inquiryFormRef)}
-        />
-      </div>
-
-      {/* 4. Filterable Signature Catalog */}
-      <BulkCatalogGrid
-        onAddItemToDossier={handleAddItemToDossier}
-        onOpenSampleModal={handleOpenSampleModal}
-      />
-
-      {/* 5. Concierge Inquiry Form & Assurance */}
-      <BulkInquiryForm
-        inquiryFormRef={inquiryFormRef}
-        formData={formData}
-        setFormData={setFormData}
-        dossierItems={dossierItems}
-        onRemoveDossierItem={handleRemoveDossierItem}
-        onOpenSampleModal={() => handleOpenSampleModal()}
-        onSubmitInquiry={handleSubmitInquiry}
-        formSubmitted={formSubmitted}
-        onResetForm={handleResetForm}
-      />
-
-      {/* 6. Case Studies & Testimonials */}
-      <BulkCaseStudies />
-
-      {/* 7. FAQs, Trust Badges, Corporate & Logistics Anchors */}
-      <BulkFaq />
-
-      {/* Master Sample Box Modal */}
-      <BulkSampleBoxDialog
-        open={sampleModalOpen}
-        onOpenChange={setSampleModalOpen}
-        initialProduct={sampleInitialProduct}
-        onSubmitSampleRequest={handleSubmitSampleRequest}
-      />
-    </div>
-  );
+export const metadata: Metadata = {
+  title: 'Bulk Wedding Favors & Corporate Gifting | ASRA Wedding Canvas',
+  description: 'Tiered volume privileges, bespoke gift boxes, and custom debossed wedding favors for 25+ guests and destination celebrations.',
+  openGraph: {
+    title: 'Bulk Wedding Favors & Corporate Gifting | ASRA Wedding Canvas',
+    description: 'Tiered volume privileges, bespoke gift boxes, and custom debossed wedding favors for 25+ guests and destination celebrations.',
+    url: 'https://asraweddingcanvas.com/bulk-orders',
+    siteName: 'ASRA Wedding Canvas',
+    type: 'website',
+  },
 };
 
-export default BulkOrdersPage;
+export default function BulkOrdersPage() {
+  return (
+    <div className="w-full bg-surface text-on-surface flex flex-col antialiased">
+      {/* Server-Rendered Breadcrumbs Navigation */}
+      <nav className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 pb-2 text-[11px] uppercase tracking-widest text-asra-muted w-full" data-purpose="breadcrumbs">
+        <ol className="flex items-center gap-2 flex-wrap">
+          <li>
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+          </li>
+          <li className="text-primary/50">/</li>
+          <li>
+            <Link href="/collections" className="hover:text-primary transition-colors">Collections</Link>
+          </li>
+          <li className="text-primary/50">/</li>
+          <li className="text-on-surface font-semibold">Bulk Favors &amp; Destination Suites</li>
+        </ol>
+      </nav>
+
+      {/* Client Interactive Bulk Orders Workflow */}
+      <BulkOrderFormClient />
+    </div>
+  );
+}

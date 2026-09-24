@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -11,9 +12,14 @@ import { Calendar } from '@/components/ui/calendar';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 const MonogramPreviewStudio = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [partner1, setPartner1] = useState('Aarav');
   const [partner2, setPartner2] = useState('Ananya');
   const [selectedDate, setSelectedDate] = useState(() => new Date(2025, 11, 24));
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [foilStyle, setFoilStyle] = useState('gold'); // 'gold' | 'rose' | 'silver'
   const [itemType, setItemType] = useState('passport'); // 'passport' | 'acrylic' | 'ringbox'
@@ -286,5 +292,14 @@ const MonogramPreviewStudio = () => {
     </section>
   );
 };
+
+export const DynamicMonogramPreviewStudio = dynamic(() => Promise.resolve(MonogramPreviewStudio), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full py-16 px-4 flex items-center justify-center bg-surface-container-low animate-pulse">
+      <span className="text-xs text-primary font-medium tracking-wider uppercase">Loading Monogram Studio...</span>
+    </div>
+  ),
+});
 
 export default MonogramPreviewStudio;

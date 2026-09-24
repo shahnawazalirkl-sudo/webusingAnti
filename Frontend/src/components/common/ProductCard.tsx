@@ -1,30 +1,20 @@
+"use client";
+
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 
 import Link from 'next/link';
-import { useCart } from '../../context/CartContext';
-import { useWishlist } from '../../context/WishlistContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { ProductCardWishlistButton, ProductCardQuickAction } from '@/components/shop/ProductCardActions';
 
-const ProductCard = ({ product, aspectRatio = 'square', className = '' }) => {
-  const { addToCart } = useCart();
-  const { isInWishlist, toggleWishlist } = useWishlist();
-  const navigate = useRouter();
+const ProductCard = ({ product, aspectRatio = 'square', className = '' }: any) => {
 
-  const isLiked = isInWishlist(product.id);
   const discountPercent = product.originalPrice && product.originalPrice > product.price
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : null;
 
   const productUrl = `/product/${product.slug || product.id}`;
-
-  const handleQuickAction = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    addToCart(product);
-  };
 
   return (
     <Card className={`group relative flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-xs hover:shadow-md border-outline-variant/30 hover:border-primary/40 transition-all duration-300 ${className}`}>
@@ -56,46 +46,11 @@ const ProductCard = ({ product, aspectRatio = 'square', className = '' }) => {
         </div>
 
         {/* Wishlist CTA Button */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleWishlist(product);
-          }}
-          aria-label="Add to Wishlist"
-          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface hover:text-rose-600 flex items-center justify-center transition-all shadow-xs z-10"
-          type="button"
-        >
-          <span
-            className={`material-symbols-outlined text-[18px] transition-colors ${
-              isLiked ? 'text-rose-600' : 'text-outline hover:text-rose-600'
-            }`}
-            style={{ fontVariationSettings: isLiked ? "'FILL' 1" : "'FILL' 0" }}
-          >
-            favorite
-          </span>
-        </button>
+        <ProductCardWishlistButton product={product} />
 
         {/* Hover Quick Action Slide-up */}
         <div className="absolute inset-x-3 bottom-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex gap-2 z-10">
-          {(product.craft || (product.editions && product.editions.length > 0)) ? (
-            <Link
-              href={productUrl}
-              className="flex-1 py-2 rounded-lg bg-inverse-surface text-inverse-on-surface font-label-md text-label-md hover:bg-primary transition-colors text-center shadow-md flex items-center justify-center gap-1.5"
-            >
-              <span className="material-symbols-outlined text-[16px]">draw</span>
-              <span>Personalize Now</span>
-            </Link>
-          ) : (
-            <button
-              type="button"
-              onClick={handleQuickAction}
-              className="flex-1 py-2 rounded-lg bg-primary text-on-primary font-label-md text-[13px] font-semibold hover:bg-primary/90 transition-colors text-center shadow-md flex items-center justify-center gap-1.5"
-            >
-              <span className="material-symbols-outlined text-[16px]">shopping_cart</span>
-              <span>Add to Cart</span>
-            </button>
-          )}
+          <ProductCardQuickAction product={product} productUrl={productUrl} />
         </div>
       </div>
 

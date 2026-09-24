@@ -68,7 +68,7 @@ const AccountWishlist = () => {
                 {item.image ? (
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={item.title || 'Wishlist item'}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (

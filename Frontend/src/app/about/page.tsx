@@ -1,7 +1,6 @@
-"use client";
-import Image from "next/image";
-
-import React, { useState } from 'react';
+import React from 'react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 
 import {
   Feather,
@@ -9,20 +8,10 @@ import {
   Layers,
   Globe,
   MapPin,
-  Clock,
   ArrowRight,
-  CheckCircle2,
   MessageCircle,
   Crown,
-  BookOpen,
-  Award,
-  HelpCircle,
-  Send,
-  CalendarDays,
-  Phone,
-  Mail,
-  User,
-  Check
+  Check,
 } from 'lucide-react';
 
 // Shadcn UI Components
@@ -34,68 +23,33 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter
+  CardFooter,
 } from '@/components/ui/card';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
+  AccordionTrigger,
 } from '@/components/ui/accordion';
-import { toast } from 'sonner';
 
-const AboutUsPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSalon, setSelectedSalon] = useState('Jubilee Hills Collection (Hyderabad)');
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    eventDate: '',
-    notes: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+// Extracted Client Components
+import ConsultationModal, { ConsultationTriggerButton } from '@/components/about/ConsultationModal';
+import AboutTabsClient from '@/components/about/AboutTabsClient';
 
-  const handleOpenModal = (salonName) => {
-    if (salonName) {
-      setSelectedSalon(salonName);
-    }
-    setIsModalOpen(true);
-  };
+export const metadata: Metadata = {
+  title: 'Artisanal Heritage & Private Salons | ASRA Wedding Canvas',
+  description: 'Discover the artisanal heritage of ASRA Wedding Canvas. Royal wedding essentials casing, heavy brass intaglio debossing, and 24-karat gold leaf detailing born in Hyderabad & Bengaluru.',
+  openGraph: {
+    title: 'Artisanal Heritage & Private Salons | ASRA Wedding Canvas',
+    description: 'Discover the artisanal heritage of ASRA Wedding Canvas. Royal wedding essentials casing, heavy brass intaglio debossing, and 24-karat gold leaf detailing born in Hyderabad & Bengaluru.',
+    url: 'https://asraweddingcanvas.com/about',
+    siteName: 'ASRA Wedding Canvas',
+    type: 'website',
+  },
+};
 
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsModalOpen(false);
-      toast.success('Private Salon Session Requested', {
-        description: `Our senior curator will contact ${formData.name || 'you'} via WhatsApp to confirm the appointment for ${selectedSalon}.`
-      });
-      setFormData({ name: '', phone: '', email: '', eventDate: '', notes: '' });
-    }, 600);
-  };
-
+export default function AboutUsPage() {
   return (
     <div className="bg-asra-cream text-asra-charcoal selection:bg-asra-gold selection:text-white min-h-screen">
       {/* 1. Hero Editorial Section */}
@@ -106,9 +60,9 @@ const AboutUsPage = () => {
             alt="Emblem Watermark"
             className="w-full h-auto"
             src="/assets/cdn/img_875b0894aaaa.png"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
+            fill
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
@@ -189,9 +143,9 @@ const AboutUsPage = () => {
                       alt="ASRA Wedding Canvas Master Initials Crest"
                       className="w-48 sm:w-52 h-auto max-h-[190px] mx-auto object-contain filter drop-shadow-md"
                       src="/assets/cdn/img_863a6bfc47db.png"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw"
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
 
@@ -218,7 +172,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 2. Craft Pillars Section (Modernized with shadcn Card & Badge) */}
+      {/* 2. Craft Pillars Section */}
       <section className="py-12 sm:py-14 bg-white border-y border-asra-border" data-purpose="craft-pillars">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -341,7 +295,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 3. Interactive Artisanal Materials & Guild Discipline (Shadcn Tabs) */}
+      {/* 3. Interactive Artisanal Materials & Guild Discipline (Extracted Client Component) */}
       <section className="py-12 sm:py-16 bg-asra-sand/30 border-b border-asra-border" data-purpose="interactive-materials">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -360,188 +314,7 @@ const AboutUsPage = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="leather" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="bg-white/80 border border-asra-gold/30 p-1 flex-wrap h-auto gap-1">
-                <TabsTrigger
-                  value="leather"
-                  className="data-[state=active]:bg-asra-gold data-[state=active]:text-white text-xs px-4 py-2"
-                >
-                  Tuscan Leather &amp; Teakwood
-                </TabsTrigger>
-                <TabsTrigger
-                  value="silk"
-                  className="data-[state=active]:bg-asra-gold data-[state=active]:text-white text-xs px-4 py-2"
-                >
-                  Lyon Silk Velvet &amp; Zari
-                </TabsTrigger>
-                <TabsTrigger
-                  value="gold"
-                  className="data-[state=active]:bg-asra-gold data-[state=active]:text-white text-xs px-4 py-2"
-                >
-                  24K Gold Leaf &amp; Brass Dies
-                </TabsTrigger>
-                <TabsTrigger
-                  value="acrylic"
-                  className="data-[state=active]:bg-asra-gold data-[state=active]:text-white text-xs px-4 py-2"
-                >
-                  Optical Crystal Acrylic
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            {/* Tab 1: Leather */}
-            <TabsContent value="leather">
-              <Card className="bg-white border-asra-border shadow-sm p-6 sm:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-7 space-y-4">
-                    <Badge variant="outline" className="text-[10px] text-asra-goldDark uppercase tracking-wider">
-                      Certified Provenance: Santa Croce sull'Arno, Italy
-                    </Badge>
-                    <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-asra-charcoal">
-                      Full-Grain Vegetable-Tanned Tuscan Hide
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
-                      Tanned naturally using chestnut bark and mimosa tannins over 40 days, our leather preserves the raw grain structure of every hide. Hand-beveled along every edge, each wedding album vault and keepsake chest develops a lustrous, golden amber patina with age.
-                    </p>
-                    <div className="grid grid-cols-2 gap-3 pt-2">
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Organic Wax Conditioning</div>
-                        <div className="text-[10px] text-asra-muted">Resistant to humidity and temperature shifts</div>
-                      </div>
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Sustainably Sourced Teak</div>
-                        <div className="text-[10px] text-asra-muted">Aged 50+ year plantation reclaimed timber</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5 bg-asra-sand/20 border border-asra-border p-6 text-center rounded-lg">
-                    <div className="font-cinzel text-xs uppercase tracking-widest text-asra-goldDark font-bold mb-1">
-                      Vault Longevity Standard
-                    </div>
-                    <div className="font-cormorant text-4xl font-bold text-asra-charcoal my-2">100+ Years</div>
-                    <p className="text-xs text-asra-muted font-light">
-                      Engineered for multi-generational longevity without cracking or synthetic delamination.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </TabsContent>
-
-            {/* Tab 2: Silk */}
-            <TabsContent value="silk">
-              <Card className="bg-white border-asra-border shadow-sm p-6 sm:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-7 space-y-4">
-                    <Badge variant="outline" className="text-[10px] text-asra-goldDark uppercase tracking-wider">
-                      Certified Provenance: Lyon, France &amp; Varanasi Zari
-                    </Badge>
-                    <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-asra-charcoal">
-                      Loomed French Silk Velvet &amp; Metallic Zari
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
-                      Lined with deep French silk velvet that absorbs light to create an opulent backdrop for your keepsake jewelry, vow folios, and bridal accessories. Woven with authentic gold-dipped zari ribbons that never fray.
-                    </p>
-                    <div className="grid grid-cols-2 gap-3 pt-2">
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Microfiber Cushioning</div>
-                        <div className="text-[10px] text-asra-muted">Prevents micro-abrasions on rings and gold jewelry</div>
-                      </div>
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Fray-Proof Weave</div>
-                        <div className="text-[10px] text-asra-muted">Precision hand-stitched borders with silk filament</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5 bg-asra-sand/20 border border-asra-border p-6 text-center rounded-lg">
-                    <div className="font-cinzel text-xs uppercase tracking-widest text-asra-goldDark font-bold mb-1">
-                      Touch &amp; Texture Index
-                    </div>
-                    <div className="font-cormorant text-4xl font-bold text-asra-charcoal my-2">Haute Velvet</div>
-                    <p className="text-xs text-asra-muted font-light">
-                      Double-sided plush lining in Champagne, Bordeaux, and Royal Midnight Navy.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </TabsContent>
-
-            {/* Tab 3: Gold */}
-            <TabsContent value="gold">
-              <Card className="bg-white border-asra-border shadow-sm p-6 sm:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-7 space-y-4">
-                    <Badge variant="outline" className="text-[10px] text-asra-goldDark uppercase tracking-wider">
-                      Certified Standard: 24K Dual-Layer Hot Foil Fusion
-                    </Badge>
-                    <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-asra-charcoal">
-                      Solid CNC Brass Dies &amp; Pure Gold Leaf
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
-                      Unlike superficial surface printing, our intaglio debossing uses heavy heated solid brass dies under 2.5 tons of pressure. The 24-karat gold leaf fuses permanently into the fibers of the leather and archival papers.
-                    </p>
-                    <div className="grid grid-cols-2 gap-3 pt-2">
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Permanent Die Vault</div>
-                        <div className="text-[10px] text-asra-muted">Your custom couple die is preserved forever in our archive</div>
-                      </div>
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Zero Rub-Off Guarantee</div>
-                        <div className="text-[10px] text-asra-muted">Thermal fusion resistant to handling and moisture</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5 bg-asra-sand/20 border border-asra-border p-6 text-center rounded-lg">
-                    <div className="font-cinzel text-xs uppercase tracking-widest text-asra-goldDark font-bold mb-1">
-                      Deboss Depth Precision
-                    </div>
-                    <div className="font-cormorant text-4xl font-bold text-asra-charcoal my-2">0.8 mm</div>
-                    <p className="text-xs text-asra-muted font-light">
-                      Tactile deep-relief intaglio that you can feel with every touch.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </TabsContent>
-
-            {/* Tab 4: Acrylic */}
-            <TabsContent value="acrylic">
-              <Card className="bg-white border-asra-border shadow-sm p-6 sm:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-7 space-y-4">
-                    <Badge variant="outline" className="text-[10px] text-asra-goldDark uppercase tracking-wider">
-                      Optical Grade: Diamond Polished Crystal Acrylic
-                    </Badge>
-                    <h3 className="font-cormorant text-2xl sm:text-3xl font-bold text-asra-charcoal">
-                      Sub-Millimeter Optical Laser Etching
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-light">
-                      Crafted from ultra-pure lucite with 99.4% optical clarity, diamond-faceted at 45-degree angles and illuminated with laser precision for Spotify code plaques, vow displays, and luxury wedding table numbers.
-                    </p>
-                    <div className="grid grid-cols-2 gap-3 pt-2">
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">UV Non-Yellowing</div>
-                        <div className="text-[10px] text-asra-muted">Guaranteed to remain crystal clear in sunlight</div>
-                      </div>
-                      <div className="bg-asra-ivory p-3 border border-asra-border rounded">
-                        <div className="text-[11px] font-bold text-asra-charcoal uppercase">Diamond Polished Bevel</div>
-                        <div className="text-[10px] text-asra-muted">Smooth, gemstone-grade perimeter finish</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5 bg-asra-sand/20 border border-asra-border p-6 text-center rounded-lg">
-                    <div className="font-cinzel text-xs uppercase tracking-widest text-asra-goldDark font-bold mb-1">
-                      Clarity Rating
-                    </div>
-                    <div className="font-cormorant text-4xl font-bold text-asra-charcoal my-2">99.4%</div>
-                    <p className="text-xs text-asra-muted font-light">
-                      Higher optical transmission than standard float glass.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </TabsContent>
-          </Tabs>
+          <AboutTabsClient />
         </div>
       </section>
 
@@ -575,7 +348,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 5. Flagship Studios & Private Salons (Modernized with shadcn Card) */}
+      {/* 5. Flagship Studios & Private Salons */}
       <section className="py-12 sm:py-16 bg-white" data-purpose="flagship-studios" id="salons">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -629,14 +402,12 @@ const AboutUsPage = () => {
                 </div>
               </CardContent>
               <CardFooter className="p-5 sm:p-6 pt-0">
-                <Button
-                  type="button"
-                  onClick={() => handleOpenModal('Jubilee Hills Collection (Hyderabad)')}
-                  variant="outline"
+                <ConsultationTriggerButton
+                  salonName="Jubilee Hills Collection (Hyderabad)"
                   className="w-full text-xs uppercase font-semibold tracking-wider border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white"
                 >
                   Reserve Jubilee Hills Salon
-                </Button>
+                </ConsultationTriggerButton>
               </CardFooter>
             </Card>
 
@@ -674,14 +445,12 @@ const AboutUsPage = () => {
                 </div>
               </CardContent>
               <CardFooter className="p-5 sm:p-6 pt-0">
-                <Button
-                  type="button"
-                  onClick={() => handleOpenModal('Indiranagar Studio (Bengaluru)')}
-                  variant="outline"
+                <ConsultationTriggerButton
+                  salonName="Indiranagar Studio (Bengaluru)"
                   className="w-full text-xs uppercase font-semibold tracking-wider border-asra-charcoal text-asra-charcoal hover:bg-asra-charcoal hover:text-white"
                 >
                   Reserve Bengaluru Visit
-                </Button>
+                </ConsultationTriggerButton>
               </CardFooter>
             </Card>
 
@@ -736,7 +505,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 6. Heritage & Commissioning FAQ (Shadcn Accordion) */}
+      {/* 6. Heritage & Commissioning FAQ */}
       <section className="py-12 sm:py-16 bg-asra-sand/20 border-t border-asra-border" data-purpose="heritage-faq">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -812,13 +581,12 @@ const AboutUsPage = () => {
             Schedule a customized consultation with our Master Bridal Stylist or order our physical velvet &amp; gold leaf swatch folio delivered directly to your doorstep.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button
-              type="button"
-              onClick={() => handleOpenModal('Customized Bridal Salon')}
+            <ConsultationTriggerButton
+              salonName="Customized Bridal Salon"
               className="w-full sm:w-auto px-7 py-5 bg-asra-gold hover:bg-asra-goldDark text-white text-xs font-semibold uppercase tracking-[0.2em] shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
             >
               Book Private Consultation
-            </Button>
+            </ConsultationTriggerButton>
             <a
               className="w-full sm:w-auto"
               href="https://wa.me/919692668263?text=Hello%20ASRA%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20a%20private%20bridal%20consultation"
@@ -839,140 +607,8 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* 8. Modernized Salon Reservation Dialog (Shadcn Dialog + Form Controls + Sonner) */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-lg bg-[#FAF8F5] border-asra-gold/50 shadow-2xl p-6 sm:p-8 rounded-xl">
-          <DialogHeader className="text-center sm:text-center space-y-1 mb-2">
-            <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-asra-goldDark block">
-              Private Collection Reservation
-            </span>
-            <DialogTitle className="font-cinzel text-xl sm:text-2xl font-bold text-asra-charcoal">
-              Book Your Salon Session
-            </DialogTitle>
-            <Separator className="w-12 h-[1.5px] bg-asra-gold mx-auto my-2" />
-            <DialogDescription className="text-xs text-asra-muted font-light">
-              Connect with a Senior Bridal Stylist at our Hyderabad &amp; Bengaluru studios or via VIP video concierge.
-            </DialogDescription>
-          </DialogHeader>
-
-          <form onSubmit={handleBookingSubmit} className="space-y-4 text-left mt-2">
-            <div>
-              <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                Select Salon / Studio
-              </Label>
-              <Select value={selectedSalon} onValueChange={setSelectedSalon}>
-                <SelectTrigger className="w-full bg-white border-asra-border text-xs">
-                  <SelectValue placeholder="Select Studio" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border-asra-border">
-                  <SelectItem value="Jubilee Hills Collection (Hyderabad)">
-                    Jubilee Hills Collection (Hyderabad)
-                  </SelectItem>
-                  <SelectItem value="Indiranagar Studio (Bengaluru)">
-                    Indiranagar Studio (Bengaluru)
-                  </SelectItem>
-                  <SelectItem value="Virtual Video Styling Desk">
-                    Virtual Video Styling Desk (Worldwide)
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                  Your Full Name *
-                </Label>
-                <div className="relative">
-                  <Input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Asra & Shahnawaz"
-                    className="bg-white border-asra-border text-xs pl-8"
-                  />
-                  <User className="w-3.5 h-3.5 text-asra-muted absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              <div>
-                <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                  Phone / WhatsApp *
-                </Label>
-                <div className="relative">
-                  <Input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 96926 68263"
-                    className="bg-white border-asra-border text-xs pl-8"
-                  />
-                  <Phone className="w-3.5 h-3.5 text-asra-muted absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                  Email Address
-                </Label>
-                <div className="relative">
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="shahnawazalirkl@gmail.com"
-                    className="bg-white border-asra-border text-xs pl-8"
-                  />
-                  <Mail className="w-3.5 h-3.5 text-asra-muted absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              <div>
-                <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                  Wedding / Event Date
-                </Label>
-                <div className="relative">
-                  <Input
-                    type="date"
-                    value={formData.eventDate}
-                    onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-                    className="bg-white border-asra-border text-xs"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <Label className="block text-[11px] uppercase tracking-wider font-semibold text-asra-charcoal mb-1.5">
-                Gift Notes or Preferences
-              </Label>
-              <textarea
-                rows={2}
-                value={formData.notes}
-                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                placeholder="e.g. Wedding Essentials trunk, gold debossed guest registry, destination venue..."
-                className="w-full bg-white border border-asra-border rounded-md px-3 py-2 text-xs text-asra-charcoal focus:border-asra-gold focus:outline-none ring-offset-background"
-              />
-            </div>
-
-            <DialogFooter className="pt-2 sm:justify-center">
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-5 bg-asra-gold hover:bg-asra-goldDark text-white text-xs font-semibold uppercase tracking-[0.2em] shadow-md transition-all"
-              >
-                {isSubmitting ? 'Requesting Appointment...' : 'Confirm Appointment Request'}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+      {/* 8. Centralized Reservation Dialog (Client Component) */}
+      <ConsultationModal />
     </div>
   );
-};
-
-export default AboutUsPage;
+}

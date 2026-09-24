@@ -169,7 +169,7 @@ const AccountOrders = ({ orders = [], defaultProfile }: AccountOrderProps) => {
                         <div className="flex items-center space-x-3">
                           <div className="w-12 h-12 rounded bg-surface-container-high border border-outline-variant/40 overflow-hidden shrink-0 flex items-center justify-center">
                             {item.image ? (
-                              <Image src={item.image} alt={item.title} className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
+                              <Image src={item.image} alt={item.title || 'Order item'} className="w-full h-full object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" />
                             ) : (
                               <span className="material-symbols-outlined text-outline">shopping_cart</span>
                             )}
