@@ -1,26 +1,43 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 
 const ThreeGiftBox = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [hasWebGLError, setHasWebGLError] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     const currentMount = mountRef.current;
     if (!currentMount) return;
 
     const width = currentMount.clientWidth || 460;
     const height = currentMount.clientHeight || 480;
 
+    // Guard WebGL context creation safely
+    let renderer: THREE.WebGLRenderer;
+    try {
+      const testCanvas = document.createElement('canvas');
+      const gl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+      if (!gl) {
+        throw new Error('WebGL not supported');
+      }
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    } catch (e) {
+      console.warn('WebGL initialization failed or is unsupported:', e);
+      setHasWebGLError(true);
+      return;
+    }
+
     // Scene & Camera
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
     camera.position.set(0, 1.2, 6.2);
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     currentMount.appendChild(renderer.domElement);
@@ -183,13 +200,23 @@ const ThreeGiftBox = () => {
       isDragging = false;
     };
 
+    const handleContextLost = (e: Event) => {
+      e.preventDefault();
+      cancelAnimationFrame(animId);
+      setHasWebGLError(true);
+    };
+
     const domEl = renderer.domElement;
+    domEl.addEventListener('webglcontextlost', handleContextLost, false);
     domEl.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
     domEl.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
-    window.addEventListener('touchend', handleTouchEnd);
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      window.addEventListener('touchend', handleTouchEnd);
+    }
 
     // Animation Loop
     const clock = new THREE.Clock();
@@ -217,31 +244,48 @@ const ThreeGiftBox = () => {
 
     // Resize Handler
     const handleResize = () => {
-      if (!currentMount) return;
+      if (!currentMount || !renderer) return;
       const newWidth = currentMount.clientWidth;
       const newHeight = currentMount.clientHeight;
-      camera.aspect = newWidth / newHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(newWidth, newHeight);
+      if (newWidth > 0 && newHeight > 0) {
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      }
     };
 
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+    }
 
     return () => {
       cancelAnimationFrame(animId);
+      domEl.removeEventListener('webglcontextlost', handleContextLost);
       domEl.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
       domEl.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
-      window.removeEventListener('resize', handleResize);
-      if (currentMount.contains(renderer.domElement)) {
-        currentMount.removeChild(renderer.domElement);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
+        window.removeEventListener('resize', handleResize);
+      }
+      if (currentMount && domEl && currentMount.contains(domEl)) {
+        currentMount.removeChild(domEl);
       }
       renderer.dispose();
     };
   }, []);
+
+  if (hasWebGLError) {
+    return (
+      <div className="relative w-full h-full min-h-[300px] flex flex-col items-center justify-center p-6 text-center bg-surface-container-low rounded-2xl border border-outline-variant/40">
+        <span className="material-symbols-outlined text-4xl text-primary mb-2">card_giftcard</span>
+        <p className="font-serif text-base text-on-surface font-semibold mb-1">ASRA Sovereign Gift Box</p>
+        <p className="text-xs text-on-surface-variant max-w-xs">3D interactive preview unavailable on this device. Handcrafted bridal box with 24K gold foil monogram.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full min-h-0 flex items-center justify-center cursor-grab active:cursor-grabbing overflow-hidden">
@@ -253,5 +297,14 @@ const ThreeGiftBox = () => {
     </div>
   );
 };
+
+export const DynamicThreeGiftBox = dynamic(() => Promise.resolve(ThreeGiftBox), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-surface-container-low animate-pulse rounded-xl min-h-[300px]">
+      <span className="text-xs text-primary font-medium tracking-wider uppercase">Loading 3D Canvas...</span>
+    </div>
+  ),
+});
 
 export default ThreeGiftBox;

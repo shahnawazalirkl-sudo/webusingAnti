@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import CartDrawer from '@/components/common/CartDrawer';
 import { Toaster } from '@/components/ui/sonner';
+import GlobalErrorListener from '@/components/common/GlobalErrorListener';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -58,6 +59,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WishlistProvider>
       <CartProvider>
+        <GlobalErrorListener />
         <div className="min-h-screen flex flex-col justify-between bg-surface text-on-surface">
           {!isMinimalPage && <Header />}
 
